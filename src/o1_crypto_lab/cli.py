@@ -13,6 +13,7 @@ from .artifacts import ReadOnlyArtifactSource
 from .benchmark import BenchmarkConfig, composition_report, run_benchmark
 from .isolation import IsolationPolicy
 from .replay import O1OSessionReplay
+from .reader_experiment import run_reader_experiment
 from .run_capsule import ClaimLevel, RunCapsuleManager
 from .stage3_ingest import run_stage3_ingest
 
@@ -229,6 +230,138 @@ def _verify_run(args: argparse.Namespace) -> int:
     return 0 if report["ok"] else 1
 
 
+def _stage3_reader(args: argparse.Namespace) -> int:
+    root = _lab_root()
+    config_path = args.config.resolve()
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    source = config["source"]
+    source_root = (root / source["repository"]).resolve()
+    manifest_path = source_root / source["manifest"]
+    ingest_config_path = root / config["ingest_config"]
+    ingest_capsule_path = root / config["ingest_capsule"]["path"]
+    manager = RunCapsuleManager(root)
+    ingest_verification = manager.verify(ingest_capsule_path)
+    if (
+        not ingest_verification.ok
+        or ingest_verification.manifest_sha256
+        != config["ingest_capsule"]["manifest_sha256"]
+    ):
+        raise RuntimeError("the O1C-0001 ingestion capsule failed its pinned gate")
+    module_paths = {
+        "stage3_adapter": root / "src/o1_crypto_lab/stage3.py",
+        "stage3_ingest_pipeline": root / "src/o1_crypto_lab/stage3_ingest.py",
+        "trajectory_reader": root / "src/o1_crypto_lab/trajectory_reader.py",
+        "reader_experiment": root / "src/o1_crypto_lab/reader_experiment.py",
+        "label_broker": root / "src/o1_crypto_lab/label_broker.py",
+    }
+    source_hashes = {
+        "reader_config": _sha256(config_path),
+        "ingest_config": _sha256(ingest_config_path),
+        "fullround_manifest": _sha256(manifest_path),
+        "o1c_0001_capsule_manifest": _sha256(
+            ingest_capsule_path / "artifacts.sha256"
+        ),
+        **{name: _sha256(path) for name, path in module_paths.items()},
+    }
+    command = (
+        "o1-crypto-lab",
+        "stage3-reader",
+        "--config",
+        str(config_path),
+    )
+    run = manager.start(
+        attempt_id=config["attempt_id"],
+        slug=config["slug"],
+        commit=_git_commit(root),
+        hypothesis=config["hypothesis"],
+        prediction=config["prediction"],
+        controls=tuple(config["controls"]),
+        budgets=config["budgets"],
+        source_hashes=source_hashes,
+        claim_level=ClaimLevel(config["claim_level"]),
+        next_action=config["next_action"],
+        config=config,
+        command=command,
+        environment={
+            "source_root": str(source_root),
+            "source_commit": source["expected_commit"],
+            "o1c_0001_capsule": str(ingest_capsule_path),
+            "label_broker_process_boundary": True,
+        },
+    )
+
+    def on_frozen(plan, pre_reveal) -> None:
+        run.write_json_artifact("frozen_reader_plan.json", plan.describe())
+        run.write_json_artifact("pre_reveal_orders.json", pre_reveal)
+        run.checkpoint(
+            {
+                "phase": "PLAN_AND_HOLDOUT_ORDERS_FROZEN",
+                "plan_sha256": plan.plan_sha256,
+                "pre_reveal_sha256": pre_reveal["pre_reveal_sha256"],
+                "holdout_labels_read": 0,
+            }
+        )
+        run.append_stdout(
+            f"Frozen plan {plan.plan_sha256}; holdout labels read: 0.\n"
+        )
+
+    try:
+        run.append_stdout("Reader tournament started with child-process label broker.\n")
+        run.checkpoint({"phase": "DATASET_REPINNING", "holdout_labels_read": 0})
+        result = run_reader_experiment(
+            config_path,
+            lab_root=root,
+            on_frozen=on_frozen,
+        )
+        run.write_json_artifact("reader_experiment.json", result.report)
+        metrics = result.metrics()
+        run.append_stdout(
+            json.dumps(
+                {
+                    "plan_sha256": metrics["plan_sha256"],
+                    "selected_operator": metrics["selected_operator"],
+                    "success_gate_passed": metrics["success_gate_passed"],
+                    "retrospective_mean_gain": metrics[
+                        "retrospective_holdout"
+                    ]["mean_log2_rank_gain"],
+                    "transfer_mean_gain": metrics["transfer_holdout"][
+                        "mean_log2_rank_gain"
+                    ],
+                },
+                sort_keys=True,
+            )
+            + "\n"
+        )
+        finalized = run.finalize(metrics=metrics)
+    except Exception as exc:
+        run.append_stderr(f"{type(exc).__name__}: {exc}\n")
+        finalized = run.finalize(
+            metrics={
+                "schema": "o1-crypto-stage3-reader-failure-v1",
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+            },
+            status="failed",
+            next_action="Fix the recorded lifecycle or data invariant, then use a new attempt ID.",
+        )
+        print(f"failed capsule: {finalized.path}", file=sys.stderr)
+        return 1
+    print(
+        json.dumps(
+            {
+                "attempt_id": finalized.attempt_id,
+                "path": str(finalized.path),
+                "manifest_sha256": finalized.manifest_sha256,
+                "verified": finalized.verification.ok,
+                "success_gate_passed": result.success_gate_passed,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     root = _lab_root()
     parser = argparse.ArgumentParser(
@@ -288,6 +421,17 @@ def build_parser() -> argparse.ArgumentParser:
     )
     verify_run.add_argument("path", type=Path)
     verify_run.set_defaults(handler=_verify_run)
+
+    reader = subparsers.add_parser(
+        "stage3-reader",
+        help="fit, freeze and audit the retrospective Stage-3 reader tournament",
+    )
+    reader.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/stage3_reader_retrospective_v1.json",
+    )
+    reader.set_defaults(handler=_stage3_reader)
     return parser
 
 
