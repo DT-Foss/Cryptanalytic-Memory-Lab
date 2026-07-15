@@ -85,9 +85,9 @@ class MaskAndPlanTests(unittest.TestCase):
         self.assertEqual(
             described["mask_selection"]["family"], "energy-ranked-frozen"
         )
-        self.assertEqual(described["state"]["integrity_scalars"], 4)
+        self.assertEqual(described["state"]["integrity_scalars"], 5)
         self.assertEqual(
-            described["state"]["serialized_online_state_bytes"], 3 * 8 + 4 * 8
+            described["state"]["serialized_online_state_bytes"], 3 * 8 + 5 * 8
         )
         self.assertEqual(
             described["static_plan_storage"]["serialized_mask_bank_bytes"], 3 * 2
@@ -128,8 +128,8 @@ class MaskAndPlanTests(unittest.TestCase):
         right = WalshPlan.for_field(field, masks=reversed(range(256)))
         self.assertTrue(left.is_full_bank)
         self.assertEqual(left.serialized_state_bytes, 256 * 8)
-        self.assertEqual(left.serialized_integrity_bytes, 4 * 8)
-        self.assertEqual(left.serialized_online_state_bytes, 256 * 8 + 4 * 8)
+        self.assertEqual(left.serialized_integrity_bytes, 5 * 8)
+        self.assertEqual(left.serialized_online_state_bytes, 256 * 8 + 5 * 8)
         self.assertEqual(left.serialized_mask_bank_bytes, 256 * 2)
         self.assertEqual(left.serialized_bound_hash_bytes, 32)
         self.assertEqual(left.masks, right.masks)

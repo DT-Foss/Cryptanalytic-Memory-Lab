@@ -354,7 +354,7 @@ class WalshPlan:
     def integrity_state_scalars(self) -> int:
         """Fixed-width counters used to reject incomplete or duplicate covers."""
 
-        return 4
+        return 5
 
     @property
     def serialized_integrity_bytes(self) -> int:
@@ -401,6 +401,10 @@ class WalshPlan:
             "state": {
                 "spectral_scalars": k,
                 "integrity_scalars": self.integrity_state_scalars,
+                "integrity_breakdown": (
+                    "observation count, address sum, address square sum, address "
+                    "xor, exact hash-bound observe_field pass count"
+                ),
                 "precision_bits_per_scalar": self.state_precision_bits,
                 "dtype": "float64",
                 "serialized_spectral_bytes": self.serialized_state_bytes,
@@ -532,6 +536,7 @@ class FrozenWalshField:
     coefficients: tuple[float, ...]
     completed_passes: int
     observations: int
+    input_field_hash_verified: bool = False
 
     def __post_init__(self) -> None:
         if len(self.coefficients) != self.plan.state_scalars:
@@ -542,6 +547,8 @@ class FrozenWalshField:
             self.completed_passes * self.plan.domain_size
         ):
             raise WalshMemoryError("invalid finalized stream accounting")
+        if not isinstance(self.input_field_hash_verified, bool):
+            raise WalshMemoryError("input_field_hash_verified must be boolean")
 
     @property
     def state_scalars(self) -> int:
@@ -604,6 +611,7 @@ class WalshScoreMemory:
         self._address_sum = 0
         self._address_square_sum = 0
         self._address_xor = 0
+        self._bound_field_passes = 0
         self._finalized: FrozenWalshField | None = None
 
     @property
@@ -698,6 +706,8 @@ class WalshScoreMemory:
                     "address_order must be a permutation of the complete domain"
                 )
         self.observe_many((address, field[address]) for address in order)
+        if verify_bound_hash:
+            self._bound_field_passes += 1
 
     def _validate_complete_passes(self) -> int:
         n = self.plan.domain_size
@@ -733,6 +743,7 @@ class WalshScoreMemory:
             coefficients=coefficients,
             completed_passes=passes,
             observations=self._observations,
+            input_field_hash_verified=self._bound_field_passes == passes,
         )
         # Do not retain a second K-wide copy after freezing.
         self._sums = []

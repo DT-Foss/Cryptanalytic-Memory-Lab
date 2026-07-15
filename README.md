@@ -125,6 +125,32 @@ a clean Fullround-manifest artifact:
   --config configs/direct12_source_snapshot_v1.json
 ```
 
+Reproduce the frozen 133-to-532 trajectory reader from that capsule, then run
+the bounded-memory mechanism tournament:
+
+```bash
+.venv/bin/o1-crypto-lab direct12-reproduce \
+  --config configs/direct12_reproduction_v1.json
+.venv/bin/o1-crypto-lab bounded-memory-tournament \
+  --config configs/bounded_memory_tournament_v1.json
+```
+
+The tournament compares global Walsh state, sixteen fixed low4/high8 slot banks,
+and a dense 2–8-bit integer Bit-Vault. O1-O sees only A348 target-blind fidelity,
+serialized online-state bytes, update work and clip counts. It persists one future
+template before the A349 score member is opened; all complete A349 orders are then
+persisted before the separate A348 truth API is called. Direct candidate tables and
+full spectral banks remain clearly labeled ceilings and cannot win the mechanism
+gate. The dense Bit-Vault is a full-rank 4,080-register mechanism, not a claim of
+sublinear capacity.
+
+The expensive immutable-snapshot integration gates are opt-in:
+
+```bash
+O1_CRYPTO_DIRECT12_REAL=1 \
+  .venv/bin/python -m unittest discover -s tests -v
+```
+
 ## Integration contract
 
 - No imports from the dirty live O1, O1-O, or `arx-carry-leak` trees.

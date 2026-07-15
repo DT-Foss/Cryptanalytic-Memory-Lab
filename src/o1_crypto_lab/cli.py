@@ -12,6 +12,7 @@ from pathlib import Path
 from .artifacts import ReadOnlyArtifactSource
 from .benchmark import BenchmarkConfig, composition_report, run_benchmark
 from .direct12_reproduction import run_direct12_reproduction
+from .spectral_experiment import run_bounded_memory_tournament
 from .isolation import IsolationPolicy
 from .replay import O1OSessionReplay
 from .reader_experiment import run_reader_experiment
@@ -25,6 +26,17 @@ def _lab_root() -> Path:
 
 def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _canonical_value_sha256(value: object) -> str:
+    payload = json.dumps(
+        value,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=True,
+        allow_nan=False,
+    ).encode("ascii")
+    return hashlib.sha256(payload).hexdigest()
 
 
 def _git_commit(root: Path) -> str:
@@ -672,6 +684,246 @@ def _direct12_reproduce(args: argparse.Namespace) -> int:
     return 0
 
 
+def _bounded_memory_tournament(args: argparse.Namespace) -> int:
+    root = _lab_root()
+    config_path = args.config.resolve()
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    sources = config["sources"]
+    o1c3_path = (root / sources["o1c_0003_capsule"]).resolve()
+    o1c4_path = (root / sources["o1c_0004_capsule"]).resolve()
+    module_names = (
+        "artifacts.py",
+        "cli.py",
+        "direct12.py",
+        "isolation.py",
+        "orchestrator.py",
+        "run_capsule.py",
+        "shape532.py",
+        "stage3.py",
+        "types.py",
+        "walsh_memory.py",
+        "multislot_spectral.py",
+        "quantized_spectral.py",
+        "o1o_selector.py",
+        "spectral_experiment.py",
+    )
+    source_hashes = {
+        "tournament_config": _sha256(config_path),
+        "o1c_0003_capsule_manifest": _sha256(o1c3_path / "artifacts.sha256"),
+        "o1c_0004_capsule_manifest": _sha256(o1c4_path / "artifacts.sha256"),
+        **{
+            f"module_{name.removesuffix('.py')}": _sha256(
+                root / "src/o1_crypto_lab" / name
+            )
+            for name in module_names
+        },
+    }
+    manager = RunCapsuleManager(root)
+    run = manager.start(
+        attempt_id=config["attempt_id"],
+        slug=config["slug"],
+        commit=_git_commit(root),
+        hypothesis=config["hypothesis"],
+        prediction=config["prediction"],
+        controls=tuple(config["controls"]),
+        budgets=config["budgets"],
+        source_hashes=source_hashes,
+        claim_level=ClaimLevel(config["claim_level"]),
+        next_action=config["next_action"],
+        config=config,
+        command=(
+            "o1-crypto-lab",
+            "bounded-memory-tournament",
+            "--config",
+            str(config_path),
+        ),
+        environment={
+            "source_O1C_0003": str(o1c3_path),
+            "source_O1C_0004": str(o1c4_path),
+            "mutable_sibling_access": False,
+            "A349_target_or_progress_access": False,
+            "A349_target_blind_field_is_fresh_architecture_test": False,
+        },
+    )
+
+    def on_selector_frozen(value: dict[str, object]) -> dict[str, object]:
+        artifact = run.write_json_artifact("o1o_frozen_future_plan.json", value)
+        run.checkpoint(
+            {
+                "phase": "O1O_FUTURE_PLAN_PERSISTED_BEFORE_A349_FIELD",
+                "selection_sha256": value["selection_sha256"],
+                "future_template_sha256": value["future_template_sha256"],
+                "A348_labels_read": 0,
+                "A349_field_opened": False,
+                "A349_labels_read": 0,
+            }
+        )
+        run.append_stdout(
+            "O1-O future memory template persisted before the A349 score field was opened.\n"
+        )
+        return {
+            "schema": "o1-crypto-future-template-persistence-receipt-v1",
+            "persisted": True,
+            "future_template_sha256": value["future_template_sha256"],
+            "persisted_payload_sha256": _canonical_value_sha256(value),
+            "artifact_sha256": _sha256(artifact),
+        }
+
+    def on_orders_frozen(
+        value: dict[str, object], orders: dict[str, tuple[int, ...]]
+    ) -> dict[str, object]:
+        order_payloads: dict[str, bytes] = {}
+        for arm_id in sorted(orders):
+            if not arm_id or any(
+                character not in "abcdefghijklmnopqrstuvwxyz0123456789-."
+                for character in arm_id
+            ):
+                raise ValueError(f"unsafe tournament arm ID: {arm_id!r}")
+            order = orders[arm_id]
+            if len(order) != 4096 or set(order) != set(range(4096)):
+                raise ValueError(f"incomplete tournament order: {arm_id}")
+            order_payloads[arm_id] = b"".join(
+                address.to_bytes(2, "big") for address in order
+            )
+        order_hashes: dict[str, str] = {}
+        for arm_id, payload in order_payloads.items():
+            artifact = run.write_artifact(
+                f"frozen_orders/{arm_id}.uint16be",
+                payload,
+            )
+            order_hashes[arm_id] = _sha256(artifact)
+        # This completeness document is written only after every order artifact
+        # exists and has been hashed back from the staging capsule.
+        pre_reveal_artifact = run.write_json_artifact(
+            "pre_reveal_tournament.json", value
+        )
+        run.checkpoint(
+            {
+                "phase": "ALL_A349_ORDERS_PERSISTED_BEFORE_A348_TRUTH",
+                "orders": len(orders),
+                "pre_reveal_sha256": value["pre_reveal_sha256"],
+                "A348_labels_read": 0,
+                "A349_labels_read": 0,
+            }
+        )
+        run.append_stdout(
+            f"Persisted {len(orders)} complete A349 target-blind orders before A348 truth.\n"
+        )
+        return {
+            "schema": "o1-crypto-orders-persistence-receipt-v1",
+            "persisted": True,
+            "pre_reveal_sha256": value["pre_reveal_sha256"],
+            "pre_reveal_artifact_sha256": _sha256(pre_reveal_artifact),
+            "order_count": len(orders),
+            "order_artifact_sha256_by_arm": order_hashes,
+            "order_artifact_set_sha256": _canonical_value_sha256(order_hashes),
+        }
+
+    try:
+        run.append_stdout(
+            "O1C-0005 bounded-memory tournament started from immutable O1C-0003/0004.\n"
+        )
+        run.checkpoint(
+            {
+                "phase": "SOURCE_CAPSULES_REVERIFYING",
+                "A348_labels_read": 0,
+                "A349_field_opened": False,
+                "A349_labels_read": 0,
+            }
+        )
+        result = run_bounded_memory_tournament(
+            config_path,
+            lab_root=root,
+            on_selector_frozen=on_selector_frozen,
+            on_orders_frozen=on_orders_frozen,
+        )
+        run.write_json_artifact("bounded_memory_tournament.json", result.report)
+        run.write_json_artifact("tournament_metrics.json", result.metrics())
+        run.write_json_artifact(
+            "selected_memory_template.json", result.selected_future_template
+        )
+        selected_id = result.metrics()["selected_arm"]["name"]
+        selected_calibration = next(
+            item for item in result.calibration_executions if item.arm_id == selected_id
+        )
+        selected_deployment = next(
+            item for item in result.deployment_executions if item.arm_id == selected_id
+        )
+        run.write_json_artifact(
+            "selected_a348_executable_plan.json", selected_calibration.plan
+        )
+        run.write_json_artifact(
+            "selected_a349_executable_plan.json", selected_deployment.plan
+        )
+        run.write_json_artifact(
+            "arm_summary.json",
+            {
+                "schema": "o1-crypto-bounded-memory-arm-summary-v1",
+                "calibration": [
+                    item.describe(include_plan=False)
+                    for item in result.calibration_executions
+                ],
+                "deployment": [
+                    item.describe(include_plan=False)
+                    for item in result.deployment_executions
+                ],
+                "A349_target_labels_read": 0,
+            },
+        )
+        metrics = result.metrics()
+        run.append_stdout(
+            json.dumps(
+                {
+                    "success_gate_passed": result.success_gate_passed,
+                    "selected_arm": selected_id,
+                    "selected_online_state_bytes": metrics["selected_arm"][
+                        "serialized_online_state_bytes"
+                    ],
+                    "A349_rank_spearman": metrics["comparisons"][
+                        "quantized_4bit_h1_25_A349_rank_spearman"
+                    ],
+                    "A349_labels_read": 0,
+                },
+                sort_keys=True,
+            )
+            + "\n"
+        )
+        finalized = run.finalize(metrics=metrics)
+    except Exception as exc:
+        run.append_stderr(f"{type(exc).__name__}: {exc}\n")
+        finalized = run.finalize(
+            metrics={
+                "schema": "o1-crypto-bounded-memory-tournament-failure-v1",
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "A349_target_labels_read": 0,
+            },
+            status="failed",
+            next_action=(
+                "Fix the recorded lifecycle or mechanism invariant under a new "
+                "attempt ID without opening A349 target, outcome, or progress."
+            ),
+        )
+        print(f"failed capsule: {finalized.path}", file=sys.stderr)
+        return 1
+    print(
+        json.dumps(
+            {
+                "attempt_id": finalized.attempt_id,
+                "path": str(finalized.path),
+                "manifest_sha256": finalized.manifest_sha256,
+                "verified": finalized.verification.ok,
+                "success_gate_passed": result.success_gate_passed,
+                "selected_arm": result.metrics()["selected_arm"]["name"],
+                "A349_target_labels_read": 0,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     root = _lab_root()
     parser = argparse.ArgumentParser(
@@ -764,6 +1016,17 @@ def build_parser() -> argparse.ArgumentParser:
         default=root / "configs/direct12_reproduction_v1.json",
     )
     reproduce.set_defaults(handler=_direct12_reproduce)
+
+    tournament = subparsers.add_parser(
+        "bounded-memory-tournament",
+        help="freeze O1-O on A348, then transfer bounded memories to target-blind A349",
+    )
+    tournament.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/bounded_memory_tournament_v1.json",
+    )
+    tournament.set_defaults(handler=_bounded_memory_tournament)
     return parser
 
 
