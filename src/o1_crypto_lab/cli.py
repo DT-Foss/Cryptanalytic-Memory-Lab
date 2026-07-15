@@ -40,6 +40,67 @@ def _canonical_value_sha256(value: object) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
+def _verify_complete_direct12_order_artifact(path: Path) -> None:
+    payload = path.read_bytes()
+    if len(payload) != 4096 * 2:
+        raise RuntimeError("Direct12 order artifact must contain 4096 uint16be cells")
+    order = tuple(
+        int.from_bytes(payload[offset : offset + 2], "big")
+        for offset in range(0, len(payload), 2)
+    )
+    if len(set(order)) != 4096 or min(order) != 0 or max(order) != 4095:
+        raise RuntimeError(
+            "Direct12 order artifact must be an exact permutation of cells 0 through 4095"
+        )
+
+
+def _validate_o1c0006_order_inventory(
+    order_index: list[dict[str, object]],
+) -> dict[str, int]:
+    expected = {
+        "exact-historical-reference": 2,
+        "negative-or-invalid-contract-control": 4,
+        "adaptive-dc-candidate": 18,
+    }
+    category_counts = {
+        kind: sum(row.get("kind") == kind for row in order_index) for kind in expected
+    }
+    members = [str(row.get("member")) for row in order_index]
+    metadata_keys = {
+        "exact-historical-reference": (
+            "score_field_member",
+            "score_field_artifact_sha256",
+        ),
+        "negative-or-invalid-contract-control": (
+            "control_metadata_member",
+            "control_metadata_artifact_sha256",
+        ),
+        "adaptive-dc-candidate": (
+            "execution_member",
+            "execution_artifact_sha256",
+            "online_state_member",
+            "online_state_artifact_sha256",
+        ),
+    }
+    if (
+        len(order_index) != 24
+        or category_counts != expected
+        or len(set(members)) != len(members)
+        or any(
+            row.get("cells") != 4096
+            or row.get("bytes") != 8192
+            or row.get("complete_permutation") is not True
+            for row in order_index
+        )
+        or any(
+            any(not row.get(key) for key in metadata_keys[str(row.get("kind"))])
+            for row in order_index
+        )
+    ):
+        raise RuntimeError("complete O1C-0006 order inventory differs")
+    return category_counts
+
+
 def _git_commit(root: Path) -> str:
     result = subprocess.run(
         ["git", "-C", str(root), "rev-parse", "HEAD"],
@@ -1099,6 +1160,7 @@ def _corrected_codec_bridge(args: argparse.Namespace) -> int:
                 f"orders/reference/{field_id}.uint16be",
                 b"".join(cell.to_bytes(2, "big") for cell in field.order),
             )
+            _verify_complete_direct12_order_artifact(reference_path)
             order_index.append(
                 {
                     "kind": "exact-historical-reference",
@@ -1108,6 +1170,7 @@ def _corrected_codec_bridge(args: argparse.Namespace) -> int:
                     "sha256": _sha256(reference_path),
                     "cells": len(field.order),
                     "bytes": reference_path.stat().st_size,
+                    "complete_permutation": True,
                     "score_field_member": f"artifacts/score_fields/{field_id}.json",
                     "score_field_artifact_sha256": _sha256(score_field_path),
                 }
@@ -1134,6 +1197,7 @@ def _corrected_codec_bridge(args: argparse.Namespace) -> int:
                 ]["order_uint16be_sha256"]
                 if _sha256(path) != expected_hash:
                     raise ValueError("persisted fixed-control order differs")
+                _verify_complete_direct12_order_artifact(path)
                 order_index.append(
                     {
                         "kind": "negative-or-invalid-contract-control",
@@ -1146,6 +1210,7 @@ def _corrected_codec_bridge(args: argparse.Namespace) -> int:
                         "sha256": expected_hash,
                         "cells": len(order),
                         "bytes": path.stat().st_size,
+                        "complete_permutation": True,
                         "control_metadata_member": (
                             "artifacts/fixed_negative_controls.json"
                         ),
@@ -1177,6 +1242,7 @@ def _corrected_codec_bridge(args: argparse.Namespace) -> int:
                 )
                 if _sha256(order_path) != execution.order_uint16be_sha256:
                     raise ValueError("persisted adaptive order differs")
+                _verify_complete_direct12_order_artifact(order_path)
                 order_index.append(
                     {
                         "kind": "adaptive-dc-candidate",
@@ -1189,6 +1255,7 @@ def _corrected_codec_bridge(args: argparse.Namespace) -> int:
                         "sha256": execution.order_uint16be_sha256,
                         "cells": len(execution.order),
                         "bytes": order_path.stat().st_size,
+                        "complete_permutation": True,
                         "plan_sha256": execution.plan.plan_sha256,
                         "state_sha256": execution.frozen.state_sha256,
                         "execution_member": (
@@ -1205,34 +1272,14 @@ def _corrected_codec_bridge(args: argparse.Namespace) -> int:
                     }
                 )
 
-        category_counts = {
-            kind: sum(row["kind"] == kind for row in order_index)
-            for kind in {
-                "exact-historical-reference",
-                "negative-or-invalid-contract-control",
-                "adaptive-dc-candidate",
-            }
-        }
-        members = [str(row["member"]) for row in order_index]
-        if (
-            len(order_index) != 24
-            or category_counts
-            != {
-                "exact-historical-reference": 2,
-                "negative-or-invalid-contract-control": 4,
-                "adaptive-dc-candidate": 18,
-            }
-            or len(set(members)) != len(members)
-            or any(row["cells"] != 4096 or row["bytes"] != 8192 for row in order_index)
-        ):
-            raise RuntimeError("complete O1C-0006 order inventory differs")
+        category_counts = _validate_o1c0006_order_inventory(order_index)
         order_index_document = {
             "schema": "o1-crypto-o1c0006-complete-order-index-v1",
             "orders": order_index,
             "order_count": len(order_index),
             "category_counts": category_counts,
             "all_orders_are_complete_4096_cell_permutations": all(
-                row["cells"] == 4096 for row in order_index
+                row["complete_permutation"] is True for row in order_index
             ),
             "target_labels_used_for_adaptive_bridge_selection": 0,
             "upstream_calibration_provenance_is_recorded_in_bridge_report": True,

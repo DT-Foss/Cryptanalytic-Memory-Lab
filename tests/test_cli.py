@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import io
+import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
@@ -42,6 +43,75 @@ class _RecordingRun:
 
 
 class CorrectedBridgeCLILifecycleTests(unittest.TestCase):
+    def test_complete_order_artifact_rejects_duplicate_or_out_of_domain_cells(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "order.uint16be"
+            path.write_bytes(b"".join(cell.to_bytes(2, "big") for cell in range(4096)))
+            cli._verify_complete_direct12_order_artifact(path)
+
+            duplicate = list(range(4096))
+            duplicate[-1] = 0
+            path.write_bytes(
+                b"".join(cell.to_bytes(2, "big") for cell in duplicate)
+            )
+            with self.assertRaisesRegex(RuntimeError, "exact permutation"):
+                cli._verify_complete_direct12_order_artifact(path)
+
+            out_of_domain = list(range(4096))
+            out_of_domain[-1] = 4096
+            path.write_bytes(
+                b"".join(cell.to_bytes(2, "big") for cell in out_of_domain)
+            )
+            with self.assertRaisesRegex(RuntimeError, "exact permutation"):
+                cli._verify_complete_direct12_order_artifact(path)
+
+    def test_complete_order_inventory_accepts_self_resolving_24_order_graph(self):
+        rows = []
+        groups = (
+            ("exact-historical-reference", 2),
+            ("negative-or-invalid-contract-control", 4),
+            ("adaptive-dc-candidate", 18),
+        )
+        metadata = {
+            "exact-historical-reference": {
+                "score_field_member": "artifacts/score.json",
+                "score_field_artifact_sha256": "1" * 64,
+            },
+            "negative-or-invalid-contract-control": {
+                "control_metadata_member": "artifacts/controls.json",
+                "control_metadata_artifact_sha256": "2" * 64,
+            },
+            "adaptive-dc-candidate": {
+                "execution_member": "artifacts/execution.json",
+                "execution_artifact_sha256": "3" * 64,
+                "online_state_member": "artifacts/state.bin",
+                "online_state_artifact_sha256": "4" * 64,
+            },
+        }
+        sequence = 0
+        for kind, count in groups:
+            for _ in range(count):
+                rows.append(
+                    {
+                        "kind": kind,
+                        "member": f"artifacts/orders/{sequence}.uint16be",
+                        "cells": 4096,
+                        "bytes": 8192,
+                        "complete_permutation": True,
+                        **metadata[kind],
+                    }
+                )
+                sequence += 1
+
+        self.assertEqual(
+            cli._validate_o1c0006_order_inventory(rows),
+            {
+                "exact-historical-reference": 2,
+                "negative-or-invalid-contract-control": 4,
+                "adaptive-dc-candidate": 18,
+            },
+        )
+
     def test_attempt_is_reserved_before_outcome_bearing_bridge_failure(self):
         events = []
         run = _RecordingRun(events)
