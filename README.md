@@ -50,7 +50,9 @@ stage, not a hidden property of this smoke test.
 
 ## Run
 
-The package has no runtime dependencies outside the Python standard library.
+The package pins NumPy `2.2.6` because exact reproduction of the historical
+Direct12 floating-point reader is part of the evidence contract; the remaining
+harness uses the Python standard library.
 
 ```bash
 python3 -m venv .venv
@@ -133,6 +135,8 @@ the bounded-memory mechanism tournament:
   --config configs/direct12_reproduction_v1.json
 .venv/bin/o1-crypto-lab bounded-memory-tournament \
   --config configs/bounded_memory_tournament_v1.json
+.venv/bin/o1-crypto-lab corrected-codec-bridge \
+  --config configs/corrected_codec_bridge_v1.json
 ```
 
 The tournament compares global Walsh state, sixteen fixed low4/high8 slot banks,
@@ -144,10 +148,19 @@ full spectral banks remain clearly labeled ceilings and cannot win the mechanism
 gate. The dense Bit-Vault is a full-rank 4,080-register mechanism, not a claim of
 sublinear capacity.
 
+The corrected-codec bridge reproduces A355/A356 exactly and retains the selected
+6-bit DC-complete bank only as a validation ceiling. Its 4,096 spectral degrees of
+freedom are information-equivalent to the fixed candidate table, and its 8,014-byte
+maximum serialized logical state is larger than the matched 3,918-byte direct
+baseline. A compact non-dictionary successor must beat that baseline before the lab
+generates a fresh challenge.
+
 The expensive immutable-snapshot integration gates are opt-in:
 
 ```bash
 O1_CRYPTO_DIRECT12_REAL=1 \
+  .venv/bin/python -m unittest discover -s tests -v
+O1_CRYPTO_CORRECTED_REAL=1 \
   .venv/bin/python -m unittest discover -s tests -v
 ```
 

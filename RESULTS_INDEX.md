@@ -32,14 +32,17 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0004-SHAPE` | Independent 133→532 temporal/XOR and A342 pair reconstruction | `VALIDATION` | 52 shards, 13,312 cells, 53,248 stages; all A348/A349 score/order commitments exact | [Reproduction](runs/20260715_130047_O1C-0004_direct12-532-reproduction/artifacts/direct12_reproduction.json) |
 | `O1C-0005-BOUND` | O1-O-selected dense 4-bit multi-slot Bit-Vault | `VALIDATION` | A348-only selection; 6,668 B online state, zero clips; A349 rank-Spearman 0.990198 and top-32 overlap 0.71875; 86 receipt-bound orders; zero A349 labels | [Tournament](runs/20260715_135434_O1C-0005_bounded-spectral-memory-tournament/artifacts/bounded_memory_tournament.json) |
 | `O1C-0005-DIST` | Distributed A272 spectral support transfers better than matched structural/null controls | `VALIDATION` | At K=2,048: A272 multi-slot 0.871477 Spearman versus low-degree 0.494256, best candidate-ID random 0.716923, single-A348 sparse 0.797225 | [Metrics](runs/20260715_135434_O1C-0005_bounded-spectral-memory-tournament/artifacts/tournament_metrics.json) |
+| `O1C-0006-CODEC` | Corrected W46 word0-bits-20-through-31 Direct12 codec and exact historical replay | `VALIDATION` | A355/A356 fields and complete orders exact; 64 source members copied; zero sibling writes | [Bridge](runs/20260715_154553_O1C-0006_corrected-codec-adaptive-dc-bridge/artifacts/corrected_codec_bridge.json) |
+| `O1C-0006-CEILING` | Adaptive DC-complete 6-bit full-basis streaming ceiling | `VALIDATION` | 8,014 B maximum logical state; worst Spearman 0.999224, Kendall 0.976426, top-32 0.96875, zero clips; 24/24 complete orders | [Metrics](runs/20260715_154553_O1C-0006_corrected-codec-adaptive-dc-bridge/artifacts/bridge_metrics.json) |
 
 ## Replicated validation
 
 `O1C-0004` exactly replicates the independently specified feature geometry and frozen
-score/order commitments. `O1C-0005` is the first positive bounded-state mechanism
-transfer: O1-O froze its choice before A349 content entered the experiment reader,
-and hash receipts bind the future template and every order. A349 fidelity was seen
-during mechanism development, so neither result is yet a fresh recovery advantage.
+score/order commitments. `O1C-0005` demonstrates positive bounded-state transfer,
+but the bank is full rank. `O1C-0006` corrects the codec, exactly reproduces two more
+fields and establishes the high-fidelity full-basis ceiling under an irreversible
+one-shot lifecycle. It also proves that ceiling is information-equivalent to and
+larger than the matched direct table. None is yet a fresh recovery advantage.
 `O1C-0002` remains a failed signal-transfer audit.
 
 ## Frozen tests and independently confirmed results
@@ -61,3 +64,5 @@ not results of this integration.
 | `O1C-0002-N2` | `h8.search_propagations` alone does not transfer reliably | `NEGATIVE_BOUND` | A296 holdout ranks 240/90, mean 0.801 bits; W32 ranks 41/244/245/82, mean 1.104 bits; loses the primary control gate | Retain it as one channel, not a standalone reader; test profiles, differences and hypercube residuals |
 | `O1C-0005-N1` | Sparse modes selected from one calibration field do not transfer compactly | `NEGATIVE_BOUND` | Global A348-energy K=2,048 reaches only 0.797225 A349 Spearman; near-exact transfer requires almost the full float bank | Allocate precision across dense structured registers before pruning coefficients |
 | `O1C-0005-N2` | A compact candidate-indexed table is not admissible evidence for bounded associative memory | `MECHANISM_BOUNDARY` | 14 dictionary ceilings are reported and persisted but all retain 4,096 candidate entries and are structurally ineligible | Compare valid spectral state to the ceiling without letting the ceiling win O1-O selection |
+| `O1C-0006-N1` | Literal O1C-0005 scales/addressing do not transfer through the corrected codec | `NEGATIVE_BOUND` | A355/A356 Spearman -0.08289/0.07760; top-32 0/0.03125 | Recalibrate only through a frozen label-free corrected-codec rule; do not spend a fresh target on the old template |
+| `O1C-0006-N2` | Complete fixed-domain Walsh state is a table-equivalent validation ceiling, not compression | `MECHANISM_BOUNDARY` | 4,096 degrees over 4,096 cells; 8,014 B versus matched direct table 3,918 B; identical quantized orders | Move upstream to bit/carry/solver evidence and require a sub-3,918-byte non-dictionary successor |

@@ -151,3 +151,40 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Next action:** `O1C-0006` precommit a fresh lab-owned Direct12 field, apply this
   frozen template without refitting, persist the complete order and run equal-work
   exact recovery plus independent full-round confirmation.
+
+## O1C-0006 — Corrected-codec adaptive-DC validation ceiling
+
+- **Recorded:** 2026-07-15T15:45:53+02:00
+- **Source commit:** `f3e627490bd046618ce1e550cb7cbce9d02bf140`
+- **Claim level:** `VALIDATION`
+- **Hypothesis:** the corrected W46 Direct12 codec can reproduce A355/A356 exactly,
+  and a frozen DC-complete bounded register bank can emit high-fidelity complete
+  orders under an 8,192-byte maximum serialized-logical-state budget.
+- **Lifecycle:** O1C-0006 was reserved before its only outcome-bearing replay. A
+  crash would have consumed the attempt and finalized it as stopped; no optional
+  retry was available. Fresh challenges generated: 0.
+- **Exact reproduction:** A355 field `de420a7e…`, order `516e32fd…`; A356 field
+  `ac29c51b…`, order `436082dc…`. Both stored orders independently decode to exact
+  permutations of cells 0–4095.
+- **Selected arm:** `adaptive-dc-6bit-h1`; 7,716 online bytes, 8,014 maximum
+  serialized logical mechanism bytes, zero clips. A355/A356 worst metrics:
+  Spearman `0.9992243507`, Kendall `0.9764258528`, top-8 `1.0`, top-32 `0.96875`,
+  top-128 `0.9453125`.
+- **Matched baseline:** a conservative direct 6-bit table uses 3,918 maximum
+  serialized logical bytes and produces the identical quantized order on both
+  fields. The spectral ceiling is therefore `2.045431×` larger.
+- **Claim boundary:** 4,096 spectral degrees of freedom over a 4,096-cell domain
+  make the transform information-equivalent to the direct table. No compression,
+  domain-independent capacity, fresh generalization, recovery or SOTA claim.
+- **Artifacts:** 24/24 complete orders; 61 pinned sibling members plus three local
+  immutable anchors; 141/141 manifest entries independently verified; zero sibling
+  writes and zero active progress/outcome reads.
+- **Cost:** 7.347 wall seconds; nine adaptive arms, 147,456 field reads, zero new
+  solver calls and zero GPU seconds.
+- **Artifact:** `runs/20260715_154553_O1C-0006_corrected-codec-adaptive-dc-bridge/`;
+  capsule manifest `720bc88834e5ae2959ac960d4f5fe2ca1c8845283b0d32273c6ca2cfea34fdc6`;
+  report `64ace20f8798da49e6108352ea0c95459afb2a955439148cea8f357d643b870b`;
+  order set `964dd87ddf6cf506d9399ff6f1fb16245617bcec8f3ab66484031d79f9cd41e8`.
+- **Breadcrumb:** stop compressing the dense final scalar field with full-rank
+  transforms. Move upstream to bit/carry/round/solver evidence and require a genuine
+  non-dictionary successor below 3,918 bytes before generating a fresh challenge.

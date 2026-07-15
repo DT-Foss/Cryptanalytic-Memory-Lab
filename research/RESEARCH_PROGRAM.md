@@ -30,6 +30,8 @@ contamination risk. Green tests and document count are not research outcomes.
 - bounded state in stream length;
 - no KV cache or full `O(T)` attention except a named ceiling;
 - no alphabet-indexed dictionary presented as a memory breakthrough;
+- no full-rank fixed-domain transform presented as compression when a matched direct
+  table has equal information and lower serialized logical state;
 - monotone provenance and no target/post-reveal leakage into discovery;
 - disjoint train, validation, frozen test and post-test audit;
 - matched work accounting and appropriate null/correlation/capacity controls;

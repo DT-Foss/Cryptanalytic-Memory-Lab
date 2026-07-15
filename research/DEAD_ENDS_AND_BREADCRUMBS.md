@@ -92,3 +92,30 @@ This file records mechanism-level conclusions, not every failed parameter settin
   candidate cache as the mechanism win.
 - **Breadcrumb:** keep it only as an information/quantization ceiling and compare
   valid mechanisms against it explicitly.
+
+## B-0009 — Literal O1C-0005 bank does not survive the corrected codec
+
+- **Evidence:** `O1C-0006`, exact A355/A356 corrected fields with the frozen O1C-0005
+  scales and addressing applied literally.
+- **Result:** the historical template collapses to rank-Spearman `-0.08289` on A355
+  and `0.07760` on A356; top-32 overlap is `0` and `0.03125` respectively.
+- **Conclusion:** the apparent portability of that literal bank was bound to the
+  earlier coordinate interpretation. The corrected codec changes the composition,
+  so this is a joint codec/template failure, not an attribution to one component.
+- **Do not repeat:** carry the old 16 scales unchanged into a fresh corrected target.
+- **Breadcrumb:** any corrected-codec successor must calibrate only by a predeclared
+  label-free rule and must transfer across disjoint corrected development fields.
+
+## B-0010 — Full-basis spectral register is an invertible table surrogate
+
+- **Evidence:** `O1C-0006`, 16 low4 slots × 256 complete high8 Walsh modes.
+- **Result:** the selected 6-bit arm reaches worst-field Spearman `0.999224` but uses
+  8,014 maximum serialized logical bytes. The matched direct 6-bit table uses 3,918
+  bytes and produces identical orders on A355 and A356.
+- **Conclusion:** a 4,096-degree invertible transform over 4,096 candidates changes
+  representation, not information capacity, and is `2.045431×` larger here.
+- **Do not repeat:** additional bit-depth/headroom sweeps of the complete basis as a
+  compression or SOTA mechanism claim.
+- **Breadcrumb:** retain this arm only as a validated streaming ceiling. The next
+  eligible mechanism must eliminate candidate-domain degrees of freedom by storing
+  upstream bit/carry/solver evidence in fewer than 3,918 bytes.
