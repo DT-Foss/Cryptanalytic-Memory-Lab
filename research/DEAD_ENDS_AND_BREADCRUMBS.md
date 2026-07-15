@@ -29,3 +29,25 @@ This file records mechanism-level conclusions, not every failed parameter settin
   not expose where nonlinear evidence arose.
 - **Breadcrumb:** instrument carry geometry, propagation conflicts and temporal
   solver deltas before revisiting any aggregate output metric.
+
+## B-0004 — Two-target selection over 119 raw readers
+
+- **Evidence:** `O1C-0002`, with the exact selection procedure replayed for every
+  possible pair of validation labels.
+- **Result:** observed best validation gain 3.348 bits; familywise `p=0.664139`;
+  the null selection itself averages 3.823 bits.
+- **Conclusion:** the attractive validation score is fully explained by selection
+  multiplicity at this sample size.
+- **Do not repeat:** more raw-feature candidates or tie-break changes on the same two
+  validation targets.
+- **Breadcrumb:** shrink the operator family using independent semantic selection,
+  then test joint temporal profiles, XOR orbit residuals and fixed spectral slots.
+
+## B-0005 — Standalone horizon-8 propagation rank
+
+- **Evidence:** frozen plan `ae2bda0e…` evaluated after pre-reveal order hashing.
+- **Result:** positive but weak holdout gains (0.801 A296; 1.104 W32), with ranks
+  240/90 and 41/244/245/82; it failed the all-control gate.
+- **Conclusion:** late propagation count is not a stable scalar sufficient statistic.
+- **Breadcrumb:** preserve it inside a multi-horizon shape vector and test whether
+  curvature/neighborhood structure stabilizes it.

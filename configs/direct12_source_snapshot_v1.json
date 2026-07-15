@@ -1,0 +1,39 @@
+{
+  "schema": "o1-crypto-direct12-source-snapshot-config-v1",
+  "attempt_id": "O1C-0003",
+  "slug": "direct12-source-snapshot",
+  "claim_level": "SMOKE",
+  "hypothesis": "The minimal A272/A342/A348/A349 Direct12 dependency set can be made immutable inside the lab without reading any recovery progress or outcome artifact.",
+  "prediction": "Exactly 71 ledger members and 9,882,690 bytes will verify against the dirty read-only source tree and be copied byte-for-byte into one immutable capsule.",
+  "source": {
+    "repository": "../arx-carry-leak",
+    "expected_head": "97fa868b96771951d5fb2c26aa1785e9d05c4cde",
+    "expected_dirty": true,
+    "ledger": "provenance/direct12_source_v1.sha256",
+    "expected_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+    "expected_members": 71,
+    "expected_bytes": 9882690
+  },
+  "controls": [
+    "every copied byte is verified by the lab-owned SHA-256 ledger at read time",
+    "the source HEAD and dirty status are recorded without upgrading them to a clean-commit claim",
+    "the clean Fullround manifest is explicitly not cited as provenance for these files",
+    "progress, recovery and prospective outcome stems are absent from the ledger",
+    "no sibling file is written, imported or executed"
+  ],
+  "budgets": {
+    "members": 71,
+    "bytes": 9882690,
+    "gpu_seconds": 0,
+    "external_solver_calls": 0
+  },
+  "denied_member_fragments": [
+    "a325_v1.json",
+    "a345_progress",
+    "a349_order_prospective_recovery_a350",
+    "direct12_prospective_a345_validation_a349_v1.json",
+    "direct12_prospective_a345_validation_a349_v1.md",
+    "direct12_prospective_a345_validation_a349_v1.causal"
+  ],
+  "next_action": "Read only the immutable capsule snapshot, independently reimplement the 532-feature transform, and reproduce the published feature/order commitments before any O1 compression experiment."
+}

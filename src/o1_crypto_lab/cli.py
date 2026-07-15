@@ -362,6 +362,158 @@ def _stage3_reader(args: argparse.Namespace) -> int:
     return 0
 
 
+def _direct12_snapshot(args: argparse.Namespace) -> int:
+    root = _lab_root()
+    config_path = args.config.resolve()
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    source_config = config["source"]
+    source_root = (root / source_config["repository"]).resolve()
+    ledger_path = root / source_config["ledger"]
+    if _sha256(ledger_path) != source_config["expected_ledger_sha256"]:
+        raise RuntimeError("Direct12 source ledger hash changed")
+    source = ReadOnlyArtifactSource(source_root, ledger_path)
+    if source.manifest_sha256 != source_config["expected_ledger_sha256"]:
+        raise RuntimeError("Direct12 source ledger pin changed during construction")
+    source_commit = _git_commit(source_root)
+    if source_commit != source_config["expected_head"]:
+        raise RuntimeError("Direct12 source HEAD changed")
+    dirty_result = subprocess.run(
+        ["git", "-C", str(source_root), "status", "--porcelain"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+        check=False,
+        timeout=30,
+    )
+    if dirty_result.returncode != 0:
+        raise RuntimeError("could not record Direct12 source worktree state")
+    dirty_rows = tuple(row for row in dirty_result.stdout.splitlines() if row)
+    if bool(dirty_rows) is not bool(source_config["expected_dirty"]):
+        raise RuntimeError("Direct12 source dirty-state expectation changed")
+    denied = tuple(value.lower() for value in config["denied_member_fragments"])
+    contaminated = sorted(
+        member
+        for member in source.entries
+        if any(fragment in member.lower() for fragment in denied)
+    )
+    if contaminated:
+        raise RuntimeError("Direct12 ledger contains denied result/progress members")
+    report = source.verify()
+    if not report.ok or report.checked != source_config["expected_members"]:
+        raise RuntimeError("Direct12 source ledger verification failed")
+    total_bytes = sum((source_root / member).stat().st_size for member in source.entries)
+    if total_bytes != source_config["expected_bytes"]:
+        raise RuntimeError("Direct12 source byte budget changed")
+
+    manager = RunCapsuleManager(root)
+    run = manager.start(
+        attempt_id=config["attempt_id"],
+        slug=config["slug"],
+        commit=_git_commit(root),
+        hypothesis=config["hypothesis"],
+        prediction=config["prediction"],
+        controls=tuple(config["controls"]),
+        budgets=config["budgets"],
+        source_hashes={
+            "snapshot_config": _sha256(config_path),
+            "direct12_source_ledger": _sha256(ledger_path),
+            "direct12_boundary": _sha256(
+                root / "provenance/DIRECT12_SOURCE_BOUNDARY.md"
+            ),
+        },
+        claim_level=ClaimLevel(config["claim_level"]),
+        next_action=config["next_action"],
+        config=config,
+        command=(
+            "o1-crypto-lab",
+            "direct12-snapshot",
+            "--config",
+            str(config_path),
+        ),
+        environment={
+            "source_root": str(source_root),
+            "source_head": source_commit,
+            "source_worktree_dirty": bool(dirty_rows),
+            "source_status_rows": len(dirty_rows),
+            "fullround_manifest_provenance_claimed": False,
+        },
+    )
+    try:
+        run.append_stdout(
+            f"Verified {report.checked} dirty-source ledger members; copying immutable snapshot.\n"
+        )
+        run.checkpoint(
+            {
+                "phase": "SOURCE_LEDGER_VERIFIED",
+                "members": report.checked,
+                "bytes": total_bytes,
+                "denied_members_read": 0,
+            }
+        )
+        for index, member in enumerate(sorted(source.entries), start=1):
+            run.write_artifact(
+                "source_snapshot/" + member,
+                source.read_bytes(member),
+            )
+            if index % 16 == 0:
+                run.checkpoint(
+                    {
+                        "phase": "COPYING_SOURCE_SNAPSHOT",
+                        "members_copied": index,
+                        "members_total": len(source.entries),
+                        "denied_members_read": 0,
+                    }
+                )
+        snapshot = {
+            "schema": "o1-crypto-direct12-source-snapshot-v1",
+            "source_head": source_commit,
+            "source_worktree_dirty": bool(dirty_rows),
+            "fullround_manifest_provenance_claimed": False,
+            "source_ledger_sha256": source.manifest_sha256,
+            "members": len(source.entries),
+            "bytes": total_bytes,
+            "entries": source.entries,
+            "denied_members_read": 0,
+        }
+        run.write_json_artifact("source_snapshot.json", snapshot)
+        metrics = {
+            **snapshot,
+            "selected_source_members_verified": report.checked,
+            "gpu_seconds": 0,
+            "external_solver_calls": 0,
+        }
+        finalized = run.finalize(metrics=metrics)
+    except Exception as exc:
+        run.append_stderr(f"{type(exc).__name__}: {exc}\n")
+        finalized = run.finalize(
+            metrics={
+                "schema": "o1-crypto-direct12-source-snapshot-failure-v1",
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "denied_members_read": 0,
+            },
+            status="failed",
+            next_action="Fix the source pin mismatch without modifying the sibling tree.",
+        )
+        print(f"failed capsule: {finalized.path}", file=sys.stderr)
+        return 1
+    print(
+        json.dumps(
+            {
+                "attempt_id": finalized.attempt_id,
+                "path": str(finalized.path),
+                "manifest_sha256": finalized.manifest_sha256,
+                "verified": finalized.verification.ok,
+                "members": len(source.entries),
+                "bytes": total_bytes,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     root = _lab_root()
     parser = argparse.ArgumentParser(
@@ -432,6 +584,17 @@ def build_parser() -> argparse.ArgumentParser:
         default=root / "configs/stage3_reader_retrospective_v1.json",
     )
     reader.set_defaults(handler=_stage3_reader)
+
+    snapshot = subparsers.add_parser(
+        "direct12-snapshot",
+        help="copy the pinned dirty-source Direct12 dependency set into an immutable capsule",
+    )
+    snapshot.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/direct12_source_snapshot_v1.json",
+    )
+    snapshot.set_defaults(handler=_direct12_snapshot)
     return parser
 
 
