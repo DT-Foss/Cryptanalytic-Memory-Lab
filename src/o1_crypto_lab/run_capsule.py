@@ -656,7 +656,11 @@ class RunCapsuleManager:
     def verify(self, path: str | Path) -> CapsuleVerification:
         candidate = Path(path)
         if not candidate.is_absolute():
-            candidate = self.output_root / candidate
+            candidate = (
+                self.lab_root / candidate
+                if candidate.parts and candidate.parts[0] == "runs"
+                else self.output_root / candidate
+            )
         confined = self.policy.require_output_path(candidate)
         relative = confined.relative_to(self.output_root)
         if len(relative.parts) != 1 or relative.name.startswith("."):

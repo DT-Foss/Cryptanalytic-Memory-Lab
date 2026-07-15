@@ -82,6 +82,9 @@ class RunCapsuleTests(unittest.TestCase):
             self.assertEqual(result.path.name, expected_name)
             self.assertFalse(run.staging_path.exists())
             self.assertTrue(result.verification.ok)
+            self.assertTrue(
+                manager.verify(Path("runs") / expected_name).ok
+            )
             self.assertEqual(result.manifest_sha256, result.verification.manifest_sha256)
             mandatory = {
                 "RUN.md",
