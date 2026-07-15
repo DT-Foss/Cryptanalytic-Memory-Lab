@@ -6,5 +6,5 @@ __pycache__/
 build/
 dist/
 *.egg-info/
-runs/*.json
+runs/*
 !runs/.gitkeep
