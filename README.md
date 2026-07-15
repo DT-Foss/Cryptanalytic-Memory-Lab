@@ -11,6 +11,11 @@ This directory is a sibling of the active repositories. It never writes into
 `arx-carry-leak`, `f8-causal-cryptanalysis`, `fullround-key-recovery`, O1, or O1-O.
 Published evidence is consumed only through SHA-256-verified, read-only adapters.
 
+The live research cockpit is [STATUS.md](STATUS.md). It points to the last immutable
+run, the strongest supported claim, active uncertainty and the ranked next action.
+Historical outcomes—including negative mechanisms—are indexed in
+[RESULTS_INDEX.md](RESULTS_INDEX.md) and the append-only files under `research/`.
+
 ## What the first benchmark proves
 
 The initial benchmark deliberately separates three questions that are easy to
@@ -92,10 +97,40 @@ Verify a published snapshot before an adapter reads it:
   --output runs/fullround-source-verification.json
 ```
 
+Run the manifest-pinned Stage-3 ingestion and frozen retrospective reader protocol:
+
+```bash
+.venv/bin/o1-crypto-lab stage3-ingest \
+  --config configs/stage3_a296_a297_ingest_v1.json
+.venv/bin/o1-crypto-lab stage3-reader \
+  --config configs/stage3_reader_retrospective_v1.json
+```
+
+Each command creates a new read-only directory named
+`runs/YYYYMMDD_HHMMSS_O1C-.../` with `RUN.md`, exact config and command,
+environment, metrics, logs, checkpoints, retained artifacts and a complete
+SHA-256 manifest. Attempt IDs are permanently reserved and cannot overwrite a
+prior result. Verify any capsule with:
+
+```bash
+.venv/bin/o1-crypto-lab verify-run runs/<capsule-name>
+```
+
+The Direct12 dependency chain originally lived in a dirty sibling worktree. It is
+therefore curated honestly into its own immutable capsule instead of being called
+a clean Fullround-manifest artifact:
+
+```bash
+.venv/bin/o1-crypto-lab direct12-snapshot \
+  --config configs/direct12_source_snapshot_v1.json
+```
+
 ## Integration contract
 
 - No imports from the dirty live O1, O1-O, or `arx-carry-leak` trees.
-- No writes outside this lab's `runs/` directory.
+- Runtime experiment bytes are confined to `runs/`. A separate symlink-safe writer
+  may update only the seven enumerated cockpit Markdown files at the lab root and
+  under `research/`; it cannot write arbitrary lab or sibling paths.
 - No GPU/Metal use.
 - No target label, recovered model, post-reveal rank, or target-internal state may
   flow into a `TARGET_BLIND_ORDER`.
@@ -120,9 +155,11 @@ smoke-test measurements are recorded in [First results](docs/FIRST_RESULTS.md).
 ```text
 configs/                 deterministic benchmark configurations
 docs/                    architecture, gates and claim boundaries
+provenance/              lab-owned byte ledgers and source-boundary records
+research/                hypotheses, append-only attempts, breadcrumbs, next actions
 src/o1_crypto_lab/       memory, composer, replay, TargetModel, adapters and CLI
 tests/                   unit, leakage and reproducibility gates
-runs/                    generated local results only
+runs/                    immutable timestamped capsules (ignored by Git, never overwritten)
 ```
 
 The design is derived from the Apache-2.0 O1 and O1-O projects. No source from

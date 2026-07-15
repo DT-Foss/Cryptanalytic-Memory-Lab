@@ -11,6 +11,7 @@ from pathlib import Path
 
 from .artifacts import ReadOnlyArtifactSource
 from .benchmark import BenchmarkConfig, composition_report, run_benchmark
+from .direct12_reproduction import run_direct12_reproduction
 from .isolation import IsolationPolicy
 from .replay import O1OSessionReplay
 from .reader_experiment import run_reader_experiment
@@ -514,6 +515,163 @@ def _direct12_snapshot(args: argparse.Namespace) -> int:
     return 0
 
 
+def _direct12_reproduce(args: argparse.Namespace) -> int:
+    root = _lab_root()
+    config_path = args.config.resolve()
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    snapshot = config["snapshot"]
+    capsule_path = (root / snapshot["capsule"]).resolve()
+    source_hashes = {
+        "reproduction_config": _sha256(config_path),
+        "o1c_0003_capsule_manifest": _sha256(capsule_path / "artifacts.sha256"),
+        "direct12_source_ledger": _sha256(root / snapshot["source_ledger"]),
+        "direct12_adapter": _sha256(root / "src/o1_crypto_lab/direct12.py"),
+        "shape532": _sha256(root / "src/o1_crypto_lab/shape532.py"),
+        "direct12_reproduction": _sha256(
+            root / "src/o1_crypto_lab/direct12_reproduction.py"
+        ),
+    }
+    manager = RunCapsuleManager(root)
+    run = manager.start(
+        attempt_id=config["attempt_id"],
+        slug=config["slug"],
+        commit=_git_commit(root),
+        hypothesis=config["hypothesis"],
+        prediction=config["prediction"],
+        controls=tuple(config["controls"]),
+        budgets=config["budgets"],
+        source_hashes=source_hashes,
+        claim_level=ClaimLevel(config["claim_level"]),
+        next_action=config["next_action"],
+        config=config,
+        command=(
+            "o1-crypto-lab",
+            "direct12-reproduce",
+            "--config",
+            str(config_path),
+        ),
+        environment={
+            "source_capsule": str(capsule_path),
+            "source_capsule_manifest_sha256": snapshot[
+                "capsule_manifest_sha256"
+            ],
+            "mutable_sibling_access": False,
+            "A349_truth_api_available": False,
+        },
+    )
+
+    def on_frozen(pre_reveal: dict[str, object]) -> None:
+        run.write_json_artifact("pre_reveal_orders.json", pre_reveal)
+        run.checkpoint(
+            {
+                "phase": "A348_A349_ORDERS_FROZEN",
+                "pre_reveal_sha256": pre_reveal["pre_reveal_sha256"],
+                "A272_labels_read": 0,
+                "A348_labels_read": 0,
+                "A349_labels_read": 0,
+            }
+        )
+        run.append_stdout(
+            "A348 and A349 complete orders persisted before calibration truth; "
+            "A349 truth API absent.\n"
+        )
+
+    try:
+        run.append_stdout(
+            "Independent 133-to-532 Direct12 reproduction started from O1C-0003.\n"
+        )
+        run.checkpoint(
+            {
+                "phase": "SOURCE_CAPSULE_REVERIFYING",
+                "A348_labels_read": 0,
+                "A349_labels_read": 0,
+            }
+        )
+        result = run_direct12_reproduction(
+            config_path,
+            lab_root=root,
+            on_frozen=on_frozen,
+        )
+        run.write_json_artifact("direct12_reproduction.json", result.report)
+        run.write_json_artifact(
+            "a348_score_field.json",
+            {
+                "schema": "o1-crypto-frozen-score-field-v1",
+                "attempt_id": "A348",
+                "scores": list(result.a348_scores),
+                "order": list(result.a348_order),
+                "target_label_present": False,
+            },
+        )
+        run.write_json_artifact(
+            "a349_score_field.json",
+            {
+                "schema": "o1-crypto-frozen-score-field-v1",
+                "attempt_id": "A349",
+                "scores": list(result.a349_scores),
+                "order": list(result.a349_order),
+                "target_label_present": False,
+            },
+        )
+        run.write_artifact(
+            "a348_order.uint16be",
+            b"".join(value.to_bytes(2, "big") for value in result.a348_order),
+        )
+        run.write_artifact(
+            "a349_order.uint16be",
+            b"".join(value.to_bytes(2, "big") for value in result.a349_order),
+        )
+        metrics = result.metrics()
+        run.append_stdout(
+            json.dumps(
+                {
+                    "success_gate_passed": result.success_gate_passed,
+                    "dataset_sha256": metrics["dataset_sha256"],
+                    "a348_rank": metrics["a348"]["slice_z_rank_one_based"],
+                    "a349_order_sha256": metrics["a349"][
+                        "slice_z_order_uint16be_sha256"
+                    ],
+                    "A349_labels_read": metrics["labels"]["A349_labels_read"],
+                },
+                sort_keys=True,
+            )
+            + "\n"
+        )
+        finalized = run.finalize(metrics=metrics)
+    except Exception as exc:
+        run.append_stderr(f"{type(exc).__name__}: {exc}\n")
+        finalized = run.finalize(
+            metrics={
+                "schema": "o1-crypto-direct12-reproduction-failure-v1",
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "A349_labels_read": 0,
+            },
+            status="failed",
+            next_action=(
+                "Fix the exact reproduction invariant under a new attempt ID; "
+                "do not inspect A349 progress or outcome."
+            ),
+        )
+        print(f"failed capsule: {finalized.path}", file=sys.stderr)
+        return 1
+    print(
+        json.dumps(
+            {
+                "attempt_id": finalized.attempt_id,
+                "path": str(finalized.path),
+                "manifest_sha256": finalized.manifest_sha256,
+                "verified": finalized.verification.ok,
+                "success_gate_passed": result.success_gate_passed,
+                "a349_labels_read": 0,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     root = _lab_root()
     parser = argparse.ArgumentParser(
@@ -595,6 +753,17 @@ def build_parser() -> argparse.ArgumentParser:
         default=root / "configs/direct12_source_snapshot_v1.json",
     )
     snapshot.set_defaults(handler=_direct12_snapshot)
+
+    reproduce = subparsers.add_parser(
+        "direct12-reproduce",
+        help="independently reproduce the frozen Direct12 532-feature reader",
+    )
+    reproduce.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/direct12_reproduction_v1.json",
+    )
+    reproduce.set_defaults(handler=_direct12_reproduce)
     return parser
 
 
