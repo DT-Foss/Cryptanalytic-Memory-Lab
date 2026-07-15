@@ -11,6 +11,7 @@ from pathlib import Path
 
 from .artifacts import ReadOnlyArtifactSource
 from .benchmark import BenchmarkConfig, composition_report, run_benchmark
+from .corrected_direct12 import run_corrected_codec_bridge
 from .direct12_reproduction import run_direct12_reproduction
 from .spectral_experiment import run_bounded_memory_tournament
 from .isolation import IsolationPolicy
@@ -51,6 +52,23 @@ def _git_commit(root: Path) -> str:
     if result.returncode != 0:
         raise RuntimeError("could not capture the lab Git commit")
     return result.stdout.strip()
+
+
+def _clean_git_commit(root: Path) -> str:
+    commit = _git_commit(root)
+    status = subprocess.run(
+        ["git", "-C", str(root), "status", "--porcelain=v1", "--untracked-files=all"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+        check=False,
+        timeout=15,
+    )
+    if status.returncode != 0:
+        raise RuntimeError("could not verify the lab Git worktree")
+    if status.stdout.strip():
+        raise RuntimeError("O1C-0006 requires a clean committed lab worktree")
+    return commit
 
 
 def _benchmark(args: argparse.Namespace) -> int:
@@ -924,6 +942,380 @@ def _bounded_memory_tournament(args: argparse.Namespace) -> int:
     return 0
 
 
+def _corrected_codec_bridge(args: argparse.Namespace) -> int:
+    root = _lab_root()
+    requested_config = args.config
+    if requested_config.is_symlink():
+        raise RuntimeError("corrected bridge config cannot be a symlink")
+    config_path = requested_config.resolve(strict=True)
+    expected_config = (root / "configs/corrected_codec_bridge_v1.json").resolve(
+        strict=True
+    )
+    if config_path != expected_config:
+        raise RuntimeError("corrected bridge requires its canonical lab config")
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    anchors = config["anchors"]
+    o1c3_path = (root / anchors["o1c_0003_capsule"]).resolve()
+    o1c5_path = (root / anchors["o1c_0005_capsule"]).resolve()
+    module_paths = tuple(sorted((root / "src/o1_crypto_lab").glob("*.py")))
+
+    def current_source_hashes() -> dict[str, str]:
+        return {
+            "corrected_bridge_config": _sha256(config_path),
+            "pyproject": _sha256(root / "pyproject.toml"),
+            "o1c_0003_capsule_manifest": _sha256(
+                o1c3_path / "artifacts.sha256"
+            ),
+            "o1c_0005_capsule_manifest": _sha256(
+                o1c5_path / "artifacts.sha256"
+            ),
+            **{f"module_{path.stem}": _sha256(path) for path in module_paths},
+        }
+
+    manager = RunCapsuleManager(root)
+    attempt_id = str(config["attempt_id"])
+    if attempt_id in manager.recoverable_attempt_ids():
+        interrupted = manager.recover(attempt_id)
+        finalized = interrupted.finalize(
+            metrics={
+                "schema": "o1-crypto-corrected-codec-bridge-interrupted-v1",
+                "hard_interruption_recovered": True,
+                "scientific_result_claimed": False,
+                "fresh_challenge_generated": False,
+                "target_labels_used_for_selection": 0,
+                "sibling_writes": 0,
+            },
+            status="stopped",
+            next_action=(
+                "Treat O1C-0006 as consumed by a hard interruption and advance the "
+                "same frozen protocol under O1C-0007; do not overwrite or silently "
+                "resume partial artifacts."
+            ),
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": finalized.attempt_id,
+                    "path": str(finalized.path),
+                    "manifest_sha256": finalized.manifest_sha256,
+                    "verified": finalized.verification.ok,
+                    "status": "stopped-after-hard-interruption",
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 2
+
+    # Reserve the attempt before the first outcome-bearing computation.  This
+    # prevents a failed gate, exception, or hard interruption from being silently
+    # retried under the same attempt ID (optional stopping).
+    commit = _clean_git_commit(root)
+    source_hashes = current_source_hashes()
+    if _clean_git_commit(root) != commit:
+        raise RuntimeError("lab Git commit changed before corrected bridge reservation")
+    if current_source_hashes() != source_hashes:
+        raise RuntimeError("lab source hashes changed before corrected bridge reservation")
+    run = manager.start(
+        attempt_id=config["attempt_id"],
+        slug=config["slug"],
+        commit=commit,
+        hypothesis=config["hypothesis"],
+        prediction=config["prediction"],
+        controls=tuple(config["controls"]),
+        budgets=config["budgets"],
+        source_hashes=source_hashes,
+        claim_level=ClaimLevel(config["claim_level"]),
+        next_action=config["next_action"],
+        config=config,
+        command=(
+            "o1-crypto-lab",
+            "corrected-codec-bridge",
+            "--config",
+            str(config_path),
+        ),
+        environment={
+            "sibling_repository": str((root / config["source"]["repository"]).resolve()),
+            "sibling_repository_access": "READ_ONLY_PINNED_MEMBERS",
+            "active_sibling_progress_or_outcome_reads": 0,
+            "sibling_writes": 0,
+            "fresh_challenge_generated": False,
+            "development_fields": ["A355", "A356"],
+            "scientific_replay_executions": 1,
+            "outcome_bearing_replay_begins_after_attempt_reservation": True,
+            "hard_interruption_policy": "FINALIZE_STOPPED_AND_ADVANCE_ATTEMPT_ID",
+        },
+    )
+
+    try:
+        run.checkpoint(
+            {
+                "phase": "PINNED_SOURCE_REPLAY_STARTING",
+                "A355_A356_target_labels_used_for_bridge_selection": 0,
+                "active_sibling_progress_or_outcome_reads": 0,
+                "sibling_writes": 0,
+                "fresh_challenge_generated": False,
+            }
+        )
+        run.append_stdout(
+            "O1C-0006 exact corrected-codec replay and bounded adaptive-DC tournament started.\n"
+        )
+        result = run_corrected_codec_bridge(
+            config_path,
+            lab_root=root,
+            artifact_writer=run.write_artifact,
+        )
+        if not result.success_gate_passed:
+            raise RuntimeError("corrected bridge failed at least one frozen success gate")
+        if _clean_git_commit(root) != commit:
+            raise RuntimeError("lab Git commit changed during corrected bridge execution")
+        if current_source_hashes() != source_hashes:
+            raise RuntimeError("lab source hashes changed during corrected bridge execution")
+        run.write_json_artifact("corrected_codec_bridge.json", result.report)
+        run.write_json_artifact("bridge_metrics.json", result.metrics())
+        run.write_json_artifact(
+            "frozen_reference_ceiling_template.json", result.future_template
+        )
+        control_document: dict[str, object] = {
+            "schema": "o1-crypto-o1c0006-fixed-negative-controls-v1",
+            "controls": result.fixed_controls,
+        }
+        control_document["document_sha256"] = _canonical_value_sha256(
+            control_document
+        )
+        control_document_path = run.write_json_artifact(
+            "fixed_negative_controls.json", control_document
+        )
+        control_document_sha256 = _sha256(control_document_path)
+
+        order_index: list[dict[str, object]] = []
+        for field in result.fields:
+            field_id = field.attempt_id.lower()
+            score_field_path = run.write_json_artifact(
+                f"score_fields/{field_id}.json",
+                field.describe(include_scores=True),
+            )
+            reference_path = run.write_artifact(
+                f"orders/reference/{field_id}.uint16be",
+                b"".join(cell.to_bytes(2, "big") for cell in field.order),
+            )
+            order_index.append(
+                {
+                    "kind": "exact-historical-reference",
+                    "field": field.attempt_id,
+                    "arm_id": "legacy-A340-selected8-global-raw",
+                    "member": f"artifacts/orders/reference/{field_id}.uint16be",
+                    "sha256": _sha256(reference_path),
+                    "cells": len(field.order),
+                    "bytes": reference_path.stat().st_size,
+                    "score_field_member": f"artifacts/score_fields/{field_id}.json",
+                    "score_field_artifact_sha256": _sha256(score_field_path),
+                }
+            )
+
+        control_report_keys = {
+            "frozen-o1c5-raw-identity": "frozen_o1c5_raw_identity",
+            "global-z-atan-invalid-contract": "global_z_atan_control",
+        }
+        for field_id, controls in sorted(result.fixed_control_orders.items()):
+            for control_id, order in sorted(controls.items()):
+                if any(
+                    character not in "abcdefghijklmnopqrstuvwxyz0123456789-."
+                    for character in control_id
+                ):
+                    raise ValueError(f"unsafe control ID: {control_id!r}")
+                payload = b"".join(cell.to_bytes(2, "big") for cell in order)
+                path = run.write_artifact(
+                    f"orders/controls/{control_id}/{field_id.lower()}.uint16be",
+                    payload,
+                )
+                expected_hash = result.fixed_controls[field_id][
+                    control_report_keys[control_id]
+                ]["order_uint16be_sha256"]
+                if _sha256(path) != expected_hash:
+                    raise ValueError("persisted fixed-control order differs")
+                order_index.append(
+                    {
+                        "kind": "negative-or-invalid-contract-control",
+                        "field": field_id,
+                        "arm_id": control_id,
+                        "member": (
+                            f"artifacts/orders/controls/{control_id}/"
+                            f"{field_id.lower()}.uint16be"
+                        ),
+                        "sha256": expected_hash,
+                        "cells": len(order),
+                        "bytes": path.stat().st_size,
+                        "control_metadata_member": (
+                            "artifacts/fixed_negative_controls.json"
+                        ),
+                        "control_metadata_artifact_sha256": (
+                            control_document_sha256
+                        ),
+                    }
+                )
+
+        for arm_id, by_field in sorted(result.adaptive_executions.items()):
+            if not arm_id or any(
+                character not in "abcdefghijklmnopqrstuvwxyz0123456789-."
+                for character in arm_id
+            ):
+                raise ValueError(f"unsafe adaptive arm ID: {arm_id!r}")
+            for field_id, execution in sorted(by_field.items()):
+                field_name = field_id.lower()
+                execution_path = run.write_json_artifact(
+                    f"adaptive/{arm_id}/{field_name}_execution.json",
+                    execution.describe(include_plan=True),
+                )
+                state_path = run.write_artifact(
+                    f"adaptive/{arm_id}/{field_name}_online_state.bin",
+                    execution.frozen.online_state_bytes,
+                )
+                order_path = run.write_artifact(
+                    f"orders/adaptive/{arm_id}/{field_name}.uint16be",
+                    execution.order_uint16be,
+                )
+                if _sha256(order_path) != execution.order_uint16be_sha256:
+                    raise ValueError("persisted adaptive order differs")
+                order_index.append(
+                    {
+                        "kind": "adaptive-dc-candidate",
+                        "field": field_id,
+                        "arm_id": arm_id,
+                        "member": (
+                            f"artifacts/orders/adaptive/{arm_id}/"
+                            f"{field_name}.uint16be"
+                        ),
+                        "sha256": execution.order_uint16be_sha256,
+                        "cells": len(execution.order),
+                        "bytes": order_path.stat().st_size,
+                        "plan_sha256": execution.plan.plan_sha256,
+                        "state_sha256": execution.frozen.state_sha256,
+                        "execution_member": (
+                            f"artifacts/adaptive/{arm_id}/"
+                            f"{field_name}_execution.json"
+                        ),
+                        "execution_artifact_sha256": _sha256(execution_path),
+                        "online_state_member": (
+                            f"artifacts/adaptive/{arm_id}/"
+                            f"{field_name}_online_state.bin"
+                        ),
+                        "online_state_artifact_sha256": _sha256(state_path),
+                        "online_state_bytes": execution.plan.serialized_online_state_bytes,
+                    }
+                )
+
+        category_counts = {
+            kind: sum(row["kind"] == kind for row in order_index)
+            for kind in {
+                "exact-historical-reference",
+                "negative-or-invalid-contract-control",
+                "adaptive-dc-candidate",
+            }
+        }
+        members = [str(row["member"]) for row in order_index]
+        if (
+            len(order_index) != 24
+            or category_counts
+            != {
+                "exact-historical-reference": 2,
+                "negative-or-invalid-contract-control": 4,
+                "adaptive-dc-candidate": 18,
+            }
+            or len(set(members)) != len(members)
+            or any(row["cells"] != 4096 or row["bytes"] != 8192 for row in order_index)
+        ):
+            raise RuntimeError("complete O1C-0006 order inventory differs")
+        order_index_document = {
+            "schema": "o1-crypto-o1c0006-complete-order-index-v1",
+            "orders": order_index,
+            "order_count": len(order_index),
+            "category_counts": category_counts,
+            "all_orders_are_complete_4096_cell_permutations": all(
+                row["cells"] == 4096 for row in order_index
+            ),
+            "target_labels_used_for_adaptive_bridge_selection": 0,
+            "upstream_calibration_provenance_is_recorded_in_bridge_report": True,
+        }
+        order_index_document["order_set_sha256"] = _canonical_value_sha256(
+            order_index_document
+        )
+        run.write_json_artifact("complete_order_index.json", order_index_document)
+        run.checkpoint(
+            {
+                "phase": "DEVELOPMENT_ORDERS_AND_REFERENCE_CEILING_PERSISTED",
+                "orders": len(order_index),
+                "order_set_sha256": order_index_document["order_set_sha256"],
+                "selected_arm": result.report["selection"]["selected_arm"],
+                "future_template_sha256": result.future_template[
+                    "future_template_sha256"
+                ],
+                "fresh_challenge_generated": False,
+                "target_labels_used_for_selection": 0,
+            }
+        )
+        metrics = result.metrics()
+        metrics["complete_development_orders_persisted"] = len(order_index)
+        metrics["complete_order_set_sha256"] = order_index_document[
+            "order_set_sha256"
+        ]
+        run.append_stdout(
+            json.dumps(
+                {
+                    "success_gate_passed": result.success_gate_passed,
+                    "selected_arm": result.report["selection"]["selected_arm"],
+                    "selected_online_state_bytes": result.report["costs"][
+                        "selected_online_state_bytes"
+                    ],
+                    "minimum_rank_spearman": result.report["selection"][
+                        "selected_metrics"
+                    ]["minimum_rank_spearman"],
+                    "complete_orders_persisted": len(order_index),
+                    "fresh_challenge_generated": False,
+                },
+                sort_keys=True,
+            )
+            + "\n"
+        )
+        finalized = run.finalize(metrics=metrics)
+    except Exception as exc:
+        run.append_stderr(f"{type(exc).__name__}: {exc}\n")
+        finalized = run.finalize(
+            metrics={
+                "schema": "o1-crypto-corrected-codec-bridge-failure-v1",
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "fresh_challenge_generated": False,
+                "target_labels_used_for_selection": 0,
+                "sibling_writes": 0,
+            },
+            status="failed",
+            next_action=(
+                "Fix the lifecycle or reproduction invariant under a new attempt ID; "
+                "do not generate or inspect a fresh challenge."
+            ),
+        )
+        print(f"failed capsule: {finalized.path}", file=sys.stderr)
+        return 1
+    print(
+        json.dumps(
+            {
+                "attempt_id": finalized.attempt_id,
+                "path": str(finalized.path),
+                "manifest_sha256": finalized.manifest_sha256,
+                "verified": finalized.verification.ok,
+                "success_gate_passed": result.success_gate_passed,
+                "selected_arm": result.report["selection"]["selected_arm"],
+                "complete_orders_persisted": len(order_index),
+                "fresh_challenge_generated": False,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     root = _lab_root()
     parser = argparse.ArgumentParser(
@@ -1027,6 +1419,17 @@ def build_parser() -> argparse.ArgumentParser:
         default=root / "configs/bounded_memory_tournament_v1.json",
     )
     tournament.set_defaults(handler=_bounded_memory_tournament)
+
+    corrected = subparsers.add_parser(
+        "corrected-codec-bridge",
+        help="reproduce corrected W46 fields and freeze the adaptive DC memory bridge",
+    )
+    corrected.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/corrected_codec_bridge_v1.json",
+    )
+    corrected.set_defaults(handler=_corrected_codec_bridge)
     return parser
 
 

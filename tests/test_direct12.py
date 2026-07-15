@@ -208,6 +208,49 @@ class Direct12FixtureTests(unittest.TestCase):
                 low4=0,
             )
 
+    def test_corrected_codec_binds_high8_variables_and_low4_units(self):
+        measurement = _measurement(
+            attempt_id="A355",
+            schema=(
+                "chacha20-round20-w46-corrected-group-direct12-a355-slice-v1"
+            ),
+            low4=0,
+        )
+        measurement["fixed_unit_literals"] = [-79, -75, -71, -67]
+        cells, _ = Direct12Adapter._validate_run_and_extract(
+            measurement,
+            attempt_id="A355",
+            schema_key="A355_MEASUREMENT",
+            slice_id="slice_00",
+            low4=0,
+            expected_assumption_variables=tuple(range(101, 109)),
+            expected_fixed_unit_literals=(-79, -75, -71, -67),
+        )
+        self.assertEqual(len(cells), 256)
+
+        measurement["fixed_unit_literals"] = [-79, -75, -71, 67]
+        with self.assertRaisesRegex(Direct12Error, "fixed low4"):
+            Direct12Adapter._validate_run_and_extract(
+                measurement,
+                attempt_id="A355",
+                schema_key="A355_MEASUREMENT",
+                slice_id="slice_00",
+                low4=0,
+                expected_assumption_variables=tuple(range(101, 109)),
+                expected_fixed_unit_literals=(-79, -75, -71, -67),
+            )
+
+        measurement["fixed_unit_literals"] = [-79, -75, -71, -67]
+        with self.assertRaisesRegex(Direct12Error, "high8 assumptions"):
+            Direct12Adapter._validate_run_and_extract(
+                measurement,
+                attempt_id="A355",
+                schema_key="A355_MEASUREMENT",
+                slice_id="slice_00",
+                low4=0,
+                expected_assumption_variables=tuple(range(102, 110)),
+                expected_fixed_unit_literals=(-79, -75, -71, -67),
+            )
     def test_verified_compressed_slice_and_hard_decode_cap(self):
         measurement = _measurement()
         raw = _json_bytes(measurement)
@@ -380,4 +423,3 @@ class Direct12RealSnapshotTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

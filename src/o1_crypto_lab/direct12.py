@@ -132,6 +132,8 @@ _SCHEMAS = {
     "A349_PREFLIGHT": "chacha20-round20-w46-direct12-prospective-a345-validation-a349-preflight-v1",
     "A349_ORDER": "chacha20-round20-w46-direct12-prospective-a345-validation-a349-order-v1",
     "A349_MEASUREMENT": "chacha20-round20-w46-direct12-prospective-a345-validation-a349-slice-v1",
+    "A355_MEASUREMENT": "chacha20-round20-w46-corrected-group-direct12-a355-slice-v1",
+    "A356_MEASUREMENT": "chacha20-round20-w46-corrected-group-a345-transfer-a356-slice-v1",
 }
 
 
@@ -750,6 +752,8 @@ class Direct12Adapter:
         schema_key: str,
         slice_id: str,
         low4: int | None,
+        expected_assumption_variables: Sequence[int] | None = None,
+        expected_fixed_unit_literals: Sequence[int] | None = None,
     ) -> tuple[tuple[Direct12CellMatrix, ...], str]:
         _require_schema(measurement, schema_key, attempt_id)
         if measurement.get("complete_candidate_cover") is not True:
@@ -769,6 +773,24 @@ class Direct12Adapter:
             if measurement.get("label_used_for_feature_construction_or_scoring") is not False:
                 raise Direct12Error("target label was used during measurement/scoring")
             top_cnf_sha256 = _require_sha256(measurement.get("cnf_sha256"), "cnf_sha256")
+            if expected_fixed_unit_literals is not None:
+                fixed_units = tuple(
+                    _require_int(value, "fixed_unit_literals")
+                    for value in _require_list(
+                        measurement.get("fixed_unit_literals"),
+                        "fixed_unit_literals",
+                    )
+                )
+                expected_units = tuple(expected_fixed_unit_literals)
+                if fixed_units != expected_units or any(
+                    not isinstance(value, int)
+                    or isinstance(value, bool)
+                    or value == 0
+                    for value in expected_units
+                ):
+                    raise Direct12Error(
+                        f"{attempt_id} fixed low4 literals differ from the corrected codec"
+                    )
         run = _require_mapping(measurement.get("run"), "measurement.run")
         for field in (
             "all_watchdogs_clear",
@@ -853,6 +875,17 @@ class Direct12Adapter:
                 base_variables = variables
             if variables != base_variables:
                 raise Direct12Error("cell assumption coordinates changed")
+            if expected_assumption_variables is not None:
+                expected_variables = tuple(expected_assumption_variables)
+                if variables != expected_variables or any(
+                    not isinstance(value, int)
+                    or isinstance(value, bool)
+                    or value <= 0
+                    for value in expected_variables
+                ):
+                    raise Direct12Error(
+                        f"{attempt_id} high8 assumptions differ from the corrected codec"
+                    )
             expected_signs = tuple(
                 variable if bit == "1" else -variable
                 for variable, bit in zip(variables, prefix, strict=True)
