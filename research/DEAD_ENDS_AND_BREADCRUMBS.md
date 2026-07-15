@@ -119,3 +119,22 @@ This file records mechanism-level conclusions, not every failed parameter settin
 - **Breadcrumb:** retain this arm only as a validated streaming ceiling. The next
   eligible mechanism must eliminate candidate-domain degrees of freedom by storing
   upstream bit/carry/solver evidence in fewer than 3,918 bytes.
+
+## B-0011 — Broad retrospective upstream selection is not efficacy
+
+- **Evidence:** `O1C-0007`, 672 fully persisted target-blind A355 orders and exact
+  enumeration of the resulting 152-view eligible selection procedure.
+- **Result:** the selected 12-register unary decoder ranked the target at 73, but
+  2,431 of 4,096 uniformly assigned labels do at least as well, giving conditional
+  `p=0.593505859375`. Of 448 streamable views, 296 failed the predeclared tie gate;
+  224 additional views used a nonstreamable rank transform.
+- **Conclusion:** an attractive raw rank after a broad mechanism panel is not
+  evidence of useful cryptanalytic transfer. Compactness and lifecycle integrity
+  passed; scientific efficacy did not.
+- **Do not repeat:** resweep A355, tune the tie threshold after seeing rank, promote
+  the post-hoc rank-23 nonstreamable view or the rank-26 collision-heavy control, or
+  call A356 source-unseen.
+- **Breadcrumb:** retain exactly the frozen 12-register decoder and apply it
+  eventwise to multiple newly generated paired-assumption trajectories. Persist
+  every state/order before reveal; use matched numeric, hash and random-label nulls;
+  expand toward carry/round/conflict provenance only if the unary mechanism fails.

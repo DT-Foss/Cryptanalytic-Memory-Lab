@@ -137,6 +137,8 @@ the bounded-memory mechanism tournament:
   --config configs/bounded_memory_tournament_v1.json
 .venv/bin/o1-crypto-lab corrected-codec-bridge \
   --config configs/corrected_codec_bridge_v1.json
+.venv/bin/o1-crypto-lab upstream-ising-freeze \
+  --config configs/upstream_ising_retrospective_v1.json
 ```
 
 The tournament compares global Walsh state, sixteen fixed low4/high8 slot banks,
@@ -152,8 +154,19 @@ The corrected-codec bridge reproduces A355/A356 exactly and retains the selected
 6-bit DC-complete bank only as a validation ceiling. Its 4,096 spectral degrees of
 freedom are information-equivalent to the fixed candidate table, and its 8,014-byte
 maximum serialized logical state is larger than the matched 3,918-byte direct
-baseline. A compact non-dictionary successor must beat that baseline before the lab
-generates a fresh challenge.
+baseline.
+
+The upstream freeze then replaces the dense final-field representation with a
+12-register unary solver-evidence memory. Its conservative logical-state bound is
+266 bytes and its frozen binary is 162 bytes. The complete target-blind A355 panel
+contained 672 orders; the frozen decoder ranked the retrospective target at 73,
+but the exact conditional random-label tail was `2431/4096 = 0.593505859375`.
+That is a structurally eligible compact mechanism and a negative efficacy result,
+not SOTA. The same decoder emitted a complete A356 order before any A356 target or
+outcome read, but A356 still came from the same opened source capsule and is not a
+source-unseen holdout. O1C-0008 therefore carries the exact frozen decoder into
+newly generated, precommitted paired-assumption solver trajectories and performs
+the first genuinely fresh efficacy test.
 
 The expensive immutable-snapshot integration gates are opt-in:
 
@@ -161,6 +174,8 @@ The expensive immutable-snapshot integration gates are opt-in:
 O1_CRYPTO_DIRECT12_REAL=1 \
   .venv/bin/python -m unittest discover -s tests -v
 O1_CRYPTO_CORRECTED_REAL=1 \
+  .venv/bin/python -m unittest discover -s tests -v
+O1_CRYPTO_UPSTREAM_REAL=1 \
   .venv/bin/python -m unittest discover -s tests -v
 ```
 

@@ -11,6 +11,29 @@ Research priority is proportional to expected frontier impact, information gain,
 reuse and downstream leverage, divided by implementation cost, compute cost and
 contamination risk. Green tests and document count are not research outcomes.
 
+## Current milestone
+
+O1C-0007 established the first structurally eligible compact upstream mechanism:
+12 unary registers, a 266-byte conservative logical-state bound and no candidate
+rows. Its retrospective A355 efficacy test was negative at exact conditional
+`p=0.593505859375`; A356 is target-/outcome-blind but not source-unseen. The active
+milestone is O1C-0008: apply that exact frozen decoder to multiple newly generated
+paired-assumption solver trajectories, with complete pre-reveal persistence and
+matched controls. No SOTA claim exists until fresh reproducible downstream utility
+passes.
+
+## Evidence ladder from here
+
+1. Freeze target generation, solver budget, decoder hash, controls and reveal rule.
+2. Generate source-unseen explicit `k_i=0`/`k_i=1` assumption pairs and stream their
+   signed event deltas into the fixed state.
+3. Persist every compact state and target-blind output before opening any target.
+4. Evaluate multi-target exact/null evidence and downstream search-space or
+   time-to-hit advantage under matched work.
+5. Only after that gate passes, attempt bounded full-round recovery and independent
+   confirmation; otherwise preserve the observability boundary and expand only the
+   implicated carry/round/conflict mechanism.
+
 ## Operating contract
 
 - Work only inside this lab; sibling projects are read-only.

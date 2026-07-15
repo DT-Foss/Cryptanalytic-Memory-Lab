@@ -188,3 +188,51 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Breadcrumb:** stop compressing the dense final scalar field with full-rank
   transforms. Move upstream to bit/carry/round/solver evidence and require a genuine
   non-dictionary successor below 3,918 bytes before generating a fresh challenge.
+
+## O1C-0007 — Upstream solver-evidence Bit-Vault freeze
+
+- **Recorded:** 2026-07-15T17:45:37+02:00
+- **Source commit:** `cf7ef298caf80006ae3470240d509c661221b150`
+- **Claim level:** `RETROSPECTIVE`
+- **Hypothesis:** low-degree projections of upstream solver-event evidence can
+  populate a genuine compact O1 state and yield a useful complete candidate order
+  without retaining candidate rows, evidence rows or a KV store.
+- **Lifecycle:** all 672 A355 orders were persisted before the single A355 target
+  read. The exact 152-view target-blind selection procedure was then replayed for
+  every possible label. The selected decoder and A356 state/order were persisted
+  before any A356 target or outcome read. The finalized attempt cannot be replayed.
+- **Selected decoder:**
+  `search_propagations__h1__signed-log1p__degree1__negative`; selected-spec SHA-256
+  `4c78e10edf21504085e6bf3efc21ef03e50fe6abfb0993556b8fb6f0531d6694`.
+- **Compact state:** 12 implicit unary Walsh registers; 266-byte conservative
+  maximum logical mechanism state; 162-byte frozen A355/A356 binaries; zero
+  candidate/evidence rows and zero external index growth.
+- **Retrospective efficacy:** A355 rank `73`, raw gain `5.810175441119982` bits;
+  exact favorable-label count `2431/4096`, hence conditional
+  `p=0.593505859375`. The efficacy gate failed and no statistical SOTA is claimed.
+- **Prospective artifact:** target-/outcome-blind transductive A356 order SHA-256
+  `0a6e32430a97c968c3a831ef23c58eaacaaf411fcc9f44e59661f62efa764159`.
+  A356 is not source-unseen and therefore is not the fresh test.
+- **Controls:** 14 channels, four horizons, three transforms, two supports and two
+  orientations; 448/672 views structurally streamable, 152/448 eligible after the
+  target-blind tie gate. Best nonstreamable post-hoc rank was 23; best tied
+  streamable control rank was 26 with 3,328 collision excess. Neither is promoted.
+- **Boundary:** the 266-byte state and O1C-0006's 3,918-byte table encode different
+  fields and fidelity targets, so their sizes do not prove matched-information
+  compression dominance. The accumulator consumed a materialized canonical field;
+  source-event-to-state streaming remains unproven.
+- **Source and cost:** 34 allowed members opened and copied from immutable O1C-0006
+  source capsule `720bc888…`, totaling 2,942,292 bytes; zero sibling reads/writes,
+  zero active progress or outcome reads, zero fresh challenges, zero new solver/GPU
+  work; elapsed `10.798910` seconds.
+- **Artifact:**
+  `runs/20260715_174537_O1C-0007_upstream-solver-evidence-bit-vault-freeze/`;
+  capsule manifest `2900adafb938ba470ae595b21895a0035a77621a667e04abacf1fd8d5654f3c1`;
+  report artifact `868f339b22e6b1bddbde944dffcebd22ad8f94287b829cd65d85670d4de2dec5`;
+  internal report commitment `c371ce0b100684b518c1e9094547f2acdb869c3a9aac660408058acc48ccdfe7`;
+  panel blob `2ed242ba8582798cd23618be18a230cecabe27c9aed2546f5a88814117f86949`;
+  future-template artifact `836d6f0b01a7b86d50b0b5f81eaaaef1df235dfa45804b2a5ccc2a18d24775fd`.
+- **Breadcrumb:** preserve the compact mechanism and the negative calibration;
+  never resweep A355. O1C-0008 must apply the exact frozen decoder once to multiple
+  new OS-random paired-assumption trajectories, persist outputs before reveal and
+  demand reproducible downstream search advantage.
