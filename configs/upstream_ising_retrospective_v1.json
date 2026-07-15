@@ -1,0 +1,80 @@
+{
+  "schema": "o1-crypto-upstream-ising-retrospective-config-v1",
+  "attempt_id": "O1C-0007",
+  "slug": "upstream-solver-evidence-bit-vault-freeze",
+  "claim_level": "RETROSPECTIVE",
+  "hypothesis": "A compact O1 bit-vault that streams solver-stage evidence into implicit unary or unary-plus-pairwise Walsh registers can preserve useful cryptanalytic candidate information below the 3918-byte direct-table ceiling, even when a broad retrospective panel and its negative selection-adjusted evidence are accounted for exactly.",
+  "prediction": "The complete target-blind 672-view A355 panel will reproduce one frozen streamable tie-free primary with 12 implicit registers, rank 73, 5.810175441119982 bits of raw rank gain, and at most 266 bytes of conservatively bound logical state; exact enumeration over all 4096 labels will disclose the conditional familywise probability across every tie-free view among the 448 pre-gate streamable views, and the selected single-pass accumulator over a materialized canonical evidence field will emit a complete hash-frozen A356 order without reading an A356 target, outcome, or progress artifact.",
+  "controls": [
+    "Persist all 672 complete A355 target-blind orders before opening the A355 calibration truth.",
+    "Enumerate all 4096 possible A355 labels through the exact selection procedure after applying the target-blind tie gate to all 448 pre-gate streamable views; do not substitute an unadjusted rank or approximate permutation test.",
+    "State explicitly that the conditional exact null adjusts the declared 672-view panel but not pre-panel exploration or panel-family design.",
+    "Retain all 224 rank-transform views as nonstreamable negative breadcrumbs and exclude them from primary selection.",
+    "Exclude every streamable view with any projected-score tie from primary selection so numeric candidate ID cannot become hidden ranking evidence; retain all such views as controls.",
+    "Retain the previously identified offered-per-conflict h8 degree1+2 candidate as a named historical breadcrumb rather than silently replacing it.",
+    "Count the plan binding, evidence binding, canonical stream counter, and logical SHA-256 state in the compact-memory ceiling.",
+    "Open the A356 metadata and 16 shards only after the selected template and A355 state have been persisted.",
+    "Keep sibling repositories untouched; consume only exact members of the immutable O1C-0006 capsule.",
+    "Claim neither recovery, fresh validation, statistical significance, nor SOTA from O1C-0007.",
+    "Treat every success flag as a protocol-integrity result; the scientific-efficacy gate remains false at selection-adjusted p = 0.593505859375.",
+    "Treat 266 bytes versus 3918 bytes only as a prior table-budget reference across different fields and fidelity targets, never as matched-information compression dominance.",
+    "Treat A356 as a transductive target- and outcome-blind order freeze that is prospective only relative to target/outcome reveal, never as source-unseen or fresh holdout evidence."
+  ],
+  "budgets": {
+    "maximum_panel_views": 672,
+    "maximum_selection_eligible_views": 448,
+    "maximum_serialized_logical_mechanism_state_bytes": 512,
+    "direct_quantized_table_ceiling_bytes": 3918,
+    "maximum_new_solver_calls": 0,
+    "maximum_gpu_seconds": 0,
+    "maximum_A355_calibration_labels": 1,
+    "maximum_A356_target_labels": 0,
+    "maximum_fresh_challenges": 0
+  },
+  "source": {
+    "capsule": "runs/20260715_154553_O1C-0006_corrected-codec-adaptive-dc-bridge",
+    "manifest_sha256": "720bc88834e5ae2959ac960d4f5fe2ca1c8845283b0d32273c6ca2cfea34fdc6",
+    "A355_truth_member": "artifacts/source_snapshot/calibration_labeled/research/results/v1/chacha20_round20_w46_corrected_group_direct12_reader_a355_v1.json",
+    "A356_metadata_member": "artifacts/source_snapshot/measurements_unlabeled/research/results/v1/chacha20_round20_w46_corrected_group_a345_transfer_a356_measurement_v1.json",
+    "A355": {
+      "attempt_id": "A355",
+      "role": "measurements_unlabeled",
+      "shard_prefix": "research/results/v1/chacha20_round20_w46_corrected_group_direct12_reader_a355_v1",
+      "schema_key": "A355_MEASUREMENT",
+      "high8_variables": [116, 112, 108, 103, 98, 93, 88, 84],
+      "low4_variables": [79, 75, 71, 67],
+      "maximum_raw_shard_bytes": 2000000,
+      "expected_field_sha256": "7448f01e77a9bffff35f07d7df7cb2bcc9fb948e689477ac13eaabcde7429c53"
+    },
+    "A356": {
+      "attempt_id": "A356",
+      "role": "measurements_unlabeled",
+      "shard_prefix": "research/results/v1/chacha20_round20_w46_corrected_group_a345_transfer_a356_v1",
+      "schema_key": "A356_MEASUREMENT",
+      "high8_variables": [119, 115, 111, 106, 101, 96, 91, 87],
+      "low4_variables": [82, 78, 74, 70],
+      "maximum_raw_shard_bytes": 2000000,
+      "expected_field_sha256": "4aaa65bfc394a0b33acb19d5c611f6c60d0e91fe5a1fb2d19486b40cc20ba1cb"
+    }
+  },
+  "expected": {
+    "selected_view_id": "search_propagations__h1__signed-log1p__degree1__negative",
+    "selected_spec_sha256": "4c78e10edf21504085e6bf3efc21ef03e50fe6abfb0993556b8fb6f0531d6694",
+    "selected_registers": 12,
+    "selected_maximum_state_bytes": 266,
+    "A355_selected_rank": 73,
+    "A355_selected_order_sha256": "fdf7c3618f7c2b5d9fbb1c47a0826fb1293932016fe5602a346e9c247e188852",
+    "favorable_label_count": 2431,
+    "exact_familywise_p": 0.593505859375,
+    "best_nonstreamable_view_id": "offered_per_conflict__h8__rank__degree1+2__negative",
+    "best_nonstreamable_rank": 23,
+    "best_tied_streamable_view_id": "active_variables_delta__h1__signed-log1p__degree1__negative",
+    "best_tied_streamable_rank": 26,
+    "best_tied_streamable_tie_collision_excess": 3328,
+    "historical_candidate_view_id": "offered_per_conflict__h8__zscore__degree1+2__negative",
+    "historical_candidate_rank": 75,
+    "historical_candidate_order_sha256": "77a3ecffb86211c08a9862b225cf1d5360d535fb9561dfe0fa1e095a6dbd9a07",
+    "A356_order_sha256": "0a6e32430a97c968c3a831ef23c58eaacaaf411fcc9f44e59661f62efa764159"
+  },
+  "next_action": "Treat O1C-0007 as a retrospective mechanism freeze and negative multiple-testing breadcrumb; under O1C-0008 generate fresh OS-random paired-assumption solver trajectories with every tested key bit passed as an assumption, stream them through the frozen 12-register decoder, commit the output before reveal, and require multi-target recovery or reproducible fresh rank gain before any SOTA claim."
+}

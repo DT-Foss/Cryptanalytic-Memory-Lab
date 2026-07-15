@@ -19,6 +19,7 @@ from .replay import O1OSessionReplay
 from .reader_experiment import run_reader_experiment
 from .run_capsule import ClaimLevel, RunCapsuleManager
 from .stage3_ingest import run_stage3_ingest
+from .upstream_experiment import run_upstream_ising_retrospective
 
 
 def _lab_root() -> Path:
@@ -128,7 +129,7 @@ def _clean_git_commit(root: Path) -> str:
     if status.returncode != 0:
         raise RuntimeError("could not verify the lab Git worktree")
     if status.stdout.strip():
-        raise RuntimeError("O1C-0006 requires a clean committed lab worktree")
+        raise RuntimeError("outcome-bearing runs require a clean committed lab worktree")
     return commit
 
 
@@ -1363,6 +1364,384 @@ def _corrected_codec_bridge(args: argparse.Namespace) -> int:
     return 0
 
 
+def _upstream_ising_freeze(args: argparse.Namespace) -> int:
+    root = _lab_root()
+    requested_config = args.config
+    if requested_config.is_symlink():
+        raise RuntimeError("upstream Ising config cannot be a symlink")
+    config_path = requested_config.resolve(strict=True)
+    expected_config = (
+        root / "configs/upstream_ising_retrospective_v1.json"
+    ).resolve(strict=True)
+    if config_path != expected_config:
+        raise RuntimeError("upstream Ising freeze requires its canonical lab config")
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    source_capsule = (root / config["source"]["capsule"]).resolve()
+    module_paths = tuple(sorted((root / "src/o1_crypto_lab").glob("*.py")))
+
+    def current_source_hashes() -> dict[str, str]:
+        return {
+            "upstream_ising_config": _sha256(config_path),
+            "pyproject": _sha256(root / "pyproject.toml"),
+            "o1c_0006_capsule_manifest": _sha256(
+                source_capsule / "artifacts.sha256"
+            ),
+            **{f"module_{path.stem}": _sha256(path) for path in module_paths},
+        }
+
+    manager = RunCapsuleManager(root)
+    attempt_id = str(config["attempt_id"])
+    published = manager.finalized_attempt(attempt_id)
+    if published is not None:
+        metrics_document = json.loads(
+            (published.path / "metrics.json").read_text(encoding="utf-8")
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": published.attempt_id,
+                    "path": str(published.path),
+                    "manifest_sha256": published.manifest_sha256,
+                    "verified": published.verification.ok,
+                    "status": "already-finalized-no-replay",
+                    "capsule_status": metrics_document.get("status"),
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 0 if metrics_document.get("status") == "completed" else 2
+    if attempt_id in manager.recoverable_attempt_ids():
+        interrupted = manager.recover(attempt_id)
+        if interrupted.publication_prepared:
+            finalized = interrupted.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 2
+        finalized = interrupted.finalize(
+            metrics={
+                "schema": "o1-crypto-o1c0007-interrupted-v1",
+                "hard_interruption_recovered": True,
+                "scientific_result_claimed": False,
+                "fresh_challenge_generated": False,
+                "A356_target_labels_read": 0,
+                "sibling_writes": 0,
+            },
+            status="stopped",
+            next_action=(
+                "Treat O1C-0007 as consumed by a hard interruption and advance "
+                "the identical frozen protocol under O1C-0008; never replay the "
+                "partial calibration under the same attempt ID."
+            ),
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": finalized.attempt_id,
+                    "path": str(finalized.path),
+                    "manifest_sha256": finalized.manifest_sha256,
+                    "verified": finalized.verification.ok,
+                    "status": "stopped-after-hard-interruption",
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 2
+
+    commit = _clean_git_commit(root)
+    source_hashes = current_source_hashes()
+    if _clean_git_commit(root) != commit:
+        raise RuntimeError("lab Git commit changed before O1C-0007 reservation")
+    if current_source_hashes() != source_hashes:
+        raise RuntimeError("lab source hashes changed before O1C-0007 reservation")
+    run = manager.start(
+        attempt_id=config["attempt_id"],
+        slug=config["slug"],
+        commit=commit,
+        hypothesis=config["hypothesis"],
+        prediction=config["prediction"],
+        controls=tuple(config["controls"]),
+        budgets=config["budgets"],
+        source_hashes=source_hashes,
+        claim_level=ClaimLevel(config["claim_level"]),
+        next_action=config["next_action"],
+        config=config,
+        command=(
+            "o1-crypto-lab",
+            "upstream-ising-freeze",
+            "--config",
+            str(config_path),
+        ),
+        environment={
+            "source_capsule": str(source_capsule),
+            "source_access": "IMMUTABLE_O1C0006_EXACT_ALLOWLIST",
+            "sibling_repository_reads": 0,
+            "sibling_repository_writes": 0,
+            "A355_truth_reads": 1,
+            "A356_target_or_outcome_reads": 0,
+            "fresh_challenge_generated": False,
+            "outcome_bearing_execution_begins_after_attempt_reservation": True,
+            "hard_interruption_policy": "FINALIZE_STOPPED_AND_ADVANCE_ATTEMPT_ID",
+        },
+    )
+
+    def on_panel_frozen(
+        inventory: dict[str, object] | object,
+        order_blob: bytes,
+    ) -> dict[str, object]:
+        if not isinstance(inventory, dict):
+            raise RuntimeError("panel inventory must be an object")
+        inventory_path = run.write_json_artifact(
+            "panel/a355_target_blind_inventory.json", inventory
+        )
+        order_path = run.write_artifact(
+            "panel/a355_target_blind_orders.uint16be", order_blob
+        )
+        if (
+            _sha256(order_path) != inventory["order_blob_sha256"]
+            or order_path.stat().st_size != inventory["order_blob_bytes"]
+            or _canonical_value_sha256(
+                {
+                    key: value
+                    for key, value in inventory.items()
+                    if key != "inventory_sha256"
+                }
+            )
+            != inventory["inventory_sha256"]
+        ):
+            raise RuntimeError("persisted target-blind panel inventory differs")
+        run.checkpoint(
+            {
+                "phase": "A355_672_ORDERS_PERSISTED_BEFORE_CALIBRATION_TRUTH",
+                "orders": inventory["orders"],
+                "eligible_orders": inventory["selection_eligible_orders"],
+                "inventory_sha256": inventory["inventory_sha256"],
+                "order_blob_sha256": inventory["order_blob_sha256"],
+                "A355_target_labels_read": 0,
+                "A356_source_members_opened": 0,
+            }
+        )
+        run.append_stdout(
+            "Persisted all 672 complete A355 target-blind orders before calibration truth.\n"
+        )
+        return {
+            "schema": "o1-crypto-o1c0007-panel-persistence-receipt-v1",
+            "persisted": True,
+            "inventory_sha256": inventory["inventory_sha256"],
+            "inventory_artifact_sha256": _sha256(inventory_path),
+            "order_blob_sha256": inventory["order_blob_sha256"],
+            "orders": inventory["orders"],
+            "target_labels_read": 0,
+        }
+
+    def on_selection_frozen(
+        template: dict[str, object] | object,
+        state_bytes: bytes,
+        order_bytes: bytes,
+    ) -> dict[str, object]:
+        if not isinstance(template, dict):
+            raise RuntimeError("future template must be an object")
+        template_path = run.write_json_artifact(
+            "selection/frozen_future_template.json", template
+        )
+        state_path = run.write_artifact(
+            "selection/a355_compact_memory.bin", state_bytes
+        )
+        order_path = run.write_artifact(
+            "selection/a355_selected_order.uint16be", order_bytes
+        )
+        _verify_complete_direct12_order_artifact(order_path)
+        if _sha256(order_path) != template["calibration"]["order_sha256"]:
+            raise RuntimeError("persisted A355 selected order differs")
+        run.checkpoint(
+            {
+                "phase": "SELECTED_MEMORY_PERSISTED_BEFORE_A356_SOURCE_OPEN",
+                "future_template_sha256": template["future_template_sha256"],
+                "A355_state_sha256": _sha256(state_path),
+                "A355_order_sha256": _sha256(order_path),
+                "A356_source_members_opened": 0,
+                "A356_target_labels_read": 0,
+            }
+        )
+        run.append_stdout(
+            "Frozen the selected compact evidence memory before opening A356 metadata or shards.\n"
+        )
+        return {
+            "schema": "o1-crypto-o1c0007-selection-persistence-receipt-v1",
+            "persisted": True,
+            "future_template_sha256": template["future_template_sha256"],
+            "future_template_artifact_sha256": _sha256(template_path),
+            "A355_state_sha256": _sha256(state_path),
+            "A355_order_sha256": _sha256(order_path),
+            "A356_source_members_opened": 0,
+        }
+
+    def on_deployment_frozen(
+        document: dict[str, object] | object,
+        state_bytes: bytes,
+        order_bytes: bytes,
+    ) -> dict[str, object]:
+        if not isinstance(document, dict):
+            raise RuntimeError("deployment execution must be an object")
+        document_path = run.write_json_artifact(
+            "deployment/a356_target_blind_execution.json", document
+        )
+        state_path = run.write_artifact(
+            "deployment/a356_compact_memory.bin", state_bytes
+        )
+        order_path = run.write_artifact(
+            "deployment/a356_target_blind_order.uint16be", order_bytes
+        )
+        _verify_complete_direct12_order_artifact(order_path)
+        if _sha256(order_path) != document["order_sha256"]:
+            raise RuntimeError("persisted A356 order differs")
+        run.checkpoint(
+            {
+                "phase": "A356_TARGET_BLIND_ORDER_PERSISTED",
+                "execution_sha256": document["execution_sha256"],
+                "A356_state_sha256": _sha256(state_path),
+                "A356_order_sha256": _sha256(order_path),
+                "A356_target_labels_read": 0,
+                "fresh_challenge_generated": False,
+            }
+        )
+        return {
+            "schema": "o1-crypto-o1c0007-deployment-persistence-receipt-v1",
+            "persisted": True,
+            "execution_sha256": document["execution_sha256"],
+            "execution_artifact_sha256": _sha256(document_path),
+            "A356_state_sha256": _sha256(state_path),
+            "A356_order_sha256": _sha256(order_path),
+            "A356_target_labels_read": 0,
+        }
+
+    try:
+        run.checkpoint(
+            {
+                "phase": "IMMUTABLE_O1C0006_SOURCE_PINNED",
+                "A355_target_labels_read": 0,
+                "A356_source_members_opened": 0,
+                "A356_target_labels_read": 0,
+                "sibling_writes": 0,
+            }
+        )
+        run.append_stdout(
+            "O1C-0007 upstream solver-evidence panel and compact bit-vault freeze started.\n"
+        )
+        result = run_upstream_ising_retrospective(
+            config_path,
+            lab_root=root,
+            artifact_writer=run.write_artifact,
+            on_panel_frozen=on_panel_frozen,
+            on_selection_frozen=on_selection_frozen,
+            on_deployment_frozen=on_deployment_frozen,
+        )
+        if not result.success_gate_passed:
+            raise RuntimeError("O1C-0007 failed at least one frozen success gate")
+        if _clean_git_commit(root) != commit:
+            raise RuntimeError("lab Git commit changed during O1C-0007 execution")
+        if current_source_hashes() != source_hashes:
+            raise RuntimeError("lab source hashes changed during O1C-0007 execution")
+        run.write_json_artifact("upstream_ising_retrospective.json", result.report)
+        run.write_json_artifact("o1c0007_metrics.json", result.metrics())
+        run.write_json_artifact("source_receipts.json", result.source_snapshot)
+        run.write_json_artifact(
+            "calibration/a355_target_bound_panel.json",
+            result.calibration_panel.describe(),
+        )
+        run.write_json_artifact(
+            "calibration/a355_exact_label_null.json",
+            result.exact_null.describe(include_label_vectors=True),
+        )
+        run.write_json_artifact(
+            "selection/a355_selected_memory.json",
+            result.a355_memory.describe(),
+        )
+        metrics = result.metrics()
+        run.append_stdout(json.dumps(metrics, sort_keys=True) + "\n")
+        finalized = run.finalize(metrics=metrics)
+    except Exception as exc:
+        if run.publication_prepared:
+            # Final metrics and content were already commitment-bound. Finish
+            # or discover that exact publication without relabeling it.
+            finalized = run.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 1
+        run.append_stderr(f"{type(exc).__name__}: {exc}\n")
+        finalized = run.finalize(
+            metrics={
+                "schema": "o1-crypto-o1c0007-failure-v1",
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "fresh_challenge_generated": False,
+                "A356_target_labels_read": 0,
+                "sibling_writes": 0,
+                "scientific_result_claimed": False,
+            },
+            status="failed",
+            next_action=(
+                "Fix the recorded lifecycle or reproduction invariant under a "
+                "new attempt ID; never replay O1C-0007 or inspect an A356 outcome."
+            ),
+        )
+        print(f"failed capsule: {finalized.path}", file=sys.stderr)
+        return 1
+    print(
+        json.dumps(
+            {
+                "attempt_id": finalized.attempt_id,
+                "path": str(finalized.path),
+                "manifest_sha256": finalized.manifest_sha256,
+                "verified": finalized.verification.ok,
+                "success_gate_passed": result.success_gate_passed,
+                "selected_view": result.metrics()["selected_view_id"],
+                "A355_rank": result.metrics()["A355_rank"],
+                "maximum_state_bytes": result.metrics()[
+                    "maximum_serialized_logical_mechanism_state_bytes"
+                ],
+                "exact_familywise_p": result.metrics()["exact_familywise_p"],
+                "A356_order_sha256": result.metrics()["A356_order_sha256"],
+                "fresh_challenge_generated": False,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     root = _lab_root()
     parser = argparse.ArgumentParser(
@@ -1477,6 +1856,17 @@ def build_parser() -> argparse.ArgumentParser:
         default=root / "configs/corrected_codec_bridge_v1.json",
     )
     corrected.set_defaults(handler=_corrected_codec_bridge)
+
+    upstream = subparsers.add_parser(
+        "upstream-ising-freeze",
+        help="freeze the exact upstream evidence panel and compact target-blind A356 order",
+    )
+    upstream.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/upstream_ising_retrospective_v1.json",
+    )
+    upstream.set_defaults(handler=_upstream_ising_freeze)
     return parser
 
 

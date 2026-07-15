@@ -21,6 +21,7 @@ from o1_crypto_lab.upstream_panel import (
     build_panel_specs,
     exact_label_enumeration_fwer,
     project_view,
+    projection_input_values,
     run_upstream_panel,
     transform_values,
 )
@@ -107,7 +108,7 @@ class FieldAndTransformTests(unittest.TestCase):
             "decisions", 1, "zscore", "degree1", "positive"
         )
         projected = project_view(self.field, spec)
-        transformed = transform_values(
+        transformed = projection_input_values(
             base_channel_values(self.field, "decisions", 1), "zscore"
         )
         coefficients = {
@@ -174,6 +175,12 @@ class CompletePanelTests(unittest.TestCase):
         self.assertEqual(len(ineligible), 224)
         self.assertTrue(all(spec.transform_id == "rank" for spec in ineligible))
         self.assertTrue(all(not spec.streamable for spec in ineligible))
+        effective = [
+            view for view in self.blind.views if view.effective_selection_eligible
+        ]
+        self.assertGreater(len(effective), 0)
+        self.assertLessEqual(len(effective), SELECTION_ELIGIBLE_VIEW_COUNT)
+        self.assertTrue(all(view.tie_collision_excess == 0 for view in effective))
 
     def test_target_blind_panel_contains_no_rank_or_selection(self):
         self.assertIsNone(self.blind.target_address)
@@ -214,7 +221,7 @@ class CompletePanelTests(unittest.TestCase):
     def test_target_binding_selects_exact_deterministic_primary(self):
         self.assertEqual(self.bound.target_address, self.target)
         eligible = [
-            view for view in self.bound.views if view.spec.selection_eligible
+            view for view in self.bound.views if view.effective_selection_eligible
         ]
         expected = min(
             eligible,
@@ -244,7 +251,13 @@ class CompletePanelTests(unittest.TestCase):
         self.assertEqual(len(result.minimum_selected_rank_by_label), DOMAIN_SIZE)
         self.assertEqual(len(result.selected_view_index_by_label), DOMAIN_SIZE)
         self.assertEqual(sum(result.selected_rank_histogram), DOMAIN_SIZE)
-        self.assertEqual(len(result.eligible_view_ids), SELECTION_ELIGIBLE_VIEW_COUNT)
+        self.assertEqual(
+            len(result.eligible_view_ids),
+            sum(view.effective_selection_eligible for view in self.bound.views),
+        )
+        self.assertLessEqual(
+            len(result.eligible_view_ids), SELECTION_ELIGIBLE_VIEW_COUNT
+        )
         self.assertEqual(
             result.minimum_selected_rank_by_label[self.target],
             self.bound.selected_primary.target_rank,
@@ -267,7 +280,7 @@ class CompletePanelTests(unittest.TestCase):
                     view.spec.view_id,
                 )
                 for view in self.bound.views
-                if view.spec.selection_eligible
+                if view.effective_selection_eligible
             )
             self.assertEqual(result.minimum_selected_rank_by_label[label], manual[0])
             self.assertEqual(result.selected_view_id(label), manual[2])

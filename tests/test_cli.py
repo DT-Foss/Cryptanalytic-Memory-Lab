@@ -13,11 +13,13 @@ from o1_crypto_lab import cli
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "configs/corrected_codec_bridge_v1.json"
+UPSTREAM_CONFIG = ROOT / "configs/upstream_ising_retrospective_v1.json"
 
 
 class _RecordingRun:
     def __init__(self, events):
         self.events = events
+        self.publication_prepared = False
 
     def checkpoint(self, payload):
         self.events.append(("checkpoint", payload["phase"]))
@@ -123,6 +125,9 @@ class CorrectedBridgeCLILifecycleTests(unittest.TestCase):
             def recoverable_attempt_ids(self):
                 return ()
 
+            def finalized_attempt(self, attempt_id):
+                return None
+
             def start(self, **kwargs):
                 events.append(("start", kwargs["attempt_id"]))
                 return run
@@ -145,6 +150,87 @@ class CorrectedBridgeCLILifecycleTests(unittest.TestCase):
         self.assertLess(names.index("checkpoint"), names.index("bridge"))
         self.assertIn(
             ("finalize", "failed", "o1-crypto-corrected-codec-bridge-failure-v1"),
+            events,
+        )
+
+
+class UpstreamIsingCLILifecycleTests(unittest.TestCase):
+    def test_attempt_is_reserved_before_upstream_panel_failure(self):
+        events = []
+        run = _RecordingRun(events)
+
+        class Manager:
+            def __init__(self, root):
+                self.root = root
+
+            def recoverable_attempt_ids(self):
+                return ()
+
+            def finalized_attempt(self, attempt_id):
+                return None
+
+            def start(self, **kwargs):
+                events.append(("start", kwargs["attempt_id"]))
+                return run
+
+        def fail_upstream(*args, **kwargs):
+            events.append(("upstream", "raised"))
+            raise RuntimeError("synthetic upstream failure")
+
+        with (
+            patch.object(cli, "RunCapsuleManager", Manager),
+            patch.object(cli, "_clean_git_commit", return_value="b" * 40),
+            patch.object(
+                cli,
+                "run_upstream_ising_retrospective",
+                side_effect=fail_upstream,
+            ),
+            patch("sys.stderr", new=io.StringIO()),
+        ):
+            code = cli._upstream_ising_freeze(
+                argparse.Namespace(config=UPSTREAM_CONFIG)
+            )
+
+        names = [event[0] for event in events]
+        self.assertEqual(code, 1)
+        self.assertLess(names.index("start"), names.index("checkpoint"))
+        self.assertLess(names.index("checkpoint"), names.index("upstream"))
+        self.assertIn(
+            ("finalize", "failed", "o1-crypto-o1c0007-failure-v1"),
+            events,
+        )
+
+    def test_recoverable_upstream_interruption_stops_without_replay(self):
+        events = []
+        run = _RecordingRun(events)
+
+        class Manager:
+            def __init__(self, root):
+                self.root = root
+
+            def recoverable_attempt_ids(self):
+                return ("O1C-0007",)
+
+            def finalized_attempt(self, attempt_id):
+                return None
+
+            def recover(self, attempt_id):
+                events.append(("recover", attempt_id))
+                return run
+
+        with (
+            patch.object(cli, "RunCapsuleManager", Manager),
+            patch.object(cli, "run_upstream_ising_retrospective") as experiment,
+            patch("sys.stdout", new=io.StringIO()),
+        ):
+            code = cli._upstream_ising_freeze(
+                argparse.Namespace(config=UPSTREAM_CONFIG)
+            )
+
+        self.assertEqual(code, 2)
+        experiment.assert_not_called()
+        self.assertIn(
+            ("finalize", "stopped", "o1-crypto-o1c0007-interrupted-v1"),
             events,
         )
 

@@ -94,6 +94,26 @@ class IsingProjectionTests(unittest.TestCase):
 
 
 class IsingCanonicalStreamTests(unittest.TestCase):
+    def test_complete_field_is_consumed_in_exactly_one_accumulator_pass(self):
+        class SinglePassField:
+            def __init__(self) -> None:
+                self.iterations = 0
+
+            def __len__(self) -> int:
+                return DOMAIN_SIZE
+
+            def __iter__(self):
+                self.iterations += 1
+                if self.iterations != 1:
+                    raise AssertionError("evidence field was traversed more than once")
+                return iter((0.0,) * DOMAIN_SIZE)
+
+        evidence = SinglePassField()
+        memory = IsingEvidenceMemory()
+        memory.observe_field(evidence)
+        self.assertEqual(evidence.iterations, 1)
+        self.assertEqual(memory.finalize().observations, DOMAIN_SIZE)
+
     def test_duplicate_out_of_order_and_incomplete_streams_are_rejected(self):
         duplicate = IsingEvidenceMemory()
         duplicate.observe(0, 1.0)

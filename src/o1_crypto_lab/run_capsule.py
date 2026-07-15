@@ -1,9 +1,10 @@
 """Immutable, recoverable run capsules for O1C research attempts.
 
 The manager deliberately keeps all filesystem mutation below ``runs/`` and
-uses directory-relative, ``O_NOFOLLOW`` file operations.  A run is assembled
-under a hidden in-progress directory, then atomically renamed to its public,
-timestamped name only after its manifest is complete.
+uses directory-relative, ``O_NOFOLLOW`` file operations.  New stages are hidden
+siblings of finalized capsules, then same-parent atomically renamed to their
+public timestamped names only after manifest and root permissions are complete.
+Legacy ``.in_progress`` recovery remains readable.
 """
 
 from __future__ import annotations
@@ -48,6 +49,10 @@ _MANDATORY_FILES = frozenset(
 )
 _STATE_FILE = ".capsule-state.json"
 _MANIFEST_FILE = "artifacts.sha256"
+_PUBLICATION_PROTOCOL = "manifested-prepared-state-v1"
+_ATOMIC_REPLACE_TARGETS = frozenset(
+    {"checkpoint.json", "metrics.json", "RUN.md", _STATE_FILE, _MANIFEST_FILE}
+)
 
 
 class ClaimLevel(str, Enum):
@@ -168,6 +173,52 @@ def _atomic_replace(parent_fd: int, name: str, value: bytes) -> None:
         raise
 
 
+def _purge_atomic_temps(parent_fd: int) -> None:
+    """Remove only owned root-level atomic-write remnants after a hard kill."""
+
+    removed = False
+    for name in os.listdir(parent_fd):
+        matched = False
+        for target in _ATOMIC_REPLACE_TARGETS:
+            prefix = f".{target}."
+            suffix = ".tmp"
+            if not name.startswith(prefix) or not name.endswith(suffix):
+                continue
+            token = name[len(prefix) : -len(suffix)]
+            if len(token) != 24 or any(character not in "0123456789abcdef" for character in token):
+                continue
+            matched = True
+            break
+        if not matched:
+            continue
+        metadata = os.stat(name, dir_fd=parent_fd, follow_symlinks=False)
+        if not stat.S_ISREG(metadata.st_mode):
+            raise IsolationViolation(f"atomic temp remnant is not regular: {name}")
+        os.unlink(name, dir_fd=parent_fd)
+        removed = True
+    if removed:
+        os.fsync(parent_fd)
+
+
+def _prepared_content_commitment(files: Mapping[str, bytes]) -> tuple[int, str]:
+    """Bind every non-lifecycle capsule member before publication."""
+
+    rows = [
+        {
+            "path": name,
+            "bytes": len(value),
+            "sha256": hashlib.sha256(value).hexdigest(),
+        }
+        for name, value in sorted(files.items())
+        if name not in {_STATE_FILE, _MANIFEST_FILE}
+    ]
+    document = {
+        "schema": "o1c-prepared-content-set-v1",
+        "files": rows,
+    }
+    return len(rows), hashlib.sha256(_json_bytes(document)).hexdigest()
+
+
 def _read_regular(parent_fd: int, name: str) -> bytes:
     try:
         descriptor = os.open(name, _file_read_flags(), dir_fd=parent_fd)
@@ -220,7 +271,7 @@ def _safe_artifact_parts(relative: str) -> tuple[str, ...]:
 def _collect_files(directory_fd: int, *, prefix: str = "") -> dict[str, bytes]:
     collected: dict[str, bytes] = {}
     for name in sorted(os.listdir(directory_fd)):
-        if not prefix and name in {_STATE_FILE, _MANIFEST_FILE}:
+        if not prefix and name == _MANIFEST_FILE:
             continue
         relative = f"{prefix}/{name}" if prefix else name
         metadata = os.stat(name, dir_fd=directory_fd, follow_symlinks=False)
@@ -275,7 +326,8 @@ def _parse_manifest(value: bytes) -> dict[str, str]:
         if len(parts) != 2 or not _SHA256_RE.fullmatch(parts[0]):
             raise RunStateError(f"invalid capsule manifest line {line_number}")
         relative = parts[1].lstrip("*")
-        _safe_artifact_parts(relative)
+        if relative != _STATE_FILE:
+            _safe_artifact_parts(relative)
         if relative == _MANIFEST_FILE or relative in entries:
             raise RunStateError(f"invalid duplicate/self manifest member: {relative}")
         entries[relative] = parts[0].lower()
@@ -297,6 +349,39 @@ def _normalize_slug(value: str) -> str:
     if not slug or len(slug) > 80:
         raise ValueError("slug must yield 1-80 lowercase path-safe characters")
     return slug
+
+
+def _stage_parent(value: Mapping[str, Any]) -> str:
+    """Validate and return the reserved stage-parent protocol."""
+
+    parent = value.get("stage_parent", ".in_progress")
+    attempt = value.get("attempt_id")
+    token = value.get("run_token")
+    stage = value.get("stage_name")
+    if (
+        parent not in {"runs", ".in_progress"}
+        or not isinstance(attempt, str)
+        or not isinstance(token, str)
+        or not isinstance(stage, str)
+        or len(token) != 32
+        or any(character not in "0123456789abcdef" for character in token)
+    ):
+        raise RunStateError("invalid stage reservation")
+    expected = (
+        f".{attempt}.{token}.work"
+        if parent == "runs"
+        else f"{attempt}.{token}.work"
+    )
+    if stage != expected:
+        raise RunStateError(f"invalid stage reservation for {attempt}")
+    return parent
+
+
+def _open_stage_parent(runs_fd: int, value: Mapping[str, Any]) -> int:
+    parent = _stage_parent(value)
+    return os.dup(runs_fd) if parent == "runs" else _open_directory(
+        runs_fd, ".in_progress"
+    )
 
 
 def _require_text(name: str, value: str) -> str:
@@ -453,10 +538,15 @@ class RunCapsuleManager:
         timestamp = started.strftime("%Y%m%d_%H%M%S")
         final_name = f"{timestamp}_{attempt}_{safe_slug}"
         run_token = secrets.token_hex(16)
-        stage_name = f"{attempt}.{run_token}.work"
+        # New stages live hidden directly under runs/.  The final rename then
+        # stays within one parent, which macOS permits after the stage root has
+        # already been sealed 0555.
+        stage_name = f".{attempt}.{run_token}.work"
+        stage_parent = "runs"
         # Validate all user-supplied JSON before reserving the attempt.
         config_document = {
             "schema": "o1c-run-config-v1",
+            "publication_protocol": _PUBLICATION_PROTOCOL,
             "attempt_id": attempt,
             "commit": commit_value,
             "hypothesis": hypothesis_value,
@@ -498,6 +588,7 @@ class RunCapsuleManager:
             "slug": safe_slug,
             "run_token": run_token,
             "stage_name": stage_name,
+            "stage_parent": stage_parent,
             "final_name": final_name,
             "started_at": started.isoformat(),
             "commit": commit_value,
@@ -520,6 +611,7 @@ class RunCapsuleManager:
                 "attempt_id": attempt,
                 "run_token": run_token,
                 "stage_name": stage_name,
+                "stage_parent": stage_parent,
                 "final_name": final_name,
                 "started_at": started.isoformat(),
             }
@@ -532,7 +624,7 @@ class RunCapsuleManager:
             else:
                 raise RunCollisionError(f"final run directory already exists: {final_name}")
             attempts_fd = _open_directory(runs_fd, ".attempt_ids")
-            in_progress_fd = _open_directory(runs_fd, ".in_progress")
+            stage_parent_fd = os.dup(runs_fd)
             reservation_name = f"{attempt}.json"
             reserved = False
             staged = False
@@ -542,9 +634,9 @@ class RunCapsuleManager:
                 except FileExistsError as exc:
                     raise RunCollisionError(f"attempt ID already reserved: {attempt}") from exc
                 reserved = True
-                os.mkdir(stage_name, mode=0o700, dir_fd=in_progress_fd)
+                os.mkdir(stage_name, mode=0o700, dir_fd=stage_parent_fd)
                 staged = True
-                stage_fd = _open_directory(in_progress_fd, stage_name)
+                stage_fd = _open_directory(stage_parent_fd, stage_name)
                 try:
                     _write_new(stage_fd, _STATE_FILE, state_bytes)
                     _write_new(stage_fd, "config.json", config_bytes)
@@ -556,11 +648,11 @@ class RunCapsuleManager:
                     os.fsync(stage_fd)
                 finally:
                     os.close(stage_fd)
-                os.fsync(in_progress_fd)
+                os.fsync(stage_parent_fd)
                 os.fsync(attempts_fd)
             except Exception:
                 if staged:
-                    self._remove_flat_stage(in_progress_fd, stage_name)
+                    self._remove_flat_stage(stage_parent_fd, stage_name)
                 if reserved:
                     try:
                         os.unlink(reservation_name, dir_fd=attempts_fd)
@@ -568,7 +660,7 @@ class RunCapsuleManager:
                         pass
                 raise
             finally:
-                os.close(in_progress_fd)
+                os.close(stage_parent_fd)
                 os.close(attempts_fd)
         return RunCapsule(self, state)
 
@@ -595,7 +687,6 @@ class RunCapsuleManager:
         attempt = _normalize_attempt_id(attempt_id)
         with self._locked_runs() as runs_fd:
             attempts_fd = _open_directory(runs_fd, ".attempt_ids")
-            in_progress_fd = _open_directory(runs_fd, ".in_progress")
             try:
                 try:
                     reservation = json.loads(
@@ -604,25 +695,38 @@ class RunCapsuleManager:
                 except FileNotFoundError as exc:
                     raise RunStateError(f"attempt has no reservation: {attempt}") from exc
                 stage_name = reservation.get("stage_name")
-                if not isinstance(stage_name, str) or "/" in stage_name or stage_name.startswith("."):
-                    raise RunStateError(f"invalid stage reservation for {attempt}")
+                stage_parent_fd = _open_stage_parent(runs_fd, reservation)
                 try:
-                    stage_fd = _open_directory(in_progress_fd, stage_name)
-                except FileNotFoundError as exc:
-                    raise RunStateError(f"attempt is not recoverable (likely finalized): {attempt}") from exc
-                try:
-                    state = json.loads(_read_regular(stage_fd, _STATE_FILE).decode("utf-8"))
+                    try:
+                        stage_fd = _open_directory(stage_parent_fd, stage_name)
+                    except FileNotFoundError as exc:
+                        raise RunStateError(
+                            f"attempt is not recoverable (likely finalized): {attempt}"
+                        ) from exc
+                    try:
+                        state = json.loads(
+                            _read_regular(stage_fd, _STATE_FILE).decode("utf-8")
+                        )
+                    finally:
+                        os.close(stage_fd)
                 finally:
-                    os.close(stage_fd)
+                    os.close(stage_parent_fd)
             finally:
-                os.close(in_progress_fd)
                 os.close(attempts_fd)
+        lifecycle_valid = (
+            state.get("status") == "running"
+            and state.get("publication_phase") in {None, "running"}
+        ) or (
+            state.get("status") in {"completed", "failed", "stopped"}
+            and state.get("publication_phase") == "prepared"
+        )
         if (
             state.get("schema") != CAPSULE_SCHEMA
-            or state.get("status") != "running"
+            or not lifecycle_valid
             or state.get("attempt_id") != attempt
             or state.get("run_token") != reservation.get("run_token")
             or state.get("stage_name") != reservation.get("stage_name")
+            or _stage_parent(state) != _stage_parent(reservation)
             or state.get("final_name") != reservation.get("final_name")
         ):
             raise RunStateError(f"state/reservation mismatch for {attempt}")
@@ -634,7 +738,6 @@ class RunCapsuleManager:
         recoverable: list[str] = []
         with self._locked_runs() as runs_fd:
             attempts_fd = _open_directory(runs_fd, ".attempt_ids")
-            in_progress_fd = _open_directory(runs_fd, ".in_progress")
             try:
                 for name in sorted(os.listdir(attempts_fd)):
                     if not name.endswith(".json"):
@@ -642,16 +745,90 @@ class RunCapsuleManager:
                     try:
                         reservation = json.loads(_read_regular(attempts_fd, name).decode("utf-8"))
                         stage = reservation["stage_name"]
-                        descriptor = _open_directory(in_progress_fd, stage)
-                    except (KeyError, OSError, ValueError, IsolationViolation):
+                        stage_parent_fd = _open_stage_parent(runs_fd, reservation)
+                        try:
+                            descriptor = _open_directory(stage_parent_fd, stage)
+                        finally:
+                            os.close(stage_parent_fd)
+                    except (
+                        KeyError,
+                        OSError,
+                        ValueError,
+                        IsolationViolation,
+                        RunStateError,
+                    ):
                         continue
                     else:
                         os.close(descriptor)
                         recoverable.append(name[:-5])
             finally:
-                os.close(in_progress_fd)
                 os.close(attempts_fd)
         return tuple(recoverable)
+
+    def finalized_attempt(self, attempt_id: str) -> FinalizedRun | None:
+        """Return one already published reserved attempt without replaying it."""
+
+        attempt = _normalize_attempt_id(attempt_id)
+        with self._locked_runs() as runs_fd:
+            attempts_fd = _open_directory(runs_fd, ".attempt_ids")
+            try:
+                try:
+                    reservation = json.loads(
+                        _read_regular(attempts_fd, f"{attempt}.json").decode("utf-8")
+                    )
+                except FileNotFoundError:
+                    return None
+                final_name = reservation.get("final_name")
+                if (
+                    not isinstance(final_name, str)
+                    or "/" in final_name
+                    or final_name.startswith(".")
+                ):
+                    raise RunStateError(f"invalid final reservation for {attempt}")
+                try:
+                    final_fd = _open_directory(runs_fd, final_name)
+                except FileNotFoundError:
+                    return None
+                try:
+                    try:
+                        state = json.loads(
+                            _read_regular(final_fd, _STATE_FILE).decode("utf-8")
+                        )
+                    except FileNotFoundError:
+                        state = None
+                    if (
+                        isinstance(state, dict)
+                        and state.get("publication_phase") == "prepared"
+                    ):
+                        os.fchmod(final_fd, 0o555)
+                        os.fsync(final_fd)
+                        os.fsync(runs_fd)
+                finally:
+                    os.close(final_fd)
+            finally:
+                os.close(attempts_fd)
+        if state is not None and (
+            state.get("schema") != CAPSULE_SCHEMA
+            or state.get("attempt_id") != attempt
+            or state.get("run_token") != reservation.get("run_token")
+            or state.get("final_name") != final_name
+            or _stage_parent(state) != _stage_parent(reservation)
+            or state.get("publication_phase") != "prepared"
+            or state.get("status") not in {"completed", "failed", "stopped"}
+        ):
+            raise RunStateError(f"published state/reservation mismatch for {attempt}")
+        path = self.output_root / final_name
+        verification = self.verify(path)
+        if not verification.ok:
+            raise RunStateError(
+                f"published capsule failed verification: {verification.describe()}"
+            )
+        return FinalizedRun(
+            attempt_id=attempt,
+            path=path,
+            manifest_sha256=verification.manifest_sha256,
+            verification=verification,
+        )
 
     def verify(self, path: str | Path) -> CapsuleVerification:
         candidate = Path(path)
@@ -681,6 +858,13 @@ class RunCapsuleManager:
         }
         missing = sorted(set(expected) - set(actual_hashes))
         missing.extend(sorted(_MANDATORY_FILES - {_MANIFEST_FILE} - set(actual_hashes)))
+        try:
+            config_document = json.loads(actual_bytes["config.json"].decode("utf-8"))
+        except (KeyError, UnicodeDecodeError, json.JSONDecodeError):
+            config_document = {}
+        if config_document.get("publication_protocol") == _PUBLICATION_PROTOCOL:
+            if _STATE_FILE not in actual_hashes:
+                missing.append(_STATE_FILE)
         mismatched = sorted(
             name
             for name in set(expected) & set(actual_hashes)
@@ -712,11 +896,138 @@ class RunCapsule:
 
     @property
     def staging_path(self) -> Path:
+        if _stage_parent(self._state) == "runs":
+            return self._manager.output_root / self._state["stage_name"]
         return self._manager.output_root / ".in_progress" / self._state["stage_name"]
 
     @property
     def final_path(self) -> Path:
         return self._manager.output_root / self._state["final_name"]
+
+    @property
+    def publication_prepared(self) -> bool:
+        return (
+            self._state.get("publication_phase") == "prepared"
+            and self._state.get("status") in {"completed", "failed", "stopped"}
+        )
+
+    def _publish_prepared(self) -> FinalizedRun:
+        """Finish an immutable manifest-complete stage without recomputation."""
+
+        if not self.publication_prepared:
+            raise RunStateError(f"attempt is not publication-prepared: {self.attempt_id}")
+        with self._manager._locked_runs() as runs_fd:
+            stage_parent_fd = _open_stage_parent(runs_fd, self._state)
+            try:
+                stage_fd = _open_directory(
+                    stage_parent_fd,
+                    self._state["stage_name"],
+                )
+                try:
+                    live = json.loads(
+                        _read_regular(stage_fd, _STATE_FILE).decode("utf-8")
+                    )
+                    if (
+                        live.get("run_token") != self._state["run_token"]
+                        or live.get("publication_phase") != "prepared"
+                        or live.get("status")
+                        not in {"completed", "failed", "stopped"}
+                    ):
+                        raise RunStateError(
+                            f"prepared state mismatch for {self.attempt_id}"
+                        )
+                    # A prior failed rename may have left the hidden stage root
+                    # sealed. Reopen it only after the prepared state is bound.
+                    os.fchmod(stage_fd, 0o700)
+                    try:
+                        os.stat(
+                            self._state["final_name"],
+                            dir_fd=runs_fd,
+                            follow_symlinks=False,
+                        )
+                    except FileNotFoundError:
+                        pass
+                    else:
+                        raise RunCollisionError(
+                            f"final run directory already exists: "
+                            f"{self._state['final_name']}"
+                        )
+                    _purge_atomic_temps(stage_fd)
+                    files = _collect_files(stage_fd)
+                    content_files, content_sha256 = _prepared_content_commitment(
+                        files
+                    )
+                    if (
+                        live.get("prepared_content_files") != content_files
+                        or live.get("prepared_content_set_sha256")
+                        != content_sha256
+                        or live.get("metrics_sha256")
+                        != hashlib.sha256(files.get("metrics.json", b"")).hexdigest()
+                        or live.get("run_markdown_sha256")
+                        != hashlib.sha256(files.get("RUN.md", b"")).hexdigest()
+                    ):
+                        raise RunStateError(
+                            "prepared capsule content commitment differs"
+                        )
+                    absent = sorted(
+                        ((_MANDATORY_FILES - {_MANIFEST_FILE}) | {_STATE_FILE})
+                        - set(files)
+                    )
+                    if absent:
+                        raise RunStateError(
+                            "cannot resume publication; mandatory files missing: "
+                            + ", ".join(absent)
+                        )
+                    manifest = "".join(
+                        f"{hashlib.sha256(value).hexdigest()}  {name}\n"
+                        for name, value in sorted(files.items())
+                    ).encode("utf-8")
+                    try:
+                        current_manifest = _read_regular(stage_fd, _MANIFEST_FILE)
+                    except FileNotFoundError:
+                        current_manifest = None
+                    if current_manifest != manifest:
+                        _atomic_replace(stage_fd, _MANIFEST_FILE, manifest)
+                    if files != _collect_files(stage_fd):
+                        raise RunStateError(
+                            "capsule contents changed during resumed publication"
+                        )
+                    os.fsync(stage_fd)
+                    _make_tree_read_only(stage_fd, include_root=False)
+                    direct_stage = _stage_parent(self._state) == "runs"
+                    if direct_stage:
+                        # Same-parent rename works with a sealed source root on
+                        # macOS, closing the post-rename permission window.
+                        os.fchmod(stage_fd, 0o555)
+                        os.fsync(stage_fd)
+                    os.rename(
+                        self._state["stage_name"],
+                        self._state["final_name"],
+                        src_dir_fd=stage_parent_fd,
+                        dst_dir_fd=runs_fd,
+                    )
+                    if not direct_stage:
+                        # Compatibility only for legacy .in_progress stages.
+                        os.fchmod(stage_fd, 0o555)
+                    os.fsync(stage_parent_fd)
+                    os.fsync(runs_fd)
+                    self._state = dict(live)
+                finally:
+                    os.close(stage_fd)
+            finally:
+                os.close(stage_parent_fd)
+        self._finalized = True
+        verification = self._manager.verify(self.final_path)
+        if not verification.ok:
+            raise RunStateError(
+                f"published capsule failed verification: {verification.describe()}"
+            )
+        return FinalizedRun(
+            attempt_id=self.attempt_id,
+            path=self.final_path,
+            manifest_sha256=verification.manifest_sha256,
+            verification=verification,
+        )
 
     @contextmanager
     def _open_stage(self) -> Iterator[int]:
@@ -724,13 +1035,13 @@ class RunCapsule:
             raise RunStateError(f"attempt is already finalized: {self.attempt_id}")
         runs_fd = self._manager._open_runs()
         try:
-            in_progress_fd = _open_directory(runs_fd, ".in_progress")
+            stage_parent_fd = _open_stage_parent(runs_fd, self._state)
         finally:
             os.close(runs_fd)
         try:
-            stage_fd = _open_directory(in_progress_fd, self._state["stage_name"])
+            stage_fd = _open_directory(stage_parent_fd, self._state["stage_name"])
         finally:
-            os.close(in_progress_fd)
+            os.close(stage_parent_fd)
         try:
             live = json.loads(_read_regular(stage_fd, _STATE_FILE).decode("utf-8"))
             if (
@@ -827,6 +1138,15 @@ class RunCapsule:
     ) -> FinalizedRun:
         if self._finalized:
             raise RunStateError(f"attempt is already finalized: {self.attempt_id}")
+        if self.publication_prepared:
+            # Metrics and RUN.md were already frozen before the interrupted
+            # publish.  Caller arguments are deliberately ignored so recovery
+            # cannot rewrite or relabel an outcome-bearing result.
+            published = self._manager.finalized_attempt(self.attempt_id)
+            if published is not None:
+                self._finalized = True
+                return published
+            return self._publish_prepared()
         if status not in {"completed", "failed", "stopped"}:
             raise ValueError("status must be completed, failed, or stopped")
         final_next_action = (
@@ -857,13 +1177,17 @@ class RunCapsule:
             next_action=final_next_action,
         ).encode("utf-8")
         with self._manager._locked_runs() as runs_fd:
-            in_progress_fd = _open_directory(runs_fd, ".in_progress")
+            stage_parent_fd = _open_stage_parent(runs_fd, self._state)
             try:
-                stage_fd = _open_directory(in_progress_fd, self._state["stage_name"])
+                stage_fd = _open_directory(
+                    stage_parent_fd,
+                    self._state["stage_name"],
+                )
                 try:
                     live = json.loads(_read_regular(stage_fd, _STATE_FILE).decode("utf-8"))
                     if live.get("run_token") != self._state["run_token"]:
                         raise RunStateError(f"live state mismatch for {self.attempt_id}")
+                    _purge_atomic_temps(stage_fd)
                     try:
                         os.stat(self._state["final_name"], dir_fd=runs_fd, follow_symlinks=False)
                     except FileNotFoundError:
@@ -874,8 +1198,39 @@ class RunCapsule:
                         )
                     _atomic_replace(stage_fd, "metrics.json", metrics_bytes)
                     _atomic_replace(stage_fd, "RUN.md", run_markdown)
+                    prepared_content_files, prepared_content_sha256 = (
+                        _prepared_content_commitment(_collect_files(stage_fd))
+                    )
+                    prepared_state = dict(live)
+                    prepared_state.update(
+                        {
+                            "status": status,
+                            "publication_phase": "prepared",
+                            "ended_at": ended.isoformat(),
+                            "next_action": final_next_action,
+                            "metrics_sha256": hashlib.sha256(
+                                metrics_bytes
+                            ).hexdigest(),
+                            "run_markdown_sha256": hashlib.sha256(
+                                run_markdown
+                            ).hexdigest(),
+                            "prepared_content_files": prepared_content_files,
+                            "prepared_content_set_sha256": (
+                                prepared_content_sha256
+                            ),
+                        }
+                    )
+                    _atomic_replace(
+                        stage_fd,
+                        _STATE_FILE,
+                        _json_bytes(prepared_state),
+                    )
+                    self._state = prepared_state
                     files = _collect_files(stage_fd)
-                    absent = sorted((_MANDATORY_FILES - {_MANIFEST_FILE}) - set(files))
+                    absent = sorted(
+                        ((_MANDATORY_FILES - {_MANIFEST_FILE}) | {_STATE_FILE})
+                        - set(files)
+                    )
                     if absent:
                         raise RunStateError(
                             f"cannot finalize; mandatory files missing: {', '.join(absent)}"
@@ -890,28 +1245,26 @@ class RunCapsule:
                     post_manifest_files = _collect_files(stage_fd)
                     if files != post_manifest_files:
                         raise RunStateError("capsule contents changed during finalization")
-                    os.unlink(_STATE_FILE, dir_fd=stage_fd)
                     os.fsync(stage_fd)
                     _make_tree_read_only(stage_fd, include_root=False)
-                    try:
-                        os.rename(
-                            self._state["stage_name"],
-                            self._state["final_name"],
-                            src_dir_fd=in_progress_fd,
-                            dst_dir_fd=runs_fd,
-                        )
-                    except Exception:
-                        # Keep a failed publication recoverable. Root files may be
-                        # replaced atomically even though their old inodes are 0444.
-                        _write_new(stage_fd, _STATE_FILE, _json_bytes(self._state))
-                        raise
-                    os.fchmod(stage_fd, 0o555)
-                    os.fsync(in_progress_fd)
+                    direct_stage = _stage_parent(self._state) == "runs"
+                    if direct_stage:
+                        os.fchmod(stage_fd, 0o555)
+                        os.fsync(stage_fd)
+                    os.rename(
+                        self._state["stage_name"],
+                        self._state["final_name"],
+                        src_dir_fd=stage_parent_fd,
+                        dst_dir_fd=runs_fd,
+                    )
+                    if not direct_stage:
+                        os.fchmod(stage_fd, 0o555)
+                    os.fsync(stage_parent_fd)
                     os.fsync(runs_fd)
                 finally:
                     os.close(stage_fd)
             finally:
-                os.close(in_progress_fd)
+                os.close(stage_parent_fd)
         self._finalized = True
         verification = self._manager.verify(self.final_path)
         if not verification.ok:

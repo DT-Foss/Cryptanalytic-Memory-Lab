@@ -8,8 +8,13 @@ from projection and ordering; they can only be bound to an already frozen panel
 through :func:`bind_target`.
 
 The rank transform is retained as an exploratory breadcrumb but is explicitly
-ineligible for streamable-mechanism selection.  Z-score and signed-log1p use
-constant-size moment state and are selection eligible.
+ineligible for streamable-mechanism selection.  For the two eligible transforms,
+the panel uses their canonical accumulator representative: raw values for the
+z-score equivalence class and signed-log1p values for its equivalence class.
+All retained Walsh masks are nonconstant, so mean subtraction vanishes and one
+positive population scale cannot change an exact order.  Freezing this
+representative also avoids machine-rounding tie differences between selection
+and the executable stream.
 """
 
 from __future__ import annotations
@@ -20,10 +25,11 @@ import math
 import struct
 from dataclasses import dataclass, replace
 from numbers import Real
-from typing import Mapping, Sequence
+from typing import Iterator, Mapping, Sequence
 
 import numpy as np
 
+from .ising_memory import IsingEvidenceMemory, IsingMemoryPlan
 from .walsh_memory import score_field_sha256
 
 
@@ -72,7 +78,8 @@ SELECTION_ELIGIBLE_VIEW_COUNT = (
 FIELD_SCHEMA = b"o1-upstream-raw-field-float64be-v1\x00"
 TIE_POLICY = "score-descending-then-candidate-id-ascending"
 SELECTION_TIE_POLICY = (
-    "minimum-target-rank-then-fewer-registers-then-view-id-ascii"
+    "exclude-any-projected-score-ties-then-minimum-target-rank-then-"
+    "fewer-registers-then-view-id-ascii"
 )
 
 
@@ -190,12 +197,25 @@ def base_channel_values(
 ) -> tuple[float, ...]:
     """Return one frozen raw or derived evidence channel."""
 
+    return tuple(iter_base_channel_values(field, channel_name, horizon))
+
+
+def iter_base_channel_values(
+    field: UpstreamRawField,
+    channel_name: str,
+    horizon: int,
+) -> Iterator[float]:
+    """Yield one channel pointwise without materializing a second field."""
+
     if not isinstance(field, UpstreamRawField):
         raise TypeError("field must be an UpstreamRawField")
     if horizon not in HORIZONS:
         raise UpstreamPanelError(f"unknown horizon {horizon!r}")
     if channel_name in RAW_CHANNEL_NAMES:
-        return field.raw_channel(channel_name, horizon)
+        channel = RAW_CHANNEL_NAMES.index(channel_name)
+        for row in field.horizon_arrays[HORIZONS.index(horizon)]:
+            yield row[channel]
+        return
     if channel_name not in DERIVED_CHANNEL_NAMES:
         raise UpstreamPanelError(f"unknown base channel {channel_name!r}")
     matrix = field.horizon_arrays[HORIZONS.index(horizon)]
@@ -203,7 +223,6 @@ def base_channel_values(
     accepted_index = RAW_CHANNEL_NAMES.index("learned_clause_accepted_stage")
     offered_index = RAW_CHANNEL_NAMES.index("learned_clause_offered_stage")
     literals_index = RAW_CHANNEL_NAMES.index("learned_literal_count_stage")
-    result: list[float] = []
     for row in matrix:
         conflicts = row[conflicts_index]
         accepted = row[accepted_index]
@@ -218,8 +237,7 @@ def base_channel_values(
             value = offered / (1.0 + conflicts)
         else:
             value = literals / (1.0 + conflicts)
-        result.append(0.0 if value == 0.0 else value)
-    return tuple(result)
+        yield 0.0 if value == 0.0 else value
 
 
 def _zscore(values: Sequence[float]) -> tuple[float, ...]:
@@ -282,6 +300,31 @@ def transform_values(values: Sequence[float], transform_id: str) -> tuple[float,
     raise UpstreamPanelError(f"unknown transform {transform_id!r}")
 
 
+def projection_input_values(
+    values: Sequence[float],
+    transform_id: str,
+) -> tuple[float, ...]:
+    """Return the exact numeric representative used for Walsh projection.
+
+    Eligible supports never contain the constant mask.  The affine z-score
+    terms can therefore be omitted before projection, making the panel and its
+    accumulator memory bit-identical even when source values tie.
+    """
+
+    checked = tuple(
+        _finite(value, f"values[{index}]") for index, value in enumerate(values)
+    )
+    if len(checked) != DOMAIN_SIZE:
+        raise UpstreamPanelError("projection input must contain exactly 4096 values")
+    if transform_id == "zscore":
+        return checked
+    if transform_id == "signed-log1p":
+        return tuple(math.copysign(math.log1p(abs(value)), value) for value in checked)
+    if transform_id == "rank":
+        return transform_values(checked, transform_id)
+    raise UpstreamPanelError(f"unknown transform {transform_id!r}")
+
+
 def _fwht(values: Sequence[float]) -> np.ndarray:
     result = np.asarray(values, dtype=np.float64).copy()
     if result.shape != (DOMAIN_SIZE,) or not np.isfinite(result).all():
@@ -303,6 +346,24 @@ SUPPORT_MASKS = {
     "degree1": LINEAR_MASKS,
     "degree1+2": LINEAR_MASKS + PAIRWISE_MASKS,
 }
+
+
+def _streamable_projection(
+    values: Sequence[float],
+    support_id: str,
+) -> np.ndarray:
+    """Project with the exact forward-only accumulator used at execution."""
+
+    plan = IsingMemoryPlan(
+        name=f"upstream-panel-{support_id}",
+        support_id=support_id,
+    )
+    memory = IsingEvidenceMemory(plan)
+    memory.observe_field(values)
+    projected = np.asarray(memory.finalize().reconstruct(), dtype=np.float64)
+    if projected.shape != (DOMAIN_SIZE,) or not np.isfinite(projected).all():
+        raise UpstreamPanelError("streamable projection produced a non-finite score")
+    return projected
 
 
 @dataclass(frozen=True)
@@ -370,6 +431,16 @@ class PanelViewSpec:
             "streamable": self.streamable,
             "selection_eligible": self.selection_eligible,
             "ineligibility_reason": self.ineligibility_reason,
+            "projection_numeric_contract": (
+                "canonical-one-pass-affine-zscore-representative"
+                if self.transform_id != "rank"
+                else "materialized-full-field-midranks-then-zscore"
+            ),
+            "accumulator_evidence_passes": (
+                1 if self.transform_id != "rank" else None
+            ),
+            "end_to_end_source_streaming_executed": False,
+            "current_harness_input": "materialized-canonical-field",
         }
         if include_hash:
             value["spec_sha256"] = self.spec_sha256
@@ -398,13 +469,16 @@ def project_view(field: UpstreamRawField, spec: PanelViewSpec) -> tuple[float, .
     if not isinstance(field, UpstreamRawField) or not isinstance(spec, PanelViewSpec):
         raise TypeError("field and PanelViewSpec are required")
     base = base_channel_values(field, spec.channel_name, spec.horizon)
-    transformed = transform_values(base, spec.transform_id)
-    coefficients = _fwht(transformed)
-    retained = np.zeros(DOMAIN_SIZE, dtype=np.float64)
-    retained[np.asarray(spec.masks, dtype=np.int64)] = coefficients[
-        np.asarray(spec.masks, dtype=np.int64)
-    ]
-    projected = _fwht(retained) / DOMAIN_SIZE
+    transformed = projection_input_values(base, spec.transform_id)
+    if spec.selection_eligible:
+        projected = _streamable_projection(transformed, spec.support_id)
+    else:
+        coefficients = _fwht(transformed)
+        retained = np.zeros(DOMAIN_SIZE, dtype=np.float64)
+        retained[np.asarray(spec.masks, dtype=np.int64)] = coefficients[
+            np.asarray(spec.masks, dtype=np.int64)
+        ]
+        projected = _fwht(retained) / DOMAIN_SIZE
     if spec.orientation == "negative":
         projected = -projected
     projected[projected == 0.0] = 0.0
@@ -436,7 +510,7 @@ class PanelViewResult:
     spec: PanelViewSpec
     projected_field_sha256: str
     order_uint16be: bytes
-    tied_candidate_count: int
+    tie_collision_excess: int
     projected_minimum: float
     projected_maximum: float
     projected_l2_energy: float
@@ -449,8 +523,8 @@ class PanelViewResult:
         if len(self.projected_field_sha256) != 64:
             raise UpstreamPanelError("projected field hash must be SHA-256")
         _decode_order(self.order_uint16be)
-        if not 0 <= self.tied_candidate_count < DOMAIN_SIZE:
-            raise UpstreamPanelError("tied candidate count is invalid")
+        if not 0 <= self.tie_collision_excess < DOMAIN_SIZE:
+            raise UpstreamPanelError("tie collision excess is invalid")
         for value in (
             self.projected_minimum,
             self.projected_maximum,
@@ -476,6 +550,18 @@ class PanelViewResult:
     def order_sha256(self) -> str:
         return hashlib.sha256(self.order_uint16be).hexdigest()
 
+    @property
+    def effective_selection_eligible(self) -> bool:
+        return self.spec.selection_eligible and self.tie_collision_excess == 0
+
+    @property
+    def effective_ineligibility_reason(self) -> str | None:
+        if not self.spec.selection_eligible:
+            return self.spec.ineligibility_reason
+        if self.tie_collision_excess:
+            return "projected-score-ties-would-use-candidate-id-as-ranking-signal"
+        return None
+
     def rank(self, address: int) -> int:
         if isinstance(address, bool) or not isinstance(address, int) or not 0 <= address < DOMAIN_SIZE:
             raise UpstreamPanelError("target address is outside Direct12")
@@ -490,7 +576,12 @@ class PanelViewResult:
             "order_sha256": self.order_sha256,
             "order_cells": DOMAIN_SIZE,
             "tie_policy": TIE_POLICY,
-            "tied_candidate_count": self.tied_candidate_count,
+            "tie_collision_excess": self.tie_collision_excess,
+            "tie_metric_semantics": "4096-minus-number-of-unique-projected-scores",
+            "selection_eligible_under_tie_gate": (
+                self.effective_selection_eligible
+            ),
+            "effective_ineligibility_reason": self.effective_ineligibility_reason,
             "projected_minimum": self.projected_minimum,
             "projected_maximum": self.projected_maximum,
             "projected_l2_energy": self.projected_l2_energy,
@@ -564,6 +655,9 @@ class UpstreamPanelResult:
             "input_field_sha256": self.input_field_sha256,
             "view_count": len(self.views),
             "selection_eligible_view_count": sum(
+                view.effective_selection_eligible for view in self.views
+            ),
+            "streamable_view_count_before_tie_gate": sum(
                 view.spec.selection_eligible for view in self.views
             ),
             "target_address": self.target_address,
@@ -578,7 +672,7 @@ def _select_primary(views: Sequence[PanelViewResult]) -> PanelViewResult:
     eligible = [
         view
         for view in views
-        if view.spec.selection_eligible and view.target_rank is not None
+        if view.effective_selection_eligible and view.target_rank is not None
     ]
     if not eligible:
         raise UpstreamPanelError("no target-bound selection-eligible view exists")
@@ -604,18 +698,22 @@ def run_upstream_panel(
     positive_projection_cache: dict[tuple[str, int, str, str], np.ndarray] = {}
     for spec in build_panel_specs():
         transform_key = (spec.channel_name, spec.horizon, spec.transform_id)
-        coefficients = coefficient_cache.get(transform_key)
-        if coefficients is None:
-            base = base_channel_values(field, spec.channel_name, spec.horizon)
-            coefficients = _fwht(transform_values(base, spec.transform_id))
-            coefficient_cache[transform_key] = coefficients
         projection_key = (*transform_key, spec.support_id)
         positive = positive_projection_cache.get(projection_key)
         if positive is None:
-            retained = np.zeros(DOMAIN_SIZE, dtype=np.float64)
-            mask_indices = np.asarray(spec.masks, dtype=np.int64)
-            retained[mask_indices] = coefficients[mask_indices]
-            positive = _fwht(retained) / DOMAIN_SIZE
+            base = base_channel_values(field, spec.channel_name, spec.horizon)
+            transformed = projection_input_values(base, spec.transform_id)
+            if spec.selection_eligible:
+                positive = _streamable_projection(transformed, spec.support_id)
+            else:
+                coefficients = coefficient_cache.get(transform_key)
+                if coefficients is None:
+                    coefficients = _fwht(transformed)
+                    coefficient_cache[transform_key] = coefficients
+                retained = np.zeros(DOMAIN_SIZE, dtype=np.float64)
+                mask_indices = np.asarray(spec.masks, dtype=np.int64)
+                retained[mask_indices] = coefficients[mask_indices]
+                positive = _fwht(retained) / DOMAIN_SIZE
             positive[positive == 0.0] = 0.0
             positive_projection_cache[projection_key] = positive
         oriented = positive if spec.orientation == "positive" else -positive
@@ -628,7 +726,7 @@ def run_upstream_panel(
                 spec=spec,
                 projected_field_sha256=score_field_sha256(projected),
                 order_uint16be=order_bytes,
-                tied_candidate_count=tied,
+                tie_collision_excess=tied,
                 projected_minimum=float(array.min()),
                 projected_maximum=float(array.max()),
                 projected_l2_energy=float(np.dot(array, array)),
@@ -710,6 +808,10 @@ class ExactLabelEnumeration:
                 "uniform enumeration of every Direct12 target label conditional on all "
                 "target-blind frozen orders"
             ),
+            "adjusts_declared_672_view_panel_family": True,
+            "adjusts_pre_panel_exploration_or_family_design": False,
+            "inferential_scope": "exact-conditional-uniform-random-label-tail",
+            "label_exchangeability_established_by_this_experiment": False,
             "selection_procedure": SELECTION_TIE_POLICY,
             "labels_enumerated": DOMAIN_SIZE,
             "eligible_views": len(self.eligible_view_ids),
@@ -747,12 +849,12 @@ def exact_label_enumeration_fwer(
         raise UpstreamPanelError("exact FWER requires a target-bound panel")
     eligible = tuple(
         sorted(
-            (view for view in panel.views if view.spec.selection_eligible),
+            (view for view in panel.views if view.effective_selection_eligible),
             key=lambda view: (view.spec.register_count, view.spec.view_id),
         )
     )
-    if len(eligible) != SELECTION_ELIGIBLE_VIEW_COUNT:
-        raise UpstreamPanelError("selection-eligible panel cardinality differs")
+    if not 1 <= len(eligible) <= SELECTION_ELIGIBLE_VIEW_COUNT:
+        raise UpstreamPanelError("tie-gated selection panel cardinality differs")
     best_rank = np.full(DOMAIN_SIZE, DOMAIN_SIZE + 1, dtype=np.int32)
     best_view = np.full(DOMAIN_SIZE, -1, dtype=np.int16)
     canonical_ranks = np.arange(1, DOMAIN_SIZE + 1, dtype=np.int32)

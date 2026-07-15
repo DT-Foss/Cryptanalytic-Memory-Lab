@@ -676,10 +676,9 @@ class IsingEvidenceMemory:
         _validate_evidence_length(evidence)
         if self._next_address != 0:
             raise IsingMemoryError("observe_field requires a fresh Ising memory")
-        for address, value in enumerate(evidence):
-            _finite(value, f"evidence[{address}]")
-        # The caller's replayable sequence is streamed directly.  No 4096-cell
-        # copy or candidate row table becomes mechanism state, even transiently.
+        # The caller's replayable sequence is consumed exactly once.  No
+        # validation pre-pass, 4096-cell copy, or rollback coefficient bank is
+        # hidden inside the mechanism; a bad later value resets to zero state.
         try:
             self.observe_many(enumerate(evidence))
         except Exception:
