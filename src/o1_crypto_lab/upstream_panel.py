@@ -226,12 +226,22 @@ def _zscore(values: Sequence[float]) -> tuple[float, ...]:
     array = np.asarray(values, dtype=np.float64)
     if array.shape != (DOMAIN_SIZE,) or not np.isfinite(array).all():
         raise UpstreamPanelError("transform input must contain 4096 finite values")
-    mean = float(array.mean())
-    scale = float(array.std())
+    maximum = float(np.max(np.abs(array)))
+    if maximum == 0.0:
+        return (0.0,) * DOMAIN_SIZE
+    # Normalize before moments so every finite float64 input stays inside
+    # [-1,1]; raw squaring or summation can otherwise overflow at ~1e308.
+    normalized = array / maximum
+    if not np.isfinite(normalized).all():
+        raise UpstreamPanelError("zscore normalization produced a non-finite value")
+    mean = float(normalized.mean())
+    scale = float(normalized.std())
     threshold = max(1e-12, abs(mean) * 1e-12)
     if scale <= threshold:
         return (0.0,) * DOMAIN_SIZE
-    transformed = (array - mean) / scale
+    transformed = (normalized - mean) / scale
+    if not np.isfinite(transformed).all():
+        raise UpstreamPanelError("zscore produced a non-finite value")
     transformed[transformed == 0.0] = 0.0
     return tuple(float(value) for value in transformed)
 
@@ -523,6 +533,17 @@ class UpstreamPanelResult:
                 view.target_rank is None for view in self.views
             ):
                 raise UpstreamPanelError("target-bound panel is incomplete")
+            for view in self.views:
+                rank = view.rank(self.target_address)
+                gain = math.log2(DOMAIN_SIZE / rank)
+                if (
+                    view.target_rank != rank
+                    or view.target_gain_bits != gain
+                    or not math.isfinite(gain)
+                ):
+                    raise UpstreamPanelError(
+                        "target-bound rank or gain differs from its frozen order"
+                    )
             expected = _select_primary(self.views).spec.view_id
             if self.selected_primary_view_id != expected:
                 raise UpstreamPanelError("selected primary differs from the frozen tie rule")
@@ -573,10 +594,8 @@ def _select_primary(views: Sequence[PanelViewResult]) -> PanelViewResult:
 
 def run_upstream_panel(
     field: UpstreamRawField,
-    *,
-    target_address: int | None = None,
 ) -> UpstreamPanelResult:
-    """Freeze all 672 orders, then optionally bind one calibration label."""
+    """Build all 672 target-blind orders without accepting a label."""
 
     if not isinstance(field, UpstreamRawField):
         raise TypeError("field must be an UpstreamRawField")
@@ -615,11 +634,10 @@ def run_upstream_panel(
                 projected_l2_energy=float(np.dot(array, array)),
             )
         )
-    result = UpstreamPanelResult(
+    return UpstreamPanelResult(
         input_field_sha256=field.field_sha256,
         views=tuple(views),
     )
-    return result if target_address is None else bind_target(result, target_address)
 
 
 def bind_target(panel: UpstreamPanelResult, target_address: int) -> UpstreamPanelResult:

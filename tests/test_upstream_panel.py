@@ -1,6 +1,7 @@
 import hashlib
 import math
 import unittest
+from dataclasses import replace
 
 import numpy as np
 
@@ -144,6 +145,13 @@ class FieldAndTransformTests(unittest.TestCase):
         with self.assertRaisesRegex(UpstreamPanelError, "exactly horizons"):
             UpstreamRawField.from_horizon_arrays(boolean_alias)
 
+    def test_extreme_finite_zscore_stays_finite_and_centered(self):
+        values = tuple(1e308 if index & 1 else -1e308 for index in range(DOMAIN_SIZE))
+        transformed = transform_values(values, "zscore")
+        self.assertTrue(all(math.isfinite(value) for value in transformed))
+        self.assertAlmostEqual(math.fsum(transformed), 0.0, places=12)
+        self.assertEqual(set(transformed), {-1.0, 1.0})
+
 
 class CompletePanelTests(unittest.TestCase):
     @classmethod
@@ -223,6 +231,13 @@ class CompletePanelTests(unittest.TestCase):
             expected.target_gain_bits,
             math.log2(DOMAIN_SIZE / expected.target_rank),
         )
+
+    def test_bound_panel_recomputes_ranks_and_gain_from_frozen_orders(self):
+        first = self.bound.views[0]
+        forged = replace(first, target_rank=1, target_gain_bits=12.0)
+        views = (forged, *self.bound.views[1:])
+        with self.assertRaisesRegex(UpstreamPanelError, "rank or gain"):
+            replace(self.bound, views=views)
 
     def test_exact_null_enumerates_every_label_and_full_selection(self):
         result = self.null
