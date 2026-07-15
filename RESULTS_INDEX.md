@@ -22,17 +22,25 @@ listed at the strongest claim level actually supported by its retained artifact.
 | ID | Result | Claim level | Metrics | Artifact |
 |---|---|---|---|---|
 | `O1C-0000-SOURCE` | Fullround publication manifest verification | `INSTRUMENT` | 570/570 members; zero missing; zero mismatched | [Verification JSON](runs/fullround-source-verification.json) |
+| `O1C-0003-SOURCE` | Honest dirty-source Direct12 dependency snapshot | `SMOKE` | 71/71 members; 9,882,690 bytes; zero progress/outcome reads | [Capsule](runs/20260715_123734_O1C-0003_direct12-source-snapshot/RUN.md) |
 
 ## Mechanistic signals
 
 | ID | Result | Claim level | Metrics | Artifact |
 |---|---|---|---|---|
 | `O1C-0002-SIGNAL` | Validation selected the rank of horizon-8 solver propagations | `RETROSPECTIVE` | Validation ranks 79 and 8; mean 3.348 bits | [Frozen plan](runs/20260715_123236_O1C-0002_retrospective-reader-tournament/artifacts/frozen_reader_plan.json) |
+| `O1C-0004-SHAPE` | Independent 133→532 temporal/XOR and A342 pair reconstruction | `VALIDATION` | 52 shards, 13,312 cells, 53,248 stages; all A348/A349 score/order commitments exact | [Reproduction](runs/20260715_130047_O1C-0004_direct12-532-reproduction/artifacts/direct12_reproduction.json) |
+| `O1C-0005-BOUND` | O1-O-selected dense 4-bit multi-slot Bit-Vault | `VALIDATION` | A348-only selection; 6,668 B online state, zero clips; A349 rank-Spearman 0.990198 and top-32 overlap 0.71875; 86 receipt-bound orders; zero A349 labels | [Tournament](runs/20260715_135434_O1C-0005_bounded-spectral-memory-tournament/artifacts/bounded_memory_tournament.json) |
+| `O1C-0005-DIST` | Distributed A272 spectral support transfers better than matched structural/null controls | `VALIDATION` | At K=2,048: A272 multi-slot 0.871477 Spearman versus low-degree 0.494256, best candidate-ID random 0.716923, single-A348 sparse 0.797225 | [Metrics](runs/20260715_135434_O1C-0005_bounded-spectral-memory-tournament/artifacts/tournament_metrics.json) |
 
 ## Replicated validation
 
-No positive replication yet. `O1C-0002` is the first completed transfer audit and
-failed its all-control gate.
+`O1C-0004` exactly replicates the independently specified feature geometry and frozen
+score/order commitments. `O1C-0005` is the first positive bounded-state mechanism
+transfer: O1-O froze its choice before A349 content entered the experiment reader,
+and hash receipts bind the future template and every order. A349 fidelity was seen
+during mechanism development, so neither result is yet a fresh recovery advantage.
+`O1C-0002` remains a failed signal-transfer audit.
 
 ## Frozen tests and independently confirmed results
 
@@ -51,3 +59,5 @@ not results of this integration.
 | `O1C-0000-N2` | Repeating correlated weak evidence does not create independent information | `NEGATIVE_BOUND` | 55.8594% mean bit accuracy after 1,024 repetitions | Estimate effective evidence independence before assigning confidence |
 | `O1C-0002-N1` | Selecting 1 of 119 readers on two validation targets is multiplicity-dominated | `NEGATIVE_BOUND` | Observed 3.348 validation bits; exact familywise null `p=0.6641`, null mean best 3.823 bits | Reduce the hypothesis class using independently frozen semantic groups and joint temporal/XOR geometry |
 | `O1C-0002-N2` | `h8.search_propagations` alone does not transfer reliably | `NEGATIVE_BOUND` | A296 holdout ranks 240/90, mean 0.801 bits; W32 ranks 41/244/245/82, mean 1.104 bits; loses the primary control gate | Retain it as one channel, not a standalone reader; test profiles, differences and hypercube residuals |
+| `O1C-0005-N1` | Sparse modes selected from one calibration field do not transfer compactly | `NEGATIVE_BOUND` | Global A348-energy K=2,048 reaches only 0.797225 A349 Spearman; near-exact transfer requires almost the full float bank | Allocate precision across dense structured registers before pruning coefficients |
+| `O1C-0005-N2` | A compact candidate-indexed table is not admissible evidence for bounded associative memory | `MECHANISM_BOUNDARY` | 14 dictionary ceilings are reported and persisted but all retain 4,096 candidate entries and are structurally ineligible | Compare valid spectral state to the ceiling without letting the ceiling win O1-O selection |
