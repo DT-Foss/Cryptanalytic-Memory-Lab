@@ -1,0 +1,10 @@
+{
+  "schema": "o1-crypto-benchmark-config-v1",
+  "n_bits": 256,
+  "seeds": [1, 7, 42, 123, 2024],
+  "haystack_lengths": [0, 1024, 65536],
+  "holographic_channels": 128,
+  "undersized_slots": 64,
+  "evidence_relations": [1, 8, 32, 128, 512, 1024],
+  "weak_accuracy": 0.55
+}

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "o1-cryptanalytic-memory-lab"
+version = "0.1.0"
+description = "Isolated O1/O1-O research harness for bounded-state cryptanalytic evidence streams"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+authors = [{name = "David Tom Foss"}]
+dependencies = []
+
+[project.scripts]
+o1-crypto-lab = "o1_crypto_lab.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
