@@ -459,3 +459,32 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   written before fork as proof that a deferred scientific launch is safely armed.
 - **Breadcrumb:** keep resource handoffs state-based and identity-based; preserve
   exact science hashes separately so operational hardening cannot mutate the gate.
+
+## B-0027 — A no-op haystack path is not learned selective retention
+
+- **Evidence:** the original `runs/quick.json` direct-vault ceiling could recover
+  explicit MQAR bindings, but its `observe_haystack()` path was intentionally a
+  no-op. It therefore demonstrated addressed storage capacity, not that O1 could
+  learn which events to preserve from one adversarially long stream.
+- **Result:** O1C-0020 evaluates every public token through one frozen O1 input
+  gate. On four unseen seeds and `H=0/65,536/1,048,576`, the primary accepts exactly
+  the 256 bindings (`FP=FN=0`) and recalls 256/256 in all 12 cells. Shuffled,
+  untrained and cue-ablated gates accept none; cue rotation and all-open writing
+  corrupt the vault; all controls fail every longest cell. Literal all-token masked
+  replay and selected-token compaction produce byte-identical live state.
+- **Capacity boundary:** learned selection alone is insufficient without addressed
+  storage. With the same selected writes, 64-slot CountSketch and 64-channel
+  holography average `68.1641%` and `77.6367%` accuracy and never recover an exact
+  key. The packed 64-byte Bit-Vault is the exact retention layer; O1 supplies the
+  learned route and carried context.
+- **Conclusion:** exact 256-bit retention through at least `2^20` distractors is now
+  a real learned-stream mechanism result in 352 live bytes, satisfying terminal
+  subcondition (a). It is not evidence accumulation: each accepted token still
+  carries an explicit public address and value.
+- **Do not repeat:** lengthen a skipped/no-op haystack, report a direct register as
+  autonomous selection, replay the four frozen EVAL seeds, or present this
+  synthetic value-write task as ChaCha20 inversion or holographic compression.
+- **Breadcrumb:** preserve the exact route/vault API and replace explicit values
+  with multiple weak, contradictory observations whose reliability must be learned
+  online. Demand posterior gain over shuffled reliability, correlated-repeat,
+  all-open, direct-sum and no-memory controls before consuming real solver events.

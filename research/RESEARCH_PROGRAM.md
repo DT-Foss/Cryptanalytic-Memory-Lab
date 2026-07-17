@@ -25,34 +25,46 @@ beat the shifted critic in every checkpoint cell. Forensics localized the blocke
 to cumulative-query double integration, stale credit, hash shortlisting, compulsory
 breadth and forced spending.
 
-The active milestone is O1C-0019, implementation-frozen at `27cd5b1`: a
-packet-local incremental/gated O1 reader and reader-bound episode-equal critic are
-cross-fitted over the four immutable BUILD pools. Every affordable address is
-queried; finite starvation replaces compulsory breadth; ACTION/STOP is compared
-with an exact no-STOP twin, shifted critic, fold-local static reward and uniform
-hash. The scientific run is intentionally waiting for the active sibling W52
-resource interlock to clear. Operational commit `4511a06` now arms that transition:
-the detached read-only watcher sees all 24 W52 shell/launcher/native processes,
-requires three stable terminal snapshots plus clean resource/hash gates, and then
-execs the exact CPU-only O1C-0019 runner under the same exclusive lock. No manual
-heavy launch is needed and no sibling file is written.
+O1C-0020 now closes the first explicit terminal prerequisite. A BUILD-trained O1
+gate, frozen before four disjoint EVALUATION seeds, routes exactly 256 bindings out
+of streams containing up to `2^20` distractors and recalls 256/256 in all 12 cells.
+The complete 352-byte live state is byte-identical across nested lengths and has
+zero model transcript, external index or T-dependent allocation. Shuffled,
+untrained, cue-destroyed, all-open, CountSketch and holographic controls all fail
+every longest-stream exact-recall cell. This establishes learned selective
+retention, not evidence accumulation: accepted synthetic tokens still expose their
+address and value.
+
+There are now two non-conflicting active milestones. O1C-0021 is the light local
+mechanism step: preserve the O1C-0020 API but replace explicit values with weak,
+contradictory and reliability-varying coordinate evidence so update, confidence
+and decay must be learned on unseen 256-bit episodes. O1C-0019 remains the frozen
+real full-round gate at `27cd5b1`: its packet-local incremental reader and reader-
+bound critic are cross-fitted over four immutable BUILD pools. The detached
+read-only watcher waits for W52 terminal/resource/hash gates, then execs exactly
+that CPU-only runner under the same lock. No manual heavy launch is needed and no
+sibling file is written.
 
 ## Evidence ladder from here
 
-1. Preserve O1C-0018 and its six pools byte-exact; use only the four BUILD artifacts
-   for retrospective cross-fit and keep DEVELOPMENT outside the O1C-0019 gate.
-2. Keep the committed interlock watcher alive; after W52 clears it executes the
-   frozen three-checkpoint, four-fold O1C-0019 config from a clean commit with zero
-   new solver branches, entropy, sibling or GPU work.
-3. Persist each fold's final reader/critics and every policy/raw trajectory before
-   reconstructing that fold's key; report compression, IAUC, agency, stationarity,
+1. Preserve O1C-0020's code, four EVAL seeds, gate and capsule byte-exact. Reuse only
+   its public state API, never its frozen evaluation outcomes.
+2. Run O1C-0021 on disjoint synthetic 256-bit episodes. Require positive held-out
+   compression that compounds with independent evidence, resists correlated
+   repetition and beats shuffled-reliability, direct-sum, no-memory and all-open
+   controls at equal work. Exact 256/256 remains the terminal synthetic gate.
+3. Preserve O1C-0018 and its six pools byte-exact; keep the watcher alive so W52
+   release automatically executes the frozen three-checkpoint, four-fold O1C-0019
+   config with zero new solver branches, entropy, sibling or GPU work.
+4. Persist each O1C-0019 fold's reader/critics and every policy/raw trajectory before
+   reconstructing its key; report compression, IAUC, agency, stationarity,
    STOP/no-STOP and exact bounded-state/resource ledgers.
-4. If the reader transfers and the learned route beats shifted/static/hash, freeze
-   the architecture and attack one disjoint full-256 target. Do not tune on it.
-5. If reader transfer fails, preserve the packet/state API and replace only the
-   coarse branch feature stream with assumption-rooted carry/proof ancestry.
-6. If routing alone fails, retain the reader and change only critic context,
-   delayed credit or abstention. Do not conflate a picker failure with no signal.
+5. Map a passing O1C-0021 event/update contract to attacker-computable paired
+   solver/carry/proof streams at 12/52/128/256 active coordinates. These are sensor
+   gates inside the full-256 model, not reduced-width recovery targets.
+6. If the real reader transfers and its route beats shifted/static/hash, freeze the
+   combined architecture and attack one disjoint full-256 target. If it fails,
+   replace only the localized sensor/update/critic component.
 7. After stable entropy reduction, add surprise-selected Causal Attic summaries,
    bounded beam concentration and exact ChaCha20 verification toward recovery.
 
@@ -87,8 +99,15 @@ heavy launch is needed and no sibling file is written.
 
 ## Terminal condition
 
-Completion requires exact 256/256 long-stream retention, reproducible entropy or
-search reduction on sealed uniform full-round 256-bit targets, and ultimately a
-full key emitted by the bounded-state/beam path and independently verified against
-the public ChaCha20 relation. Instrumentation or reduced-width recovery alone is not
+The full program is not complete:
+
+- **(a) ACHIEVED — retention:** O1C-0020 gives exact 256/256 recall after `2^20`
+  distractors in a 352-byte live state with learned non-oracle routing.
+- **(b) OPEN — causal evidence:** require reproducible posterior/entropy or search
+  reduction from attacker-valid evidence on unseen full-round 256-bit targets.
+- **(c) OPEN — recovery frontier:** require a material search/recovery gain and
+  ultimately a full key emitted by the bounded-state/beam path and independently
+  verified against the public ChaCha20 relation.
+
+Synthetic retention, instrumentation or reduced-width recovery alone is not full
 completion.

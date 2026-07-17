@@ -872,3 +872,65 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Resume:** do not manually start O1C-0019. Inspect the ignored log if needed;
   the watcher will exec the exact frozen command only after every release gate is
   green and will retain the same lock throughout the scientific process.
+
+## O1C-0020 — Learned-mask MQAR-256 exact retention
+
+- **Recorded:** 2026-07-17T21:14:43+02:00
+- **Execution commit:** `3aefaf7a88aaf425bd52bc1c56614348a024ba1c`
+- **Claim level:** `VALIDATION` synthetic routing/retention mechanism; terminal
+  subcondition (a), no cipher inversion, causal-evidence or recovery claim.
+- **Classification:** `EXACT_256_LEARNED_GATE_RETENTION`; every scientific,
+  lifecycle, state and resource gate passed.
+- **Frozen experiment:** 32 BUILD seeds train only `input_gate.weight` of the O1
+  core with a paired logistic route-margin objective. Eight disjoint CAL seeds
+  freeze threshold `2.6524462699890137`. Four never-used EVALUATION seeds each
+  receive the same 256 binding tokens embedded in stable public streams with
+  `H=0/65,536/1,048,576` distractors. Address, value and token features are public;
+  no family ID, truth mask or route label enters the deployment API.
+- **Primary result:** every one of 12 EVALUATION cells accepts exactly 256 tokens,
+  with `TP=256`, `FP=0`, `FN=0`, `256/256` randomized-query recall and complete O1
+  replay. For each seed the full live-state SHA is byte-identical at all three
+  lengths. The primary slow state is unchanged throughout evaluation.
+- **State:** exactly `352` live bytes: `288` O1 fast-state bytes plus a `64`-byte
+  packed value/validity vault. Model external index, retained transcript and
+  stream-length-dependent state are all zero. The 2,216 fp32 slow parameters
+  (`8,864` raw bytes; `9,767` canonical bytes) are billed separately. Evaluator
+  masks and freeze receipts are explicitly excluded and separately accounted.
+- **Learning gate:** zero errors on 8,192 CAL tokens, sampled signed margin
+  `+0.468234777`; analytic worst-case margin `+0.454628304` over every legal
+  family/payload/address/nuisance token. Shuffled-label training has 4,096 false
+  negatives and a negative certificate. A 4,096-token literal replay containing
+  all 256 bindings and 3,840 rejections is byte-identical to sparse compaction.
+- **Controls:** shuffled-label, untrained, cue-rotated, cue-ablated and all-open
+  arms fail every longest-stream cell and are strictly below primary. Matched
+  64-slot CountSketch and 64-channel holographic stores obtain `68.1641%` and
+  `77.6367%` mean accuracy with zero exact cells. A `2^20` no-binding stream has
+  zero accepts/updates and holds the initial state byte-exact. The actual oracle
+  ceiling is reconstructed and replayed only after the public prediction freeze.
+- **Lifecycle:** gate slow states freeze before any EVALUATION stream is generated;
+  all public masks, recalls, state bytes and storage controls freeze before one
+  truth reveal. A second runner invocation returns `already-finalized-no-replay`.
+  All 21 capsule members independently pass SHA-256 verification. Independent
+  audit also checks every binary offset and vault/recall correspondence. One P2
+  carry-forward remains: revealed truth bitplanes are deterministically
+  reconstructible and commitment-bound but were not persisted as standalone raw
+  artifacts; O1C-0021 will persist them post-reveal without replaying O1C-0020.
+- **Resources:** `9.55336` CPU s, `9.914966` elapsed s, peak RSS `438,747,136 B`,
+  persistent artifacts `945,387 B`; 23,366,656 gate-token evaluations and
+  10,485,760 training exposures; zero solver branches, entropy, sibling reads/
+  writes, MPS or GPU calls.
+- **Commitments:** manifest
+  `8380a3a1bbf826e62fbaa99f25e0ea1ba41f7020c101238b867ac99201077c59`;
+  scientific result
+  `6c12a0fcb9e0b58a86b8bea340ea475294b530372c9a9a28ddaa62724cab8cb5`;
+  gate freeze
+  `0b027d4f0cd078fd775e8e20b8793b92231ad014205fb3ae644bbb24208ccfd0`;
+  prediction freeze
+  `f898ef2fdff2180f1d7d66d53bf295d439761b0d13c7ba2f8072a3251d1d1523`.
+- **Conclusion:** terminal subcondition (a) is achieved. Freeze this state API.
+  O1C-0021 must replace explicit one-shot values with weak, contradictory,
+  reliability-varying coordinate evidence and require learned posterior
+  accumulation against equal-work controls before mapping the API to real paired
+  solver/carry/proof events.
+- **Artifact:**
+  `runs/20260717_211433_O1C-0020_selective-mqar-256-learned-gate-v1/`.

@@ -1,13 +1,13 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T18:40:03+02:00.
+Last ranked: 2026-07-17T21:16:28+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Keep the ACK-confirmed watcher PID `67247` alive and let it launch the frozen four-fold CPU gate only after W52 terminal/process/RAM/load/hash gates clear | State of the art | Very high | Very high | Medium | Produces the first honest test of signal-open reader transfer and autonomous full-256 packet routing without disturbing the recovery front |
-| 2 | Classify raw reader, true-vs-shifted/static/hash IAUC, STOP-vs-no-STOP routing, W2-to-W3 tail and fold stationarity from the immutable capsule | State of the art | Very high | Very high | Low | Separates sensor, retention, credit, routing and abstention failures in one result |
-| 3 | If reader transfer passes but picker fails, change only credit/context/STOP; if reader fails, route assumption-rooted proof/carry ancestry through the same packet/state API | State of the art | Very high | Very high | Medium | Uses a negative result as a localized architecture breadcrumb rather than resweeping the same field |
-| 4 | Spend one disjoint DEVELOPMENT/fresh full-256 gate only after the predeclared BUILD-LOO reader and policy authorization gates pass | State of the art | Very high | Very high | High | Protects fresh evidence while preserving exact recovery as the terminal target |
+| 1 | Freeze O1C-0020 byte-exact and implement O1C-0021 on the same 352-byte API: weak, contradictory, heteroscedastic 256-coordinate evidence with learned route, confidence, update and decay | State of the art | Very high | Very high | Low | Tests the missing step from explicit retention to a living 256-bit posterior while W52 permits only light work |
+| 2 | Keep the ACK-confirmed watcher PID `67247` alive and let it launch frozen O1C-0019 only after W52 terminal/process/RAM/load/hash gates clear | State of the art | Very high | Very high | Medium | Produces the first corrected full-round packet-reader and autonomous-picker gate without disturbing recovery workers |
+| 3 | Classify O1C-0019 raw reader, true-vs-shifted/static/hash IAUC, STOP-vs-no-STOP routing, W2-to-W3 tail and fold stationarity from its immutable future capsule | State of the art | Very high | Very high | Low | Separates sensor, retention, credit, routing and abstention failures in one result |
+| 4 | After O1C-0021 passes, map its frozen event/update contract to paired solver/carry/proof evidence at 12/52/128/256 active coordinates; spend a fresh full-round target only after BUILD-LOO authorization | State of the art | Very high | Very high | Medium/High | Joins the exact retention substrate to attacker-valid causal evidence without a reduced-width recovery detour |
 
 ## Hard target contract
 
@@ -29,6 +29,12 @@ Last ranked: 2026-07-17T18:40:03+02:00.
 - No MPS window and no large proof-corpus copy while recovery workers are active.
 - The committed watcher is the sole authorized heavy-run launcher; it polls at 60 s,
   is read-only toward W52, and holds an exec-spanning exclusive lock.
+- O1C-0020 proves that a complete four-seed `2^20` synthetic retention validation
+  fits in 9.915 elapsed seconds on one thread; O1C-0021 stays in that light class and
+  must not start solver branches or a competing proof corpus.
+- O1C-0021 persists revealed truth bitplanes as post-freeze raw artifacts so its
+  score can be recomputed from capsule bytes alone; this is a lifecycle improvement,
+  not authorization to replay O1C-0020.
 
 ## Do not spend the next cycle on
 
@@ -58,6 +64,9 @@ Last ranked: 2026-07-17T18:40:03+02:00.
 - replaying or rescaling O1C-0018 DEVELOPMENT targets as fresh evidence, promoting
   their post-reveal h65-only arm, or calling true-greater-than-shifted 6/6 a picker
   pass while static/hash still win aggregate controls;
+- replaying O1C-0020's four frozen EVAL seeds, extending the same explicit-binding
+  haystack merely to enlarge a number, reintroducing an oracle route mask, or
+  calling exact synthetic retention causal accumulation or cipher inversion;
 - sending more BUILD keys through the unchanged hash-32, hard-minimum-coverage,
   forced-cap controller before fixing observability, accumulation and credit;
 - treating the scaled shuffled-h65 copy as the only null for learned orientation;

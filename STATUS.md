@@ -1,50 +1,88 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-17T18:40:03+02:00 (`Europe/Berlin`)
-- **Prior published baseline:** `dbbe63a` (`O1C-0017` mechanism result)
-- **Latest execution commit:** `f40e71aa8ed80b4653acf44d98e14eabec18a955`
-  (`O1C-0018` clean full-round real-gate freeze)
-- **Latest implementation freeze:** `27cd5b1f1e3172218c9c993846f1dcc950bb909a`
-  (`O1C-0019` artifact-only four-fold BUILD-LOO gate plus deterministic
-  science/execution commitment split; no scientific run yet)
+- **Last updated:** 2026-07-17T21:16:28+02:00 (`Europe/Berlin`)
+- **Latest completed validation:** `O1C-0020` — exact learned-mask MQAR-256
+  retention through `2^20` distractors in a 352-byte live state
+- **Latest execution commit:** `3aefaf7a88aaf425bd52bc1c56614348a024ba1c`
+  (`O1C-0020` clean learned-gate retention freeze)
+- **Frozen next full-round gate:** `27cd5b1f1e3172218c9c993846f1dcc950bb909a`
+  (`O1C-0019` artifact-only four-fold BUILD-LOO gate; no scientific run yet)
 - **Latest operational handoff:** `4511a06` (ACK-confirmed read-only W52 interlock;
   detached watcher PID `67247`, lock owner and log verified)
-- **Publication:** the O1C-0018 outcome and deterministic post-reveal forensics are
-  recorded below; immutable capsules and sibling repositories remain untouched
+- **Publication:** O1C-0020 now satisfies retention terminal condition (a);
+  O1C-0018 full-round forensics remain intact and sibling repositories untouched
 - **Research phase:** O1-256 Living Inverse — paired-assumption solver events into
   coordinate-bound unary-plus-interaction O1 state
-- **Strongest internal mechanism:** O1C-0017 autonomously discovers one oriented
-  channel among 330 anonymous raw channels and preserves 256 addressed readings in
-  a 21,472-byte exact fast state, reaching 80.225% held-out bit accuracy
+- **Strongest internal mechanism:** O1C-0020 learns the only useful public token
+  family, routes exactly 256 bindings through more than one million interleaved
+  distractors, and recalls 256/256 bits in every one of 12 unseen cells with a
+  352-byte live state and no oracle deployment mask
 - **Strongest read-only mechanism intake:** A447-A449 proof ancestry, A465 cubic
   Product-of-Experts and A469 positive bucket-local correction
 - **Active lab runs:** only the negligible read-only O1C-0019 interlock watcher.
   The sibling W52 production launcher remains active, so the heavy CPU gate has
   not started. O1C-0018 BUILD/DEVELOPMENT pools and O1C-0017 formal seeds remain
   consumed and may not be replayed as fresh evidence
-- **Strongest completed mechanism attempt:** `O1C-0017` — independently verified
-  `MECHANISM_PASS` on 16/16 untouched synthetic full-256 episodes
+- **Strongest completed mechanism attempt:** `O1C-0020` — independently reviewed
+  `EXACT_256_LEARNED_GATE_RETENTION` on 4 unseen seeds x 3 stream lengths
 - **Strongest completed full-round online attempt:** `O1C-0018` — public-only
   paired-proof reader/picker on two disjoint DEVELOPMENT keys, classified
   `NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`
-- **Last operational attempt:** `O1C-0018` — 3,072 native branches, 545.024 CPU s,
-  510.875 wall s and 315,703,296 B peak RSS; every structural/resource gate passed
-- **Next attempt:** execute the frozen `O1C-0019` four-fold BUILD-LOO config after
-  the W52 interlock clears. The runner has packetized incremental evidence,
-  reader-SHA-bound stationary credit, all-address preview, finite starvation,
-  learned ACTION/STOP, an exact no-STOP twin, shifted/static/hash controls and an
-  isolated learned-versus-untrained reader gate
+- **Last operational attempt:** `O1C-0020` — 9.553 CPU s, 9.915 elapsed s,
+  438,747,136 B peak RSS, 945,387 persistent bytes and every scientific/resource
+  gate passed
+- **Next attempt:** freeze the O1C-0020 state API and use it in `O1C-0021` for
+  synthetic contradictory causal evidence with learned confidence accumulation;
+  independently, the existing watcher executes frozen `O1C-0019` after W52 clears
 - **Primary uncertainty:** whether common-mode-rejected proof/carry innovations can
   acquire portable key orientation when O1 learns its representation and O1-O
   learns its sensing policy rather than receiving a fixed scalar reader
-- **SOTA status:** no cryptanalytic SOTA claim and no recovery. O1C-0018's raw
-  learned field is `-1.284644` mean bits on two consumed full-round targets; its
-  W1 true picker is positive on both but is not yet an autonomous gate pass
+- **SOTA status:** retention terminal (a) is achieved at 256/256 through `2^20`
+  distractors with exact bounded-state accounting. There is still no cryptanalytic
+  SOTA or recovery claim: causal full-round evidence (b) and recovery frontier (c)
+  remain open
 - **SOTA target:** a stream-length-bounded living inverse that reduces the 256-bit
   key code length on sealed uniform targets and ultimately emits an exactly verified
   full ChaCha20 key
 
 ## Headline
+
+`O1C-0020` completed from clean execution commit `3aefaf7` and is classified
+`EXACT_256_LEARNED_GATE_RETENTION`. A frozen O1 input gate, trained only on 32
+BUILD seeds and calibrated on eight disjoint CAL seeds, routed one unified public
+token stream into a packed 256-coordinate Bit-Vault. The deployment API received
+no route label or oracle update mask. Four never-used EVALUATION seeds were each
+tested at `H=0/65,536/1,048,576`: all 12 cells accepted exactly 256 bindings with
+`TP=256`, `FP=0`, `FN=0` and recalled all 256 bits in randomized query order.
+
+The complete live model state is exactly `352` bytes: `288` bytes of O1 fast state
+plus a `64`-byte value/validity vault. It has zero external-index bytes, retained
+model transcript bytes or stream-length-dependent model bytes; the 2,216 learned
+slow parameters are persisted and billed separately. For each seed the complete
+live-state digest is identical from zero to `2^20` distractors. A separate
+`2^20`-token no-binding stream produces zero accepts and a byte-identical held
+state, while a literal 4,096-token masked replay exactly matches sparse compaction.
+The evaluator's `3,475,712` retained mask bytes are audit state, explicitly
+separate from the model boundary and process peak.
+
+The result is learning-dependent and storage-specific. Shuffled-label, untrained,
+cue-rotated, cue-ablated and all-open controls all fail every longest-stream cell.
+Matched 64-slot CountSketch and 64-channel holographic stores reach only
+`68.1641%` and `77.6367%` mean accuracy and zero exact cells. The learned route has
+zero CAL errors, a sampled margin of `+0.468235` and a global legal-token
+certificate margin of `+0.454628`; the oracle ceiling is replayed only after the
+prediction freeze. All 21 capsule members verify. A second invocation returns
+`already-finalized-no-replay` without executing science.
+
+The run consumed `9.55336` CPU seconds, `9.914966` elapsed seconds and
+`438,747,136` peak RSS bytes on one CPU thread, with zero entropy, sibling,
+solver, MPS or GPU calls. Manifest
+`8380a3a1bbf826e62fbaa99f25e0ea1ba41f7020c101238b867ac99201077c59` and
+scientific result
+`6c12a0fcb9e0b58a86b8bea340ea475294b530372c9a9a28ddaa62724cab8cb5`
+bind the capsule. This closes retention terminal (a), not cipher inversion: the
+next discriminator is whether the same route/vault API can accumulate weak,
+contradictory causal evidence rather than merely retain explicit bindings.
 
 `O1C-0019` is implementation-frozen at `27cd5b1` but deliberately unexecuted while
 the sibling W52 production run remains active. The committed artifact-only runner
@@ -368,20 +406,24 @@ O1C-0017 result boundary are documented in
 
 ## Highest-ROI next actions
 
-1. Keep watcher PID `67247` and commit `4511a06` alive; inspect only the ignored
-   interlock log while W52 runs and never touch its files or processes.
-2. Let the watcher execute the committed four-fold artifact-only capsule at
-   W1/W2/W3 after its terminal/resource/hash gates clear; do not launch a duplicate
-   or change any reader, critic, control or threshold mid-run.
-3. Use raw learned-vs-untrained transfer, true-vs-shifted/static/hash IAUC and the
-   exact STOP/no-STOP twin to localize reader, credit, routing or abstention.
-4. Allocate a disjoint target only if the frozen BUILD-LOO authorization gate
-   passes; otherwise change only the failed mechanism and retain all breadcrumbs.
+1. Preserve O1C-0020 byte-exact and build O1C-0021 as a light synthetic causal-
+   evidence test using the same 352-byte route/vault API; require learned
+   accumulation of contradictory, heteroscedastic observations on unseen 256-bit
+   episodes, not another explicit binding-retention task.
+2. Keep watcher PID `67247` and the frozen O1C-0019 sources alive; inspect only the
+   ignored interlock log while W52 runs and never touch its files or processes.
+3. Let the watcher execute the exact four-fold artifact-only capsule at W1/W2/W3
+   after its terminal/resource/hash gates clear, then use raw learned-vs-untrained,
+   true-vs-shifted/static/hash IAUC and STOP/no-STOP to localize the result.
+4. After synthetic causal accumulation passes, map its event schema to immutable
+   paired solver/carry/proof streams at 12/52/128/256 active coordinates. Allocate
+   a disjoint full-round target only after the relevant frozen authorization gate.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0020` | 2026-07-17 | A BUILD-trained O1 gate can select all 256 bindings from a unified stream and preserve them exactly through at least `2^20` distractors without an oracle deployment mask | `EXACT_256_LEARNED_GATE_RETENTION`: 12/12 cells at 256/256, TP 256/FP 0/FN 0; nested live state byte-exact; all longest-stream controls fail | `VALIDATION` synthetic retention; terminal (a), no cipher claim | 9.553 CPU s; 9.915 elapsed s; 438,747,136 B peak; 352 B live state | Learned routing plus exact addressed vault closes retention; next test must learn causal evidence accumulation rather than explicit binding storage | [Run capsule](runs/20260717_211433_O1C-0020_selective-mqar-256-learned-gate-v1/RUN.md) |
 | `O1C-0019` pre-run | 2026-07-17 | Incremental packet learning plus reader-bound stationary credit lets O1 discover and autonomously route public full-256 evidence | Implementation frozen; 29 science tests + 5 subtests, 17 interlock tests and real one-fold micro-smoke pass; ACK-confirmed watcher armed; no efficacy execution while W52 is active | `INSTRUMENT` only | smoke 2.559 CPU s; 2.803 wall s; 315,359,232 B peak; watcher negligible; 0 solver branches | Exact no-STOP twin separates routing from abstention; key-lazy discovery closes a lifecycle leak | [Config](configs/full256_multiresolution_build_loo_v1.json) |
 | `O1C-0018` | 2026-07-17 | A reveal-delayed O1 reader can learn attacker-valid full-round paired-proof orientation and a true reward critic can select more information per work | `NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`: raw learned mean -1.284644 bits; W1 true +0.326847/+0.160175 and true beats shifted in all 6 cells, but static wins mean IAUC and hard coverage/hash dominate selection | `TEST` negative full-round gate with autonomous-picker breadcrumb | 545.024 CPU s; 510.875 wall s; 315,703,296 B peak; 3,072 native branches | Remove cumulative-query double integration; packetize horizons; stationary reader-bound credit; all-address preview; soft no-starvation plus STOP | [Run capsule](runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/RUN.md) |
 | `O1C-0017` | 2026-07-17 | A bounded O1 reader can autonomously discover one oriented channel among 330 anonymous channels and retain all 256 addressed readings without target-time updates | `MECHANISM_PASS`: 3286/4096 bits, +42.308742 bits mean compression, 80.225% accuracy, 16/16 positive; +46.701 over ablation, +42.765 over shuffled, +47.231 over raw end state | `VALIDATION` synthetic mechanism; no crypto/picker claim | 78.089 CPU s; 79.853 wall s; 286.438 MiB peak; 29,184 action observations | Anonymous signal discovery works; raw holographic end state is crosstalk-limited while the exact Bit-Vault retains the learned readings | [Run capsule](runs/20260717_140953_O1C-0017_full256-online-self-discovery-v1/RUN.md) |
@@ -406,6 +448,13 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0020` capsule manifest | `8380a3a1bbf826e62fbaa99f25e0ea1ba41f7020c101238b867ac99201077c59` |
+| `O1C-0020` internal result commitment | `6c12a0fcb9e0b58a86b8bea340ea475294b530372c9a9a28ddaa62724cab8cb5` |
+| `O1C-0020` result artifact | `be669301675432fc261ef9a77c78b60140993644c043a7745422ed860f00b97a` |
+| `O1C-0020` canonical config | `2bd6509696986bf0f77e5b7aef9bbfa843deb85b1ed4a8140f93a60f1e2ae24d` |
+| `O1C-0020` gate freeze | `0b027d4f0cd078fd775e8e20b8793b92231ad014205fb3ae644bbb24208ccfd0` |
+| `O1C-0020` prediction freeze | `f898ef2fdff2180f1d7d66d53bf295d439761b0d13c7ba2f8072a3251d1d1523` |
+| `O1C-0020` primary slow state | `853d8e643228924969d4488b6a0925c27eba2f9cf298575b58dcb9bdf6b4e5dd` |
 | `O1C-0018` capsule manifest | `fcbf43c99994c0debe5b39bb3e734ea1d1e23ba58e89b10ff2bb7e23886493fb` |
 | `O1C-0018` internal result commitment | `db92bd86849ff93e0f9b935a72f64f1b4bd46b134747c913ee82e5d772ac11c9` |
 | `O1C-0018` result artifact | `a8e5940edc5887e404725c98631df89e1f91963abd47d1fa51263fc681e9df4d` |
@@ -486,6 +535,12 @@ O1C-0017 result boundary are documented in
 | `O1C-0001` capsule manifest | `376e3b27f107d132421e29c2669f468a57c8417924928ce41badadf14d3dd05f` |
 
 ## Resume here
+
+O1C-0020 is complete and immutable at execution commit `3aefaf7`; do not replay its
+four EVAL seeds or tune the synthetic family cue. Reuse only the public 352-byte
+route/state API. The immediate light-work resume point is O1C-0021: weak,
+contradictory coordinate evidence whose values are not directly presented, with
+learned confidence/update/decay and equal-work causal controls.
 
 The O1C-0019 science is frozen at `27cd5b1` and its deferred handoff at `4511a06`.
 Do not rebuild, tune or manually duplicate it. Watcher PID `67247` owns

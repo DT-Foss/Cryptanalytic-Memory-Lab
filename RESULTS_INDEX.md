@@ -7,7 +7,7 @@ listed at the strongest claim level actually supported by its retained artifact.
 
 | ID | Result | Claim level | Metrics | Artifact |
 |---|---|---|---|---|
-| `O1C-0000-MEM` | Closed-gate MQAR-256 storage ladder | `INSTRUMENT` | Direct vault 100%; equal-cell holography 83.5938%; under-capacity CountSketch 70.1562% at 65,536 distractors over five seeds | [Run JSON](runs/quick.json) |
+| `O1C-0000-MEM` | Closed-gate MQAR-256 storage ceilings | `INSTRUMENT` | Direct vault 100% with a no-op haystack path, not learned selection; equal-cell holography 83.5938%; under-capacity CountSketch 70.1562% at 65,536 distractors over five seeds | [Run JSON](runs/quick.json) |
 | `O1C-0000-EVID` | Synthetic weak-evidence accumulator | `INSTRUMENT` | Independent 55% stream reaches 99.8438% mean bit accuracy; chance and correlated controls do not accumulate | [Run JSON](runs/quick.json) |
 | `O1C-0000-FLOW` | Provenance-typed operator chain | `INSTRUMENT` | Legal public-to-confirmation chain exists; post-reveal laundering is rejected | [Run JSON](runs/quick.json) |
 | `O1C-0008-FOUNDATION` | Full-256 public-output attacker/teacher boundary and metric harness | `SMOKE` | 256 unknown bits; 72 contrasts across six families; 2,576 deployment features; 0 target-trace fields; random NLL exactly 256.0 bits; 1M-decoy and exact-beam harness | [Capsule](runs/20260717_031113_O1C-0008_full256-living-inverse-foundation/RUN.md) |
@@ -20,6 +20,7 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0018-LIFECYCLE` | Full-round public-only proof-pool reader and learned-picker gate | `TEST` lifecycle | clean commit; 4 BUILD then 2 disjoint DEVELOPMENT targets; prediction/slow-state freeze before labels; exact 3,072 branches; 51/51 capsule members; all structural/resource gates pass | [Capsule](runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/RUN.md) |
 | `O1C-0019-HARNESS` | Artifact-only packet learner and autonomous BUILD-LOO picker gate | `INSTRUMENT` pre-run freeze | 4 symmetric folds; 5 policy + 2 raw-reader arms; W=16,384/32,768/49,152; key-lazy discovery; 29 science tests + 5 subtests; two-process real-artifact micro-smoke reproduces scientific SHA `79648ab...f36a8` and both slot ledgers byte-exact; no scientific execution yet | [Frozen config](configs/full256_multiresolution_build_loo_v1.json) |
 | `O1C-0019-INTERLOCK` | Read-only deferred handoff from sibling W52 to the frozen CPU gate | `INSTRUMENT` operational | 17 tests; real ACK after process/RAM/hash preflight; 24 live W52 processes found despite stale PID files; fork/exec lock retention and PID-bound power assertion verified; watcher PID `67247`; zero sibling writes | [Interlock config](configs/o1c0019_w52_interlock_v1.json) |
+| `O1C-0020-LIFECYCLE` | Learned-mask MQAR-256 with gate and predictions frozen before unseen streams/truth | `VALIDATION` mechanism lifecycle | clean commit; 32 BUILD + 8 CAL + 4 EVAL seeds; 12 frozen cells; no oracle deployment mask; truth revealed once after prediction freeze; second invocation is no-replay; 21/21 capsule members verify | [Capsule](runs/20260717_211433_O1C-0020_selective-mqar-256-learned-gate-v1/RUN.md) |
 
 ## Operational failures
 
@@ -58,6 +59,8 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0017-AUTONOMY` | O1 autonomously discovers a useful oriented channel among 330 anonymous raw channels and retains its 256 addressed readings | `VALIDATION` synthetic mechanism | 3286/4096 bits; +42.308742 bits mean compression; 80.224609% accuracy; 16/16 positive; +46.701393 over ablation, +42.764897 over shifted labels, +47.231321 over raw end-state O1 | [Result](runs/20260717_140953_O1C-0017_full256-online-self-discovery-v1/artifacts/online_self_discovery.json) |
 | `O1C-0018-PICKER` | True reveal-delayed reward causes a small real route perturbation before hard coverage dominates | `POST_REVEAL` mechanism breadcrumb | true reward is best W1 on both targets at +0.326847/+0.160175 and beats shifted reward in all 6 cells; true-shifted IAUC margins +0.177087/+0.265706; mean W1 learned score share only about 0.17% | [Forensics](research/O1C0018_POST_REVEAL_FORENSICS_20260717.md) |
 | `O1C-0018-ACCUMULATION` | Live Bit-Vault re-adds an already cumulative O1 query and over-integrates weak evidence | `POST_REVEAL` mechanism diagnosis | deployed exhaustive mean -1.284644 bits versus direct final O1 -0.093388; avoiding double integration removes 1.191256 bits of damage; final coverage-normalized logits improve to -0.322875 mean | [Forensics](research/O1C0018_POST_REVEAL_FORENSICS_20260717.md) |
+| `O1C-0020-RETENTION` | A learned O1 gate routes explicit bindings into an exact addressed vault through a long public stream with T-independent model state | `VALIDATION` synthetic mechanism | 12/12 unseen cells recover 256/256 with TP=256/FP=0/FN=0 at H=0/65,536/1,048,576; complete 352-byte state is nested-length byte-exact; zero model O(T) state/index; all longest-stream controls fail | [Result](runs/20260717_211433_O1C-0020_selective-mqar-256-learned-gate-v1/artifacts/selective_mqar.json) |
+| `O1C-0020-ROUTE-CERT` | Learned public-token routing is globally separated, not merely sampled cleanly | `VALIDATION` mechanism certificate | zero errors on 8,192 CAL tokens; sampled margin +0.468235; analytic worst-case margin +0.454628 over every legal family/payload/address/nuisance value; shuffled-label certificate fails | [Gate freeze](runs/20260717_211433_O1C-0020_selective-mqar-256-learned-gate-v1/artifacts/gate_freeze.json) |
 
 ## Replicated validation
 
@@ -104,6 +107,10 @@ pools. Its raw reader gate fails, while an early true-versus-shifted picker marg
 survives all six cells. Exact replay localizes the failure to cumulative-query
 double integration, nonstationary credits, hash-shortlisting, compulsory breadth
 and forced spending; O1C-0019 changes those mechanisms before any new target.
+O1C-0020 independently closes the exact-retention prerequisite: learned selection
+plus a 64-byte addressed vault recovers all 256 explicit bindings after `2^20`
+distractors in a 352-byte live state. This is synthetic storage/routing validation,
+not evidence that ChaCha20 emits an oriented channel.
 
 ## Prospective full-256 inverse evidence
 
@@ -119,11 +126,14 @@ and forced spending; O1C-0019 changes those mechanisms before any new target.
 
 ## Frontier and state-of-the-art results
 
-None produced by this lab yet. O1C-0017 is a strong architecture mechanism pass,
-not a cryptanalytic frontier result. O1C-0018 is the first live full-round O1 picker
-gate but fails its raw-reader criterion. O1C-0016 closes the earlier O1C-0014
-aggregate as panel noise for this frozen global unary reader family. Existing
-sibling-project recoveries are baselines, not results of this integration.
+No cryptanalytic frontier result has been produced by this lab yet. O1C-0020 is the
+first result satisfying architecture terminal (a): exact 256/256 long-stream
+retention under a learned non-oracle route and exact bounded-state accounting. It
+does not satisfy causal full-round evidence condition (b) or recovery condition
+(c). O1C-0018 remains the first live full-round O1 picker gate but fails its raw-
+reader criterion. O1C-0016 closes the earlier O1C-0014 aggregate as panel noise for
+this frozen global unary reader family. Existing sibling-project recoveries are
+baselines, not results of this integration.
 
 ## Negative bounds
 
@@ -150,3 +160,4 @@ sibling-project recoveries are baselines, not results of this integration.
 | `O1C-0018-N1` | The frozen full-round learned reader does not establish raw portable key orientation | `NEGATIVE_BOUND` | learned exhaustive field -1.400387/-1.168901 bits; coordinate rotation mean +0.203963; only 0/2 raw targets positive | Fix accumulation and packet observability on consumed pools before allocating new targets; do not tune a coordinate rotation |
 | `O1C-0018-N2` | The learned critic does not yet control the live route | `MECHANISM_BOUNDARY` | coverage contribution 0.5 versus first true reward 0.001955; about 0.17% W1 learned score share; true/shifted and cross-target W1 rank correlations 0.970-0.994 | Score all affordable addresses, use soft coverage plus finite starvation and add learned HOLD/STOP/DECAY |
 | `O1C-0018-N3` | Historical BUILD action rewards are nonstationary and do not transfer as a static action map | `MECHANISM_BOUNDARY` | mean pairwise per-action reward corr 0.013824; LOO corr 0.023765; static score versus realized DEV reward corr 0.003751/0.038186 | Freeze reader first, bind credit to reader SHA and replay bounded BUILD memories into a state-conditioned critic |
+| `O1C-0020-N1` | Closed-gate/no-op haystack handling is insufficient evidence for learned selective retention | `MECHANISM_BOUNDARY` | O1C-0020 evaluates every unified token; shuffled/untrained/ablated routes recover 0 exact cells, all-open fails all longest cells, CountSketch/holographic stores recover 0 exact cells, while the primary is 12/12 exact | Preserve learned routing plus addressed vault; next require learned confidence accumulation rather than merely explicit value writes |
