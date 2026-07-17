@@ -347,24 +347,25 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| None | — | — | — | — | — |
+| Sibling W52 (external, read-only) | 8 launchers | 2026-07-17 14:35 | A528 W52 protocol-bound workers | active at 17:24; O1C-0019 interlock engaged | unknown |
+| O1C-0019 | — | — | frozen config only | implementation/test/micro-smoke complete; scientific run not started | after W52 clears |
 
 ## Highest-ROI next actions
 
-1. Build `O1C-0019` as a packetized incremental reader: one coordinate-local
-   H64/H65/H96 event, learned delta/gate, separate horizon carriers and no
-   cumulative-query double integration.
-2. Refit the reward critic only after freezing the reader, bind credits to the
-   reader SHA and replay bounded BUILD memories to make rewards stationary.
-3. Score every affordable address or a live public preview; replace hash-32 plus
-   compulsory minimum coverage with soft attention and a finite starvation guard.
-4. Add learned HOLD/STOP/DECAY, compare artifact-only leave-one-BUILD-out arms on
-   the six consumed pools and spend no fresh sealed entropy until this gate wins.
+1. Keep commit `dc249ad` and the O1C-0019 config byte-exact; monitor the sibling
+   W52 resource interlock without touching its files or processes.
+2. When W52 clears, execute the committed four-fold artifact-only capsule at
+   W1/W2/W3 and change no reader, critic, control or threshold mid-run.
+3. Use raw learned-vs-untrained transfer, true-vs-shifted/static/hash IAUC and the
+   exact STOP/no-STOP twin to localize reader, credit, routing or abstention.
+4. Allocate a disjoint target only if the frozen BUILD-LOO authorization gate
+   passes; otherwise change only the failed mechanism and retain all breadcrumbs.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0019` pre-run | 2026-07-17 | Incremental packet learning plus reader-bound stationary credit lets O1 discover and autonomously route public full-256 evidence | Implementation frozen; 29 tests + 5 subtests and real one-fold micro-smoke pass; no efficacy execution while W52 is active | `INSTRUMENT` only | smoke 2.559 CPU s; 2.803 wall s; 315,359,232 B peak; 0 solver branches | Exact no-STOP twin separates routing from abstention; key-lazy discovery closes a lifecycle leak | [Config](configs/full256_multiresolution_build_loo_v1.json) |
 | `O1C-0018` | 2026-07-17 | A reveal-delayed O1 reader can learn attacker-valid full-round paired-proof orientation and a true reward critic can select more information per work | `NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`: raw learned mean -1.284644 bits; W1 true +0.326847/+0.160175 and true beats shifted in all 6 cells, but static wins mean IAUC and hard coverage/hash dominate selection | `TEST` negative full-round gate with autonomous-picker breadcrumb | 545.024 CPU s; 510.875 wall s; 315,703,296 B peak; 3,072 native branches | Remove cumulative-query double integration; packetize horizons; stationary reader-bound credit; all-address preview; soft no-starvation plus STOP | [Run capsule](runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/RUN.md) |
 | `O1C-0017` | 2026-07-17 | A bounded O1 reader can autonomously discover one oriented channel among 330 anonymous channels and retain all 256 addressed readings without target-time updates | `MECHANISM_PASS`: 3286/4096 bits, +42.308742 bits mean compression, 80.225% accuracy, 16/16 positive; +46.701 over ablation, +42.765 over shuffled, +47.231 over raw end state | `VALIDATION` synthetic mechanism; no crypto/picker claim | 78.089 CPU s; 79.853 wall s; 286.438 MiB peak; 29,184 action observations | Anonymous signal discovery works; raw holographic end state is crosstalk-limited while the exact Bit-Vault retains the learned readings | [Run capsule](runs/20260717_140953_O1C-0017_full256-online-self-discovery-v1/RUN.md) |
 | `O1C-0016` | 2026-07-17 | Frozen h96 and equal-logit h96+h65 remove transferable code length on 32 new full-256 output-only keys | `NOT_REPLICATED / DO_NOT_PROMOTE`: 4093/8192 bits, -0.078249 bit/key, 11/32 positive, paired z -0.555, null-like byte/block ranks, 0 exact keys | `VALIDATION` negative; lifecycle/integrity pass | 1972.625 CPU s; 1620.537 wall s; 414.813 MiB peak; 17,920 branches | h65 primary/shuffled target compression corr 0.999905 exposes common-mode difficulty; learn nuisance rejection and residual orientation online | [Run capsule](runs/20260717_115325_O1C-0016_full256-polyphase-blind-replication-v2/RUN.md) |
@@ -469,12 +470,11 @@ O1C-0017 result boundary are documented in
 
 ## Resume here
 
-Build `O1C-0019` on the six immutable O1C-0018 pools. First eliminate cumulative-
-query double integration and freeze a reader-SHA-bound stationary reward replay.
-Then package H64/H65/H96 by coordinate, let O1 learn the raw odd/common and mixed
-Möbius fields, score all affordable addresses, use soft coverage plus a finite
-starvation guard, and learn HOLD/STOP/DECAY. Run only artifact-based BUILD-LOO and
-consumed-DEV diagnostics until the new controller beats frozen controls; only then
-allocate a new disjoint gate. Never reuse O1C-0015/16 targets, O1C-0017 formal seeds
-or O1C-0018 DEVELOPMENT targets as fresh evidence. Keep the sibling recovery queue
+The O1C-0019 implementation is complete and frozen at `dc249ad`; the real-artifact
+micro-smoke is recorded at `305542c`. Do not rebuild or tune it. Recheck the eight
+sibling W52 launchers and memory pressure. While they remain active, perform only light
+tests/microbenchmarks. After they exit, launch the exact committed config from a
+clean tree and preserve the timestamped capsule. DEVELOPMENT stays outside this
+BUILD-LOO decision. Never reuse O1C-0015/16 targets, O1C-0017 formal seeds or
+O1C-0018 DEVELOPMENT targets as fresh evidence. Keep the sibling recovery queue
 read-only, CPU-only and prioritized.
