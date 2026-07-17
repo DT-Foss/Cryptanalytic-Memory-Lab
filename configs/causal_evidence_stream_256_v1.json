@@ -1,0 +1,124 @@
+{
+  "schema": "o1-256-causal-evidence-stream-run-config-v1",
+  "attempt_id": "O1C-0021",
+  "slug": "causal-evidence-stream-256-v1",
+  "claim_level": "VALIDATION",
+  "hypothesis": "A BUILD-trained bounded O1 reader receiving only continuous public event streams, signed votes and delayed outcome truth can autonomously retain the preceding public sensor marker, infer its regime-conditioned reliability, suppress correlated repeats, and accumulate a calibrated exact 256-bit posterior in the same 352-byte live-state envelope that solved learned MQAR retention.",
+  "prediction": "On four never-used 256-bit EVALUATION episodes, the frozen learned_recurrent arm will compound across 1, 4, 16, 64 and 256 independent groups, remain invariant to 4x, 16x and 64x duplicate expansion, satisfy complement and permutation controls, beat every registered learned ablation including a same-encoder current-marker-only reader at matched work, and recover all 256 bits exactly while preserving a byte-exact 352-byte state and a one-reveal truth lifecycle. The outcome-learned 64-byte public-FSM table must independently recover every key as an O1-O-targetable bounded reference; parity limits any claim of O1 necessity but does not invalidate exact autonomous recurrent learning.",
+  "controls": [
+    "zero_prior_baseline is the exact zero-logit no-evidence reference",
+    "same_route_last keeps only the most recent accepted signed observation",
+    "same_route_unit_sum removes learned confidence while preserving routing",
+    "same_encoder_static_sum removes recurrent regime memory at matched routing",
+    "same_encoder_current_marker_sum resets before every public marker and tests whether the current marker alone explains the signal",
+    "outcome_table_public_fsm independently learns and executes the delayed public operator with its own bounded route and state as an O1-O-targetable reference rather than an O1-necessity claim",
+    "shuffled_confidence receives identical BUILD work with shuffled confidence labels",
+    "all_open consumes every offered public token without selective routing",
+    "duplicate expansions at factors 4, 16 and 64 must not manufacture confidence",
+    "independent replacement at 16x16 matched slots must compound materially",
+    "complement, opaque-ID and coordinate permutations test antisymmetry and equivariance",
+    "oracle_grouped_bayes is an evaluator-only ceiling and is never fed to a learned arm"
+  ],
+  "budgets": {
+    "maximum_cpu_seconds": 300,
+    "maximum_wall_seconds": 300,
+    "maximum_resident_memory_mib": 768,
+    "maximum_persistent_artifact_bytes": 16777216,
+    "maximum_physical_public_tokens": 46227456,
+    "maximum_reader_token_evaluations": 53588992,
+    "maximum_calibration_physical_public_tokens": 1050624,
+    "maximum_calibration_reader_token_evaluations": 3153920,
+    "maximum_temperature_grid_value_evaluations": 24657920,
+    "maximum_training_token_exposures": 15974400,
+    "maximum_public_fsm_build_outcome_lookups": 262144,
+    "maximum_public_fsm_calibration_table_lookups": 524288,
+    "maximum_public_fsm_evaluation_table_lookups": 1835008,
+    "maximum_logical_arm_updates": 462274560,
+    "maximum_accepted_arm_updates": 18350080,
+    "maximum_prediction_values": 358400,
+    "maximum_live_state_bytes": 352,
+    "maximum_scientific_entropy_calls": 1,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_native_solver_branches": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0
+  },
+  "next_action": "If exact causal accumulation passes, freeze the 352-byte event/update contract and map it without refitting to attacker-computable paired solver, carry and proof streams at 12, 52, 128 and 256 active coordinates. If it fails, preserve the first precedence classification and change only route observability, confidence, duplicate suppression or decay semantics identified by that breadcrumb.",
+  "experiment": {
+    "n_bits": 256,
+    "regime_count": 4,
+    "family_count": 8,
+    "quality_reliabilities": [
+      0.62,
+      0.7
+    ],
+    "coefficient_magnitudes": [
+      1,
+      2
+    ],
+    "orientation_matrix": [
+      [1, 1, 1, -1, -1, -1, 1, -1],
+      [1, -1, -1, 1, 1, -1, 1, -1],
+      [-1, 1, -1, 1, -1, 1, -1, 1],
+      [-1, -1, 1, -1, 1, 1, -1, 1]
+    ],
+    "event_dimension": 21,
+    "address_dimension": 8,
+    "model_dimension": 24,
+    "heads": 1,
+    "head_dimension": 4,
+    "holographic_slots": 2,
+    "feedforward_dimension": 48,
+    "phase_scale": 3.141592653589793,
+    "core_seed": 210021,
+    "build_seeds": [
+      210021001,
+      210021002,
+      210021003,
+      210021004,
+      210021005,
+      210021006,
+      210021007,
+      210021008
+    ],
+    "calibration_seeds": [
+      210021101,
+      210021102,
+      210021103,
+      210021104
+    ],
+    "development_seeds": [
+      210021201,
+      210021202
+    ],
+    "evaluation_seeds": [
+      210021301,
+      210021302,
+      210021303,
+      210021304
+    ],
+    "independent_group_prefixes": [
+      1,
+      4,
+      16,
+      64,
+      256
+    ],
+    "repeat_factors": [
+      1,
+      4,
+      16,
+      64
+    ],
+    "independent_comparison_groups": 16,
+    "independent_comparison_repeat_factor": 16,
+    "training_steps": 480,
+    "training_batch_size": 256,
+    "learning_rate": 0.02,
+    "temperature_grid_max": 1.5,
+    "temperature_grid_steps": 301,
+    "shuffled_label_seed": 310021,
+    "cpu_threads": 1
+  }
+}
