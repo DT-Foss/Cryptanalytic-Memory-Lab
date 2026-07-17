@@ -11,6 +11,7 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0000-EVID` | Synthetic weak-evidence accumulator | `INSTRUMENT` | Independent 55% stream reaches 99.8438% mean bit accuracy; chance and correlated controls do not accumulate | [Run JSON](runs/quick.json) |
 | `O1C-0000-FLOW` | Provenance-typed operator chain | `INSTRUMENT` | Legal public-to-confirmation chain exists; post-reveal laundering is rejected | [Run JSON](runs/quick.json) |
 | `O1C-0008-FOUNDATION` | Full-256 public-output attacker/teacher boundary and metric harness | `SMOKE` | 256 unknown bits; 72 contrasts across six families; 2,576 deployment features; 0 target-trace fields; random NLL exactly 256.0 bits; 1M-decoy and exact-beam harness | [Capsule](runs/20260717_031113_O1C-0008_full256-living-inverse-foundation/RUN.md) |
+| `O1C-0011-CNF` | Exact target-independent full-256 public ChaCha20 CNF and causal bit map | `VALIDATION` infrastructure | 32,128 vars; 187,370 clauses; 656 operators x 32 exact bit ranges; public instance 640 public/0 key units; byte-identical compile; SAT/UNSAT/SAT self-tests | [Capsule](runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/RUN.md) |
 
 ## Real O1-O replay
 
@@ -60,6 +61,9 @@ prospectively tests its only post-reveal signed breadcrumb on 2,048 new keys wit
 no refit; the direction reverses to negative compression and fails every efficacy
 control. This closes the tested raw end-output reader family. O1C-0007's historical
 future decoder remains unevaluated on source-unseen paired-assumption events.
+O1C-0011 now independently validates the complete full-width symbolic relation,
+per-bit carry/clause ancestry and opposite-assumption instance contract needed to
+generate those events. It is infrastructure evidence, not key-recovery evidence.
 
 ## Frontier and state-of-the-art results
 

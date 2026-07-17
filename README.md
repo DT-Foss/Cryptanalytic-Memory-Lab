@@ -37,6 +37,13 @@ The complete attacker contract and architecture are in
 inspected read-only and are summarized in
 [the 2026-07-17 transfer map](research/W52_TRANSFER_20260717.md).
 
+The current immutable substrate is O1C-0011: an exact target-independent
+full-256 ChaCha20 CNF with 32,128 variables, 187,370 clauses and 656 x 32
+round/lane/bit causal ranges.  Its public instance fixes only counter, nonce and
+output; no key bit or target trace is present.  The next experiment, O1C-0012,
+streams equal-work opposite key-bit solver events from that relation into the
+bounded O1 causal bitfield.
+
 ## What the first benchmark proves
 
 The initial benchmark deliberately separates three questions that are easy to

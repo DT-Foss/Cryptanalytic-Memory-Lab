@@ -157,10 +157,12 @@ are a factor-256 domain reduction.  Exact key verification is the terminal signa
    signed-direct breadcrumb with no refit on 2,048 newly sealed uniform full-width
    keys. Direct compression was `-0.019088` bit and all efficacy controls failed,
    closing the raw end-output reader family.
-4. `O1C-0011`: stream public-CNF paired-assumption evidence through the
-   20,492-byte O1 state, add the
-   A465 backbone and A469 local correction, then attack a sealed random 256-bit
-   development target.
-5. Iterate on round/carry/proof observability, operator scheduling and holographic
+4. `O1C-0011` (completed infrastructure validation): compiled the exact full-256
+   public ChaCha20 CNF, 656 x 32 causal bit ranges and opposite-assumption
+   instances; fixed-key SAT, flipped-output UNSAT and independent-vector SAT pass.
+5. `O1C-0012`: stream paired propagation/conflict/decision/proof evidence through
+   the 20,492-byte O1 state, add the A465 backbone and A469 local correction, then
+   freeze on known full-width keys before any sealed development target.
+6. Iterate on round/carry/proof observability, operator scheduling and holographic
    binding until uniform held-out entropy moves; do not retreat to a reduced-width
    target when a full-256 arm is negative.

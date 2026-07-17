@@ -1,30 +1,54 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-17T04:53:42+02:00 (`Europe/Berlin`)
-- **Implementation commit:** `1d061c2661a3d93c9fe82c8df828b328b04cd23a`
-- **Worktree:** O1C-0010 cockpit current; O1C-0011 build pending;
-  O1C-0009/O1C-0010 capsules immutable
-- **Research phase:** O1-256 Living Inverse — target-independent full-256 public
-  CNF and paired-assumption solver sensor
+- **Last updated:** 2026-07-17T05:42:29+02:00 (`Europe/Berlin`)
+- **Implementation commit:** `b9f514a33386066706d1b023cc97487595ed63c4`
+- **Worktree:** O1C-0011 capsule current; O1C-0012 sensor build next;
+  O1C-0009/O1C-0010/O1C-0011 capsules immutable
+- **Research phase:** O1-256 Living Inverse — paired-assumption solver events into
+  coordinate-bound unary-plus-interaction O1 state
 - **Strongest internal mechanism:** O1C-0007's 12-register/266-byte unary state is
   retained as a negative-calibrated primitive; the active design adds proof
   interactions, switching wavelengths and a 20,492-byte full-256 living state
 - **Strongest read-only mechanism intake:** A447-A449 proof ancestry, A465 cubic
   Product-of-Experts and A469 positive bucket-local correction
 - **Active runs:** none
-- **Last completed attempt:** `O1C-0010` — 2,048-key prospective signed-reader
-  replication, clean negative
-- **Next attempt:** `O1C-0011` — exact target-independent full-256 public CNF,
-  key/output literal maps and paired-assumption event instrument
+- **Last completed attempt:** `O1C-0011` — exact target-independent full-256 public
+  CNF, per-bit causal map and paired-assumption instances; all gates passed
+- **Next attempt:** `O1C-0012` — incremental paired-assumption propagation/conflict/
+  proof sensor feeding the bounded O1 causal bitfield
 - **Primary uncertainty:** which conflict/propagation/proof event family retains
   any cross-key orientation once raw end-output regression is closed
-- **SOTA status:** no inverse signal yet; O1C-0010 decisively refutes the only
-  remaining end-output breadcrumb and redirects work upstream
+- **SOTA status:** no inverse signal yet; O1C-0011 establishes the validated
+  full-width upstream relation needed to search for one without reducing key width
 - **SOTA target:** a stream-length-bounded living inverse that reduces the 256-bit
   key code length on sealed uniform targets and ultimately emits an exactly verified
   full ChaCha20 key
 
 ## Headline
+
+`O1C-0011` compiled the complete standard twenty-round ChaCha20 block relation
+directly at full key width.  Variables `1..256` are the unknown key, `257..384`
+the public counter/nonce and `385..896` the public 512-bit output; internal wires
+begin at `897`.  The immutable template contains `32,128` variables, `187,370`
+clauses and `656` semantically named add/XOR operators.  Every operator carries
+32 exact LSB-first bit ranges with explicit sum, carry or XOR variables and
+one-based inclusive clause ancestry.
+
+The public attacker instance adds exactly `640` counter/nonce/output units and
+zero key units (`188,010` clauses).  Two persisted bit-173 probes share the exact
+public relation and differ only in the final opposite key literal.  Byte-identical
+double compilation passed; the RFC fixed-key instance is SAT, its one-bit output
+flip is UNSAT, and an independent second 256-bit vector is SAT.  This validates
+the inversion substrate and causal address map; it does not yet claim an unknown-
+key solve or inverse signal.
+
+The capsule verifies 18/18 members.  CPU work was `8.692029` s, peak through
+artifact persistence `163.59375` MiB, maximum temporary workspace `25,414,624`
+bytes and persistent CNF artifacts `21,069,379` bytes.  Sibling reads/writes,
+MPS/GPU calls and fresh random targets were all zero.  Capsule manifest:
+`b7a07e6461805946897adbfb90da9e9f55ff1074e9aa1343f602eecb0645b7b4`;
+internal result:
+`6c4fd7becd5307d60b30e16ea1fae8d3f4739b06c888204d638950c94b53adfe`.
 
 `O1C-0010` prospectively copied the exact O1C-0009 direct and shuffled model bytes,
 froze the post-reveal signed scales and every gate before target entropy, then
@@ -103,9 +127,9 @@ transfer map is in
 
 ## Highest-ROI next actions
 
-1. `O1C-0011`: build a target-independent one-block full-256 public-output CNF and
-   exact key/output literal maps in the isolated lab.
-2. Stream paired bit-assumption conflict/decision/propagation/proof events at
+1. `O1C-0012`: expose bounded incremental paired-assumption telemetry from the
+   frozen O1C-0011 relation, without solving or reducing the 256-bit target.
+2. Stream conflict/decision/propagation/proof events at
    horizons `64/96/65` through O1 vault/Holo banks, then apply A465/A469.
 3. Calibrate event orientation only on known full-width keys; freeze before a new
    sealed panel and retain output-permutation, assumption-swap and ancestry-erasure
@@ -117,6 +141,7 @@ transfer map is in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0011` | 2026-07-17 | A complete target-independent full-256 ChaCha20 CNF can expose exact coordinate-bound paired-assumption relations under bounded resources | Passed: 32,128 vars, 187,370 template clauses, 656 operators x 32 bit ranges; public instance has 640 public/0 key units; SAT/UNSAT/SAT self-tests | `VALIDATION` infrastructure | 8.692 CPU s; 163.594 MiB outcome peak; 25.415 MB workspace; zero sibling/GPU work | Full-width causal substrate is valid; stream paired solver deltas into O1C-0012 | [Run capsule](runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/RUN.md) |
 | `O1C-0010` | 2026-07-17 | O1C-0009's signed direct orientation transfers without refit | Refuted on 2,048 sealed keys: compression -0.019088 bit, z -0.946; loses to shuffled, output-permutation delta only +0.000962 | `VALIDATION` negative | 2.424 CPU s; 201.969 MiB outcome peak, 245.391 MiB end-to-end; zero sibling/GPU work | Raw end-output regression is closed; move to public-CNF assumption/proof events | [Run capsule](runs/20260717_045214_O1C-0010_full256-signed-direct-replication-v1/RUN.md) |
 | `O1C-0009` | 2026-07-17 | Direct, candidate-relative or teacher-distilled full-width readers remove reproducible entropy from unseen public-output targets | Declared gate failed; all CAL scales 0, DEV NLL 256.0, compression 0, transferable bits 0; sealed lifecycle passed | `VALIDATION` negative | 6.923 CPU s; 182.906 MiB peak; 128 fresh keys; zero sibling/GPU work | Post-reveal CAL-only signed direct scale gives exploratory DEV +0.023159 bit; replicate once on a larger new panel, then move upstream | [Run capsule](runs/20260717_040741_O1C-0009_full256-output-only-reader-v1/RUN.md) |
 | `O1C-0008` | 2026-07-17 | A strict full-256 public-output attacker/teacher foundation can execute without sibling or accelerator use | Gate passed; 256 unknown bits, 72 contrasts, 2,576 features, 1M decoys, random NLL 256.0, zero target-trace fields | `SMOKE` | 0.996 s; 78 logical blocks; zero sibling/GPU work | The moonshot is now measurable; train the first full-width reader and demand uniform held-out entropy gain | [Run capsule](runs/20260717_031113_O1C-0008_full256-living-inverse-foundation/RUN.md) |
@@ -132,6 +157,13 @@ transfer map is in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0011` capsule manifest | `b7a07e6461805946897adbfb90da9e9f55ff1074e9aa1343f602eecb0645b7b4` |
+| `O1C-0011` internal result commitment | `6c4fd7becd5307d60b30e16ea1fae8d3f4739b06c888204d638950c94b53adfe` |
+| `O1C-0011` exact CNF template | `c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52` |
+| `O1C-0011` causal map commitment | `13c0dd32b1c0eec0b9b95e9c7c0f2a8390b8be6f98bd59e3b7d021c23762bfaf` |
+| `O1C-0011` public attacker instance | `dde6a2791726e148c99064ec71f746fb8803e5d0f6b1996dd8b238c9c9b0a2a0` |
+| `O1C-0011` bit-173 assumption-0 instance | `758c463982ce6222bf6dab9d130fc1c18a34fb2bf48d1f004d851ca46c9de003` |
+| `O1C-0011` bit-173 assumption-1 instance | `10717d9dadd4aa60d04ea4e38ffb95d34be0867c2424a501e01c224a1b930e5d` |
 | `O1C-0010` capsule manifest | `a87b7a9fb799d667e9d2e670f759ca4f389aac2be9cb932c3f308ab669f4ab7c` |
 | `O1C-0010` internal result commitment | `76069cf7e25e194feee027d4e4a1e2cca0fed47ae4ec84fbaa9ff966845e3bc9` |
 | `O1C-0010` pre-reveal prediction blob | `4643e0e849178014ede98e355037829158ca2eadc9b404671a8f64d6904e2dee` |
@@ -169,9 +201,8 @@ transfer map is in
 
 ## Resume here
 
-Start from `O1C-0011`: implement and independently test a streaming,
-target-independent exact one-block ChaCha20 CNF with stable 256 key and 512 output
-literal maps.  Instantiate only public counter/nonce/output units per target, then
-stream paired `k_i=0/1` conflict/propagation/proof events into the bounded O1 state.
-Do not spend another cycle on raw end-output readers. Keep the sibling W52 queue
-read-only and resource-prioritized.
+Start from `O1C-0012`: consume the immutable O1C-0011 template/map and instrument
+paired `k_i=0/1` solver runs with equal public units and frozen horizons. Stream
+signed conflict/propagation/decision/proof-ancestry deltas into the bounded O1
+unary-plus-interaction state. Do not spend another cycle on raw end-output readers
+or reduced key widths. Keep the sibling recovery queue read-only and prioritized.

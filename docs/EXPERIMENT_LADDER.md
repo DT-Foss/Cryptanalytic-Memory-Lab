@@ -63,9 +63,25 @@ conditional `z=-0.946`, shuffled margin `-0.017541` and output-permutation margi
 `+0.000962`; every efficacy gate failed. This layer is now a frozen negative
 sentinel, not an active model-scaling branch.
 
-## L2 — O1 Causal Bitfield Crystallizer (`O1C-0011`)
+## L2 — Full-256 causal CNF foundation (`O1C-0011`)
 
-Stream L1 event logits through the fixed initial state:
+Compile one target-independent standard twenty-round block relation with all 256
+key bits symbolic.  Counter, nonce and the 512-bit output remain symbolic in the
+template and become the only 640 unit clauses in an attacker instance.  Preserve
+stable interface variables plus per-round, lane, step and bit clause/wire ranges.
+
+Result: completed.  The immutable template has 32,128 variables and 187,370
+clauses; its 656 operators each expose 32 LSB-first bit ranges.  The public
+instance has zero key units.  Byte-identical recompilation, RFC SAT, one-bit-output
+UNSAT and a second full-width SAT vector all pass.  Two bit-173 assumption
+instances differ only in their final opposite key literal.  This is validated
+inversion infrastructure, not an unknown-key solve.
+
+## L3 — O1 Causal Bitfield Crystallizer (`O1C-0012`)
+
+Run equal-work `k_i=0/1` solver interventions on the L2 relation and stream their
+signed propagation, conflict, decision and proof-ancestry events through the fixed
+initial state:
 
 - 256 `{logit, precision, age}` vault entries;
 - H1/H2/H4/H8 GSSM timescales;
@@ -82,7 +98,7 @@ Gate: the streamed state matches batch reduction, stays flat in stream length an
 improves minimum held-out bit/block metrics over the strongest L1 arm at matched
 cipher calls.
 
-## L3 — O1-O adaptive proposal organism
+## L4 — O1-O adaptive proposal organism
 
 Select the next `(anchor, orbit, contrast family, horizon, reader, phase)` by
 
@@ -98,9 +114,9 @@ causal attic.
 Gate: better held-out entropy reduction per cipher call without state/index budget
 escape.
 
-## L4 — Sealed full-256 development attack
+## L5 — Sealed full-256 development attack
 
-After the L1 secret-panel result has selected a complete architecture, persist its
+After known-key event calibration has selected a complete architecture, persist its
 model hash, O1 state plan, proposal scheduler, work budget, controls and complete
 output posterior.  Generate a new uniform 256-bit key through a new one-shot
 full-256 broker.  Attack receives only its public relation.  This is distinct from
@@ -119,13 +135,13 @@ Report:
 After reveal, the challenge may enter the O1/O1-O learning attic.  It cannot alter
 its own result.
 
-## L5 — Living challenge sequence
+## L6 — Living challenge sequence
 
-Repeat L4 with a new sealed random target.  Challenge `n` may teach mechanisms used
+Repeat L5 with a new sealed random target.  Challenge `n` may teach mechanisms used
 on `n+1`, never itself.  Promote the result when entropy removal and stable bits
 replicate across target sequences and controls.
 
-## L6 — Exact recovery frontier
+## L7 — Exact recovery frontier
 
 Use the factorized/interaction posterior to generate a bounded uncertainty beam.
 Every member is checked by exact standard ChaCha20.  Terminal success is the full
@@ -134,7 +150,7 @@ material total-work advantage over the declared baseline.
 
 ## Resource rule
 
-The active sibling W52 recovery queue has priority.  L0 and small L1 diagnostics are
-CPU-only.  MPS/GPU training requires a short explicit window after checking memory
-pressure and active workers; no large proof-corpus copy or concurrent accelerator
-job is allowed while recovery is active.
+The active sibling recovery queue has priority.  L0-L3 infrastructure and small
+event batches are CPU-only.  MPS/GPU training requires a short explicit window
+after checking memory pressure and active workers; no large proof-corpus copy or
+concurrent accelerator job is allowed while recovery is active.

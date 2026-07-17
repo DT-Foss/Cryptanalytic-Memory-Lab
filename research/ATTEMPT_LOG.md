@@ -372,3 +372,43 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   selection noise. Close raw full-round end-output regression, preserve the exact
   negative as a sentinel, and move O1C-0011 upstream to paired public-CNF
   conflict/propagation/proof events.
+
+## O1C-0011 — Full-256 public CNF and causal bit map
+
+- **Recorded:** 2026-07-17T05:41:38+02:00
+- **Source commit:** `b9f514a33386066706d1b023cc97487595ed63c4`
+- **Claim level:** `VALIDATION` infrastructure
+- **Hypothesis:** the complete RFC 8439 twenty-round ChaCha20 block relation can be
+  compiled at full 256-bit key width with only public counter/nonce/output units,
+  symmetric assumption polarity and stable bit-level carry/clause ancestry for a
+  later O1 evidence stream.
+- **Exact relation:** key variables `1..256`, counter `257..288`, nonce `289..384`,
+  output `385..896`, internal variables from `897`; `32,128` total variables and
+  `187,370` template clauses.  The map contains `656` round/feed-forward operators
+  and 32 exact LSB-first bit ranges per operator with explicit sum, carry or XOR
+  variables and one-based inclusive clause ranges.
+- **Attacker instance:** exactly `640` public unit clauses and zero key units,
+  producing `188,010` clauses.  Persisted bit-173 assumption-0 and assumption-1
+  instances reuse identical public evidence and differ only in the final opposite
+  key literal.
+- **Self-tests:** independent double compile is byte-identical; RFC fixed-key
+  instance SAT; the same key with one output bit flipped UNSAT; a second unrelated
+  deterministic 256-bit key/counter/nonce vector SAT.  Semantic-map reconstruction,
+  exact instance-body hashing and every report/unit digest verify.
+- **Boundary:** no unknown-key inversion, entropy reduction or cryptanalytic SOTA
+  signal is claimed.  O1C-0011 validates the upstream relation and address space on
+  which O1C-0012 can measure paired solver-event orientation.
+- **Resources:** `8.692029` CPU seconds; `163.59375` MiB outcome peak and
+  `204.046875` MiB end-to-end process peak; `25,414,624` peak temporary bytes;
+  `21,069,379` persistent CNF bytes; three bounded CPU solver calls; zero fresh
+  random targets, sibling reads/writes, MPS or GPU calls.
+- **Artifact:**
+  `runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/`; manifest
+  `b7a07e6461805946897adbfb90da9e9f55ff1074e9aa1343f602eecb0645b7b4`;
+  internal result
+  `6c4fd7becd5307d60b30e16ea1fae8d3f4739b06c888204d638950c94b53adfe`;
+  template `c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52`;
+  causal map `13c0dd32b1c0eec0b9b95e9c7c0f2a8390b8be6f98bd59e3b7d021c23762bfaf`.
+- **Next action:** O1C-0012 uses the immutable relation through an incremental
+  paired-assumption sensor and streams equal-work propagation, conflict, decision
+  and proof-ancestry deltas into the bounded coordinate-bound O1 state.
