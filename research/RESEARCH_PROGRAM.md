@@ -19,9 +19,10 @@ O1C-0007 established a compact unary primitive but returned negative calibrated
 efficacy (`p=0.593505859375`).  The read-only W52 intake then identified the missing
 mechanisms: proof ancestry before clause flattening, four causal horizons,
 switching-wavelength experts, A465 PoE fusion and A469 backbone-preserving local
-interaction.  The active milestone is O1C-0008: build the full-256 attacker/teacher
-boundary, contrast generator and complete progress vector.  No W12/W52 residual
-target is part of the new result ladder.
+interaction. O1C-0008 now freezes the full-256 attacker/teacher boundary, contrast
+generator and complete progress vector. The active milestone is O1C-0009: train the
+first matched full-width readers and measure uniform disjoint development-key NLL.
+No W12/W52 residual target is part of the new result ladder.
 
 ## Evidence ladder from here
 

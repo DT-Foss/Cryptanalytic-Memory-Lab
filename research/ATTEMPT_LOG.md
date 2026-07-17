@@ -259,3 +259,35 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   metrics before training the first Living Inverse reader.
 - **Artifacts:** `docs/O1_256_LIVING_INVERSE.md` and
   `research/W52_TRANSFER_20260717.md`.
+
+## O1C-0008 — Full-256 Living Inverse foundation
+
+- **Recorded:** 2026-07-17T03:11:14+02:00
+- **Source commit:** `826149ded68f0c9afbdd7a1c4f9ea90235f1ef56`
+- **Claim level:** `SMOKE`
+- **Hypothesis:** the full-256 public-output attacker type, physically separate
+  teacher labels, exact traced ChaCha20 contrasts and non-recovery progress vector
+  can be made executable without sibling or accelerator use.
+- **Result:** all gates passed.  Six proposal families generated 72 deployment
+  contrasts over four build and two development targets.  Every target has 256
+  unknown key bits and one standard full-round block.  The attacker feature vector
+  has 2,576 values and contains candidate round/carry summaries but zero target
+  trace fields.
+- **Metric harness:** uniform posterior NLL exactly `256.0` bits; one-million-decoy
+  rank path completed; `0.99` truth oracle NLL `3.7118898419494637` bits, exact mode,
+  block ranks one, full-key decoy rank one and exact key in the 65,536 beam.
+- **Controls:** public output flip Hamming one; wrong nonce Hamming one while output
+  bytes remain fixed; shuffled-key control registered for the trained reader.
+- **Boundary:** this is an executable attacker/data/measurement result, not evidence
+  of inversion.  No learned posterior, entropy gain or SOTA claim exists yet.
+- **Resources:** `0.996414` wall seconds; 78 logical unique ChaCha blocks; CPU only;
+  zero MPS/GPU, sibling reads/writes and fresh target generation/reveal.
+- **Artifact:**
+  `runs/20260717_031113_O1C-0008_full256-living-inverse-foundation/`;
+  capsule manifest
+  `50cd1dcd83034d69aafd2e7890d62b9f2c25b6e65c5a929d3119027a71105449`;
+  deterministic result
+  `14bfa1dd9e4593cac223a779562ff8b591bf88c485486814be62e6f73baa79a2`.
+- **Next action:** O1C-0009 trains matched output-only, candidate-relative and
+  teacher-distilled full-256 readers and measures uniform development-key NLL plus
+  all controls before any sealed target is generated.

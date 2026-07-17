@@ -10,6 +10,7 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0000-MEM` | Closed-gate MQAR-256 storage ladder | `INSTRUMENT` | Direct vault 100%; equal-cell holography 83.5938%; under-capacity CountSketch 70.1562% at 65,536 distractors over five seeds | [Run JSON](runs/quick.json) |
 | `O1C-0000-EVID` | Synthetic weak-evidence accumulator | `INSTRUMENT` | Independent 55% stream reaches 99.8438% mean bit accuracy; chance and correlated controls do not accumulate | [Run JSON](runs/quick.json) |
 | `O1C-0000-FLOW` | Provenance-typed operator chain | `INSTRUMENT` | Legal public-to-confirmation chain exists; post-reveal laundering is rejected | [Run JSON](runs/quick.json) |
+| `O1C-0008-FOUNDATION` | Full-256 public-output attacker/teacher boundary and metric harness | `SMOKE` | 256 unknown bits; 72 contrasts across six families; 2,576 deployment features; 0 target-trace fields; random NLL exactly 256.0 bits; 1M-decoy and exact-beam harness | [Capsule](runs/20260717_031113_O1C-0008_full256-living-inverse-foundation/RUN.md) |
 
 ## Real O1-O replay
 
@@ -52,8 +53,9 @@ deployment from the same source capsule. None is yet a fresh recovery advantage.
 
 ## Frozen tests and independently confirmed results
 
-None yet. O1C-0007 froze a future decoder and A356 order, but no source-unseen target
-has been revealed or evaluated under that template.
+No inverse efficacy test yet. O1C-0008 freezes the full-width data and metric
+contract, but deliberately generated/revealed no fresh target and trained no reader.
+O1C-0007's historical future decoder remains unevaluated on a source-unseen target.
 
 ## Frontier and state-of-the-art results
 
