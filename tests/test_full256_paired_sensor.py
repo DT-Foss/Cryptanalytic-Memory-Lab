@@ -43,6 +43,7 @@ class Full256PairedSensorConfigTests(unittest.TestCase):
         self.assertEqual(config.state_plan.serialized_state_bytes, 17_408)
         self.assertEqual(config.maximum_state_bytes, 18_000)
         self.assertEqual(config.budgets.maximum_native_solver_branches, 514)
+        self.assertEqual(config.budgets.maximum_resident_memory_mib, 384.0)
         self.assertEqual(config.budgets.maximum_mps_calls, 0)
         self.assertEqual(config.budgets.maximum_gpu_calls, 0)
 

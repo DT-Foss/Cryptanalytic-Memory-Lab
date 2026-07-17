@@ -699,6 +699,7 @@ def run_full256_paired_sensor(
     wall_started = time.monotonic()
     parent_cpu_started = time.process_time()
     children_started = resource.getrusage(resource.RUSAGE_CHILDREN)
+    rss_milestones = {"entry": _peak_rss_bytes()}
     root = Path(lab_root).resolve(strict=True)
     workspace = Path(working_directory)
     workspace.mkdir(parents=True, exist_ok=True)
@@ -738,6 +739,7 @@ def run_full256_paired_sensor(
         or provenance.clause_count != config.source.expected_clause_count
     ):
         raise Full256PairedSensorError("public CNF dimensions differ")
+    rss_milestones["native_build_and_provenance_loaded"] = _peak_rss_bytes()
 
     horizons = config.state_plan.horizons
     costs = np.empty((len(horizons), KEY_BITS, 2), dtype=np.float64)
@@ -888,6 +890,7 @@ def run_full256_paired_sensor(
 
     if len(pair_hashes) != KEY_BITS or sentinel_report is None:
         raise Full256PairedSensorError("full 256-bit pair coverage is incomplete")
+    rss_milestones["all_probe_prefixes_reduced"] = _peak_rss_bytes()
     stream_sha256 = canonical_sha256(
         {
             "baseline_sha256": baseline_sha256,
@@ -935,12 +938,14 @@ def run_full256_paired_sensor(
     swap_control = state_swap_control(frozen, swapped_frozen)
     if len(frozen.to_bytes()) > config.maximum_state_bytes:
         raise Full256PairedSensorError("frozen O1 state exceeds byte budget")
+    rss_milestones["bounded_states_frozen"] = _peak_rss_bytes()
 
     # The known RFC key is first accessed here, after state serialization and
     # polarity-swap controls are frozen.  It never enters a solver probe.
     known_diagnostic = _known_key_diagnostic(
         state=frozen, diagnostic=config.diagnostic
     )
+    rss_milestones["known_key_diagnostic_complete"] = _peak_rss_bytes()
 
     sentinel_reruns: list[dict[str, object]] = []
     for rerun in range(config.probe.deterministic_sentinel_reruns):
@@ -985,6 +990,7 @@ def run_full256_paired_sensor(
                 native_peak_rss_bytes,
                 record.resources["solver_peak_rss_bytes"],
             )
+    rss_milestones["sentinel_replay_complete"] = _peak_rss_bytes()
 
     source_unchanged = (
         sha256_file(public_cnf) == config.source.public_instance_sha256
@@ -1081,6 +1087,7 @@ def run_full256_paired_sensor(
             "conservative sum of Python peak plus one native-parent and one "
             "fork-child peak; shared COW pages may be double-counted"
         ),
+        "process_rss_milestones_bytes": rss_milestones,
         "native_solver_branches": total_native_branches,
         "native_final_conflict_overshoot_min": min(final_overshoots),
         "native_final_conflict_overshoot_max": max(final_overshoots),
@@ -1199,6 +1206,10 @@ def run_full256_paired_sensor(
             name for name, passed in resource_budget_gates.items() if not passed
         )
         raise Full256PairedSensorError(
-            "paired sensor resource budget exceeded: " + ", ".join(failed)
+            "paired sensor resource budget exceeded: "
+            + ", ".join(failed)
+            + f"; cpu={budgeted_cpu_seconds:.6f}s"
+            + f" wall={resources['wall_seconds']:.6f}s"
+            + f" conservative_rss={conservative_process_group_peak_rss_bytes}B"
         )
     return Full256PairedSensorResult(report=report, artifacts=artifacts)

@@ -18,7 +18,7 @@
   "budgets": {
     "maximum_cpu_seconds": 300,
     "maximum_wall_seconds": 300,
-    "maximum_resident_memory_mib": 256,
+    "maximum_resident_memory_mib": 384,
     "maximum_persistent_artifact_bytes": 5000000,
     "maximum_native_solver_branches": 514,
     "maximum_mps_calls": 0,
