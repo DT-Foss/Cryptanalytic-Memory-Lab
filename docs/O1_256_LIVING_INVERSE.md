@@ -153,10 +153,10 @@ are a factor-256 domain reduction.  Exact key verification is the terminal signa
    512 known full-width keys, freeze on 64 calibration keys, then persist every
    prediction before revealing a 128-key broker-secret uniform panel.  Selection
    of bit coordinates is familywise and calibration-only.
-3. `O1C-0010`: prospectively test the exact post-reveal signed-direct breadcrumb
-   with no refit on 2,048 newly sealed uniform full-width keys; freeze all six
-   prediction/control matrices before reveal and require both conditional-bit and
-   independent-target evidence.
+3. `O1C-0010` (completed negative): prospectively tested the exact post-reveal
+   signed-direct breadcrumb with no refit on 2,048 newly sealed uniform full-width
+   keys. Direct compression was `-0.019088` bit and all efficacy controls failed,
+   closing the raw end-output reader family.
 4. `O1C-0011`: stream public-CNF paired-assumption evidence through the
    20,492-byte O1 state, add the
    A465 backbone and A469 local correction, then attack a sealed random 256-bit

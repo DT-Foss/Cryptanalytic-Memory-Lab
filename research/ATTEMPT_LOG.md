@@ -328,3 +328,47 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Next action:** freeze the exact direct model/negative scale for a larger new
   sealed replication, then replace end-output regression with paired public-CNF
   solver/proof evidence regardless of outcome.
+
+## O1C-0010 — Prospective signed-direct full-256 replication
+
+- **Recorded:** 2026-07-17T04:52:16+02:00
+- **Source commit:** `1d061c2661a3d93c9fe82c8df828b328b04cd23a`
+- **Claim level:** `VALIDATION` negative
+- **Hypothesis:** the post-reveal O1C-0009 direct-reader orientation at signed
+  scale `-0.03860970720667151` transfers without any refit to new uniform
+  full-width keys.
+- **Lifecycle:** exact O1C-0009 direct/shuffled model bytes, both scales, six arm
+  names and every gate were copied, hash-bound and persisted before target
+  entropy. Only then were 2,048 unique OS-random targets published. All six
+  `2048 x 256` float64 posterior matrices (`25,165,824` bytes) were persisted in
+  blob `4643e0e849178014ede98e355037829158ca2eadc9b404671a8f64d6904e2dee`
+  before the first reveal. The run cannot be replayed.
+- **Declared result:** direct mean NLL `256.01908846250825`, compression
+  `-0.019088462508241047` bit, target SE `0.004510444449122523`, conditional
+  uniform/Rademacher reference `z=-0.9460815985078296`. The three-SE target lower
+  bound was `-0.03261979585560862` bit.
+- **Matched controls:** direct-minus-shuffled compression `-0.017541123410184392`
+  bit (`z=-0.909288`); direct-minus-output-permutation `+0.0009622424228086879`
+  bit (`z=0.190158`); output-flip delta `-0.00037314`; wrong-nonce delta
+  `+0.00017779`. Only the algebraically expected reverse-polarity-negative
+  checksum passed; every efficacy gate failed.
+- **Bit boundary:** mean mode accuracy `49.9599457%`, mean correct bits
+  `127.89746`; the strongest post-reveal coordinate gains are about `0.00055`
+  bit each and are unselected diagnostics. O1C-0009 exploratory bits 82/218/240
+  give `+0.000184`, `+0.0000395`, and `-0.0000891` bit respectively, so there is
+  no stable coordinate breadcrumb.
+- **Integrity:** capsule verification 23/23; 2,048/2,048 commitments open; every
+  key exactly recomputes the standard twenty-round block; target trace fields `0`,
+  model refits `0`, sibling/MPS/GPU calls `0`.
+- **Resources:** `2.424391` CPU seconds, `201.96875` MiB peak through outcome
+  persistence, `245.390625` MiB end-to-end process peak under the 256 MiB limit.
+- **Artifact:**
+  `runs/20260717_045214_O1C-0010_full256-signed-direct-replication-v1/`; manifest
+  `a87b7a9fb799d667e9d2e670f759ca4f389aac2be9cb932c3f308ab669f4ab7c`;
+  internal result
+  `76069cf7e25e194feee027d4e4a1e2cca0fed47ae4ec84fbaa9ff966845e3bc9`;
+  protocol `75d90a63501ca4c6671170b7b9ffb039f2c6e713279b63a2073f26d15d20e419`.
+- **Conclusion:** the O1C-0009 `+0.023159`-bit signed observation was finite-panel
+  selection noise. Close raw full-round end-output regression, preserve the exact
+  negative as a sentinel, and move O1C-0011 upstream to paired public-CNF
+  conflict/propagation/proof events.

@@ -58,6 +58,11 @@ polarity posteriors before a single reveal.  Require absolute code-length gain,
 conditional uniform-key alignment and independent-target lower bounds; a clean
 negative result still closes the breadcrumb and feeds the causal build.
 
+Result: completed negative on 2,048 new keys. Direct compression `-0.019088` bit,
+conditional `z=-0.946`, shuffled margin `-0.017541` and output-permutation margin
+`+0.000962`; every efficacy gate failed. This layer is now a frozen negative
+sentinel, not an active model-scaling branch.
+
 ## L2 — O1 Causal Bitfield Crystallizer (`O1C-0011`)
 
 Stream L1 event logits through the fixed initial state:

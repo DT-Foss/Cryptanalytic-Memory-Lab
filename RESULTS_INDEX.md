@@ -53,11 +53,13 @@ deployment from the same source capsule. None is yet a fresh recovery advantage.
 
 ## Frozen tests and independently confirmed results
 
-No inverse efficacy test yet. O1C-0008 freezes the full-width data and metric
-contract. O1C-0009 is the first frozen efficacy test: its one-shot sealed lifecycle
-is valid, but all declared readers calibrate to the exact random posterior and the
-scientific gate fails. O1C-0007's historical future decoder remains unevaluated on
-a source-unseen target.
+O1C-0008 freezes the full-width data and metric contract. O1C-0009 is the first
+frozen efficacy test: its one-shot sealed lifecycle is valid, but all declared
+readers calibrate to the exact random posterior. O1C-0010 independently and
+prospectively tests its only post-reveal signed breadcrumb on 2,048 new keys with
+no refit; the direction reverses to negative compression and fails every efficacy
+control. This closes the tested raw end-output reader family. O1C-0007's historical
+future decoder remains unevaluated on source-unseen paired-assumption events.
 
 ## Frontier and state-of-the-art results
 
@@ -79,3 +81,4 @@ not results of this integration.
 | `O1C-0007-N1` | The broad retrospective upstream panel does not establish decoder efficacy | `NEGATIVE_BOUND` | Selected A355 rank 73 looks favorable in isolation, but [exact enumeration](runs/20260715_174537_O1C-0007_upstream-solver-evidence-bit-vault-freeze/artifacts/calibration/a355_exact_label_null.json) of the frozen 152-view selection procedure gives `p=0.593505859375`; the null excludes pre-panel exploration and assumes random labels | Do not resweep A355 or promote the post-hoc rank-23/rank-26 controls; carry only the exact frozen decoder into fresh targets |
 | `O1C-0007-N2` | Streamability alone does not resolve quantized ties | `MECHANISM_BOUNDARY` | Of 448 streamable views, only 152 survived the exact target-blind tie gate; the best tied streamable control had rank 26 but 3,328 score collisions beyond uniqueness | Require complete deterministic orders and explicit collision accounting before interpreting a compact accumulator |
 | `O1C-0009-N1` | Linear direct, candidate-relative and teacher-distilled readers over full-round end-output features do not transfer under the declared calibration | `NEGATIVE_BOUND` | All four CAL-optimal scales are 0; on 128 broker-secret keys every arm has NLL 256.0, compression 0 and zero familywise transferable bits | Replicate the single signed-scale breadcrumb once, then replace end-output regression with paired public-CNF proof/propagation events |
+| `O1C-0010-N1` | O1C-0009's signed direct end-output orientation is finite-panel selection noise, not a transferable sub-key signal | `NEGATIVE_BOUND` | Exact no-refit test on 2,048 new sealed keys: compression -0.019088 bit, conditional z -0.946, shuffled margin -0.017541 and output-permutation margin +0.000962; all efficacy gates fail | Close raw end-output regression; build exact full-256 public-CNF paired-assumption conflict/propagation/proof sensors |

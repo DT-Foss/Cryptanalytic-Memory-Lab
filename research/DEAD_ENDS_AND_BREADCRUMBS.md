@@ -198,3 +198,23 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   exploratory DEV compression `0.023159` bit (SD `0.199937` per target). Freeze and
   replicate it once on at least 1,024 new keys. Then move to paired assumptions in
   a public-output CNF, where conflict/propagation/proof topology is attacker-visible.
+
+## B-0013 — Signed end-output orientation does not replicate
+
+- **Evidence:** `O1C-0010`, exact O1C-0009 direct/shuffled model bytes and signed
+  scales frozen without refit, followed by 2,048 new broker-secret uniform keys.
+- **Result:** direct compression `-0.0190884625` bit (`z=-0.94608`) versus the
+  preregistered `>=+0.015`, with a negative three-SE target lower bound. Direct
+  loses to shuffled by `0.0175411` bit and differs from output permutation by only
+  `+0.0009622` bit (`z=0.19016`). The former O1C-0009 `+0.023159` bit does not
+  replicate despite 16 times more targets.
+- **Conclusion:** the post-reveal sign was finite-panel selection noise, not a
+  weak reusable inverse direction. No individual coordinate survives as a frozen
+  breadcrumb; bits 82/218/240 are null-sized on the replication.
+- **Do not repeat:** refit the sign, search another global temperature, increase
+  direct-ridge/MLP capacity on the same final-output feature family, or subdivide
+  the 2,048-key panel until a positive slice appears.
+- **Breadcrumb:** retain the exact direct model as a cheap negative sentinel. Move
+  input evidence upstream: paired `k_i=0/1` assumptions in an exact public-output
+  CNF, with conflict/propagation/proof ancestry streamed into coordinate-bound O1
+  state. Negative solver-event families remain useful contextual O1-O memory.

@@ -1,15 +1,15 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T04:16:16+02:00.
+Last ranked: 2026-07-17T04:53:42+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | `O1C-0010`: freeze O1C-0009 direct model and signed scale `-0.03860970720667151`; test at least 1,024 new broker-secret keys with no refit | State of the art if replicated | Very high | Very high | Low | Resolves the only positive post-reveal breadcrumb before heavier solver work |
-| 2 | Make the full-256 broker public-view-only in memory and keep every posterior/control frozen before the larger reveal | Infrastructure | High | Very high | Low | Preserves the 256 MiB budget while increasing replication power |
-| 3 | Build a target-independent one-block, full-key symbolic-output CNF with exact 256 key and 512 output literal maps inside this lab | State of the art | Very high | Very high | Medium | Creates an attacker-valid upstream sensor independent of sibling files at runtime |
-| 4 | Stream paired `k_i=0/1` conflict, decision, propagation and proof-ancestry deltas at horizons 64/96/65 into the O1 vault/Holo banks | State of the art | Very high | Very high | Medium | Tests the actual O1/O1-O synthesis on all 256 unknown bits |
-| 5 | Apply A465 cubic PoE and A469 positive bucket-local correction only after a unary solver event transfers across known-key CAL | State of the art | Very high | High | Medium | Adds interactions while preserving the strongest causal backbone |
-| 6 | Spend MPS/GPU only after CPU diagnostics show reusable entropy reduction and only in explicit windows that do not compete with W52 | High | Medium | High | High | Preserves recovery resources while scaling a demonstrated mechanism |
+| 1 | `O1C-0011`: compile a target-independent one-block exact ChaCha20 CNF with stable 256 key and 512 symbolic-output literal maps, streaming DIMACS below 256 MiB | State of the art infrastructure | Very high | Very high | Medium | Creates the first attacker-valid upstream sensor after end-output regression is closed |
+| 2 | Prove the CNF/map contract on known full-width keys: unit-key solve reproduces all 512 outputs; unit-output plus revealed key is SAT; one flipped output is UNSAT | Infrastructure | Very high | Very high | Low | Prevents spending paired probes on a mis-mapped formula |
+| 3 | On known uniform full-width keys, run symmetric `k_i=0/1` probes at frozen horizons and stream conflict, propagation, decision and proof-ancestry deltas; never reduce key width | State of the art | Very high | Very high | Medium | Identifies whether any public solver event has cross-key bit orientation |
+| 4 | Feed event families through three 64/96/65 O1 vault timescales and compare unary, A465 PoE and identity-preserving A469 local interactions | State of the art | Very high | High | Medium | Tests the actual O1/O1-O synthesis with bounded state and matched work |
+| 5 | Freeze on known TRAIN/CAL keys, then open a new sealed full-256 panel with assumption-swap, output-permutation, output-flip and ancestry-erasure controls | State of the art | Very high | High | High | Converts an upstream breadcrumb into prospective entropy reduction |
+| 6 | Spend MPS/GPU only after CPU solver events show reusable entropy reduction and only in explicit windows that do not compete with W52 | High | Medium | High | High | Preserves recovery resources while scaling a demonstrated mechanism |
 
 ## Hard target contract
 
@@ -34,6 +34,8 @@ Last ranked: 2026-07-17T04:16:16+02:00.
 
 - scaling a recovered-width ladder from W12 through W52;
 - repeating O1C-0007's unary A355 sweep;
+- fitting another direct/relative/distilled reader on raw final-output features or
+  revisiting O1C-0010's signed scale;
 - storing W52's 64 MiB pair permutations;
 - global unconstrained copula corrections after A468's tail failure;
 - treating raw ciphertext Hamming distance as dense evidence;
