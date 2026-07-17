@@ -853,14 +853,19 @@ def _acquire_launcher_lock(path: Path) -> int:
             fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError as exc:
             raise W52InterlockError("another O1C-0019 interlock is active") from exc
-        os.ftruncate(descriptor, 0)
-        os.write(descriptor, f"{os.getpid()}\n".encode("ascii"))
-        os.fsync(descriptor)
+        _record_lock_owner(descriptor)
         os.set_inheritable(descriptor, True)
         return descriptor
     except BaseException:
         os.close(descriptor)
         raise
+
+
+def _record_lock_owner(descriptor: int) -> None:
+    os.ftruncate(descriptor, 0)
+    os.lseek(descriptor, 0, os.SEEK_SET)
+    os.write(descriptor, f"{os.getpid()}\n".encode("ascii"))
+    os.fsync(descriptor)
 
 
 def launch_environment(config: W52InterlockConfig) -> dict[str, str]:
@@ -1111,6 +1116,7 @@ def detach_and_watch(
         return 0
 
     os.close(read_descriptor)
+    _record_lock_owner(lock_descriptor)
     os.setsid()
     signal.signal(signal.SIGHUP, signal.SIG_IGN)
     os.umask(0o077)

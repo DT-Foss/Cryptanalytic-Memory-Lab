@@ -501,6 +501,7 @@ class W52InterlockedLauncherTests(unittest.TestCase):
                 )
             child_pid = int(reports[0]["pid"])
             os.waitpid(child_pid, 0)
+            self.assertEqual(config.lock_path.read_text(), f"{child_pid}\n")
             log = Path(str(reports[0]["log"]))
             rows = [json.loads(line) for line in log.read_text().splitlines()]
             self.assertEqual(rows[0]["status"], "WATCHER_PREFLIGHT_PASSED")
