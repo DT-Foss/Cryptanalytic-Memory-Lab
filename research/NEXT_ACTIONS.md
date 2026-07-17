@@ -1,13 +1,13 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T23:46:49+02:00.
+Last ranked: 2026-07-18T00:52:15+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Preserve O1C-0021 source freeze `4ba1cc6`; after sibling compute clears, run one committed two-seed broad DEV recheck and then the four never-used formal EVAL seeds exactly once | State of the art | Very high | Very high | Low/Medium | Decides terminal synthetic causal accumulation (b) without consuming the sealed panel during active W52/A539 work |
-| 2 | Keep the ACK-confirmed watcher PID `67247` alive and let it launch frozen O1C-0019 only after W52 terminal/process/RAM/load/hash gates clear | State of the art | Very high | Very high | Medium | Produces the first corrected full-round packet-reader and autonomous-picker gate without disturbing recovery workers |
-| 3 | Classify O1C-0019 raw reader, true-vs-shifted/static/hash IAUC, STOP-vs-no-STOP routing, W2-to-W3 tail and fold stationarity from its immutable future capsule | State of the art | Very high | Very high | Low | Separates sensor, retention, credit, routing and abstention failures in one result |
-| 4 | After O1C-0021 passes, map its frozen event/update contract to paired solver/carry/proof evidence at 12/52/128/256 active coordinates; spend a fresh full-round target only after BUILD-LOO authorization | State of the art | Very high | Very high | Medium/High | Joins the exact retention substrate to attacker-valid causal evidence without a reduced-width recovery detour |
+| 1 | Keep the ACK-confirmed watcher PID `67247` alive and let it launch frozen O1C-0019 only after W52 terminal/process/RAM/load/hash gates clear | State of the art | Very high | Very high | Medium | Produces the first corrected full-round packet-reader and autonomous-picker gate without disturbing recovery workers |
+| 2 | When O1C-0019 finalizes, run source-frozen O1C-0022 `ce56ba4` exactly once; classify K12/52/128/256 raw/normalized/int8/last/unit/shuffled evidence under its exact ledger | State of the art | Very high | Very high | Low/Medium | Separates no packet signal, cross-coordinate dilution, scale weighting, quantization, confidence, compounding and binding before any new target |
+| 3 | Preserve O1C-0021 source freeze `4ba1cc6`; once the shared interlock is idle, run the committed two-seed broad DEV recheck and four never-used formal EVAL seeds exactly once | State of the art | Very high | Very high | Low/Medium | Decides terminal synthetic causal accumulation without racing the real packet gate |
+| 4 | If O1C-0022 passes, freeze one prospective combined architecture and attack one untouched O1C-0018 DEVELOPMENT pool under a new identity; otherwise change only the stage named by its classification | State of the art | Extreme | Very high | Medium | Converts the BUILD-LOO mechanism into the first genuinely fresh full-round 256-bit entropy/recovery test |
 
 ## Hard target contract
 
@@ -39,6 +39,9 @@ Last ranked: 2026-07-17T23:46:49+02:00.
   independent read-only audits clear. Its prior broad scratch DEV reached 256/256
   on both seeds in 134.523 s, but the hardened source recheck and formal four-seed
   EVAL remain deliberately unstarted while sibling compute is active.
+- O1C-0022 code/config/tests are clean at `ce56ba4`; its preflight verifies the
+  O1C-0018 corpus and 352-byte O1C-0021 contract but exits pending without a run
+  reservation until finalized O1C-0019 exists. Do not bypass that prerequisite.
 
 ## Do not spend the next cycle on
 
@@ -68,6 +71,9 @@ Last ranked: 2026-07-17T23:46:49+02:00.
 - replaying or rescaling O1C-0018 DEVELOPMENT targets as fresh evidence, promoting
   their post-reveal h65-only arm, or calling true-greater-than-shifted 6/6 a picker
   pass while static/hash still win aggregate controls;
+- resweeping O1C-0022's closed handcrafted 4-regime x 8-family scalar collapse,
+  relaxing unit-sign/last-only/shuffled promotion gates, or treating K12/52/128 as
+  reduced-key ciphers rather than active sensors inside one full-256 model;
 - replaying O1C-0020's four frozen EVAL seeds, extending the same explicit-binding
   haystack merely to enlarge a number, reintroducing an oracle route mask, or
   calling exact synthetic retention causal accumulation or cipher inversion;

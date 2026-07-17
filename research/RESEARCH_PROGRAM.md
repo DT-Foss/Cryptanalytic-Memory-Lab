@@ -35,7 +35,7 @@ every longest-stream exact-recall cell. This establishes learned selective
 retention, not evidence accumulation: accepted synthetic tokens still expose their
 address and value.
 
-There are now two non-conflicting active milestones. O1C-0021 is source-frozen at
+There are now three non-conflicting active milestones. O1C-0021 is source-frozen at
 `4ba1cc6`: it preserves the O1C-0020 API but replaces explicit values with weak,
 contradictory and reliability-varying coordinate evidence so temporal reliability
 and bounded accumulation must be learned on unseen 256-bit episodes. Its earlier
@@ -49,28 +49,37 @@ read-only watcher waits for W52 terminal/resource/hash gates, then execs exactly
 that CPU-only runner under the same lock. No manual heavy launch is needed and no
 sibling file is written.
 
+O1C-0022 is the frozen join between them at `ce56ba4`. It restores each future
+O1C-0019 fold reader, streams its native H64/H65/H96 incremental q-deltas through
+the exact 352-byte O1C-0021 vault, and varies only public active sensors at
+K=12/52/128/256 while the cipher remains full-width. Its matched float/int8/last/
+unit/shuffled controls and exact work ledger make a negative result actionable.
+The literal O1-O CAUSAL graph now selects and assembles a deterministic 273-byte
+public-FSM replay through the real local KnowledgeEngine without writing to the
+external tree. This proves integration mechanics only. O1C-0022 preflight is
+correctly pending and unreserved until O1C-0019 finalizes.
+
 ## Evidence ladder from here
 
 1. Preserve O1C-0020's code, four EVAL seeds, gate and capsule byte-exact. Reuse only
    its public state API, never its frozen evaluation outcomes.
-2. After sibling compute clears, rerun O1C-0021 broad DEV from `4ba1cc6`, then run
-   its four never-used EVAL episodes exactly once. Require positive held-out
-   compression that compounds with independent evidence, resists correlated
-   repetition and beats zero-prior, last, direct-sum, static/current-marker,
-   shuffled, all-open and independent bounded-FSM controls at exact work. Exact
-   256/256 remains the terminal synthetic gate.
-3. Preserve O1C-0018 and its six pools byte-exact; keep the watcher alive so W52
+2. Preserve O1C-0018 and its six pools byte-exact; keep the watcher alive so W52
    release automatically executes the frozen three-checkpoint, four-fold O1C-0019
    config with zero new solver branches, entropy, sibling or GPU work.
-4. Persist each O1C-0019 fold's reader/critics and every policy/raw trajectory before
+3. Persist each O1C-0019 fold's reader/critics and every policy/raw trajectory before
    reconstructing its key; report compression, IAUC, agency, stationarity,
    STOP/no-STOP and exact bounded-state/resource ledgers.
-5. Map a passing O1C-0021 event/update contract to attacker-computable paired
-   solver/carry/proof streams at 12/52/128/256 active coordinates. These are sensor
-   gates inside the full-256 model, not reduced-width recovery targets.
-6. If the real reader transfers and its route beats shifted/static/hash, freeze the
-   combined architecture and attack one disjoint full-256 target. If it fails,
-   replace only the localized sensor/update/critic component.
+4. Immediately after O1C-0019 finalizes, run O1C-0022 once from `ce56ba4`. Require
+   exact lifecycle/work/invariance gates, then use its K ladder and raw/normalized/
+   int8/last/unit/shuffled matrix to localize signal, dilution, scale, quantization,
+   confidence, compounding or address binding.
+5. Once the shared interlock is idle, rerun O1C-0021 broad DEV from `4ba1cc6`, then
+   run its four never-used EVAL episodes exactly once. Require positive held-out
+   compression and matched control margins; exact 256/256 remains the terminal
+   synthetic causal-accumulation gate.
+6. If the real O1C-0022 reader/vault gate passes, freeze the combined architecture
+   and attack one untouched full-256 DEVELOPMENT target under a new identity. If it
+   fails, replace only the stage named by the frozen classification.
 7. After stable entropy reduction, add surprise-selected Causal Attic summaries,
    bounded beam concentration and exact ChaCha20 verification toward recovery.
 

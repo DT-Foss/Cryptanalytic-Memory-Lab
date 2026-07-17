@@ -966,3 +966,54 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `PYTHONPATH=src python3 -m o1_crypto_lab.causal_evidence_stream_run --config configs/causal_evidence_stream_256_v1.json`
   exactly once from a clean commit, then publish the capsule and update terminal
   condition (b).
+
+## 2026-07-18 — O1C-0022 real-packet causal-vault source freeze (non-attempt)
+
+- **Recorded:** 2026-07-18T00:52:15+02:00
+- **Source freeze:** `ce56ba44ef9fe8583c0603ab145afa6133849954`; nine new
+  config/design/result/code/test files, no O1C-0022 reservation, capsule, label
+  score, fresh entropy or scientific efficacy result.
+- **Mechanism:** each future finalized O1C-0019 fold restores its exact frozen
+  reader and replays immutable O1C-0018 BUILD pools. Native incremental
+  `q_after-q_before` values at H64/H65/H96 stream into raw/normalized float arms
+  and the exact 352-byte O1C-0021 int8 vault. One label-free nonzero-median scale
+  per horizon is fit from public training deltas; posterior scales are constrained
+  to a nonnegative 401-point grid so calibration cannot reverse orientation.
+- **Full-width intervention:** nested public coordinate sets K=12/52/128/256 keep
+  all 256 target bits unknown. The exact frozen budget is 32 reader replays,
+  17,664 packet slots, 1,130,496 public work units and 7,391,232 calibration value
+  evaluations; upstream reader state is billed separately from the 352-byte
+  accumulator. No new pool or native solver branch is allowed.
+- **Controls and lifecycle:** raw float, normalized float, int8 vault, last-only,
+  unit-sign, coordinate-shuffled and zero-prior arms freeze fold-locally before
+  that fold's held-out label is used. A pass requires every K256 fold positive,
+  +1 mean bit, strict K-growth, 90% float preservation and positive K256 margins
+  over shuffled, unit-sign and last-only. Actual swapped-pool antisymmetry,
+  duplicate byte invariance, coordinate commutation, finite state and exact work
+  override efficacy.
+- **O1-O integration:** the bridge emits literal
+  `CAUSAL || uint16_be(1) || zlib(msgpack(graph))`, lets the real local O1-O
+  KnowledgeEngine select the exact triplet, assembles its standard fragment and
+  byte-replays a 64-byte table into the independent 273-byte FSM. Native and
+  internal dependency-free MessagePack are byte-identical. The external O1-O tree
+  is left without files or caches from the test. This is composition parity, not
+  cryptanalytic evidence or a formal O1C-0021 table export.
+- **Negative breadcrumb:** an exact 1.5-second exploratory replay of 4 regimes x
+  8 handcrafted family masses failed at every K and smoothing alpha. The least
+  negative K256 member was 519/1,024 correct but `-213.404152` code bits. Preserve
+  the learned 330D O1C-0019 reader; do not resweep scalar family sums.
+- **Verification:** 17 focused core/runner tests, 10 native O1-O tests plus four
+  subtests, and 34 direct O1C-0019/O1C-0021 regression tests plus 575 subtests pass.
+  Ruff, format, pycompile, JSON, source pins and three independent P0/P1 audits are
+  clear. O1C-0021's state-defining source bytes are bound to commit `4ba1cc6`.
+- **Preflight:** live CLI exits 2 with `prerequisite-pending`, verifies the O1C-0018
+  corpus and O1C-0021 state, reports no finalized/recoverable O1C-0022 and creates
+  no reservation. The actual future O1C-0019 capsule remains intentionally
+  unexercised until the watcher finalizes it.
+- **Resource decision:** W52 remains active with eight workers; only light tests
+  ran. O1C-0019, O1C-0022 and O1C-0021 formal execution remain unstarted.
+- **Resume:** after watcher-finalized O1C-0019 exists, run
+  `PYTHONPATH=src python3 -m o1_crypto_lab.o1c19_causal_vault_bridge_run --config configs/o1c19_causal_vault_bridge_v1.json`
+  exactly once from `ce56ba4`. Promote a fresh DEVELOPMENT target only if the
+  frozen real-packet gate passes; otherwise change only the stage named by its
+  width/control classification.

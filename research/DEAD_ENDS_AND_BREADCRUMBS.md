@@ -505,3 +505,25 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Breadcrumb:** formalize both paths. Use O1/O1-O where the real attacker stream
   has open-ended, compositional solver/carry/proof structure; use the tiny FSM as
   the O1-O-targetable reference and future graph-emission test.
+
+## B-0029 — Handcrafted family-mass collapse destroys the learned packet geometry
+
+- **Evidence:** an exact read-only replay of the four immutable O1C-0018 BUILD
+  pools collapsed 330 paired proof channels into eight manual family masses, then
+  crossed four H64/H65/H96/A465-style rank regimes with leave-one-BUILD-out
+  beta-binomial orientation. All K=12/52/128/256 cells were negative for smoothing
+  alpha 1/4/16. The least-negative alpha16 K256 aggregate reached 519/1,024 bits
+  but NLL 1,237.404152, or `-213.404152` code bits.
+- **Boundary:** the 330D field can still contain conditionally useful structure;
+  this result closes only manual within-family summation plus the tested rank/
+  orientation rule. It consumed zero fresh key, solver branch or formal attempt.
+- **Do not repeat:** add more smoothing values, post-hoc family weights or another
+  scalar rescale to the same collapsed field. Correct raw accuracy near 50% does
+  not rescue catastrophically overconfident NLL.
+- **Breadcrumb:** preserve the frozen learned O1C-0019 incremental reader, stream
+  its native q-deltas into the addressed vault and compare raw, normalized, int8,
+  last-only, unit-sign and coordinate-shuffled arms. A negative O1C-0022 result
+  then localizes evidence, scale, quantization, compounding or binding instead of
+  merely rejecting all proof channels.
+- **Artifact:**
+  [`O1C0022_HANDCRAFTED_SCALAR_DIAGNOSTIC_20260718.json`](O1C0022_HANDCRAFTED_SCALAR_DIAGNOSTIC_20260718.json).
