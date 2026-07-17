@@ -4896,6 +4896,675 @@ def _full256_frozen_reader_replication(args: argparse.Namespace) -> int:
     return 0
 
 
+def _full256_polyphase_replication(args: argparse.Namespace) -> int:
+    from .full256_polyphase_replication import (
+        load_full256_polyphase_replication_config,
+        run_full256_polyphase_replication,
+    )
+
+    root = _lab_root()
+    requested_config = args.config
+    if requested_config.is_symlink():
+        raise RuntimeError("full-256 polyphase config cannot be a symlink")
+    config_path = requested_config.resolve(strict=True)
+    expected_config = (
+        root / "configs/full256_polyphase_replication_v1.json"
+    ).resolve(strict=True)
+    if config_path != expected_config:
+        raise RuntimeError(
+            "full-256 polyphase replication requires its canonical lab config"
+        )
+    top_level, replication_config = load_full256_polyphase_replication_config(
+        config_path
+    )
+    runs_root = (root / "runs").resolve(strict=True)
+
+    def pinned_source_hashes() -> dict[str, str]:
+        hashes: dict[str, str] = {}
+
+        def collect(node: object, prefix: str) -> None:
+            if not isinstance(node, Mapping):
+                return
+            capsule_value = node.get("capsule")
+            if capsule_value is not None:
+                capsule = (root / str(capsule_value)).resolve(strict=True)
+                if (
+                    capsule.parent != runs_root
+                    or capsule.name.startswith(".")
+                    or not capsule.is_dir()
+                ):
+                    raise RuntimeError(
+                        "O1C-0015 sources must be finalized run capsules"
+                    )
+                manifest = (capsule / "artifacts.sha256").resolve(strict=True)
+                manifest_sha256 = _sha256(manifest)
+                expected_manifest = node.get("manifest_sha256")
+                if (
+                    expected_manifest is not None
+                    and manifest_sha256 != expected_manifest
+                ):
+                    raise RuntimeError(f"O1C-0015 pinned {prefix}manifest differs")
+                hashes[f"{prefix}manifest"] = manifest_sha256
+                for key, value in sorted(node.items()):
+                    expected_key = f"{key}_sha256"
+                    if (
+                        key == "capsule"
+                        or not isinstance(value, str)
+                        or expected_key not in node
+                    ):
+                        continue
+                    path = (capsule / value).resolve(strict=True)
+                    if not path.is_relative_to(capsule) or not path.is_file():
+                        raise RuntimeError(
+                            f"O1C-0015 pinned {prefix}{key} escapes its capsule"
+                        )
+                    actual = _sha256(path)
+                    if actual != node[expected_key]:
+                        raise RuntimeError(f"O1C-0015 pinned {prefix}{key} differs")
+                    hashes[f"{prefix}{key}"] = actual
+            for key, value in sorted(node.items()):
+                if isinstance(value, Mapping):
+                    collect(value, f"{prefix}{key}_")
+
+        collect(top_level["source"], "source_")
+        collect(top_level["design_lineage"], "design_lineage_")
+        return hashes
+
+    native_header = (
+        Path(replication_config.native.include_directory) / "cadical.hpp"
+    ).resolve(strict=True)
+    native_library = Path(replication_config.native.static_library).resolve(strict=True)
+    participating = (
+        "chacha_trace.py",
+        "living_inverse.py",
+        "cadical_sensor.py",
+        "causal_bitfield.py",
+        "causal_orientation_reader.py",
+        "full256_broker.py",
+        "full256_cnf.py",
+        "full256_paired_sensor.py",
+        "full256_probe_core.py",
+        "full256_multikey_calibration.py",
+        "full256_frozen_reader_replication.py",
+        "full256_polyphase_replication.py",
+        "signed_direct_replication.py",
+        "living_inverse_reader_experiment.py",
+        "living_inverse_ridge.py",
+        "living_inverse_corpus.py",
+        "run_capsule.py",
+        "cli.py",
+    )
+
+    def current_source_hashes() -> dict[str, str]:
+        native_header_sha256 = _sha256(native_header)
+        native_library_sha256 = _sha256(native_library)
+        if native_header_sha256 != replication_config.native.cadical_header_sha256:
+            raise RuntimeError("O1C-0015 pinned native CaDiCaL header differs")
+        if native_library_sha256 != replication_config.native.cadical_library_sha256:
+            raise RuntimeError("O1C-0015 pinned native CaDiCaL library differs")
+        return {
+            "polyphase_replication_config": _sha256(config_path),
+            "pyproject": _sha256(root / "pyproject.toml"),
+            "native_pair_sensor": _sha256(root / "native/cadical_pair_sensor.cpp"),
+            "native_tracer_header": _sha256(root / "native/cadical_tracer_3_0_0.hpp"),
+            "native_cadical_header": native_header_sha256,
+            "native_cadical_library": native_library_sha256,
+            **pinned_source_hashes(),
+            **{
+                f"module_{Path(name).stem}": _sha256(root / "src/o1_crypto_lab" / name)
+                for name in participating
+            },
+        }
+
+    manager = RunCapsuleManager(root)
+    attempt_id = str(top_level["attempt_id"])
+    published = manager.finalized_attempt(attempt_id)
+    if published is not None:
+        metrics_document = json.loads(
+            (published.path / "metrics.json").read_text(encoding="utf-8")
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": published.attempt_id,
+                    "path": str(published.path),
+                    "manifest_sha256": published.manifest_sha256,
+                    "verified": published.verification.ok,
+                    "status": "already-finalized-no-replay",
+                    "capsule_status": metrics_document.get("status"),
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 0 if metrics_document.get("status") == "completed" else 2
+    if attempt_id in manager.recoverable_attempt_ids():
+        interrupted = manager.recover(attempt_id)
+        if interrupted.publication_prepared:
+            finalized = interrupted.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 2
+        finalized = interrupted.finalize(
+            metrics={
+                "schema": "o1-256-polyphase-replication-interrupted-v1",
+                "hard_interruption_recovered": True,
+                "scientific_result_claimed": False,
+                "unknown_target_key_bits": 256,
+                "fresh_target_state": "unknown-after-hard-interruption",
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            },
+            status="stopped",
+            next_action=(
+                "Preserve the partial O1C-0015 capsule, never replay its sealed "
+                "targets, and advance the polyphase replication under a new "
+                "attempt ID."
+            ),
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": finalized.attempt_id,
+                    "path": str(finalized.path),
+                    "manifest_sha256": finalized.manifest_sha256,
+                    "verified": finalized.verification.ok,
+                    "status": "stopped-after-hard-interruption",
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 2
+
+    commit = _clean_git_commit(root)
+    source_hashes = current_source_hashes()
+    if _clean_git_commit(root) != commit:
+        raise RuntimeError("lab Git commit changed before O1C-0015 reservation")
+    if current_source_hashes() != source_hashes:
+        raise RuntimeError("lab source hashes changed before O1C-0015 reservation")
+    planned_sweeps = replication_config.corpus.sealed_targets + len(
+        replication_config.controls.transforms
+    )
+    planned_native_branches = planned_sweeps * (
+        512 + 2 * replication_config.probe.sentinel_reruns_per_sweep
+    )
+    if (
+        replication_config.corpus.sealed_targets != 32
+        or len(replication_config.controls.transforms) != 3
+        or planned_sweeps != 35
+        or planned_native_branches != 17_920
+        or replication_config.budgets.maximum_native_solver_branches != 17_920
+        or replication_config.budgets.maximum_fresh_random_targets != 32
+        or replication_config.budgets.maximum_sibling_reads != 0
+        or replication_config.budgets.maximum_sibling_writes != 0
+        or replication_config.budgets.maximum_mps_calls != 0
+        or replication_config.budgets.maximum_gpu_calls != 0
+    ):
+        raise RuntimeError("O1C-0015 fixed execution accounting differs")
+    run = manager.start(
+        attempt_id=attempt_id,
+        slug=str(top_level["slug"]),
+        commit=commit,
+        hypothesis=str(top_level["hypothesis"]),
+        prediction=str(top_level["prediction"]),
+        controls=tuple(str(value) for value in top_level["controls"]),
+        budgets=dict(top_level["budgets"]),
+        source_hashes=source_hashes,
+        claim_level=ClaimLevel(str(top_level["claim_level"])),
+        next_action=str(top_level["next_action"]),
+        config=top_level,
+        command=(
+            "o1-crypto-lab",
+            "full256-polyphase-replication",
+            "--config",
+            str(config_path),
+        ),
+        environment={
+            "target_contract": "all-256-bits-unknown-public-output-only",
+            "target_rounds": 20,
+            "target_internal_trace_inputs": 0,
+            "accelerator": "none",
+            "native_solver": "cadical-3.0.0-single-threaded-fork-cow",
+            "planned_sweeps": planned_sweeps,
+            "planned_native_solver_branches": planned_native_branches,
+            "causal_state_bytes": replication_config.state_plan.serialized_state_bytes,
+            "maximum_live_target_state_bytes": (
+                replication_config.maximum_live_target_state_bytes
+            ),
+            "planned_sealed_targets": replication_config.corpus.sealed_targets,
+            "planned_target_controls": len(replication_config.controls.transforms),
+            "primary_h96_exact_o1c0013_bytes": True,
+            "source_build_cal_reader_reconstructions": 3,
+            "target_reader_refits": 0,
+            "ensemble_logit_weights": list(
+                replication_config.reader.ensemble_weights
+            ),
+            "o1c0014_design_lineage_usage": "hash-only-no-features-labels-or-fit",
+            "fresh_target_generated_at_reservation": False,
+            "mps_calls": 0,
+            "gpu_calls": 0,
+            "sibling_repository_reads": 0,
+            "sibling_repository_writes": 0,
+            "outcome_bearing_execution_begins_after_attempt_reservation": True,
+            "hard_interruption_policy": "FINALIZE_STOPPED_AND_NEVER_REPLAY",
+        },
+    )
+    persisted_artifacts: dict[str, dict[str, object]] = {}
+    persistent_artifact_bytes = 0
+    protocol_frozen = False
+    predictions_frozen = False
+    outcome_parent_cpu_started = time.process_time()
+    outcome_wall_started = time.monotonic()
+
+    def persist_group(artifacts: Mapping[str, bytes], *, phase: str) -> None:
+        nonlocal persistent_artifact_bytes
+        if not isinstance(artifacts, Mapping) or not artifacts:
+            raise RuntimeError(f"O1C-0015 {phase} artifact group differs")
+        group_bytes = 0
+        for relative, payload in artifacts.items():
+            if (
+                not isinstance(relative, str)
+                or not relative
+                or not isinstance(payload, bytes)
+                or relative in persisted_artifacts
+            ):
+                raise RuntimeError(f"O1C-0015 {phase} artifact entry differs")
+            group_bytes += len(payload)
+        if (
+            persistent_artifact_bytes + group_bytes
+            > replication_config.budgets.maximum_persistent_artifact_bytes
+        ):
+            raise RuntimeError("O1C-0015 would exceed its artifact-byte budget")
+        for relative, payload in sorted(artifacts.items()):
+            path = run.write_artifact(relative, payload)
+            expected_sha256 = hashlib.sha256(payload).hexdigest()
+            if _sha256(path) != expected_sha256 or path.stat().st_size != len(payload):
+                raise RuntimeError(f"persisted O1C-0015 {phase} artifact differs")
+            persisted_artifacts[relative] = {
+                "sha256": expected_sha256,
+                "bytes": len(payload),
+                "phase": phase,
+            }
+        persistent_artifact_bytes += group_bytes
+
+    def document_is_persisted(
+        artifacts: Mapping[str, bytes], document: Mapping[str, object]
+    ) -> bool:
+        expected = dict(document)
+        for relative, payload in artifacts.items():
+            if not relative.endswith(".json"):
+                continue
+            try:
+                if json.loads(payload) == expected:
+                    return True
+            except (UnicodeDecodeError, json.JSONDecodeError):
+                continue
+        return False
+
+    def on_protocol_frozen(
+        artifacts: Mapping[str, bytes], document: Mapping[str, object]
+    ) -> None:
+        nonlocal protocol_frozen
+        if protocol_frozen or predictions_frozen:
+            raise RuntimeError("O1C-0015 protocol freeze callback order differs")
+        if (
+            document.get("phase")
+            != "FROZEN_PROTOCOL_VERIFIED_BEFORE_FRESH_TARGET_ENTROPY"
+            or document.get("fresh_target_entropy_calls") != 0
+            or not document_is_persisted(artifacts, document)
+        ):
+            raise RuntimeError("O1C-0015 protocol freeze document differs")
+        persist_group(artifacts, phase="protocol-freeze")
+        protocol_frozen = True
+        run.checkpoint(
+            {
+                "phase": "POLYPHASE_PROTOCOL_PERSISTED_BEFORE_FRESH_ENTROPY",
+                "protocol_freeze_sha256": document.get("protocol_freeze_sha256"),
+                "reader_freeze_sha256": document.get("reader_freeze_sha256"),
+                "fresh_target_entropy_calls": 0,
+                "fresh_target_reveals": 0,
+                "persistent_artifact_bytes": persistent_artifact_bytes,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            }
+        )
+
+    def on_predictions_frozen(
+        artifacts: Mapping[str, bytes], document: Mapping[str, object]
+    ) -> None:
+        nonlocal predictions_frozen
+        sealed_targets = document.get("sealed_targets")
+        if (
+            not protocol_frozen
+            or predictions_frozen
+            or document.get("phase") != "ALL_PREDICTIONS_FROZEN_BEFORE_ANY_REVEAL"
+            or not document_is_persisted(artifacts, document)
+            or not isinstance(sealed_targets, list)
+            or len(sealed_targets) != 32
+        ):
+            raise RuntimeError("O1C-0015 prediction freeze document differs")
+        persist_group(artifacts, phase="prediction-freeze")
+        predictions_frozen = True
+        run.checkpoint(
+            {
+                "phase": "ALL_POLYPHASE_PREDICTIONS_PERSISTED_BEFORE_ANY_REVEAL",
+                "protocol_freeze_sha256": document.get("protocol_freeze_sha256"),
+                "prediction_set_sha256": document.get("prediction_set_sha256"),
+                "sealed_prediction_count": len(sealed_targets),
+                "sealed_target_reveals": 0,
+                "persistent_artifact_bytes": persistent_artifact_bytes,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            }
+        )
+
+    try:
+        run.checkpoint(
+            {
+                "phase": "FULL256_POLYPHASE_REPLICATION_RESERVED",
+                "unknown_target_key_bits": 256,
+                "rounds": 20,
+                "target_key_units": 0,
+                "target_internal_trace_inputs": 0,
+                "sealed_targets_created": 0,
+                "sealed_targets_revealed": 0,
+                "planned_sweeps": planned_sweeps,
+                "planned_native_solver_branches": planned_native_branches,
+                "primary_h96_exact_o1c0013_bytes": True,
+                "source_build_cal_reader_reconstructions": 3,
+                "target_reader_refits": 0,
+                "protocol_frozen": False,
+                "predictions_frozen": False,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            }
+        )
+        run.append_stdout(
+            "O1C-0015 polyphase full-256 blind replication started.\n"
+        )
+        with tempfile.TemporaryDirectory(
+            prefix="o1c0015-polyphase-", dir="/tmp"
+        ) as temporary:
+            result = run_full256_polyphase_replication(
+                replication_config,
+                lab_root=root,
+                working_directory=temporary,
+                on_protocol_frozen=on_protocol_frozen,
+                on_predictions_frozen=on_predictions_frozen,
+            )
+            if not protocol_frozen or not predictions_frozen:
+                raise RuntimeError(
+                    "O1C-0015 freeze callbacks did not complete before reveal"
+                )
+            if not result.success_gate_passed:
+                raise RuntimeError("O1C-0015 mandatory lifecycle gate failed")
+            if _clean_git_commit(root) != commit:
+                raise RuntimeError("lab Git commit changed during O1C-0015")
+            if current_source_hashes() != source_hashes:
+                raise RuntimeError("lab source hashes changed during O1C-0015")
+            if set(result.final_artifacts) & set(persisted_artifacts):
+                raise RuntimeError("O1C-0015 final artifact paths overlap freezes")
+            persist_group(result.final_artifacts, phase="post-reveal-evaluation")
+
+            module_metrics = result.metrics()
+            module_resources = result.report["resources"]
+            if int(module_metrics["persistent_artifact_bytes"]) != (
+                persistent_artifact_bytes
+            ):
+                raise RuntimeError("O1C-0015 persistent artifact accounting differs")
+            h96_baseline_compression_bits_per_key = float(
+                result.report["sealed_evaluation"]["h96_component"][
+                    "compression_bits_per_key"
+                ]
+            )
+            if (
+                int(module_metrics["native_solver_branches"])
+                != planned_native_branches
+                or int(module_metrics["fresh_random_targets"]) != 32
+                or int(module_metrics["live_target_state_bytes"])
+                != replication_config.maximum_live_target_state_bytes
+                or int(module_metrics["sibling_reads"]) != 0
+                or int(module_metrics["sibling_writes"]) != 0
+                or int(module_metrics["mps_calls"]) != 0
+                or int(module_metrics["gpu_calls"]) != 0
+            ):
+                raise RuntimeError("O1C-0015 module fixed accounting differs")
+            outcome_parent_cpu_seconds = (
+                time.process_time() - outcome_parent_cpu_started
+            )
+            native_cpu_seconds = max(
+                float(module_resources["native_cpu_seconds"]),
+                float(module_resources["process_child_cpu_seconds"]),
+            )
+            total_cpu_seconds = max(
+                float(module_metrics["cpu_seconds"]),
+                outcome_parent_cpu_seconds + native_cpu_seconds,
+            )
+            total_wall_seconds = max(
+                float(module_metrics["wall_seconds"]),
+                time.monotonic() - outcome_wall_started,
+            )
+            peak_rss_mib = max(
+                float(module_metrics["peak_rss_bytes"]) / (1024.0 * 1024.0),
+                _peak_rss_mib(),
+            )
+            base_metrics = {
+                **module_metrics,
+                "h96_baseline_compression_bits_per_key": (
+                    h96_baseline_compression_bits_per_key
+                ),
+                "module_budgeted_cpu_seconds": module_metrics["cpu_seconds"],
+                "outcome_parent_cpu_seconds": outcome_parent_cpu_seconds,
+                "native_cpu_seconds": native_cpu_seconds,
+                "cpu_seconds": total_cpu_seconds,
+                "module_wall_seconds": module_metrics["wall_seconds"],
+                "wall_seconds": total_wall_seconds,
+            }
+            budget_checks = {
+                "cpu": total_cpu_seconds
+                <= replication_config.budgets.maximum_cpu_seconds,
+                "wall": total_wall_seconds
+                <= replication_config.budgets.maximum_wall_seconds,
+                "resident_memory": peak_rss_mib
+                <= replication_config.budgets.maximum_resident_memory_mib,
+                "persistent_artifacts": persistent_artifact_bytes
+                <= replication_config.budgets.maximum_persistent_artifact_bytes,
+                "native_branches": int(base_metrics["native_solver_branches"])
+                == planned_native_branches,
+                "causal_state": replication_config.state_plan.serialized_state_bytes
+                <= replication_config.maximum_state_bytes,
+                "live_target_state": int(base_metrics["live_target_state_bytes"])
+                == replication_config.maximum_live_target_state_bytes,
+                "fresh_targets": int(base_metrics["fresh_random_targets"]) == 32,
+                "sibling_reads": int(base_metrics["sibling_reads"]) == 0,
+                "sibling_writes": int(base_metrics["sibling_writes"]) == 0,
+                "mps": int(base_metrics["mps_calls"]) == 0,
+                "gpu": int(base_metrics["gpu_calls"]) == 0,
+            }
+            failed_budgets = sorted(
+                name for name, passed in budget_checks.items() if not passed
+            )
+            if failed_budgets:
+                raise RuntimeError(
+                    "O1C-0015 exceeded budgets: " + ", ".join(failed_budgets)
+                )
+            metrics = {
+                **base_metrics,
+                "peak_rss_mib": peak_rss_mib,
+                "persistent_artifact_bytes": persistent_artifact_bytes,
+                "persisted_artifact_count": len(persisted_artifacts),
+                "protocol_freeze_persisted_before_fresh_entropy": True,
+                "prediction_set_persisted_before_reveal": True,
+                "planned_sweeps": planned_sweeps,
+                "planned_native_solver_branches": planned_native_branches,
+                "budget_checks": budget_checks,
+            }
+            run.checkpoint(
+                {
+                    "phase": "POLYPHASE_TARGETS_REVEALED_ONCE_AND_RESULT_PERSISTED",
+                    "result_sha256": result.report["result_sha256"],
+                    "sealed_targets_revealed": 32,
+                    "sealed_exact_keys": metrics.get("sealed_exact_keys"),
+                    "sealed_compression_bits_per_key": metrics.get(
+                        "sealed_compression_bits_per_key"
+                    ),
+                    "replication_classification": metrics.get(
+                        "replication_classification"
+                    ),
+                    "architecture_promotion_classification": metrics.get(
+                        "architecture_promotion_classification"
+                    ),
+                    "architecture_promotion_passed": metrics.get(
+                        "architecture_promotion_passed"
+                    ),
+                    "h96_baseline_compression_bits_per_key": metrics.get(
+                        "h96_baseline_compression_bits_per_key"
+                    ),
+                    "persistent_artifact_bytes": persistent_artifact_bytes,
+                    "budget_checks": budget_checks,
+                    "sibling_writes": 0,
+                    "mps_calls": 0,
+                    "gpu_calls": 0,
+                }
+            )
+            run.append_stdout(
+                json.dumps(metrics, sort_keys=True, allow_nan=False) + "\n"
+            )
+            finalized = run.finalize(metrics=metrics)
+            process_peak_rss_mib = _peak_rss_mib()
+    except Exception as exc:
+        if run.publication_prepared:
+            finalized = run.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 1
+        run.append_stderr(f"{type(exc).__name__}: {exc}\n")
+        finalized = run.finalize(
+            metrics={
+                "schema": "o1-256-polyphase-replication-failure-v1",
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "unknown_target_key_bits": 256,
+                "protocol_freeze_persisted": protocol_frozen,
+                "prediction_set_persisted": predictions_frozen,
+                "fresh_target_state": (
+                    "possibly-generated-after-protocol-freeze"
+                    if protocol_frozen
+                    else "not-generated-before-protocol-freeze"
+                ),
+                "target_key_units": 0,
+                "target_internal_trace_inputs": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+                "scientific_inverse_signal_claimed": False,
+            },
+            status="failed",
+            next_action=(
+                "Preserve the failed O1C-0015 capsule, fix the exact protocol, "
+                "source, reader, native, or budget invariant under a new attempt "
+                "ID, and never replay any sealed target from this attempt."
+            ),
+        )
+        print(f"failed capsule: {finalized.path}", file=sys.stderr)
+        return 1
+    print(
+        json.dumps(
+            {
+                "attempt_id": finalized.attempt_id,
+                "path": str(finalized.path),
+                "manifest_sha256": finalized.manifest_sha256,
+                "verified": finalized.verification.ok,
+                "success_gate_passed": result.success_gate_passed,
+                "replication_classification": metrics.get(
+                    "replication_classification"
+                ),
+                "architecture_promotion_classification": metrics.get(
+                    "architecture_promotion_classification"
+                ),
+                "architecture_promotion_passed": metrics.get(
+                    "architecture_promotion_passed"
+                ),
+                "h96_baseline_compression_bits_per_key": metrics.get(
+                    "h96_baseline_compression_bits_per_key"
+                ),
+                "ensemble_minus_h96_conditional_z_score": metrics.get(
+                    "ensemble_minus_h96_conditional_z_score"
+                ),
+                "sealed_compression_bits_per_key": metrics.get(
+                    "sealed_compression_bits_per_key"
+                ),
+                "sealed_correct_bits": metrics.get("sealed_correct_bits"),
+                "sealed_total_bits": metrics.get("sealed_total_bits"),
+                "sealed_exact_keys": metrics.get("sealed_exact_keys"),
+                "positive_target_count": metrics.get("positive_target_count"),
+                "conditional_null_z_score": metrics.get(
+                    "conditional_null_z_score"
+                ),
+                "paired_conditional_null_z_score": metrics.get(
+                    "paired_conditional_null_z_score"
+                ),
+                "minimum_million_decoy_rank": metrics.get(
+                    "minimum_million_decoy_rank"
+                ),
+                "live_target_state_bytes": metrics.get("live_target_state_bytes"),
+                "native_solver_branches": metrics.get("native_solver_branches"),
+                "cpu_seconds": metrics.get("cpu_seconds"),
+                "wall_seconds": metrics.get("wall_seconds"),
+                "outcome_peak_rss_mib": metrics.get("peak_rss_mib"),
+                "end_to_end_process_peak_rss_mib": process_peak_rss_mib,
+                "fresh_target_count": metrics.get("fresh_random_targets"),
+                "fresh_targets_revealed": True,
+                "primary_h96_exact_o1c0013_bytes": True,
+                "source_build_cal_reader_reconstructions": 3,
+                "target_reader_refits": 0,
+                "sibling_writes": 0,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     root = _lab_root()
     parser = argparse.ArgumentParser(
@@ -5093,6 +5762,16 @@ def build_parser() -> argparse.ArgumentParser:
         default=root / "configs/full256_frozen_reader_replication_v1.json",
     )
     frozen_reader_replication.set_defaults(handler=_full256_frozen_reader_replication)
+    polyphase_replication = subparsers.add_parser(
+        "full256-polyphase-replication",
+        help=("replicate the frozen h96+h65 polyphase reader on 32 full-256 targets"),
+    )
+    polyphase_replication.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/full256_polyphase_replication_v1.json",
+    )
+    polyphase_replication.set_defaults(handler=_full256_polyphase_replication)
     return parser
 
 

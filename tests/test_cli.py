@@ -26,6 +26,7 @@ FULL256_MULTIKEY_CONFIG = ROOT / "configs/full256_multikey_causal_calibration_v1
 FULL256_FROZEN_READER_CONFIG = (
     ROOT / "configs/full256_frozen_reader_replication_v1.json"
 )
+FULL256_POLYPHASE_CONFIG = ROOT / "configs/full256_polyphase_replication_v1.json"
 O1C0009_MANIFEST = "f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2"
 
 
@@ -820,6 +821,287 @@ class Full256FrozenReaderReplicationCLITests(unittest.TestCase):
         help_text = cli.build_parser().format_help()
         self.assertIn("full256-frozen-reader-replication", help_text)
         self.assertIn("replicate the frozen causal reader", help_text)
+        self.assertIn("full-256 targets", help_text)
+
+
+class Full256PolyphaseReplicationCLITests(unittest.TestCase):
+    def test_freezes_are_persisted_after_reservation_and_before_entropy_or_reveal(
+        self,
+    ):
+        events = []
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+
+            class RecordingRun(_RecordingRun):
+                def write_artifact(self, relative, payload):
+                    events.append(("artifact", relative))
+                    path = root / "fake-capsule/artifacts" / relative
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_bytes(payload)
+                    return path
+
+            run = RecordingRun(events)
+
+            class Manager:
+                def __init__(self, lab_root):
+                    self.root = lab_root
+
+                def finalized_attempt(self, attempt_id):
+                    return None
+
+                def recoverable_attempt_ids(self):
+                    return ()
+
+                def start(self, **kwargs):
+                    events.append(("start", kwargs["attempt_id"]))
+                    return run
+
+            config_path = root / "configs/full256_polyphase_replication_v1.json"
+            config_path.parent.mkdir(parents=True)
+            config_path.write_text("{}\n", encoding="utf-8")
+            native_header = root / "native-dependency/cadical.hpp"
+            native_library = root / "native-dependency/libcadical.a"
+            native_header.parent.mkdir(parents=True)
+            native_header.write_bytes(b"header")
+            native_library.write_bytes(b"library")
+            (root / "native").mkdir()
+            (root / "native/cadical_pair_sensor.cpp").write_text(
+                "// test\n", encoding="utf-8"
+            )
+            (root / "native/cadical_tracer_3_0_0.hpp").write_text(
+                "// test\n", encoding="utf-8"
+            )
+            (root / "src/o1_crypto_lab").mkdir(parents=True)
+            participating = (
+                "chacha_trace.py",
+                "living_inverse.py",
+                "cadical_sensor.py",
+                "causal_bitfield.py",
+                "causal_orientation_reader.py",
+                "full256_broker.py",
+                "full256_cnf.py",
+                "full256_paired_sensor.py",
+                "full256_probe_core.py",
+                "full256_multikey_calibration.py",
+                "full256_frozen_reader_replication.py",
+                "full256_polyphase_replication.py",
+                "signed_direct_replication.py",
+                "living_inverse_reader_experiment.py",
+                "living_inverse_ridge.py",
+                "living_inverse_corpus.py",
+                "run_capsule.py",
+                "cli.py",
+            )
+            for name in participating:
+                (root / "src/o1_crypto_lab" / name).write_text(
+                    "# test\n", encoding="utf-8"
+                )
+            (root / "pyproject.toml").write_text("[project]\n", encoding="utf-8")
+            (root / "runs").mkdir()
+
+            def digest(path):
+                import hashlib
+
+                return hashlib.sha256(path.read_bytes()).hexdigest()
+
+            replication_config = SimpleNamespace(
+                native=SimpleNamespace(
+                    include_directory=str(native_header.parent),
+                    static_library=str(native_library),
+                    cadical_header_sha256=digest(native_header),
+                    cadical_library_sha256=digest(native_library),
+                ),
+                corpus=SimpleNamespace(sealed_targets=32),
+                controls=SimpleNamespace(
+                    transforms=(
+                        "output_bit_flip",
+                        "wrong_nonce",
+                        "output_byte_rotate",
+                    )
+                ),
+                probe=SimpleNamespace(sentinel_reruns_per_sweep=0),
+                state_plan=SimpleNamespace(serialized_state_bytes=17_408),
+                reader=SimpleNamespace(ensemble_weights=(0.5, 0.5)),
+                budgets=SimpleNamespace(
+                    maximum_cpu_seconds=1600,
+                    maximum_wall_seconds=1400,
+                    maximum_resident_memory_mib=384,
+                    maximum_persistent_artifact_bytes=24_000_000,
+                    maximum_native_solver_branches=17_920,
+                    maximum_fresh_random_targets=32,
+                    maximum_sibling_reads=0,
+                    maximum_sibling_writes=0,
+                    maximum_mps_calls=0,
+                    maximum_gpu_calls=0,
+                ),
+                maximum_state_bytes=18_000,
+                maximum_live_target_state_bytes=67_584,
+            )
+            top_level = {
+                "attempt_id": "O1C-0015",
+                "slug": "test-polyphase",
+                "hypothesis": "test",
+                "prediction": "test",
+                "controls": [],
+                "budgets": {},
+                "source": {},
+                "design_lineage": {},
+                "claim_level": "VALIDATION",
+                "next_action": "preserve",
+            }
+            fake_module = ModuleType("o1_crypto_lab.full256_polyphase_replication")
+
+            def load_config(path):
+                events.append(("load", path))
+                return top_level, replication_config
+
+            def fail_after_freezes(*args, **kwargs):
+                events.append(("polyphase", "entered"))
+                protocol = {
+                    "phase": "FROZEN_PROTOCOL_VERIFIED_BEFORE_FRESH_TARGET_ENTROPY",
+                    "fresh_target_entropy_calls": 0,
+                    "protocol_freeze_sha256": "1" * 64,
+                    "reader_freeze_sha256": "2" * 64,
+                }
+                kwargs["on_protocol_frozen"](
+                    {"protocol_freeze.json": json.dumps(protocol).encode()},
+                    protocol,
+                )
+                events.append(("entropy", "first-sealed-target"))
+                predictions = {
+                    "phase": "ALL_PREDICTIONS_FROZEN_BEFORE_ANY_REVEAL",
+                    "protocol_freeze_sha256": "1" * 64,
+                    "prediction_set_sha256": "3" * 64,
+                    "sealed_targets": [f"target-{index:04d}" for index in range(32)],
+                }
+                kwargs["on_predictions_frozen"](
+                    {"prediction_set_freeze.json": json.dumps(predictions).encode()},
+                    predictions,
+                )
+                events.append(("reveal", "first-sealed-target"))
+                raise RuntimeError("synthetic polyphase failure")
+
+            fake_module.load_full256_polyphase_replication_config = load_config
+            fake_module.run_full256_polyphase_replication = fail_after_freezes
+            with (
+                patch.dict(
+                    sys.modules,
+                    {"o1_crypto_lab.full256_polyphase_replication": fake_module},
+                ),
+                patch.object(cli, "_lab_root", return_value=root),
+                patch.object(cli, "RunCapsuleManager", Manager),
+                patch.object(cli, "_clean_git_commit", return_value="2" * 40),
+                patch("sys.stderr", new=io.StringIO()),
+            ):
+                code = cli._full256_polyphase_replication(
+                    argparse.Namespace(config=config_path)
+                )
+
+        names = [event[0] for event in events]
+        self.assertEqual(code, 1)
+        self.assertLess(names.index("load"), names.index("start"))
+        self.assertLess(names.index("start"), names.index("checkpoint"))
+        self.assertLess(names.index("checkpoint"), names.index("polyphase"))
+        protocol_checkpoint = events.index(
+            ("checkpoint", "POLYPHASE_PROTOCOL_PERSISTED_BEFORE_FRESH_ENTROPY")
+        )
+        prediction_checkpoint = events.index(
+            (
+                "checkpoint",
+                "ALL_POLYPHASE_PREDICTIONS_PERSISTED_BEFORE_ANY_REVEAL",
+            )
+        )
+        self.assertLess(
+            protocol_checkpoint, events.index(("entropy", "first-sealed-target"))
+        )
+        self.assertLess(
+            prediction_checkpoint, events.index(("reveal", "first-sealed-target"))
+        )
+        self.assertIn(
+            ("finalize", "failed", "o1-256-polyphase-replication-failure-v1"),
+            events,
+        )
+
+    def test_recoverable_polyphase_interruption_stops_without_replay(self):
+        events = []
+        run = _RecordingRun(events)
+
+        class Manager:
+            def __init__(self, root):
+                self.root = root
+
+            def finalized_attempt(self, attempt_id):
+                return None
+
+            def recoverable_attempt_ids(self):
+                return ("O1C-0015",)
+
+            def recover(self, attempt_id):
+                events.append(("recover", attempt_id))
+                return run
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            config_path = root / "configs/full256_polyphase_replication_v1.json"
+            config_path.parent.mkdir(parents=True)
+            config_path.write_text("{}\n", encoding="utf-8")
+            native_header = root / "native-dependency/cadical.hpp"
+            native_library = root / "native-dependency/libcadical.a"
+            native_header.parent.mkdir(parents=True)
+            native_header.write_bytes(b"header")
+            native_library.write_bytes(b"library")
+            (root / "runs").mkdir()
+            top_level = {"attempt_id": "O1C-0015"}
+            replication_config = SimpleNamespace(
+                native=SimpleNamespace(
+                    include_directory=str(native_header.parent),
+                    static_library=str(native_library),
+                )
+            )
+            fake_module = ModuleType("o1_crypto_lab.full256_polyphase_replication")
+
+            def load_config(path):
+                events.append(("load", path))
+                return top_level, replication_config
+
+            def forbidden_replication(*args, **kwargs):
+                events.append(("polyphase", "forbidden-replay"))
+                raise AssertionError("recoverable O1C-0015 must not replay")
+
+            fake_module.load_full256_polyphase_replication_config = load_config
+            fake_module.run_full256_polyphase_replication = forbidden_replication
+            with (
+                patch.dict(
+                    sys.modules,
+                    {"o1_crypto_lab.full256_polyphase_replication": fake_module},
+                ),
+                patch.object(cli, "_lab_root", return_value=root),
+                patch.object(cli, "RunCapsuleManager", Manager),
+                patch("sys.stdout", new=io.StringIO()),
+            ):
+                code = cli._full256_polyphase_replication(
+                    argparse.Namespace(config=config_path)
+                )
+
+        self.assertEqual(code, 2)
+        self.assertIn(("recover", "O1C-0015"), events)
+        self.assertNotIn(("polyphase", "forbidden-replay"), events)
+        self.assertIn(
+            ("finalize", "stopped", "o1-256-polyphase-replication-interrupted-v1"),
+            events,
+        )
+
+    def test_parser_exposes_canonical_polyphase_command(self):
+        args = cli.build_parser().parse_args(["full256-polyphase-replication"])
+        self.assertEqual(args.config, FULL256_POLYPHASE_CONFIG)
+        self.assertIs(args.handler, cli._full256_polyphase_replication)
+
+    def test_help_names_polyphase_replication(self):
+        help_text = cli.build_parser().format_help()
+        self.assertIn("full256-polyphase-replication", help_text)
+        self.assertIn("frozen h96+h65 polyphase reader", help_text)
+        self.assertIn("32", help_text)
         self.assertIn("full-256 targets", help_text)
 
 

@@ -1,0 +1,138 @@
+{
+  "schema": "o1-256-polyphase-replication-config-v1",
+  "attempt_id": "O1C-0015",
+  "slug": "full256-polyphase-blind-replication-v1",
+  "claim_level": "VALIDATION",
+  "hypothesis": "A preregistered equal-logit ensemble of the exact O1C-0013 h96 reader and a deterministic h65 reader reconstructed only from O1C-0013 BUILD/CAL can remove reproducible code length from 32 fresh broker-sealed standard twenty-round ChaCha20 keys with all 256 bits unknown and only public counter, nonce and one 512-bit output block visible.",
+  "prediction": "Exactly 32 fresh targets and the exact three public-evidence controls reuse one unchanged 512-branch causal probe each. The h96+h65 ensemble and its arm-matched shuffled-label control are frozen before fresh entropy; all 32 predictions are frozen before any reveal. Directional evidence requires positive ensemble aggregate compression, positive exact-h96 baseline compression, at least 18 positive ensemble targets and a positive matched-control margin; strong evidence additionally requires both conditional z scores at least 1.6448536269514722, at least 22 positive targets and positive leave-one-target-out compression. Polyphase architecture promotion is reported separately and requires both positive ensemble-minus-h96 mean compression and a paired conditional z score of at least 1.6448536269514722.",
+  "controls": [
+    "O1C-0013 manifest, result, evaluation, reader freeze, BUILD/CAL tensors, BUILD/CAL labels, BUILD/CAL index and exact h96 binary are hash-pinned before and after execution",
+    "O1C-0014 contributes design lineage through its manifest and result-file hashes only; none of its features, labels, targets or fitted values are read",
+    "h65 and both arm-matched shuffled readers are deterministically reconstructed from only the pinned four BUILD and two CAL targets over the exact O1C-0013 arm-specific grid",
+    "the primary h96 binary is the exact byte-roundtripped O1C-0013 reader; the reconstructed h96 candidate must reproduce its weights exactly",
+    "the ensemble is fixed to logit equals 0.5 times h96 plus 0.5 times h65 and exposes no target-time fit or selection path",
+    "the legacy global O1C-0013 shuffled reader is retained as provenance only and is never substituted for the arm-matched ensemble control",
+    "the protocol freeze is persisted before exactly 32 fresh target entropy calls",
+    "all 32 factual prediction sets and all three controls are persisted before the first reveal",
+    "assumption-swap logits negate and probabilities complement exactly",
+    "conditional-uniform, paired matched-control, component, robustness, byte, 16-bit, million-decoy and exact-verification metrics are all reported",
+    "no target key or target internal-round state enters any pre-reveal artifact",
+    "no sibling reads or writes and no MPS or GPU calls"
+  ],
+  "budgets": {
+    "maximum_cpu_seconds": 1600,
+    "maximum_wall_seconds": 1400,
+    "maximum_resident_memory_mib": 384,
+    "maximum_persistent_artifact_bytes": 24000000,
+    "maximum_native_solver_branches": 17920,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_fresh_random_targets": 32
+  },
+  "next_action": "If strong polyphase replication passes, preserve all four exact reader binaries and advance the ensemble posterior into the bounded beam and causal Attic. If only directional evidence passes, repeat the immutable freeze on another 32 sealed keys. Otherwise retain component and coordinate residuals and replace one public causal sensor family without reusing revealed O1C-0015 targets for selection.",
+  "source": {
+    "capsule": "runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1",
+    "manifest_sha256": "a0d4df5c01f7de3c65a429f9589e46d784f802bc1f8e0aa90dffb011be46922c",
+    "result": "artifacts/full256_multikey_calibration.json",
+    "result_sha256": "38674b9c49e2463471a35fddb8d0b7d2218567cab7251e8a275e74ccace156a5",
+    "result_commitment_sha256": "a70610d3d589e97048c6045747c0821e5669c5dc89e420df79b0fca43476d4cd",
+    "evaluation": "artifacts/sealed_evaluation.json",
+    "evaluation_sha256": "869020e3393b60dfb1c312bb6943b15e9601eb67c6f59344161d9a5c4b95be22",
+    "evaluation_commitment_sha256": "11d3cdfffb6cb078f7d8a54e56ff827d3c9a4237df32632274c2176e7e5efa38",
+    "reader_freeze": "artifacts/reader_freeze.json",
+    "reader_freeze_sha256": "f8c99cbb376a2d9adc04ac3cc6dcda85b91ea49765808c4ce33b0e62f236bbbf",
+    "reader_freeze_commitment_sha256": "2d96c4582076818d1d101a10527535de8ed5be1f2e928658a14427043645a5e5",
+    "primary_reader": "artifacts/frozen_reader.bin",
+    "primary_reader_sha256": "796e79ec932b990a59ecbc34216c4878b9279bae3bb136fe0832e580bcb2e9f8",
+    "shuffled_reader": "artifacts/shuffled_key_reader.bin",
+    "shuffled_reader_sha256": "87bd132c44be5c788444088465780f227315dddde84ac42f5474092c664e19d0",
+    "build_cal_features": "artifacts/build_cal_features.f32le",
+    "build_cal_features_sha256": "43768789558a9c064c862db81437ea8a17274fea88f46fe5ba88ec70fb7d8227",
+    "build_cal_labels": "artifacts/build_cal_labels.bitpack",
+    "build_cal_labels_sha256": "8541cd6dbb9f57c344c22014d58c037f101be9534936ed671b28b48d457ad274",
+    "build_cal_index": "artifacts/build_cal_index.json",
+    "build_cal_index_sha256": "78d6fb8bbe586dfb71cc6acd52e167d28908ee2064b5fe0884dfb4de99dd1654",
+    "build_cal_index_commitment_sha256": "ca50d38800cf214052c53d956d6e128ac3ef198182b59be80e1d0a0513f25c58",
+    "build_targets": 4,
+    "calibration_targets": 2,
+    "expected_reader_contract": "signed-u3-arx24-m12-v1",
+    "expected_reader_schema": "o1-256-frozen-causal-orientation-reader-v1",
+    "expected_reader_arm": "horizon_1",
+    "expected_reader_ridge_lambda": 0.001,
+    "expected_reader_temperature": 0.5,
+    "expected_reader_logit_scale": 1.0,
+    "expected_reader_candidate_sha256": "13ea698f98247207e8cef2619cd5ca578d45b57f3ada6b829354dfad2efaba91",
+    "expected_reader_feature_dimension": 1,
+    "expected_reader_horizons": [64, 96, 65],
+    "foundation": {
+      "capsule": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1",
+      "manifest_sha256": "b7a07e6461805946897adbfb90da9e9f55ff1074e9aa1343f602eecb0645b7b4",
+      "template": "artifacts/cnf/full256_chacha20.cnf",
+      "template_sha256": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+      "semantic_map": "artifacts/cnf/full256_chacha20.map.json",
+      "semantic_map_sha256": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+      "expected_variable_count": 32128,
+      "expected_template_clause_count": 187370,
+      "expected_public_clause_count": 188010
+    }
+  },
+  "design_lineage": {
+    "capsule": "runs/20260717_084847_O1C-0014_full256-frozen-reader-blind-replication-v1",
+    "manifest_sha256": "741718cbc6b63de24f4d9c89cd2aedc8e9779a0ebb38adc4d40666e97ce24bcf",
+    "result": "artifacts/full256_frozen_reader_replication.json",
+    "result_sha256": "01d5057577d4e69b51e7d25802e9d2dfa6e307c28a75963cce38099ac59c1c61"
+  },
+  "native": {
+    "compiler": "c++",
+    "include_directory": "/opt/homebrew/opt/cadical/include",
+    "static_library": "/opt/homebrew/opt/cadical/lib/libcadical.a",
+    "cadical_header_sha256": "b7111690c61935b9c096d3701be59b3c3d26c555eab8e070f19eb2a97dc5d38c",
+    "cadical_library_sha256": "44cae3728485b4fd5736ce7cb986021236652daeda9cca227a2c4ac17d3a8a7f"
+  },
+  "probe": {
+    "seed": 0,
+    "timeout_seconds": 240,
+    "sentinel_bit": 173,
+    "sentinel_reruns_per_sweep": 0
+  },
+  "state_plan": {
+    "horizons": [64, 96, 65],
+    "horizon_weights": [7.0, 1.0, 4.0],
+    "unary_clip": 1.0,
+    "interaction_clip": 32.0,
+    "holographic_clip": 32.0,
+    "readout_temperature": 4.0,
+    "phase_seed": 1835026
+  },
+  "corpus": {
+    "sealed_targets": 32
+  },
+  "reader": {
+    "arms": ["horizon_1", "horizon_2"],
+    "ridge_lambdas": [0.001, 0.01, 0.1, 1.0, 10.0, 100.0],
+    "temperatures": [0.5, 1.0, 2.0, 4.0, 8.0],
+    "logit_scales": [0.0, 0.25, 0.5, 1.0],
+    "ensemble_weights": [0.5, 0.5],
+    "primary_h65_reader_sha256": "b7dd365753bf2ca131c2c263f3c04e5e644d9d438feaf17a5a313790dcf8409d",
+    "primary_h65_candidate_sha256": "318d9d94fd5419522f26fcf054d0953b0d001c63dd38951e159077128f38b5d4",
+    "shuffled_h96_reader_sha256": "6dd8b6c09c4593228cfafe545bdff4c6e6b9953ba013fff35f97ac87c8ab3cb1",
+    "shuffled_h96_candidate_sha256": "05bf33a58b93f201af509bfc458751a146f974f824999d79395e1685450da44c",
+    "shuffled_h65_reader_sha256": "d9077567e1ffd6b73d673fdca22626495fb213057c0a203a0cd1c264d15b00d6",
+    "shuffled_h65_candidate_sha256": "7ee43dddded426a1fb5ff883df960248d4dacbef20342baff2ed72e63560fadd",
+    "decoy_count": 1000000,
+    "decoy_seed": 1364283753
+  },
+  "target_controls": {
+    "transforms": ["output_bit_flip", "wrong_nonce", "output_byte_rotate"]
+  },
+  "decision": {
+    "directional_minimum_positive_targets": 18,
+    "strong_minimum_positive_targets": 22,
+    "strong_z_threshold": 1.6448536269514722,
+    "strong_requires_positive_leave_one_out_minimum": true
+  },
+  "maximum_state_bytes": 18000,
+  "maximum_live_target_state_bytes": 67584
+}
