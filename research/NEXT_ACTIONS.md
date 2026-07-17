@@ -1,13 +1,13 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T13:59:43+02:00.
+Last ranked: 2026-07-17T14:12:09+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Commit the audited O1C-0017 snapshot, then execute its canonical config exactly once on untouched seeds `20000..20015` | State of the art enabling | Very high | Very high | Low | Decides whether anonymous-channel discovery plus the 256-register Bit-Vault works reproducibly across full-width streams |
-| 2 | If O1C-0017 passes, replace only its synthetic generator with deterministic known-key standard twenty-round ChaCha20 raw paired-proof action pools | State of the art | Very high | Very high | Medium | Tests whether any attacker-valid raw causal channel can be learned without a prescribed scalar signal |
-| 3 | Give the known-key proof-pool gate multiple horizons and a strict sub-exhaustive budget; compare the pool-blind learned picker with fixed-order and uniform controls | State of the art | Very high | Very high | Medium | Separates representation lift from genuine sensing-work savings |
-| 4 | Preserve raw end-of-stream O1, Bit-Vault, signal-ablation, shuffled, untrained and common-only arms throughout the ChaCha transition | State of the art | High | Very high | Low | Localizes channel discovery, holographic crosstalk, retention and common-mode failure without losing breadcrumbs |
+| 1 | Build O1C-0018 by replacing only O1C-0017's synthetic generator with deterministic known-key standard twenty-round ChaCha20 raw paired-proof action pools | State of the art | Very high | Very high | Medium | Tests whether any attacker-valid causal channel can be learned without a prescribed scalar signal |
+| 2 | Give O1C-0018 multiple proof horizons and a strict sub-exhaustive budget; compare the pool-blind learned picker with fixed-order and uniform controls at equal work | State of the art | Very high | Very high | Medium | Separates representation lift from genuine autonomous sensing-work savings |
+| 3 | Preserve raw end-of-stream O1, Bit-Vault, shuffled, untrained, common-only and coordinate-destroying arms throughout the ChaCha transition | State of the art | High | Very high | Low | Localizes discovery, crosstalk, retention and common-mode failure without losing breadcrumbs |
+| 4 | Cross-fit BUILD and evaluation only by whole keys/nonces; persist all predictions before scoring and never reuse O1C-0017 seeds as fresh evidence | State of the art | Very high | Very high | Low | Prevents target-time adaptation from masquerading as portable causal orientation |
 | 5 | Add sparse Möbius pair/triple actions only after unary proof pools establish unseen-key NLL or information-per-branch lift | State of the art | High | High | Medium | Tests carry/proof interactions without exhausting the combinatorial field |
 | 6 | Spend fresh sealed entropy only after repeated deterministic known-key whole-key holdouts pass; otherwise pivot to query-rooted carry/proof ancestry | State of the art | Very high | Very high | High | Protects the next blind panel while keeping the terminal exact-recovery objective unchanged |
 
@@ -53,8 +53,8 @@ Last ranked: 2026-07-17T13:59:43+02:00.
 - reusing any of O1C-0016's 32 revealed targets for selection, training or efficacy;
 - running another sealed panel of exact h96, direct h65 or a searched blend after
   O1C-0016 closes all three;
-- optimizing O1C-0017 for fidelity to the now-null h96 logits instead of unseen-key
-  residual NLL and information gain per work;
+- replaying O1C-0017's formal seeds, tuning its hidden-channel amplitude after the
+  pass, or treating a synthetic mechanism result as ChaCha20 evidence;
 - treating the scaled shuffled-h65 copy as the only null for learned orientation;
 - spending another blind panel on the pre-existing ARX24 or ARX24+Motif12 arms,
   which were already negative before the larger panel also closed unary h96/h65;

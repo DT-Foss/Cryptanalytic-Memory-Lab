@@ -333,3 +333,24 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Breadcrumb:** future learned residual readers require both a common-mode-only
   sentinel and a frozen norm/spectrum-matched balanced sign or orthogonal rotation
   in zero-sum coordinate space that destroys key-coordinate alignment.
+
+## B-0020 — Raw holographic end state is not the full-width retention layer
+
+- **Evidence:** O1C-0017 freezes the same learned reader both through its exact
+  256-coordinate Bit-Vault and directly from the final carried O1 field on 16
+  disjoint synthetic full-width episodes.
+- **Result:** the addressed Bit-Vault reaches `+42.308742` bits mean compression
+  and `80.224609%` accuracy. The raw end-of-stream O1 field reaches
+  `-4.922579` bits and `50.244141%`; the paired retention margin is
+  `+47.231321` bits (`z=16.433`). Signal ablation, shifted labels and no training
+  are likewise null or negative.
+- **Conclusion:** the learned streaming representation can discover the useful
+  channel, but the final fixed-size holographic field alone does not preserve 256
+  independent addressed polarities through superposition. Exact per-coordinate
+  carrier registers are the supported retention layer in this configuration.
+- **Do not repeat:** score only the final holographic field, interpret its crosstalk
+  as failure of channel discovery, or claim that this gate proves O1 memory is
+  necessary relative to a stateless learner that was not tested.
+- **Breadcrumb:** retain the exact Bit-Vault and raw-end-state sentinel together in
+  O1C-0018. Let O1 learn representation and temporal context; let the vault preserve
+  addressed evidence; evaluate both on attacker-valid full-round proof pools.

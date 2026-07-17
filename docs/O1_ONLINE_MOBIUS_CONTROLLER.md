@@ -218,6 +218,16 @@ A pass establishes anonymous-channel discovery and full-width Bit-Vault pipeline
 integration. It does not establish a stateless-baseline advantage, O1-memory
 necessity, learned-picker efficacy or cryptographic signal.
 
+Result: `MECHANISM_PASS`. The primary learned arm obtains `3286/4096` bits,
+`80.224609%` accuracy and `+42.308742` bits mean compression on the 16 frozen
+episodes; every target is positive. Hidden-channel ablation gives `-4.392651`
+bits, shifted-label learning `-0.456155`, no training `-7.336737`, and the primary
+raw end-of-stream O1 field `-4.922579`. The corresponding primary margins are
+`+46.701393`, `+42.764897` and `+47.231321` bits. All structural and resource
+gates pass, and the 18-member capsule verifies exactly. This supports the
+autonomous discovery plus addressed-retention pipeline and advances only the
+generator/picker transition below.
+
 ## O1C-0018 gate: full-round known-key proof pools
 
 Replace only the synthetic generator with deterministic known-key standard

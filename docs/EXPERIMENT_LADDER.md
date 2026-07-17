@@ -136,6 +136,13 @@ learning and Bit-Vault retention. Picker efficacy moves to deterministic known-k
 full-round proof pools, where multiple legal horizons and a sub-exhaustive work
 budget make the scheduling counterfactual meaningful.
 
+Result: O1C-0017 passes. The learned Bit-Vault arm obtains `3286/4096` bits,
+`+42.308742` bits mean compression, `80.224609%` accuracy and `16/16` positive
+targets. It beats hidden-channel ablation by `46.701393` bits, shifted-label
+learning by `42.764897` and the same reader's raw O1 end state by `47.231321`.
+This validates autonomous anonymous-channel discovery plus full-width retention;
+it does not yet validate the picker or any real-cipher signal.
+
 Gate: better held-out entropy reduction per cipher call without state/index budget
 escape.
 
@@ -189,9 +196,11 @@ It first tests the wiring on 330 anonymous synthetic raw channels across eight
 BUILD and 16 untouched evaluation episodes. Signal ablation, shifted-label,
 untrained, common-only, polarity-swap and raw O1 end-state controls separate
 channel discovery, common mode, holographic crosstalk and Bit-Vault retention.
-O1C-0018 then replaces only the generator with deterministic known-key full-round
-paired proof pools. Fresh sealed entropy remains forbidden until repeated real-
-sensor whole-key holdouts and matched controls pass.
+That gate now passes with `+42.308742` bits mean compression and every control in
+the frozen direction. O1C-0018 therefore replaces only the generator with
+deterministic known-key full-round paired proof pools and activates the multiple-
+horizon sub-exhaustive picker comparison. Fresh sealed entropy remains forbidden
+until repeated real-sensor whole-key holdouts and matched controls pass.
 
 ## L7 — Exact recovery frontier
 

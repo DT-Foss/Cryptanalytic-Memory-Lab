@@ -39,13 +39,21 @@ inspected read-only and are summarized in
 The post-O1C-0016 continuous fast/slow learner and learned picker are specified in
 [O1 Online Möbius Controller](docs/O1_ONLINE_MOBIUS_CONTROLLER.md).
 
-The strongest immutable scientific attempt is O1C-0016. It froze the exact h96
-reader and a fixed equal-logit h96+h65 successor before attacking 32 entirely new
-OS-random sealed keys using only public counter/nonce/output. The ensemble obtains
-`4093/8192` bits and `-0.078249` bit/key, with only `11/32` positive targets and a
-`-0.080225` bit/key margin over its matched shuffled control (`z=-0.555`). Exact
-h96 reaches `-0.175000`, h65 `-0.033913`, all byte/block ranks are null-like, and
-no exact key is emitted. The frozen result is `NOT_REPLICATED / DO_NOT_PROMOTE`.
+The strongest immutable architecture attempt is now O1C-0017. From 330 anonymous
+raw channels, a bounded reveal-delayed O1 reader autonomously discovered one hidden
+oriented channel and retained all 256 addressed readings in its Bit-Vault. On 16
+untouched synthetic full-width episodes it obtains `3286/4096` bits,
+`+42.308742` bits mean compression and `80.224609%` accuracy, with all 16 targets
+positive. It beats signal ablation by `46.701393` bits, shifted-label learning by
+`42.764897` and its own raw end-of-stream O1 field by `47.231321`. Classification:
+`MECHANISM_PASS`.
+
+The strongest real-cipher attempt remains O1C-0016. It froze exact h96 and a fixed
+equal-logit h96+h65 successor before attacking 32 entirely new OS-random sealed
+keys using only public counter/nonce/output. The ensemble obtains `4093/8192` bits
+and `-0.078249` bit/key, with `11/32` positive targets and a `-0.080225` margin
+over shuffled (`z=-0.555`); no exact key is emitted. Classification:
+`NOT_REPLICATED / DO_NOT_PROMOTE`.
 
 The full lifecycle is nevertheless validated: 680/680 capsule members verify,
 every commitment and independently recomputed output matches, all resource gates
@@ -58,14 +66,13 @@ and matched-shuffled compression correlate `0.999905`, while O1C-0014-to-0016
 coordinate transfer is approximately zero. The global unary readers saw a
 repeatable public-instance difficulty/amplitude field but did not learn hidden-key
 orientation. [The post-reveal audit](research/O1C0016_POST_REVEAL_FORENSICS_20260717.md)
-therefore pivots O1C-0017 to a zero-fresh-entropy synthetic integration gate. From
-330 anonymous channels, the shared reader must discover one hidden oriented signal
-and preserve all 256 addressed readings in the Bit-Vault across a full-width
-stream. Five frozen arms separate learned discovery, signal ablation, shuffled
-learning, an untrained reader and the raw end-of-stream O1 field. Coverage is fixed,
-so this gate makes no picker or cryptanalytic claim. A pass advances O1C-0018 to
-deterministic known-key standard twenty-round ChaCha20 paired-proof pools with
-multiple horizons and bounded learned sensing; fresh sealed entropy remains closed.
+therefore motivated the zero-fresh-entropy O1C-0017 integration gate, which has now
+passed every frozen control. The result proves autonomous anonymous-channel
+discovery and Bit-Vault retention in the synthetic full-width mechanism, not that
+ChaCha20 exposes the channel and not that the learned picker already saves work.
+O1C-0018 now replaces only the generator with deterministic known-key standard
+twenty-round ChaCha20 paired-proof pools, multiple horizons and bounded learned
+sensing; fresh sealed entropy remains closed.
 
 ## What the first benchmark proves
 

@@ -16,6 +16,7 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0013-LIFECYCLE` | BUILD/CAL causal-reader freeze followed by fresh full-256 output-only inference | `TEST` lifecycle | 4 BUILD + 2 CAL + 2 sealed keys; reader reloaded before two entropy calls; all predictions persisted before reveal; 63/63 capsule members | [Capsule](runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1/RUN.md) |
 | `O1C-0014-LIFECYCLE` | Exact-byte no-refit h96 replication on independent full-256 output-only targets | `VALIDATION` lifecycle | protocol freeze before 8 entropy calls; 8 factual plus 3 control predictions before any reveal; 124/124 capsule members; 0 reader changes/replays/sibling/GPU work | [Capsule](runs/20260717_084847_O1C-0014_full256-frozen-reader-blind-replication-v1/RUN.md) |
 | `O1C-0016-LIFECYCLE` | Budget-corrected 32-key polyphase replication with complete truth persistence | `VALIDATION` lifecycle | protocol before entropy; all factual/control predictions before reveal; 32/32 independent outputs and commitments recompute; 680/680 members; every resource gate passes | [Capsule](runs/20260717_115325_O1C-0016_full256-polyphase-blind-replication-v2/RUN.md) |
+| `O1C-0017-LIFECYCLE` | Reveal-delayed online learner with prediction-before-score freeze on full-256 synthetic episodes | `VALIDATION` mechanism lifecycle | clean commit; 8 BUILD then 16 disjoint evaluation episodes; five-arm predictions persisted before labels; 18/18 capsule members; 0 fresh entropy/sibling/MPS/GPU calls | [Capsule](runs/20260717_140953_O1C-0017_full256-online-self-discovery-v1/RUN.md) |
 
 ## Operational failures
 
@@ -51,6 +52,7 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0012-STATE` | Coordinate-bound full-256 unary/ARX/holographic living state | `TEST` mechanism | 768 signed updates; 17,408 B exact serialization; 768 unary, 772 interaction and 512 holographic nonzeros; exact swap antisymmetry; 0 retained transcripts/keys | [State report](runs/20260717_065248_O1C-0012_full256-paired-causal-sensor-v1/artifacts/causal_bitfield.json) |
 | `O1C-0013-READER` | Shared target-independent orientation over causal h96 proof features | `TEST` mechanism | selected on disjoint CAL: ridge 0.001, temperature 0.5, scale 1.0; 281,764 B static model; 58,368 B live target state; zero coordinate-specific parameters | [Frozen reader](runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1/artifacts/frozen_reader.json) |
 | `O1C-0016-COMMON-MODE` | Global h65 proof difficulty is predominantly public-target amplitude, not key orientation | `POST_REVEAL` mechanism diagnosis | target-level primary/shuffled h65 compression corr 0.999905; shuffled-h65 logits are 0.38857049 x primary-h65; O1C14-to-O1C16 coordinate corr approximately 0 | [Forensics](research/O1C0016_POST_REVEAL_FORENSICS_20260717.md) |
+| `O1C-0017-AUTONOMY` | O1 autonomously discovers a useful oriented channel among 330 anonymous raw channels and retains its 256 addressed readings | `VALIDATION` synthetic mechanism | 3286/4096 bits; +42.308742 bits mean compression; 80.224609% accuracy; 16/16 positive; +46.701393 over ablation, +42.764897 over shifted labels, +47.231321 over raw end-state O1 | [Result](runs/20260717_140953_O1C-0017_full256-online-self-discovery-v1/artifacts/online_self_discovery.json) |
 
 ## Replicated validation
 
@@ -89,6 +91,11 @@ crossed the old resource ceilings after all 32 targets had been revealed in memo
 while no reveal/evaluation artifacts persisted. O1C-0016 repeats the unchanged
 experiment on entirely new keys under corrected lifecycle accounting and answers
 it negatively: both frozen unary readers and their fixed ensemble are null-like.
+O1C-0017 then validates the replacement fast/slow architecture on a synthetic
+anonymous-channel gate: the learned reader and Bit-Vault pass every frozen control,
+while ablation, shifted labels, no training and raw holographic end state remain
+null or negative. It supplies no real-cipher efficacy evidence; that boundary moves
+to deterministic known-key full-round proof pools in O1C-0018.
 
 ## Prospective full-256 inverse evidence
 
@@ -104,8 +111,9 @@ it negatively: both frozen unary readers and their fixed ensemble are null-like.
 
 ## Frontier and state-of-the-art results
 
-None produced by this lab yet. O1C-0016 closes the earlier O1C-0014 aggregate as
-panel noise for this frozen global unary reader family. Existing sibling-project
+None produced by this lab yet. O1C-0017 is a strong architecture mechanism pass,
+not a cryptanalytic frontier result. O1C-0016 closes the earlier O1C-0014 aggregate
+as panel noise for this frozen global unary reader family. Existing sibling-project
 recoveries are baselines, not results of this integration.
 
 ## Negative bounds
@@ -129,3 +137,4 @@ recoveries are baselines, not results of this integration.
 | `O1C-0014-N1` | Positive aggregate h96 compression is not yet a replicated, target-robust or control-specific inverse channel | `VALIDATION` negative with breadcrumb | +0.233784 bit/key and conditional z 1.819, but 4/8 positive targets, paired z 0.838, mixed controls, 0 exact keys and 0 stable 8/8 coordinates | Freeze one h96+h65 two-wavelength successor and exact h96 baseline on 32 entirely new targets; never retune the O1C-0014 result |
 | `O1C-0016-N1` | Global h96/h65 proof-prefix orientation and fixed equal-logit compounding do not transfer | `NEGATIVE_BOUND` | 32-key ensemble -0.078249 bit/key, paired z -0.555, 11/32 positive; exact h96 -0.175000; null-like byte/block/decoy ranks; pooled exact-h96 z +0.134 | Remove common-mode nuisance and learn residual event geometry on whole-key cross-fits; do not run another sealed panel of these readers |
 | `O1C-0016-N2` | A shuffled label fit can collapse to a scaled common-mode copy rather than an independent null geometry | `MECHANISM_BOUNDARY` | shuffled-h96 zero; shuffled-h65 = 0.38857049 x primary-h65 to residual <4e-9; both h65 signs and correct-bit count identical | Add a frozen norm/spectrum-matched balanced rotation in zero-sum coordinate space plus a common-mode-only sentinel |
+| `O1C-0017-N1` | The raw final holographic O1 field is crosstalk-limited as a 256-polarity retention layer | `MECHANISM_BOUNDARY` | learned Bit-Vault +42.308742 bits and 80.224609%; same reader's raw end field -4.922579 bits and 50.244141%; paired margin +47.231321 bits | Keep O1 for learned streaming representation and the exact Bit-Vault for addressed retention; preserve the raw field as a sentinel in O1C-0018 |

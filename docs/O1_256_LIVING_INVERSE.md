@@ -175,13 +175,14 @@ are a factor-256 domain reduction.  Exact key verification is the terminal signa
    `-0.078249` bit/key, only `11/32` targets positive, paired `z=-0.555` and zero
    exact keys. Exact h96/h65 are also negative; class
    `NOT_REPLICATED / DO_NOT_PROMOTE`.
-10. `O1C-0017`: spend zero fresh sealed entropy. Run the synthetic anonymous-
-    channel integration gate: a shared online reader must discover one hidden
-    oriented channel among 330 and the 256-register Bit-Vault must retain all
-    addressed readings across a full-width stream. Five frozen arms separate
-    discovery, ablation, shuffled learning, an untrained reader and the raw final
-    O1 field. Coverage is fixed; this gate does not evaluate the picker or ChaCha20.
-11. `O1C-0018`: only after O1C-0017 passes, replace the synthetic generator with
+10. `O1C-0017` (completed `MECHANISM_PASS`): with zero fresh entropy, the shared
+    online reader discovered one hidden oriented channel among 330 anonymous raw
+    channels and the 256-register Bit-Vault retained the addressed readings across
+    a full-width stream. On 16 frozen episodes it reached `3286/4096` bits,
+    `+42.308742` bits mean compression, `80.224609%` accuracy and `16/16` positive;
+    all five-arm and structural gates passed. Coverage was fixed, so this result
+    does not evaluate the picker or ChaCha20.
+11. `O1C-0018`: following the O1C-0017 pass, replace the synthetic generator with
     deterministic known-key standard twenty-round ChaCha20 raw paired-proof pools.
     Cross-fit whole keys and nonces across multiple proof horizons, then evaluate
     the bounded learned picker against matched fixed-work policies. Fresh sealed

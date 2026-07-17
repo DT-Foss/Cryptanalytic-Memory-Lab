@@ -705,3 +705,44 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifact:**
   `runs/20260717_115325_O1C-0016_full256-polyphase-blind-replication-v2/`;
   forensics `research/O1C0016_POST_REVEAL_FORENSICS_20260717.md`.
+
+## O1C-0017 — Online anonymous-channel self-discovery gate
+
+- **Recorded:** 2026-07-17T14:12:09+02:00
+- **Execution commit:** `22ea4dd0bfedd3134f82624ea434c9b339f35a73`
+- **Claim level:** `VALIDATION` synthetic mechanism; no cryptanalytic, learned-
+  picker, stateless-baseline or O1-memory-necessity claim.
+- **Classification:** `MECHANISM_PASS`; every predeclared scientific, lifecycle,
+  structural and resource gate passed.
+- **Frozen experiment:** eight deterministic reveal-delayed BUILD episodes followed
+  by five prediction arms on 16 disjoint synthetic full-256 evaluation episodes.
+  The controller receives 330 anonymous raw channels but never the hidden channel
+  index. Complete coordinate coverage is fixed, so action selection is not scored.
+- **Primary result:** `3286/4096` bits, accuracy `0.80224609375`, mean NLL
+  `213.6912579064` and mean compression `+42.3087420936` bits. All `16/16`
+  targets are positive; target correct-bit range is `195..213`.
+- **Controls:** hidden-channel ablation `-4.3926511273` bits, shifted-label learner
+  `-0.4561548402`, untrained reader `-7.3367374797`, and the primary learned raw
+  end-of-stream O1 field `-4.9225787896`. Primary margins are `+46.7013932209`,
+  `+42.7648969338`, and `+47.2313208832` bits respectively.
+- **Structural result:** exact polarity-swap antisymmetry, common-only zero
+  orientation, complete 256-coordinate coverage and constant `21,472`-byte fast
+  state all pass. Predictions were persisted before any evaluation label scoring.
+- **Resources:** 29,184 action observations, `78.088885` CPU s, `79.852657` wall
+  s, `286.4375` MiB peak RSS, 285,581 persistent bytes and zero fresh entropy,
+  native solver, sibling read/write, MPS or GPU calls.
+- **Verification:** 18/18 capsule members; manifest
+  `59f1f59b4e24545391cb06cd2bee395285d4385c893af36d18def28bcb3858fd`;
+  result
+  `609014695bc3013bb971d7d05b682d18797af5c9d9cd31561cdc41de120ff28c`;
+  prediction freeze
+  `a2f5a8ba939bdedf9fdce4bb1e0dabac9fc3ac850a3b9e249b9b2f1d3abafba7`.
+- **Conclusion:** the fast/slow architecture can learn a useful oriented feature
+  without being handed a scalar signal and can retain 256 addressed readings after
+  the raw holographic end field loses them to crosstalk. The untested question is
+  whether attacker-valid full-round proof/carry streams contain such a feature.
+- **Next action:** preserve the controller and all five arms; replace only the
+  synthetic generator with deterministic known-key standard twenty-round ChaCha20
+  paired-proof pools, multiple horizons and a sub-exhaustive learned-picker budget.
+- **Artifact:**
+  `runs/20260717_140953_O1C-0017_full256-online-self-discovery-v1/`.
