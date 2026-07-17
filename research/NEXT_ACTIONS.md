@@ -1,15 +1,15 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T09:46:03+02:00.
+Last ranked: 2026-07-17T11:51:44+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Launch the source-frozen `O1C-0015` from the clean preregistration descendant of implementation commit `26709cd` after the sibling resource gate clears; make no reader/config edits after fresh entropy begins | State of the art | Very high | Very high | Medium | Decides the positive unary aggregate on 32 independent targets with no O1C-0014 fit |
-| 2 | Verify the one-shot capsule and classify only through the frozen ensemble, exact-h96, matched-control, sign-count and leave-one-out gates | State of the art | Very high | Very high | Low | Separates transferable entropy removal from target-panel variance |
+| 1 | Launch `O1C-0016` once from the clean preregistration descendant of implementation commit `4f4c528`; use 32 entirely new keys and make no scientific reader/config edits after entropy begins | State of the art | Very high | Very high | Medium | Recovers the O1C-0015 scientific question without replaying its burned panel |
+| 2 | Verify the one-shot capsule, including the pre-reveal resource snapshot and complete persisted reveal/evaluation truth, then classify only through the frozen ensemble, exact-h96, matched-control, sign-count and leave-one-out gates | State of the art | Very high | Very high | Low | Separates transferable entropy removal from target-panel variance with truthful failure semantics |
 | 3 | Report polyphase promotion separately: ensemble-minus-h96 must be positive with paired conditional `z>=1.64485` | State of the art | Very high | High | Low | Determines whether two-wavelength O1 composition adds information beyond its strongest component |
-| 4 | If O1C-0015 fails, implement the designed h96 query-rooted carry/proof cone and test A513's exact zero-sum operator bases as a sensor family while keeping exact h96 as baseline | State of the art | High | Very high | Medium | Removes global solver-work noise using actual assumption-key/carry ancestry and a basis-bound holographic view |
-| 5 | If O1C-0015 holds, compound the best frozen challenge posterior in the surprise-gated Attic and bounded exact-verification beam; use the ensemble only if its separate promotion gate passes, otherwise retain h96 | State of the art | Very high | Very high | High | Converts reproducible entropy removal into search-domain reduction without forcing a failed composition |
-| 6 | Keep coarse ARX24/Motif12 and coordinate masks as negative sentinels, not new primaries | Medium | Medium | High | Low | Prevents spending fresh keys on a feature family already reversed on O1C-0014 |
+| 4 | After O1C-0016 only, execute O1C-0017's adaptive live-causal fidelity probe: h65 on all pairs, deepen only the top 32 uncertainty/surprise coordinates to h96 | State of the art | Very high | Very high | Medium | Tests whether O1/O1-O selection preserves the full h96 causal field while saving the calculated `19.79%` of requested conflict work |
+| 5 | If the frozen channel holds, compound its posterior in the surprise-gated Attic and bounded exact-verification beam; use the ensemble only if its separate promotion gate passes | State of the art | Very high | Very high | High | Converts reproducible entropy removal into search-domain reduction without forcing a failed composition |
+| 6 | If it fails, build the designed h96 query-rooted carry/proof cone while retaining exact h96 and coarse ARX24/Motif12 as baselines/sentinels | State of the art | High | Very high | Medium | Removes global solver-work noise using actual assumption-key/carry ancestry |
 
 ## Hard target contract
 
@@ -48,6 +48,10 @@ Last ranked: 2026-07-17T09:46:03+02:00.
   BUILD/CAL selection inside O1C-0014, or treating two-key compression as SOTA;
 - renaming O1C-0014's positive aggregate a replication, tuning h96 on its eight
   reveals, or freezing its best-looking coordinates/half-key/lane/bit slices;
+- replaying any of O1C-0015's 32 generated-and-revealed targets, or interpreting
+  its missing evaluation as either positive or negative scientific evidence;
+- launching adaptive O1C-0017 before the unchanged O1C-0016 replication is frozen
+  and classified;
 - spending another blind panel on the pre-existing ARX24 or ARX24+Motif12 arms,
   which are post-reveal negative while all unary wavelengths remain positive;
 - inventing proof events at exact conflict cutoffs, including billed overshoot in

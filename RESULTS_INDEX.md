@@ -16,6 +16,13 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0013-LIFECYCLE` | BUILD/CAL causal-reader freeze followed by fresh full-256 output-only inference | `TEST` lifecycle | 4 BUILD + 2 CAL + 2 sealed keys; reader reloaded before two entropy calls; all predictions persisted before reveal; 63/63 capsule members | [Capsule](runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1/RUN.md) |
 | `O1C-0014-LIFECYCLE` | Exact-byte no-refit h96 replication on independent full-256 output-only targets | `VALIDATION` lifecycle | protocol freeze before 8 entropy calls; 8 factual plus 3 control predictions before any reveal; 124/124 capsule members; 0 reader changes/replays/sibling/GPU work | [Capsule](runs/20260717_084847_O1C-0014_full256-frozen-reader-blind-replication-v1/RUN.md) |
 
+## Operational failures and frozen successors
+
+| ID | Result | Claim level | Metrics | Artifact |
+|---|---|---|---|---|
+| `O1C-0015-RUNTIME` | Polyphase replication exceeded its old soft resource ceilings after target reveal | `OPERATIONAL_FAILURE`; no scientific result | capsule 579/579; 32 generated, 32 revealed once in memory, 0 persisted reveal/evaluation records; all targets burned; CPU >1600 s, wall >1400 s, RSS >384 MiB, exact values unavailable | [Failed capsule](runs/20260717_103252_O1C-0015_full256-polyphase-blind-replication-v1/RUN.md) |
+| `O1C-0016-PREREG` | Budget-corrected fresh-key rerun of the unchanged O1C-0015 science | `PREREGISTRATION`; zero entropy | same readers, gates, controls, 17,920 branches and 32 entirely new keys; only ceilings 3000 CPU-s/3000 wall-s/768 MiB RSS and lifecycle truth persistence differ; implementation `4f4c5280ecf876083222138db4cb55dae9e2dfca`; config `054e8b05c7824cf4c47f509d6a4977e3feac7e5df5ce006f55948b93554daaa6` | [Config](configs/full256_polyphase_replication_v2.json) |
+
 ## Real O1-O replay
 
 | ID | Result | Claim level | Metrics | Artifact |
@@ -76,7 +83,10 @@ aggregate on two fresh targets. It is prospective evidence, but the panel is too
 small to establish stable transfer or SOTA. O1C-0014 then reloads those exact bytes
 on eight independent targets. Its aggregate remains positive, but the predeclared
 target-robustness, paired-control and specificity gates fail, so it is explicitly
-`NOT_REPLICATED`.
+`NOT_REPLICATED`. O1C-0015 supplies no later scientific evidence: its computation
+crossed the old resource ceilings after all 32 targets had been revealed in memory,
+while no reveal/evaluation artifacts persisted. O1C-0016 therefore repeats the
+unchanged experiment on entirely new keys under corrected lifecycle accounting.
 
 ## Prospective full-256 inverse evidence
 

@@ -37,22 +37,33 @@ The complete attacker contract and architecture are in
 inspected read-only and are summarized in
 [the 2026-07-17 transfer map](research/W52_TRANSFER_20260717.md).
 
-The current immutable result is O1C-0014. It reloaded O1C-0013's exact h96 reader
-bytes without refit or rescaling and attacked eight new OS-random sealed keys using
-only public counter/nonce/output. It obtained `1053/2048` bits and `+0.233784`
-bit/key aggregate compression (`z=1.819`) while its shuffled reader obtained
-`-1.290981` bit/key. The preregistered result is nevertheless `NOT_REPLICATED`:
-only `4/8` targets were positive, the paired control comparison was `z=0.838`, the
-three public-evidence controls were mixed, and no exact key was emitted.
+The strongest immutable scientific result remains O1C-0014. It reloaded
+O1C-0013's exact h96 reader bytes without refit or rescaling and attacked eight new
+OS-random sealed keys using only public counter/nonce/output. It obtained
+`1053/2048` bits and `+0.233784` bit/key aggregate compression (`z=1.819`) while
+its shuffled reader obtained `-1.290981` bit/key. The preregistered result is
+nevertheless `NOT_REPLICATED`: only `4/8` targets were positive, the paired
+control comparison was `z=0.838`, the three public-evidence controls were mixed,
+and no exact key was emitted.
 
 That negative classification is retained together with its mechanism breadcrumb.
 All three pre-existing unary proof horizons remain aggregate-positive, while the
-richer coarse ARX24/Motif12 readers turn negative. O1C-0015 therefore freezes the
-exact h96 primary plus one equal-logit h96+h65 two-wavelength reader and attacks 32
-entirely new full-256 targets. O1C-0014 informs that next challenge but never enters
-its reader fit or its own claim. The implementation is frozen at
-`26709cde97df26dc8bfebf99eb108dc0d58f4281`; all canonical tests pass and no
-O1C-0015 target has yet been generated or revealed.
+richer coarse ARX24/Motif12 readers turn negative. O1C-0015 ran the exact h96 plus
+equal-logit h96+h65 successor on 32 new targets, but exceeded its CPU, wall and RSS
+ceilings after all 32 targets had been revealed in process memory. Because no
+reveal/evaluation artifacts survived, it is an immutable operational failure, not
+a scientific result; all 32 targets are burned and will never be replayed.
+
+O1C-0016 is the clean successor at implementation commit
+`4f4c5280ecf876083222138db4cb55dae9e2dfca`. It keeps the scientific mechanism,
+readers, controls, 17,920 branches and 32-target contract unchanged, uses 32
+entirely new keys, raises only the soft ceilings to 3,000 CPU-s, 3,000 wall-s and
+768 MiB RSS, and fixes pre-reveal resource accounting plus terminal truth
+persistence. Canonical v2 config SHA-256:
+`054e8b05c7824cf4c47f509d6a4977e3feac7e5df5ce006f55948b93554daaa6`.
+No O1C-0016 entropy has been drawn. Only after O1C-0016, O1C-0017 will test adaptive
+h65-all/top32-h96 live-causal deepening; the deterministic work model predicts `19.79%`
+requested conflict-work saving.
 
 ## What the first benchmark proves
 

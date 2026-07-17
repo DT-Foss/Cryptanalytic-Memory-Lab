@@ -1,9 +1,9 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-17T09:46:03+02:00 (`Europe/Berlin`)
-- **Reader implementation commit:** `26709cde97df26dc8bfebf99eb108dc0d58f4281`
-- **Worktree:** O1C-0015 implementation and preregistration frozen with zero fresh
-  target entropy calls; O1C-0009 through O1C-0014 remain immutable
+- **Last updated:** 2026-07-17T11:51:44+02:00 (`Europe/Berlin`)
+- **Reader implementation commit:** `4f4c5280ecf876083222138db4cb55dae9e2dfca`
+- **Worktree:** O1C-0016 budget-corrected implementation and preregistration frozen
+  with zero O1C-0016 entropy calls; O1C-0015 is immutable and burned
 - **Research phase:** O1-256 Living Inverse — paired-assumption solver events into
   coordinate-bound unary-plus-interaction O1 state
 - **Strongest internal mechanism:** O1C-0013 turns each complete 512-branch public
@@ -12,10 +12,12 @@
 - **Strongest read-only mechanism intake:** A447-A449 proof ancestry, A465 cubic
   Product-of-Experts and A469 positive bucket-local correction
 - **Active runs:** none
-- **Last completed attempt:** `O1C-0014` — exact-byte, zero-refit h96 validation on
-  eight new sealed full-round output-only keys
-- **Next attempt:** launch frozen `O1C-0015` — exact h96 primary plus one equal-
-  logit h96+h65 two-wavelength ensemble on 32 new sealed full-256 keys
+- **Strongest completed scientific attempt:** `O1C-0014` — exact-byte, zero-refit
+  h96 validation on eight new sealed full-round output-only keys
+- **Last operational attempt:** `O1C-0015` — computation completed, then the late
+  resource gate failed; its 32 targets are burned and support no scientific result
+- **Next attempt:** launch preregistered `O1C-0016` — the unchanged h96 plus
+  equal-logit h96+h65 mechanism on 32 entirely new sealed full-256 keys
 - **Primary uncertainty:** whether the positive unary proof-difficulty aggregate is
   a portable causal channel despite target heterogeneity and failed specificity
 - **SOTA status:** no SOTA claim and no recovery. O1C-0014 gives a positive
@@ -27,22 +29,34 @@
 
 ## Headline
 
-`O1C-0015` is now an executable, source-frozen blind replication rather than a
-design sketch. It reconstructs h65 plus arm-matched shuffled h96/h65 readers from
-only O1C-0013 BUILD/CAL, preserves the exact primary h96 bytes, and freezes
-`0.5*logit(h96)+0.5*logit(h65)` before fresh entropy. One unchanged public causal
-sweep is reused by every reader view: 35 sweeps x 512 assumptions = exactly
-17,920 conservatively billed native branches for 32 factual targets and three
-controls. The bounded live target state is 67,584 bytes. All component, ensemble
-and matched-control posteriors must exist before the first reveal.
+`O1C-0015` is an immutable operational resource failure, not a scientific inverse
+result. It froze all 32 factual predictions and three controls, then revealed all
+32 targets once in process memory before the old late resource gate fired. No
+reveal receipt, evaluation or final scientific report was persisted, so no key
+metric may be reconstructed or claimed. The durable checkpoint's zero-reveal
+field describes only the last persisted phase; the audited code path establishes
+`32 generated / 32 revealed in memory / 0 persisted reveals`. All 32 targets are
+therefore burned and may never be replayed.
 
-The canonical `tests/` suite passes `317` tests with `9` skips and `51` subtests;
-targeted O1C-0015/CLI coverage passes `33` tests and `12` subtests. Ruff on every
-changed source/test file, format check, compileall and diff hygiene pass. No
-O1C-0015 key has been generated or revealed. The run waits only for the sibling
-resource gate, then executes once from the clean preregistration descendant of
-implementation commit `26709cde97df26dc8bfebf99eb108dc0d58f4281` under the
-frozen 1,600 CPU-s, 1,400 wall-s, 384 MiB RSS and 24 MB artifact ceilings.
+The failed capsule
+`runs/20260717_103252_O1C-0015_full256-polyphase-blind-replication-v1/`
+verifies `579/579`; manifest
+`326bc30a1499f6479d306df43b17ec390c020832bb5d1816fa8ab9f7f9660314`
+and prediction-set commitment
+`f2958da162a2dca74f2c5dd62ccb45f3d764be7c8f71200ee3afba8409a62116`
+are immutable. The run exceeded all three old soft ceilings: CPU `>1600 s`, peak
+RSS `>384 MiB`, and wall `>1400 s`; the exact values were discarded by the old
+exception path and are unavailable.
+
+`O1C-0016` preserves the scientific experiment exactly: the same frozen readers,
+composition, public-only attacker contract, 17,920 branches, 67,584-byte bounded
+live state, controls and decision gates, applied to 32 entirely new keys. Only the
+soft ceilings change to 3,000 CPU-s, 3,000 wall-s and 768 MiB RSS, and lifecycle
+accounting now snapshots/enforces resources before reveal and persists complete
+truth before any terminal post-reveal gate. Implementation commit
+`4f4c5280ecf876083222138db4cb55dae9e2dfca`; canonical v2 config SHA-256
+`054e8b05c7824cf4c47f509d6a4977e3feac7e5df5ce006f55948b93554daaa6`.
+No O1C-0016 target entropy has been drawn.
 
 `O1C-0014` reloaded O1C-0013's exact primary reader
 `796e79ec932b990a59ecbc34216c4878b9279bae3bb136fe0832e580bcb2e9f8`
@@ -213,21 +227,23 @@ O1C-0014 arm/coordinate audit is in
 
 ## Highest-ROI next actions
 
-1. Launch the already frozen `O1C-0015` from the clean preregistration commit once
-   the sibling resource gate is clear; do not edit its reader, thresholds or
-   config after target entropy begins.
+1. Launch frozen `O1C-0016` from the clean preregistration descendant of
+   implementation commit `4f4c528`; do not edit its scientific mechanism, readers
+   or gates after target entropy begins.
 2. Monitor the one-shot 32-key lifecycle and preserve every component, ensemble
-   and matched-control posterior before the first reveal.
+   and matched-control posterior plus the pre-reveal resource snapshot before the
+   first reveal.
 3. Verify the completed capsule, classify only by the frozen directional/strong
    gates, and separately decide whether polyphase beats exact h96.
-4. If the unary channel fails, build the already designed assumption-rooted h96
-   query/carry cone; if it holds, compound the best frozen posterior in the Attic
-   and bounded beam, using the ensemble only if its separate promotion gate passes.
+4. Only after O1C-0016, run O1C-0017's adaptive live-causal fidelity probe: h65 on
+   every pair and h96 only on the top 32 uncertainty/surprise coordinates; the
+   deterministic work model predicts `19.79%` requested conflict-work saving.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0015` | 2026-07-17 | The fixed h96+h65 polyphase reader transfers to 32 new full-256 output-only keys | Operational resource failure after all 32 reveals occurred in memory; no evaluation or reveal receipt persisted, so no scientific metric or classification exists | `OPERATIONAL_FAILURE`; no scientific result | CPU >1600 s; wall >1400 s; RSS >384 MiB; exact values unavailable; 17,920 branches | Burn all 32 targets; rerun the identical science as O1C-0016 with truthful pre-reveal accounting and corrected soft ceilings | [Failed capsule](runs/20260717_103252_O1C-0015_full256-polyphase-blind-replication-v1/RUN.md) |
 | `O1C-0014` | 2026-07-17 | O1C-0013's exact h96 bytes remove code length on eight new full-256 output-only keys without refit | `NOT_REPLICATED`: 1053/2048 bits, +0.233784 bit/key, conditional z 1.819, +1.524765 over shuffled, but 4/8 positive, paired z 0.838, controls mixed, 0 exact keys | `VALIDATION` negative with positive aggregate breadcrumb | 306.195 CPU s; 245.756 wall s; 302.578 MiB peak; zero sibling/GPU work | Unary h64/h96/h65 remain positive, coarse ARX/Motif arms turn negative; freeze h96+h65 once on 32 new keys | [Run capsule](runs/20260717_084847_O1C-0014_full256-frozen-reader-blind-replication-v1/RUN.md) |
 | `O1C-0013` | 2026-07-17 | BUILD/CAL full-256 paired-proof fields can learn a target-independent causal orientation that lowers sealed output-only key NLL | First positive blind breadcrumb: 259/512 bits, +0.088922 bit/key, +3.306254 bit/key over shuffled; controls all negative; 0 exact keys | `TEST` prospective signal; replication required | 392.188 CPU s; 314.384 wall s; 321.906 MiB conservative peak; zero sibling/GPU work | Two targets split -0.186702/+0.364545; freeze the exact reader and replicate on eight new keys without refit | [Run capsule](runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1/RUN.md) |
 | `O1C-0012` | 2026-07-17 | All 512 opposite assumptions can emit complete closed proof prefixes into a bounded full-256 O1 causal state | Mechanism passed: 256 bits, 1,536 frontiers, 17,408 B state; known-key diagnostic negative at 119/256 and -86.780 bit compression | `TEST` mechanism; no inverse claim | 58.032 CPU s; 49.199 wall s; 317.281 MiB conservative group peak; zero sibling/GPU work | The W52 `(7,1,4)` orientation is not portable; horizon 96 alone gives 139/256 on one key and must be tested cross-key | [Run capsule](runs/20260717_065248_O1C-0012_full256-paired-causal-sensor-v1/RUN.md) |
@@ -247,6 +263,9 @@ O1C-0014 arm/coordinate audit is in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0016` canonical config | `054e8b05c7824cf4c47f509d6a4977e3feac7e5df5ce006f55948b93554daaa6` |
+| `O1C-0015` failed capsule manifest | `326bc30a1499f6479d306df43b17ec390c020832bb5d1816fa8ab9f7f9660314` |
+| `O1C-0015` prediction set | `f2958da162a2dca74f2c5dd62ccb45f3d764be7c8f71200ee3afba8409a62116` |
 | `O1C-0014` capsule manifest | `741718cbc6b63de24f4d9c89cd2aedc8e9779a0ebb38adc4d40666e97ce24bcf` |
 | `O1C-0014` internal result commitment | `ecc06b011a95f6ceeec08641b68e1105511cf714cc250f9fe3b62e66c2af4c4a` |
 | `O1C-0014` evaluation commitment | `69a3142f56b08f60890b4849ab9d71d4a68aecb4ad5db3a0f24b304cf041b6ef` |
@@ -309,14 +328,16 @@ O1C-0014 arm/coordinate audit is in
 
 ## Resume here
 
-Launch frozen `O1C-0015` from the clean preregistration descendant of implementation
-commit `26709cde97df26dc8bfebf99eb108dc0d58f4281`. Preserve O1C-0014 as immutable
-`NOT_REPLICATED` evidence
-and treat O1C-0013 reader SHA-256
+Launch frozen `O1C-0016` from the clean preregistration descendant of
+implementation commit `4f4c5280ecf876083222138db4cb55dae9e2dfca`. Preserve
+O1C-0015 as an immutable operational failure, never replay its 32 burned targets,
+preserve O1C-0014 as the strongest scientific result (`NOT_REPLICATED`), and treat
+O1C-0013 reader SHA-256
 `796e79ec932b990a59ecbc34216c4878b9279bae3bb136fe0832e580bcb2e9f8`
 as the immutable baseline. Do not promote or retune h64/h65/ARX24 using O1C-0014.
 Reconstruct h65 from O1C-0013 BUILD/CAL only, freeze exactly
 `0.5*logit(h96)+0.5*logit(h65)` plus matched shuffled bytes before new entropy,
-and attack 32 fresh sealed output-only keys. O1C-0014 may justify this next-step
-choice but must never enter its fit. Keep the sibling recovery queue read-only,
-CPU-only and prioritized.
+and attack 32 entirely new sealed output-only keys under the corrected O1C-0016
+lifecycle. Only after that result, evaluate O1C-0017 adaptive h65-all/top32-h96
+deepening and its preregistered `19.79%` requested conflict-work saving. Keep the
+sibling recovery queue read-only, CPU-only and prioritized.

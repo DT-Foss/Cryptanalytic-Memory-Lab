@@ -606,3 +606,55 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Next action:** wait for the sibling resource gate, launch exactly once from a
   clean source commit, verify the immutable capsule, then publish the frozen
   classification without target-time tuning.
+
+## O1C-0015 — Polyphase blind replication (post-run operational outcome)
+
+- **Recorded:** 2026-07-17T11:46:03+02:00
+- **Execution commit:** `2f53cc775d316c719482c4cb64fa2e5d108f7647`
+- **Claim level:** `OPERATIONAL_FAILURE`; no scientific inverse result or efficacy
+  classification is available.
+- **Lifecycle truth:** 32 targets were generated, all 32 predictions plus three
+  controls were frozen, and all 32 targets were then revealed once in process
+  memory. The late resource gate fired before any reveal receipt, evaluation or
+  final scientific report was persisted. The sequence-3 durable checkpoint says
+  zero reveals only because it records the last persisted pre-reveal phase; exact
+  code-path audit establishes `32 generated / 32 revealed in memory / 0 persisted
+  reveals`.
+- **Decision:** all 32 targets are burned and may never be replayed. No bit count,
+  NLL, compression, rank, exact-key count or replication decision can be claimed.
+  O1C-0014 remains the strongest completed scientific result.
+- **Resources:** the run exceeded CPU `1600 s`, wall `1400 s`, and peak RSS
+  `384 MiB`. The old exception path discarded the exact values, so only those
+  strict lower bounds are available. The planned 17,920 native branches completed.
+- **Verification:** immutable capsule 579/579; manifest
+  `326bc30a1499f6479d306df43b17ec390c020832bb5d1816fa8ab9f7f9660314`;
+  prediction set
+  `f2958da162a2dca74f2c5dd62ccb45f3d764be7c8f71200ee3afba8409a62116`.
+- **Artifact:**
+  `runs/20260717_103252_O1C-0015_full256-polyphase-blind-replication-v1/`.
+- **Next action:** use a new attempt ID and entirely new keys; preserve the
+  scientific mechanism while moving resource enforcement before reveal and
+  persisting terminal truth before any post-reveal failure decision.
+
+## O1C-0016 — Budget-corrected polyphase replication (pre-run freeze)
+
+- **Recorded:** 2026-07-17T11:46:03+02:00
+- **Implementation commit:** `4f4c5280ecf876083222138db4cb55dae9e2dfca`;
+  canonical execution must use its clean preregistration descendant.
+- **Claim level:** `VALIDATION` pending; zero O1C-0016 target entropy calls at
+  freeze time and no result claim.
+- **Scientific identity:** exact O1C-0015 readers, h96+h65 equal-logit composition,
+  matched shuffled controls, public-only attacker boundary, decision gates,
+  67,584-byte live-state bound, 17,920 native branches and 32-target panel are
+  unchanged. All 32 keys are entirely new; no O1C-0015 public view, prediction,
+  reveal or target is read or reused.
+- **Operational delta only:** soft ceilings are 3,000 CPU-s, 3,000 wall-s and
+  768 MiB peak RSS. A complete resource snapshot and gate now occur before reveal;
+  after reveal, complete truth/evaluation artifacts are persisted before a
+  terminal resource classification.
+- **Frozen config:** `configs/full256_polyphase_replication_v2.json`; SHA-256
+  `054e8b05c7824cf4c47f509d6a4977e3feac7e5df5ce006f55948b93554daaa6`.
+- **Next action:** launch once from the clean preregistration commit and classify
+  only by the frozen gates. O1C-0017's adaptive h65-all/top32-h96 live-causal
+  fidelity probe follows only after O1C-0016; its deterministic work model predicts
+  `19.79%` requested conflict-work saving.

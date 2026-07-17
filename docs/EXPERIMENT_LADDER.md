@@ -153,18 +153,27 @@ classification is `NOT_REPLICATED`.
 ## L6 — Living challenge sequence
 
 Repeat L5 with new sealed random targets. Challenge `n` may teach mechanisms used
-on `n+1`, never itself. O1C-0015 uses O1C-0014 only to select a fixed two-wavelength
-architecture: exact h96 plus `0.5*h96+0.5*h65` logits, all frozen before 32 fresh
-keys. No O1C-0014 label enters fit or inference. Replication is classified through
-the frozen ensemble/h96 entropy, conditional-null, target-sign, leave-one-out and
-matched-shuffled gates. Polyphase promotion is a separate comparison and requires
-positive ensemble-minus-h96 compression plus its paired conditional z gate; a
-replicated channel without promotion keeps exact h96 primary. The three public
-output transformations remain diagnostic claim-boundary controls, not efficacy
-classification gates.
-The executable preregistration is frozen at commit
-`26709cde97df26dc8bfebf99eb108dc0d58f4281`; no O1C-0015 target entropy had been
-drawn at freeze time.
+on `n+1`, never itself. O1C-0015 used O1C-0014 only to select a fixed
+two-wavelength architecture: exact h96 plus `0.5*h96+0.5*h65` logits. It generated
+and revealed 32 targets in memory, then exceeded its old CPU/wall/RSS ceilings
+before persisting any reveal/evaluation artifact. Its capsule verifies 579/579,
+but it is an operational failure with no scientific classification; all 32 targets
+are burned and may never be replayed.
+
+O1C-0016 repeats the identical scientific experiment on 32 entirely new keys.
+Readers, gates, controls, 17,920 branches and the 67,584-byte live-state bound are
+unchanged. Only the soft ceilings become 3,000 CPU-s, 3,000 wall-s and 768 MiB RSS,
+with a pre-reveal resource gate and complete terminal truth persistence. Its
+implementation is frozen at
+`4f4c5280ecf876083222138db4cb55dae9e2dfca`; config SHA-256
+`054e8b05c7824cf4c47f509d6a4977e3feac7e5df5ce006f55948b93554daaa6`;
+zero O1C-0016 entropy has been drawn. Replication and polyphase promotion remain
+separate frozen decisions.
+
+Only after O1C-0016, O1C-0017 tests adaptive live-causal fidelity: h65 for every
+pair and h96 only for the top 32 uncertainty/surprise coordinates. Its deterministic work
+model predicts `19.79%` requested conflict-work saving; fidelity to the full h96
+causal field, not savings alone, is the gate.
 
 ## L7 — Exact recovery frontier
 
