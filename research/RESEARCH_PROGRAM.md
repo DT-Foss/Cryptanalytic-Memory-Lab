@@ -31,14 +31,19 @@ cross-fitted over the four immutable BUILD pools. Every affordable address is
 queried; finite starvation replaces compulsory breadth; ACTION/STOP is compared
 with an exact no-STOP twin, shifted critic, fold-local static reward and uniform
 hash. The scientific run is intentionally waiting for the active sibling W52
-resource interlock to clear.
+resource interlock to clear. Operational commit `4511a06` now arms that transition:
+the detached read-only watcher sees all 24 W52 shell/launcher/native processes,
+requires three stable terminal snapshots plus clean resource/hash gates, and then
+execs the exact CPU-only O1C-0019 runner under the same exclusive lock. No manual
+heavy launch is needed and no sibling file is written.
 
 ## Evidence ladder from here
 
 1. Preserve O1C-0018 and its six pools byte-exact; use only the four BUILD artifacts
    for retrospective cross-fit and keep DEVELOPMENT outside the O1C-0019 gate.
-2. After W52 clears, execute the frozen three-checkpoint, four-fold O1C-0019 config
-   from a clean commit with zero new solver branches, entropy, sibling or GPU work.
+2. Keep the committed interlock watcher alive; after W52 clears it executes the
+   frozen three-checkpoint, four-fold O1C-0019 config from a clean commit with zero
+   new solver branches, entropy, sibling or GPU work.
 3. Persist each fold's final reader/critics and every policy/raw trajectory before
    reconstructing that fold's key; report compression, IAUC, agency, stationarity,
    STOP/no-STOP and exact bounded-state/resource ledgers.

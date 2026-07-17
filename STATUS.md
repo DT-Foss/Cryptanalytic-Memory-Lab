@@ -1,12 +1,14 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-17T17:47:19+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-17T18:40:03+02:00 (`Europe/Berlin`)
 - **Prior published baseline:** `dbbe63a` (`O1C-0017` mechanism result)
 - **Latest execution commit:** `f40e71aa8ed80b4653acf44d98e14eabec18a955`
   (`O1C-0018` clean full-round real-gate freeze)
 - **Latest implementation freeze:** `27cd5b1f1e3172218c9c993846f1dcc950bb909a`
   (`O1C-0019` artifact-only four-fold BUILD-LOO gate plus deterministic
   science/execution commitment split; no scientific run yet)
+- **Latest operational handoff:** `4511a06` (ACK-confirmed read-only W52 interlock;
+  detached watcher PID `67247`, lock owner and log verified)
 - **Publication:** the O1C-0018 outcome and deterministic post-reveal forensics are
   recorded below; immutable capsules and sibling repositories remain untouched
 - **Research phase:** O1-256 Living Inverse — paired-assumption solver events into
@@ -16,10 +18,10 @@
   a 21,472-byte exact fast state, reaching 80.225% held-out bit accuracy
 - **Strongest read-only mechanism intake:** A447-A449 proof ancestry, A465 cubic
   Product-of-Experts and A469 positive bucket-local correction
-- **Active lab runs:** none. The sibling W52 production launcher is active, so the
-  O1C-0019 heavy CPU gate is resource-interlocked and has not started. O1C-0018
-  BUILD/DEVELOPMENT pools and O1C-0017 formal seeds remain consumed and may not be
-  replayed as fresh evidence
+- **Active lab runs:** only the negligible read-only O1C-0019 interlock watcher.
+  The sibling W52 production launcher remains active, so the heavy CPU gate has
+  not started. O1C-0018 BUILD/DEVELOPMENT pools and O1C-0017 formal seeds remain
+  consumed and may not be replayed as fresh evidence
 - **Strongest completed mechanism attempt:** `O1C-0017` — independently verified
   `MECHANISM_PASS` on 16/16 untouched synthetic full-256 episodes
 - **Strongest completed full-round online attempt:** `O1C-0018` — public-only
@@ -53,14 +55,24 @@ trains three reveal-delayed episodes per fold, refits the critic only against th
 final frozen reader, then freezes all five policy trajectories and both exhaustive
 reader trajectories before deriving the held-out label.
 
+The deferred execution is now armed at operational commit `4511a06`. PID `67247`
+is a detached, read-only watcher with an exec-inherited exclusive lock and a parent
+ACK only after a real process/RAM/hash preflight. It sees all 24 current W52 shell,
+A528 and A526 processes despite eight stale launcher PID files. O1C-0019 can exec
+only after three identical terminal polls, no matching W52 process, at least 25%
+free memory, load at most `0.75` per logical CPU, a clean descendant tree, and exact
+config/runtime hashes. The later run starts its own PID-bound `caffeinate`; neither
+the watcher nor the run writes to the sibling repository.
+
 The three nested physical-work caps are `16,384/32,768/49,152`; the last is the
 complete H64/H65/H96 packet field. Controls are true ACTION/STOP, the identical
 true picker with STOP disabled, shifted-label stationary credit, fold-local static
 packet reward, pool-blind uniform hash, and learned versus deterministic untrained
 reader on the same exhaustive order. The STOP route is required to be an exact
 prefix of its no-STOP twin. The current targeted regression is `29 passed` plus
-`5` subtests; pycompile, Ruff, real manifest/index discovery and the exact run-config
-loader pass. A non-scientific one-fold/three-action real-artifact smoke traversed
+`5` subtests for the science surface plus `17` interlock lifecycle tests; pycompile,
+Ruff, real manifest/index discovery and the exact run-config loader pass. A
+non-scientific one-fold/three-action real-artifact smoke traversed
 both freeze callbacks and scoring with every structural gate green in `2.559` CPU s,
 `2.803` wall s and `315,359,232` B peak RSS; its deliberately undertrained outcome
 is not efficacy evidence. A subsequent two-process reproduction gives byte-identical
@@ -351,15 +363,16 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Sibling W52 (external, read-only) | 8 launchers | 2026-07-17 14:35 | A528 W52 protocol-bound workers | active at 17:47; 35% system memory free; O1C-0019 interlock engaged | unknown |
-| O1C-0019 | — | — | frozen config only | implementation/test/micro-smoke complete; scientific run not started | after W52 clears |
+| Sibling W52 (external, read-only) | 24 related processes | 2026-07-17 14:35 | 8 launch shells/caffeinate + 8 A528 + 8 native A526 | at watcher arm: 58,078/16,777,216 cells (0.3462%); all 8 running; 37% memory free | multi-week unless early terminal hit |
+| O1C-0019 interlock | 67247 | 2026-07-17 18:39 | read-only 60 s poll, three-stable-poll release | preflight/lock/log verified; zero sibling writes; heavy gate not started | automatic after W52 and local gates clear |
 
 ## Highest-ROI next actions
 
-1. Keep commit `27cd5b1` and the O1C-0019 config byte-exact; monitor the sibling
-   W52 resource interlock without touching its files or processes.
-2. When W52 clears, execute the committed four-fold artifact-only capsule at
-   W1/W2/W3 and change no reader, critic, control or threshold mid-run.
+1. Keep watcher PID `67247` and commit `4511a06` alive; inspect only the ignored
+   interlock log while W52 runs and never touch its files or processes.
+2. Let the watcher execute the committed four-fold artifact-only capsule at
+   W1/W2/W3 after its terminal/resource/hash gates clear; do not launch a duplicate
+   or change any reader, critic, control or threshold mid-run.
 3. Use raw learned-vs-untrained transfer, true-vs-shifted/static/hash IAUC and the
    exact STOP/no-STOP twin to localize reader, credit, routing or abstention.
 4. Allocate a disjoint target only if the frozen BUILD-LOO authorization gate
@@ -369,7 +382,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
-| `O1C-0019` pre-run | 2026-07-17 | Incremental packet learning plus reader-bound stationary credit lets O1 discover and autonomously route public full-256 evidence | Implementation frozen; 29 tests + 5 subtests and real one-fold micro-smoke pass; no efficacy execution while W52 is active | `INSTRUMENT` only | smoke 2.559 CPU s; 2.803 wall s; 315,359,232 B peak; 0 solver branches | Exact no-STOP twin separates routing from abstention; key-lazy discovery closes a lifecycle leak | [Config](configs/full256_multiresolution_build_loo_v1.json) |
+| `O1C-0019` pre-run | 2026-07-17 | Incremental packet learning plus reader-bound stationary credit lets O1 discover and autonomously route public full-256 evidence | Implementation frozen; 29 science tests + 5 subtests, 17 interlock tests and real one-fold micro-smoke pass; ACK-confirmed watcher armed; no efficacy execution while W52 is active | `INSTRUMENT` only | smoke 2.559 CPU s; 2.803 wall s; 315,359,232 B peak; watcher negligible; 0 solver branches | Exact no-STOP twin separates routing from abstention; key-lazy discovery closes a lifecycle leak | [Config](configs/full256_multiresolution_build_loo_v1.json) |
 | `O1C-0018` | 2026-07-17 | A reveal-delayed O1 reader can learn attacker-valid full-round paired-proof orientation and a true reward critic can select more information per work | `NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`: raw learned mean -1.284644 bits; W1 true +0.326847/+0.160175 and true beats shifted in all 6 cells, but static wins mean IAUC and hard coverage/hash dominate selection | `TEST` negative full-round gate with autonomous-picker breadcrumb | 545.024 CPU s; 510.875 wall s; 315,703,296 B peak; 3,072 native branches | Remove cumulative-query double integration; packetize horizons; stationary reader-bound credit; all-address preview; soft no-starvation plus STOP | [Run capsule](runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/RUN.md) |
 | `O1C-0017` | 2026-07-17 | A bounded O1 reader can autonomously discover one oriented channel among 330 anonymous channels and retain all 256 addressed readings without target-time updates | `MECHANISM_PASS`: 3286/4096 bits, +42.308742 bits mean compression, 80.225% accuracy, 16/16 positive; +46.701 over ablation, +42.765 over shuffled, +47.231 over raw end state | `VALIDATION` synthetic mechanism; no crypto/picker claim | 78.089 CPU s; 79.853 wall s; 286.438 MiB peak; 29,184 action observations | Anonymous signal discovery works; raw holographic end state is crosstalk-limited while the exact Bit-Vault retains the learned readings | [Run capsule](runs/20260717_140953_O1C-0017_full256-online-self-discovery-v1/RUN.md) |
 | `O1C-0016` | 2026-07-17 | Frozen h96 and equal-logit h96+h65 remove transferable code length on 32 new full-256 output-only keys | `NOT_REPLICATED / DO_NOT_PROMOTE`: 4093/8192 bits, -0.078249 bit/key, 11/32 positive, paired z -0.555, null-like byte/block ranks, 0 exact keys | `VALIDATION` negative; lifecycle/integrity pass | 1972.625 CPU s; 1620.537 wall s; 414.813 MiB peak; 17,920 branches | h65 primary/shuffled target compression corr 0.999905 exposes common-mode difficulty; learn nuisance rejection and residual orientation online | [Run capsule](runs/20260717_115325_O1C-0016_full256-polyphase-blind-replication-v2/RUN.md) |
@@ -474,11 +487,15 @@ O1C-0017 result boundary are documented in
 
 ## Resume here
 
-The O1C-0019 implementation is complete and frozen at `27cd5b1`; the reproducible
-real-artifact smoke supersedes the earlier timing-bound hash. Do not rebuild or
-tune it. Recheck the eight sibling W52 launchers and memory pressure. While they
-remain active, perform only light tests/microbenchmarks. After they exit, launch
-the exact committed config from a clean tree and preserve the timestamped capsule.
+The O1C-0019 science is frozen at `27cd5b1` and its deferred handoff at `4511a06`.
+Do not rebuild, tune or manually duplicate it. Watcher PID `67247` owns
+`runs/.o1c0019-interlock.lock`; its durable status is in
+`runs/.o1c0019-w52-interlock.log`. It will require three stable terminal W52 polls,
+zero related processes and green RAM/load/tree/hash gates, then exec the exact
+committed CPU config under a PID-bound power assertion and preserve the timestamped
+capsule. If the PID disappears before execution, restart only the committed
+interlock command after confirming the lock is free. While W52 remains active,
+perform only light tests/microbenchmarks.
 DEVELOPMENT stays outside this BUILD-LOO decision. Never reuse O1C-0015/16 targets,
 O1C-0017 formal seeds or O1C-0018 DEVELOPMENT targets as fresh evidence. Keep the
 sibling recovery queue read-only, CPU-only and prioritized.

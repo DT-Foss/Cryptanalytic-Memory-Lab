@@ -443,3 +443,19 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   trajectories are the claimed object.
 - **Breadcrumb:** keep deterministic science commitments and volatile execution
   receipts separate in every future O1/O1-O capsule.
+
+## B-0026 — Long-lived resource gates cannot trust launcher PID files alone
+
+- **Evidence:** all eight W52 launcher PID files still name dead `63129..63136`,
+  while a read-only process-table scan finds 24 live shell/A528/A526 processes.
+- **Risk:** a PID-file-only gate could declare the sibling queue idle and start a
+  competing O1C-0019 CPU run; a parent-only detach message could likewise claim a
+  watcher exists even when sandboxed process inspection failed.
+- **Fix:** match dynamic process identities, require a child-to-parent ACK only
+  after a real host preflight, hold one fork/exec-inherited `flock`, and bind the
+  later O1C-0019 PID to its own power assertion. Seventeen tests include real
+  detach and fork/exec lifecycle checks.
+- **Do not repeat:** treat a stale PID file, an unacknowledged fork or a parent PID
+  written before fork as proof that a deferred scientific launch is safely armed.
+- **Breadcrumb:** keep resource handoffs state-based and identity-based; preserve
+  exact science hashes separately so operational hardening cannot mutate the gate.

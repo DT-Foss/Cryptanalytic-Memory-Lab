@@ -846,3 +846,29 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Resume:** recheck W52/process/RAM state. When clear, run
   `PYTHONPATH=src python -m o1_crypto_lab.full256_multiresolution_build_loo_run --config configs/full256_multiresolution_build_loo_v1.json`
   from the clean implementation commit; do not alter config or consume DEVELOPMENT.
+
+## 2026-07-17 — O1C-0019 deferred execution armed (non-attempt)
+
+- **Recorded:** 2026-07-17T18:40:03+02:00
+- **Operational commits:** `0158a92`, `e23cd77`, `4511a06`; scientific freeze
+  remains `27cd5b1f1e3172218c9c993846f1dcc950bb909a` and was not changed.
+- **Discovery:** the eight sibling launcher PID files contain stale PIDs. A dynamic
+  read-only process scan finds 24 live identities: eight production shell/
+  `caffeinate` companions, eight A528 Python launchers and eight native A526 workers.
+- **Interlock:** PID `67247` owns an inherited `flock`, polls every 60 s, and was
+  acknowledged only after `setsid`, durable-log redirection and a real host
+  preflight. Release requires all eight progress envelopes terminal for three
+  identical polls, no related process, at least 25% free memory, load/core at most
+  `0.75`, a clean descendant tree, and exact config/runtime hashes including
+  `pyproject.toml`. The eventual run gets its own PID-bound `caffeinate` companion.
+- **Verification:** 17 watcher tests cover stale/restarted PIDs, read-only sibling
+  access, terminal geometry/bindings, final-snapshot races, duplicate exclusion,
+  real detach ACK/failure, and fork/exec lock survival. Real preflight saw
+  `58,078/16,777,216` cells (`0.3462%`), all eight workers running, 37% free memory,
+  clean tree and exact scientific hashes. Lock file and live daemon both report
+  PID `67247`; log is `runs/.o1c0019-w52-interlock.log`.
+- **Scientific state:** no O1C-0019 capsule, target reveal or efficacy number was
+  produced. The watcher is operational infrastructure, not cryptanalytic evidence.
+- **Resume:** do not manually start O1C-0019. Inspect the ignored log if needed;
+  the watcher will exec the exact frozen command only after every release gate is
+  green and will retain the same lock throughout the scientific process.

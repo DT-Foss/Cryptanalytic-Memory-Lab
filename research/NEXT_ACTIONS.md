@@ -1,10 +1,10 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T17:47:19+02:00.
+Last ranked: 2026-07-17T18:40:03+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Keep the frozen O1C-0019 config unchanged; poll W52/process/RAM state and launch the four-fold CPU gate only after the sibling resource interlock clears | State of the art | Very high | Very high | Medium | Produces the first honest test of signal-open reader transfer and autonomous full-256 packet routing without disturbing the recovery front |
+| 1 | Keep the ACK-confirmed watcher PID `67247` alive and let it launch the frozen four-fold CPU gate only after W52 terminal/process/RAM/load/hash gates clear | State of the art | Very high | Very high | Medium | Produces the first honest test of signal-open reader transfer and autonomous full-256 packet routing without disturbing the recovery front |
 | 2 | Classify raw reader, true-vs-shifted/static/hash IAUC, STOP-vs-no-STOP routing, W2-to-W3 tail and fold stationarity from the immutable capsule | State of the art | Very high | Very high | Low | Separates sensor, retention, credit, routing and abstention failures in one result |
 | 3 | If reader transfer passes but picker fails, change only credit/context/STOP; if reader fails, route assumption-rooted proof/carry ancestry through the same packet/state API | State of the art | Very high | Very high | Medium | Uses a negative result as a localized architecture breadcrumb rather than resweeping the same field |
 | 4 | Spend one disjoint DEVELOPMENT/fresh full-256 gate only after the predeclared BUILD-LOO reader and policy authorization gates pass | State of the art | Very high | Very high | High | Protects fresh evidence while preserving exact recovery as the terminal target |
@@ -27,6 +27,8 @@ Last ranked: 2026-07-17T17:47:19+02:00.
 - Run source generation, unit tests and small CPU batches locally.
 - Recheck memory pressure and process RSS before long training.
 - No MPS window and no large proof-corpus copy while recovery workers are active.
+- The committed watcher is the sole authorized heavy-run launcher; it polls at 60 s,
+  is read-only toward W52, and holds an exec-spanning exclusive lock.
 
 ## Do not spend the next cycle on
 
