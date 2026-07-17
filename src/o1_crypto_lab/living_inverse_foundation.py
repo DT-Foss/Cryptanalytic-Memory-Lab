@@ -5,7 +5,6 @@ from __future__ import annotations
 import hashlib
 import json
 import math
-from collections.abc import Mapping
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -233,6 +232,7 @@ def run_living_inverse_foundation(config: FoundationConfig) -> FoundationResult:
                         family=family,
                         seed=config.seed + 1_000_003 * index + repeat,
                         sequence=sequence,
+                        anchor_key=target.teacher.target_key,
                         posterior_probabilities=probabilities,
                     )
                     deployment_document = contrast.deployment.describe()

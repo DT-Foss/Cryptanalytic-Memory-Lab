@@ -1,6 +1,6 @@
 # O1-256 Living Inverse
 
-Last updated: 2026-07-17T02:44:45+02:00 (`Europe/Berlin`).
+Last updated: 2026-07-17T04:05:50+02:00 (`Europe/Berlin`).
 
 ## Moonshot contract
 
@@ -113,14 +113,21 @@ enter the bounded external index; ordinary events disappear after updating state
 ## Data lifecycle
 
 1. Unlimited build stream with known keys and privileged teacher labels.
-2. Fixed development corpus for aggressive iteration.
-3. One newly generated, sealed uniform-random 256-bit target per serious freeze.
-4. Shuffled-key, output-flip and wrong-nonce controls at matched work.
-5. Only after reveal may that target enter O1/O1-O failure memory.
+2. A disjoint known-key calibration split freezes readers, scales, selected bit
+   coordinates, proposal policy and the primary arm.
+3. Only after that persisted freeze does the full-256 broker create a secret
+   uniform development panel.  The attack receives verified public views only.
+4. Every factual/control posterior is stored in one immutable binary artifact
+   before the broker reveals any key; the panel can be opened only once.
+5. Shuffled-key, output-permutation, output-flip, wrong-nonce and candidate
+   key/trace ablations run at declared matched work.
+6. A later serious architecture freeze receives a new broker-random target; only
+   after reveal may a completed challenge enter O1/O1-O failure memory.
 
-The uncommitted W46 fresh-challenge broker found on 2026-07-17 is retained as a
-tested side artifact.  It is not the target definition and will be generalized or
-replaced by a full-256 sealed-target broker before the first outcome-bearing run.
+The earlier W46 broker remains a tested historical artifact.  O1C-0009 uses a
+separate full-256 broker whose publication contains only counter, nonce, standard
+twenty-round output and a commitment; its reveal requires the exact frozen
+prediction SHA-256.
 
 ## Progress vector
 
@@ -142,8 +149,10 @@ are a factor-256 domain reduction.  Exact key verification is the terminal signa
 
 1. `O1C-0008`: implement the full-256 attacker/teacher boundary, structured and
    uniform contrast generator, trace instrumentation and all progress metrics.
-2. `O1C-0009`: train the first output-only 256-bit baseline and contrast reader on
-   CPU; include raw-output, candidate-relative and teacher-distilled arms.
+2. `O1C-0009`: train direct, candidate-relative and teacher-distilled readers from
+   512 known full-width keys, freeze on 64 calibration keys, then persist every
+   prediction before revealing a 128-key broker-secret uniform panel.  Selection
+   of bit coordinates is familywise and calibration-only.
 3. `O1C-0010`: stream reader evidence through the 20,492-byte O1 state, add the
    A465 backbone and A469 local correction, then attack a sealed random 256-bit
    development target.

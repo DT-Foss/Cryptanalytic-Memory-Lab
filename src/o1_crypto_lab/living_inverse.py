@@ -17,7 +17,6 @@ from .chacha_trace import (
     CHACHA20_ROUNDS,
     UINT32_MASK,
     ChaChaBlockTrace,
-    ChaChaTraceError,
     chacha20_block_trace,
 )
 
@@ -431,11 +430,11 @@ def make_training_contrast(
     family: ContrastFamily,
     seed: int,
     sequence: int,
-    anchor_key: bytes | None = None,
+    anchor_key: bytes,
     posterior_probabilities: Sequence[float] | None = None,
 ) -> TrainingContrast:
     target.validate()
-    anchor = target.teacher.target_key if anchor_key is None else _key(anchor_key)
+    anchor = _key(anchor_key, "anchor_key")
     candidate_key = propose_contrast_key(
         anchor,
         family,
@@ -472,6 +471,24 @@ def _block_bits(blocks: Iterable[bytes]) -> np.ndarray:
     return np.unpackbits(
         np.frombuffer(payload, dtype=np.uint8), bitorder="little"
     ).astype(np.float32, copy=False)
+
+
+def public_target_feature_vector(target: PublicTargetView) -> np.ndarray:
+    """Encode only the public target relation for a direct inverse reader."""
+
+    target.validate()
+    public_payload = target.nonce + b"".join(
+        struct.pack("<I", counter) for counter in target.counter_schedule
+    )
+    public_bits = np.unpackbits(
+        np.frombuffer(public_payload, dtype=np.uint8), bitorder="little"
+    ).astype(np.float32, copy=False)
+    result = np.concatenate((_block_bits(target.output_blocks), public_bits)).astype(
+        np.float32, copy=False
+    )
+    if not np.all(np.isfinite(result)):
+        raise LivingInverseError("public target features must be finite")
+    return result
 
 
 def deployment_feature_vector(contrast: DeploymentContrast) -> np.ndarray:

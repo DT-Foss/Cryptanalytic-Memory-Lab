@@ -28,16 +28,21 @@ Gate:
 
 ## L1 — First full-width inverse readers (`O1C-0009`)
 
-Train three equal-data CPU arms on known uniform 256-bit keys:
+Train three equal-data CPU arms on 256 structured plus 256 uniform known 256-bit
+keys:
 
 1. direct public-output student;
 2. candidate-relative target/candidate residual reader;
 3. identical deployment reader with privileged round/carry auxiliary losses.
 
 Structured contrasts form a curriculum, but the held-out distribution is always
-uniform random full-width keys.  Report total NLL, per-bit calibration, stable-bit
-count and the complete control vector.  A negative result is split by output word,
-key orbit, round-teacher task, proposal distance and feature family.
+uniform random full-width keys.  Freeze all readers, calibration scales, proposal
+policy, primary arm and any claim-relevant bit coordinates on 64 known calibration
+keys.  Only then create the 128-key broker-secret development panel.  Persist all
+factual and control posteriors before one reveal.  Report total NLL, per-bit
+calibration, familywise transferable-bit count and the complete control vector.  A
+negative result is split by output word, key orbit, round-teacher task, proposal
+distance and feature family.
 
 Gate to L2: a repeated development gain in key code length or a stable bit that is
 not present in shuffled-key/output-flip/wrong-nonce controls.  If no arm passes,
@@ -81,9 +86,11 @@ escape.
 
 ## L4 — Sealed full-256 development attack
 
-Before reveal, persist model hash, O1 state plan, proposal scheduler, work budget,
-controls and complete output posterior.  Generate a new uniform 256-bit key through
-the one-shot full-256 broker.  Attack receives only its public relation.
+After the L1 secret-panel result has selected a complete architecture, persist its
+model hash, O1 state plan, proposal scheduler, work budget, controls and complete
+output posterior.  Generate a new uniform 256-bit key through a new one-shot
+full-256 broker.  Attack receives only its public relation.  This is distinct from
+the sealed L1 panel used to measure generalization.
 
 Report:
 

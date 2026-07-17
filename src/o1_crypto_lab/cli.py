@@ -5,19 +5,33 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import resource
 import subprocess
 import sys
+import time
+from collections.abc import Mapping
 from pathlib import Path
 
 from .artifacts import ReadOnlyArtifactSource
 from .benchmark import BenchmarkConfig, composition_report, run_benchmark
 from .corrected_direct12 import run_corrected_codec_bridge
 from .direct12_reproduction import run_direct12_reproduction
+from .full256_broker import (
+    Full256TargetBroker,
+    make_freeze_receipt,
+    public_view_from_publication,
+)
 from .spectral_experiment import run_bounded_memory_tournament
 from .isolation import IsolationPolicy
 from .living_inverse_foundation import (
     load_foundation_config,
     run_living_inverse_foundation,
+)
+from .living_inverse_reader_experiment import (
+    DevelopmentReveal,
+    SealedDevelopmentPanel,
+    load_living_inverse_reader_config,
+    run_living_inverse_reader_experiment,
 )
 from .replay import O1OSessionReplay
 from .reader_experiment import run_reader_experiment
@@ -1868,6 +1882,491 @@ def _living_inverse_foundation(args: argparse.Namespace) -> int:
     return 0 if result.success_gate_passed else 1
 
 
+def _peak_rss_mib() -> float:
+    value = float(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    divisor = 1024.0 * 1024.0 if sys.platform == "darwin" else 1024.0
+    return value / divisor
+
+
+def _living_inverse_reader(args: argparse.Namespace) -> int:
+    root = _lab_root()
+    requested_config = args.config
+    if requested_config.is_symlink():
+        raise RuntimeError("Living Inverse reader config cannot be a symlink")
+    config_path = requested_config.resolve(strict=True)
+    expected_config = (
+        root / "configs/living_inverse_reader_v1.json"
+    ).resolve(strict=True)
+    if config_path != expected_config:
+        raise RuntimeError("Living Inverse reader requires its canonical lab config")
+    top_level, reader_config = load_living_inverse_reader_config(config_path)
+    participating = (
+        "chacha_trace.py",
+        "living_inverse.py",
+        "living_inverse_corpus.py",
+        "living_inverse_ridge.py",
+        "living_inverse_reader_experiment.py",
+        "full256_broker.py",
+        "run_capsule.py",
+        "cli.py",
+    )
+
+    def current_source_hashes() -> dict[str, str]:
+        return {
+            "reader_config": _sha256(config_path),
+            "pyproject": _sha256(root / "pyproject.toml"),
+            **{
+                f"module_{Path(name).stem}": _sha256(
+                    root / "src/o1_crypto_lab" / name
+                )
+                for name in participating
+            },
+        }
+
+    manager = RunCapsuleManager(root)
+    attempt_id = str(top_level["attempt_id"])
+    published = manager.finalized_attempt(attempt_id)
+    if published is not None:
+        metrics_document = json.loads(
+            (published.path / "metrics.json").read_text(encoding="utf-8")
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": published.attempt_id,
+                    "path": str(published.path),
+                    "manifest_sha256": published.manifest_sha256,
+                    "verified": published.verification.ok,
+                    "status": "already-finalized-no-replay",
+                    "capsule_status": metrics_document.get("status"),
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 0 if metrics_document.get("status") == "completed" else 2
+    if attempt_id in manager.recoverable_attempt_ids():
+        interrupted = manager.recover(attempt_id)
+        if interrupted.publication_prepared:
+            finalized = interrupted.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 2
+        finalized = interrupted.finalize(
+            metrics={
+                "schema": "o1-256-living-inverse-reader-interrupted-v1",
+                "hard_interruption_recovered": True,
+                "scientific_result_claimed": False,
+                "unknown_target_key_bits": 256,
+                "sibling_writes": 0,
+                "fresh_target_state": "unknown-after-hard-interruption",
+            },
+            status="stopped",
+            next_action=(
+                "Treat O1C-0009 as consumed and advance the frozen full-256 "
+                "protocol to O1C-0010; never replay a partial DEV opening."
+            ),
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": finalized.attempt_id,
+                    "path": str(finalized.path),
+                    "manifest_sha256": finalized.manifest_sha256,
+                    "verified": finalized.verification.ok,
+                    "status": "stopped-after-hard-interruption",
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 2
+
+    commit = _clean_git_commit(root)
+    source_hashes = current_source_hashes()
+    if _clean_git_commit(root) != commit:
+        raise RuntimeError("lab Git commit changed before O1C-0009 reservation")
+    if current_source_hashes() != source_hashes:
+        raise RuntimeError("lab source hashes changed before O1C-0009 reservation")
+    run = manager.start(
+        attempt_id=attempt_id,
+        slug=str(top_level["slug"]),
+        commit=commit,
+        hypothesis=str(top_level["hypothesis"]),
+        prediction=str(top_level["prediction"]),
+        controls=tuple(str(value) for value in top_level["controls"]),
+        budgets=dict(top_level["budgets"]),
+        source_hashes=source_hashes,
+        claim_level=ClaimLevel(str(top_level["claim_level"])),
+        next_action=str(top_level["next_action"]),
+        config=top_level,
+        command=(
+            "o1-crypto-lab",
+            "living-inverse-reader",
+            "--config",
+            str(config_path),
+        ),
+        environment={
+            "target_contract": "all-256-bits-unknown-public-output-only",
+            "target_rounds": 20,
+            "accelerator": "none",
+            "mps_calls": 0,
+            "sibling_repository_reads": 0,
+            "sibling_repository_writes": 0,
+            "fresh_target_generated_at_reservation": False,
+            "planned_sealed_development_targets": reader_config.development_targets,
+            "outcome_bearing_execution_begins_after_attempt_reservation": True,
+            "hard_interruption_policy": "FINALIZE_STOPPED_AND_ADVANCE_ATTEMPT_ID",
+        },
+    )
+    cpu_started = time.process_time()
+
+    def persist_calibration(
+        document: dict[str, object], model_blobs: dict[str, bytes] | object
+    ) -> dict[str, object]:
+        if not isinstance(model_blobs, Mapping):
+            raise RuntimeError("frozen model inventory differs")
+        selection_path = run.write_json_artifact(
+            "calibration/frozen_selection.json", document
+        )
+        model_rows = {}
+        for arm, blob in sorted(model_blobs.items()):
+            if not isinstance(arm, str) or not isinstance(blob, bytes):
+                raise RuntimeError("frozen model row differs")
+            path = run.write_artifact(f"calibration/models/{arm}.o1hrr", blob)
+            digest = _sha256(path)
+            if digest != document["models"][arm]["sha256"]:
+                raise RuntimeError("persisted frozen reader differs")
+            model_rows[arm] = {
+                "artifact": f"artifacts/calibration/models/{arm}.o1hrr",
+                "sha256": digest,
+                "bytes": path.stat().st_size,
+            }
+        receipt = {
+            "schema": "o1-256-calibration-freeze-receipt-v1",
+            "persisted": True,
+            "selection_artifact_sha256": _sha256(selection_path),
+            "selection_sha256": _canonical_value_sha256(document),
+            "models": model_rows,
+            "development_targets_created": 0,
+            "development_labels_read": 0,
+        }
+        run.write_json_artifact("calibration/freeze_receipt.json", receipt)
+        run.checkpoint(
+            {
+                "phase": "MODELS_SELECTION_AND_POLICY_FROZEN_BEFORE_DEV",
+                "primary_arm": document["primary_arm"],
+                "selection_sha256": receipt["selection_sha256"],
+                "development_targets_created": 0,
+                "development_labels_read": 0,
+                "sibling_writes": 0,
+            }
+        )
+        run.append_stdout(
+            "Persisted models, scales, proposal policy and primary arm before DEV creation.\n"
+        )
+        return receipt
+
+    sealed_brokers: list[Full256TargetBroker] = []
+    sealed_publications: list[dict[str, object]] = []
+    frozen_prediction_path: Path | None = None
+
+    def open_sealed_development() -> SealedDevelopmentPanel:
+        if sealed_brokers or sealed_publications:
+            raise RuntimeError("sealed Development panel may be opened only once")
+        for index in range(reader_config.development_targets):
+            broker = Full256TargetBroker(
+                block_count=1,
+                entropy_source_id="os.urandom:o1c-0009",
+                target_id=f"o1c-0009-dev-{index:04d}",
+            )
+            publication = broker.publish()
+            sealed_brokers.append(broker)
+            sealed_publications.append(publication)
+        publication_path = run.write_json_artifact(
+            "development/sealed_publications.json",
+            {
+                "schema": "o1-256-sealed-development-panel-v1",
+                "targets": len(sealed_publications),
+                "publications": sealed_publications,
+                "keys_in_artifact": False,
+                "target_traces_in_artifact": False,
+            },
+        )
+        run.checkpoint(
+            {
+                "phase": "SEALED_DEV_PUBLICATIONS_OPENED_AFTER_CALIBRATION_FREEZE",
+                "development_targets": len(sealed_publications),
+                "publication_artifact_sha256": _sha256(publication_path),
+                "development_labels_read": 0,
+                "predictions_frozen": False,
+                "sibling_writes": 0,
+            }
+        )
+        return SealedDevelopmentPanel(
+            target_ids=tuple(
+                str(publication["target_id"])
+                for publication in sealed_publications
+            ),
+            public_targets=tuple(
+                public_view_from_publication(publication)
+                for publication in sealed_publications
+            ),
+            publications=tuple(sealed_publications),
+        )
+
+    def freeze_predictions_and_reveal(
+        prediction_blob: bytes,
+        prediction_index: dict[str, object],
+    ) -> DevelopmentReveal:
+        nonlocal frozen_prediction_path
+        if (
+            len(sealed_brokers) != reader_config.development_targets
+            or len(sealed_publications) != reader_config.development_targets
+            or frozen_prediction_path is not None
+        ):
+            raise RuntimeError("sealed Development lifecycle differs before freeze")
+        frozen_prediction_path = run.write_artifact(
+            "development/frozen_predictions.float64le", prediction_blob
+        )
+        if (
+            _sha256(frozen_prediction_path) != prediction_index["sha256"]
+            or frozen_prediction_path.stat().st_size != prediction_index["bytes"]
+        ):
+            raise RuntimeError("persisted frozen Development predictions differ")
+        unsigned_index = {
+            key: value
+            for key, value in prediction_index.items()
+            if key != "index_sha256"
+        }
+        if _canonical_value_sha256(unsigned_index) != prediction_index["index_sha256"]:
+            raise RuntimeError("frozen Development prediction index differs")
+        index_path = run.write_json_artifact(
+            "development/frozen_predictions.index.json", prediction_index
+        )
+        run.checkpoint(
+            {
+                "phase": "ALL_DEV_PREDICTIONS_PERSISTED_BEFORE_REVEAL",
+                "frozen_prediction_sha256": prediction_index["sha256"],
+                "frozen_prediction_index_sha256": prediction_index[
+                    "index_sha256"
+                ],
+                "prediction_index_artifact_sha256": _sha256(index_path),
+                "development_labels_read": 0,
+                "sibling_writes": 0,
+            }
+        )
+        reveals = []
+        keys = []
+        for broker, publication in zip(
+            sealed_brokers, sealed_publications, strict=True
+        ):
+            receipt = make_freeze_receipt(
+                publication,
+                frozen_artifact_sha256=str(prediction_index["sha256"]),
+            )
+            reveal = broker.reveal(receipt)
+            reveals.append(reveal)
+            keys.append(bytes.fromhex(reveal["commitment_preimage"]["key_hex"]))
+        reveals_path = run.write_json_artifact(
+            "development/sealed_reveals.json",
+            {
+                "schema": "o1-256-sealed-development-reveals-v1",
+                "predictions_frozen_before_reveal": True,
+                "reveals": reveals,
+            },
+        )
+        receipt = {
+            "schema": "o1-256-development-panel-reveal-receipt-v1",
+            "predictions_frozen_before_reveal": True,
+            "frozen_prediction_sha256": prediction_index["sha256"],
+            "frozen_prediction_index_sha256": prediction_index["index_sha256"],
+            "reveal_count": len(reveals),
+            "reveal_root": _canonical_value_sha256(
+                [reveal["reveal_sha256"] for reveal in reveals]
+            ),
+            "reveal_artifact_sha256": _sha256(reveals_path),
+        }
+        run.write_json_artifact(
+            "development/reveal_receipt.json", receipt
+        )
+        run.checkpoint(
+            {
+                "phase": "SEALED_DEV_REVEALED_AFTER_PREDICTION_FREEZE",
+                "development_labels_read": len(keys),
+                "reveal_root": receipt["reveal_root"],
+                "sibling_writes": 0,
+            }
+        )
+        return DevelopmentReveal(keys=tuple(keys), receipt=receipt)
+
+    try:
+        run.checkpoint(
+            {
+                "phase": "FULL256_PROTOCOL_RESERVED",
+                "unknown_target_key_bits": 256,
+                "target_trace_fields_in_deployment": 0,
+                "development_targets_created": 0,
+                "development_labels_read": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+            }
+        )
+        run.append_stdout(
+            "O1C-0009 full-256 output-only Living Inverse reader started on CPU.\n"
+        )
+        result = run_living_inverse_reader_experiment(
+            reader_config,
+            open_sealed_development=open_sealed_development,
+            freeze_predictions_and_reveal=freeze_predictions_and_reveal,
+            on_calibration_frozen=persist_calibration,
+            require_calibration_persistence=True,
+        )
+        if not result.execution_success_gate_passed:
+            raise RuntimeError("O1C-0009 execution integrity gate failed")
+        cpu_seconds = time.process_time() - cpu_started
+        peak_rss_mib = _peak_rss_mib()
+        maximum_cpu = float(top_level["budgets"]["maximum_cpu_seconds"])
+        maximum_rss = float(top_level["budgets"]["maximum_resident_memory_mib"])
+        if cpu_seconds > maximum_cpu:
+            raise RuntimeError("O1C-0009 exceeded its CPU budget")
+        if peak_rss_mib > maximum_rss:
+            raise RuntimeError("O1C-0009 exceeded its resident-memory budget")
+        if _clean_git_commit(root) != commit:
+            raise RuntimeError("lab Git commit changed during O1C-0009 execution")
+        if current_source_hashes() != source_hashes:
+            raise RuntimeError("lab source hashes changed during O1C-0009 execution")
+        if frozen_prediction_path is None:
+            raise RuntimeError("Development predictions were not persisted")
+        if (
+            _sha256(frozen_prediction_path) != result.posterior_index["sha256"]
+            or frozen_prediction_path.stat().st_size
+            != result.posterior_index["bytes"]
+        ):
+            raise RuntimeError("persisted DEV prediction binary differs")
+        run.write_json_artifact("living_inverse_reader.json", result.report)
+        run.write_json_artifact("reader_metrics.json", result.metrics())
+        run.write_json_artifact("corpus/split_inventory.json", result.report["corpus"])
+        run.write_json_artifact(
+            "feature_plans.json", result.report["feature_plans"]
+        )
+        run.write_json_artifact(
+            "development/controls.json",
+            {
+                "direct_controls": result.report["development"]["direct_controls"],
+                "primary_control": result.report["development"]["primary_control"],
+            },
+        )
+        run.checkpoint(
+            {
+                "phase": "DEVELOPMENT_OPENED_ONCE_AND_PERSISTED",
+                "development_openings": 1,
+                "development_targets": reader_config.development_targets,
+                "primary_arm": result.report["calibration"]["primary_arm"],
+                "scientific_signal_gate_passed": result.scientific_signal_gate_passed,
+                "result_sha256": result.report["result_sha256"],
+                "sibling_writes": 0,
+                "mps_calls": 0,
+            }
+        )
+        metrics = {
+            **result.metrics(),
+            "cpu_seconds": cpu_seconds,
+            "peak_rss_mib": peak_rss_mib,
+            "cpu_budget_seconds": maximum_cpu,
+            "resident_memory_budget_mib": maximum_rss,
+        }
+        run.append_stdout(json.dumps(metrics, sort_keys=True, allow_nan=False) + "\n")
+        finalized = run.finalize(metrics=metrics)
+    except Exception as exc:
+        if run.publication_prepared:
+            finalized = run.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 1
+        run.append_stderr(f"{type(exc).__name__}: {exc}\n")
+        finalized = run.finalize(
+            metrics={
+                "schema": "o1-256-living-inverse-reader-failure-v1",
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "unknown_target_key_bits": 256,
+                "target_trace_fields_in_deployment": 0,
+                "fresh_target_generated": bool(sealed_brokers),
+                "fresh_target_count": len(sealed_brokers),
+                "fresh_target_revealed": bool(sealed_brokers)
+                and all(broker.phase == "REVEALED" for broker in sealed_brokers),
+                "sibling_writes": 0,
+                "scientific_result_claimed": False,
+            },
+            status="failed",
+            next_action=(
+                "Fix the recorded invariant under O1C-0010 without weakening "
+                "the full-256 output-only attacker contract or replaying O1C-0009."
+            ),
+        )
+        print(f"failed capsule: {finalized.path}", file=sys.stderr)
+        return 1
+    print(
+        json.dumps(
+            {
+                "attempt_id": finalized.attempt_id,
+                "path": str(finalized.path),
+                "manifest_sha256": finalized.manifest_sha256,
+                "verified": finalized.verification.ok,
+                "execution_success_gate_passed": result.execution_success_gate_passed,
+                "scientific_signal_gate_passed": result.scientific_signal_gate_passed,
+                "primary_arm": result.report["calibration"]["primary_arm"],
+                "primary_development_mean_key_nll_bits": result.metrics()[
+                    "primary_development_mean_key_nll_bits"
+                ],
+                "primary_transferable_bits": result.metrics()[
+                    "primary_transferable_bits"
+                ],
+                "cpu_seconds": cpu_seconds,
+                "peak_rss_mib": peak_rss_mib,
+                "fresh_target_generated": True,
+                "fresh_target_count": reader_config.development_targets,
+                "fresh_target_revealed": True,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     root = _lab_root()
     parser = argparse.ArgumentParser(
@@ -2004,6 +2503,17 @@ def build_parser() -> argparse.ArgumentParser:
         default=root / "configs/living_inverse_foundation_v1.json",
     )
     living.set_defaults(handler=_living_inverse_foundation)
+
+    living_reader = subparsers.add_parser(
+        "living-inverse-reader",
+        help="fit and open once the full-256 output-only Living Inverse readers",
+    )
+    living_reader.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/living_inverse_reader_v1.json",
+    )
+    living_reader.set_defaults(handler=_living_inverse_reader)
     return parser
 
 

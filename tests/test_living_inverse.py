@@ -18,6 +18,7 @@ from o1_crypto_lab.living_inverse import (
     make_wrong_nonce_control,
     posterior_metrics,
     propose_contrast_key,
+    public_target_feature_vector,
 )
 
 
@@ -40,6 +41,7 @@ class LivingInverseBoundaryTests(unittest.TestCase):
         self.assertFalse(public["target_trace_included"])
         self.assertNotIn(self.key.hex(), encoded)
         self.assertNotIn("round_states", encoded)
+        self.assertEqual(public_target_feature_vector(self.target.public).shape, (640,))
 
     def test_key_bit_codec_is_exact_little_bit_order(self) -> None:
         bits = key_bits(bytes([1, 2]) + bytes(30))
@@ -97,6 +99,7 @@ class LivingInverseBoundaryTests(unittest.TestCase):
             family=ContrastFamily.GRAY_WINDOW,
             seed=13,
             sequence=2,
+            anchor_key=self.target.teacher.target_key,
         )
         training.validate(self.target)
         deployment = json.dumps(training.deployment.describe(), sort_keys=True)

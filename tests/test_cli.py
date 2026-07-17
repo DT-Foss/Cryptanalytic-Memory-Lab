@@ -14,6 +14,7 @@ from o1_crypto_lab import cli
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "configs/corrected_codec_bridge_v1.json"
 UPSTREAM_CONFIG = ROOT / "configs/upstream_ising_retrospective_v1.json"
+LIVING_READER_CONFIG = ROOT / "configs/living_inverse_reader_v1.json"
 
 
 class _RecordingRun:
@@ -200,6 +201,100 @@ class UpstreamIsingCLILifecycleTests(unittest.TestCase):
             events,
         )
 
+
+class LivingInverseReaderCLILifecycleTests(unittest.TestCase):
+    def test_attempt_is_reserved_before_reader_failure(self):
+        events = []
+        run = _RecordingRun(events)
+
+        class Manager:
+            def __init__(self, root):
+                self.root = root
+
+            def finalized_attempt(self, attempt_id):
+                return None
+
+            def recoverable_attempt_ids(self):
+                return ()
+
+            def start(self, **kwargs):
+                events.append(("start", kwargs["attempt_id"]))
+                return run
+
+        def fail_reader(*args, **kwargs):
+            events.append(("reader", "raised"))
+            raise RuntimeError("synthetic reader failure")
+
+        with (
+            patch.object(cli, "RunCapsuleManager", Manager),
+            patch.object(cli, "_clean_git_commit", return_value="c" * 40),
+            patch.object(
+                cli,
+                "run_living_inverse_reader_experiment",
+                side_effect=fail_reader,
+            ),
+            patch("sys.stderr", new=io.StringIO()),
+        ):
+            code = cli._living_inverse_reader(
+                argparse.Namespace(config=LIVING_READER_CONFIG)
+            )
+
+        names = [event[0] for event in events]
+        self.assertEqual(code, 1)
+        self.assertLess(names.index("start"), names.index("checkpoint"))
+        self.assertLess(names.index("checkpoint"), names.index("reader"))
+        self.assertIn(
+            (
+                "finalize",
+                "failed",
+                "o1-256-living-inverse-reader-failure-v1",
+            ),
+            events,
+        )
+
+    def test_interrupted_reader_is_stopped_without_replay(self):
+        events = []
+        run = _RecordingRun(events)
+
+        class Manager:
+            def __init__(self, root):
+                self.root = root
+
+            def finalized_attempt(self, attempt_id):
+                return None
+
+            def recoverable_attempt_ids(self):
+                return ("O1C-0009",)
+
+            def recover(self, attempt_id):
+                events.append(("recover", attempt_id))
+                return run
+
+        with (
+            patch.object(cli, "RunCapsuleManager", Manager),
+            patch.object(
+                cli, "run_living_inverse_reader_experiment"
+            ) as reader,
+            patch("sys.stdout", new=io.StringIO()),
+        ):
+            code = cli._living_inverse_reader(
+                argparse.Namespace(config=LIVING_READER_CONFIG)
+            )
+
+        self.assertEqual(code, 2)
+        reader.assert_not_called()
+        self.assertIn(("recover", "O1C-0009"), events)
+        self.assertIn(
+            (
+                "finalize",
+                "stopped",
+                "o1-256-living-inverse-reader-interrupted-v1",
+            ),
+            events,
+        )
+
+
+class RecoveryCLILifecycleTests(unittest.TestCase):
     def test_recoverable_upstream_interruption_stops_without_replay(self):
         events = []
         run = _RecordingRun(events)

@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import hashlib
 import json
 import os
 import re
@@ -143,6 +142,13 @@ def verify_publication(value: object) -> dict[str, object]:
     if canonical_sha256(unsigned) != publication_sha:
         raise Full256BrokerError("publication SHA-256 differs")
     return _clone(dict(row))  # type: ignore[return-value]
+
+
+def public_view_from_publication(value: object) -> PublicTargetView:
+    """Return a newly parsed attacker-only view from a verified publication."""
+
+    publication = verify_publication(value)
+    return _public_view(publication["public_view"])
 
 
 def make_freeze_receipt(

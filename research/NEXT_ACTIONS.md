@@ -1,11 +1,11 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T03:11:14+02:00.
+Last ranked: 2026-07-17T04:05:50+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | `O1C-0009`: build a streamed generated corpus and train matched raw-output, candidate-relative and teacher-distilled 256-bit readers on CPU; target traces are unrepresentable in deployment | State of the art | Very high | High | Medium | Localizes whether public output, self-generated trace or distillation supplies the first transferable bit |
-| 2 | Evaluate all readers on disjoint uniform development keys with shuffled-key, output-flip and wrong-nonce controls; persist complete 256-logit posteriors | State of the art | Very high | Very high | Medium | Distinguishes real code-length reduction from curriculum memorization |
+| 1 | `O1C-0009`: train matched direct, candidate-relative and teacher-distilled 256-bit CPU readers on 512 known keys; target traces are unrepresentable in deployment | State of the art | Very high | High | Medium | Localizes whether public output, self-generated candidate trace or distillation supplies the first transferable bit |
+| 2 | Freeze on 64 calibration keys, then create 128 broker-secret uniform development keys and persist all factual/control posteriors before one reveal | State of the art | Very high | Very high | Medium | Distinguishes real code-length reduction from curriculum memorization without a derivable DEV seed |
 | 3 | If globally null, emit per-round-teacher, output-word, key-orbit, proposal-distance and feature-family observability maps before changing the reader | State of the art | Very high | Very high | Low | Converts the first full-round negative into the next exact mechanism |
 | 4 | `O1C-0010`: stream evidence into the 20,492-byte O1 state with H1/H2/H4/H8, wavelengths 64/96/65, A465 PoE and A469 positive bucket-local correction | State of the art | Very high | Very high | Medium | Tests the actual O1/O1-O synthesis on a full 256-bit target |
 | 5 | Freeze a new uniform random target and run matched controls; feed the revealed result into the attic only after completion | State of the art | Very high | High | Medium | Converts development signal into a genuine next-challenge learning loop |

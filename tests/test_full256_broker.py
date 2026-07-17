@@ -9,6 +9,7 @@ from o1_crypto_lab.full256_broker import (
     Full256BrokerError,
     Full256TargetBroker,
     make_freeze_receipt,
+    public_view_from_publication,
     verify_publication,
     verify_reveal,
 )
@@ -45,6 +46,10 @@ class Full256BrokerTests(unittest.TestCase):
         self.assertNotIn(self.entropy[48:80].hex(), encoded)
         self.assertNotIn("target_trace", encoded.replace("target_trace_included", ""))
         self.assertEqual(verify_publication(publication), publication)
+        self.assertEqual(
+            public_view_from_publication(publication).digest(),
+            publication["public_view_sha256"],
+        )
         self.assertEqual(self.broker.phase, "PUBLISHED")
 
     def test_reveal_requires_exact_freeze_and_is_one_shot(self) -> None:
