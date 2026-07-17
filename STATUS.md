@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T01:25:31+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T01:28:01+02:00 (`Europe/Berlin`)
 - **Latest implementation freeze:** `O1C-0022` at
   `ce56ba44ef9fe8583c0603ab145afa6133849954` — frozen O1C-0019 packet deltas into
   the exact 352-byte O1C-0021 vault, literal native O1-O composition control and
@@ -33,10 +33,10 @@
 - **Active lab runs:** no local scientific run. The sibling W52 production
   work remains active, so O1C-0019, O1C-0022 and the O1C-0021 broad/formal gate
   have not started. O1C-0022 preflight is correctly `prerequisite-pending` and
-  creates no reservation. At watcher poll 396, W52 had 8/8 running workers,
-  `174,141/16,777,216` cells (`1.037961%`), 24 related live processes, no stop
-  marker, 47% free memory, load/core `0.240381` and exact frozen sources. Consumed
-  pools/seeds remain ineligible as fresh evidence
+  creates no reservation. At the latest read-only host check, W52 had 8/8 running
+  workers, `177,962/16,777,216` cells (`1.060736%`), 24 related live processes,
+  no stop marker, 44% free memory, load/core `0.338379`, exact frozen sources and
+  a clean lab tree. Consumed pools/seeds remain ineligible as fresh evidence
 - **Strongest completed mechanism attempt:** `O1C-0020` — independently reviewed
   `EXACT_256_LEARNED_GATE_RETENTION` on 4 unseen seeds x 3 stream lengths
 - **Strongest completed full-round online attempt:** `O1C-0018` — public-only
