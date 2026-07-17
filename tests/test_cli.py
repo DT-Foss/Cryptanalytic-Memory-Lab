@@ -16,6 +16,7 @@ CONFIG = ROOT / "configs/corrected_codec_bridge_v1.json"
 UPSTREAM_CONFIG = ROOT / "configs/upstream_ising_retrospective_v1.json"
 LIVING_READER_CONFIG = ROOT / "configs/living_inverse_reader_v1.json"
 SIGNED_REPLICATION_CONFIG = ROOT / "configs/signed_direct_replication_v1.json"
+FULL256_CNF_CONFIG = ROOT / "configs/full256_cnf_foundation_v1.json"
 O1C0009_MANIFEST = "f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2"
 
 
@@ -312,6 +313,7 @@ class SignedDirectReplicationCLILifecycleTests(unittest.TestCase):
             events,
         )
 
+
     def test_interrupted_replication_is_stopped_without_replay(self):
         events = []
         run = _RecordingRun(events)
@@ -395,6 +397,57 @@ class SignedDirectReplicationCLILifecycleTests(unittest.TestCase):
                 "finalize",
                 "stopped",
                 "o1-256-living-inverse-reader-interrupted-v1",
+            ),
+            events,
+        )
+
+
+class Full256CNFFoundationCLILifecycleTests(unittest.TestCase):
+    def test_attempt_is_reserved_before_cnf_compilation_failure(self):
+        events = []
+        run = _RecordingRun(events)
+
+        class Manager:
+            def __init__(self, root):
+                self.root = root
+
+            def finalized_attempt(self, attempt_id):
+                return None
+
+            def recoverable_attempt_ids(self):
+                return ()
+
+            def start(self, **kwargs):
+                events.append(("start", kwargs["attempt_id"]))
+                return run
+
+        def fail_foundation(*args, **kwargs):
+            events.append(("cnf_foundation", "raised"))
+            raise RuntimeError("synthetic CNF foundation failure")
+
+        with (
+            patch.object(cli, "RunCapsuleManager", Manager),
+            patch.object(cli, "_clean_git_commit", return_value="e" * 40),
+            patch.object(
+                cli,
+                "run_full256_cnf_foundation",
+                side_effect=fail_foundation,
+            ),
+            patch("sys.stderr", new=io.StringIO()),
+        ):
+            code = cli._full256_cnf_foundation(
+                argparse.Namespace(config=FULL256_CNF_CONFIG)
+            )
+
+        names = [event[0] for event in events]
+        self.assertEqual(code, 1)
+        self.assertLess(names.index("start"), names.index("checkpoint"))
+        self.assertLess(names.index("checkpoint"), names.index("cnf_foundation"))
+        self.assertIn(
+            (
+                "finalize",
+                "failed",
+                "o1-256-full-cnf-foundation-failure-v1",
             ),
             events,
         )

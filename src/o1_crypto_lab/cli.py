@@ -8,6 +8,7 @@ import json
 import resource
 import subprocess
 import sys
+import tempfile
 import time
 from collections.abc import Mapping
 from pathlib import Path
@@ -20,6 +21,10 @@ from .full256_broker import (
     Full256TargetBroker,
     make_freeze_receipt,
     public_view_from_publication,
+)
+from .full256_cnf_foundation import (
+    load_full256_cnf_foundation_config,
+    run_full256_cnf_foundation,
 )
 from .spectral_experiment import run_bounded_memory_tournament
 from .isolation import IsolationPolicy
@@ -2998,6 +3003,331 @@ def _signed_direct_replication(args: argparse.Namespace) -> int:
     return 0
 
 
+def _full256_cnf_foundation(args: argparse.Namespace) -> int:
+    root = _lab_root()
+    requested_config = args.config
+    if requested_config.is_symlink():
+        raise RuntimeError("full-256 CNF foundation config cannot be a symlink")
+    config_path = requested_config.resolve(strict=True)
+    expected_config = (
+        root / "configs/full256_cnf_foundation_v1.json"
+    ).resolve(strict=True)
+    if config_path != expected_config:
+        raise RuntimeError("full-256 CNF foundation requires its canonical lab config")
+    top_level, foundation_config = load_full256_cnf_foundation_config(config_path)
+    participating = (
+        "chacha_trace.py",
+        "living_inverse.py",
+        "full256_cnf.py",
+        "full256_cnf_foundation.py",
+        "run_capsule.py",
+        "cli.py",
+    )
+
+    def current_source_hashes() -> dict[str, str]:
+        return {
+            "foundation_config": _sha256(config_path),
+            "pyproject": _sha256(root / "pyproject.toml"),
+            **{
+                f"module_{Path(name).stem}": _sha256(
+                    root / "src/o1_crypto_lab" / name
+                )
+                for name in participating
+            },
+        }
+
+    manager = RunCapsuleManager(root)
+    attempt_id = str(top_level["attempt_id"])
+    published = manager.finalized_attempt(attempt_id)
+    if published is not None:
+        metrics_document = json.loads(
+            (published.path / "metrics.json").read_text(encoding="utf-8")
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": published.attempt_id,
+                    "path": str(published.path),
+                    "manifest_sha256": published.manifest_sha256,
+                    "verified": published.verification.ok,
+                    "status": "already-finalized-no-replay",
+                    "capsule_status": metrics_document.get("status"),
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 0 if metrics_document.get("status") == "completed" else 2
+    if attempt_id in manager.recoverable_attempt_ids():
+        interrupted = manager.recover(attempt_id)
+        if interrupted.publication_prepared:
+            finalized = interrupted.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 2
+        finalized = interrupted.finalize(
+            metrics={
+                "schema": "o1-256-full-cnf-foundation-interrupted-v1",
+                "hard_interruption_recovered": True,
+                "scientific_result_claimed": False,
+                "unknown_target_key_bits": 256,
+                "fresh_random_targets": 0,
+                "sibling_writes": 0,
+            },
+            status="stopped",
+            next_action=(
+                "Preserve the partial O1C-0011 staging capsule and advance the "
+                "same frozen compiler protocol under a new attempt ID."
+            ),
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": finalized.attempt_id,
+                    "path": str(finalized.path),
+                    "manifest_sha256": finalized.manifest_sha256,
+                    "verified": finalized.verification.ok,
+                    "status": "stopped-after-hard-interruption",
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 2
+
+    commit = _clean_git_commit(root)
+    source_hashes = current_source_hashes()
+    if _clean_git_commit(root) != commit:
+        raise RuntimeError("lab Git commit changed before O1C-0011 reservation")
+    if current_source_hashes() != source_hashes:
+        raise RuntimeError("lab source hashes changed before O1C-0011 reservation")
+    run = manager.start(
+        attempt_id=attempt_id,
+        slug=str(top_level["slug"]),
+        commit=commit,
+        hypothesis=str(top_level["hypothesis"]),
+        prediction=str(top_level["prediction"]),
+        controls=tuple(str(value) for value in top_level["controls"]),
+        budgets=dict(top_level["budgets"]),
+        source_hashes=source_hashes,
+        claim_level=ClaimLevel(str(top_level["claim_level"])),
+        next_action=str(top_level["next_action"]),
+        config=top_level,
+        command=(
+            "o1-crypto-lab",
+            "full256-cnf-foundation",
+            "--config",
+            str(config_path),
+        ),
+        environment={
+            "target_contract": "all-256-bits-unknown-public-output-only",
+            "target_rounds": 20,
+            "formula_role": "target-independent-public-relation",
+            "accelerator": "none",
+            "mps_calls": 0,
+            "gpu_calls": 0,
+            "sibling_repository_reads": 0,
+            "sibling_repository_writes": 0,
+            "fresh_random_targets": 0,
+            "solver_formula_calls": 3,
+            "outcome_bearing_execution_begins_after_attempt_reservation": True,
+            "hard_interruption_policy": "FINALIZE_STOPPED_AND_NEVER_REPLAY",
+        },
+    )
+    cpu_started = time.process_time()
+    try:
+        run.checkpoint(
+            {
+                "phase": "FULL256_CNF_PROTOCOL_RESERVED",
+                "unknown_target_key_bits": 256,
+                "rounds": 20,
+                "target_key_units": 0,
+                "target_internal_trace_inputs": 0,
+                "fresh_random_targets": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            }
+        )
+        run.append_stdout(
+            "O1C-0011 full-256 public ChaCha20 CNF compilation and solver self-tests started on CPU.\n"
+        )
+        with tempfile.TemporaryDirectory(prefix="o1c0011-cnf-", dir="/tmp") as temporary:
+            result = run_full256_cnf_foundation(foundation_config, temporary)
+            if not result.success_gate_passed:
+                raise RuntimeError("O1C-0011 mandatory full-256 CNF gate failed")
+            if _clean_git_commit(root) != commit:
+                raise RuntimeError("lab Git commit changed during O1C-0011")
+            if current_source_hashes() != source_hashes:
+                raise RuntimeError("lab source hashes changed during O1C-0011")
+
+            persisted: dict[str, dict[str, object]] = {}
+            inventory = result.report["artifact_inventory"]
+            if not isinstance(inventory, dict):
+                raise RuntimeError("O1C-0011 artifact inventory differs")
+            for relative, source_path in sorted(result.artifact_paths.items()):
+                path = run.write_artifact(relative, source_path.read_bytes())
+                row = inventory.get(relative)
+                if (
+                    not isinstance(row, dict)
+                    or _sha256(path) != row.get("sha256")
+                    or path.stat().st_size != row.get("bytes")
+                ):
+                    raise RuntimeError("persisted O1C-0011 CNF artifact differs")
+                persisted[relative] = {
+                    "sha256": _sha256(path),
+                    "bytes": path.stat().st_size,
+                }
+            if persisted != inventory:
+                raise RuntimeError("persisted O1C-0011 inventory differs")
+            report_path = run.write_json_artifact(
+                "full256_cnf_foundation.json", result.report
+            )
+            run.write_json_artifact(
+                "self_tests.json", result.report["self_tests"]
+            )
+            run.write_json_artifact(
+                "attacker_contract.json", result.report["attacker_contract"]
+            )
+            run.write_json_artifact("formula_summary.json", result.report["formula"])
+            run.checkpoint(
+                {
+                    "phase": "FULL256_CNF_AND_PAIRED_INSTANCES_PERSISTED",
+                    "result_sha256": result.report["result_sha256"],
+                    "report_artifact_sha256": _sha256(report_path),
+                    "template_sha256": result.report["formula"]["dimacs_sha256"],
+                    "variable_count": result.report["formula"]["variable_count"],
+                    "clause_count": result.report["formula"]["clause_count"],
+                    "public_key_units": 0,
+                    "paired_assumption_instances": 2,
+                    "solver_formula_calls": 3,
+                    "sibling_writes": 0,
+                    "mps_calls": 0,
+                    "gpu_calls": 0,
+                }
+            )
+
+            cpu_seconds = time.process_time() - cpu_started
+            peak_rss_mib = _peak_rss_mib()
+            budgets = top_level["budgets"]
+            if not isinstance(budgets, dict):
+                raise RuntimeError("O1C-0011 budget object differs")
+            if cpu_seconds > float(budgets["maximum_cpu_seconds"]):
+                raise RuntimeError("O1C-0011 exceeded its CPU budget")
+            if peak_rss_mib > float(budgets["maximum_resident_memory_mib"]):
+                raise RuntimeError("O1C-0011 exceeded its resident-memory budget")
+            if (
+                int(result.report["resources"]["persistent_artifact_bytes"])
+                > int(budgets["maximum_persistent_artifact_bytes"])
+            ):
+                raise RuntimeError("O1C-0011 exceeded its artifact-byte budget")
+            metrics = {
+                **result.metrics(),
+                "cpu_seconds": cpu_seconds,
+                "peak_rss_mib": peak_rss_mib,
+                "cpu_budget_seconds": budgets["maximum_cpu_seconds"],
+                "resident_memory_budget_mib": budgets[
+                    "maximum_resident_memory_mib"
+                ],
+                "persistent_artifact_bytes": result.report["resources"][
+                    "persistent_artifact_bytes"
+                ],
+            }
+            run.append_stdout(
+                json.dumps(metrics, sort_keys=True, allow_nan=False) + "\n"
+            )
+            finalized = run.finalize(metrics=metrics)
+            process_peak_rss_mib = _peak_rss_mib()
+    except Exception as exc:
+        if run.publication_prepared:
+            finalized = run.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 1
+        run.append_stderr(f"{type(exc).__name__}: {exc}\n")
+        finalized = run.finalize(
+            metrics={
+                "schema": "o1-256-full-cnf-foundation-failure-v1",
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "unknown_target_key_bits": 256,
+                "fresh_random_targets": 0,
+                "target_key_units": 0,
+                "sibling_writes": 0,
+                "scientific_inverse_signal_claimed": False,
+            },
+            status="failed",
+            next_action=(
+                "Preserve the failed O1C-0011 capsule, fix the exact compiler or "
+                "solver-integrity invariant under a new attempt ID, and do not "
+                "weaken the 256-bit attacker contract."
+            ),
+        )
+        print(f"failed capsule: {finalized.path}", file=sys.stderr)
+        return 1
+    print(
+        json.dumps(
+            {
+                "attempt_id": finalized.attempt_id,
+                "path": str(finalized.path),
+                "manifest_sha256": finalized.manifest_sha256,
+                "verified": finalized.verification.ok,
+                "success_gate_passed": result.success_gate_passed,
+                "variable_count": metrics["variable_count"],
+                "template_clause_count": metrics["template_clause_count"],
+                "public_instance_clause_count": metrics[
+                    "public_instance_clause_count"
+                ],
+                "semantic_operation_count": metrics["semantic_operation_count"],
+                "template_sha256": metrics["template_sha256"],
+                "public_key_unit_clauses": metrics["public_key_unit_clauses"],
+                "rfc_fixed_key_status": metrics["rfc_fixed_key_status"],
+                "flipped_output_status": metrics["flipped_output_status"],
+                "second_fixed_key_status": metrics["second_fixed_key_status"],
+                "cpu_seconds": metrics["cpu_seconds"],
+                "outcome_peak_rss_mib": metrics["peak_rss_mib"],
+                "end_to_end_process_peak_rss_mib": process_peak_rss_mib,
+                "sibling_writes": 0,
+                "fresh_random_targets": 0,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     root = _lab_root()
     parser = argparse.ArgumentParser(
@@ -3155,6 +3485,16 @@ def build_parser() -> argparse.ArgumentParser:
         default=root / "configs/signed_direct_replication_v1.json",
     )
     signed_replication.set_defaults(handler=_signed_direct_replication)
+    cnf_foundation = subparsers.add_parser(
+        "full256-cnf-foundation",
+        help="compile and solver-validate the full-256 public ChaCha20 CNF",
+    )
+    cnf_foundation.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/full256_cnf_foundation_v1.json",
+    )
+    cnf_foundation.set_defaults(handler=_full256_cnf_foundation)
     return parser
 
 
