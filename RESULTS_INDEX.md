@@ -12,6 +12,7 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0000-FLOW` | Provenance-typed operator chain | `INSTRUMENT` | Legal public-to-confirmation chain exists; post-reveal laundering is rejected | [Run JSON](runs/quick.json) |
 | `O1C-0008-FOUNDATION` | Full-256 public-output attacker/teacher boundary and metric harness | `SMOKE` | 256 unknown bits; 72 contrasts across six families; 2,576 deployment features; 0 target-trace fields; random NLL exactly 256.0 bits; 1M-decoy and exact-beam harness | [Capsule](runs/20260717_031113_O1C-0008_full256-living-inverse-foundation/RUN.md) |
 | `O1C-0011-CNF` | Exact target-independent full-256 public ChaCha20 CNF and causal bit map | `VALIDATION` infrastructure | 32,128 vars; 187,370 clauses; 656 operators x 32 exact bit ranges; public instance 640 public/0 key units; byte-identical compile; SAT/UNSAT/SAT self-tests | [Capsule](runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/RUN.md) |
+| `O1C-0012-SENSOR` | Complete paired-assumption proof-prefix sensor feeding a bounded full-256 causal state | `TEST` mechanism | 512 polarity branches; 1,536 closed frontiers at 64/96/65; all 256 coordinates; 17,408 B state; exact signed swap antisymmetry; 0 transcripts/candidate keys | [Capsule](runs/20260717_065248_O1C-0012_full256-paired-causal-sensor-v1/RUN.md) |
 
 ## Real O1-O replay
 
@@ -38,6 +39,7 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0006-CEILING` | Adaptive DC-complete 6-bit full-basis streaming ceiling | `VALIDATION` | 8,014 B maximum logical state; worst Spearman 0.999224, Kendall 0.976426, top-32 0.96875, zero clips; 24/24 complete orders | [Metrics](runs/20260715_154553_O1C-0006_corrected-codec-adaptive-dc-bridge/artifacts/bridge_metrics.json) |
 | `O1C-0007-MEM` | Upstream unary solver-evidence freeze with no candidate rows | `RETROSPECTIVE` | 12 registers; 266 B conservative logical-state bound; 162 B frozen binary; 672 complete target-blind A355 orders persisted before truth | [Report](runs/20260715_174537_O1C-0007_upstream-solver-evidence-bit-vault-freeze/artifacts/upstream_ising_retrospective.json) |
 | `O1C-0007-FREEZE` | Exact selected decoder and future target-blind deployment template | `RETROSPECTIVE` | Selected `search_propagations/h1/signed-log1p/degree1/negative`; A355 rank 73; A356 complete order frozen with zero target/outcome reads | [Template](runs/20260715_174537_O1C-0007_upstream-solver-evidence-bit-vault-freeze/artifacts/selection/frozen_future_template.json) |
+| `O1C-0012-STATE` | Coordinate-bound full-256 unary/ARX/holographic living state | `TEST` mechanism | 768 signed updates; 17,408 B exact serialization; 768 unary, 772 interaction and 512 holographic nonzeros; exact swap antisymmetry; 0 retained transcripts/keys | [State report](runs/20260717_065248_O1C-0012_full256-paired-causal-sensor-v1/artifacts/causal_bitfield.json) |
 
 ## Replicated validation
 
@@ -63,7 +65,10 @@ control. This closes the tested raw end-output reader family. O1C-0007's histori
 future decoder remains unevaluated on source-unseen paired-assumption events.
 O1C-0011 now independently validates the complete full-width symbolic relation,
 per-bit carry/clause ancestry and opposite-assumption instance contract needed to
-generate those events. It is infrastructure evidence, not key-recovery evidence.
+generate those events. O1C-0012 executes all 512 branches and streams the resulting
+proof prefixes into the bounded O1 state; its mechanism gates are independently
+green, while its only known-key diagnostic is strongly negative. Neither O1C-0011
+nor O1C-0012 is key-recovery evidence.
 
 ## Frontier and state-of-the-art results
 
@@ -86,3 +91,5 @@ not results of this integration.
 | `O1C-0007-N2` | Streamability alone does not resolve quantized ties | `MECHANISM_BOUNDARY` | Of 448 streamable views, only 152 survived the exact target-blind tie gate; the best tied streamable control had rank 26 but 3,328 score collisions beyond uniqueness | Require complete deterministic orders and explicit collision accounting before interpreting a compact accumulator |
 | `O1C-0009-N1` | Linear direct, candidate-relative and teacher-distilled readers over full-round end-output features do not transfer under the declared calibration | `NEGATIVE_BOUND` | All four CAL-optimal scales are 0; on 128 broker-secret keys every arm has NLL 256.0, compression 0 and zero familywise transferable bits | Replicate the single signed-scale breadcrumb once, then replace end-output regression with paired public-CNF proof/propagation events |
 | `O1C-0010-N1` | O1C-0009's signed direct end-output orientation is finite-panel selection noise, not a transferable sub-key signal | `NEGATIVE_BOUND` | Exact no-refit test on 2,048 new sealed keys: compression -0.019088 bit, conditional z -0.946, shuffled margin -0.017541 and output-permutation margin +0.000962; all efficacy gates fail | Close raw end-output regression; build exact full-256 public-CNF paired-assumption conflict/propagation/proof sensors |
+| `O1C-0012-N1` | W52's fixed A465 `(7,1,4)` horizon mixture is not a calibrated full-256 inverse reader | `NEGATIVE_BOUND` | On one post-freeze known RFC key: 119/256 bits, NLL 342.779990, compression -86.779990 bit, million-decoy rank 999,898; A469 correction changes no bit sign | Keep the causal stream; learn sign and horizon weights across multiple known full-256 keys, freeze, then attack a fresh sealed target |
+| `O1C-0012-B1` | Solver conflict cutoffs need not coincide with a proof event | `MECHANISM_BOUNDARY` | 1,472/1,536 frontiers have an event exactly at cutoff; explicit last-event gap max 4, mean 0.108073; final overshoot is billed and excluded | Define the sensor as the complete closed prefix at conflicts <= horizon; never fabricate an exact-cutoff counter |

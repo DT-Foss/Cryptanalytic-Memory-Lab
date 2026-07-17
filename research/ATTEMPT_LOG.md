@@ -412,3 +412,50 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Next action:** O1C-0012 uses the immutable relation through an incremental
   paired-assumption sensor and streams equal-work propagation, conflict, decision
   and proof-ancestry deltas into the bounded coordinate-bound O1 state.
+
+## O1C-0012 — Full-256 paired causal sensor and bounded O1 state
+
+- **Recorded:** 2026-07-17T06:53:37+02:00
+- **Source commit:** `08535f94ae3c1de17f3622aa032b945233b0ee92`
+- **Claim level:** `TEST` mechanism; no inverse-signal claim
+- **Hypothesis:** one immutable public-only full-round relation can support both
+  assumptions for every one of 256 unknown key coordinates, expose complete
+  proof-ancestry prefixes at three short conflict horizons, and stream them into a
+  nonzero unary-plus-ARX-interaction-plus-holographic state below 18,000 bytes.
+- **Sensor:** CaDiCaL 3.0.0 loads the 32,128-variable/188,010-clause public instance
+  once, records 667 public baseline proof events, then runs 512 fresh POSIX-fork COW
+  branches.  All 256 bits and both polarities are covered.  The three horizons
+  `64/96/65` yield 1,536 complete closed proof prefixes; 1,472 end exactly at the
+  cutoff event.  The remaining explicit event gap has maximum 4 and mean
+  0.1080729167; final conflict overshoot is billed and excluded.
+- **Living state:** 768 unary cells, 256 evidence masses, 2,048 directed ARX-local
+  interaction cells, four by 128 complex holographic channels, 256 probe counters
+  and 64 family statistics serialize to exactly 17,408 bytes.  The state retains
+  zero transcripts and zero candidate keys.  Every signed component negates under
+  assumption swap while unsigned mass/counts remain invariant.
+- **Mechanism result:** all sensor, provenance, determinism, state, resource and
+  attacker-boundary gates pass.  State commitment
+  `aea9d4c0bd88d2c8480fb51b98d5524bc8c6fc319dd612c9dc345aa03035b664`;
+  stream commitment
+  `b52bf4cce10f69672077f4b6b0d8496cfe0c633aac5ae0ce43502d2e9d5b26b1`.
+- **Known-key diagnostic:** after state freeze only, the configured RFC key exactly
+  recomputes the public output.  The imported A465 `(7,1,4)` mixture plus local
+  correction predicts 119/256 bits, Hamming distance 137, NLL 342.7799900847,
+  compression -86.7799900847 bits, 0 correct bytes/16-bit blocks and rank 999,898
+  among one million decoys.  Raw horizon counts are 119/139/112 for 64/96/65.
+  This is a negative single-key breadcrumb, not cross-key evidence.
+- **Resources:** 58.031723 CPU seconds, 49.199165 wall seconds, 514 native branches,
+  317.28125 MiB conservative process-group peak, 554,653 persistent bytes; zero
+  fresh targets, sibling reads/writes, MPS or GPU calls.
+- **Verification:** capsule 16/16; repeat invocation returns
+  `already-finalized-no-replay`; full CPU suite 257 passed/8 skipped and targeted
+  Ruff passes.
+- **Artifact:**
+  `runs/20260717_065248_O1C-0012_full256-paired-causal-sensor-v1/`; manifest
+  `a28acc299d2ed42b7f4eba14e653cd8d0c3f09347658fcb65d49936e0a255556`;
+  internal result
+  `33184e9245f4e31e56f16c9f8cfaa21e18849279058b278959cdb2c8acc54bd7`.
+- **Conclusion:** preserve the full causal stream and discard the uncalibrated W52
+  readout, not the mechanism.  O1C-0013 must learn orientation/horizon mixing on
+  multiple known full-256 keys, freeze it, then attack a new sealed output-only
+  target without inspecting O1C-0012's opened key again.

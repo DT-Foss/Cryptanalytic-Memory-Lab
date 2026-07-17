@@ -37,12 +37,14 @@ The complete attacker contract and architecture are in
 inspected read-only and are summarized in
 [the 2026-07-17 transfer map](research/W52_TRANSFER_20260717.md).
 
-The current immutable substrate is O1C-0011: an exact target-independent
-full-256 ChaCha20 CNF with 32,128 variables, 187,370 clauses and 656 x 32
-round/lane/bit causal ranges.  Its public instance fixes only counter, nonce and
-output; no key bit or target trace is present.  The next experiment, O1C-0012,
-streams equal-work opposite key-bit solver events from that relation into the
-bounded O1 causal bitfield.
+The current immutable mechanism is O1C-0012.  It runs all 512 opposite key-bit
+assumptions against O1C-0011's exact public-only full-256 relation and streams 1,536
+closed proof-prefix frontiers into a deterministic 17,408-byte unary/ARX/
+holographic O1 state.  It retains no transcript or candidate keys and passes exact
+assumption-swap antisymmetry.  Its first uncalibrated W52-weighted known-key readout
+is negative (119/256, -86.779990-bit compression), so O1C-0013 now learns orientation
+and horizon mixing across multiple known full-256 keys before consuming a fresh
+sealed output-only target.
 
 ## What the first benchmark proves
 
@@ -91,6 +93,8 @@ python3 -m venv .venv
   --output runs/quick.json
 .venv/bin/o1-crypto-lab living-inverse-foundation \
   --config configs/living_inverse_foundation_v1.json
+.venv/bin/o1-crypto-lab full256-paired-sensor \
+  --config configs/full256_paired_causal_sensor_v1.json
 ```
 
 Inspect the operator compiler and its leakage rejection:

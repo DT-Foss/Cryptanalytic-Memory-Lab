@@ -1,30 +1,67 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-17T05:42:29+02:00 (`Europe/Berlin`)
-- **Implementation commit:** `b9f514a33386066706d1b023cc97487595ed63c4`
-- **Worktree:** O1C-0011 capsule current; O1C-0012 sensor build next;
-  O1C-0009/O1C-0010/O1C-0011 capsules immutable
+- **Last updated:** 2026-07-17T06:57:01+02:00 (`Europe/Berlin`)
+- **Sensor implementation commit:** `08535f94ae3c1de17f3622aa032b945233b0ee92`
+- **Worktree:** O1C-0012 capsule current and verified; O1C-0013 multi-key
+  calibration next; O1C-0009 through O1C-0012 capsules immutable
 - **Research phase:** O1-256 Living Inverse — paired-assumption solver events into
   coordinate-bound unary-plus-interaction O1 state
-- **Strongest internal mechanism:** O1C-0007's 12-register/266-byte unary state is
-  retained as a negative-calibrated primitive; the active design adds proof
-  interactions, switching wavelengths and a 20,492-byte full-256 living state
+- **Strongest internal mechanism:** O1C-0012 streams 512 symmetric full-256 solver
+  branches and 1,536 closed proof-prefix frontiers into a deterministic 17,408-byte
+  unary-plus-ARX-interaction-plus-holographic living state
 - **Strongest read-only mechanism intake:** A447-A449 proof ancestry, A465 cubic
   Product-of-Experts and A469 positive bucket-local correction
 - **Active runs:** none
-- **Last completed attempt:** `O1C-0011` — exact target-independent full-256 public
-  CNF, per-bit causal map and paired-assumption instances; all gates passed
-- **Next attempt:** `O1C-0012` — incremental paired-assumption propagation/conflict/
-  proof sensor feeding the bounded O1 causal bitfield
-- **Primary uncertainty:** which conflict/propagation/proof event family retains
-  any cross-key orientation once raw end-output regression is closed
-- **SOTA status:** no inverse signal yet; O1C-0011 establishes the validated
-  full-width upstream relation needed to search for one without reducing key width
+- **Last completed attempt:** `O1C-0012` — complete full-width paired-assumption
+  CaDiCaL proof sensor and bounded O1 causal bitfield; all mechanism/resource gates
+  passed, single-key efficacy diagnostic negative
+- **Next attempt:** `O1C-0013` — deterministic multi-key full-256 build/CAL corpus,
+  learned horizon/orientation reader, freeze, then a fresh sealed output-only target
+- **Primary uncertainty:** whether the horizon-96 proof-prefix advantage transfers
+  across independently generated full-width keys after orientation is learned
+- **SOTA status:** no inverse signal yet; O1C-0012 establishes the first complete
+  attacker-valid 256-coordinate causal stream, but its uncalibrated imported W52
+  readout gives 119/256 bits and negative 86.78-bit compression on one known key
 - **SOTA target:** a stream-length-bounded living inverse that reduces the 256-bit
   key code length on sealed uniform targets and ultimately emits an exactly verified
   full ChaCha20 key
 
 ## Headline
+
+`O1C-0012` now executes the full 256-bit causal-sensor architecture rather than a
+width ladder.  A CaDiCaL 3.0.0 root loads the immutable O1C-0011 public-only CNF
+once, records `667` public baseline proof events, then forks fresh copy-on-write
+children for both polarities of every key coordinate.  The `512` attack branches
+produce `1,536` complete closed proof-event prefixes at conflict horizons
+`64/96/65`; `1,472` frontiers end exactly on the requested conflict count and the
+remaining gaps are explicit (maximum `4`, mean `0.108073`).  Final solver overshoot
+is billed and excluded rather than fabricated into an event.
+
+The complete stream freezes into `17,408` bytes: three 256-bit-coordinate unary
+wavelengths, 256 evidence masses, 2,048 directed ARX-local interaction registers,
+four 128-channel complex holographic banks, probe counts and 64 family statistics.
+It retains zero candidate keys and zero transcripts, covers all 256 coordinates,
+and its exact assumption-swap control negates every signed array while preserving
+unsigned mass.  The canonical state hash is
+`aea9d4c0bd88d2c8480fb51b98d5524bc8c6fc319dd612c9dc345aa03035b664`.
+
+The post-freeze known-RFC-key diagnostic is scientifically negative and useful:
+the imported A465 weights `(7,1,4)` yield `119/256` correct bits, NLL
+`342.779990` bits, effective compression `-86.779990` bits and rank `999,898`
+among one million decoys.  The A469-style local correction changes no bit sign.
+Separately, the three raw horizons score `119`, `139` and `112` correct bits;
+horizon 96 is the only above-chance breadcrumb, but one opened key cannot establish
+transfer.  O1C-0013 therefore learns sign and horizon mixing on multiple known
+full-width keys, freezes them, and spends the result once on a new sealed target.
+
+The capsule verifies 16/16 members and refuses replay after finalization.  It used
+`58.031723` CPU seconds, `49.199165` wall seconds, `514` native branches and a
+conservative process-group peak of `317.28125` MiB; persistent artifacts are
+`554,653` bytes.  Sibling reads/writes, MPS/GPU calls and fresh targets were all
+zero.  Capsule manifest:
+`a28acc299d2ed42b7f4eba14e653cd8d0c3f09347658fcb65d49936e0a255556`;
+internal result:
+`33184e9245f4e31e56f16c9f8cfaa21e18849279058b278959cdb2c8acc54bd7`.
 
 `O1C-0011` compiled the complete standard twenty-round ChaCha20 block relation
 directly at full key width.  Variables `1..256` are the unknown key, `257..384`
@@ -127,20 +164,21 @@ transfer map is in
 
 ## Highest-ROI next actions
 
-1. `O1C-0012`: expose bounded incremental paired-assumption telemetry from the
-   frozen O1C-0011 relation, without solving or reducing the 256-bit target.
-2. Stream conflict/decision/propagation/proof events at
-   horizons `64/96/65` through O1 vault/Holo banks, then apply A465/A469.
-3. Calibrate event orientation only on known full-width keys; freeze before a new
-   sealed panel and retain output-permutation, assumption-swap and ancestry-erasure
-   controls.
-4. Iterate at full width on carry/proof observability and O1-O scheduling;
-   short MPS windows require an explicit resource check and must not overlap W52.
+1. `O1C-0013`: reuse the frozen sensor contract over a deterministic multi-key
+   full-256 build/CAL corpus and persist each state before its key labels are read.
+2. Learn per-horizon orientation and a small regularized mixture across keys;
+   compare horizon 96, unary mixture and identity-preserving interaction arms.
+3. Freeze model bytes, split receipts and every control before requesting one new
+   sealed standard-ChaCha20 target; evaluate NLL, bit count, decoy rank and exact
+   verification once.
+4. If transfer remains zero, localize the failure by proof motif/ARX orbit and use
+   O1-O to schedule the cheapest discriminating sensor—not another W52-weight copy.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0012` | 2026-07-17 | All 512 opposite assumptions can emit complete closed proof prefixes into a bounded full-256 O1 causal state | Mechanism passed: 256 bits, 1,536 frontiers, 17,408 B state; known-key diagnostic negative at 119/256 and -86.780 bit compression | `TEST` mechanism; no inverse claim | 58.032 CPU s; 49.199 wall s; 317.281 MiB conservative group peak; zero sibling/GPU work | The W52 `(7,1,4)` orientation is not portable; horizon 96 alone gives 139/256 on one key and must be tested cross-key | [Run capsule](runs/20260717_065248_O1C-0012_full256-paired-causal-sensor-v1/RUN.md) |
 | `O1C-0011` | 2026-07-17 | A complete target-independent full-256 ChaCha20 CNF can expose exact coordinate-bound paired-assumption relations under bounded resources | Passed: 32,128 vars, 187,370 template clauses, 656 operators x 32 bit ranges; public instance has 640 public/0 key units; SAT/UNSAT/SAT self-tests | `VALIDATION` infrastructure | 8.692 CPU s; 163.594 MiB outcome peak; 25.415 MB workspace; zero sibling/GPU work | Full-width causal substrate is valid; stream paired solver deltas into O1C-0012 | [Run capsule](runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/RUN.md) |
 | `O1C-0010` | 2026-07-17 | O1C-0009's signed direct orientation transfers without refit | Refuted on 2,048 sealed keys: compression -0.019088 bit, z -0.946; loses to shuffled, output-permutation delta only +0.000962 | `VALIDATION` negative | 2.424 CPU s; 201.969 MiB outcome peak, 245.391 MiB end-to-end; zero sibling/GPU work | Raw end-output regression is closed; move to public-CNF assumption/proof events | [Run capsule](runs/20260717_045214_O1C-0010_full256-signed-direct-replication-v1/RUN.md) |
 | `O1C-0009` | 2026-07-17 | Direct, candidate-relative or teacher-distilled full-width readers remove reproducible entropy from unseen public-output targets | Declared gate failed; all CAL scales 0, DEV NLL 256.0, compression 0, transferable bits 0; sealed lifecycle passed | `VALIDATION` negative | 6.923 CPU s; 182.906 MiB peak; 128 fresh keys; zero sibling/GPU work | Post-reveal CAL-only signed direct scale gives exploratory DEV +0.023159 bit; replicate once on a larger new panel, then move upstream | [Run capsule](runs/20260717_040741_O1C-0009_full256-output-only-reader-v1/RUN.md) |
@@ -157,6 +195,13 @@ transfer map is in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0012` capsule manifest | `a28acc299d2ed42b7f4eba14e653cd8d0c3f09347658fcb65d49936e0a255556` |
+| `O1C-0012` internal result commitment | `33184e9245f4e31e56f16c9f8cfaa21e18849279058b278959cdb2c8acc54bd7` |
+| `O1C-0012` bounded state | `aea9d4c0bd88d2c8480fb51b98d5524bc8c6fc319dd612c9dc345aa03035b664` |
+| `O1C-0012` paired event stream | `b52bf4cce10f69672077f4b6b0d8496cfe0c633aac5ae0ce43502d2e9d5b26b1` |
+| `O1C-0012` public baseline | `3061939c1ea041b73d82ada74b71c3265cb2a90b4cb1904030f178807844eaaf` |
+| `O1C-0012` bit-173 sentinel pair | `3631a4e16ea5a7fde6dc3c096db89ab595494cf44e4e6fea0ae315cc8a60817c` |
+| `O1C-0012` known-key diagnostic artifact | `35bbcc55dd1151a9cec1d7980a6126cd8c4b9f1f60a22acfa83cc7380257af73` |
 | `O1C-0011` capsule manifest | `b7a07e6461805946897adbfb90da9e9f55ff1074e9aa1343f602eecb0645b7b4` |
 | `O1C-0011` internal result commitment | `6c4fd7becd5307d60b30e16ea1fae8d3f4739b06c888204d638950c94b53adfe` |
 | `O1C-0011` exact CNF template | `c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52` |
@@ -201,8 +246,10 @@ transfer map is in
 
 ## Resume here
 
-Start from `O1C-0012`: consume the immutable O1C-0011 template/map and instrument
-paired `k_i=0/1` solver runs with equal public units and frozen horizons. Stream
-signed conflict/propagation/decision/proof-ancestry deltas into the bounded O1
-unary-plus-interaction state. Do not spend another cycle on raw end-output readers
-or reduced key widths. Keep the sibling recovery queue read-only and prioritized.
+Start from `O1C-0013`: generate several deterministic known full-256 public CNFs,
+run the unchanged O1C-0012 event contract one instance at a time, and calibrate
+orientation/horizon mixing across keys—not on the RFC diagnostic target. Persist
+the model and split commitments before requesting a fresh sealed output-only key.
+Do not spend another cycle on raw end-output readers, reduced widths or hand-tuning
+against O1C-0012's opened key. Keep the sibling recovery queue read-only and
+prioritized.

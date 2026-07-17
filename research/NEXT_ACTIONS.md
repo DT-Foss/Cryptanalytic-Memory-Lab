@@ -1,15 +1,15 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T05:42:29+02:00.
+Last ranked: 2026-07-17T06:57:01+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | `O1C-0012`: bind CaDiCaL/IPASIR or an equivalently exact incremental sensor to the immutable O1C-0011 template and emit equal-work `k_i=0/1` propagation, conflict, decision and clause-ancestry deltas | State of the art | Very high | Very high | Medium | Produces the first attacker-valid full-width upstream evidence stream after end-output regression is closed |
-| 2 | On known uniform full-width keys, probe all 256 coordinates at frozen short horizons and measure cross-key sign orientation under assumption-swap and solver-seed controls | State of the art | Very high | Very high | Medium | Identifies whether any public solver event removes real bit entropy |
-| 3 | Stream the event families through 64/96/65 O1 vault timescales and compare unary, A465 PoE and identity-preserving A469 local interactions in the fixed ~20 KiB state | State of the art | Very high | High | Medium | Tests the actual O1/O1-O synthesis with bounded state and matched work |
-| 4 | Map every retained event through O1C-0011's `(round, lane, step, bit, carry/clause)` ancestry and use O1-O ROI to schedule uncertain coordinates | State of the art | High | Very high | Medium | Converts raw solver work into content-addressable causal evidence rather than a transcript |
-| 5 | Freeze on known TRAIN/CAL keys, then open a new sealed full-256 panel with assumption-swap, output-permutation, output-flip and ancestry-erasure controls | State of the art | Very high | High | High | Converts an upstream breadcrumb into prospective entropy reduction |
-| 6 | Spend MPS/GPU only after CPU solver events show reusable entropy reduction and only in explicit windows that do not compete with the recovery queue | High | Medium | High | High | Preserves recovery resources while scaling a demonstrated mechanism |
+| 1 | `O1C-0013`: generate a deterministic multi-key full-256 BUILD/CAL corpus and run each public CNF one at a time through the unchanged O1C-0012 event contract | State of the art | Very high | Very high | Medium | Measures whether the complete paired proof field has reusable cross-key orientation |
+| 2 | Compare frozen h64, h96 and h65 readers with a small regularized learned mixture; keep imported `(7,1,4)` only as a negative control | State of the art | Very high | Very high | Low | Distinguishes a portable wavelength from a wrong fixed orientation without another sensor build |
+| 3 | Train unary/proof-motif/ARX-local/holographic readouts only on BUILD/CAL keys and hash-freeze model bytes, split receipts and controls | State of the art | Very high | High | Medium | Produces the first target-independent full-256 inverse reader over the causal stream |
+| 4 | Consume one fresh broker-sealed standard-ChaCha20 output-only target with assumption-swap, output-permutation/flip, wrong-nonce and ancestry-erasure controls | State of the art | Very high | High | Medium | Converts the h96 breadcrumb into prospective entropy reduction or closes it cleanly |
+| 5 | If transfer is null, localize sign stability by proof motif, horizon and ARX orbit, then let O1-O select the cheapest new event family | State of the art | High | Very high | Medium | Turns a negative panel into a precise causal-sensor iteration instead of another global retune |
+| 6 | Scale Attic retention, adaptive scheduling or MPS only after a cross-key reader removes reproducible entropy under matched CPU work | High | Medium | High | High | Prevents capacity work from outrunning observability and protects the recovery queue |
 
 ## Hard target contract
 
@@ -41,4 +41,9 @@ Last ranked: 2026-07-17T05:42:29+02:00.
 - treating raw ciphertext Hamming distance as dense evidence;
 - polishing SOTA prose before a stable held-out bit exists;
 - rebuilding or weakening O1C-0011's already verified full-256 relation instead of
-  instrumenting its paired solver events.
+  reusing its paired solver events;
+- retuning O1C-0012 on the same opened RFC key or reporting h96's 139/256 as a
+  transferable signal before cross-key calibration;
+- inventing proof events at exact conflict cutoffs, including billed overshoot in
+  the evidence prefix, or discarding the complete sensor because its first fixed
+  readout is negative.

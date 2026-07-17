@@ -218,3 +218,39 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   input evidence upstream: paired `k_i=0/1` assumptions in an exact public-output
   CNF, with conflict/propagation/proof ancestry streamed into coordinate-bound O1
   state. Negative solver-event families remain useful contextual O1-O memory.
+
+## B-0014 — Exact proof event at every conflict cutoff is not a valid contract
+
+- **Evidence:** O1C-0012 preflight and canonical 256-bit sweep with CaDiCaL proof
+  antecedents at conflict horizons `64/96/65`.
+- **Result:** bit 6 reached horizon 96 while its last complete proof event was at
+  conflict 93.  Across the canonical sweep, 1,472/1,536 frontiers contain an event
+  exactly at cutoff; the remaining explicit gap is at most 4 and averages
+  0.1080729167.  The final solver call can overshoot by as much as 24 conflicts.
+- **Conclusion:** solver conflict counters and emitted proof events are related but
+  not identical clocks. Requiring a synthetic event exactly at `h` would silently
+  falsify the evidence stream.
+- **Do not repeat:** fabricate proof counters, discard valid branches because their
+  last event precedes `h`, or include the final overshoot tail merely to fill a
+  requested horizon.
+- **Breadcrumb:** the stable contract is the complete closed prefix of all events
+  with `event_conflicts <= h`, plus explicit last-event gap and separately billed,
+  excluded solver overshoot. The bit-6 gap is pinned by a regression test.
+
+## B-0015 — W52 PoE weights are not a portable full-256 bit orientation
+
+- **Evidence:** O1C-0012 applies the imported A465 horizon weights `(7,1,4)` and an
+  A469-style positive local correction to one post-freeze known RFC-key state.
+- **Result:** the combined reader gives 119/256 bits, NLL 342.7799900847 and
+  compression -86.7799900847 bits; the local correction changes no bit sign.  The
+  separate `64/96/65` horizons give 119/139/112 correct bits.
+- **Conclusion:** W52's rank geometry supplied useful sensor wavelengths and a
+  safe correction form, but not a universal mapping from proof cost to ChaCha key
+  polarity. The negative combined readout does not invalidate the 512-branch
+  sensor or the bounded state.
+- **Do not repeat:** tune weights or signs on the same opened RFC key, promote the
+  single h96 count as a transferable signal, or throw away every event family
+  because the uncalibrated mixture points the wrong way.
+- **Breadcrumb:** O1C-0013 must estimate orientation and a small horizon mixture
+  across multiple known full-256 build/CAL keys, hash-freeze the reader, and only
+  then consume a fresh sealed output-only target.

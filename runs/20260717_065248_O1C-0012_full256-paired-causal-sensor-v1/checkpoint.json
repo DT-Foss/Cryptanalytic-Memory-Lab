@@ -1,0 +1,48 @@
+{
+  "attempt_id": "O1C-0012",
+  "payload": {
+    "artifact_inventory": {
+      "causal_bitfield.bin": {
+        "bytes": 17408,
+        "sha256": "aea9d4c0bd88d2c8480fb51b98d5524bc8c6fc319dd612c9dc345aa03035b664"
+      },
+      "causal_bitfield.json": {
+        "bytes": 1798,
+        "sha256": "6c3942afd62d1e8e5656e849cc719e4195809352ffefdfb4479a70c6d9ffd171"
+      },
+      "full256_paired_sensor.json": {
+        "bytes": 8653,
+        "sha256": "85b3df07bd6452f207f95d9ed90d850a2395814260b03bb9e0e93fee02bbd63c"
+      },
+      "known_key_diagnostic.json": {
+        "bytes": 1356,
+        "sha256": "35bbcc55dd1151a9cec1d7980a6126cd8c4b9f1f60a22acfa83cc7380257af73"
+      },
+      "native_build.json": {
+        "bytes": 994,
+        "sha256": "a3133a326c60e619438803e68ba2359a9c27db57fb736272446d927febed36a8"
+      },
+      "paired_event_index.json": {
+        "bytes": 502245,
+        "sha256": "2f13d3f72367778a495ca5be19480d97585a8ac0113f740707c37d046d1a31fb"
+      },
+      "sentinel_bit.json": {
+        "bytes": 22199,
+        "sha256": "02301b78dded066661aa58c038356af54847b2649d09f165d85a6866b6acf42b"
+      }
+    },
+    "gpu_calls": 0,
+    "mps_calls": 0,
+    "paired_bits": 256,
+    "persisted_artifact_bytes": 554653,
+    "phase": "FULL256_PAIRED_STATE_AND_DIAGNOSTIC_PERSISTED",
+    "proof_frontiers": 1536,
+    "result_sha256": "33184e9245f4e31e56f16c9f8cfaa21e18849279058b278959cdb2c8acc54bd7",
+    "sibling_writes": 0,
+    "state_bytes": 17408,
+    "state_sha256": "aea9d4c0bd88d2c8480fb51b98d5524bc8c6fc319dd612c9dc345aa03035b664"
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 2,
+  "updated_at": "2026-07-17T06:53:37.535430+02:00"
+}

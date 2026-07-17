@@ -15,29 +15,30 @@ contamination risk. Green tests and document count are not research outcomes.
 
 ## Current milestone
 
-O1C-0007 established a compact unary primitive but returned negative calibrated
-efficacy (`p=0.593505859375`).  The read-only W52 intake then identified the missing
-mechanisms: proof ancestry before clause flattening, four causal horizons,
-switching-wavelength experts, A465 PoE fusion and A469 backbone-preserving local
-interaction. O1C-0008 now freezes the full-256 attacker/teacher boundary, contrast
-generator and complete progress vector. The active milestone is O1C-0009: train the
-first matched full-width readers and measure uniform disjoint development-key NLL.
-No W12/W52 residual target is part of the new result ladder.
+O1C-0009/O1C-0010 closed linear full-round end-output regression. O1C-0011 then
+compiled the exact public-only full-256 ChaCha20 relation, and O1C-0012 executed the
+entire upstream mechanism: 512 symmetric assumptions, 1,536 closed proof frontiers
+and a 17,408-byte coordinate-bound unary/ARX/holographic state. Its structural and
+resource gates pass, while the single-known-key `(7,1,4)` diagnostic is negative at
+119/256 bits and -86.779990-bit compression. The active milestone is O1C-0013:
+learn event orientation and horizon mixing across multiple known full-256 keys,
+freeze the reader, and attack a fresh sealed target. No W12/W52 residual target is
+part of the result ladder.
 
 ## Evidence ladder from here
 
-1. Generate full 256-bit known-key build data: structured contrasts first, then
-   uniform keys, always through the exact twenty-round plus feed-forward relation.
-2. Separate privileged target teacher traces from the deployment schema; the latter
-   accepts only public target output and self-generated candidate traces.
-3. Train direct output-only and candidate-relative readers and measure full-key NLL
-   against the exact 256-bit random baseline.
-4. Stream their evidence into the fixed O1 state; compose switching-wavelength
-   experts with A465 and allow only A469-style local positive correction.
-5. Iterate on a fixed development corpus, then attack a newly sealed uniform 256-bit
-   target with matched shuffled-key, output-flip and wrong-nonce controls.
-6. Promote any stable bit/entropy gain into better proposal scheduling and a bounded
-   uncertainty beam until exact public verification appears.
+1. Generate deterministic known-key full-256 BUILD/CAL public instances and run
+   them one at a time through the frozen O1C-0012 branch/prefix contract.
+2. Persist each bounded state before reading its known label; fit only portable
+   per-horizon, proof-motif and ARX-orbit orientation across keys.
+3. Compare single wavelengths, a small regularized unary mixture and an
+   identity-preserving local-interaction arm against swap/output/ancestry controls.
+4. Freeze model bytes, data split, control transforms and all commitments before a
+   broker produces a fresh uniform output-only 256-bit target.
+5. Measure sealed full-key NLL against 256 bits, correct bits/blocks, million-decoy
+   rank and exact public verification once; reveal only after predictions persist.
+6. If signal transfers, spend it on O1-O scheduling, Attic compounding and a bounded
+   uncertainty beam; if not, localize the failed sensor context and iterate upstream.
 
 ## Operating contract
 
