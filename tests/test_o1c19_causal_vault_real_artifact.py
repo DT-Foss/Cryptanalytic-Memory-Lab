@@ -7,12 +7,14 @@ from unittest.mock import patch
 
 import numpy as np
 
+from o1_crypto_lab.full256_action_pool import Full256ActionPool
 from o1_crypto_lab.full256_multiresolution_build_loo import ArtifactBuildEpisode
 from o1_crypto_lab.o1_streaming_core import StreamingSelectiveHolographicCore
 from o1_crypto_lab.o1c19_causal_vault_bridge import (
     FORMAL_VAULT_BYTES,
     FrozenMedianAbsQuantizer,
     NestedActiveCoordinatePlan,
+    PacketDeltaExtraction,
     deterministic_coordinate_permutation,
 )
 from o1_crypto_lab.o1c19_causal_vault_bridge_run import (
@@ -36,6 +38,14 @@ SOURCE_CAPSULE = ROOT / "runs/20260717_152827_O1C-0018_full256-online-real-gate-
 ACTIVE_COORDINATES = 12
 EXPECTED_SLOTS = ACTIVE_COORDINATES * len(HORIZON_ORDER)
 EXPECTED_WORK = 2 * max(HORIZON_ORDER) * ACTIVE_COORDINATES
+
+
+def _flat_incremental_deltas(extraction: PacketDeltaExtraction) -> np.ndarray:
+    return np.fromiter(
+        (delta for group in extraction.groups for delta in group.incremental_deltas),
+        dtype=np.float64,
+        count=EXPECTED_SLOTS,
+    )
 
 
 class O1C19CausalVaultRealArtifactTests(unittest.TestCase):
@@ -109,6 +119,19 @@ class O1C19CausalVaultRealArtifactTests(unittest.TestCase):
                 coordinates,
                 group_salt=COORDINATE_SALT,
             )
+            payload_ablated = _fresh_extraction(
+                fold,
+                controller,
+                Full256ActionPool(
+                    horizons=episode.pool.horizons,
+                    branch_features=np.zeros_like(episode.pool.branch_features),
+                    final_resources=episode.pool.final_resources,
+                    pair_sha256=episode.pool.pair_sha256,
+                    source_stream_sha256=episode.pool.source_stream_sha256,
+                ),
+                coordinates,
+                group_salt=COORDINATE_SALT,
+            )
 
             quantizer = FrozenMedianAbsQuantizer.fit_public_replays(
                 extraction.groups,
@@ -151,14 +174,25 @@ class O1C19CausalVaultRealArtifactTests(unittest.TestCase):
         self.assertEqual(extraction.ordered_horizons, HORIZON_ORDER)
         self.assertEqual(extraction.observed_slots, EXPECTED_SLOTS)
         self.assertEqual(extraction.physical_work_units, EXPECTED_WORK)
-        for replay in (repeated, swapped):
+        for replay in (repeated, swapped, payload_ablated):
             self.assertEqual(replay.observed_slots, EXPECTED_SLOTS)
             self.assertEqual(replay.physical_work_units, EXPECTED_WORK)
         self.assertEqual(
             sum(
-                replay.physical_work_units for replay in (extraction, repeated, swapped)
+                replay.physical_work_units
+                for replay in (extraction, repeated, swapped, payload_ablated)
             ),
-            3 * EXPECTED_WORK,
+            4 * EXPECTED_WORK,
+        )
+        self.assertEqual(
+            payload_ablated.source_stream_sha256, extraction.source_stream_sha256
+        )
+        self.assertEqual(
+            payload_ablated.reader_state_sha256, extraction.reader_state_sha256
+        )
+        self.assertEqual(payload_ablated.active_coordinates, coordinates)
+        self.assertNotEqual(
+            payload_ablated.action_pool_sha256, extraction.action_pool_sha256
         )
         self.assertTrue(
             all(
@@ -173,6 +207,12 @@ class O1C19CausalVaultRealArtifactTests(unittest.TestCase):
                 delta != 0.0
                 for group in extraction.groups
                 for delta in group.incremental_deltas
+            )
+        )
+        self.assertFalse(
+            np.array_equal(
+                _flat_incremental_deltas(extraction),
+                _flat_incremental_deltas(payload_ablated),
             )
         )
 
