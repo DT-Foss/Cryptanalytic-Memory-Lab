@@ -1,10 +1,10 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T21:16:28+02:00.
+Last ranked: 2026-07-17T23:46:49+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Freeze O1C-0020 byte-exact and implement O1C-0021 on the same 352-byte API: weak, contradictory, heteroscedastic 256-coordinate evidence with learned route, confidence, update and decay | State of the art | Very high | Very high | Low | Tests the missing step from explicit retention to a living 256-bit posterior while W52 permits only light work |
+| 1 | Preserve O1C-0021 source freeze `4ba1cc6`; after sibling compute clears, run one committed two-seed broad DEV recheck and then the four never-used formal EVAL seeds exactly once | State of the art | Very high | Very high | Low/Medium | Decides terminal synthetic causal accumulation (b) without consuming the sealed panel during active W52/A539 work |
 | 2 | Keep the ACK-confirmed watcher PID `67247` alive and let it launch frozen O1C-0019 only after W52 terminal/process/RAM/load/hash gates clear | State of the art | Very high | Very high | Medium | Produces the first corrected full-round packet-reader and autonomous-picker gate without disturbing recovery workers |
 | 3 | Classify O1C-0019 raw reader, true-vs-shifted/static/hash IAUC, STOP-vs-no-STOP routing, W2-to-W3 tail and fold stationarity from its immutable future capsule | State of the art | Very high | Very high | Low | Separates sensor, retention, credit, routing and abstention failures in one result |
 | 4 | After O1C-0021 passes, map its frozen event/update contract to paired solver/carry/proof evidence at 12/52/128/256 active coordinates; spend a fresh full-round target only after BUILD-LOO authorization | State of the art | Very high | Very high | Medium/High | Joins the exact retention substrate to attacker-valid causal evidence without a reduced-width recovery detour |
@@ -35,6 +35,10 @@ Last ranked: 2026-07-17T21:16:28+02:00.
 - O1C-0021 persists revealed truth bitplanes as post-freeze raw artifacts so its
   score can be recomputed from capsule bytes alone; this is a lifecycle improvement,
   not authorization to replay O1C-0020.
+- O1C-0021 code/config/tests are clean at `4ba1cc6`; 31 focused tests and three
+  independent read-only audits clear. Its prior broad scratch DEV reached 256/256
+  on both seeds in 134.523 s, but the hardened source recheck and formal four-seed
+  EVAL remain deliberately unstarted while sibling compute is active.
 
 ## Do not spend the next cycle on
 

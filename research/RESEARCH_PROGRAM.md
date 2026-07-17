@@ -35,10 +35,14 @@ every longest-stream exact-recall cell. This establishes learned selective
 retention, not evidence accumulation: accepted synthetic tokens still expose their
 address and value.
 
-There are now two non-conflicting active milestones. O1C-0021 is the light local
-mechanism step: preserve the O1C-0020 API but replace explicit values with weak,
-contradictory and reliability-varying coordinate evidence so update, confidence
-and decay must be learned on unseen 256-bit episodes. O1C-0019 remains the frozen
+There are now two non-conflicting active milestones. O1C-0021 is source-frozen at
+`4ba1cc6`: it preserves the O1C-0020 API but replaces explicit values with weak,
+contradictory and reliability-varying coordinate evidence so temporal reliability
+and bounded accumulation must be learned on unseen 256-bit episodes. Its earlier
+broad scratch DEV run recovered 256/256 on two non-formal seeds in 134.523 seconds
+on one CPU thread; hardened FSM independence, work ledgers and sealed-run lifecycle
+now pass 31 focused tests and three P0/P1 audits. Formal EVAL remains unused.
+O1C-0019 remains the frozen
 real full-round gate at `27cd5b1`: its packet-local incremental reader and reader-
 bound critic are cross-fitted over four immutable BUILD pools. The detached
 read-only watcher waits for W52 terminal/resource/hash gates, then execs exactly
@@ -49,10 +53,12 @@ sibling file is written.
 
 1. Preserve O1C-0020's code, four EVAL seeds, gate and capsule byte-exact. Reuse only
    its public state API, never its frozen evaluation outcomes.
-2. Run O1C-0021 on disjoint synthetic 256-bit episodes. Require positive held-out
+2. After sibling compute clears, rerun O1C-0021 broad DEV from `4ba1cc6`, then run
+   its four never-used EVAL episodes exactly once. Require positive held-out
    compression that compounds with independent evidence, resists correlated
-   repetition and beats shuffled-reliability, direct-sum, no-memory and all-open
-   controls at equal work. Exact 256/256 remains the terminal synthetic gate.
+   repetition and beats zero-prior, last, direct-sum, static/current-marker,
+   shuffled, all-open and independent bounded-FSM controls at exact work. Exact
+   256/256 remains the terminal synthetic gate.
 3. Preserve O1C-0018 and its six pools byte-exact; keep the watcher alive so W52
    release automatically executes the frozen three-checkpoint, four-fold O1C-0019
    config with zero new solver branches, entropy, sibling or GPU work.

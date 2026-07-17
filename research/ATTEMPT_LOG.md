@@ -934,3 +934,35 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   solver/carry/proof events.
 - **Artifact:**
   `runs/20260717_211433_O1C-0020_selective-mqar-256-learned-gate-v1/`.
+
+## 2026-07-17 — O1C-0021 causal-evidence source freeze (non-attempt)
+
+- **Recorded:** 2026-07-17T23:46:49+02:00
+- **Source freeze:** `4ba1cc61c3b786139749c3e57137e3ba7ae6cf74`; five new
+  O1C-0021 files, clean worktree, no formal capsule or EVAL entropy consumed.
+- **Mechanism:** a 352-byte O1 live state receives only public marker/evidence/
+  nuisance events and signed weak votes. BUILD outcomes train temporal reliability;
+  EVAL truth never enters execution. An independent O1-O-targetable FSM owns its
+  256-byte evidence vault, one-byte delayed marker and two uint64 counters for an
+  exact 273-byte live state plus a frozen 64-byte slow table.
+- **Scratch breadcrumb:** the pre-hardening 480-step broad DEV run recovered
+  256/256 on both non-formal seeds in `134.522567` wall seconds on one CPU thread;
+  O1 compression was `255.999999725 / 255.999960508` bits and independent-
+  replacement gains were `98.7501 / 115.1371` bits. This is development evidence,
+  not the formal result and not ChaCha20 inversion.
+- **Hardening:** FSM route/state is independent of O1; complete state bytes and
+  prefix hashes are duplicate-gated; complement, opaque-ID and coordinate
+  equivariance are mandatory. FSM work is exact at `262,144` BUILD outcome
+  lookups, `524,288` CAL table lookups and `1,835,008` EVAL table lookups. Missing
+  or precedence-masked integrity gates now fail the runner.
+- **Verification:** Ruff, pycompile and 31 focused mechanism/runner tests pass.
+  Three independent read-only audits report no remaining P0/P1 blocker. Literal
+  O1-O graph compilation is not claimed until a graph is emitted and replayed.
+- **Resource decision:** sibling W52/A539 work is still active. Per the lab
+  resource contract, the post-hardening broad recheck and one-shot four-seed
+  formal EVAL were not started.
+- **Resume:** when sibling compute clears, rerun the committed two-seed broad DEV
+  check. If unchanged, execute
+  `PYTHONPATH=src python3 -m o1_crypto_lab.causal_evidence_stream_run --config configs/causal_evidence_stream_256_v1.json`
+  exactly once from a clean commit, then publish the capsule and update terminal
+  condition (b).

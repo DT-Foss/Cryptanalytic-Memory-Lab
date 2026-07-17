@@ -488,3 +488,20 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   with multiple weak, contradictory observations whose reliability must be learned
   online. Demand posterior gain over shuffled reliability, correlated-repeat,
   all-open, direct-sum and no-memory controls before consuming real solver events.
+
+## B-0028 — Enumerable causal operators need an independent compiled ceiling
+
+- **Evidence:** O1C-0021's synthetic delayed operator has only `4 x 8 x 2` public
+  regime/family/quality cells. BUILD outcomes can therefore freeze it into a
+  64-byte int8 table. A fully independent deterministic reader needs 256 evidence
+  bytes, one previous-marker byte and two uint64 counters: 273 live bytes.
+- **Boundary:** exact O1 performance on this task would validate autonomous
+  recurrent learning and bounded streaming accumulation, but not prove O1 is
+  necessary or smaller than the compiled operator. The reference owns its route,
+  duplicate suppression, serialization and exact BUILD/CAL/EVAL work ledger.
+- **Do not repeat:** call a conceptually enumerable table an O1-only capability,
+  borrow O1 novelty/routing state for the ceiling, omit its work, or claim literal
+  DT-Foss/O1-O compilation before a graph artifact is emitted and replayed.
+- **Breadcrumb:** formalize both paths. Use O1/O1-O where the real attacker stream
+  has open-ended, compositional solver/carry/proof structure; use the tiny FSM as
+  the O1-O-targetable reference and future graph-emission test.

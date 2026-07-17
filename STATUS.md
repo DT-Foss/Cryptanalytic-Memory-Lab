@@ -1,6 +1,9 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-17T21:16:28+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-17T23:46:49+02:00 (`Europe/Berlin`)
+- **Latest implementation freeze:** `O1C-0021` at `4ba1cc61c3b786139749c3e57137e3ba7ae6cf74`
+  — full-width causal-evidence stream, independent 273-byte public-FSM reference,
+  exact BUILD/CAL/EVAL work ledgers and one-shot formal runner; formal EVAL untouched
 - **Latest completed validation:** `O1C-0020` — exact learned-mask MQAR-256
   retention through `2^20` distractors in a 352-byte live state
 - **Latest execution commit:** `3aefaf7a88aaf425bd52bc1c56614348a024ba1c`
@@ -19,10 +22,10 @@
   352-byte live state and no oracle deployment mask
 - **Strongest read-only mechanism intake:** A447-A449 proof ancestry, A465 cubic
   Product-of-Experts and A469 positive bucket-local correction
-- **Active lab runs:** only the negligible read-only O1C-0019 interlock watcher.
-  The sibling W52 production launcher remains active, so the heavy CPU gate has
-  not started. O1C-0018 BUILD/DEVELOPMENT pools and O1C-0017 formal seeds remain
-  consumed and may not be replayed as fresh evidence
+- **Active lab runs:** no local scientific run. The sibling W52/A539 production
+  work remains active, so neither O1C-0019 nor the O1C-0021 broad/formal gate has
+  started. O1C-0018 BUILD/DEVELOPMENT pools and O1C-0017/O1C-0020 formal seeds
+  remain consumed and may not be replayed as fresh evidence
 - **Strongest completed mechanism attempt:** `O1C-0020` — independently reviewed
   `EXACT_256_LEARNED_GATE_RETENTION` on 4 unseen seeds x 3 stream lengths
 - **Strongest completed full-round online attempt:** `O1C-0018` — public-only
@@ -31,9 +34,10 @@
 - **Last operational attempt:** `O1C-0020` — 9.553 CPU s, 9.915 elapsed s,
   438,747,136 B peak RSS, 945,387 persistent bytes and every scientific/resource
   gate passed
-- **Next attempt:** freeze the O1C-0020 state API and use it in `O1C-0021` for
-  synthetic contradictory causal evidence with learned confidence accumulation;
-  independently, the existing watcher executes frozen `O1C-0019` after W52 clears
+- **Next attempt:** after the sibling resource gate clears, rerun the committed
+  two-seed O1C-0021 broad DEV check, then execute its four never-used EVAL seeds
+  exactly once from a clean commit; independently, the existing watcher executes
+  frozen `O1C-0019` after W52 clears
 - **Primary uncertainty:** whether common-mode-rejected proof/carry innovations can
   acquire portable key orientation when O1 learns its representation and O1-O
   learns its sensing policy rather than receiving a fixed scalar reader
@@ -46,6 +50,18 @@
   full ChaCha20 key
 
 ## Headline
+
+`O1C-0021` is implementation-frozen at `4ba1cc6` without consuming formal EVAL.
+The full-width BUILD/CAL/DEV scratch path previously recovered 256/256 bits on
+both broad DEV seeds in `134.522567` seconds on one CPU thread with a 352-byte O1
+live state. That is synthetic causal accumulation, not ChaCha20 recovery. The
+hardened source now gives the outcome-learned public FSM its own 273-byte state,
+route, delayed marker, duplicate ledger and serialized commitments; bills exactly
+`262,144 / 524,288 / 1,835,008` BUILD/CAL/EVAL FSM lookups; freezes a 64-byte table;
+and enforces complement, duplicate, opaque-ID and coordinate equivariance. Three
+independent read-only audits report no remaining P0/P1 blocker, with 31 focused
+tests green. The broad recheck and sealed four-seed run remain deferred solely to
+respect the active sibling compute/resource contract.
 
 `O1C-0020` completed from clean execution commit `3aefaf7` and is classified
 `EXACT_256_LEARNED_GATE_RETENTION`. A frozen O1 input gate, trained only on 32
@@ -401,15 +417,14 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Sibling W52 (external, read-only) | 24 related processes | 2026-07-17 14:35 | 8 launch shells/caffeinate + 8 A528 + 8 native A526 | at watcher arm: 58,078/16,777,216 cells (0.3462%); all 8 running; 37% memory free | multi-week unless early terminal hit |
+| Sibling W52/A539 (external, read-only) | live production processes | 2026-07-17 | A528/A526 W52 workers plus newer A539 artifact production observed read-only | active at 23:46; no terminal inference from stale PID files; O1C-0021 heavy work deferred | unknown |
 | O1C-0019 interlock | 67247 | 2026-07-17 18:39 | read-only 60 s poll, three-stable-poll release | preflight/lock/log verified; zero sibling writes; heavy gate not started | automatic after W52 and local gates clear |
 
 ## Highest-ROI next actions
 
-1. Preserve O1C-0020 byte-exact and build O1C-0021 as a light synthetic causal-
-   evidence test using the same 352-byte route/vault API; require learned
-   accumulation of contradictory, heteroscedastic observations on unseen 256-bit
-   episodes, not another explicit binding-retention task.
+1. Preserve O1C-0021 source freeze `4ba1cc6`. When sibling compute clears, rerun
+   its committed two-seed broad DEV check and then execute four never-used formal
+   EVAL seeds exactly once; do not modify the frozen config between those steps.
 2. Keep watcher PID `67247` and the frozen O1C-0019 sources alive; inspect only the
    ignored interlock log while W52 runs and never touch its files or processes.
 3. Let the watcher execute the exact four-fold artifact-only capsule at W1/W2/W3
@@ -423,6 +438,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0021` pre-run | 2026-07-17 | A bounded O1 state can autonomously learn delayed reliability and exactly accumulate weak contradictory evidence over 256 coordinates | Source frozen at `4ba1cc6`; prior broad scratch DEV 256/256 on 2/2 seeds in 134.523 s; independent 273-byte FSM and exact work ledgers hardened; 31 focused tests and three audits clear; formal EVAL untouched | `INSTRUMENT` pre-run only | no formal compute/entropy; source work only while sibling production is active | Enumerable operator has a smaller O1-O-targetable FSM ceiling, so the formal result measures autonomous learning/streaming rather than O1 necessity | [Config](configs/causal_evidence_stream_256_v1.json) |
 | `O1C-0020` | 2026-07-17 | A BUILD-trained O1 gate can select all 256 bindings from a unified stream and preserve them exactly through at least `2^20` distractors without an oracle deployment mask | `EXACT_256_LEARNED_GATE_RETENTION`: 12/12 cells at 256/256, TP 256/FP 0/FN 0; nested live state byte-exact; all longest-stream controls fail | `VALIDATION` synthetic retention; terminal (a), no cipher claim | 9.553 CPU s; 9.915 elapsed s; 438,747,136 B peak; 352 B live state | Learned routing plus exact addressed vault closes retention; next test must learn causal evidence accumulation rather than explicit binding storage | [Run capsule](runs/20260717_211433_O1C-0020_selective-mqar-256-learned-gate-v1/RUN.md) |
 | `O1C-0019` pre-run | 2026-07-17 | Incremental packet learning plus reader-bound stationary credit lets O1 discover and autonomously route public full-256 evidence | Implementation frozen; 29 science tests + 5 subtests, 17 interlock tests and real one-fold micro-smoke pass; ACK-confirmed watcher armed; no efficacy execution while W52 is active | `INSTRUMENT` only | smoke 2.559 CPU s; 2.803 wall s; 315,359,232 B peak; watcher negligible; 0 solver branches | Exact no-STOP twin separates routing from abstention; key-lazy discovery closes a lifecycle leak | [Config](configs/full256_multiresolution_build_loo_v1.json) |
 | `O1C-0018` | 2026-07-17 | A reveal-delayed O1 reader can learn attacker-valid full-round paired-proof orientation and a true reward critic can select more information per work | `NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`: raw learned mean -1.284644 bits; W1 true +0.326847/+0.160175 and true beats shifted in all 6 cells, but static wins mean IAUC and hard coverage/hash dominate selection | `TEST` negative full-round gate with autonomous-picker breadcrumb | 545.024 CPU s; 510.875 wall s; 315,703,296 B peak; 3,072 native branches | Remove cumulative-query double integration; packetize horizons; stationary reader-bound credit; all-address preview; soft no-starvation plus STOP | [Run capsule](runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/RUN.md) |
@@ -537,10 +553,10 @@ O1C-0017 result boundary are documented in
 ## Resume here
 
 O1C-0020 is complete and immutable at execution commit `3aefaf7`; do not replay its
-four EVAL seeds or tune the synthetic family cue. Reuse only the public 352-byte
-route/state API. The immediate light-work resume point is O1C-0021: weak,
-contradictory coordinate evidence whose values are not directly presented, with
-learned confidence/update/decay and equal-work causal controls.
+four EVAL seeds or tune the synthetic family cue. O1C-0021 is implementation-frozen
+at `4ba1cc6`; its formal EVAL seeds remain unused. While sibling production is
+active, preserve that clean source and run no broad training. Once clear, rerun
+the committed two-seed broad DEV check, then invoke the formal runner exactly once.
 
 The O1C-0019 science is frozen at `27cd5b1` and its deferred handoff at `4511a06`.
 Do not rebuild, tune or manually duplicate it. Watcher PID `67247` owns
