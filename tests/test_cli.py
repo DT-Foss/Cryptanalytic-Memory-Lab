@@ -3,10 +3,11 @@ from __future__ import annotations
 import argparse
 import io
 import json
+import sys
 import tempfile
 import unittest
 from pathlib import Path
-from types import SimpleNamespace
+from types import ModuleType, SimpleNamespace
 from unittest.mock import patch
 
 from o1_crypto_lab import cli
@@ -22,6 +23,9 @@ FULL256_PAIRED_SENSOR_CONFIG = (
     ROOT / "configs/full256_paired_causal_sensor_v1.json"
 )
 FULL256_MULTIKEY_CONFIG = ROOT / "configs/full256_multikey_causal_calibration_v1.json"
+FULL256_FROZEN_READER_CONFIG = (
+    ROOT / "configs/full256_frozen_reader_replication_v1.json"
+)
 O1C0009_MANIFEST = "f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2"
 
 
@@ -670,6 +674,153 @@ class Full256MultiKeyCalibrationCLILifecycleTests(unittest.TestCase):
         args = cli.build_parser().parse_args(["full256-multikey-calibration"])
         self.assertEqual(args.config, FULL256_MULTIKEY_CONFIG)
         self.assertIs(args.handler, cli._full256_multikey_calibration)
+
+
+class Full256FrozenReaderReplicationCLITests(unittest.TestCase):
+    def test_runner_is_delegated_only_after_capsule_reservation(self):
+        events = []
+        run = _RecordingRun(events)
+
+        class Manager:
+            def __init__(self, root):
+                self.root = root
+
+            def finalized_attempt(self, attempt_id):
+                return None
+
+            def recoverable_attempt_ids(self):
+                return ()
+
+            def start(self, **kwargs):
+                events.append(("start", kwargs["attempt_id"]))
+                return run
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            config_path = root / "configs/full256_frozen_reader_replication_v1.json"
+            config_path.parent.mkdir(parents=True)
+            config_path.write_text("{}\n", encoding="utf-8")
+            native_header = root / "native-dependency/cadical.hpp"
+            native_library = root / "native-dependency/libcadical.a"
+            native_header.parent.mkdir(parents=True)
+            native_header.write_bytes(b"header")
+            native_library.write_bytes(b"library")
+            (root / "native").mkdir()
+            (root / "native/cadical_pair_sensor.cpp").write_text(
+                "// test\n", encoding="utf-8"
+            )
+            (root / "native/cadical_tracer_3_0_0.hpp").write_text(
+                "// test\n", encoding="utf-8"
+            )
+            (root / "src/o1_crypto_lab").mkdir(parents=True)
+            participating = (
+                "chacha_trace.py",
+                "living_inverse.py",
+                "cadical_sensor.py",
+                "causal_bitfield.py",
+                "causal_orientation_reader.py",
+                "full256_broker.py",
+                "full256_cnf.py",
+                "full256_paired_sensor.py",
+                "full256_probe_core.py",
+                "full256_multikey_calibration.py",
+                "full256_frozen_reader_replication.py",
+                "signed_direct_replication.py",
+                "living_inverse_reader_experiment.py",
+                "living_inverse_ridge.py",
+                "living_inverse_corpus.py",
+                "run_capsule.py",
+                "cli.py",
+            )
+            for name in participating:
+                (root / "src/o1_crypto_lab" / name).write_text(
+                    "# test\n", encoding="utf-8"
+                )
+            (root / "pyproject.toml").write_text("[project]\n", encoding="utf-8")
+            (root / "runs").mkdir()
+
+            def digest(path):
+                import hashlib
+
+                return hashlib.sha256(path.read_bytes()).hexdigest()
+
+            replication_config = SimpleNamespace(
+                native=SimpleNamespace(
+                    include_directory=str(native_header.parent),
+                    static_library=str(native_library),
+                    cadical_header_sha256=digest(native_header),
+                    cadical_library_sha256=digest(native_library),
+                ),
+                corpus=SimpleNamespace(sealed_targets=8),
+                controls=SimpleNamespace(transforms=()),
+                probe=SimpleNamespace(sentinel_reruns_per_sweep=0),
+                state_plan=SimpleNamespace(serialized_state_bytes=58_368),
+                budgets=SimpleNamespace(
+                    maximum_persistent_artifact_bytes=1_000_000,
+                ),
+                maximum_live_target_state_bytes=58_368,
+            )
+            top_level = {
+                "attempt_id": "O1C-0014",
+                "slug": "test-frozen-reader",
+                "hypothesis": "test",
+                "prediction": "test",
+                "controls": [],
+                "budgets": {},
+                "source": {},
+                "claim_level": "TEST",
+                "next_action": "preserve",
+            }
+            fake_module = ModuleType("o1_crypto_lab.full256_frozen_reader_replication")
+
+            def load_config(path):
+                events.append(("load", path))
+                return top_level, replication_config
+
+            def fail_replication(*args, **kwargs):
+                events.append(("replication", "raised"))
+                raise RuntimeError("synthetic frozen-reader failure")
+
+            fake_module.load_full256_frozen_reader_replication_config = load_config
+            fake_module.run_full256_frozen_reader_replication = fail_replication
+            with (
+                patch.dict(
+                    sys.modules,
+                    {"o1_crypto_lab.full256_frozen_reader_replication": (fake_module)},
+                ),
+                patch.object(cli, "_lab_root", return_value=root),
+                patch.object(cli, "RunCapsuleManager", Manager),
+                patch.object(cli, "_clean_git_commit", return_value="1" * 40),
+                patch("sys.stderr", new=io.StringIO()),
+            ):
+                code = cli._full256_frozen_reader_replication(
+                    argparse.Namespace(config=config_path)
+                )
+
+        names = [event[0] for event in events]
+        self.assertEqual(code, 1)
+        self.assertLess(names.index("load"), names.index("start"))
+        self.assertLess(names.index("start"), names.index("checkpoint"))
+        self.assertLess(names.index("checkpoint"), names.index("replication"))
+        self.assertIn(
+            (
+                "finalize",
+                "failed",
+                "o1-256-frozen-reader-replication-failure-v1",
+            ),
+            events,
+        )
+
+    def test_parser_exposes_canonical_frozen_reader_command(self):
+        args = cli.build_parser().parse_args(["full256-frozen-reader-replication"])
+        self.assertEqual(args.config, FULL256_FROZEN_READER_CONFIG)
+        self.assertIs(args.handler, cli._full256_frozen_reader_replication)
+
+    def test_help_names_frozen_reader_replication(self):
+        help_text = cli.build_parser().format_help()
+        self.assertIn("full256-frozen-reader-replication", help_text)
+        self.assertIn("replicate the frozen causal reader", help_text)
+        self.assertIn("full-256 targets", help_text)
 
 
 class RecoveryCLILifecycleTests(unittest.TestCase):
