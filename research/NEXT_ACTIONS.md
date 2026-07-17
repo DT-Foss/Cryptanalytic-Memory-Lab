@@ -1,6 +1,6 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T17:29:19+02:00.
+Last ranked: 2026-07-17T17:47:19+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|

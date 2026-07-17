@@ -25,7 +25,7 @@ beat the shifted critic in every checkpoint cell. Forensics localized the blocke
 to cumulative-query double integration, stale credit, hash shortlisting, compulsory
 breadth and forced spending.
 
-The active milestone is O1C-0019, implementation-frozen at `dc249ad`: a
+The active milestone is O1C-0019, implementation-frozen at `27cd5b1`: a
 packet-local incremental/gated O1 reader and reader-bound episode-equal critic are
 cross-fitted over the four immutable BUILD pools. Every affordable address is
 queried; finite starvation replaces compulsory breadth; ACTION/STOP is compared

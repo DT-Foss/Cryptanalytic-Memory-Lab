@@ -804,7 +804,8 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 ## O1C-0019 — Artifact-only BUILD-LOO gate (implementation freeze)
 
 - **Recorded:** 2026-07-17T17:29:19+02:00
-- **Implementation commit:** `dc249add99aa0673fc611fab8b2e75b8ba1434a0`
+- **Implementation commit:** `27cd5b1bde5fe4044bc89b80e8d28711f9933e68`
+  (base runner `dc249ad`; deterministic commitment hardening `27cd5b1`).
 - **State:** runner/config frozen and tested; no run capsule or efficacy result yet.
 - **Source:** four immutable BUILD `.fap` files from O1C-0018, verified through
   manifest `fcbf43c99994c0debe5b39bb3e734ea1d1e23ba58e89b10ff2bb7e23886493fb`
@@ -829,8 +830,14 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   one learning freeze and one prediction freeze, produced policy shape
   `1x5x3x256` and raw shape `1x2x256`, and passed every structural gate with zero
   solver/pool generation. It used `2.558903` CPU s, `2.803259` wall s and
-  `315,359,232` B peak RSS; result SHA
-  `5ca457e1bb46dacdcc6236c4f09699d7464d021a071c273747eab9837f1f7d95`.
+  `315,359,232` B peak RSS. The original full-report SHA included volatile
+  timing/RSS and was therefore retired before execution. Two new Python processes
+  now reproduce scientific result SHA
+  `79648ab86896b3ea5ee1b7acb74983057ff32b9901da18905a46ae073c8f36a8`,
+  learning freeze `1fbddd26a41fbb31d49538bd71b13a93ccc6507171a63eb581596e42cc850a0e`,
+  prediction freeze `5d711b317c9c2315f0046727e3848aa598bf7e260d51905c9a7b99e702ff04e5`
+  and both global slot-ledger hashes byte-exact. Runtime metadata has a separate
+  execution-report SHA.
   Its `BUILD_LOO_NO_TRANSFER` label is a deliberately undertrained wiring-smoke
   outcome, not scientific evidence and not an O1C-0019 execution.
 - **Resource interlock:** sibling W52 is active, with two additional one-core

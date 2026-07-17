@@ -1,11 +1,12 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-17T17:29:19+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-17T17:47:19+02:00 (`Europe/Berlin`)
 - **Prior published baseline:** `dbbe63a` (`O1C-0017` mechanism result)
 - **Latest execution commit:** `f40e71aa8ed80b4653acf44d98e14eabec18a955`
   (`O1C-0018` clean full-round real-gate freeze)
-- **Latest implementation freeze:** `dc249add99aa0673fc611fab8b2e75b8ba1434a0`
-  (`O1C-0019` artifact-only four-fold BUILD-LOO gate; no scientific run yet)
+- **Latest implementation freeze:** `27cd5b1bde5fe4044bc89b80e8d28711f9933e68`
+  (`O1C-0019` artifact-only four-fold BUILD-LOO gate plus deterministic
+  science/execution commitment split; no scientific run yet)
 - **Publication:** the O1C-0018 outcome and deterministic post-reveal forensics are
   recorded below; immutable capsules and sibling repositories remain untouched
 - **Research phase:** O1-256 Living Inverse — paired-assumption solver events into
@@ -43,7 +44,7 @@
 
 ## Headline
 
-`O1C-0019` is implementation-frozen at `dc249ad` but deliberately unexecuted while
+`O1C-0019` is implementation-frozen at `27cd5b1` but deliberately unexecuted while
 the sibling W52 production run remains active. The committed artifact-only runner
 imports exactly four immutable O1C-0018 BUILD pools (`8,336,169` source bytes;
 corpus SHA `d137a931782b19e2cd8fdd44f38a9109d239ba332605c3a512078ca314c1be64`),
@@ -62,7 +63,10 @@ prefix of its no-STOP twin. The current targeted regression is `29 passed` plus
 loader pass. A non-scientific one-fold/three-action real-artifact smoke traversed
 both freeze callbacks and scoring with every structural gate green in `2.559` CPU s,
 `2.803` wall s and `315,359,232` B peak RSS; its deliberately undertrained outcome
-is not efficacy evidence. No O1C-0019 efficacy number exists yet.
+is not efficacy evidence. A subsequent two-process reproduction gives byte-identical
+scientific result `79648ab86896b3ea5ee1b7acb74983057ff32b9901da18905a46ae073c8f36a8`,
+learning freeze, prediction freeze and slot ledgers; volatile timing/RSS now affect
+only a separate execution-report hash. No O1C-0019 efficacy number exists yet.
 
 `O1C-0018` completed from clean execution commit `f40e71a`. It is the first full
 256-bit, standard twenty-round ChaCha20 run of the continuous O1 reader and learned
@@ -347,12 +351,12 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Sibling W52 (external, read-only) | 8 launchers | 2026-07-17 14:35 | A528 W52 protocol-bound workers | active at 17:24; O1C-0019 interlock engaged | unknown |
+| Sibling W52 (external, read-only) | 8 launchers | 2026-07-17 14:35 | A528 W52 protocol-bound workers | active at 17:47; 35% system memory free; O1C-0019 interlock engaged | unknown |
 | O1C-0019 | — | — | frozen config only | implementation/test/micro-smoke complete; scientific run not started | after W52 clears |
 
 ## Highest-ROI next actions
 
-1. Keep commit `dc249ad` and the O1C-0019 config byte-exact; monitor the sibling
+1. Keep commit `27cd5b1` and the O1C-0019 config byte-exact; monitor the sibling
    W52 resource interlock without touching its files or processes.
 2. When W52 clears, execute the committed four-fold artifact-only capsule at
    W1/W2/W3 and change no reader, critic, control or threshold mid-run.
@@ -470,11 +474,11 @@ O1C-0017 result boundary are documented in
 
 ## Resume here
 
-The O1C-0019 implementation is complete and frozen at `dc249ad`; the real-artifact
-micro-smoke is recorded at `305542c`. Do not rebuild or tune it. Recheck the eight
-sibling W52 launchers and memory pressure. While they remain active, perform only light
-tests/microbenchmarks. After they exit, launch the exact committed config from a
-clean tree and preserve the timestamped capsule. DEVELOPMENT stays outside this
-BUILD-LOO decision. Never reuse O1C-0015/16 targets, O1C-0017 formal seeds or
-O1C-0018 DEVELOPMENT targets as fresh evidence. Keep the sibling recovery queue
-read-only, CPU-only and prioritized.
+The O1C-0019 implementation is complete and frozen at `27cd5b1`; the reproducible
+real-artifact smoke supersedes the earlier timing-bound hash. Do not rebuild or
+tune it. Recheck the eight sibling W52 launchers and memory pressure. While they
+remain active, perform only light tests/microbenchmarks. After they exit, launch
+the exact committed config from a clean tree and preserve the timestamped capsule.
+DEVELOPMENT stays outside this BUILD-LOO decision. Never reuse O1C-0015/16 targets,
+O1C-0017 formal seeds or O1C-0018 DEVELOPMENT targets as fresh evidence. Keep the
+sibling recovery queue read-only, CPU-only and prioritized.

@@ -420,3 +420,26 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   provenance checksum before a prediction freeze.
 - **Breadcrumb:** preserve the same key-lazy boundary for the eventual disjoint
   DEVELOPMENT/fresh-target gate and any future O1-O self-improvement loop.
+
+## B-0025 — Scientific hashes cannot bind volatile execution metadata
+
+- **Evidence:** the first O1C-0019 real-artifact micro-smoke hashed CPU time, wall
+  time and peak RSS into its result commitment; it also computed the global
+  checkpoint slot-count ledger inside the margins report and omitted the global
+  slot-order/count blobs from the CLI artifact set.
+- **Result:** identical scientific predictions from separate Python processes had
+  different full-report hashes, and the persisted ledger surface was incomplete.
+- **Fix:** `result_sha256` now excludes only the three volatile resource fields,
+  while `execution_report_sha256` binds the full runtime report. Global
+  `slot_orders.u16le` and `checkpoint_slot_counts.u16le` are persisted, hashed and
+  shape-checked as first-class artifacts.
+- **Verification:** two fresh processes reproduce scientific result
+  `79648ab86896b3ea5ee1b7acb74983057ff32b9901da18905a46ae073c8f36a8`, slot
+  order `9bb43762604807313c0aece1c77c3f8526c0afeaa160097b6f8ab18a08939f5b`
+  and slot count `9c9631aa82c4d9ec3bd1ab9452838123e5d42abd584642d021c7af709e35a1ac`
+  byte-exact while their execution hashes differ as intended.
+- **Do not repeat:** use a full execution-record hash as the cross-machine
+  scientific identity, or publish only per-margin ledgers when the global policy
+  trajectories are the claimed object.
+- **Breadcrumb:** keep deterministic science commitments and volatile execution
+  receipts separate in every future O1/O1-O capsule.
