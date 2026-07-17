@@ -1,6 +1,6 @@
 # O1-256 Living Inverse
 
-Last updated: 2026-07-17T04:05:50+02:00 (`Europe/Berlin`).
+Last updated: 2026-07-17T09:03:05+02:00 (`Europe/Berlin`).
 
 ## Moonshot contract
 
@@ -163,7 +163,11 @@ are a factor-256 domain reduction.  Exact key verification is the terminal signa
    BUILD/two CAL keys, froze h96, then obtained 259/512 bits and `+0.0889215`
    bit/key on two sealed targets; shuffled and three transformed controls were
    negative, but the panel is too small for a stable claim.
-7. `O1C-0014`: reload those exact primary/shuffled reader bytes without fitting or
-   selection and attack eight new sealed keys. Use aggregate/conditional-null NLL,
-   target robustness and frozen-control margins to decide whether to scale the
-   reader or build one residual-driven proof/ARX sensor successor.
+7. `O1C-0014` (completed negative validation): reloaded those exact reader bytes
+   on eight new keys and obtained `+0.233784` bit/key with conditional `z=1.819`,
+   but only `4/8` positive targets, paired `z=0.838`, mixed controls and zero exact
+   keys; the predeclared class is `NOT_REPLICATED`.
+8. `O1C-0015`: freeze exact h96 plus one fixed equal-logit h96+h65 polyphase reader
+   before 32 new target entropy calls. Reuse each solver field across both readers
+   and matched shuffled controls; O1C-0014 selects the next mechanism but never
+   enters its fit. A query-rooted carry/proof cone is the failure pivot.

@@ -276,3 +276,23 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   entropy, then attacks eight new keys. Aggregate NLL below 2,048 bits and a
   positive margin over the shuffled reader are the primary efficacy directions;
   target sign count and per-coordinate consistency diagnose what to build next.
+
+## B-0017 — Positive h96 aggregate is not target-robust replication
+
+- **Evidence:** O1C-0014 reloads the exact O1C-0013 primary/shuffled bytes and
+  attacks eight new sealed output-only full-256 keys without any fit or selection.
+- **Result:** primary compression `+0.233784` bit/key, conditional `z=1.819` and
+  `+1.524765` bit/key over shuffled, but only `4/8` targets are positive, paired
+  `z=0.838`, controls are mixed and no exact key is recovered. The predeclared
+  classification is `NOT_REPLICATED`.
+- **Conclusion:** a weak unary proof-difficulty direction may exist, but h96 alone
+  has not shown target-robust or control-specific transfer. Aggregate evidence must
+  not be renamed replication after its sign/control gates fail.
+- **Do not repeat:** tune h96's sign/temperature/scale on O1C-0014, freeze its 13
+  best-looking 7/8 coordinates, promote the second-half/lane-2/bit-position slices,
+  or retry the coarse ARX24/Motif12 arms that are already negative on this panel.
+- **Breadcrumb:** all three pre-existing unary wavelengths remain aggregate-
+  positive, whereas richer coarse arms reverse. Freeze exactly one equal-logit
+  h96+h65 two-wavelength successor plus exact h96 and matched shuffled controls,
+  then decide both only on 32 fresh targets. If that fails, replace global proof
+  work with a query-rooted carry/proof cone rather than another feature resweep.

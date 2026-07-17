@@ -102,8 +102,10 @@ cipher calls.
 
 Result: mechanism and lifecycle passed. O1C-0013's frozen h96 reader produced
 259/512 bits and `+0.0889215` bit/key on two fresh sealed targets, versus
-`-3.217332` for its shuffled reader. This is a replication seed, not a stable gate
-pass: the two factual targets split negative/positive and no exact key was emitted.
+`-3.217332` for its shuffled reader. O1C-0014's exact-byte validation remains
+aggregate-positive at `+0.233784` bit/key on eight new targets, but is formally
+`NOT_REPLICATED`; only `4/8` targets are positive and controls are mixed. The
+bounded mechanism stands while inverse efficacy remains an active gate.
 
 ## L4 — O1-O adaptive proposal organism
 
@@ -142,17 +144,19 @@ Report:
 After reveal, the challenge may enter the O1/O1-O learning attic.  It cannot alter
 its own result.
 
-Result: O1C-0013 completed this lifecycle for two sealed targets with all 63 capsule
-members verified. Its positive aggregate is explicitly held out of the learning
-attic until the exact frozen reader receives an independent replication panel.
+Result: O1C-0013 completed this lifecycle for two sealed targets. O1C-0014 then
+reloaded the exact reader bytes on eight independent targets with all 124 capsule
+members verified. Its `+0.233784` bit/key aggregate survives, but only `4/8`
+targets are positive, paired `z=0.838`, controls are mixed and the predeclared
+classification is `NOT_REPLICATED`.
 
 ## L6 — Living challenge sequence
 
 Repeat L5 with new sealed random targets. Challenge `n` may teach mechanisms used
-on `n+1`, never itself. The active O1C-0014 step pins O1C-0013's exact primary and
-shuffled reader bytes, then attacks eight new keys without refit, selection or
-rescaling. Promote the result only when entropy removal and control margins
-replicate across target sequences.
+on `n+1`, never itself. O1C-0015 uses O1C-0014 only to select a fixed two-wavelength
+architecture: exact h96 plus `0.5*h96+0.5*h65` logits, all frozen before 32 fresh
+keys. No O1C-0014 label enters fit or inference. Promote the result only when
+entropy removal, target robustness and matched-control margins transfer.
 
 ## L7 — Exact recovery frontier
 

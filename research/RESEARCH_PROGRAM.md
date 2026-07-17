@@ -17,30 +17,29 @@ contamination risk. Green tests and document count are not research outcomes.
 
 O1C-0009/O1C-0010 closed linear full-round end-output regression. O1C-0011/O1C-0012
 then built the exact public-only full-256 relation and complete 512-branch causal
-state. O1C-0013 learned shared orientation from four BUILD and two CAL keys, froze
-an h96 reader, and attacked two fresh sealed output-only keys. It produced the first
-positive prospective seed: 259/512 bits, `+0.0889215` bit/key and a
-`+3.3062538`-bit/key margin over its shuffled reader, with all three transformed
-controls negative. The targets split negative/positive and no key was recovered,
-so the active milestone is O1C-0014: an exact-byte, no-refit replication on eight
-new sealed keys. No W12/W52 residual target is part of the result ladder.
+state. O1C-0013 learned shared h96 orientation and produced a two-key positive seed.
+O1C-0014 reloaded those exact bytes on eight independent keys: `1053/2048` bits,
+`+0.233784` bit/key and conditional `z=1.819`, but only `4/8` positive targets,
+paired `z=0.838`, mixed controls and zero recovery. Its predeclared classification
+is `NOT_REPLICATED`. The active milestone is O1C-0015: exact h96 plus one fixed
+equal-logit h96+h65 two-wavelength reader on 32 new sealed keys. No W12/W52
+residual target is part of the result ladder.
 
 ## Evidence ladder from here
 
-1. Pin O1C-0013's exact primary and shuffled reader binaries plus source-capsule
-   manifest before any O1C-0014 target entropy is requested.
-2. Predeclare eight fresh targets, three anchor controls, aggregate NLL, frozen-
-   shuffled margin, conditional-null z and target-level sign robustness; prohibit
-   BUILD/CAL replay or any reader change.
-3. Run each public relation sequentially through the unchanged h96 branch/prefix
-   contract and persist every state/posterior before the first reveal.
-4. Reveal once, recompute every public block, and report total code length from the
-   exact 2,048-bit random baseline plus bits/blocks, decoy ranks and coordinate map.
-5. If fixed-reader signal transfers, scale the same bytes to a larger blind panel,
-   then spend the replicated posterior on O1-O scheduling, Attic compounding and a
-   bounded verification beam.
-6. If it fails, use the frozen eight-key residuals to choose one new proof-motif or
-   ARX-local sensor family; do not retune h96 on the revealed replication panel.
+1. Preserve O1C-0014 as immutable negative validation and O1C-0013 h96 as the exact
+   primary baseline; reconstruct h65 from O1C-0013 BUILD/CAL only.
+2. Serialize and freeze exactly one fixed
+   `0.5*logit(h96)+0.5*logit(h65)` reader and matched shuffled control before any
+   O1C-0015 entropy. O1C-0014 can choose this architecture but never fit it.
+3. Generate 32 fresh sealed targets and reuse every public 512-branch h96-prefix
+   field for all readers with no extra solver branches.
+4. Persist all predictions before any reveal, then report 8,192-bit total NLL,
+   conditional/paired nulls, target robustness, blocks, decoy ranks and controls.
+5. If the unary direction transfers, compound independent challenge evidence in
+   the surprise-gated Attic and bounded verification beam.
+6. If it fails, implement one query-rooted carry/proof-cone sensor; do not tune
+   weights, coordinates or coarse ARX/motif sums on O1C-0014.
 
 ## Operating contract
 

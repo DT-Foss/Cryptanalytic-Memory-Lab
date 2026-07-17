@@ -37,15 +37,20 @@ The complete attacker contract and architecture are in
 inspected read-only and are summarized in
 [the 2026-07-17 transfer map](research/W52_TRANSFER_20260717.md).
 
-The current immutable result is O1C-0013.  It learned a shared causal orientation
-from four BUILD and two CAL full-256 proof fields, froze and reloaded the reader,
-then attacked two OS-random sealed keys using only public counter/nonce/output.  It
-obtained 259/512 bits and `+0.0889215` bit/key aggregate compression while its
-shuffled-key reader obtained `-3.217332` bit/key; all three output/nonce controls
-were negative.  This is the first positive prospective breadcrumb, not a recovery
-or SOTA claim: the two target compressions split negative/positive and zero exact
-keys were emitted.  O1C-0014 therefore reuses the exact reader bytes without any
-refit or rescaling on eight new sealed keys.
+The current immutable result is O1C-0014. It reloaded O1C-0013's exact h96 reader
+bytes without refit or rescaling and attacked eight new OS-random sealed keys using
+only public counter/nonce/output. It obtained `1053/2048` bits and `+0.233784`
+bit/key aggregate compression (`z=1.819`) while its shuffled reader obtained
+`-1.290981` bit/key. The preregistered result is nevertheless `NOT_REPLICATED`:
+only `4/8` targets were positive, the paired control comparison was `z=0.838`, the
+three public-evidence controls were mixed, and no exact key was emitted.
+
+That negative classification is retained together with its mechanism breadcrumb.
+All three pre-existing unary proof horizons remain aggregate-positive, while the
+richer coarse ARX24/Motif12 readers turn negative. O1C-0015 therefore freezes the
+exact h96 primary plus one equal-logit h96+h65 two-wavelength reader and attacks 32
+entirely new full-256 targets. O1C-0014 informs that next challenge but never enters
+its reader fit or its own claim.
 
 ## What the first benchmark proves
 

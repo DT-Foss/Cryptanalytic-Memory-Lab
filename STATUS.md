@@ -1,9 +1,9 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-17T08:03:43+02:00 (`Europe/Berlin`)
-- **Reader implementation commit:** `a99206baabeb4ae21cf07f909186db9f25354d6e`
-- **Worktree:** O1C-0013 capsule finalized and verified 63/63; O1C-0014 frozen-
-  reader independent replication next; O1C-0009 through O1C-0013 immutable
+- **Last updated:** 2026-07-17T09:03:05+02:00 (`Europe/Berlin`)
+- **Reader implementation commit:** `527d5c273403f07e03241243a38e0b5375c4d745`
+- **Worktree:** O1C-0014 capsule finalized and verified 124/124; O1C-0009
+  through O1C-0014 immutable; O1C-0015 sensor successor design active
 - **Research phase:** O1-256 Living Inverse — paired-assumption solver events into
   coordinate-bound unary-plus-interaction O1 state
 - **Strongest internal mechanism:** O1C-0013 turns each complete 512-branch public
@@ -12,23 +12,56 @@
 - **Strongest read-only mechanism intake:** A447-A449 proof ancestry, A465 cubic
   Product-of-Experts and A469 positive bucket-local correction
 - **Active runs:** none
-- **Last completed attempt:** `O1C-0013` — frozen multi-key causal-orientation reader
-  attacked two fresh sealed full-round output-only keys; all lifecycle/resource
-  gates passed and aggregate compression was positive but tiny
-- **Next attempt:** `O1C-0014` — reload the exact O1C-0013 reader bytes without
-  fitting or selection and attack eight new independently sealed 256-bit keys
-- **Primary uncertainty:** whether O1C-0013's `+0.088922` bit/key survives an
-  independent multi-key panel, rather than reflecting its two-key CAL/test scale
-- **SOTA status:** first prospective positive full-256 causal-reader breadcrumb,
-  not yet a SOTA claim: 259/512 bits, `+0.088922` bit/key and a `+3.306254`-bit/key
-  margin over the shuffled-key reader on only two sealed keys
+- **Last completed attempt:** `O1C-0014` — exact-byte, zero-refit h96 validation on
+  eight new sealed full-round output-only keys
+- **Next attempt:** `O1C-0015` — retain exact h96 as primary and freeze one equal-
+  logit h96+h65 two-wavelength ensemble on 32 new sealed full-256 keys
+- **Primary uncertainty:** whether the positive unary proof-difficulty aggregate is
+  a portable causal channel despite target heterogeneity and failed specificity
+- **SOTA status:** no SOTA claim and no recovery. O1C-0014 gives a positive
+  `+0.233784`-bit/key aggregate (`z=1.819`) but is preregistered `NOT_REPLICATED`
+  because only 4/8 targets are positive, paired `z=0.838` and controls are mixed
 - **SOTA target:** a stream-length-bounded living inverse that reduces the 256-bit
   key code length on sealed uniform targets and ultimately emits an exactly verified
   full ChaCha20 key
 
 ## Headline
 
-`O1C-0013` is the first complete learned full-256 causal-reader experiment.  Four
+`O1C-0014` reloaded O1C-0013's exact primary reader
+`796e79ec932b990a59ecbc34216c4878b9279bae3bb136fe0832e580bcb2e9f8`
+and shuffled reader without fitting, reselection, sign, temperature or scale
+changes. The protocol and reader bytes were persisted before exactly eight fresh
+OS-random key calls; all eight factual predictions and three controls were
+persisted before any reveal. Every target was standard twenty-round ChaCha20 with
+all 256 key bits unknown and only public counter, nonce and output at inference.
+
+The primary reader obtained `1053/2048` bits and NLL `255.766215857` bit/key,
+equivalent to `+0.233784143` bit/key compression. The exact conditional-uniform
+reference gives `z=1.819365` (`p≈0.034428`), every leave-one-target-out mean remains
+positive, and the primary beats the shuffled reader by `+1.524765187` bit/key.
+However only `4/8` targets are individually positive, the paired reader-control
+comparison is only `z=0.838026`, and wrong-nonce/byte-rotate controls are positive.
+The predeclared classification is therefore `NOT_REPLICATED`, not a stable signal
+or SOTA result. There are zero exact keys; the best million-decoy rank is `10,875`.
+
+Post-reveal mechanism diagnostics do not alter that verdict. All three already-
+existing unary horizons are aggregate-positive (`h64 +0.139097`, `h96 +0.233784`,
+`h65 +0.188340` bit/key), while the richer ARX24 and ARX24+Motif12 arms are
+negative (`-0.374410` and `-0.355199`). This localizes the current breadcrumb to
+  paired proof difficulty across wavelengths and rejects the present coarse ARX/
+  motif aggregation as the next blind primary. A fixed h96+h65 equal-logit
+  ensemble gives an exploratory `+0.229` bit/key, `1066/2048` bits, `6/8` positive
+  targets and conditional `z=2.107`; O1C-0015 must test it only on fresh targets.
+
+The O1C-0014 capsule verifies 124/124 members. It used `306.194798` billed CPU
+seconds, `245.756482` wall seconds, `5,632` native branches, `302.578125` MiB peak
+RSS and `2,947,408` persistent bytes. Sibling reads/writes, MPS and GPU calls are
+zero. Capsule manifest:
+`741718cbc6b63de24f4d9c89cd2aedc8e9779a0ebb38adc4d40666e97ce24bcf`;
+internal result:
+`ecc06b011a95f6ceeec08641b68e1105511cf714cc250f9fe3b62e66c2af4c4a`.
+
+`O1C-0013` was the first complete learned full-256 causal-reader experiment. Four
 deterministic BUILD keys and two disjoint CAL keys each generated the unchanged
 O1C-0012 paired public-CNF field.  Labels were unavailable until each public state
 was frozen.  BUILD fitted only shared signed orientation; CAL selected one of the
@@ -151,7 +184,9 @@ repeating the unary decoder on another narrow target.
 The full design and exact attacker boundary are in
 [`docs/O1_256_LIVING_INVERSE.md`](docs/O1_256_LIVING_INVERSE.md); the measured W52
 transfer map is in
-[`research/W52_TRANSFER_20260717.md`](research/W52_TRANSFER_20260717.md).
+[`research/W52_TRANSFER_20260717.md`](research/W52_TRANSFER_20260717.md), and the
+O1C-0014 arm/coordinate audit is in
+[`research/O1C0014_POST_REVEAL_FORENSICS_20260717.md`](research/O1C0014_POST_REVEAL_FORENSICS_20260717.md).
 
 ## Active process table
 
@@ -161,20 +196,20 @@ transfer map is in
 
 ## Highest-ROI next actions
 
-1. `O1C-0014`: copy and hash-pin O1C-0013's exact primary and shuffled reader
-   binaries before any new entropy; prohibit fitting, arm selection and rescaling.
-2. Generate eight new sealed uniform full-256 keys, run the unchanged public-only
-   h96 probe field sequentially, and persist every prediction before any reveal.
-3. Replicate the three anchor transforms under the same reader, then compare total
-   NLL, target sign count, shuffled margin, per-coordinate transfer and decoy ranks.
-4. If the fixed reader fails, use the eight-key residual map to choose one new
-   proof-motif/ARX sensor family; if it holds, scale the same bytes to a larger
-   blind panel before adding Attic compounding or a verification beam.
+1. `O1C-0015`: preserve exact h96 as the primary no-refit reader and freeze exactly
+   one new equal-logit h96+h65 ensemble reconstructed from O1C-0013 BUILD/CAL only.
+2. Attack 32 new sealed uniform full-256 output-only keys; each 512-branch sweep is
+   reused for both readers and matched shuffled ensembles with no extra solver work.
+3. Predeclare aggregate NLL, conditional null, paired control margins, target sign
+   robustness, decoy ranks and all predictions-before-any-reveal lifecycle gates.
+4. If the unary channel fails, build the already designed assumption-rooted h96
+   query/carry cone; if it holds, compound it in the Attic and bounded beam.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0014` | 2026-07-17 | O1C-0013's exact h96 bytes remove code length on eight new full-256 output-only keys without refit | `NOT_REPLICATED`: 1053/2048 bits, +0.233784 bit/key, conditional z 1.819, +1.524765 over shuffled, but 4/8 positive, paired z 0.838, controls mixed, 0 exact keys | `VALIDATION` negative with positive aggregate breadcrumb | 306.195 CPU s; 245.756 wall s; 302.578 MiB peak; zero sibling/GPU work | Unary h64/h96/h65 remain positive, coarse ARX/Motif arms turn negative; freeze h96+h65 once on 32 new keys | [Run capsule](runs/20260717_084847_O1C-0014_full256-frozen-reader-blind-replication-v1/RUN.md) |
 | `O1C-0013` | 2026-07-17 | BUILD/CAL full-256 paired-proof fields can learn a target-independent causal orientation that lowers sealed output-only key NLL | First positive blind breadcrumb: 259/512 bits, +0.088922 bit/key, +3.306254 bit/key over shuffled; controls all negative; 0 exact keys | `TEST` prospective signal; replication required | 392.188 CPU s; 314.384 wall s; 321.906 MiB conservative peak; zero sibling/GPU work | Two targets split -0.186702/+0.364545; freeze the exact reader and replicate on eight new keys without refit | [Run capsule](runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1/RUN.md) |
 | `O1C-0012` | 2026-07-17 | All 512 opposite assumptions can emit complete closed proof prefixes into a bounded full-256 O1 causal state | Mechanism passed: 256 bits, 1,536 frontiers, 17,408 B state; known-key diagnostic negative at 119/256 and -86.780 bit compression | `TEST` mechanism; no inverse claim | 58.032 CPU s; 49.199 wall s; 317.281 MiB conservative group peak; zero sibling/GPU work | The W52 `(7,1,4)` orientation is not portable; horizon 96 alone gives 139/256 on one key and must be tested cross-key | [Run capsule](runs/20260717_065248_O1C-0012_full256-paired-causal-sensor-v1/RUN.md) |
 | `O1C-0011` | 2026-07-17 | A complete target-independent full-256 ChaCha20 CNF can expose exact coordinate-bound paired-assumption relations under bounded resources | Passed: 32,128 vars, 187,370 template clauses, 656 operators x 32 bit ranges; public instance has 640 public/0 key units; SAT/UNSAT/SAT self-tests | `VALIDATION` infrastructure | 8.692 CPU s; 163.594 MiB outcome peak; 25.415 MB workspace; zero sibling/GPU work | Full-width causal substrate is valid; stream paired solver deltas into O1C-0012 | [Run capsule](runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/RUN.md) |
@@ -193,6 +228,12 @@ transfer map is in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0014` capsule manifest | `741718cbc6b63de24f4d9c89cd2aedc8e9779a0ebb38adc4d40666e97ce24bcf` |
+| `O1C-0014` internal result commitment | `ecc06b011a95f6ceeec08641b68e1105511cf714cc250f9fe3b62e66c2af4c4a` |
+| `O1C-0014` evaluation commitment | `69a3142f56b08f60890b4849ab9d71d4a68aecb4ad5db3a0f24b304cf041b6ef` |
+| `O1C-0014` protocol freeze | `3664e586a30daa758f719bb918e64938690cf5aa47daaf6aa3a027720ca9c2b9` |
+| `O1C-0014` prediction set | `5b5912420948fef68b4be4a4fb171c5927286e0c9e6acfb9d1c0f48d3302a683` |
+| `O1C-0014` coordinate stability | `6fc66caf0ff3e26938e25f4e6cde15b2a58943c10dbd1cb482f32b06223d3364` |
 | `O1C-0013` capsule manifest | `a0d4df5c01f7de3c65a429f9589e46d784f802bc1f8e0aa90dffb011be46922c` |
 | `O1C-0013` internal result commitment | `a70610d3d589e97048c6045747c0821e5669c5dc89e420df79b0fca43476d4cd` |
 | `O1C-0013` sealed evaluation | `11d3cdfffb6cb078f7d8a54e56ff827d3c9a4237df32632274c2176e7e5efa38` |
@@ -249,11 +290,12 @@ transfer map is in
 
 ## Resume here
 
-Start from `O1C-0014`: treat O1C-0013 reader SHA-256
+Start from `O1C-0015`. Preserve O1C-0014 as immutable `NOT_REPLICATED` evidence
+and treat O1C-0013 reader SHA-256
 `796e79ec932b990a59ecbc34216c4878b9279bae3bb136fe0832e580bcb2e9f8`
-and its shuffled binary as immutable external model inputs.  Freeze their source
-capsule and the eight-target replication protocol before the first entropy call.
-No BUILD/CAL replay, hyperparameter selection, sign change or temperature change
-is allowed.  Attack eight fresh output-only targets, persist all posteriors, reveal
-once, and decide transfer from aggregate NLL plus the frozen shuffled margin. Keep
-the sibling recovery queue read-only and prioritized.
+as the immutable baseline. Do not promote or retune h64/h65/ARX24 using O1C-0014.
+Reconstruct h65 from O1C-0013 BUILD/CAL only, freeze exactly
+`0.5*logit(h96)+0.5*logit(h65)` plus matched shuffled bytes before new entropy,
+and attack 32 fresh sealed output-only keys. O1C-0014 may justify this next-step
+choice but must never enter its fit. Keep the sibling recovery queue read-only,
+CPU-only and prioritized.

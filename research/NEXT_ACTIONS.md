@@ -1,15 +1,15 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T08:03:43+02:00.
+Last ranked: 2026-07-17T09:03:05+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | `O1C-0014`: pin and reload the exact O1C-0013 primary/shuffled reader bytes, then attack eight new sealed output-only full-256 keys with no fit or selection | State of the art | Very high | Very high | Medium | Distinguishes portable causal entropy removal from the two-target seed |
-| 2 | Predeclare total 2,048-bit NLL, conditional-uniform null z, target sign count and primary-minus-shuffled margin; persist all eight predictions before reveal | State of the art | Very high | Very high | Low | Prevents the replication from turning into another target-conditioned sweep |
-| 3 | Reuse output-bit flip, wrong nonce and byte rotation on one anchor under the unchanged reader and exact work accounting | High | High | High | Medium | Tests whether factual public evidence remains directionally distinct on the replication panel |
-| 4 | If O1C-0014 holds, scale the identical bytes to a larger blind panel before adding Attic memory, interaction capacity or a beam | State of the art | Very high | Very high | Medium | Converts a directional seed into a stable full-256 frontier claim |
-| 5 | If O1C-0014 fails, rank frozen target/coordinate residuals by proof motif, horizon and ARX orbit and build exactly one new causal sensor family | State of the art | High | Very high | Medium | Turns the negative into a mechanistically targeted successor without retuning h96 |
-| 6 | Add surprise-driven Attic compounding and O1-O scheduling only after a fixed causal reader removes reproducible entropy under matched CPU work | High | Medium | High | High | Makes long-run learning amplify an observed channel instead of storing noise |
+| 1 | `O1C-0015`: reconstruct the pre-existing h65 BUILD reader, freeze exact h96 plus one fixed equal-logit h96+h65 ensemble, and attack 32 new sealed output-only full-256 keys | State of the art | Very high | Very high | Medium | Decides the positive unary aggregate with four-times the independent target panel and no O1C-0014 fit |
+| 2 | Reuse every 512-branch sweep for h96, h65, ensemble and matched shuffled readers; persist all 32 prediction sets before any reveal | State of the art | Very high | Very high | Low | Separates a real two-wavelength channel from post-reveal ensemble selection |
+| 3 | Predeclare ensemble/h96 NLL, conditional and paired nulls, target sign count, decoy rank and the same three anchor transforms | State of the art | Very high | High | Low | Tests entropy, robustness and public-evidence specificity together |
+| 4 | If O1C-0015 fails, implement the designed H96 query-rooted carry/proof cone while keeping exact h96 as baseline | State of the art | High | Very high | Medium | Removes global solver-work noise using actual assumption-key/carry ancestry |
+| 5 | If O1C-0015 holds, compound independent challenge posteriors in the surprise-gated Attic and spend them on a bounded exact-verification beam | State of the art | Very high | Very high | High | Converts reproducible entropy removal into search-domain reduction |
+| 6 | Keep coarse ARX24/Motif12 and coordinate masks as negative sentinels, not new primaries | Medium | Medium | High | Low | Prevents spending fresh keys on a feature family already reversed on O1C-0014 |
 
 ## Hard target contract
 
@@ -46,6 +46,10 @@ Last ranked: 2026-07-17T08:03:43+02:00.
   transferable signal before cross-key calibration;
 - refitting or rescaling O1C-0013's reader on either revealed sealed key, replaying
   BUILD/CAL selection inside O1C-0014, or treating two-key compression as SOTA;
+- renaming O1C-0014's positive aggregate a replication, tuning h96 on its eight
+  reveals, or freezing its best-looking coordinates/half-key/lane/bit slices;
+- spending another blind panel on the pre-existing ARX24 or ARX24+Motif12 arms,
+  which are post-reveal negative while all unary wavelengths remain positive;
 - inventing proof events at exact conflict cutoffs, including billed overshoot in
   the evidence prefix, or discarding the complete sensor because its first fixed
   readout is negative.

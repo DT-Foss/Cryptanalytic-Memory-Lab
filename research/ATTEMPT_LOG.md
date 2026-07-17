@@ -510,3 +510,54 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifact:**
   `runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1/`; manifest
   `a0d4df5c01f7de3c65a429f9589e46d784f802bc1f8e0aa90dffb011be46922c`.
+
+## O1C-0014 — Exact frozen-reader blind replication
+
+- **Recorded:** 2026-07-17T08:48:47+02:00
+- **Source commit:** `527d5c273403f07e03241243a38e0b5375c4d745`
+- **Claim level:** `VALIDATION` negative; positive aggregate breadcrumb retained
+- **Hypothesis:** the exact O1C-0013 h96 reader removes reproducible code length
+  from eight independent standard twenty-round ChaCha20 keys with all 256 bits
+  unknown and only public counter, nonce and output visible.
+- **Lifecycle:** source capsule and both reader binaries were hash-pinned; primary
+  and shuffled readers reserialized byte-identically. Protocol artifacts were
+  persisted before exactly eight `os.urandom` key calls. All eight factual and all
+  three control predictions were persisted before the first reveal. Reader fits,
+  selections and hyperparameter changes were zero.
+- **Sealed result:** primary `1053/2048` bits, NLL `255.7662158570` bit/key and
+  compression `+0.2337841430` bit/key. Conditional-uniform reference `z=1.819365`
+  (`p≈0.034428`). Shuffled compression `-1.2909810442`; primary margin
+  `+1.5247651872` bit/key, paired `z=0.838026`.
+- **Robustness:** target compressions are `-0.182409`, `+0.502634`, `+0.827483`,
+  `-0.145782`, `+0.237792`, `-0.173504`, `-0.307404`, `+1.111464`; only `4/8`
+  are positive. Every leave-one-out aggregate remains positive, minimum
+  `+0.108401`, but the preregistered 5/8 directional and 7/8 strong gates fail.
+- **Controls and recovery:** output-bit-flip `-0.212425`, wrong nonce `+0.045371`,
+  byte rotation `+0.010570`; specificity fails. Zero exact keys, one exact byte of
+  256, zero exact 16-bit blocks; million-decoy ranks span `10,875..644,297`.
+- **Decision:** `NOT_REPLICATED`. Aggregate-positive and primary-over-shuffled
+  gates pass; target sign, paired-z and control-specificity gates do not. No stable
+  keybit, recovery or SOTA claim is made.
+- **Post-reveal breadcrumb:** every O1C-0013 BUILD-fitted candidate was reconstructed
+  without using O1C-0014 for fit. h64/h96/h65 remain positive at `+0.139097`,
+  `+0.233784`, `+0.188340` bit/key, while ARX24 and ARX24+Motif12 are `-0.374410`
+  and `-0.355199`. A fixed equal-logit h96+h65 diagnostic gives `+0.229` bit/key,
+  `1066/2048`, `6/8` positive and `z=2.107`; this selects only the O1C-0015
+  architecture and is not an O1C-0014 claim.
+- **Resources:** `306.194798` billed CPU seconds, `245.756482` wall seconds,
+  `5,632` native branches, `302.578125` MiB peak RSS and `2,947,408` persistent
+  bytes; zero sibling reads/writes, MPS or GPU calls.
+- **Verification:** capsule 124/124; result
+  `ecc06b011a95f6ceeec08641b68e1105511cf714cc250f9fe3b62e66c2af4c4a`;
+  evaluation
+  `69a3142f56b08f60890b4849ab9d71d4a68aecb4ad5db3a0f24b304cf041b6ef`;
+  prediction set
+  `5b5912420948fef68b4be4a4fb171c5927286e0c9e6acfb9d1c0f48d3302a683`.
+- **Next action:** O1C-0015 freezes exact h96 plus one fixed equal-logit h96+h65
+  ensemble and attacks 32 new sealed keys. O1C-0014 may choose that successor but
+  never enters its fit or result. Query-rooted carry cones remain the mechanism
+  fallback if the unary channel fails.
+- **Artifact:**
+  `runs/20260717_084847_O1C-0014_full256-frozen-reader-blind-replication-v1/`;
+  manifest
+  `741718cbc6b63de24f4d9c89cd2aedc8e9779a0ebb38adc4d40666e97ce24bcf`.
