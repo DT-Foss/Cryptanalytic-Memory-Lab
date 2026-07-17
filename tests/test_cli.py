@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import io
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -20,6 +21,7 @@ FULL256_CNF_CONFIG = ROOT / "configs/full256_cnf_foundation_v1.json"
 FULL256_PAIRED_SENSOR_CONFIG = (
     ROOT / "configs/full256_paired_causal_sensor_v1.json"
 )
+FULL256_MULTIKEY_CONFIG = ROOT / "configs/full256_multikey_causal_calibration_v1.json"
 O1C0009_MANIFEST = "f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2"
 
 
@@ -510,6 +512,164 @@ class Full256PairedSensorCLILifecycleTests(unittest.TestCase):
         args = cli.build_parser().parse_args(["full256-paired-sensor"])
         self.assertEqual(args.config, FULL256_PAIRED_SENSOR_CONFIG)
         self.assertIs(args.handler, cli._full256_paired_sensor)
+
+
+class Full256MultiKeyCalibrationCLILifecycleTests(unittest.TestCase):
+    def test_attempt_is_reserved_before_multikey_calibration_failure(self):
+        events = []
+        run = _RecordingRun(events)
+
+        class Manager:
+            def __init__(self, root):
+                self.root = root
+
+            def finalized_attempt(self, attempt_id):
+                return None
+
+            def recoverable_attempt_ids(self):
+                return ()
+
+            def start(self, **kwargs):
+                events.append(("start", kwargs["attempt_id"]))
+                return run
+
+        def fail_calibration(*args, **kwargs):
+            events.append(("multikey_calibration", "raised"))
+            raise RuntimeError("synthetic multi-key calibration failure")
+
+        with (
+            patch.object(cli, "RunCapsuleManager", Manager),
+            patch.object(cli, "_clean_git_commit", return_value="1" * 40),
+            patch.object(
+                cli,
+                "run_full256_multikey_calibration",
+                side_effect=fail_calibration,
+            ),
+            patch("sys.stderr", new=io.StringIO()),
+        ):
+            code = cli._full256_multikey_calibration(
+                argparse.Namespace(config=FULL256_MULTIKEY_CONFIG)
+            )
+
+        names = [event[0] for event in events]
+        self.assertEqual(code, 1)
+        self.assertLess(names.index("start"), names.index("checkpoint"))
+        self.assertLess(names.index("checkpoint"), names.index("multikey_calibration"))
+        self.assertIn(
+            (
+                "finalize",
+                "failed",
+                "o1-256-multikey-causal-calibration-failure-v1",
+            ),
+            events,
+        )
+
+    def test_freezes_are_persisted_before_entropy_and_reveal(self):
+        events = []
+        with tempfile.TemporaryDirectory() as temporary:
+
+            class PersistentRecordingRun(_RecordingRun):
+                def write_artifact(self, relative, payload):
+                    events.append(("artifact", relative))
+                    path = Path(temporary) / relative
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_bytes(payload)
+                    return path
+
+            run = PersistentRecordingRun(events)
+
+            class Manager:
+                def __init__(self, root):
+                    self.root = root
+
+                def finalized_attempt(self, attempt_id):
+                    return None
+
+                def recoverable_attempt_ids(self):
+                    return ()
+
+                def start(self, **kwargs):
+                    events.append(("start", kwargs["attempt_id"]))
+                    return run
+
+            def fail_after_freezes(*args, **kwargs):
+                reader_document = {
+                    "phase": "READER_FROZEN_BEFORE_SEALED_TARGET_ENTROPY",
+                    "fresh_target_entropy_calls": 0,
+                    "reader_freeze_sha256": "2" * 64,
+                    "selected_arm": "u3",
+                    "selected_logit_scale": 0.25,
+                    "artifacts": {},
+                }
+                kwargs["on_reader_frozen"](
+                    {
+                        "reader_freeze.json": json.dumps(
+                            reader_document, sort_keys=True
+                        ).encode("utf-8")
+                    },
+                    reader_document,
+                )
+                events.append(("entropy", "first-sealed-target"))
+                prediction_document = {
+                    "phase": "ALL_PREDICTIONS_FROZEN_BEFORE_ANY_REVEAL",
+                    "reader_freeze_sha256": "2" * 64,
+                    "prediction_set_sha256": "3" * 64,
+                    "sealed_targets": [
+                        {"target_id": "sealed-0"},
+                        {"target_id": "sealed-1"},
+                    ],
+                    "artifacts": {},
+                }
+                kwargs["on_predictions_frozen"](
+                    {
+                        "prediction_set_freeze.json": json.dumps(
+                            prediction_document, sort_keys=True
+                        ).encode("utf-8")
+                    },
+                    prediction_document,
+                )
+                events.append(("reveal", "first-sealed-target"))
+                raise RuntimeError("stop after lifecycle probe")
+
+            with (
+                patch.object(cli, "RunCapsuleManager", Manager),
+                patch.object(cli, "_clean_git_commit", return_value="2" * 40),
+                patch.object(
+                    cli,
+                    "run_full256_multikey_calibration",
+                    side_effect=fail_after_freezes,
+                ),
+                patch("sys.stderr", new=io.StringIO()),
+            ):
+                code = cli._full256_multikey_calibration(
+                    argparse.Namespace(config=FULL256_MULTIKEY_CONFIG)
+                )
+
+        self.assertEqual(code, 1)
+        reader_checkpoint = events.index(
+            (
+                "checkpoint",
+                "READER_ARTIFACT_SET_PERSISTED_BEFORE_FRESH_ENTROPY",
+            )
+        )
+        prediction_checkpoint = events.index(
+            (
+                "checkpoint",
+                "ALL_PREDICTION_ARTIFACTS_PERSISTED_BEFORE_ANY_REVEAL",
+            )
+        )
+        self.assertLess(
+            reader_checkpoint, events.index(("entropy", "first-sealed-target"))
+        )
+        self.assertLess(
+            prediction_checkpoint,
+            events.index(("reveal", "first-sealed-target")),
+        )
+
+    def test_parser_exposes_canonical_multikey_command(self):
+        args = cli.build_parser().parse_args(["full256-multikey-calibration"])
+        self.assertEqual(args.config, FULL256_MULTIKEY_CONFIG)
+        self.assertIs(args.handler, cli._full256_multikey_calibration)
 
 
 class RecoveryCLILifecycleTests(unittest.TestCase):

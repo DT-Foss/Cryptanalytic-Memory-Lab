@@ -1,0 +1,98 @@
+{
+  "schema": "o1-256-multikey-causal-calibration-config-v1",
+  "attempt_id": "O1C-0013",
+  "slug": "full256-multikey-causal-calibration-v1",
+  "claim_level": "TEST",
+  "hypothesis": "A reader fitted only after bounded public-CNF paired-causal states have frozen on four deterministic full-256 BUILD keys, and selected only on two disjoint deterministic CALIBRATION keys, can orient coordinate-bound unary, ARX-neighbor and causal-motif evidence before any fresh target entropy and transfer that orientation to two broker-sealed standard twenty-round ChaCha20 targets with all 256 key bits unknown.",
+  "prediction": "Every public target will execute the same 512 paired key-assumption branches and serialize the same 17,408-byte causal-state contract; one of six predeclared feature arms, ridge regularizers, temperatures and shrinkages including an exact zero-information fallback will be frozen from BUILD/CALIBRATION only; all sealed scores and controls will persist before any reveal; the run will report full-key NLL, compression from the exact 256-bit baseline, bit accuracy, byte and 16-bit-block accuracy, exact verification and rank among one million decoys without requiring a positive cryptanalytic result for lifecycle success.",
+  "controls": [
+    "immutable O1C-0011 template, semantic map, manifest and native dependency hashes are verified before and after execution",
+    "BUILD and CALIBRATION labels are inaccessible until each public-only bounded causal state is frozen",
+    "reader candidates are fitted on four BUILD keys and selected on two disjoint CALIBRATION keys only",
+    "the exact logit-scale zero fallback is present and wins deterministic ties",
+    "a shuffled-key reader is fitted and frozen through the identical lifecycle",
+    "the reader artifact set is persisted before the first sealed-target entropy call",
+    "the complete sealed prediction set is persisted before any broker reveal",
+    "assumption-swap scores negate and probabilities complement exactly",
+    "output-bit-flip, wrong-nonce and output-byte-rotate controls run only after positive CALIBRATION compression",
+    "no target key or internal-round state enters the sensor or reader before reveal",
+    "no sibling reads or writes and no MPS or GPU calls"
+  ],
+  "budgets": {
+    "maximum_cpu_seconds": 1200,
+    "maximum_wall_seconds": 1200,
+    "maximum_resident_memory_mib": 384,
+    "maximum_persistent_artifact_bytes": 12000000,
+    "maximum_native_solver_branches": 5632,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_fresh_random_targets": 2
+  },
+  "next_action": "If sealed compression is positive, preserve this reader freeze and replicate it on a larger never-before-seen sealed panel; otherwise retain the arm-level and control breadcrumbs, expand the public causal feature family or BUILD/CALIBRATION corpus under O1C-0014, and keep the all-256-bit standard output-only attacker contract unchanged.",
+  "source": {
+    "capsule": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1",
+    "manifest_sha256": "b7a07e6461805946897adbfb90da9e9f55ff1074e9aa1343f602eecb0645b7b4",
+    "template": "artifacts/cnf/full256_chacha20.cnf",
+    "template_sha256": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+    "semantic_map": "artifacts/cnf/full256_chacha20.map.json",
+    "semantic_map_sha256": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+    "expected_variable_count": 32128,
+    "expected_template_clause_count": 187370,
+    "expected_public_clause_count": 188010
+  },
+  "native": {
+    "compiler": "c++",
+    "include_directory": "/opt/homebrew/opt/cadical/include",
+    "static_library": "/opt/homebrew/opt/cadical/lib/libcadical.a",
+    "cadical_header_sha256": "b7111690c61935b9c096d3701be59b3c3d26c555eab8e070f19eb2a97dc5d38c",
+    "cadical_library_sha256": "44cae3728485b4fd5736ce7cb986021236652daeda9cca227a2c4ac17d3a8a7f"
+  },
+  "probe": {
+    "seed": 0,
+    "timeout_seconds": 240,
+    "sentinel_bit": 173,
+    "sentinel_reruns_per_sweep": 0
+  },
+  "state_plan": {
+    "horizons": [64, 96, 65],
+    "horizon_weights": [7.0, 1.0, 4.0],
+    "unary_clip": 1.0,
+    "interaction_clip": 32.0,
+    "holographic_clip": 32.0,
+    "readout_temperature": 4.0,
+    "phase_seed": 1835026
+  },
+  "corpus": {
+    "seed": 130013,
+    "build_targets": 4,
+    "calibration_targets": 2,
+    "sealed_targets": 2
+  },
+  "reader": {
+    "arms": [
+      "horizon_0",
+      "horizon_1",
+      "horizon_2",
+      "u3",
+      "u3_arx24",
+      "u3_arx24_m12"
+    ],
+    "ridge_lambdas": [0.001, 0.01, 0.1, 1.0, 10.0, 100.0],
+    "temperatures": [0.5, 1.0, 2.0, 4.0, 8.0],
+    "shrinkages": [0.0, 0.25, 0.5, 1.0],
+    "decoy_count": 1000000,
+    "decoy_seed": 1364283729
+  },
+  "target_controls": {
+    "transforms": [
+      "output_bit_flip",
+      "wrong_nonce",
+      "output_byte_rotate"
+    ],
+    "run_only_if_calibration_compression_positive": true
+  },
+  "maximum_state_bytes": 18000,
+  "maximum_live_target_state_bytes": 58368
+}

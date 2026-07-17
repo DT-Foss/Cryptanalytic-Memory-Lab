@@ -26,6 +26,10 @@ from .full256_cnf_foundation import (
     load_full256_cnf_foundation_config,
     run_full256_cnf_foundation,
 )
+from .full256_multikey_calibration import (
+    load_full256_multikey_calibration_config,
+    run_full256_multikey_calibration,
+)
 from .full256_paired_sensor import (
     load_full256_paired_sensor_config,
     run_full256_paired_sensor,
@@ -3736,6 +3740,579 @@ def _full256_paired_sensor(args: argparse.Namespace) -> int:
     return 0
 
 
+def _full256_multikey_calibration(args: argparse.Namespace) -> int:
+    root = _lab_root()
+    requested_config = args.config
+    if requested_config.is_symlink():
+        raise RuntimeError("full-256 multi-key config cannot be a symlink")
+    config_path = requested_config.resolve(strict=True)
+    expected_config = (
+        root / "configs/full256_multikey_causal_calibration_v1.json"
+    ).resolve(strict=True)
+    if config_path != expected_config:
+        raise RuntimeError(
+            "full-256 multi-key calibration requires its canonical lab config"
+        )
+    top_level, calibration_config = load_full256_multikey_calibration_config(
+        config_path
+    )
+    runs_root = (root / "runs").resolve(strict=True)
+    source_capsule = (root / calibration_config.source.capsule).resolve(strict=True)
+    if (
+        source_capsule.parent != runs_root
+        or source_capsule.name.startswith(".")
+        or not source_capsule.is_dir()
+    ):
+        raise RuntimeError("O1C-0013 source must be one finalized run capsule")
+    source_manifest = (source_capsule / "artifacts.sha256").resolve(strict=True)
+    source_template = (source_capsule / calibration_config.source.template).resolve(
+        strict=True
+    )
+    source_semantic_map = (
+        source_capsule / calibration_config.source.semantic_map
+    ).resolve(strict=True)
+    native_header = (
+        Path(calibration_config.native.include_directory) / "cadical.hpp"
+    ).resolve(strict=True)
+    native_library = Path(calibration_config.native.static_library).resolve(strict=True)
+    participating = (
+        "chacha_trace.py",
+        "living_inverse.py",
+        "cadical_sensor.py",
+        "causal_bitfield.py",
+        "causal_orientation_reader.py",
+        "full256_broker.py",
+        "full256_cnf.py",
+        "full256_paired_sensor.py",
+        "full256_probe_core.py",
+        "full256_multikey_calibration.py",
+        "run_capsule.py",
+        "cli.py",
+    )
+
+    def current_source_hashes() -> dict[str, str]:
+        return {
+            "multikey_calibration_config": _sha256(config_path),
+            "pyproject": _sha256(root / "pyproject.toml"),
+            "native_pair_sensor": _sha256(root / "native/cadical_pair_sensor.cpp"),
+            "native_tracer_header": _sha256(root / "native/cadical_tracer_3_0_0.hpp"),
+            "native_cadical_header": _sha256(native_header),
+            "native_cadical_library": _sha256(native_library),
+            "source_capsule_manifest": _sha256(source_manifest),
+            "source_template": _sha256(source_template),
+            "source_semantic_map": _sha256(source_semantic_map),
+            **{
+                f"module_{Path(name).stem}": _sha256(root / "src/o1_crypto_lab" / name)
+                for name in participating
+            },
+        }
+
+    manager = RunCapsuleManager(root)
+    attempt_id = str(top_level["attempt_id"])
+    published = manager.finalized_attempt(attempt_id)
+    if published is not None:
+        metrics_document = json.loads(
+            (published.path / "metrics.json").read_text(encoding="utf-8")
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": published.attempt_id,
+                    "path": str(published.path),
+                    "manifest_sha256": published.manifest_sha256,
+                    "verified": published.verification.ok,
+                    "status": "already-finalized-no-replay",
+                    "capsule_status": metrics_document.get("status"),
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 0 if metrics_document.get("status") == "completed" else 2
+    if attempt_id in manager.recoverable_attempt_ids():
+        interrupted = manager.recover(attempt_id)
+        if interrupted.publication_prepared:
+            finalized = interrupted.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 2
+        finalized = interrupted.finalize(
+            metrics={
+                "schema": ("o1-256-multikey-causal-calibration-interrupted-v1"),
+                "hard_interruption_recovered": True,
+                "scientific_result_claimed": False,
+                "unknown_target_key_bits": 256,
+                "fresh_target_state": "unknown-after-hard-interruption",
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+            },
+            status="stopped",
+            next_action=(
+                "Preserve the partial O1C-0013 staging capsule, never replay its "
+                "sealed targets, and advance the same full-256 output-only protocol "
+                "under a new attempt ID."
+            ),
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": finalized.attempt_id,
+                    "path": str(finalized.path),
+                    "manifest_sha256": finalized.manifest_sha256,
+                    "verified": finalized.verification.ok,
+                    "status": "stopped-after-hard-interruption",
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 2
+
+    commit = _clean_git_commit(root)
+    source_hashes = current_source_hashes()
+    expected_source_hashes = {
+        "source_capsule_manifest": calibration_config.source.manifest_sha256,
+        "source_template": calibration_config.source.template_sha256,
+        "source_semantic_map": calibration_config.source.semantic_map_sha256,
+        "native_cadical_header": (calibration_config.native.cadical_header_sha256),
+        "native_cadical_library": (calibration_config.native.cadical_library_sha256),
+    }
+    for name, expected_sha256 in expected_source_hashes.items():
+        if source_hashes[name] != expected_sha256:
+            raise RuntimeError(f"O1C-0013 pinned {name} differs")
+    if _clean_git_commit(root) != commit:
+        raise RuntimeError("lab Git commit changed before O1C-0013 reservation")
+    if current_source_hashes() != source_hashes:
+        raise RuntimeError("lab source hashes changed before O1C-0013 reservation")
+    planned_sweeps = (
+        calibration_config.corpus.build_targets
+        + calibration_config.corpus.calibration_targets
+        + calibration_config.corpus.sealed_targets
+        + len(calibration_config.controls.transforms)
+    )
+    planned_native_branches = planned_sweeps * (
+        512 + 2 * calibration_config.probe.sentinel_reruns_per_sweep
+    )
+    run = manager.start(
+        attempt_id=attempt_id,
+        slug=str(top_level["slug"]),
+        commit=commit,
+        hypothesis=str(top_level["hypothesis"]),
+        prediction=str(top_level["prediction"]),
+        controls=tuple(str(value) for value in top_level["controls"]),
+        budgets=dict(top_level["budgets"]),
+        source_hashes=source_hashes,
+        claim_level=ClaimLevel(str(top_level["claim_level"])),
+        next_action=str(top_level["next_action"]),
+        config=top_level,
+        command=(
+            "o1-crypto-lab",
+            "full256-multikey-calibration",
+            "--config",
+            str(config_path),
+        ),
+        environment={
+            "target_contract": "all-256-bits-unknown-public-output-only",
+            "target_rounds": 20,
+            "target_internal_trace_inputs": 0,
+            "accelerator": "none",
+            "native_solver": "cadical-3.0.0-single-threaded-fork-cow",
+            "planned_native_solver_branches": planned_native_branches,
+            "causal_state_bytes": (
+                calibration_config.state_plan.serialized_state_bytes
+            ),
+            "maximum_live_target_state_bytes": (
+                calibration_config.maximum_live_target_state_bytes
+            ),
+            "planned_build_targets": calibration_config.corpus.build_targets,
+            "planned_calibration_targets": (
+                calibration_config.corpus.calibration_targets
+            ),
+            "planned_sealed_targets": calibration_config.corpus.sealed_targets,
+            "fresh_target_generated_at_reservation": False,
+            "mps_calls": 0,
+            "gpu_calls": 0,
+            "sibling_repository_reads": 0,
+            "sibling_repository_writes": 0,
+            "outcome_bearing_execution_begins_after_attempt_reservation": True,
+            "hard_interruption_policy": "FINALIZE_STOPPED_AND_NEVER_REPLAY",
+        },
+    )
+    persisted_artifacts: dict[str, dict[str, object]] = {}
+    persistent_artifact_bytes = 0
+    reader_frozen = False
+    predictions_frozen = False
+    outcome_parent_cpu_started = time.process_time()
+    outcome_wall_started = time.monotonic()
+
+    def persist_group(
+        artifacts: Mapping[str, bytes],
+        *,
+        phase: str,
+    ) -> None:
+        nonlocal persistent_artifact_bytes
+        if not isinstance(artifacts, Mapping) or not artifacts:
+            raise RuntimeError(f"O1C-0013 {phase} artifact group differs")
+        group_bytes = 0
+        for relative, payload in artifacts.items():
+            if (
+                not isinstance(relative, str)
+                or not relative
+                or not isinstance(payload, bytes)
+                or relative in persisted_artifacts
+            ):
+                raise RuntimeError(f"O1C-0013 {phase} artifact entry differs")
+            group_bytes += len(payload)
+        if (
+            persistent_artifact_bytes + group_bytes
+            > calibration_config.budgets.maximum_persistent_artifact_bytes
+        ):
+            raise RuntimeError("O1C-0013 would exceed its artifact-byte budget")
+        for relative, payload in sorted(artifacts.items()):
+            path = run.write_artifact(relative, payload)
+            expected_sha256 = hashlib.sha256(payload).hexdigest()
+            if _sha256(path) != expected_sha256 or path.stat().st_size != len(payload):
+                raise RuntimeError(f"persisted O1C-0013 {phase} artifact differs")
+            persisted_artifacts[relative] = {
+                "sha256": expected_sha256,
+                "bytes": len(payload),
+                "phase": phase,
+            }
+        persistent_artifact_bytes += group_bytes
+
+    def on_reader_frozen(
+        artifacts: Mapping[str, bytes],
+        document: Mapping[str, object],
+    ) -> None:
+        nonlocal reader_frozen
+        expected_inventory = {
+            relative: {
+                "bytes": len(payload),
+                "sha256": hashlib.sha256(payload).hexdigest(),
+            }
+            for relative, payload in sorted(artifacts.items())
+            if relative != "reader_freeze.json"
+        }
+        if reader_frozen or predictions_frozen:
+            raise RuntimeError("O1C-0013 reader freeze callback order differs")
+        if (
+            document.get("phase") != "READER_FROZEN_BEFORE_SEALED_TARGET_ENTROPY"
+            or document.get("fresh_target_entropy_calls") != 0
+            or document.get("artifacts") != expected_inventory
+            or "reader_freeze.json" not in artifacts
+            or json.loads(artifacts["reader_freeze.json"]) != dict(document)
+        ):
+            raise RuntimeError("O1C-0013 reader freeze document differs")
+        persist_group(artifacts, phase="reader-freeze")
+        reader_frozen = True
+        run.checkpoint(
+            {
+                "phase": "READER_ARTIFACT_SET_PERSISTED_BEFORE_FRESH_ENTROPY",
+                "reader_freeze_sha256": document["reader_freeze_sha256"],
+                "selected_arm": document["selected_arm"],
+                "selected_logit_scale": document["selected_logit_scale"],
+                "fresh_target_entropy_calls": 0,
+                "fresh_target_reveals": 0,
+                "persistent_artifact_bytes": persistent_artifact_bytes,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            }
+        )
+
+    def on_predictions_frozen(
+        artifacts: Mapping[str, bytes],
+        document: Mapping[str, object],
+    ) -> None:
+        nonlocal predictions_frozen
+        expected_inventory = {
+            relative: {
+                "bytes": len(payload),
+                "sha256": hashlib.sha256(payload).hexdigest(),
+            }
+            for relative, payload in sorted(artifacts.items())
+            if relative != "prediction_set_freeze.json"
+        }
+        if not reader_frozen or predictions_frozen:
+            raise RuntimeError("O1C-0013 prediction freeze callback order differs")
+        if (
+            document.get("phase") != "ALL_PREDICTIONS_FROZEN_BEFORE_ANY_REVEAL"
+            or document.get("artifacts") != expected_inventory
+            or "prediction_set_freeze.json" not in artifacts
+            or json.loads(artifacts["prediction_set_freeze.json"]) != dict(document)
+        ):
+            raise RuntimeError("O1C-0013 prediction freeze document differs")
+        sealed_targets = document.get("sealed_targets")
+        if (
+            not isinstance(sealed_targets, list)
+            or len(sealed_targets) != calibration_config.corpus.sealed_targets
+        ):
+            raise RuntimeError("O1C-0013 sealed prediction inventory differs")
+        persist_group(artifacts, phase="prediction-freeze")
+        predictions_frozen = True
+        run.checkpoint(
+            {
+                "phase": "ALL_PREDICTION_ARTIFACTS_PERSISTED_BEFORE_ANY_REVEAL",
+                "reader_freeze_sha256": document["reader_freeze_sha256"],
+                "prediction_set_sha256": document["prediction_set_sha256"],
+                "sealed_prediction_count": len(sealed_targets),
+                "sealed_target_reveals": 0,
+                "persistent_artifact_bytes": persistent_artifact_bytes,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            }
+        )
+
+    try:
+        run.checkpoint(
+            {
+                "phase": "FULL256_MULTIKEY_PROTOCOL_RESERVED",
+                "unknown_target_key_bits": 256,
+                "rounds": 20,
+                "target_key_units": 0,
+                "target_internal_trace_inputs": 0,
+                "build_targets": calibration_config.corpus.build_targets,
+                "calibration_targets": (calibration_config.corpus.calibration_targets),
+                "sealed_targets_created": 0,
+                "sealed_targets_revealed": 0,
+                "planned_native_solver_branches": planned_native_branches,
+                "reader_frozen": False,
+                "predictions_frozen": False,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            }
+        )
+        run.append_stdout(
+            "O1C-0013 full-256 multi-key causal calibration and sealed CPU attack started.\n"
+        )
+        with tempfile.TemporaryDirectory(
+            prefix="o1c0013-multikey-", dir="/tmp"
+        ) as temporary:
+            result = run_full256_multikey_calibration(
+                calibration_config,
+                lab_root=root,
+                working_directory=temporary,
+                on_reader_frozen=on_reader_frozen,
+                on_predictions_frozen=on_predictions_frozen,
+            )
+            if not reader_frozen or not predictions_frozen:
+                raise RuntimeError(
+                    "O1C-0013 freeze callbacks did not complete before reveal"
+                )
+            if not result.success_gate_passed:
+                raise RuntimeError("O1C-0013 mandatory lifecycle gate failed")
+            if _clean_git_commit(root) != commit:
+                raise RuntimeError("lab Git commit changed during O1C-0013")
+            if current_source_hashes() != source_hashes:
+                raise RuntimeError("lab source hashes changed during O1C-0013")
+            if set(result.final_artifacts) & set(persisted_artifacts):
+                raise RuntimeError("O1C-0013 final artifact paths overlap freezes")
+            persist_group(result.final_artifacts, phase="post-reveal-evaluation")
+
+            module_metrics = result.metrics()
+            module_resources = result.report["resources"]
+            outcome_parent_cpu_seconds = (
+                time.process_time() - outcome_parent_cpu_started
+            )
+            native_cpu_seconds = max(
+                float(module_resources["native_cpu_seconds"]),
+                float(module_resources["process_child_cpu_seconds"]),
+            )
+            total_cpu_seconds = max(
+                float(module_metrics["cpu_seconds"]),
+                outcome_parent_cpu_seconds + native_cpu_seconds,
+            )
+            total_wall_seconds = max(
+                float(module_metrics["wall_seconds"]),
+                time.monotonic() - outcome_wall_started,
+            )
+            peak_rss_mib = max(
+                float(module_metrics["peak_rss_bytes"]) / (1024.0 * 1024.0),
+                _peak_rss_mib(),
+            )
+            base_metrics = {
+                **module_metrics,
+                "module_budgeted_cpu_seconds": module_metrics["cpu_seconds"],
+                "outcome_parent_cpu_seconds": outcome_parent_cpu_seconds,
+                "native_cpu_seconds": native_cpu_seconds,
+                "cpu_seconds": total_cpu_seconds,
+                "module_wall_seconds": module_metrics["wall_seconds"],
+                "wall_seconds": total_wall_seconds,
+            }
+            budget_checks = {
+                "cpu": float(base_metrics["cpu_seconds"])
+                <= calibration_config.budgets.maximum_cpu_seconds,
+                "wall": float(base_metrics["wall_seconds"])
+                <= calibration_config.budgets.maximum_wall_seconds,
+                "resident_memory": peak_rss_mib
+                <= calibration_config.budgets.maximum_resident_memory_mib,
+                "persistent_artifacts": persistent_artifact_bytes
+                <= calibration_config.budgets.maximum_persistent_artifact_bytes,
+                "native_branches": int(base_metrics["native_solver_branches"])
+                <= calibration_config.budgets.maximum_native_solver_branches,
+                "causal_state": (
+                    calibration_config.state_plan.serialized_state_bytes
+                    <= calibration_config.maximum_state_bytes
+                ),
+                "live_target_state": int(base_metrics["live_target_state_bytes"])
+                <= calibration_config.maximum_live_target_state_bytes,
+                "fresh_targets": int(base_metrics["fresh_random_targets"])
+                <= calibration_config.budgets.maximum_fresh_random_targets,
+                "sibling_reads": int(base_metrics["sibling_reads"])
+                <= calibration_config.budgets.maximum_sibling_reads,
+                "sibling_writes": int(base_metrics["sibling_writes"])
+                <= calibration_config.budgets.maximum_sibling_writes,
+                "mps": int(base_metrics["mps_calls"])
+                <= calibration_config.budgets.maximum_mps_calls,
+                "gpu": int(base_metrics["gpu_calls"])
+                <= calibration_config.budgets.maximum_gpu_calls,
+            }
+            failed_budgets = sorted(
+                name for name, passed in budget_checks.items() if not passed
+            )
+            if failed_budgets:
+                raise RuntimeError(
+                    "O1C-0013 exceeded budgets: " + ", ".join(failed_budgets)
+                )
+            metrics = {
+                **base_metrics,
+                "peak_rss_mib": peak_rss_mib,
+                "persistent_artifact_bytes": persistent_artifact_bytes,
+                "persisted_artifact_count": len(persisted_artifacts),
+                "reader_freeze_persisted_before_fresh_entropy": True,
+                "prediction_set_persisted_before_reveal": True,
+                "budget_checks": budget_checks,
+            }
+            run.checkpoint(
+                {
+                    "phase": "SEALED_TARGETS_REVEALED_ONCE_AND_RESULT_PERSISTED",
+                    "result_sha256": result.report["result_sha256"],
+                    "sealed_targets_revealed": (
+                        calibration_config.corpus.sealed_targets
+                    ),
+                    "sealed_exact_keys": metrics["sealed_exact_keys"],
+                    "sealed_compression_bits_per_key": metrics[
+                        "sealed_compression_bits_per_key"
+                    ],
+                    "persistent_artifact_bytes": persistent_artifact_bytes,
+                    "budget_checks": budget_checks,
+                    "sibling_writes": 0,
+                    "mps_calls": 0,
+                    "gpu_calls": 0,
+                }
+            )
+            run.append_stdout(
+                json.dumps(metrics, sort_keys=True, allow_nan=False) + "\n"
+            )
+            finalized = run.finalize(metrics=metrics)
+            process_peak_rss_mib = _peak_rss_mib()
+    except Exception as exc:
+        if run.publication_prepared:
+            finalized = run.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 1
+        run.append_stderr(f"{type(exc).__name__}: {exc}\n")
+        finalized = run.finalize(
+            metrics={
+                "schema": "o1-256-multikey-causal-calibration-failure-v1",
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "unknown_target_key_bits": 256,
+                "reader_freeze_persisted": reader_frozen,
+                "prediction_set_persisted": predictions_frozen,
+                "fresh_target_state": (
+                    "possibly-generated-after-reader-freeze"
+                    if reader_frozen
+                    else "not-generated-before-reader-freeze"
+                ),
+                "target_key_units": 0,
+                "target_internal_trace_inputs": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+                "scientific_inverse_signal_claimed": False,
+            },
+            status="failed",
+            next_action=(
+                "Preserve the failed O1C-0013 capsule, fix the exact freeze, "
+                "native, reader, or budget invariant under a new attempt ID, and "
+                "never replay any sealed target from this attempt."
+            ),
+        )
+        print(f"failed capsule: {finalized.path}", file=sys.stderr)
+        return 1
+    print(
+        json.dumps(
+            {
+                "attempt_id": finalized.attempt_id,
+                "path": str(finalized.path),
+                "manifest_sha256": finalized.manifest_sha256,
+                "verified": finalized.verification.ok,
+                "success_gate_passed": result.success_gate_passed,
+                "selected_arm": metrics["selected_arm"],
+                "selected_logit_scale": metrics["selected_logit_scale"],
+                "calibration_compression_bits_per_key": metrics[
+                    "calibration_compression_bits_per_key"
+                ],
+                "sealed_compression_bits_per_key": metrics[
+                    "sealed_compression_bits_per_key"
+                ],
+                "sealed_correct_bits": metrics["sealed_correct_bits"],
+                "sealed_total_bits": metrics["sealed_total_bits"],
+                "sealed_exact_keys": metrics["sealed_exact_keys"],
+                "minimum_million_decoy_rank": metrics["minimum_million_decoy_rank"],
+                "live_target_state_bytes": metrics["live_target_state_bytes"],
+                "native_solver_branches": metrics["native_solver_branches"],
+                "cpu_seconds": metrics["cpu_seconds"],
+                "wall_seconds": metrics["wall_seconds"],
+                "outcome_peak_rss_mib": metrics["peak_rss_mib"],
+                "end_to_end_process_peak_rss_mib": process_peak_rss_mib,
+                "fresh_target_count": metrics["fresh_random_targets"],
+                "fresh_targets_revealed": True,
+                "sibling_writes": 0,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     root = _lab_root()
     parser = argparse.ArgumentParser(
@@ -3913,6 +4490,16 @@ def build_parser() -> argparse.ArgumentParser:
         default=root / "configs/full256_paired_causal_sensor_v1.json",
     )
     paired_sensor.set_defaults(handler=_full256_paired_sensor)
+    multikey_calibration = subparsers.add_parser(
+        "full256-multikey-calibration",
+        help=("freeze a multi-key causal reader, then attack sealed full-256 targets"),
+    )
+    multikey_calibration.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/full256_multikey_causal_calibration_v1.json",
+    )
+    multikey_calibration.set_defaults(handler=_full256_multikey_calibration)
     return parser
 
 
