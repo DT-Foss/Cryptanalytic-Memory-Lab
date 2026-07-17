@@ -17,6 +17,9 @@ UPSTREAM_CONFIG = ROOT / "configs/upstream_ising_retrospective_v1.json"
 LIVING_READER_CONFIG = ROOT / "configs/living_inverse_reader_v1.json"
 SIGNED_REPLICATION_CONFIG = ROOT / "configs/signed_direct_replication_v1.json"
 FULL256_CNF_CONFIG = ROOT / "configs/full256_cnf_foundation_v1.json"
+FULL256_PAIRED_SENSOR_CONFIG = (
+    ROOT / "configs/full256_paired_causal_sensor_v1.json"
+)
 O1C0009_MANIFEST = "f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2"
 
 
@@ -451,6 +454,62 @@ class Full256CNFFoundationCLILifecycleTests(unittest.TestCase):
             ),
             events,
         )
+
+
+class Full256PairedSensorCLILifecycleTests(unittest.TestCase):
+    def test_attempt_is_reserved_before_paired_sensor_failure(self):
+        events = []
+        run = _RecordingRun(events)
+
+        class Manager:
+            def __init__(self, root):
+                self.root = root
+
+            def finalized_attempt(self, attempt_id):
+                return None
+
+            def recoverable_attempt_ids(self):
+                return ()
+
+            def start(self, **kwargs):
+                events.append(("start", kwargs["attempt_id"]))
+                return run
+
+        def fail_sensor(*args, **kwargs):
+            events.append(("paired_sensor", "raised"))
+            raise RuntimeError("synthetic paired sensor failure")
+
+        with (
+            patch.object(cli, "RunCapsuleManager", Manager),
+            patch.object(cli, "_clean_git_commit", return_value="f" * 40),
+            patch.object(
+                cli,
+                "run_full256_paired_sensor",
+                side_effect=fail_sensor,
+            ),
+            patch("sys.stderr", new=io.StringIO()),
+        ):
+            code = cli._full256_paired_sensor(
+                argparse.Namespace(config=FULL256_PAIRED_SENSOR_CONFIG)
+            )
+
+        names = [event[0] for event in events]
+        self.assertEqual(code, 1)
+        self.assertLess(names.index("start"), names.index("checkpoint"))
+        self.assertLess(names.index("checkpoint"), names.index("paired_sensor"))
+        self.assertIn(
+            (
+                "finalize",
+                "failed",
+                "o1-256-paired-causal-sensor-failure-v1",
+            ),
+            events,
+        )
+
+    def test_parser_exposes_canonical_paired_sensor_command(self):
+        args = cli.build_parser().parse_args(["full256-paired-sensor"])
+        self.assertEqual(args.config, FULL256_PAIRED_SENSOR_CONFIG)
+        self.assertIs(args.handler, cli._full256_paired_sensor)
 
 
 class RecoveryCLILifecycleTests(unittest.TestCase):

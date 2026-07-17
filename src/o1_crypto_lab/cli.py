@@ -26,6 +26,10 @@ from .full256_cnf_foundation import (
     load_full256_cnf_foundation_config,
     run_full256_cnf_foundation,
 )
+from .full256_paired_sensor import (
+    load_full256_paired_sensor_config,
+    run_full256_paired_sensor,
+)
 from .spectral_experiment import run_bounded_memory_tournament
 from .isolation import IsolationPolicy
 from .living_inverse_foundation import (
@@ -3328,6 +3332,408 @@ def _full256_cnf_foundation(args: argparse.Namespace) -> int:
     return 0
 
 
+def _full256_paired_sensor(args: argparse.Namespace) -> int:
+    root = _lab_root()
+    requested_config = args.config
+    if requested_config.is_symlink():
+        raise RuntimeError("full-256 paired sensor config cannot be a symlink")
+    config_path = requested_config.resolve(strict=True)
+    expected_config = (
+        root / "configs/full256_paired_causal_sensor_v1.json"
+    ).resolve(strict=True)
+    if config_path != expected_config:
+        raise RuntimeError("full-256 paired sensor requires its canonical lab config")
+    top_level, sensor_config = load_full256_paired_sensor_config(config_path)
+    source_capsule = (root / sensor_config.source.capsule).resolve(strict=True)
+    public_cnf = (
+        source_capsule / sensor_config.source.public_instance
+    ).resolve(strict=True)
+    semantic_map = (
+        source_capsule / sensor_config.source.semantic_map
+    ).resolve(strict=True)
+    source_manifest = (source_capsule / "artifacts.sha256").resolve(strict=True)
+    participating = (
+        "chacha_trace.py",
+        "living_inverse.py",
+        "cadical_sensor.py",
+        "causal_bitfield.py",
+        "full256_paired_sensor.py",
+        "run_capsule.py",
+        "cli.py",
+    )
+
+    def current_source_hashes() -> dict[str, str]:
+        return {
+            "paired_sensor_config": _sha256(config_path),
+            "pyproject": _sha256(root / "pyproject.toml"),
+            "native_pair_sensor": _sha256(
+                root / "native/cadical_pair_sensor.cpp"
+            ),
+            "native_tracer_header": _sha256(
+                root / "native/cadical_tracer_3_0_0.hpp"
+            ),
+            "source_capsule_manifest": _sha256(source_manifest),
+            "source_public_cnf": _sha256(public_cnf),
+            "source_semantic_map": _sha256(semantic_map),
+            **{
+                f"module_{Path(name).stem}": _sha256(
+                    root / "src/o1_crypto_lab" / name
+                )
+                for name in participating
+            },
+        }
+
+    manager = RunCapsuleManager(root)
+    attempt_id = str(top_level["attempt_id"])
+    published = manager.finalized_attempt(attempt_id)
+    if published is not None:
+        metrics_document = json.loads(
+            (published.path / "metrics.json").read_text(encoding="utf-8")
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": published.attempt_id,
+                    "path": str(published.path),
+                    "manifest_sha256": published.manifest_sha256,
+                    "verified": published.verification.ok,
+                    "status": "already-finalized-no-replay",
+                    "capsule_status": metrics_document.get("status"),
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 0 if metrics_document.get("status") == "completed" else 2
+    if attempt_id in manager.recoverable_attempt_ids():
+        interrupted = manager.recover(attempt_id)
+        if interrupted.publication_prepared:
+            finalized = interrupted.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 2
+        finalized = interrupted.finalize(
+            metrics={
+                "schema": "o1-256-paired-causal-sensor-interrupted-v1",
+                "hard_interruption_recovered": True,
+                "scientific_result_claimed": False,
+                "unknown_target_key_bits": 256,
+                "fresh_random_targets": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+            },
+            status="stopped",
+            next_action=(
+                "Preserve the partial O1C-0012 staging capsule and advance the "
+                "same direct full-256 paired-sensor contract under a new attempt ID."
+            ),
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": finalized.attempt_id,
+                    "path": str(finalized.path),
+                    "manifest_sha256": finalized.manifest_sha256,
+                    "verified": finalized.verification.ok,
+                    "status": "stopped-after-hard-interruption",
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 2
+
+    commit = _clean_git_commit(root)
+    source_hashes = current_source_hashes()
+    if source_hashes["source_capsule_manifest"] != (
+        sensor_config.source.manifest_sha256
+    ):
+        raise RuntimeError("O1C-0012 source capsule manifest differs")
+    if source_hashes["source_public_cnf"] != (
+        sensor_config.source.public_instance_sha256
+    ):
+        raise RuntimeError("O1C-0012 public CNF differs")
+    if source_hashes["source_semantic_map"] != (
+        sensor_config.source.semantic_map_sha256
+    ):
+        raise RuntimeError("O1C-0012 semantic map differs")
+    if _clean_git_commit(root) != commit:
+        raise RuntimeError("lab Git commit changed before O1C-0012 reservation")
+    if current_source_hashes() != source_hashes:
+        raise RuntimeError("lab source hashes changed before O1C-0012 reservation")
+    run = manager.start(
+        attempt_id=attempt_id,
+        slug=str(top_level["slug"]),
+        commit=commit,
+        hypothesis=str(top_level["hypothesis"]),
+        prediction=str(top_level["prediction"]),
+        controls=tuple(str(value) for value in top_level["controls"]),
+        budgets=dict(top_level["budgets"]),
+        source_hashes=source_hashes,
+        claim_level=ClaimLevel(str(top_level["claim_level"])),
+        next_action=str(top_level["next_action"]),
+        config=top_level,
+        command=(
+            "o1-crypto-lab",
+            "full256-paired-sensor",
+            "--config",
+            str(config_path),
+        ),
+        environment={
+            "target_contract": "all-256-bits-unknown-public-output-only",
+            "target_rounds": 20,
+            "accelerator": "none",
+            "native_solver": "cadical-3.0.0-single-threaded-fork-cow",
+            "native_solver_branches": 514,
+            "bounded_state_bytes": sensor_config.state_plan.serialized_state_bytes,
+            "mps_calls": 0,
+            "gpu_calls": 0,
+            "sibling_repository_reads": 0,
+            "sibling_repository_writes": 0,
+            "fresh_random_targets": 0,
+            "outcome_bearing_execution_begins_after_attempt_reservation": True,
+            "hard_interruption_policy": "FINALIZE_STOPPED_AND_NEVER_REPLAY",
+        },
+    )
+    parent_cpu_started = time.process_time()
+    outcome_wall_started = time.monotonic()
+    try:
+        run.checkpoint(
+            {
+                "phase": "FULL256_PAIRED_SENSOR_PROTOCOL_RESERVED",
+                "unknown_target_key_bits": 256,
+                "rounds": 20,
+                "target_key_units": 0,
+                "target_internal_trace_inputs": 0,
+                "paired_assumption_branches": 512,
+                "state_bytes": sensor_config.state_plan.serialized_state_bytes,
+                "fresh_random_targets": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            }
+        )
+        run.append_stdout(
+            "O1C-0012 direct full-256 paired CaDiCaL proof sensor started on CPU.\n"
+        )
+        with tempfile.TemporaryDirectory(
+            prefix="o1c0012-paired-", dir="/tmp"
+        ) as temporary:
+            result = run_full256_paired_sensor(
+                sensor_config,
+                lab_root=root,
+                working_directory=temporary,
+            )
+            if not result.success_gate_passed:
+                raise RuntimeError("O1C-0012 mandatory paired-sensor gate failed")
+            if _clean_git_commit(root) != commit:
+                raise RuntimeError("lab Git commit changed during O1C-0012")
+            if current_source_hashes() != source_hashes:
+                raise RuntimeError("lab source hashes changed during O1C-0012")
+
+            persistent_artifact_bytes = 0
+            persisted_artifacts: dict[str, dict[str, object]] = {}
+            for relative, payload in sorted(result.artifacts.items()):
+                path = run.write_artifact(relative, payload)
+                expected_sha256 = hashlib.sha256(payload).hexdigest()
+                if _sha256(path) != expected_sha256 or path.stat().st_size != len(
+                    payload
+                ):
+                    raise RuntimeError("persisted O1C-0012 artifact differs")
+                persistent_artifact_bytes += len(payload)
+                persisted_artifacts[relative] = {
+                    "sha256": expected_sha256,
+                    "bytes": len(payload),
+                }
+            run.checkpoint(
+                {
+                    "phase": "FULL256_PAIRED_STATE_AND_DIAGNOSTIC_PERSISTED",
+                    "result_sha256": result.report["result_sha256"],
+                    "state_sha256": result.report["state"]["state_sha256"],
+                    "state_bytes": result.report["state"][
+                        "serialized_state_bytes"
+                    ],
+                    "paired_bits": result.report["probe_stream"][
+                        "paired_bit_count"
+                    ],
+                    "proof_frontiers": result.report["probe_stream"][
+                        "proof_frontier_count"
+                    ],
+                    "persisted_artifact_bytes": persistent_artifact_bytes,
+                    "artifact_inventory": persisted_artifacts,
+                    "sibling_writes": 0,
+                    "mps_calls": 0,
+                    "gpu_calls": 0,
+                }
+            )
+
+            parent_cpu_seconds = time.process_time() - parent_cpu_started
+            native_cpu_seconds = float(
+                result.report["resources"]["native_child_cpu_seconds"]
+            )
+            total_cpu_seconds = max(
+                parent_cpu_seconds + native_cpu_seconds,
+                float(result.report["resources"]["budgeted_cpu_seconds"]),
+            )
+            wall_seconds = max(
+                float(result.report["resources"]["wall_seconds"]),
+                time.monotonic() - outcome_wall_started,
+            )
+            parent_peak_rss_mib = _peak_rss_mib()
+            native_peak_rss_mib = (
+                float(
+                    result.report["resources"][
+                        "native_child_peak_rss_bytes"
+                    ]
+                )
+                / (1024.0 * 1024.0)
+            )
+            peak_rss_mib = max(parent_peak_rss_mib, native_peak_rss_mib)
+            branch_count = int(result.report["probe_stream"]["branch_count"])
+            sentinel_branches = 2 * sensor_config.probe.deterministic_sentinel_reruns
+            total_native_branches = branch_count + sentinel_branches
+            budgets = top_level["budgets"]
+            if not isinstance(budgets, dict):
+                raise RuntimeError("O1C-0012 budget object differs")
+            budget_checks = {
+                "cpu": total_cpu_seconds
+                <= float(budgets["maximum_cpu_seconds"]),
+                "wall": wall_seconds <= float(budgets["maximum_wall_seconds"]),
+                "resident_memory": peak_rss_mib
+                <= float(budgets["maximum_resident_memory_mib"]),
+                "persistent_artifacts": persistent_artifact_bytes
+                <= int(budgets["maximum_persistent_artifact_bytes"]),
+                "native_branches": total_native_branches
+                <= int(budgets["maximum_native_solver_branches"]),
+                "state": int(
+                    result.report["state"]["serialized_state_bytes"]
+                )
+                <= sensor_config.maximum_state_bytes,
+                "mps": result.metrics()["mps_calls"]
+                <= int(budgets["maximum_mps_calls"]),
+                "gpu": result.metrics()["gpu_calls"]
+                <= int(budgets["maximum_gpu_calls"]),
+                "sibling_reads": result.metrics()["sibling_reads"]
+                <= int(budgets["maximum_sibling_reads"]),
+                "sibling_writes": result.metrics()["sibling_writes"]
+                <= int(budgets["maximum_sibling_writes"]),
+                "fresh_targets": result.metrics()["fresh_random_targets"]
+                <= int(budgets["maximum_fresh_random_targets"]),
+            }
+            failed_budgets = sorted(
+                name for name, passed in budget_checks.items() if not passed
+            )
+            if failed_budgets:
+                raise RuntimeError(
+                    "O1C-0012 exceeded budgets: " + ", ".join(failed_budgets)
+                )
+            metrics = {
+                **result.metrics(),
+                "parent_cpu_seconds": parent_cpu_seconds,
+                "cpu_seconds": total_cpu_seconds,
+                "wall_seconds": wall_seconds,
+                "peak_rss_mib": peak_rss_mib,
+                "persistent_artifact_bytes": persistent_artifact_bytes,
+                "native_solver_branches": total_native_branches,
+                "budget_checks": budget_checks,
+            }
+            run.append_stdout(
+                json.dumps(metrics, sort_keys=True, allow_nan=False) + "\n"
+            )
+            finalized = run.finalize(metrics=metrics)
+            process_peak_rss_mib = _peak_rss_mib()
+    except Exception as exc:
+        if run.publication_prepared:
+            finalized = run.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 1
+        run.append_stderr(f"{type(exc).__name__}: {exc}\n")
+        finalized = run.finalize(
+            metrics={
+                "schema": "o1-256-paired-causal-sensor-failure-v1",
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "unknown_target_key_bits": 256,
+                "fresh_random_targets": 0,
+                "target_key_units": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "scientific_inverse_signal_claimed": False,
+            },
+            status="failed",
+            next_action=(
+                "Preserve the failed O1C-0012 capsule, fix the exact native, "
+                "state, or budget invariant under a new attempt ID, and keep "
+                "the direct 256-bit output-only attacker contract unchanged."
+            ),
+        )
+        print(f"failed capsule: {finalized.path}", file=sys.stderr)
+        return 1
+    print(
+        json.dumps(
+            {
+                "attempt_id": finalized.attempt_id,
+                "path": str(finalized.path),
+                "manifest_sha256": finalized.manifest_sha256,
+                "verified": finalized.verification.ok,
+                "success_gate_passed": result.success_gate_passed,
+                "paired_bit_count": metrics["paired_bit_count"],
+                "proof_frontier_count": metrics["proof_frontier_count"],
+                "state_bytes": metrics["state_bytes"],
+                "state_sha256": metrics["state_sha256"],
+                "corrected_key_nll_bits": metrics["corrected_key_nll_bits"],
+                "corrected_effective_compression_bits": metrics[
+                    "corrected_effective_compression_bits"
+                ],
+                "corrected_correct_bits": metrics["corrected_correct_bits"],
+                "million_decoy_rank": metrics["million_decoy_rank"],
+                "exact_key_recovered": metrics["exact_key_recovered"],
+                "cpu_seconds": metrics["cpu_seconds"],
+                "wall_seconds": metrics["wall_seconds"],
+                "outcome_peak_rss_mib": metrics["peak_rss_mib"],
+                "end_to_end_process_peak_rss_mib": process_peak_rss_mib,
+                "sibling_writes": 0,
+                "fresh_random_targets": 0,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     root = _lab_root()
     parser = argparse.ArgumentParser(
@@ -3495,6 +3901,16 @@ def build_parser() -> argparse.ArgumentParser:
         default=root / "configs/full256_cnf_foundation_v1.json",
     )
     cnf_foundation.set_defaults(handler=_full256_cnf_foundation)
+    paired_sensor = subparsers.add_parser(
+        "full256-paired-sensor",
+        help="stream all full-256 paired proof frontiers into a bounded O1 state",
+    )
+    paired_sensor.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/full256_paired_causal_sensor_v1.json",
+    )
+    paired_sensor.set_defaults(handler=_full256_paired_sensor)
     return parser
 
 
