@@ -1,0 +1,115 @@
+{
+  "attempt_id": "O1C-0022",
+  "budgets": {
+    "expected_existing_build_pools": 4,
+    "maximum_accumulator_live_state_bytes": 352,
+    "maximum_calibration_value_evaluations": 7391232,
+    "maximum_cpu_seconds": 600.0,
+    "maximum_gpu_calls": 0,
+    "maximum_mps_calls": 0,
+    "maximum_native_solver_branches": 0,
+    "maximum_o1c19_reader_replays": 32,
+    "maximum_packet_slot_observations": 17664,
+    "maximum_persistent_artifact_bytes": 33554432,
+    "maximum_physical_public_work_units": 1130496,
+    "maximum_physical_public_pools_generated": 0,
+    "maximum_resident_memory_mib": 768,
+    "maximum_scientific_entropy_calls": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_source_artifact_bytes_read": 33554432,
+    "maximum_wall_seconds": 600.0
+  },
+  "claim_level": "RETROSPECTIVE",
+  "controls": [
+    "The future O1C-0019 capsule is resolved by its reserved attempt identity, verified manifest and exact frozen source config; no O1C-0019 efficacy result participates in this source freeze.",
+    "Every fold loads only its frozen reader and learning receipt plus the four immutable public BUILD action pools before held-out prediction freeze.",
+    "Per-horizon quantizer scales are medians of finite nonzero absolute deltas from the three non-held-out public replays; labels and signed reward never enter scale fitting.",
+    "Nested active sets K=12/52/128/256 are prefixes of one SHA-256-derived coordinate permutation while all 256 target key bits remain unknown.",
+    "Float delta sum, quantized int8 vault, last-horizon-only, unit-sign and coordinate-shuffled arms receive matched public packet slots.",
+    "Immediate duplicate groups must leave the complete 352-byte accumulator byte-identical and accepted-update counts unchanged.",
+    "Polarity swap must negate every finite packet delta and vault logit; coordinate permutation must commute with accumulation to float32 tolerance.",
+    "For every fold, all predictions, delta ledgers, scales and live-state commitments freeze before that fold's held-out BUILD label is used; the held-out ordinal is excluded from its calibration-label ledger.",
+    "No solver regeneration, fresh entropy, sibling access, MPS call or GPU call is permitted."
+  ],
+  "experiment": {
+    "active_coordinate_counts": [
+      12,
+      52,
+      128,
+      256
+    ],
+    "calibration": {
+      "fit_split": "three-non-held-out-BUILD-episodes-with-fold-local-predictions-frozen-before-calibration-use",
+      "maximum_nonnegative_scale": 2.0,
+      "orientation_flip_allowed": false,
+      "scale_grid_steps": 401,
+      "selection": "minimum-aggregate-nll-then-smallest-scale"
+    },
+    "coordinate_permutation_domain": "o1c22-nested-active-coordinate-order-v1",
+    "coordinate_permutation_salt": 220022,
+    "duplicate_mode": "immediate-atomic-group-replay",
+    "efficacy_gates": {
+      "all_four_final_folds_positive": true,
+      "int8_mean_final_compression_bits_minimum": 1.0,
+      "int8_minus_coordinate_shuffled_mean_compression_positive": true,
+      "int8_minus_last_horizon_only_mean_compression_positive": true,
+      "int8_minus_unit_sign_sum_mean_compression_positive": true,
+      "int8_preserves_float_compression_fraction_minimum": 0.9,
+      "strict_mean_compression_growth_across_k": true
+    },
+    "group_id_domain": "o1c22-public-packet-delta-group-v1",
+    "horizon_order": [
+      64,
+      65,
+      96
+    ],
+    "prediction_arms": [
+      "raw_float_delta_sum",
+      "normalized_float_delta_sum",
+      "quantized_int8_vault",
+      "last_horizon_only",
+      "unit_sign_sum",
+      "coordinate_shuffled_vault",
+      "zero_prior"
+    ],
+    "quantizer": {
+      "clip_magnitude": 8,
+      "fallback_scale": 1.0,
+      "rounding": "half-away-from-zero",
+      "scale_estimator": "per-horizon-median-nonzero-absolute-training-public-delta",
+      "zero_updates_are_skipped": true
+    },
+    "reader_delta": "exact-incremental-q-after-minus-q-before-from-frozen-o1c19-reader",
+    "schema": "o1-256-o1c19-causal-vault-bridge-config-v1",
+    "source_anchor": "o1c19-frozen-learned-reader-exhaustive-k256-prediction",
+    "upstream_reader_state_billed_separately": true,
+    "vault_state_schema": "o1-256-causal-evidence-stream-v1"
+  },
+  "hypothesis": "A frozen O1C-0019 reader exposes attacker-valid, coordinate-oriented incremental full-round proof evidence that survives deterministic int8 quantization and bounded addressed accumulation as width grows from 12 to all 256 coordinates.",
+  "next_action": "If the float and int8 arms remain positive and control-specific at K=256, freeze the exact reader-plus-vault lineage and spend one untouched full-round DEVELOPMENT pool under a new prospective attempt. If they fail, use the nested width and float-versus-int8 decomposition to change only the identified reader, quantizer or cross-coordinate state mechanism.",
+  "prediction": "Across four BUILD leave-one-out folds, quantized accumulation preserves at least 90 percent of positive float compression, reaches at least one mean bit of K=256 compression, is positive in every fold and beats the coordinate-shuffled matched-work control, while duplicate, complement, coordinate and lifecycle invariants remain exact.",
+  "prerequisites": {
+    "o1c19": {
+      "attempt_id": "O1C-0019",
+      "config_path": "configs/full256_multiresolution_build_loo_v1.json",
+      "config_sha256": "96d9017d2262537281218ccd23b52533c8ed801e245bea6bcb13fa13bd186c61",
+      "science_commit": "27cd5b1f1e3172218c9c993846f1dcc950bb909a",
+      "source_selection": "reserved-finalized-attempt-only"
+    },
+    "o1c21_state": {
+      "config_path": "configs/causal_evidence_stream_256_v1.json",
+      "config_sha256": "c683237f7f251ffb2314b01cfbfbbfeac9acd557379a3070e982c0bc15b4a39d",
+      "live_state_bytes": 352,
+      "source_commit": "4ba1cc61c3b786139749c3e57137e3ba7ae6cf74"
+    }
+  },
+  "schema": "o1-256-o1c19-causal-vault-bridge-run-config-v1",
+  "slug": "o1c19-causal-vault-build-loo-v1",
+  "source": {
+    "o1c18_artifact_index_sha256": "e6b79631057d5a9fa75004ee0b62aea06fe9430c6a9d3cc9b7ae4b3954d8ed85",
+    "o1c18_capsule": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1",
+    "o1c18_manifest_sha256": "fcbf43c99994c0debe5b39bb3e734ea1d1e23ba58e89b10ff2bb7e23886493fb",
+    "o1c18_public_build_corpus_sha256": "d137a931782b19e2cd8fdd44f38a9109d239ba332605c3a512078ca314c1be64"
+  }
+}

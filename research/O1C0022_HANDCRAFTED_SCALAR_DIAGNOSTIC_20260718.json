@@ -1,0 +1,83 @@
+{
+  "artifact_corpus": {
+    "bytes_read": 8336169,
+    "capsule": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1",
+    "capsule_manifest_sha256": "fcbf43c99994c0debe5b39bb3e734ea1d1e23ba58e89b10ff2bb7e23886493fb",
+    "corpus_sha256": "d137a931782b19e2cd8fdd44f38a9109d239ba332605c3a512078ca314c1be64",
+    "index_sha256": "e6b79631057d5a9fa75004ee0b62aea06fe9430c6a9d3cc9b7ae4b3954d8ed85",
+    "pool_count": 4,
+    "shape": [4, 3, 256, 2, 330]
+  },
+  "classification": "HANDCRAFTED_FAMILY_MASS_READER_CLOSED",
+  "claim_boundary": {
+    "fresh_efficacy_evidence": false,
+    "o1_execution": false,
+    "o1o_execution": false,
+    "preregistered_alpha_selection": false,
+    "purpose": "exploratory negative architecture breadcrumb",
+    "solver_branches": 0
+  },
+  "decision": "Do not collapse the 330 paired proof channels into hand-summed family masses; preserve the learned incremental O1C-0019 reader for O1C-0022.",
+  "feature_groups_half_open": [[0, 3], [3, 6], [6, 10], [10, 26], [26, 42], [42, 58], [58, 74], [74, 330]],
+  "intermediate_sha256": {
+    "D_f64le": "e9c7448b56201e3182d4c5b1c0baf22fde2c42a0c2d46f22d00c439a637aafcf",
+    "M_f64le": "476dcdc3a32a7c508842282e6d3c2dfa3de49cd051e2993d0b51106c4b09b145",
+    "Q_i8": "2ba928ea5ee14e63d838478b12f441bdda7a7cf428f8199f642bbaaff5ab1bdf",
+    "R_f64le": "e4c06d76e51da924899dd872d7ddbcd95e342625ef61bae9a9997044b0efb0b8",
+    "V_i8": "e074bc04de05d0b29bb9a9a0f3d091b61cb5f579685c12d7d9aa45d6f20177b8",
+    "X_f32le": "0f4b94aed2ba94f3044d587b02b969f75d979bcda9d6137eb9161f10b72cdc16",
+    "Y_u8": "4c8a5ef00917df8ae703e7ec6af80e33655554c60a316f0358c5562041cec4d4",
+    "active_u16le": "09e823965890e3f71f4737380d6bca3850828a83ab5cf81091971b4bf3e1c31e"
+  },
+  "method": {
+    "abstaining_votes": 8139,
+    "active_coordinate_domain": "o1c-proof-active-v1/{bit}",
+    "a465_style_regime": "7*(R64+1)^3 + 1*(R96+1)^3 + 4*(R65+1)^3",
+    "confidence_bin": "abs(D) > target-local median_bit(abs(D))",
+    "folds": 4,
+    "orientation_fit": "leave-one-BUILD-out beta-binomial log-odds by regime/family/confidence bin",
+    "rank": "joint midrank of 512 bit-polarity family masses per target/horizon",
+    "regimes": ["H64", "H65", "H96", "A465-style rank polynomial"],
+    "total_votes": 32768
+  },
+  "recorded_at": "2026-07-18T00:13:00+02:00",
+  "rerun": {
+    "elapsed_seconds_approximate": 1.5,
+    "hash_exact": true,
+    "runtime": "single local CPU process",
+    "source_mutations": 0
+  },
+  "results": [
+    {
+      "alpha": 1.0,
+      "logits_f64le_sha256": "cf36c468af58239a81de64e4383411ed835bebd16a449bda35f27dcc4a2f3dba",
+      "widths": [
+        {"compression_bits": -15.467168922274112, "correct_bits": 23, "k": 12, "nll_bits": 63.46716892227411, "total_bits": 48},
+        {"compression_bits": -59.679154918760105, "correct_bits": 97, "k": 52, "nll_bits": 267.6791549187601, "total_bits": 208},
+        {"compression_bits": -101.94580143057783, "correct_bits": 267, "k": 128, "nll_bits": 613.9458014305778, "total_bits": 512},
+        {"compression_bits": -238.7163903742503, "correct_bits": 516, "k": 256, "nll_bits": 1262.7163903742503, "total_bits": 1024}
+      ]
+    },
+    {
+      "alpha": 4.0,
+      "logits_f64le_sha256": "8ec7daf4b8b63b7e4a7dbb47734f3db80b104c2763c9dc2030c2cac584a74eb0",
+      "widths": [
+        {"compression_bits": -15.306056557245881, "correct_bits": 23, "k": 12, "nll_bits": 63.30605655724588, "total_bits": 48},
+        {"compression_bits": -58.901200514594905, "correct_bits": 97, "k": 52, "nll_bits": 266.9012005145949, "total_bits": 208},
+        {"compression_bits": -100.70038788564511, "correct_bits": 266, "k": 128, "nll_bits": 612.7003878856451, "total_bits": 512},
+        {"compression_bits": -234.62967699102478, "correct_bits": 517, "k": 256, "nll_bits": 1258.6296769910248, "total_bits": 1024}
+      ]
+    },
+    {
+      "alpha": 16.0,
+      "logits_f64le_sha256": "fb918acb61a023d66f9a45edc76045fd6f8e5f3db9d08ab2dd4b87ce3ac4138b",
+      "widths": [
+        {"compression_bits": -14.210685068913548, "correct_bits": 22, "k": 12, "nll_bits": 62.21068506891355, "total_bits": 48},
+        {"compression_bits": -54.45997995216794, "correct_bits": 99, "k": 52, "nll_bits": 262.45997995216794, "total_bits": 208},
+        {"compression_bits": -92.09895970421735, "correct_bits": 268, "k": 128, "nll_bits": 604.0989597042174, "total_bits": 512},
+        {"compression_bits": -213.40415224140725, "correct_bits": 519, "k": 256, "nll_bits": 1237.4041522414072, "total_bits": 1024}
+      ]
+    }
+  ],
+  "schema": "o1c0022-handcrafted-family-mass-diagnostic-v1"
+}
