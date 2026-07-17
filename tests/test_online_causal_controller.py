@@ -11,6 +11,7 @@ from o1_crypto_lab.full256_action_pool import (
 )
 from o1_crypto_lab.online_causal_controller import (
     KEY_BITS,
+    BoundedLinUCBCritic,
     CausalAction,
     OnlineCausalController,
     OnlineCausalControllerConfig,
@@ -280,6 +281,103 @@ class OnlineCausalControllerTests(unittest.TestCase):
         self.assertEqual(second_tie.action, expected)
         self.assertEqual(first_tie.score, 0.0)
 
+    def test_picker_shortlist_is_bounded_and_horizons_are_one_hot(self) -> None:
+        shortlist_size = 7
+        config = _config(critic_shortlist_size=shortlist_size)
+        controller = OnlineCausalController(config)
+        state = controller.initial_fast_state(SOURCE_SHA256)
+        queried: list[tuple[CausalAction, ...]] = []
+        original_query = controller._action_query_logits
+
+        def recording_query(
+            live_state: OnlineCausalFastState,
+            actions: tuple[CausalAction, ...] | list[CausalAction],
+        ) -> tuple[np.ndarray, np.ndarray]:
+            queried.append(tuple(actions))
+            return original_query(live_state, actions)
+
+        controller._action_query_logits = recording_query  # type: ignore[method-assign]
+        choice = controller.choose_action(state)
+        self.assertIsNotNone(choice)
+        assert choice is not None
+        self.assertEqual(len(queried), 1)
+        self.assertEqual(len(queried[0]), shortlist_size)
+        expected_shortlist = tuple(
+            sorted(
+                (
+                    CausalAction(bit, horizon)
+                    for horizon in config.horizons
+                    for bit in range(KEY_BITS)
+                ),
+                key=lambda action: action.pool_blind_tiebreak_sha256(config),
+            )[:shortlist_size]
+        )
+        self.assertEqual(queried[0], expected_shortlist)
+        self.assertEqual(
+            choice.context.shape,
+            (config.critic_context_dimension,),
+        )
+
+        horizon_encoding = choice.context[6 : 6 + config.horizon_count]
+        expected_encoding = np.zeros(config.horizon_count, dtype=np.float32)
+        expected_encoding[config.horizons.index(choice.action.horizon)] = 1.0
+        np.testing.assert_array_equal(horizon_encoding, expected_encoding)
+        self.assertEqual(config.describe()["critic_horizon_encoding"], "one-hot")
+        self.assertEqual(
+            config.describe()["critic_reward_target"], "raw-delta-nll-bits"
+        )
+
+    def test_picker_preserves_negative_learned_utility(self) -> None:
+        config = _config(
+            critic_exploration=0.0,
+            coverage_weight=0.0,
+            critic_shortlist_size=16,
+        )
+        controller = OnlineCausalController(config)
+        controller.critic.b[0] = -2.0
+        controller.critic.validate(config)
+        state = controller.initial_fast_state(SOURCE_SHA256)
+
+        choice = controller.choose_action(state)
+
+        self.assertIsNotNone(choice)
+        assert choice is not None
+        self.assertLess(choice.predicted_reward, 0.0)
+        self.assertLess(choice.score, 0.0)
+
+    def test_critic_round_trip_tracks_horizon_dimension_and_rejects_v1(self) -> None:
+        payloads: dict[int, bytes] = {}
+        for horizons in ((3,), (3, 5), (3, 5, 7)):
+            with self.subTest(horizons=horizons):
+                config = _config(horizons=horizons)
+                critic = BoundedLinUCBCritic.initial(config)
+                context = np.ones(
+                    config.critic_context_dimension,
+                    dtype=np.float32,
+                )
+                critic.update(context, 0.25, config)
+                payload = critic.to_bytes()
+                restored = BoundedLinUCBCritic.from_bytes(payload)
+                restored.validate(config)
+                self.assertEqual(restored.to_bytes(), payload)
+                self.assertEqual(restored.dimension, 7 + len(horizons))
+                payloads[len(horizons)] = payload
+
+        wrong_dimension = BoundedLinUCBCritic.from_bytes(payloads[2])
+        with self.assertRaisesRegex(
+            OnlineCausalControllerError,
+            "dimension differs",
+        ):
+            wrong_dimension.validate(_config(horizons=(3, 5, 7)))
+
+        v1_payload = payloads[1].replace(
+            b"o1-256-bounded-linucb-v2",
+            b"o1-256-bounded-linucb-v1",
+            1,
+        )
+        with self.assertRaisesRegex(OnlineCausalControllerError, "schema differs"):
+            BoundedLinUCBCritic.from_bytes(v1_payload)
+
     def test_actions_do_not_repeat_and_coverage_cannot_starve_coordinates(self) -> None:
         controller = OnlineCausalController(self.config)
         state = controller.initial_fast_state(SOURCE_SHA256)
@@ -310,6 +408,49 @@ class OnlineCausalControllerTests(unittest.TestCase):
         assert first_observation is not None
         with self.assertRaisesRegex(OnlineCausalControllerError, "observed twice"):
             controller.observe(state, first_observation)
+
+    def test_work_budget_filters_actions_and_is_recomputed_from_ledger(self) -> None:
+        controller = OnlineCausalController(self.config)
+        state = controller.initial_fast_state(SOURCE_SHA256)
+        slow_before = controller.slow_state_bytes()
+
+        self.assertIsNone(controller.choose_action(state, maximum_work_units=0))
+        self.assertIsNone(controller.choose_action(state, maximum_work_units=1))
+        with self.assertRaisesRegex(
+            OnlineCausalControllerError, "maximum_work_units"
+        ):
+            controller.choose_action(state, maximum_work_units=-1)
+
+        minimum_horizon = min(self.config.horizons)
+        exact_minimum = 2 * minimum_horizon
+        choice = controller.choose_action(
+            state,
+            maximum_work_units=exact_minimum,
+        )
+        self.assertIsNotNone(choice)
+        assert choice is not None
+        self.assertEqual(choice.action.horizon, minimum_horizon)
+        self.assertEqual(controller.slow_state_bytes(), slow_before)
+        self.assertEqual(state.action_count, 0)
+
+        budget = exact_minimum * 5
+        completed = controller.run_work_budgeted_policy(
+            self.pool,
+            work_budget=budget,
+        )
+        used = controller.requested_work_units(completed)
+        self.assertLessEqual(used, budget)
+        self.assertGreater(used, budget - exact_minimum)
+        expected = sum(
+            2
+            * CausalAction.from_flat_index(int(value), self.config).horizon
+            for value in completed.action_order[: completed.action_count]
+        )
+        self.assertEqual(used, expected)
+        self.assertEqual(controller.slow_state_bytes(), slow_before)
+
+        with self.assertRaisesRegex(OnlineCausalControllerError, "work_budget"):
+            controller.run_work_budgeted_policy(self.pool, work_budget=-1)
 
     def test_unknown_observation_and_queries_never_change_slow_or_o1_state(
         self,
@@ -420,6 +561,12 @@ class OnlineCausalControllerTests(unittest.TestCase):
 
         self.assertEqual(report.actions, 4)
         self.assertEqual(report.critic_updates, 4)
+        self.assertAlmostEqual(
+            report.critic_reward_sum,
+            report.reward_sum_bits,
+            places=10,
+        )
+        self.assertNotEqual(report.reward_sum_bits, 0.0)
         self.assertEqual(len(report.training_loss_bits), 2)
         self.assertTrue(
             all(math_value > 0.0 for math_value in report.training_loss_bits)
@@ -514,7 +661,11 @@ class OnlineCausalControllerTests(unittest.TestCase):
         self.assertEqual(restored.slow_state_bytes(), slow)
 
         state = controller.initial_fast_state(SOURCE_SHA256)
-        controller.critic.update(np.ones(8, dtype=np.float32), 0.25, self.config)
+        controller.critic.update(
+            np.ones(self.config.critic_context_dimension, dtype=np.float32),
+            0.25,
+            self.config,
+        )
         self.assertNotEqual(state.slow_state_sha256, controller.slow_state_sha256)
         with self.assertRaisesRegex(OnlineCausalControllerError, "slow state changed"):
             controller.choose_action(state)

@@ -35,11 +35,12 @@ from .orchestrator import DatasetSplit, ExperimentProposal
 
 
 KEY_BITS = 256
-ONLINE_CONTROLLER_SCHEMA = "o1-256-online-causal-controller-v1"
+ONLINE_CONTROLLER_SCHEMA = "o1-256-online-causal-controller-v2"
 ONLINE_FAST_STATE_SCHEMA = "o1-256-online-causal-fast-state-v1"
 ONLINE_FAST_STATE_MAGIC = b"O1OCF1\x00"
-UTILITY_CRITIC_SCHEMA = "o1-256-bounded-linucb-v1"
-CRITIC_CONTEXT_DIMENSION = 8
+UTILITY_CRITIC_SCHEMA = "o1-256-bounded-linucb-v2"
+CRITIC_BASE_CONTEXT_DIMENSION = 7
+MAX_CRITIC_CONTEXT_DIMENSION = CRITIC_BASE_CONTEXT_DIMENSION + 8
 ADDRESS_HARMONIC_PAIRS = 6
 
 
@@ -131,7 +132,7 @@ class OnlineCausalControllerConfig:
     critic_ridge: float = 1.0
     critic_exploration: float = 0.25
     critic_reward_clip: float = 4.0
-    critic_work_scale: float = 128.0
+    critic_shortlist_size: int = 32
     coverage_weight: float = 0.25
     posterior_epsilon: float = 2.0**-20
     posterior_logit_clip: float = 16.0
@@ -171,6 +172,11 @@ class OnlineCausalControllerConfig:
             ("cpu_threads", self.cpu_threads, 8),
         ):
             _positive_int(value, field, maximum)
+        _positive_int(
+            self.critic_shortlist_size,
+            "critic_shortlist_size",
+            self.maximum_actions,
+        )
         for field, value, minimum, maximum in (
             ("nuisance_learning_rate", self.nuisance_learning_rate, 1e-8, 1.0),
             ("residual_clip", self.residual_clip, 0.1, 100.0),
@@ -182,7 +188,6 @@ class OnlineCausalControllerConfig:
             ("critic_ridge", self.critic_ridge, 1e-8, 1e8),
             ("critic_exploration", self.critic_exploration, 0.0, 1e8),
             ("critic_reward_clip", self.critic_reward_clip, 1e-8, 1e8),
-            ("critic_work_scale", self.critic_work_scale, 1e-8, 1e8),
             ("coverage_weight", self.coverage_weight, 0.0, 1e8),
             ("posterior_epsilon", self.posterior_epsilon, 1e-12, 0.1),
             ("posterior_logit_clip", self.posterior_logit_clip, 1.0, 1e6),
@@ -210,6 +215,10 @@ class OnlineCausalControllerConfig:
     @property
     def maximum_actions(self) -> int:
         return self.horizon_count * KEY_BITS
+
+    @property
+    def critic_context_dimension(self) -> int:
+        return CRITIC_BASE_CONTEXT_DIMENSION + self.horizon_count
 
     @property
     def fast_state_numeric_bytes(self) -> int:
@@ -260,7 +269,11 @@ class OnlineCausalControllerConfig:
             "critic_ridge": self.critic_ridge,
             "critic_exploration": self.critic_exploration,
             "critic_reward_clip": self.critic_reward_clip,
-            "critic_work_scale": self.critic_work_scale,
+            "critic_shortlist_size": self.critic_shortlist_size,
+            "critic_context_dimension": self.critic_context_dimension,
+            "critic_horizon_encoding": "one-hot",
+            "critic_reward_target": "raw-delta-nll-bits",
+            "critic_selection_score": "signed-utility-plus-ucb-and-coverage-per-requested-work",
             "coverage_weight": self.coverage_weight,
             "posterior_epsilon": self.posterior_epsilon,
             "posterior_logit_clip": self.posterior_logit_clip,
@@ -570,10 +583,10 @@ class BoundedLinUCBCritic:
 
     @classmethod
     def initial(cls, config: OnlineCausalControllerConfig) -> "BoundedLinUCBCritic":
+        dimension = config.critic_context_dimension
         return cls(
-            a_inverse=np.eye(CRITIC_CONTEXT_DIMENSION, dtype=np.float64)
-            / config.critic_ridge,
-            b=np.zeros(CRITIC_CONTEXT_DIMENSION, dtype=np.float64),
+            a_inverse=np.eye(dimension, dtype=np.float64) / config.critic_ridge,
+            b=np.zeros(dimension, dtype=np.float64),
             updates=0,
         )
 
@@ -584,11 +597,20 @@ class BoundedLinUCBCritic:
             updates=self.updates,
         )
 
-    def validate(self) -> None:
+    @property
+    def dimension(self) -> int:
+        if self.b.ndim != 1:
+            raise OnlineCausalControllerError("utility critic vector differs")
+        return int(self.b.shape[0])
+
+    def validate(self, config: OnlineCausalControllerConfig | None = None) -> None:
+        dimension = self.dimension
         if (
-            self.a_inverse.shape != (CRITIC_CONTEXT_DIMENSION, CRITIC_CONTEXT_DIMENSION)
+            not CRITIC_BASE_CONTEXT_DIMENSION + 1
+            <= dimension
+            <= MAX_CRITIC_CONTEXT_DIMENSION
+            or self.a_inverse.shape != (dimension, dimension)
             or self.a_inverse.dtype != np.float64
-            or self.b.shape != (CRITIC_CONTEXT_DIMENSION,)
             or self.b.dtype != np.float64
             or not np.all(np.isfinite(self.a_inverse))
             or not np.all(np.isfinite(self.b))
@@ -597,6 +619,10 @@ class BoundedLinUCBCritic:
             or self.updates < 0
         ):
             raise OnlineCausalControllerError("utility critic state differs")
+        if config is not None and dimension != config.critic_context_dimension:
+            raise OnlineCausalControllerError(
+                "utility critic dimension differs from controller"
+            )
         if not np.allclose(self.a_inverse, self.a_inverse.T, rtol=0.0, atol=1e-10):
             raise OnlineCausalControllerError("utility critic inverse is not symmetric")
 
@@ -608,9 +634,11 @@ class BoundedLinUCBCritic:
     def predict(
         self, context: np.ndarray, config: OnlineCausalControllerConfig
     ) -> tuple[float, float]:
-        self.validate()
+        self.validate(config)
         value = np.asarray(context, dtype=np.float64)
-        if value.shape != (CRITIC_CONTEXT_DIMENSION,) or not np.all(np.isfinite(value)):
+        if value.shape != (config.critic_context_dimension,) or not np.all(
+            np.isfinite(value)
+        ):
             raise OnlineCausalControllerError("critic context differs")
         mean = float(np.dot(self.weights, value))
         variance = max(float(value @ self.a_inverse @ value), 0.0)
@@ -622,8 +650,11 @@ class BoundedLinUCBCritic:
         reward: float,
         config: OnlineCausalControllerConfig,
     ) -> None:
+        self.validate(config)
         value = np.asarray(context, dtype=np.float64)
-        if value.shape != (CRITIC_CONTEXT_DIMENSION,) or not np.all(np.isfinite(value)):
+        if value.shape != (config.critic_context_dimension,) or not np.all(
+            np.isfinite(value)
+        ):
             raise OnlineCausalControllerError("critic context differs")
         target = float(
             np.clip(
@@ -644,10 +675,11 @@ class BoundedLinUCBCritic:
 
     def to_bytes(self) -> bytes:
         self.validate()
+        dimension = self.dimension
         metadata = canonical_json_bytes(
             {
                 "schema": UTILITY_CRITIC_SCHEMA,
-                "dimension": CRITIC_CONTEXT_DIMENSION,
+                "dimension": dimension,
                 "updates": self.updates,
             }
         )
@@ -669,24 +701,33 @@ class BoundedLinUCBCritic:
         except (UnicodeDecodeError, json.JSONDecodeError) as exc:
             raise OnlineCausalControllerError("critic header is invalid") from exc
         expected_fields = {"schema", "dimension", "updates"}
-        matrix_bytes = CRITIC_CONTEXT_DIMENSION**2 * 8
-        vector_bytes = CRITIC_CONTEXT_DIMENSION * 8
         if (
             not isinstance(header, dict)
             or set(header) != expected_fields
             or header.get("schema") != UTILITY_CRITIC_SCHEMA
-            or header.get("dimension") != CRITIC_CONTEXT_DIMENSION
-            or len(value) != end_header + matrix_bytes + vector_bytes
+            or isinstance(header.get("dimension"), bool)
+            or not isinstance(header.get("dimension"), int)
+            or not CRITIC_BASE_CONTEXT_DIMENSION + 1
+            <= header["dimension"]
+            <= MAX_CRITIC_CONTEXT_DIMENSION
+            or isinstance(header.get("updates"), bool)
+            or not isinstance(header.get("updates"), int)
+            or header["updates"] < 0
         ):
             raise OnlineCausalControllerError("critic schema differs")
+        dimension = int(header["dimension"])
+        matrix_bytes = dimension**2 * 8
+        vector_bytes = dimension * 8
+        if len(value) != end_header + matrix_bytes + vector_bytes:
+            raise OnlineCausalControllerError("critic byte inventory differs")
         matrix_end = end_header + matrix_bytes
         try:
             result = cls(
                 a_inverse=np.frombuffer(value[end_header:matrix_end], dtype="<f8")
-                .reshape(CRITIC_CONTEXT_DIMENSION, CRITIC_CONTEXT_DIMENSION)
+                .reshape(dimension, dimension)
                 .copy(),
                 b=np.frombuffer(value[matrix_end:], dtype="<f8").copy(),
-                updates=int(header["updates"]),
+                updates=header["updates"],
             )
         except (KeyError, TypeError, ValueError) as exc:
             raise OnlineCausalControllerError("critic fields differ") from exc
@@ -1033,9 +1074,20 @@ class ActionChoice:
     context: np.ndarray
 
     def __post_init__(self) -> None:
-        context = _readonly_float32(
-            self.context, (CRITIC_CONTEXT_DIMENSION,), "choice context"
-        )
+        context = np.asarray(self.context)
+        if (
+            context.ndim != 1
+            or not CRITIC_BASE_CONTEXT_DIMENSION + 1
+            <= context.shape[0]
+            <= MAX_CRITIC_CONTEXT_DIMENSION
+            or context.dtype != np.float32
+            or not np.all(np.isfinite(context))
+        ):
+            raise OnlineCausalControllerError(
+                "choice context must be a finite float32 critic vector"
+            )
+        context = np.array(context, dtype=np.float32, order="C", copy=True)
+        context.setflags(write=False)
         for field in (
             "score",
             "predicted_reward",
@@ -1320,7 +1372,9 @@ class OnlineCausalController:
         old_episodes = self.episodes
         try:
             _load_module_bytes(self.reader, model_payload)
-            self.critic = BoundedLinUCBCritic.from_bytes(critic_payload)
+            restored_critic = BoundedLinUCBCritic.from_bytes(critic_payload)
+            restored_critic.validate(self.config)
+            self.critic = restored_critic
             self.episodes = episodes
             if self.slow_state_bytes() != value:
                 raise OnlineCausalControllerError("slow-state payload is not canonical")
@@ -1594,6 +1648,8 @@ class OnlineCausalController:
         age = (
             state.steps + 1 - int(state.last_selected[horizon_index, action.bit_index])
         ) / (state.steps + 1)
+        horizon_encoding = np.zeros(self.config.horizon_count, dtype=np.float32)
+        horizon_encoding[horizon_index] = 1.0
         context = np.asarray(
             (
                 1.0,
@@ -1602,11 +1658,13 @@ class OnlineCausalController:
                 math.tanh(abs(float(common_query))),
                 coverage_debt,
                 age,
-                action.horizon / max(self.config.horizons),
+                *horizon_encoding,
                 1.0 / (1.0 + float(state.posterior_precision[action.bit_index])),
             ),
             dtype=np.float32,
         )
+        if context.shape != (self.config.critic_context_dimension,):
+            raise AssertionError("critic context construction differs")
         return context
 
     def choose_action(
@@ -1614,10 +1672,19 @@ class OnlineCausalController:
         state: OnlineCausalFastState,
         *,
         allowed_horizons: Iterable[int] | None = None,
+        maximum_work_units: int | None = None,
     ) -> ActionChoice | None:
         """Pick without seeing unexecuted branch features or current labels."""
 
         self._validate_live_state(state)
+        if maximum_work_units is not None and (
+            isinstance(maximum_work_units, bool)
+            or not isinstance(maximum_work_units, int)
+            or maximum_work_units < 0
+        ):
+            raise OnlineCausalControllerError(
+                "maximum_work_units must be a non-negative integer"
+            )
         allowed = (
             set(self.config.horizons)
             if allowed_horizons is None
@@ -1633,6 +1700,10 @@ class OnlineCausalController:
             if horizon in allowed
             for bit in range(KEY_BITS)
             if state.coverage[horizon_index, bit] == 0
+            and (
+                maximum_work_units is None
+                or 2 * horizon <= maximum_work_units
+            )
         ]
         if not candidates:
             return None
@@ -1648,6 +1719,10 @@ class OnlineCausalController:
             for action in candidates
             if int(coordinate_coverage[action.bit_index]) == minimum_coverage
         ]
+        candidates.sort(
+            key=lambda action: action.pool_blind_tiebreak_sha256(self.config)
+        )
+        candidates = candidates[: self.config.critic_shortlist_size]
         orientation, common = self._action_query_logits(state, candidates)
         ranked: list[tuple[float, str, ActionChoice]] = []
         for index, action in enumerate(candidates):
@@ -1661,8 +1736,10 @@ class OnlineCausalController:
             coverage_debt = float(context[4] + context[5])
             work_units = 2 * action.horizon
             score = (
-                max(predicted, 0.0) + exploration
-            ) / work_units + self.config.coverage_weight * coverage_debt
+                predicted
+                + exploration
+                + self.config.coverage_weight * coverage_debt
+            ) / work_units
             choice = ActionChoice(
                 action=action,
                 score=score,
@@ -1718,6 +1795,51 @@ class OnlineCausalController:
             self.observe(state, PairedCausalObservation.from_pool(pool, choice.action))
         return state
 
+    def run_work_budgeted_policy(
+        self,
+        pool: Full256ActionPool,
+        *,
+        work_budget: int,
+        allowed_horizons: Iterable[int] | None = None,
+    ) -> OnlineCausalFastState:
+        """Run the learned pool-blind policy under an exact requested-work cap."""
+
+        self.validate_pool(pool)
+        if (
+            isinstance(work_budget, bool)
+            or not isinstance(work_budget, int)
+            or work_budget < 0
+        ):
+            raise OnlineCausalControllerError(
+                "work_budget must be a non-negative integer"
+            )
+        state = self.initial_fast_state(pool.source_stream_sha256)
+        remaining = work_budget
+        while True:
+            choice = self.choose_action(
+                state,
+                allowed_horizons=allowed_horizons,
+                maximum_work_units=remaining,
+            )
+            if choice is None:
+                break
+            work_units = 2 * choice.action.horizon
+            self.observe(state, PairedCausalObservation.from_pool(pool, choice.action))
+            remaining -= work_units
+        if self.requested_work_units(state) > work_budget:
+            raise AssertionError("work-budgeted policy exceeded its cap")
+        return state
+
+    def requested_work_units(self, state: OnlineCausalFastState) -> int:
+        """Recompute requested paired-conflict work from the exact action ledger."""
+
+        self._validate_live_state(state)
+        return sum(
+            2
+            * CausalAction.from_flat_index(int(flat_index), self.config).horizon
+            for flat_index in state.action_order[: state.action_count]
+        )
+
     def _replay_for_rewards(
         self,
         pool: Full256ActionPool,
@@ -1738,9 +1860,7 @@ class OnlineCausalController:
             self.observe(state, PairedCausalObservation.from_pool(pool, action))
             after = _binary_nll_bits(state.posterior_logits, labels)
             contexts.append(context)
-            rewards.append(
-                (before - after) * self.config.critic_work_scale / (2 * action.horizon)
-            )
+            rewards.append(before - after)
         final_nll = _binary_nll_bits(state.posterior_logits, labels)
         return contexts, rewards, initial_nll, final_nll
 
@@ -1897,7 +2017,7 @@ class OnlineCausalController:
 
 __all__ = [
     "ADDRESS_HARMONIC_PAIRS",
-    "CRITIC_CONTEXT_DIMENSION",
+    "CRITIC_BASE_CONTEXT_DIMENSION",
     "ActionChoice",
     "BoundedLinUCBCritic",
     "CausalAction",
