@@ -50,7 +50,9 @@ All three pre-existing unary proof horizons remain aggregate-positive, while the
 richer coarse ARX24/Motif12 readers turn negative. O1C-0015 therefore freezes the
 exact h96 primary plus one equal-logit h96+h65 two-wavelength reader and attacks 32
 entirely new full-256 targets. O1C-0014 informs that next challenge but never enters
-its reader fit or its own claim.
+its reader fit or its own claim. The implementation is frozen at
+`26709cde97df26dc8bfebf99eb108dc0d58f4281`; all canonical tests pass and no
+O1C-0015 target has yet been generated or revealed.
 
 ## What the first benchmark proves
 

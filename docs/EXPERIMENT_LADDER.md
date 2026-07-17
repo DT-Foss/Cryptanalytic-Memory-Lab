@@ -155,8 +155,16 @@ classification is `NOT_REPLICATED`.
 Repeat L5 with new sealed random targets. Challenge `n` may teach mechanisms used
 on `n+1`, never itself. O1C-0015 uses O1C-0014 only to select a fixed two-wavelength
 architecture: exact h96 plus `0.5*h96+0.5*h65` logits, all frozen before 32 fresh
-keys. No O1C-0014 label enters fit or inference. Promote the result only when
-entropy removal, target robustness and matched-control margins transfer.
+keys. No O1C-0014 label enters fit or inference. Replication is classified through
+the frozen ensemble/h96 entropy, conditional-null, target-sign, leave-one-out and
+matched-shuffled gates. Polyphase promotion is a separate comparison and requires
+positive ensemble-minus-h96 compression plus its paired conditional z gate; a
+replicated channel without promotion keeps exact h96 primary. The three public
+output transformations remain diagnostic claim-boundary controls, not efficacy
+classification gates.
+The executable preregistration is frozen at commit
+`26709cde97df26dc8bfebf99eb108dc0d58f4281`; no O1C-0015 target entropy had been
+drawn at freeze time.
 
 ## L7 — Exact recovery frontier
 

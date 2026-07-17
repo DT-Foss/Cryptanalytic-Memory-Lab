@@ -31,7 +31,7 @@
     "maximum_sibling_writes": 0,
     "maximum_fresh_random_targets": 32
   },
-  "next_action": "If strong polyphase replication passes, preserve all four exact reader binaries and advance the ensemble posterior into the bounded beam and causal Attic. If only directional evidence passes, repeat the immutable freeze on another 32 sealed keys. Otherwise retain component and coordinate residuals and replace one public causal sensor family without reusing revealed O1C-0015 targets for selection.",
+  "next_action": "If strong replication and the separate PROMOTE_POLYPHASE gate both pass, preserve all four exact reader binaries and advance the ensemble posterior into the bounded beam and causal Attic. If replication passes but PROMOTE_POLYPHASE fails, retain exact h96 as primary. If only directional evidence passes, repeat the immutable freeze on another 32 sealed keys. Otherwise retain component and coordinate residuals and replace one public causal sensor family without reusing revealed O1C-0015 targets for selection.",
   "source": {
     "capsule": "runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1",
     "manifest_sha256": "a0d4df5c01f7de3c65a429f9589e46d784f802bc1f8e0aa90dffb011be46922c",

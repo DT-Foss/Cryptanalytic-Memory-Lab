@@ -1,9 +1,9 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-17T09:03:05+02:00 (`Europe/Berlin`)
-- **Reader implementation commit:** `527d5c273403f07e03241243a38e0b5375c4d745`
-- **Worktree:** O1C-0014 capsule finalized and verified 124/124; O1C-0009
-  through O1C-0014 immutable; O1C-0015 sensor successor design active
+- **Last updated:** 2026-07-17T09:46:03+02:00 (`Europe/Berlin`)
+- **Reader implementation commit:** `26709cde97df26dc8bfebf99eb108dc0d58f4281`
+- **Worktree:** O1C-0015 implementation and preregistration frozen with zero fresh
+  target entropy calls; O1C-0009 through O1C-0014 remain immutable
 - **Research phase:** O1-256 Living Inverse — paired-assumption solver events into
   coordinate-bound unary-plus-interaction O1 state
 - **Strongest internal mechanism:** O1C-0013 turns each complete 512-branch public
@@ -14,7 +14,7 @@
 - **Active runs:** none
 - **Last completed attempt:** `O1C-0014` — exact-byte, zero-refit h96 validation on
   eight new sealed full-round output-only keys
-- **Next attempt:** `O1C-0015` — retain exact h96 as primary and freeze one equal-
+- **Next attempt:** launch frozen `O1C-0015` — exact h96 primary plus one equal-
   logit h96+h65 two-wavelength ensemble on 32 new sealed full-256 keys
 - **Primary uncertainty:** whether the positive unary proof-difficulty aggregate is
   a portable causal channel despite target heterogeneity and failed specificity
@@ -26,6 +26,23 @@
   full ChaCha20 key
 
 ## Headline
+
+`O1C-0015` is now an executable, source-frozen blind replication rather than a
+design sketch. It reconstructs h65 plus arm-matched shuffled h96/h65 readers from
+only O1C-0013 BUILD/CAL, preserves the exact primary h96 bytes, and freezes
+`0.5*logit(h96)+0.5*logit(h65)` before fresh entropy. One unchanged public causal
+sweep is reused by every reader view: 35 sweeps x 512 assumptions = exactly
+17,920 conservatively billed native branches for 32 factual targets and three
+controls. The bounded live target state is 67,584 bytes. All component, ensemble
+and matched-control posteriors must exist before the first reveal.
+
+The canonical `tests/` suite passes `317` tests with `9` skips and `51` subtests;
+targeted O1C-0015/CLI coverage passes `33` tests and `12` subtests. Ruff on every
+changed source/test file, format check, compileall and diff hygiene pass. No
+O1C-0015 key has been generated or revealed. The run waits only for the sibling
+resource gate, then executes once from the clean preregistration descendant of
+implementation commit `26709cde97df26dc8bfebf99eb108dc0d58f4281` under the
+frozen 1,600 CPU-s, 1,400 wall-s, 384 MiB RSS and 24 MB artifact ceilings.
 
 `O1C-0014` reloaded O1C-0013's exact primary reader
 `796e79ec932b990a59ecbc34216c4878b9279bae3bb136fe0832e580bcb2e9f8`
@@ -196,14 +213,16 @@ O1C-0014 arm/coordinate audit is in
 
 ## Highest-ROI next actions
 
-1. `O1C-0015`: preserve exact h96 as the primary no-refit reader and freeze exactly
-   one new equal-logit h96+h65 ensemble reconstructed from O1C-0013 BUILD/CAL only.
-2. Attack 32 new sealed uniform full-256 output-only keys; each 512-branch sweep is
-   reused for both readers and matched shuffled ensembles with no extra solver work.
-3. Predeclare aggregate NLL, conditional null, paired control margins, target sign
-   robustness, decoy ranks and all predictions-before-any-reveal lifecycle gates.
+1. Launch the already frozen `O1C-0015` from the clean preregistration commit once
+   the sibling resource gate is clear; do not edit its reader, thresholds or
+   config after target entropy begins.
+2. Monitor the one-shot 32-key lifecycle and preserve every component, ensemble
+   and matched-control posterior before the first reveal.
+3. Verify the completed capsule, classify only by the frozen directional/strong
+   gates, and separately decide whether polyphase beats exact h96.
 4. If the unary channel fails, build the already designed assumption-rooted h96
-   query/carry cone; if it holds, compound it in the Attic and bounded beam.
+   query/carry cone; if it holds, compound the best frozen posterior in the Attic
+   and bounded beam, using the ensemble only if its separate promotion gate passes.
 
 ## Recent attempts
 
@@ -290,7 +309,9 @@ O1C-0014 arm/coordinate audit is in
 
 ## Resume here
 
-Start from `O1C-0015`. Preserve O1C-0014 as immutable `NOT_REPLICATED` evidence
+Launch frozen `O1C-0015` from the clean preregistration descendant of implementation
+commit `26709cde97df26dc8bfebf99eb108dc0d58f4281`. Preserve O1C-0014 as immutable
+`NOT_REPLICATED` evidence
 and treat O1C-0013 reader SHA-256
 `796e79ec932b990a59ecbc34216c4878b9279bae3bb136fe0832e580bcb2e9f8`
 as the immutable baseline. Do not promote or retune h64/h65/ARX24 using O1C-0014.

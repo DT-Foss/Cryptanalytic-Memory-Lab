@@ -561,3 +561,48 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `runs/20260717_084847_O1C-0014_full256-frozen-reader-blind-replication-v1/`;
   manifest
   `741718cbc6b63de24f4d9c89cd2aedc8e9779a0ebb38adc4d40666e97ce24bcf`.
+
+## O1C-0015 — Polyphase blind replication (pre-run freeze)
+
+- **Recorded:** 2026-07-17T09:46:03+02:00
+- **Implementation commit:** `26709cde97df26dc8bfebf99eb108dc0d58f4281`;
+  canonical execution must use the subsequent clean preregistration commit
+- **Claim level:** `VALIDATION` pending; no result claim and zero fresh O1C-0015
+  target entropy calls at freeze time
+- **Hypothesis:** a fixed equal-logit ensemble of exact O1C-0013 h96 and a
+  deterministic h65 reader reconstructed only from O1C-0013 BUILD/CAL removes
+  reproducible code length from 32 fresh standard twenty-round ChaCha20 keys with
+  all 256 bits unknown and only public counter, nonce and output visible.
+- **Frozen readers:** exact h96
+  `796e79ec932b990a59ecbc34216c4878b9279bae3bb136fe0832e580bcb2e9f8`;
+  reconstructed h65
+  `b7dd365753bf2ca131c2c263f3c04e5e644d9d438feaf17a5a313790dcf8409d`;
+  arm-matched shuffled h96
+  `6dd8b6c09c4593228cfafe545bdff4c6e6b9953ba013fff35f97ac87c8ab3cb1`;
+  shuffled h65
+  `d9077567e1ffd6b73d673fdca22626495fb213057c0a203a0cd1c264d15b00d6`.
+- **Composition:** persist h96, h65, `0.5*h96+0.5*h65` logit ensemble and the
+  identically composed shuffled control for every target. One unchanged 512-
+  assumption public sweep feeds all views; 32 targets plus three controls equal
+  exactly 17,920 conservatively billed native branches and 67,584 bytes maximum
+  live target state.
+- **Lifecycle:** freeze protocol before 32 OS-random keys; persist all factual and
+  control posteriors before any reveal; exact assumption-swap complements; no
+  target key/internal state, O1C-0014 feature/label/fit, sibling read/write, MPS or
+  GPU path.
+- **Decision:** directional requires positive ensemble compression, positive exact
+  h96 compression, at least 18/32 positive targets and positive ensemble-over-
+  matched-control margin. Strong additionally requires conditional and paired
+  `z>=1.6448536269514722`, at least 22/32 positive and positive minimum leave-one-
+  out compression. Polyphase promotion is separate and requires positive mean
+  ensemble-minus-h96 compression with paired conditional
+  `z>=1.6448536269514722`.
+- **Budgets:** 1,600 CPU s, 1,400 wall s, 384 MiB peak RSS, 24,000,000 persistent
+  bytes, 17,920 native branches, 32 fresh keys and zero sibling/MPS/GPU calls.
+- **Verification before entropy:** canonical `tests/` suite `317 passed, 9 skipped,
+  51 subtests`; targeted O1C-0015/CLI `33 passed, 12 subtests`; changed-file Ruff,
+  format, compileall and diff checks pass. Independent reconstruction reproduced
+  the reader hashes and full-grid output equality.
+- **Next action:** wait for the sibling resource gate, launch exactly once from a
+  clean source commit, verify the immutable capsule, then publish the frozen
+  classification without target-time tuning.

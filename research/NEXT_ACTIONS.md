@@ -1,14 +1,14 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T09:03:05+02:00.
+Last ranked: 2026-07-17T09:46:03+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | `O1C-0015`: reconstruct the pre-existing h65 BUILD reader, freeze exact h96 plus one fixed equal-logit h96+h65 ensemble, and attack 32 new sealed output-only full-256 keys | State of the art | Very high | Very high | Medium | Decides the positive unary aggregate with four-times the independent target panel and no O1C-0014 fit |
-| 2 | Reuse every 512-branch sweep for h96, h65, ensemble and matched shuffled readers; persist all 32 prediction sets before any reveal | State of the art | Very high | Very high | Low | Separates a real two-wavelength channel from post-reveal ensemble selection |
-| 3 | Predeclare ensemble/h96 NLL, conditional and paired nulls, target sign count, decoy rank and the same three anchor transforms | State of the art | Very high | High | Low | Tests entropy, robustness and public-evidence specificity together |
-| 4 | If O1C-0015 fails, implement the designed H96 query-rooted carry/proof cone while keeping exact h96 as baseline | State of the art | High | Very high | Medium | Removes global solver-work noise using actual assumption-key/carry ancestry |
-| 5 | If O1C-0015 holds, compound independent challenge posteriors in the surprise-gated Attic and spend them on a bounded exact-verification beam | State of the art | Very high | Very high | High | Converts reproducible entropy removal into search-domain reduction |
+| 1 | Launch the source-frozen `O1C-0015` from the clean preregistration descendant of implementation commit `26709cd` after the sibling resource gate clears; make no reader/config edits after fresh entropy begins | State of the art | Very high | Very high | Medium | Decides the positive unary aggregate on 32 independent targets with no O1C-0014 fit |
+| 2 | Verify the one-shot capsule and classify only through the frozen ensemble, exact-h96, matched-control, sign-count and leave-one-out gates | State of the art | Very high | Very high | Low | Separates transferable entropy removal from target-panel variance |
+| 3 | Report polyphase promotion separately: ensemble-minus-h96 must be positive with paired conditional `z>=1.64485` | State of the art | Very high | High | Low | Determines whether two-wavelength O1 composition adds information beyond its strongest component |
+| 4 | If O1C-0015 fails, implement the designed h96 query-rooted carry/proof cone and test A513's exact zero-sum operator bases as a sensor family while keeping exact h96 as baseline | State of the art | High | Very high | Medium | Removes global solver-work noise using actual assumption-key/carry ancestry and a basis-bound holographic view |
+| 5 | If O1C-0015 holds, compound the best frozen challenge posterior in the surprise-gated Attic and bounded exact-verification beam; use the ensemble only if its separate promotion gate passes, otherwise retain h96 | State of the art | Very high | Very high | High | Converts reproducible entropy removal into search-domain reduction without forcing a failed composition |
 | 6 | Keep coarse ARX24/Motif12 and coordinate masks as negative sentinels, not new primaries | Medium | Medium | High | Low | Prevents spending fresh keys on a feature family already reversed on O1C-0014 |
 
 ## Hard target contract
