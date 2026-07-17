@@ -36,34 +36,33 @@ The complete attacker contract and architecture are in
 [O1-256 Living Inverse](docs/O1_256_LIVING_INVERSE.md).  The W52 mechanisms were
 inspected read-only and are summarized in
 [the 2026-07-17 transfer map](research/W52_TRANSFER_20260717.md).
+The post-O1C-0016 continuous fast/slow learner and learned picker are specified in
+[O1 Online Möbius Controller](docs/O1_ONLINE_MOBIUS_CONTROLLER.md).
 
-The strongest immutable scientific result remains O1C-0014. It reloaded
-O1C-0013's exact h96 reader bytes without refit or rescaling and attacked eight new
-OS-random sealed keys using only public counter/nonce/output. It obtained
-`1053/2048` bits and `+0.233784` bit/key aggregate compression (`z=1.819`) while
-its shuffled reader obtained `-1.290981` bit/key. The preregistered result is
-nevertheless `NOT_REPLICATED`: only `4/8` targets were positive, the paired
-control comparison was `z=0.838`, the three public-evidence controls were mixed,
-and no exact key was emitted.
+The strongest immutable scientific attempt is O1C-0016. It froze the exact h96
+reader and a fixed equal-logit h96+h65 successor before attacking 32 entirely new
+OS-random sealed keys using only public counter/nonce/output. The ensemble obtains
+`4093/8192` bits and `-0.078249` bit/key, with only `11/32` positive targets and a
+`-0.080225` bit/key margin over its matched shuffled control (`z=-0.555`). Exact
+h96 reaches `-0.175000`, h65 `-0.033913`, all byte/block ranks are null-like, and
+no exact key is emitted. The frozen result is `NOT_REPLICATED / DO_NOT_PROMOTE`.
 
-That negative classification is retained together with its mechanism breadcrumb.
-All three pre-existing unary proof horizons remain aggregate-positive, while the
-richer coarse ARX24/Motif12 readers turn negative. O1C-0015 ran the exact h96 plus
-equal-logit h96+h65 successor on 32 new targets, but exceeded its CPU, wall and RSS
-ceilings after all 32 targets had been revealed in process memory. Because no
-reveal/evaluation artifacts survived, it is an immutable operational failure, not
-a scientific result; all 32 targets are burned and will never be replayed.
+The full lifecycle is nevertheless validated: 680/680 capsule members verify,
+every commitment and independently recomputed output matches, all resource gates
+pass, and the live target state remains 67,584 bytes. O1C-0015 remains an immutable
+operational failure whose 32 burned targets will never be replayed; O1C-0016 uses
+an entirely separate panel and supplies its valid scientific answer.
 
-O1C-0016 is the clean successor at implementation commit
-`4f4c5280ecf876083222138db4cb55dae9e2dfca`. It keeps the scientific mechanism,
-readers, controls, 17,920 branches and 32-target contract unchanged, uses 32
-entirely new keys, raises only the soft ceilings to 3,000 CPU-s, 3,000 wall-s and
-768 MiB RSS, and fixes pre-reveal resource accounting plus terminal truth
-persistence. Canonical v2 config SHA-256:
-`054e8b05c7824cf4c47f509d6a4977e3feac7e5df5ce006f55948b93554daaa6`.
-No O1C-0016 entropy has been drawn. Only after O1C-0016, O1C-0017 will test adaptive
-h65-all/top32-h96 live-causal deepening; the deterministic work model predicts `19.79%`
-requested conflict-work saving.
+The main breadcrumb is not another coordinate to freeze. Per-target primary-h65
+and matched-shuffled compression correlate `0.999905`, while O1C-0014-to-0016
+coordinate transfer is approximately zero. The global unary readers saw a
+repeatable public-instance difficulty/amplitude field but did not learn hidden-key
+orientation. [The post-reveal audit](research/O1C0016_POST_REVEAL_FORENSICS_20260717.md)
+therefore pivots O1C-0017 to zero-fresh-entropy online representation learning:
+bounded nuisance removal, residual event encoding and O1-O adaptive sensing are
+cross-fitted on self-generated known-key folds. Only a residual reader that beats
+norm/spectrum-matched coordinate-destroying controls may advance to new sealed
+O1C-0018 targets.
 
 ## What the first benchmark proves
 

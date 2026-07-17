@@ -658,3 +658,50 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   only by the frozen gates. O1C-0017's adaptive h65-all/top32-h96 live-causal
   fidelity probe follows only after O1C-0016; its deterministic work model predicts
   `19.79%` requested conflict-work saving.
+
+## O1C-0016 — Budget-corrected polyphase replication (completed outcome)
+
+- **Recorded:** 2026-07-17T12:20:25+02:00
+- **Execution commit:** `30dfd1dfe29afd2ad89c8508e5c4a75da065a5e3`
+- **Claim level:** `VALIDATION` negative; lifecycle and resource mechanism passed
+- **Classification:** `NOT_REPLICATED`; polyphase architecture `DO_NOT_PROMOTE`.
+- **Sealed result:** ensemble `4093/8192`, accuracy `0.4996337891`, compression
+  `-0.0782490971` bit/key and conditional `z=-0.4165615`. Only `11/32` targets
+  are positive. Exact h96 gives `4052/8192` and `-0.1749999959`; h65 gives
+  `4100/8192` and `-0.0339132617`; the matched shuffled ensemble gives
+  `4100/8192` and `+0.0019763046` bit/key.
+- **Frozen decisions:** the primary loses to shuffled by `-0.0802254017` bit/key
+  with paired `z=-0.5553579`. The ensemble improves h96 by `+0.0967508988`, but
+  loses to h65 by `-0.0443358354`; promotion z `1.0044702` is below the frozen
+  threshold.
+- **Ranks and recovery:** byte top-1/top-4/top-16 counts `4/16/61` against uniform
+  expectations `4/16/64`; zero 16-bit top-16 groups; best million-decoy rank
+  `45,147` has 32-try null probability approximately `0.772`; zero exact keys.
+- **Coordinate robustness:** six coordinates reach at least `22/32` versus `6.41`
+  expected under fair bits; maximum `24/32` has familywise null probability about
+  `0.592`; none reach `32/32`. O1C-0014-to-O1C-0016 coordinate compression
+  correlation is approximately zero.
+- **Controls:** output-bit flip `+0.253971`, wrong nonce `-0.078066`, byte rotation
+  `+0.515872` bit/key; specificity fails.
+- **Mechanistic breadcrumb:** target-level h65 primary and shuffled compression
+  correlate `0.999905`. Shuffled-h96 logits are zero and shuffled-h65 is, to
+  residual below `4e-9`, `0.38857049` times primary-h65. The frozen reader family
+  tracks common-mode public-instance difficulty/amplitude without portable hidden-
+  key orientation.
+- **Resources:** `1972.624545` billed CPU seconds, `1620.537008` wall seconds,
+  `414.8125` MiB conservative peak RSS, `17,920` native branches, `67,584` live
+  target bytes and `6,768,561` persistent bytes; every frozen gate passes.
+- **Independent verification:** 680/680 manifest members; all 32 commitments and
+  independently recomputed ChaCha20 outputs match. Manifest
+  `fd0469885ee436414f94d708006cc40d86fc730d25b618167c7d664b3fe195ea`;
+  result
+  `6146dbfe10e1add60fe5d16f133c5b1acdced42bcf2249561926d26ee0e11652`.
+- **Conclusion:** close exact global h96, direct h65 and their fixed equal-logit
+  ensemble as inverse readers. Preserve the causal event substrate. O1C-0017 uses
+  no fresh entropy: cross-fit bounded nuisance rejection, residual event encoding
+  and adaptive sensing on self-generated known-key folds. Advance to O1C-0018 only
+  after repeated held-out NLL lift over a norm/spectrum-matched coordinate-
+  destroying null.
+- **Artifact:**
+  `runs/20260717_115325_O1C-0016_full256-polyphase-blind-replication-v2/`;
+  forensics `research/O1C0016_POST_REVEAL_FORENSICS_20260717.md`.

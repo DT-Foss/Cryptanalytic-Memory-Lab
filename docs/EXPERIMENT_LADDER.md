@@ -105,19 +105,29 @@ Result: mechanism and lifecycle passed. O1C-0013's frozen h96 reader produced
 `-3.217332` for its shuffled reader. O1C-0014's exact-byte validation remains
 aggregate-positive at `+0.233784` bit/key on eight new targets, but is formally
 `NOT_REPLICATED`; only `4/8` targets are positive and controls are mixed. The
-bounded mechanism stands while inverse efficacy remains an active gate.
+larger O1C-0016 panel now closes the frozen readout: h96 is `-0.175000` bit/key,
+h65 `-0.033913`, their fixed ensemble `-0.078249`, and only `11/32` targets are
+positive. The bounded event mechanism stands; this global unary orientation does
+not.
 
 ## L4 — O1-O adaptive proposal organism
 
-Select the next `(anchor, orbit, contrast family, horizon, reader, phase)` by
+O1C-0017 upgrades this layer from a hand-scored scheduler to a continuous
+fast/slow learner. The legal action is
+`(coordinate, sparse interaction, horizon, operator, phase, budget)`. O1's
+target-local fast state learns label-free nuisance removal and residual event
+encoding; O1-O's slow policy learns next-challenge information gain on completed
+known-key episodes. The initial scheduling prior is
 
 ```text
-uncertainty * expected information gain * expert disagreement / work
+learned_utility + uncertainty + surprise + coverage_debt - work_penalty
 ```
 
 Failure memory is contextual; it suppresses only the measured dead combination.
-Compare against fixed round-robin and uniform proposal schedules at equal cipher
-calls.  Only high-surprise compact motifs may enter a separately billed capped
+An epsilon posterior/sensing floor prevents unvisited regions from becoming false
+zero-probability regions; only exact UNSAT or public verification may harden a bit
+to 0/1. Compare against fixed round-robin and uniform schedules at equal solver
+work. Only high-surprise compact motifs may enter a separately billed capped
 causal attic.
 
 Gate: better held-out entropy reduction per cipher call without state/index budget
@@ -160,20 +170,20 @@ before persisting any reveal/evaluation artifact. Its capsule verifies 579/579,
 but it is an operational failure with no scientific classification; all 32 targets
 are burned and may never be replayed.
 
-O1C-0016 repeats the identical scientific experiment on 32 entirely new keys.
-Readers, gates, controls, 17,920 branches and the 67,584-byte live-state bound are
-unchanged. Only the soft ceilings become 3,000 CPU-s, 3,000 wall-s and 768 MiB RSS,
-with a pre-reveal resource gate and complete terminal truth persistence. Its
-implementation is frozen at
-`4f4c5280ecf876083222138db4cb55dae9e2dfca`; config SHA-256
-`054e8b05c7824cf4c47f509d6a4977e3feac7e5df5ce006f55948b93554daaa6`;
-zero O1C-0016 entropy has been drawn. Replication and polyphase promotion remain
-separate frozen decisions.
+O1C-0016 completed the identical scientific experiment on 32 entirely new keys.
+All lifecycle/resource gates pass, but the ensemble gives `4093/8192`,
+`-0.078249` bit/key, only `11/32` positive targets and paired `z=-0.555`; exact
+h96 and h65 are also negative and zero exact keys are recovered. Classification:
+`NOT_REPLICATED / DO_NOT_PROMOTE`.
 
-Only after O1C-0016, O1C-0017 tests adaptive live-causal fidelity: h65 for every
-pair and h96 only for the top 32 uncertainty/surprise coordinates. Its deterministic work
-model predicts `19.79%` requested conflict-work saving; fidelity to the full h96
-causal field, not savings alone, is the gate.
+Post-reveal forensics show h65 primary/shuffled target compression correlation
+`0.999905`: the global reader mostly tracks public-instance difficulty. O1C-0017
+therefore uses zero fresh sealed entropy and does not optimize fidelity to h96.
+Across self-generated known-key whole-key folds it learns zero-sum/cohort nuisance
+removal and residual event representation, while O1-O adaptively chooses where to
+deepen. Raw h65/h96, a common-mode-only sentinel and a norm/spectrum-matched
+coordinate-destroying rotation are mandatory controls. O1C-0018 may spend new
+sealed entropy only after repeated held-out NLL and control margins pass.
 
 ## L7 — Exact recovery frontier
 

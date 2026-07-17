@@ -296,3 +296,40 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   h96+h65 two-wavelength successor plus exact h96 and matched shuffled controls,
   then decide both only on 32 fresh targets. If that fails, replace global proof
   work with a query-rooted carry/proof cone rather than another feature resweep.
+
+## B-0018 — Global h96/h65 orientation and fixed compounding do not replicate
+
+- **Evidence:** O1C-0016 freezes exact h96, BUILD/CAL-reconstructed h65, their
+  equal-logit ensemble and matched shuffled control before 32 entirely new sealed
+  full-256 targets.
+- **Result:** ensemble `4093/8192`, `-0.078249` bit/key, `11/32` positive targets,
+  conditional `z=-0.417` and paired-control `z=-0.555`. h96 is `-0.175000`, h65
+  `-0.033913`; the ensemble loses to h65 and its promotion z is only `1.004`.
+  Byte, 16-bit and million-decoy ranks are null-like; exact keys are zero.
+- **Conclusion:** the O1C-0014 positive panel was not a portable global unary
+  orientation. More fixed global proof depth, another h65/h96 weight or a larger
+  sealed panel will not manufacture key polarity.
+- **Do not repeat:** rescale or re-sign h96/h65, search blend weights, select
+  O1C-0016's 24/32 coordinate, freeze post-reveal coordinate masks, or promote the
+  ensemble merely because it improves the worse h96 component.
+- **Breadcrumb:** preserve the event stream but subtract target/horizon and
+  operator/lane nuisance modes. Let O1 learn residual event geometry on whole-key
+  cross-fits and let O1-O select sensing actions from label-free innovation,
+  uncertainty, surprise and coverage debt.
+
+## B-0019 — Shuffled-label ridge can be a scaled common-mode control
+
+- **Evidence:** O1C-0016 exact reconstructed arm binaries and all 8,192 frozen
+  target logits.
+- **Result:** shuffled-h96 logits are zero; shuffled-h65 logits equal
+  `0.38857049 * primary-h65` to residual below `4e-9`. The two h65 arms have
+  identical signs and both obtain exactly 4,100 correct bits. Target-level primary
+  and shuffled h65 compression correlate `0.999905`.
+- **Conclusion:** this shuffled fit preserves the same public-instance amplitude
+  geometry and only shrinks it. It is useful as a common-mode sentinel but is not
+  an independent coordinate-orientation null.
+- **Do not repeat:** treat any positive primary-minus-this-control margin as
+  sufficient specificity, or infer two independent readers from the two files.
+- **Breadcrumb:** future learned residual readers require both a common-mode-only
+  sentinel and a frozen norm/spectrum-matched balanced sign or orthogonal rotation
+  in zero-sum coordinate space that destroys key-coordinate alignment.

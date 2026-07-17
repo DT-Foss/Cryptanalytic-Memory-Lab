@@ -167,7 +167,19 @@ are a factor-256 domain reduction.  Exact key verification is the terminal signa
    on eight new keys and obtained `+0.233784` bit/key with conditional `z=1.819`,
    but only `4/8` positive targets, paired `z=0.838`, mixed controls and zero exact
    keys; the predeclared class is `NOT_REPLICATED`.
-8. `O1C-0015`: freeze exact h96 plus one fixed equal-logit h96+h65 polyphase reader
-   before 32 new target entropy calls. Reuse each solver field across both readers
-   and matched shuffled controls; O1C-0014 selects the next mechanism but never
-   enters its fit. A query-rooted carry/proof cone is the failure pivot.
+8. `O1C-0015` (operational failure): completed the frozen 32-target computation
+   but crossed its old resource ceilings after reveal before persisting truth. All
+   targets are burned and no scientific metric exists.
+9. `O1C-0016` (completed negative validation): repeated the identical science on
+   32 entirely new keys under corrected accounting. The ensemble reaches
+   `-0.078249` bit/key, only `11/32` targets positive, paired `z=-0.555` and zero
+   exact keys. Exact h96/h65 are also negative; class
+   `NOT_REPLICATED / DO_NOT_PROMOTE`.
+10. `O1C-0017`: spend zero fresh sealed entropy. Cross-fit a bounded online
+    nuisance projector, residual event encoder and O1-O learned sensing policy on
+    self-generated known full-256 keys. Optimize unseen-key NLL and information
+    gain per work, not fidelity to h96.
+11. `O1C-0018`: only after O1C-0017 beats common-mode and norm/spectrum-matched
+    coordinate-destroying controls, freeze the continuous fast/slow organism and
+    attack entirely new sealed keys. The detailed design is in
+    `docs/O1_ONLINE_MOBIUS_CONTROLLER.md`.

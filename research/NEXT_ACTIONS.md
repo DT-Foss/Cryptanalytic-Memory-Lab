@@ -1,15 +1,15 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T11:51:44+02:00.
+Last ranked: 2026-07-17T12:30:00+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Launch `O1C-0016` once from the clean preregistration descendant of implementation commit `4f4c528`; use 32 entirely new keys and make no scientific reader/config edits after entropy begins | State of the art | Very high | Very high | Medium | Recovers the O1C-0015 scientific question without replaying its burned panel |
-| 2 | Verify the one-shot capsule, including the pre-reveal resource snapshot and complete persisted reveal/evaluation truth, then classify only through the frozen ensemble, exact-h96, matched-control, sign-count and leave-one-out gates | State of the art | Very high | Very high | Low | Separates transferable entropy removal from target-panel variance with truthful failure semantics |
-| 3 | Report polyphase promotion separately: ensemble-minus-h96 must be positive with paired conditional `z>=1.64485` | State of the art | Very high | High | Low | Determines whether two-wavelength O1 composition adds information beyond its strongest component |
-| 4 | After O1C-0016 only, execute O1C-0017's adaptive live-causal fidelity probe: h65 on all pairs, deepen only the top 32 uncertainty/surprise coordinates to h96 | State of the art | Very high | Very high | Medium | Tests whether O1/O1-O selection preserves the full h96 causal field while saving the calculated `19.79%` of requested conflict work |
-| 5 | If the frozen channel holds, compound its posterior in the surprise-gated Attic and bounded exact-verification beam; use the ensemble only if its separate promotion gate passes | State of the art | Very high | Very high | High | Converts reproducible entropy removal into search-domain reduction without forcing a failed composition |
-| 6 | If it fails, build the designed h96 query-rooted carry/proof cone while retaining exact h96 and coarse ARX24/Motif12 as baselines/sentinels | State of the art | High | Very high | Medium | Removes global solver-work noise using actual assumption-key/carry ancestry |
+| 1 | Build `O1C-0017` as a no-fresh-entropy online representation experiment: exact polarity differencing, per-target/horizon zero-sum centering, operator/lane cohort normalization, and bounded low-rank nuisance removal over raw event tokens | State of the art | Very high | Very high | Medium | Determines whether the causal stream contains key-oriented innovation after O1C-0016's common mode is removed |
+| 2 | Cross-fit by whole self-generated key and nonce; train O1 fast-state encoding and O1-O sensing utility only on legal event streams, with h65/h96 as frozen sentinels rather than targets | State of the art | Very high | Very high | Medium | Tests genuine next-key transfer without spending sealed entropy or prescribing a scalar signal |
+| 3 | Add two nulls: common-mode-only and a frozen norm/spectrum-matched balanced sign/orthogonal rotation in zero-sum coordinate space | State of the art | High | High | Low | Distinguishes learned key-coordinate orientation from amplitude, shrinkage and accidental geometry |
+| 4 | Let the policy choose coordinate, causally linked sparse pair/triple, horizon, operator and budget from learned utility plus uncertainty, surprise and coverage debt; retain a posterior epsilon floor | State of the art | Very high | Very high | Medium | Measures information gain per branch and prevents the scheduler from starving weak regions |
+| 5 | Freeze `O1C-0018` only after repeated positive whole-key holdouts, primary-over-both-null margins and split-stable residual coordinates | State of the art | Very high | Very high | High | Authorizes entirely new sealed full-256 targets for the learned continuous organism |
+| 6 | If O1C-0017 cannot beat its nulls, close global proof difficulty and build the query-rooted carry/proof ancestry sensor directly | State of the art | High | Very high | Medium | Moves to causally local events without spending another blind panel on a null global field |
 
 ## Hard target contract
 
@@ -50,10 +50,14 @@ Last ranked: 2026-07-17T11:51:44+02:00.
   reveals, or freezing its best-looking coordinates/half-key/lane/bit slices;
 - replaying any of O1C-0015's 32 generated-and-revealed targets, or interpreting
   its missing evaluation as either positive or negative scientific evidence;
-- launching adaptive O1C-0017 before the unchanged O1C-0016 replication is frozen
-  and classified;
+- reusing any of O1C-0016's 32 revealed targets for selection, training or efficacy;
+- running another sealed panel of exact h96, direct h65 or a searched blend after
+  O1C-0016 closes all three;
+- optimizing O1C-0017 for fidelity to the now-null h96 logits instead of unseen-key
+  residual NLL and information gain per work;
+- treating the scaled shuffled-h65 copy as the only null for learned orientation;
 - spending another blind panel on the pre-existing ARX24 or ARX24+Motif12 arms,
-  which are post-reveal negative while all unary wavelengths remain positive;
+  which were already negative before the larger panel also closed unary h96/h65;
 - inventing proof events at exact conflict cutoffs, including billed overshoot in
   the evidence prefix, or discarding the complete sensor because its first fixed
   readout is negative.

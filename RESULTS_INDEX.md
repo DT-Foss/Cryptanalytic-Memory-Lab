@@ -15,13 +15,13 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0012-SENSOR` | Complete paired-assumption proof-prefix sensor feeding a bounded full-256 causal state | `TEST` mechanism | 512 polarity branches; 1,536 closed frontiers at 64/96/65; all 256 coordinates; 17,408 B state; exact signed swap antisymmetry; 0 transcripts/candidate keys | [Capsule](runs/20260717_065248_O1C-0012_full256-paired-causal-sensor-v1/RUN.md) |
 | `O1C-0013-LIFECYCLE` | BUILD/CAL causal-reader freeze followed by fresh full-256 output-only inference | `TEST` lifecycle | 4 BUILD + 2 CAL + 2 sealed keys; reader reloaded before two entropy calls; all predictions persisted before reveal; 63/63 capsule members | [Capsule](runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1/RUN.md) |
 | `O1C-0014-LIFECYCLE` | Exact-byte no-refit h96 replication on independent full-256 output-only targets | `VALIDATION` lifecycle | protocol freeze before 8 entropy calls; 8 factual plus 3 control predictions before any reveal; 124/124 capsule members; 0 reader changes/replays/sibling/GPU work | [Capsule](runs/20260717_084847_O1C-0014_full256-frozen-reader-blind-replication-v1/RUN.md) |
+| `O1C-0016-LIFECYCLE` | Budget-corrected 32-key polyphase replication with complete truth persistence | `VALIDATION` lifecycle | protocol before entropy; all factual/control predictions before reveal; 32/32 independent outputs and commitments recompute; 680/680 members; every resource gate passes | [Capsule](runs/20260717_115325_O1C-0016_full256-polyphase-blind-replication-v2/RUN.md) |
 
-## Operational failures and frozen successors
+## Operational failures
 
 | ID | Result | Claim level | Metrics | Artifact |
 |---|---|---|---|---|
 | `O1C-0015-RUNTIME` | Polyphase replication exceeded its old soft resource ceilings after target reveal | `OPERATIONAL_FAILURE`; no scientific result | capsule 579/579; 32 generated, 32 revealed once in memory, 0 persisted reveal/evaluation records; all targets burned; CPU >1600 s, wall >1400 s, RSS >384 MiB, exact values unavailable | [Failed capsule](runs/20260717_103252_O1C-0015_full256-polyphase-blind-replication-v1/RUN.md) |
-| `O1C-0016-PREREG` | Budget-corrected fresh-key rerun of the unchanged O1C-0015 science | `PREREGISTRATION`; zero entropy | same readers, gates, controls, 17,920 branches and 32 entirely new keys; only ceilings 3000 CPU-s/3000 wall-s/768 MiB RSS and lifecycle truth persistence differ; implementation `4f4c5280ecf876083222138db4cb55dae9e2dfca`; config `054e8b05c7824cf4c47f509d6a4977e3feac7e5df5ce006f55948b93554daaa6` | [Config](configs/full256_polyphase_replication_v2.json) |
 
 ## Real O1-O replay
 
@@ -50,6 +50,7 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0007-FREEZE` | Exact selected decoder and future target-blind deployment template | `RETROSPECTIVE` | Selected `search_propagations/h1/signed-log1p/degree1/negative`; A355 rank 73; A356 complete order frozen with zero target/outcome reads | [Template](runs/20260715_174537_O1C-0007_upstream-solver-evidence-bit-vault-freeze/artifacts/selection/frozen_future_template.json) |
 | `O1C-0012-STATE` | Coordinate-bound full-256 unary/ARX/holographic living state | `TEST` mechanism | 768 signed updates; 17,408 B exact serialization; 768 unary, 772 interaction and 512 holographic nonzeros; exact swap antisymmetry; 0 retained transcripts/keys | [State report](runs/20260717_065248_O1C-0012_full256-paired-causal-sensor-v1/artifacts/causal_bitfield.json) |
 | `O1C-0013-READER` | Shared target-independent orientation over causal h96 proof features | `TEST` mechanism | selected on disjoint CAL: ridge 0.001, temperature 0.5, scale 1.0; 281,764 B static model; 58,368 B live target state; zero coordinate-specific parameters | [Frozen reader](runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1/artifacts/frozen_reader.json) |
+| `O1C-0016-COMMON-MODE` | Global h65 proof difficulty is predominantly public-target amplitude, not key orientation | `POST_REVEAL` mechanism diagnosis | target-level primary/shuffled h65 compression corr 0.999905; shuffled-h65 logits are 0.38857049 x primary-h65; O1C14-to-O1C16 coordinate corr approximately 0 | [Forensics](research/O1C0016_POST_REVEAL_FORENSICS_20260717.md) |
 
 ## Replicated validation
 
@@ -83,10 +84,11 @@ aggregate on two fresh targets. It is prospective evidence, but the panel is too
 small to establish stable transfer or SOTA. O1C-0014 then reloads those exact bytes
 on eight independent targets. Its aggregate remains positive, but the predeclared
 target-robustness, paired-control and specificity gates fail, so it is explicitly
-`NOT_REPLICATED`. O1C-0015 supplies no later scientific evidence: its computation
+`NOT_REPLICATED`. O1C-0015 supplies no scientific evidence: its computation
 crossed the old resource ceilings after all 32 targets had been revealed in memory,
-while no reveal/evaluation artifacts persisted. O1C-0016 therefore repeats the
-unchanged experiment on entirely new keys under corrected lifecycle accounting.
+while no reveal/evaluation artifacts persisted. O1C-0016 repeats the unchanged
+experiment on entirely new keys under corrected lifecycle accounting and answers
+it negatively: both frozen unary readers and their fixed ensemble are null-like.
 
 ## Prospective full-256 inverse evidence
 
@@ -97,13 +99,14 @@ unchanged experiment on entirely new keys under corrected lifecycle accounting.
 | `O1C-0014-AGGREGATE` | Exact h96 bytes retain positive aggregate code-length direction on eight independent full-round keys | `VALIDATION` positive breadcrumb, not replicated | 1053/2048 bits; NLL 255.766216 bit/key; compression +0.233784; conditional z 1.819; shuffled -1.290981; best million-decoy rank 10,875; 0 exact keys | [Sealed evaluation](runs/20260717_084847_O1C-0014_full256-frozen-reader-blind-replication-v1/artifacts/sealed_evaluation.json) |
 | `O1C-0014-DECISION` | Frozen-reader replication fails its predeclared robustness and specificity contract | `VALIDATION` negative | only 4/8 targets positive; paired primary-minus-shuffled z 0.838; output-bit-flip -0.212425, wrong nonce +0.045371, byte rotate +0.010570; classification `NOT_REPLICATED` | [Result](runs/20260717_084847_O1C-0014_full256-frozen-reader-blind-replication-v1/artifacts/full256_frozen_reader_replication.json) |
 | `O1C-0014-BREADCRUMB` | Post-reveal pre-existing arm audit localizes the remaining direction to unary wavelengths | `POST_REVEAL` next-challenge diagnostic | h64 +0.139097, h96 +0.233784, h65 +0.188340 bit/key; ARX24 -0.374410, ARX24+Motif12 -0.355199; no O1C-0014 refit or result promotion | [Forensics](research/O1C0014_POST_REVEAL_FORENSICS_20260717.md) |
+| `O1C-0016-DECISION` | Exact h96, reconstructed h65 and fixed equal-logit polyphase fail larger prospective transfer | `VALIDATION` negative | ensemble 4093/8192, -0.078249 bit/key, 11/32 positive, paired z -0.555; h96 -0.175000; h65 -0.033913; 0 exact keys; `NOT_REPLICATED / DO_NOT_PROMOTE` | [Sealed evaluation](runs/20260717_115325_O1C-0016_full256-polyphase-blind-replication-v2/artifacts/sealed_evaluation.json) |
+| `O1C-0016-RANKS` | The frozen posterior has no useful byte, block or million-decoy advantage | `VALIDATION` negative | byte top1/top4/top16 4/16/61 versus null 4/16/64; no 16-bit top16; best 1M-decoy rank 45,147 has 32-try null probability 0.772 | [Forensics](research/O1C0016_POST_REVEAL_FORENSICS_20260717.md) |
 
 ## Frontier and state-of-the-art results
 
-None produced by this lab yet. O1C-0014 strengthens the aggregate causal breadcrumb
-but is predeclared `NOT_REPLICATED`, not a stable frontier or state-of-the-art
-claim. Existing sibling-project recoveries are baselines, not results of this
-integration.
+None produced by this lab yet. O1C-0016 closes the earlier O1C-0014 aggregate as
+panel noise for this frozen global unary reader family. Existing sibling-project
+recoveries are baselines, not results of this integration.
 
 ## Negative bounds
 
@@ -124,3 +127,5 @@ integration.
 | `O1C-0012-N1` | W52's fixed A465 `(7,1,4)` horizon mixture is not a calibrated full-256 inverse reader | `NEGATIVE_BOUND` | On one post-freeze known RFC key: 119/256 bits, NLL 342.779990, compression -86.779990 bit, million-decoy rank 999,898; A469 correction changes no bit sign | Keep the causal stream; learn sign and horizon weights across multiple known full-256 keys, freeze, then attack a fresh sealed target |
 | `O1C-0012-B1` | Solver conflict cutoffs need not coincide with a proof event | `MECHANISM_BOUNDARY` | 1,472/1,536 frontiers have an event exactly at cutoff; explicit last-event gap max 4, mean 0.108073; final overshoot is billed and excluded | Define the sensor as the complete closed prefix at conflicts <= horizon; never fabricate an exact-cutoff counter |
 | `O1C-0014-N1` | Positive aggregate h96 compression is not yet a replicated, target-robust or control-specific inverse channel | `VALIDATION` negative with breadcrumb | +0.233784 bit/key and conditional z 1.819, but 4/8 positive targets, paired z 0.838, mixed controls, 0 exact keys and 0 stable 8/8 coordinates | Freeze one h96+h65 two-wavelength successor and exact h96 baseline on 32 entirely new targets; never retune the O1C-0014 result |
+| `O1C-0016-N1` | Global h96/h65 proof-prefix orientation and fixed equal-logit compounding do not transfer | `NEGATIVE_BOUND` | 32-key ensemble -0.078249 bit/key, paired z -0.555, 11/32 positive; exact h96 -0.175000; null-like byte/block/decoy ranks; pooled exact-h96 z +0.134 | Remove common-mode nuisance and learn residual event geometry on whole-key cross-fits; do not run another sealed panel of these readers |
+| `O1C-0016-N2` | A shuffled label fit can collapse to a scaled common-mode copy rather than an independent null geometry | `MECHANISM_BOUNDARY` | shuffled-h96 zero; shuffled-h65 = 0.38857049 x primary-h65 to residual <4e-9; both h65 signs and correct-bit count identical | Add a frozen norm/spectrum-matched balanced rotation in zero-sum coordinate space plus a common-mode-only sentinel |
