@@ -3596,15 +3596,17 @@ def _full256_paired_sensor(args: argparse.Namespace) -> int:
                 time.monotonic() - outcome_wall_started,
             )
             parent_peak_rss_mib = _peak_rss_mib()
-            native_peak_rss_mib = (
+            process_group_peak_rss_mib = (
                 float(
                     result.report["resources"][
-                        "native_child_peak_rss_bytes"
+                        "conservative_process_group_peak_rss_bytes"
                     ]
                 )
                 / (1024.0 * 1024.0)
             )
-            peak_rss_mib = max(parent_peak_rss_mib, native_peak_rss_mib)
+            peak_rss_mib = max(
+                parent_peak_rss_mib, process_group_peak_rss_mib
+            )
             branch_count = int(result.report["probe_stream"]["branch_count"])
             sentinel_branches = 2 * sensor_config.probe.deterministic_sentinel_reruns
             total_native_branches = branch_count + sentinel_branches
