@@ -58,11 +58,13 @@ The literal O1-O CAUSAL graph now selects and assembles a deterministic 273-byte
 public-FSM replay through the real local KnowledgeEngine without writing to the
 external tree. This proves integration mechanics only. O1C-0022 preflight is
 correctly pending and unreserved until O1C-0019 finalizes. Source hardening
-`ac5691c` now exercises one real immutable O1C-0018 `.fap` through the production
+`2d8bf69` now exercises one real immutable O1C-0018 `.fap` through the production
 Torch reader, label-free quantizer and 352-byte bridge at K12 with exact repeat,
-polarity, duplicate and work accounting. That closes the actual artifact ABI; its
-untrained reader is deliberately not an efficacy result or substitute for the
-formal cross-pool K256 run.
+polarity, duplicate and work accounting. A same-resource, same-coordinate
+zeroed-330D ablation changes the extracted q-deltas, so the path genuinely consumes
+the real payload rather than only address metadata. That closes the actual artifact
+ABI; its untrained reader is deliberately not an efficacy result or substitute for
+the formal cross-pool K256 run.
 
 A new hash-bound sibling intake narrows the fallback before it costs a target.
 A539's training-frozen RACF-DES single-position clause reader concentrated its

@@ -1070,3 +1070,23 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifact:**
   `research/A539_A541_TRANSFER_20260718.md` records exact hashes, direct metrics,
   derived 24-target arithmetic and the materialized-inference boundary.
+
+## 2026-07-18 — O1C-0022 real-FAP payload sensitivity (non-attempt)
+
+- **Recorded:** 2026-07-18T01:25:31+02:00
+- **Source hardening:**
+  `2d8bf69957fe689b75e61fea5cab8e9a693192ed`; frozen O1C-0022 science remains
+  `ce56ba4`. No label, score, reservation, entropy, solver branch or target was
+  consumed.
+- **Discriminator:** a fourth K12 replay preserves the real source-stream hash,
+  reader state, coordinate set, pair identities and final resource counters but
+  zeros only the `float32[H,256,2,330]` branch-feature tensor. Its q-delta vector
+  must differ from the authentic real-FAP vector.
+- **Result:** the payload-ablated and authentic q-deltas differ. All four replays
+  retain the exact 36-slot/2,304-work ledger, for 9,216 total reader work units;
+  the label oracle remains unopened. The focused test passes in 1.18 seconds after
+  formatting and lint checks.
+- **Conclusion:** the real-artifact smoke now proves data-path sensitivity, not
+  merely hash/address transport or a metadata-generated polarity. It remains an
+  untrained K12 transport result and makes no claim about O1C-0019 efficacy or
+  O1C-0022 cross-pool K256 calibration.

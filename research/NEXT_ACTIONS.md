@@ -43,10 +43,12 @@ Last ranked: 2026-07-18T01:14:34+02:00.
 - O1C-0022 code/config/tests are clean at `ce56ba4`; its preflight verifies the
   O1C-0018 corpus and 352-byte O1C-0021 contract but exits pending without a run
   reservation until finalized O1C-0019 exists. Do not bypass that prerequisite.
-- Post-freeze hardening `ac5691c` now sends a real immutable O1C-0018 `.fap`
+- Post-freeze hardening `2d8bf69` now sends a real immutable O1C-0018 `.fap`
   through the production Torch reader, quantizer and 352-byte bridge at K12 with
-  zero labels and exact repeat/swap/duplicate/work assertions. It is an untrained
-  transport smoke and does not replace the frozen O1C-0022 K256 calibration.
+  zero labels and exact repeat/swap/duplicate/work assertions. A same-resource,
+  zeroed-330D ablation changes the q-deltas, proving real payload sensitivity. It
+  is an untrained transport smoke and does not replace the frozen O1C-0022 K256
+  calibration.
 
 ## Do not spend the next cycle on
 

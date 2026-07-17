@@ -1,12 +1,12 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T01:14:34+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T01:25:31+02:00 (`Europe/Berlin`)
 - **Latest implementation freeze:** `O1C-0022` at
   `ce56ba44ef9fe8583c0603ab145afa6133849954` — frozen O1C-0019 packet deltas into
   the exact 352-byte O1C-0021 vault, literal native O1-O composition control and
   immutable BUILD-LOO capsule runner; no O1C-0022 attempt reserved or executed
 - **Latest source hardening:**
-  `ac5691c5a563e43c8dc1788cf22e183f4295e6ab` — a real immutable O1C-0018
+  `2d8bf69957fe689b75e61fea5cab8e9a693192ed` — a real immutable O1C-0018
   `.fap` now traverses the production Torch reader, label-free quantizer and
   352-byte vault at K12 with exact repeat, polarity, duplicate and work-ledger
   checks
@@ -69,12 +69,13 @@ quantizes them, and nested `K=12/52/128/256` public sensors feed the 352-byte O1
 state while all 256 key bits remain unknown. Exact frozen work is 32 reader replays,
 17,664 packet slots, 1,130,496 public work units and 7,391,232 nonnegative
 calibration evaluations, with zero new pools, solver branches, entropy, sibling,
-MPS or GPU calls. Post-freeze commit `ac5691c` additionally proves the real
+MPS or GPU calls. Post-freeze commit `2d8bf69` additionally proves the real
 `.fap -> 330D Torch reader -> q-delta -> quantizer -> vault` ABI at K12 without
-opening a label: three deterministic replays bill 36 slots and 2,304 work units
-each, the primary state is exactly 352 bytes and actual polarity swap is
-antisymmetric to `1e-6`. This is transport validation with an untrained reader,
-not efficacy.
+opening a label: base, exact repeat, actual polarity swap and a same-resource/
+same-coordinate zeroed-330D ablation each bill 36 slots and 2,304 work units, or
+9,216 total. The real and ablated q-deltas differ, proving payload sensitivity;
+the primary state is exactly 352 bytes and actual polarity swap is antisymmetric
+to `1e-6`. This is transport validation with an untrained reader, not efficacy.
 
 The seven-arm control matrix separates raw/normalized float evidence, int8 vault
 retention, last-horizon-only, unit-sign, coordinate-shuffled and zero-prior paths.
