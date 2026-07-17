@@ -49,7 +49,16 @@ not present in shuffled-key/output-flip/wrong-nonce controls.  If no arm passes,
 retain the best observability map and change the reader mechanism without changing
 the target distribution.
 
-## L2 — O1 Causal Bitfield Crystallizer (`O1C-0010`)
+## L1b — Signed direct no-refit replication (`O1C-0010`)
+
+Copy the exact O1C-0009 direct and shuffled model bytes, freeze the two exploratory
+negative scales and all gates before creating 2,048 new broker-secret uniform keys.
+Persist direct, shuffled, output-permutation, output-flip, wrong-nonce and reverse-
+polarity posteriors before a single reveal.  Require absolute code-length gain,
+conditional uniform-key alignment and independent-target lower bounds; a clean
+negative result still closes the breadcrumb and feeds the causal build.
+
+## L2 — O1 Causal Bitfield Crystallizer (`O1C-0011`)
 
 Stream L1 event logits through the fixed initial state:
 

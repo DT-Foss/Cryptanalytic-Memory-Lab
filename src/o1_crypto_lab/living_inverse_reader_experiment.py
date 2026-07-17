@@ -11,10 +11,10 @@ from pathlib import Path
 
 import numpy as np
 
+from .chacha_trace import chacha20_blocks
 from .living_inverse import (
     KEY_BITS,
     PublicTargetView,
-    build_known_target,
     canonical_json_bytes,
     canonical_sha256,
     key_bits,
@@ -873,13 +873,18 @@ class DevelopmentReveal:
         ):
             raise LivingInverseReaderError("development reveal receipt is not frozen")
         for key, public in zip(self.keys, panel.public_targets, strict=True):
-            recomputed = build_known_target(
-                key,
-                counter=public.counter_schedule[0],
+            recomputed = PublicTargetView(
+                counter_schedule=public.counter_schedule,
                 nonce=public.nonce,
-                block_count=1,
+                output_blocks=chacha20_blocks(
+                    key,
+                    public.counter_schedule[0],
+                    public.nonce,
+                    public.block_count,
+                ),
             )
-            if recomputed.public.digest() != public.digest():
+            recomputed.validate()
+            if recomputed.digest() != public.digest():
                 raise LivingInverseReaderError(
                     "development reveal does not reproduce public output"
                 )

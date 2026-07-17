@@ -36,6 +36,10 @@ from .living_inverse_reader_experiment import (
 from .replay import O1OSessionReplay
 from .reader_experiment import run_reader_experiment
 from .run_capsule import ClaimLevel, RunCapsuleManager
+from .signed_direct_replication import (
+    load_signed_direct_replication_config,
+    run_signed_direct_replication,
+)
 from .stage3_ingest import run_stage3_ingest
 from .upstream_experiment import run_upstream_ising_retrospective
 
@@ -2367,6 +2371,633 @@ def _living_inverse_reader(args: argparse.Namespace) -> int:
     return 0
 
 
+def _signed_direct_replication(args: argparse.Namespace) -> int:
+    root = _lab_root()
+    requested_config = args.config
+    if requested_config.is_symlink():
+        raise RuntimeError("signed replication config cannot be a symlink")
+    config_path = requested_config.resolve(strict=True)
+    expected_config = (
+        root / "configs/signed_direct_replication_v1.json"
+    ).resolve(strict=True)
+    if config_path != expected_config:
+        raise RuntimeError("signed replication requires its canonical lab config")
+    top_level, source, replication = load_signed_direct_replication_config(
+        config_path
+    )
+    participating = (
+        "chacha_trace.py",
+        "living_inverse.py",
+        "living_inverse_ridge.py",
+        "living_inverse_reader_experiment.py",
+        "signed_direct_replication.py",
+        "full256_broker.py",
+        "artifacts.py",
+        "run_capsule.py",
+        "cli.py",
+    )
+
+    source_capsule = (root / source.source_capsule).resolve(strict=True)
+    runs_root = (root / "runs").resolve(strict=True)
+    if (
+        source_capsule.parent != runs_root
+        or source_capsule.name.startswith(".")
+        or not source_capsule.is_dir()
+    ):
+        raise RuntimeError("source capsule must be one finalized run directory")
+    source_manifest_path = source_capsule / "artifacts.sha256"
+    manager = RunCapsuleManager(root)
+    source_capsule_verification = manager.verify(source_capsule)
+    if (
+        not source_capsule_verification.ok
+        or source_capsule_verification.manifest_sha256
+        != source.source_manifest_sha256
+    ):
+        raise RuntimeError("O1C-0009 source capsule verification differs")
+    artifact_source = ReadOnlyArtifactSource(
+        source_capsule, source_manifest_path
+    )
+    if artifact_source.manifest_sha256 != source.source_manifest_sha256:
+        raise RuntimeError("O1C-0009 artifact manifest SHA-256 differs")
+    required_source_members = (
+        source.direct_model_artifact,
+        source.shuffled_model_artifact,
+        "artifacts/living_inverse_reader.json",
+    )
+    source_member_report = artifact_source.verify(required_source_members)
+    if not source_member_report.ok:
+        raise RuntimeError("O1C-0009 source member verification failed")
+    direct_model_blob = artifact_source.read_bytes(source.direct_model_artifact)
+    shuffled_model_blob = artifact_source.read_bytes(source.shuffled_model_artifact)
+    source_reader_report = artifact_source.read_json(
+        "artifacts/living_inverse_reader.json"
+    )
+    if (
+        _canonical_value_sha256(
+            {
+                key: value
+                for key, value in source_reader_report.items()
+                if key != "result_sha256"
+            }
+        )
+        != source.source_result_sha256
+        or source_reader_report.get("result_sha256") != source.source_result_sha256
+        or _sha256(source_capsule / source.direct_model_artifact)
+        != source.direct_model_sha256
+        or _sha256(source_capsule / source.shuffled_model_artifact)
+        != source.shuffled_model_sha256
+    ):
+        raise RuntimeError("O1C-0009 source result or model pin differs")
+    source_manifest_bytes = source_manifest_path.read_bytes()
+    if (
+        hashlib.sha256(source_manifest_bytes).hexdigest()
+        != source.source_manifest_sha256
+    ):
+        raise RuntimeError("O1C-0009 source manifest changed while pinning")
+
+    def current_source_hashes() -> dict[str, str]:
+        return {
+            "replication_config": _sha256(config_path),
+            "pyproject": _sha256(root / "pyproject.toml"),
+            "source_capsule_manifest": source.source_manifest_sha256,
+            "source_result": source.source_result_sha256,
+            "source_direct_model": source.direct_model_sha256,
+            "source_shuffled_model": source.shuffled_model_sha256,
+            **{
+                f"module_{Path(name).stem}": _sha256(
+                    root / "src/o1_crypto_lab" / name
+                )
+                for name in participating
+            },
+        }
+
+    attempt_id = str(top_level["attempt_id"])
+    published = manager.finalized_attempt(attempt_id)
+    if published is not None:
+        metrics_document = json.loads(
+            (published.path / "metrics.json").read_text(encoding="utf-8")
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": published.attempt_id,
+                    "path": str(published.path),
+                    "manifest_sha256": published.manifest_sha256,
+                    "verified": published.verification.ok,
+                    "status": "already-finalized-no-replay",
+                    "capsule_status": metrics_document.get("status"),
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 0 if metrics_document.get("status") == "completed" else 2
+    if attempt_id in manager.recoverable_attempt_ids():
+        interrupted = manager.recover(attempt_id)
+        if interrupted.publication_prepared:
+            finalized = interrupted.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 2
+        finalized = interrupted.finalize(
+            metrics={
+                "schema": "o1-256-signed-direct-replication-interrupted-v1",
+                "hard_interruption_recovered": True,
+                "scientific_result_claimed": False,
+                "unknown_target_key_bits": 256,
+                "source_models_refit": False,
+                "fresh_target_state": "unknown-after-hard-interruption",
+                "sibling_writes": 0,
+            },
+            status="stopped",
+            next_action=(
+                "Treat O1C-0010 as consumed, preserve its partial artifacts, and "
+                "advance to the full-256 public-CNF paired-assumption mechanism "
+                "without replaying this random panel."
+            ),
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": finalized.attempt_id,
+                    "path": str(finalized.path),
+                    "manifest_sha256": finalized.manifest_sha256,
+                    "verified": finalized.verification.ok,
+                    "status": "stopped-after-hard-interruption",
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 2
+
+    commit = _clean_git_commit(root)
+    source_hashes = current_source_hashes()
+    if _clean_git_commit(root) != commit:
+        raise RuntimeError("lab Git commit changed before O1C-0010 reservation")
+    if current_source_hashes() != source_hashes:
+        raise RuntimeError("lab source hashes changed before O1C-0010 reservation")
+    run = manager.start(
+        attempt_id=attempt_id,
+        slug=str(top_level["slug"]),
+        commit=commit,
+        hypothesis=str(top_level["hypothesis"]),
+        prediction=str(top_level["prediction"]),
+        controls=tuple(str(value) for value in top_level["controls"]),
+        budgets=dict(top_level["budgets"]),
+        source_hashes=source_hashes,
+        claim_level=ClaimLevel(str(top_level["claim_level"])),
+        next_action=str(top_level["next_action"]),
+        config=top_level,
+        command=(
+            "o1-crypto-lab",
+            "signed-direct-replication",
+            "--config",
+            str(config_path),
+        ),
+        environment={
+            "target_contract": "all-256-bits-unknown-public-output-only",
+            "target_rounds": 20,
+            "accelerator": "none",
+            "mps_calls": 0,
+            "gpu_calls": 0,
+            "sibling_repository_reads": 0,
+            "sibling_repository_writes": 0,
+            "source_models_refit": False,
+            "fresh_target_generated_at_reservation": False,
+            "planned_sealed_development_targets": replication.development_targets,
+            "outcome_bearing_execution_begins_after_attempt_reservation": True,
+            "hard_interruption_policy": "FINALIZE_STOPPED_AND_NEVER_REPLAY",
+        },
+    )
+    cpu_started = time.process_time()
+    sealed_brokers: list[Full256TargetBroker] = []
+    sealed_publications: list[dict[str, object]] = []
+    frozen_prediction_path: Path | None = None
+    protocol_receipt: dict[str, object] | None = None
+
+    source_provenance = {
+        "source_capsule_verified": True,
+        "source_capsule": source.source_capsule,
+        "source_manifest_sha256": source_capsule_verification.manifest_sha256,
+        "source_manifest_checked_files": source_capsule_verification.checked,
+        "source_result_sha256": source.source_result_sha256,
+        "source_member_verification": source_member_report.describe(),
+        "source_reader_report_artifact_sha256": _sha256(
+            source_capsule / "artifacts/living_inverse_reader.json"
+        ),
+    }
+
+    def persist_protocol(
+        document: dict[str, object], model_blobs: Mapping[str, bytes]
+    ) -> dict[str, object]:
+        nonlocal protocol_receipt
+        if sealed_brokers or sealed_publications:
+            raise RuntimeError("target entropy exists before protocol persistence")
+        expected_models = {
+            "direct": source.direct_model_sha256,
+            "shuffled_key_control": source.shuffled_model_sha256,
+        }
+        if set(model_blobs) != set(expected_models):
+            raise RuntimeError("signed replication model inventory differs")
+        pin_path = run.write_json_artifact(
+            "source/o1c0009_source_pin.json", source_provenance
+        )
+        manifest_path = run.write_artifact(
+            "source/o1c0009_artifacts.sha256", source_manifest_bytes
+        )
+        model_rows = {}
+        for name, blob in sorted(model_blobs.items()):
+            path = run.write_artifact(f"source/models/{name}.o1hrr", blob)
+            digest = _sha256(path)
+            if digest != expected_models[name]:
+                raise RuntimeError("persisted source model differs")
+            model_rows[name] = {
+                "artifact": f"artifacts/source/models/{name}.o1hrr",
+                "sha256": digest,
+                "bytes": path.stat().st_size,
+            }
+        protocol_path = run.write_json_artifact(
+            "protocol/frozen_signed_replication.json", document
+        )
+        protocol_receipt = {
+            "schema": "o1-256-signed-direct-protocol-freeze-receipt-v1",
+            "persisted": True,
+            "protocol_sha256": _canonical_value_sha256(document),
+            "protocol_artifact_sha256": _sha256(protocol_path),
+            "source_pin_artifact_sha256": _sha256(pin_path),
+            "source_manifest_copy_sha256": _sha256(manifest_path),
+            "models": model_rows,
+            "development_targets_created": 0,
+            "development_labels_read": 0,
+        }
+        run.write_json_artifact("protocol/freeze_receipt.json", protocol_receipt)
+        run.checkpoint(
+            {
+                "phase": "SOURCE_MODELS_SCALES_AND_GATES_FROZEN_BEFORE_TARGET_ENTROPY",
+                "protocol_sha256": protocol_receipt["protocol_sha256"],
+                "source_models_refit": False,
+                "source_scales_refit": False,
+                "development_targets_created": 0,
+                "development_labels_read": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+            }
+        )
+        run.append_stdout(
+            "Persisted exact O1C-0009 model bytes, signed scales and all gates before target entropy.\n"
+        )
+        return protocol_receipt
+
+    def open_sealed_development() -> SealedDevelopmentPanel:
+        if protocol_receipt is None:
+            raise RuntimeError("sealed panel cannot precede protocol persistence")
+        if sealed_brokers or sealed_publications:
+            raise RuntimeError("sealed Development panel may be opened only once")
+        for index in range(replication.development_targets):
+            broker = Full256TargetBroker(
+                block_count=1,
+                entropy_source_id="os.urandom:o1c-0010",
+                target_id=f"o1c-0010-dev-{index:04d}",
+            )
+            publication = broker.publish()
+            sealed_brokers.append(broker)
+            sealed_publications.append(publication)
+        publication_document = {
+            "schema": "o1-256-sealed-development-panel-v1",
+            "targets": len(sealed_publications),
+            "publications": sealed_publications,
+            "keys_in_artifact": False,
+            "target_traces_in_artifact": False,
+        }
+        publication_path = run.write_json_artifact(
+            "development/sealed_publications.json", publication_document
+        )
+        run.checkpoint(
+            {
+                "phase": "SEALED_2048_PUBLICATIONS_OPENED_AFTER_PROTOCOL_FREEZE",
+                "development_targets": len(sealed_publications),
+                "publication_root": _canonical_value_sha256(sealed_publications),
+                "publication_artifact_sha256": _sha256(publication_path),
+                "development_labels_read": 0,
+                "predictions_frozen": False,
+                "sibling_writes": 0,
+            }
+        )
+        return SealedDevelopmentPanel(
+            target_ids=tuple(
+                str(publication["target_id"])
+                for publication in sealed_publications
+            ),
+            public_targets=tuple(
+                public_view_from_publication(publication)
+                for publication in sealed_publications
+            ),
+            publications=tuple(sealed_publications),
+        )
+
+    def freeze_predictions_and_reveal(
+        prediction_blob: bytes,
+        prediction_index: dict[str, object],
+    ) -> DevelopmentReveal:
+        nonlocal frozen_prediction_path
+        expected_bytes = int(top_level["budgets"]["frozen_prediction_bytes"])
+        if (
+            protocol_receipt is None
+            or len(sealed_brokers) != replication.development_targets
+            or len(sealed_publications) != replication.development_targets
+            or frozen_prediction_path is not None
+            or len(prediction_blob) != expected_bytes
+            or prediction_index.get("bytes") != expected_bytes
+            or len(prediction_index.get("matrices", []))
+            != int(top_level["budgets"]["prediction_matrices"])
+        ):
+            raise RuntimeError("sealed Development lifecycle differs before freeze")
+        frozen_prediction_path = run.write_artifact(
+            "development/frozen_predictions.float64le", prediction_blob
+        )
+        if (
+            _sha256(frozen_prediction_path) != prediction_index["sha256"]
+            or frozen_prediction_path.stat().st_size != expected_bytes
+        ):
+            raise RuntimeError("persisted frozen Development predictions differ")
+        unsigned_index = {
+            key: value
+            for key, value in prediction_index.items()
+            if key != "index_sha256"
+        }
+        if _canonical_value_sha256(unsigned_index) != prediction_index["index_sha256"]:
+            raise RuntimeError("frozen Development prediction index differs")
+        index_path = run.write_json_artifact(
+            "development/frozen_predictions.index.json", prediction_index
+        )
+        run.checkpoint(
+            {
+                "phase": "ALL_2048_PREDICTION_AND_CONTROL_MATRICES_PERSISTED_BEFORE_REVEAL",
+                "frozen_prediction_sha256": prediction_index["sha256"],
+                "frozen_prediction_index_sha256": prediction_index[
+                    "index_sha256"
+                ],
+                "prediction_bytes": expected_bytes,
+                "prediction_index_artifact_sha256": _sha256(index_path),
+                "development_labels_read": 0,
+                "sibling_writes": 0,
+            }
+        )
+        reveals = []
+        keys = []
+        for broker, publication in zip(
+            sealed_brokers, sealed_publications, strict=True
+        ):
+            receipt = make_freeze_receipt(
+                publication,
+                frozen_artifact_sha256=str(prediction_index["sha256"]),
+            )
+            reveal = broker.reveal(receipt)
+            reveals.append(reveal)
+            keys.append(bytes.fromhex(reveal["commitment_preimage"]["key_hex"]))
+        reveals_path = run.write_json_artifact(
+            "development/sealed_reveals.json",
+            {
+                "schema": "o1-256-sealed-development-reveals-v1",
+                "predictions_frozen_before_reveal": True,
+                "reveals": reveals,
+            },
+        )
+        receipt = {
+            "schema": "o1-256-development-panel-reveal-receipt-v1",
+            "predictions_frozen_before_reveal": True,
+            "frozen_prediction_sha256": prediction_index["sha256"],
+            "frozen_prediction_index_sha256": prediction_index["index_sha256"],
+            "protocol_sha256": protocol_receipt["protocol_sha256"],
+            "publication_root": _canonical_value_sha256(sealed_publications),
+            "reveal_count": len(reveals),
+            "reveal_root": _canonical_value_sha256(
+                [reveal["reveal_sha256"] for reveal in reveals]
+            ),
+            "reveal_artifact_sha256": _sha256(reveals_path),
+        }
+        run.write_json_artifact("development/reveal_receipt.json", receipt)
+        run.checkpoint(
+            {
+                "phase": "SEALED_2048_TARGETS_REVEALED_AFTER_EXACT_PREDICTION_FREEZE",
+                "development_labels_read": len(keys),
+                "reveal_root": receipt["reveal_root"],
+                "source_models_refit": False,
+                "sibling_writes": 0,
+            }
+        )
+        return DevelopmentReveal(keys=tuple(keys), receipt=receipt)
+
+    try:
+        run.checkpoint(
+            {
+                "phase": "FULL256_SIGNED_REPLICATION_RESERVED",
+                "unknown_target_key_bits": 256,
+                "target_trace_fields_in_deployment": 0,
+                "source_models_refit": False,
+                "source_scales_refit": False,
+                "development_targets_created": 0,
+                "development_labels_read": 0,
+                "development_openings": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            }
+        )
+        run.append_stdout(
+            "O1C-0010 prospective full-256 no-refit signed replication started on CPU.\n"
+        )
+        result = run_signed_direct_replication(
+            replication,
+            source,
+            direct_model_blob=direct_model_blob,
+            shuffled_model_blob=shuffled_model_blob,
+            source_provenance=source_provenance,
+            open_sealed_development=open_sealed_development,
+            freeze_predictions_and_reveal=freeze_predictions_and_reveal,
+            on_protocol_frozen=persist_protocol,
+            require_protocol_persistence=True,
+        )
+        if not result.execution_success_gate_passed:
+            raise RuntimeError("O1C-0010 execution integrity gate failed")
+        maximum_cpu = float(top_level["budgets"]["maximum_cpu_seconds"])
+        maximum_rss = float(
+            top_level["budgets"]["maximum_resident_memory_mib"]
+        )
+        if _clean_git_commit(root) != commit:
+            raise RuntimeError("lab Git commit changed during O1C-0010 execution")
+        if current_source_hashes() != source_hashes:
+            raise RuntimeError("lab source hashes changed during O1C-0010 execution")
+        final_source_verification = manager.verify(source_capsule)
+        if (
+            not final_source_verification.ok
+            or final_source_verification.manifest_sha256
+            != source.source_manifest_sha256
+            or artifact_source.read_bytes(source.direct_model_artifact)
+            != direct_model_blob
+            or artifact_source.read_bytes(source.shuffled_model_artifact)
+            != shuffled_model_blob
+        ):
+            raise RuntimeError("source capsule changed during O1C-0010 execution")
+        if (
+            frozen_prediction_path is None
+            or _sha256(frozen_prediction_path) != result.prediction_index["sha256"]
+            or frozen_prediction_path.stat().st_size
+            != result.prediction_index["bytes"]
+            or len(sealed_brokers) != replication.development_targets
+            or not all(broker.phase == "REVEALED" for broker in sealed_brokers)
+        ):
+            raise RuntimeError("persisted O1C-0010 outcome lifecycle differs")
+        run.write_json_artifact("signed_direct_replication.json", result.report)
+        run.write_json_artifact("replication_metrics.json", result.metrics())
+        run.write_json_artifact(
+            "development/control_metrics.json",
+            {
+                "arms": result.report["evaluation"]["arms"],
+                "paired_controls": result.report["evaluation"]["paired_controls"],
+                "scientific_signal_gate": result.report["scientific_signal_gate"],
+            },
+        )
+        run.checkpoint(
+            {
+                "phase": "SIGNED_REPLICATION_COMPLETED_AND_PERSISTED",
+                "development_openings": 1,
+                "development_targets": replication.development_targets,
+                "scientific_signal_gate_passed": result.scientific_signal_gate_passed,
+                "result_sha256": result.report["result_sha256"],
+                "source_models_refit": False,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            }
+        )
+        # Measure after every outcome-bearing artifact has been serialized.  The
+        # immutable capsule publication itself is metadata/provenance overhead and
+        # is reported separately to the invoking process after finalize().
+        cpu_seconds = time.process_time() - cpu_started
+        peak_rss_mib = _peak_rss_mib()
+        if cpu_seconds > maximum_cpu:
+            raise RuntimeError("O1C-0010 exceeded its CPU budget")
+        if peak_rss_mib > maximum_rss:
+            raise RuntimeError("O1C-0010 exceeded its resident-memory budget")
+        result_metrics = result.metrics()
+        execution_gate_passed = result.execution_success_gate_passed
+        scientific_gate_passed = result.scientific_signal_gate_passed
+        metrics = {
+            **result_metrics,
+            "cpu_seconds": cpu_seconds,
+            "peak_rss_mib": peak_rss_mib,
+            "peak_rss_measurement_scope": (
+                "through-outcome-artifact-persistence-before-capsule-publication"
+            ),
+            "cpu_budget_seconds": maximum_cpu,
+            "resident_memory_budget_mib": maximum_rss,
+        }
+        run.append_stdout(json.dumps(metrics, sort_keys=True, allow_nan=False) + "\n")
+        # Drop the 24 MiB prediction blob before the capsule performs its immutable
+        # manifest pass; all hashes and result artifacts are already persisted.
+        del result
+        finalized = run.finalize(metrics=metrics)
+        process_peak_rss_mib = _peak_rss_mib()
+    except Exception as exc:
+        if run.publication_prepared:
+            finalized = run.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 1
+        run.append_stderr(f"{type(exc).__name__}: {exc}\n")
+        finalized = run.finalize(
+            metrics={
+                "schema": "o1-256-signed-direct-replication-failure-v1",
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "unknown_target_key_bits": 256,
+                "target_trace_fields_in_deployment": 0,
+                "source_models_refit": False,
+                "fresh_target_generated": bool(sealed_brokers),
+                "fresh_target_count": len(sealed_brokers),
+                "predictions_frozen": frozen_prediction_path is not None,
+                "fresh_target_revealed": bool(sealed_brokers)
+                and all(broker.phase == "REVEALED" for broker in sealed_brokers),
+                "sibling_writes": 0,
+                "scientific_result_claimed": False,
+            },
+            status="failed",
+            next_action=(
+                "Preserve the failed O1C-0010 capsule, fix only the recorded "
+                "execution invariant under a new attempt ID, and continue the "
+                "full-256 public-CNF paired-assumption mechanism."
+            ),
+        )
+        print(f"failed capsule: {finalized.path}", file=sys.stderr)
+        return 1
+    print(
+        json.dumps(
+            {
+                "attempt_id": finalized.attempt_id,
+                "path": str(finalized.path),
+                "manifest_sha256": finalized.manifest_sha256,
+                "verified": finalized.verification.ok,
+                "execution_success_gate_passed": execution_gate_passed,
+                "scientific_signal_gate_passed": scientific_gate_passed,
+                "mean_effective_compression_bits": result_metrics[
+                    "mean_effective_compression_bits"
+                ],
+                "conditional_null_z_score": result_metrics[
+                    "conditional_null_z_score"
+                ],
+                "direct_minus_shuffled_compression_bits": result_metrics[
+                    "direct_minus_shuffled_compression_bits"
+                ],
+                "direct_minus_output_permutation_compression_bits": result_metrics[
+                    "direct_minus_output_permutation_compression_bits"
+                ],
+                "cpu_seconds": cpu_seconds,
+                "outcome_peak_rss_mib": peak_rss_mib,
+                "end_to_end_process_peak_rss_mib": process_peak_rss_mib,
+                "fresh_target_count": replication.development_targets,
+                "fresh_target_revealed": True,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    # A clean negative replication is a completed scientific result, not a crash.
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     root = _lab_root()
     parser = argparse.ArgumentParser(
@@ -2514,6 +3145,16 @@ def build_parser() -> argparse.ArgumentParser:
         default=root / "configs/living_inverse_reader_v1.json",
     )
     living_reader.set_defaults(handler=_living_inverse_reader)
+    signed_replication = subparsers.add_parser(
+        "signed-direct-replication",
+        help="prospectively replicate the frozen full-256 signed direct breadcrumb",
+    )
+    signed_replication.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/signed_direct_replication_v1.json",
+    )
+    signed_replication.set_defaults(handler=_signed_direct_replication)
     return parser
 
 

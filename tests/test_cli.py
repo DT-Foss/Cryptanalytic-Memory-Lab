@@ -15,6 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "configs/corrected_codec_bridge_v1.json"
 UPSTREAM_CONFIG = ROOT / "configs/upstream_ising_retrospective_v1.json"
 LIVING_READER_CONFIG = ROOT / "configs/living_inverse_reader_v1.json"
+SIGNED_REPLICATION_CONFIG = ROOT / "configs/signed_direct_replication_v1.json"
+O1C0009_MANIFEST = "f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2"
 
 
 class _RecordingRun:
@@ -248,6 +250,110 @@ class LivingInverseReaderCLILifecycleTests(unittest.TestCase):
                 "finalize",
                 "failed",
                 "o1-256-living-inverse-reader-failure-v1",
+            ),
+            events,
+        )
+
+
+class SignedDirectReplicationCLILifecycleTests(unittest.TestCase):
+    def test_attempt_is_reserved_before_replication_failure(self):
+        events = []
+        run = _RecordingRun(events)
+
+        class Manager:
+            def __init__(self, root):
+                self.root = root
+
+            def verify(self, path):
+                return SimpleNamespace(
+                    ok=True,
+                    manifest_sha256=O1C0009_MANIFEST,
+                    checked=25,
+                )
+
+            def finalized_attempt(self, attempt_id):
+                return None
+
+            def recoverable_attempt_ids(self):
+                return ()
+
+            def start(self, **kwargs):
+                events.append(("start", kwargs["attempt_id"]))
+                return run
+
+        def fail_replication(*args, **kwargs):
+            events.append(("replication", "raised"))
+            raise RuntimeError("synthetic signed replication failure")
+
+        with (
+            patch.object(cli, "RunCapsuleManager", Manager),
+            patch.object(cli, "_clean_git_commit", return_value="d" * 40),
+            patch.object(
+                cli,
+                "run_signed_direct_replication",
+                side_effect=fail_replication,
+            ),
+            patch("sys.stderr", new=io.StringIO()),
+        ):
+            code = cli._signed_direct_replication(
+                argparse.Namespace(config=SIGNED_REPLICATION_CONFIG)
+            )
+
+        names = [event[0] for event in events]
+        self.assertEqual(code, 1)
+        self.assertLess(names.index("start"), names.index("checkpoint"))
+        self.assertLess(names.index("checkpoint"), names.index("replication"))
+        self.assertIn(
+            (
+                "finalize",
+                "failed",
+                "o1-256-signed-direct-replication-failure-v1",
+            ),
+            events,
+        )
+
+    def test_interrupted_replication_is_stopped_without_replay(self):
+        events = []
+        run = _RecordingRun(events)
+
+        class Manager:
+            def __init__(self, root):
+                self.root = root
+
+            def verify(self, path):
+                return SimpleNamespace(
+                    ok=True,
+                    manifest_sha256=O1C0009_MANIFEST,
+                    checked=25,
+                )
+
+            def finalized_attempt(self, attempt_id):
+                return None
+
+            def recoverable_attempt_ids(self):
+                return ("O1C-0010",)
+
+            def recover(self, attempt_id):
+                events.append(("recover", attempt_id))
+                return run
+
+        with (
+            patch.object(cli, "RunCapsuleManager", Manager),
+            patch.object(cli, "run_signed_direct_replication") as experiment,
+            patch("sys.stdout", new=io.StringIO()),
+        ):
+            code = cli._signed_direct_replication(
+                argparse.Namespace(config=SIGNED_REPLICATION_CONFIG)
+            )
+
+        self.assertEqual(code, 2)
+        experiment.assert_not_called()
+        self.assertIn(("recover", "O1C-0010"), events)
+        self.assertIn(
+            (
+                "finalize",
+                "stopped",
+                "o1-256-signed-direct-replication-interrupted-v1",
             ),
             events,
         )

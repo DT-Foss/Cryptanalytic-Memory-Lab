@@ -1,8 +1,10 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-17T04:16:16+02:00 (`Europe/Berlin`)
-- **Implementation commit:** `f718e78cf63ee457298288cc80e192b9bc110228`
-- **Worktree:** O1C-0009 result-cockpit update pending commit; run capsule immutable
+- **Last updated:** 2026-07-17T04:41:37+02:00 (`Europe/Berlin`)
+- **Implementation base:** `b05ed98`; the next capsule records the exact O1C-0010
+  build commit and source hashes
+- **Worktree:** O1C-0010 no-refit replication implementation and tests ready;
+  production run pending; O1C-0009 capsule immutable
 - **Research phase:** O1-256 Living Inverse — signed-direction replication and
   upstream solver sensor
 - **Strongest internal mechanism:** O1C-0007's 12-register/266-byte unary state is
@@ -44,9 +46,19 @@ One post-reveal diagnostic is retained rather than discarded: allowing a signed
 global scale chosen from CAL only gives the frozen direct reader scale
 `-0.03860970720667151`, CAL NLL `255.984754` and O1C-0009 DEV NLL `255.976841`
 (`+0.023159` bit).  This was not preregistered and is not a result claim.  Its
-target-level standard deviation is `0.199937` bit, so O1C-0010 will freeze the
-exact model/scale and test at least 1,024 entirely new secret keys before the
+target-level standard deviation is `0.199937` bit, so O1C-0010 freezes the
+exact model/scale and tests 2,048 entirely new secret keys before the
 solver pivot consumes heavy work.
+
+The O1C-0010 implementation now pins and recopies both exact O1C-0009 model
+blobs, freezes six posterior/control matrices (`25,165,824` bytes) before any
+reveal, and requires both conditional-bit and independent-target evidence.  Its
+declared gate is direct compression `>=0.015` bit, conditional `z>=3`, positive
+three-standard-error target lower bound, and `>=0.01`-bit paired margins with
+`z>=3` and positive target lower bounds against signed-shuffled and
+output-permutation controls.  The sealed broker no longer retains privileged
+round traces, leaving only key, salt, public block and commitment lifecycle in
+memory.
 
 The 2026-07-17 read-only W52 intake supplied mechanism, not target data.  A447/A448
 show that exact proof ancestry transfers where flattened clause provenance does
@@ -83,15 +95,13 @@ transfer map is in
 ## Highest-ROI next actions
 
 1. `O1C-0010`: freeze O1C-0009 direct model SHA-256 and signed scale, then evaluate
-   at least 1,024 new broker-secret keys with shuffled/output/nonce controls and
+   2,048 new broker-secret keys with shuffled/output/nonce controls and
    predictions persisted before reveal.
-2. Refactor the full-256 broker to retain only the public block and commitment, not
-   privileged target traces, so larger sealed panels stay below 256 MiB.
-3. In parallel, build a target-independent one-block full-256 public-output CNF and
+2. Build a target-independent one-block full-256 public-output CNF and
    exact key/output literal maps in the isolated lab.
-4. Stream paired bit-assumption conflict/decision/propagation/proof events at
+3. Stream paired bit-assumption conflict/decision/propagation/proof events at
    horizons `64/96/65` through O1 vault/Holo banks, then apply A465/A469.
-5. Iterate at full width on carry/proof observability and O1-O scheduling;
+4. Iterate at full width on carry/proof observability and O1-O scheduling;
    short MPS windows require an explicit resource check and must not overlap W52.
 
 ## Recent attempts
@@ -142,8 +152,9 @@ transfer map is in
 
 ## Resume here
 
-Start from `O1C-0010`: copy and hash-bind the frozen O1C-0009 direct reader, freeze
-signed scale `-0.03860970720667151`, and evaluate it once on a larger newly sealed
-panel with no refit.  Regardless of outcome, retain the completed panel and move
+Start from the clean O1C-0010 build commit: copy and hash-bind the frozen O1C-0009
+direct and shuffled readers, freeze signed scale `-0.03860970720667151`, and
+evaluate once on 2,048 newly sealed keys with no refit.  Regardless of outcome,
+retain the completed panel and move
 the main mechanism upstream to paired public-CNF solver/proof events.  Keep the
 sibling W52 queue read-only and resource-prioritized.

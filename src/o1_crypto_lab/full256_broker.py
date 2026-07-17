@@ -7,12 +7,12 @@ import os
 import re
 from collections.abc import Callable, Mapping
 
+from .chacha_trace import chacha20_blocks
 from .living_inverse import (
     BLOCK_BYTES,
     CHACHA20_ROUNDS,
     KEY_BITS,
     PublicTargetView,
-    build_known_target,
     canonical_json_bytes,
     canonical_sha256,
 )
@@ -224,12 +224,15 @@ class Full256TargetBroker:
         self._counter = raw_counter % (maximum_start + 1)
         self._nonce = entropy[36:48]
         self._salt = entropy[48:80]
-        self._target = build_known_target(
-            self._key,
-            counter=self._counter,
+        counters = tuple(self._counter + index for index in range(block_count))
+        self._public = PublicTargetView(
+            counter_schedule=counters,
             nonce=self._nonce,
-            block_count=block_count,
+            output_blocks=chacha20_blocks(
+                self._key, self._counter, self._nonce, block_count
+            ),
         )
+        self._public.validate()
         self._publication: dict[str, object] | None = None
         self._revealed = False
 
@@ -243,7 +246,7 @@ class Full256TargetBroker:
 
     def publish(self) -> dict[str, object]:
         if self._publication is None:
-            public_view = self._target.public.describe()
+            public_view = self._public.describe()
             commitment_preimage = {
                 "schema": COMMITMENT_SCHEMA,
                 "target_id": self._target_id,
@@ -341,13 +344,18 @@ def verify_reveal(value: object) -> dict[str, object]:
     if canonical_sha256(dict(preimage)) != publication["commitment_sha256"]:
         raise Full256BrokerError("reveal does not open the commitment")
     public = _public_view(publication["public_view"])
-    recomputed = build_known_target(
-        key,
-        counter=public.counter_schedule[0],
+    recomputed = PublicTargetView(
+        counter_schedule=public.counter_schedule,
         nonce=public.nonce,
-        block_count=public.block_count,
+        output_blocks=chacha20_blocks(
+            key,
+            public.counter_schedule[0],
+            public.nonce,
+            public.block_count,
+        ),
     )
-    if recomputed.public.digest() != public.digest():
+    recomputed.validate()
+    if recomputed.digest() != public.digest():
         raise Full256BrokerError("revealed key does not reproduce public output")
     reveal_sha = _sha(row.get("reveal_sha256"), "reveal_sha256")
     unsigned = {key: item for key, item in row.items() if key != "reveal_sha256"}

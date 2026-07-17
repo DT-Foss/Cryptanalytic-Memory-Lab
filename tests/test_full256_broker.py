@@ -51,6 +51,8 @@ class Full256BrokerTests(unittest.TestCase):
             publication["public_view_sha256"],
         )
         self.assertEqual(self.broker.phase, "PUBLISHED")
+        self.assertNotIn("_target", vars(self.broker))
+        self.assertFalse(any("trace" in name for name in vars(self.broker)))
 
     def test_reveal_requires_exact_freeze_and_is_one_shot(self) -> None:
         publication = self.broker.publish()

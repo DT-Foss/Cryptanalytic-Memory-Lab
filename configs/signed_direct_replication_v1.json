@@ -1,0 +1,52 @@
+{
+  "schema": "o1-256-signed-direct-replication-config-v1",
+  "attempt_id": "O1C-0010",
+  "slug": "full256-signed-direct-replication-v1",
+  "claim_level": "VALIDATION",
+  "hypothesis": "The small negative-polarity direct-reader code-length gain discovered after O1C-0009 is a reproducible public-output relation rather than finite-panel selection noise: without any refit, the exact frozen holographic reader removes measurable uncertainty from new uniformly random full 256-bit ChaCha20 keys.",
+  "prediction": "Across 2048 newly generated, broker-secret, uniformly random full-width keys, the exact O1C-0009 direct model at scale -0.03860970720667151 will achieve at least 0.015 bit mean key compression and a conditional-uniform-key z score of at least 3, retain a positive three-standard-error target-level lower bound, exceed the signed shuffled reader and output-permutation control by at least 0.01 bit with paired z scores of at least 3 and positive target-level lower bounds, and reverse sign under the polarity control. Every model, scale, gate and prediction matrix is persisted before target reveal.",
+  "controls": [
+    "exact O1C-0009 shuffled-key model at its independently frozen signed scale",
+    "cyclic permutation of full public output blocks across fresh targets",
+    "one deterministic public output-bit flip per fresh target",
+    "wrong public nonce with the target output held fixed",
+    "exact direct logits with the signed scale polarity reversed",
+    "conditional uniform/Rademacher-key model reference with exact mean and variance given every fixed public-input logit, explicitly not distribution-free"
+  ],
+  "budgets": {
+    "maximum_cpu_seconds": 300,
+    "maximum_resident_memory_mib": 256,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_fresh_targets": 2048,
+    "maximum_model_refits": 0,
+    "prediction_matrices": 6,
+    "frozen_prediction_bytes": 25165824,
+    "development_openings": 1
+  },
+  "next_action": "Regardless of replication sign, retain the exact code-length and control deltas as a sentinel breadcrumb and build O1C-0011 around a target-independent full-256 public ChaCha20 CNF with paired key-bit assumptions, streamed conflict/propagation/proof events, and bounded O1 holographic evidence state.",
+  "source": {
+    "source_attempt_id": "O1C-0009",
+    "source_capsule": "runs/20260717_040741_O1C-0009_full256-output-only-reader-v1",
+    "source_manifest_sha256": "f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2",
+    "source_result_sha256": "40276d71516d4d150b02cc8235c08d00fb8ceb28daf64d1316826b38fd094bf9",
+    "direct_model_artifact": "artifacts/calibration/models/direct.o1hrr",
+    "direct_model_sha256": "b029182649f2ec6f06aa3eb00c497d57c76d0b7b81d7b4dc2a7e25f98331bc55",
+    "shuffled_model_artifact": "artifacts/calibration/models/shuffled_key_control.o1hrr",
+    "shuffled_model_sha256": "6dd9a11e64d3b93a98b1bab92f9249785aa6be2a2e46dae21fe070d63796711e",
+    "direct_scale": -0.03860970720667151,
+    "shuffled_scale": -0.012218718479345116,
+    "selection_origin": "Post-reveal O1C-0009 diagnostic selected after the official zero-scale result; O1C-0010 is its first prospective no-refit test."
+  },
+  "replication": {
+    "development_targets": 2048,
+    "minimum_direct_compression_bits": 0.015,
+    "minimum_direct_conditional_z": 3.0,
+    "minimum_target_lcb_z": 3.0,
+    "minimum_shuffled_margin_bits": 0.01,
+    "minimum_output_permutation_margin_bits": 0.01,
+    "minimum_paired_conditional_z": 3.0
+  }
+}
