@@ -1,15 +1,13 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T15:59:32+02:00.
+Last ranked: 2026-07-17T17:29:19+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | O1C-0019: replace cumulative-query re-integration with a learned incremental/gated update and package each coordinate's H64/H65/H96 fields locally | State of the art | Very high | Very high | Medium | Separates a real sensor failure from the proven accumulation mismatch and exposes raw multiresolution relations without hand-picking a signal |
-| 2 | Freeze the reader first, bind rewards to its SHA and refit the state-conditioned critic from bounded BUILD replays | State of the art | Very high | Very high | Low | Removes stale nonstationary credit before judging whether live utility is learnable |
-| 3 | Give every affordable action a target-conditioned public preview; remove hash-32 shortlisting and replace hard equal coverage with soft age/coverage plus finite starvation | State of the art | Very high | Very high | Medium | Lets strong evidence compound while keeping every one of 256 coordinates eventually reachable |
-| 4 | Add learned HOLD/STOP/DECAY and preserve the best frozen prefix; retain true/shifted/static/shortest/hash and raw/untrained/rotation/direct-field controls | State of the art | Very high | Very high | Low | Tests autonomous marginal-work allocation instead of forcing a promising W1 trajectory to become a bad W3 trajectory |
-| 5 | Compose isolated/direct, packet/raw, packet+Möbius, packet+gate and packet+gate+stationary-critic arms with whole-key BUILD-LOO on the six consumed pools | State of the art | High | Very high | Medium | Selects one falsifiable O1C-0020 architecture without consuming new target entropy |
-| 6 | Spend a new disjoint full-256 gate only after repeated artifact-only positive NLL/IAUC/control margins; otherwise pivot packets to query-rooted carry/proof ancestry | State of the art | Very high | Very high | High | Protects the next blind panel while keeping exact 256-bit recovery as the terminal objective |
+| 1 | Keep the frozen O1C-0019 config unchanged; poll W52/process/RAM state and launch the four-fold CPU gate only after the sibling resource interlock clears | State of the art | Very high | Very high | Medium | Produces the first honest test of signal-open reader transfer and autonomous full-256 packet routing without disturbing the recovery front |
+| 2 | Classify raw reader, true-vs-shifted/static/hash IAUC, STOP-vs-no-STOP routing, W2-to-W3 tail and fold stationarity from the immutable capsule | State of the art | Very high | Very high | Low | Separates sensor, retention, credit, routing and abstention failures in one result |
+| 3 | If reader transfer passes but picker fails, change only credit/context/STOP; if reader fails, route assumption-rooted proof/carry ancestry through the same packet/state API | State of the art | Very high | Very high | Medium | Uses a negative result as a localized architecture breadcrumb rather than resweeping the same field |
+| 4 | Spend one disjoint DEVELOPMENT/fresh full-256 gate only after the predeclared BUILD-LOO reader and policy authorization gates pass | State of the art | Very high | Very high | High | Protects fresh evidence while preserving exact recovery as the terminal target |
 
 ## Hard target contract
 

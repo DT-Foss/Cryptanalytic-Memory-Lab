@@ -800,3 +800,35 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifact:**
   `runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/`;
   forensics `research/O1C0018_POST_REVEAL_FORENSICS_20260717.md`.
+
+## O1C-0019 — Artifact-only BUILD-LOO gate (implementation freeze)
+
+- **Recorded:** 2026-07-17T17:29:19+02:00
+- **Implementation commit:** `dc249add99aa0673fc611fab8b2e75b8ba1434a0`
+- **State:** runner/config frozen and tested; no run capsule or efficacy result yet.
+- **Source:** four immutable BUILD `.fap` files from O1C-0018, verified through
+  manifest `fcbf43c99994c0debe5b39bb3e734ea1d1e23ba58e89b10ff2bb7e23886493fb`
+  and artifact index. Discovery reads `8,336,169` bytes and never invokes the
+  deterministic key oracle.
+- **Protocol:** four symmetric leave-one-BUILD-out folds. Each fresh fold reader
+  learns on the other three packet-local H64->H65->H96 streams with four frozen
+  replay passes per episode; the episode-equal critic is then refit from zero and
+  bound to the final reader SHA.
+- **Frozen arms:** learned stationary ACTION/STOP; identical learned picker with
+  STOP disabled; shifted-label stationary critic with byte-identical reader and
+  contexts; fold-local static packet reward; pool-blind uniform hash; fixed-order
+  exhaustive learned reader and deterministic untrained reader.
+- **Work:** nested caps `16,384/32,768/49,152`; complete field `49,152` paired
+  physical conflicts; zero pool generation and zero native solver branches.
+- **Lifecycle:** every fold's slow states, paths, predictions and ledgers are
+  persisted before its held-out label is reconstructed. STOP must be an exact
+  route prefix of the no-STOP twin. DEVELOPMENT pools remain untouched by O1C-0019.
+- **Verification:** targeted runner/controller/critic suite `29 passed` plus `5`
+  subtests in `6.50 s`; pycompile, Ruff, real four-pool discovery and exact config
+  loading pass.
+- **Resource interlock:** sibling W52 is active, with two additional one-core
+  CaDiCaL processes observed. The heavy four-fold gate is intentionally deferred;
+  only light validation ran. System memory-pressure query reported 30% free.
+- **Resume:** recheck W52/process/RAM state. When clear, run
+  `PYTHONPATH=src python -m o1_crypto_lab.full256_multiresolution_build_loo_run --config configs/full256_multiresolution_build_loo_v1.json`
+  from the clean implementation commit; do not alter config or consume DEVELOPMENT.

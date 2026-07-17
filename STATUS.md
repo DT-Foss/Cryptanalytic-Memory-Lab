@@ -1,9 +1,11 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-17T15:59:32+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-17T17:29:19+02:00 (`Europe/Berlin`)
 - **Prior published baseline:** `dbbe63a` (`O1C-0017` mechanism result)
 - **Latest execution commit:** `f40e71aa8ed80b4653acf44d98e14eabec18a955`
   (`O1C-0018` clean full-round real-gate freeze)
+- **Latest implementation freeze:** `dc249add99aa0673fc611fab8b2e75b8ba1434a0`
+  (`O1C-0019` artifact-only four-fold BUILD-LOO gate; no scientific run yet)
 - **Publication:** the O1C-0018 outcome and deterministic post-reveal forensics are
   recorded below; immutable capsules and sibling repositories remain untouched
 - **Research phase:** O1-256 Living Inverse — paired-assumption solver events into
@@ -13,8 +15,10 @@
   a 21,472-byte exact fast state, reaching 80.225% held-out bit accuracy
 - **Strongest read-only mechanism intake:** A447-A449 proof ancestry, A465 cubic
   Product-of-Experts and A469 positive bucket-local correction
-- **Active runs:** none; O1C-0018 BUILD/DEVELOPMENT pools and O1C-0017 formal seeds
-  are consumed and may not be replayed as fresh evidence
+- **Active lab runs:** none. The sibling W52 production launcher is active, so the
+  O1C-0019 heavy CPU gate is resource-interlocked and has not started. O1C-0018
+  BUILD/DEVELOPMENT pools and O1C-0017 formal seeds remain consumed and may not be
+  replayed as fresh evidence
 - **Strongest completed mechanism attempt:** `O1C-0017` — independently verified
   `MECHANISM_PASS` on 16/16 untouched synthetic full-256 episodes
 - **Strongest completed full-round online attempt:** `O1C-0018` — public-only
@@ -22,9 +26,11 @@
   `NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`
 - **Last operational attempt:** `O1C-0018` — 3,072 native branches, 545.024 CPU s,
   510.875 wall s and 315,703,296 B peak RSS; every structural/resource gate passed
-- **Next attempt:** `O1C-0019` — packetized incremental reader, reader-SHA-bound
-  stationary critic, all-candidate preview, soft no-starvation attention and
-  learned HOLD/STOP/DECAY on the six already opened pools
+- **Next attempt:** execute the frozen `O1C-0019` four-fold BUILD-LOO config after
+  the W52 interlock clears. The runner has packetized incremental evidence,
+  reader-SHA-bound stationary credit, all-address preview, finite starvation,
+  learned ACTION/STOP, an exact no-STOP twin, shifted/static/hash controls and an
+  isolated learned-versus-untrained reader gate
 - **Primary uncertainty:** whether common-mode-rejected proof/carry innovations can
   acquire portable key orientation when O1 learns its representation and O1-O
   learns its sensing policy rather than receiving a fixed scalar reader
@@ -36,6 +42,24 @@
   full ChaCha20 key
 
 ## Headline
+
+`O1C-0019` is implementation-frozen at `dc249ad` but deliberately unexecuted while
+the sibling W52 production run remains active. The committed artifact-only runner
+imports exactly four immutable O1C-0018 BUILD pools (`8,336,169` source bytes;
+corpus SHA `d137a931782b19e2cd8fdd44f38a9109d239ba332605c3a512078ca314c1be64`),
+generates no solver work and materializes no held-out key during discovery. It
+trains three reveal-delayed episodes per fold, refits the critic only against the
+final frozen reader, then freezes all five policy trajectories and both exhaustive
+reader trajectories before deriving the held-out label.
+
+The three nested physical-work caps are `16,384/32,768/49,152`; the last is the
+complete H64/H65/H96 packet field. Controls are true ACTION/STOP, the identical
+true picker with STOP disabled, shifted-label stationary credit, fold-local static
+packet reward, pool-blind uniform hash, and learned versus deterministic untrained
+reader on the same exhaustive order. The STOP route is required to be an exact
+prefix of its no-STOP twin. The current targeted regression is `29 passed` plus
+`5` subtests; pycompile, Ruff, real manifest/index discovery and the exact run-config
+loader pass. No O1C-0019 efficacy number exists yet.
 
 `O1C-0018` completed from clean execution commit `f40e71a`. It is the first full
 256-bit, standard twenty-round ChaCha20 run of the continuous O1 reader and learned

@@ -402,3 +402,21 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Breadcrumb:** learn an incremental gated delta, keep horizon carriers separate,
   packetize their raw/Möbius relations locally, and bind stationary credit replay
   to the exact reader SHA.
+
+## B-0024 — Provenance validation must not instantiate a held-out secret
+
+- **Evidence:** the first O1C-0019 artifact importer reconstructed a deterministic
+  known target during public corpus discovery only to compare its description.
+  That object necessarily contained the private 256-bit key even though no label
+  reached the model.
+- **Conclusion:** model-input non-leakage alone is insufficient; the secret must
+  remain unmaterialized anywhere in the fold process until all held-out paths and
+  predictions are atomically frozen.
+- **Fix:** discovery now validates only manifest, artifact index, canonical
+  `build-NNNN` identity, public view, sidecar and serialized action-pool bindings.
+  Deterministic key/output reconstruction occurs only inside the post-freeze label
+  method. A regression patches the key oracle to raise during real discovery.
+- **Do not repeat:** instantiate a deterministic target as a convenient public
+  provenance checksum before a prediction freeze.
+- **Breadcrumb:** preserve the same key-lazy boundary for the eventual disjoint
+  DEVELOPMENT/fresh-target gate and any future O1-O self-improvement loop.

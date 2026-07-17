@@ -15,31 +15,41 @@ contamination risk. Green tests and document count are not research outcomes.
 
 ## Current milestone
 
-O1C-0009/O1C-0010 closed linear full-round end-output regression. O1C-0011/O1C-0012
-then built the exact public-only full-256 relation and complete 512-branch causal
-state. O1C-0013 learned shared h96 orientation and produced a two-key positive seed.
-O1C-0014 reloaded those exact bytes on eight independent keys: `1053/2048` bits,
-`+0.233784` bit/key and conditional `z=1.819`, but only `4/8` positive targets,
-paired `z=0.838`, mixed controls and zero recovery. Its predeclared classification
-is `NOT_REPLICATED`. The active milestone is O1C-0015: exact h96 plus one fixed
-equal-logit h96+h65 two-wavelength reader on 32 new sealed keys. No W12/W52
-residual target is part of the result ladder.
+O1C-0016 closed the fixed global h96/h65 reader family on 32 independent keys.
+O1C-0017 then established the replacement architecture on anonymous synthetic
+full-256 streams: O1 learned the useful channel without being told its identity,
+and the bounded addressed Bit-Vault retained it at `+42.308742` bits mean
+compression. O1C-0018 moved the mechanism to real full-round paired-proof streams.
+Its raw reader failed at `-1.284644` mean bits, but its early true-reward picker
+beat the shifted critic in every checkpoint cell. Forensics localized the blockers
+to cumulative-query double integration, stale credit, hash shortlisting, compulsory
+breadth and forced spending.
+
+The active milestone is O1C-0019, implementation-frozen at `dc249ad`: a
+packet-local incremental/gated O1 reader and reader-bound episode-equal critic are
+cross-fitted over the four immutable BUILD pools. Every affordable address is
+queried; finite starvation replaces compulsory breadth; ACTION/STOP is compared
+with an exact no-STOP twin, shifted critic, fold-local static reward and uniform
+hash. The scientific run is intentionally waiting for the active sibling W52
+resource interlock to clear.
 
 ## Evidence ladder from here
 
-1. Preserve O1C-0014 as immutable negative validation and O1C-0013 h96 as the exact
-   primary baseline; reconstruct h65 from O1C-0013 BUILD/CAL only.
-2. Serialize and freeze exactly one fixed
-   `0.5*logit(h96)+0.5*logit(h65)` reader and matched shuffled control before any
-   O1C-0015 entropy. O1C-0014 can choose this architecture but never fit it.
-3. Generate 32 fresh sealed targets and reuse every public 512-branch h96-prefix
-   field for all readers with no extra solver branches.
-4. Persist all predictions before any reveal, then report 8,192-bit total NLL,
-   conditional/paired nulls, target robustness, blocks, decoy ranks and controls.
-5. If the unary direction transfers, compound independent challenge evidence in
-   the surprise-gated Attic and bounded verification beam.
-6. If it fails, implement one query-rooted carry/proof-cone sensor; do not tune
-   weights, coordinates or coarse ARX/motif sums on O1C-0014.
+1. Preserve O1C-0018 and its six pools byte-exact; use only the four BUILD artifacts
+   for retrospective cross-fit and keep DEVELOPMENT outside the O1C-0019 gate.
+2. After W52 clears, execute the frozen three-checkpoint, four-fold O1C-0019 config
+   from a clean commit with zero new solver branches, entropy, sibling or GPU work.
+3. Persist each fold's final reader/critics and every policy/raw trajectory before
+   reconstructing that fold's key; report compression, IAUC, agency, stationarity,
+   STOP/no-STOP and exact bounded-state/resource ledgers.
+4. If the reader transfers and the learned route beats shifted/static/hash, freeze
+   the architecture and attack one disjoint full-256 target. Do not tune on it.
+5. If reader transfer fails, preserve the packet/state API and replace only the
+   coarse branch feature stream with assumption-rooted carry/proof ancestry.
+6. If routing alone fails, retain the reader and change only critic context,
+   delayed credit or abstention. Do not conflate a picker failure with no signal.
+7. After stable entropy reduction, add surprise-selected Causal Attic summaries,
+   bounded beam concentration and exact ChaCha20 verification toward recovery.
 
 ## Operating contract
 
