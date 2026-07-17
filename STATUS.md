@@ -59,7 +59,10 @@ packet reward, pool-blind uniform hash, and learned versus deterministic untrain
 reader on the same exhaustive order. The STOP route is required to be an exact
 prefix of its no-STOP twin. The current targeted regression is `29 passed` plus
 `5` subtests; pycompile, Ruff, real manifest/index discovery and the exact run-config
-loader pass. No O1C-0019 efficacy number exists yet.
+loader pass. A non-scientific one-fold/three-action real-artifact smoke traversed
+both freeze callbacks and scoring with every structural gate green in `2.559` CPU s,
+`2.803` wall s and `315,359,232` B peak RSS; its deliberately undertrained outcome
+is not efficacy evidence. No O1C-0019 efficacy number exists yet.
 
 `O1C-0018` completed from clean execution commit `f40e71a`. It is the first full
 256-bit, standard twenty-round ChaCha20 run of the continuous O1 reader and learned

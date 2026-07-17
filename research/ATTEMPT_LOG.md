@@ -825,7 +825,14 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   route prefix of the no-STOP twin. DEVELOPMENT pools remain untouched by O1C-0019.
 - **Verification:** targeted runner/controller/critic suite `29 passed` plus `5`
   subtests in `6.50 s`; pycompile, Ruff, real four-pool discovery and exact config
-  loading pass.
+  loading pass. A one-fold, three-training-action real-artifact micro-smoke persisted
+  one learning freeze and one prediction freeze, produced policy shape
+  `1x5x3x256` and raw shape `1x2x256`, and passed every structural gate with zero
+  solver/pool generation. It used `2.558903` CPU s, `2.803259` wall s and
+  `315,359,232` B peak RSS; result SHA
+  `5ca457e1bb46dacdcc6236c4f09699d7464d021a071c273747eab9837f1f7d95`.
+  Its `BUILD_LOO_NO_TRANSFER` label is a deliberately undertrained wiring-smoke
+  outcome, not scientific evidence and not an O1C-0019 execution.
 - **Resource interlock:** sibling W52 is active, with two additional one-core
   CaDiCaL processes observed. The heavy four-fold gate is intentionally deferred;
   only light validation ran. System memory-pressure query reported 30% free.
