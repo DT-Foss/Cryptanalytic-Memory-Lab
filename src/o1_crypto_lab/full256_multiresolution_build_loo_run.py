@@ -559,8 +559,16 @@ def run_capsule_from_config(path: str | Path) -> int:
             "action_orders_sha256": result.action_orders.astype(
                 "<u2", copy=False
             ).tobytes(order="C"),
+            "slot_orders_sha256": result.slot_orders.astype(
+                "<u2", copy=False
+            ).tobytes(order="C"),
             "checkpoint_action_counts_sha256": (
                 result.checkpoint_action_counts.astype("<u2", copy=False).tobytes(
+                    order="C"
+                )
+            ),
+            "checkpoint_slot_counts_sha256": (
+                result.checkpoint_slot_counts.astype("<u2", copy=False).tobytes(
                     order="C"
                 )
             ),
@@ -584,8 +592,12 @@ def run_capsule_from_config(path: str | Path) -> int:
             **result.scored_artifacts(),
             "predictions.f32le": global_payloads["predictions_sha256"],
             "action_orders.u16le": global_payloads["action_orders_sha256"],
+            "slot_orders.u16le": global_payloads["slot_orders_sha256"],
             "checkpoint_action_counts.u16le": global_payloads[
                 "checkpoint_action_counts_sha256"
+            ],
+            "checkpoint_slot_counts.u16le": global_payloads[
+                "checkpoint_slot_counts_sha256"
             ],
             "checkpoint_work.u32le": global_payloads["checkpoint_work_sha256"],
             "terminal_codes.u8": global_payloads["terminal_codes_sha256"],

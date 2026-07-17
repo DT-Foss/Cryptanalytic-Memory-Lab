@@ -69,6 +69,11 @@ TERMINAL_CODES = {
     "STOP": 1,
     "FIELD_EXHAUSTED": 2,
 }
+VOLATILE_RESOURCE_FIELDS = (
+    "cpu_seconds",
+    "wall_seconds",
+    "process_peak_rss_bytes",
+)
 
 ArtifactCallback = Callable[[Mapping[str, bytes], Mapping[str, object]], None]
 
@@ -1937,6 +1942,9 @@ def run_full256_multiresolution_build_loo(
         "checkpoint_action_counts_sha256": _sha256_bytes(
             checkpoint_action_counts.astype("<u2", copy=False).tobytes(order="C")
         ),
+        "checkpoint_slot_counts_sha256": _sha256_bytes(
+            checkpoint_slot_counts.astype("<u2", copy=False).tobytes(order="C")
+        ),
         "checkpoint_work_sha256": _sha256_bytes(
             checkpoint_work.astype("<u4", copy=False).tobytes(order="C")
         ),
@@ -2009,6 +2017,10 @@ def run_full256_multiresolution_build_loo(
             "logical_artifact_replay_only": True,
             "unknown_key_bits_at_held_out_probe": KEY_BITS,
         },
+        "result_commitment": {
+            "scope": "all report fields except volatile execution resources",
+            "excluded_resource_fields": list(VOLATILE_RESOURCE_FIELDS),
+        },
         "config": config.describe(),
         "source": {
             "attempt_id": corpus.source_attempt_id,
@@ -2034,11 +2046,8 @@ def run_full256_multiresolution_build_loo(
             "learned_over_all_policy_controls_folds": int(
                 np.sum(
                     (shifted_margin > 0.0) & (static_margin > 0.0) & (hash_margin > 0.0)
-            )
-        ),
-        "checkpoint_slot_counts_sha256": _sha256_bytes(
-            checkpoint_slot_counts.astype("<u2", copy=False).tobytes(order="C")
-        ),
+                )
+            ),
             "learned_final_mean_compression_bits": float(
                 compression_bits[:, learned_index, -1].mean()
             ),
@@ -2078,9 +2087,16 @@ def run_full256_multiresolution_build_loo(
             "credit model without regenerating these pools."
         ),
     }
+    scientific_unsigned = dict(report_unsigned)
+    scientific_unsigned["resources"] = {
+        key: value
+        for key, value in resources.items()
+        if key not in VOLATILE_RESOURCE_FIELDS
+    }
     report = {
         **report_unsigned,
-        "result_sha256": _canonical_sha256(report_unsigned),
+        "execution_report_sha256": _canonical_sha256(report_unsigned),
+        "result_sha256": _canonical_sha256(scientific_unsigned),
     }
     return Full256BuildLooResult(
         report=report,
@@ -2117,6 +2133,7 @@ __all__ = [
     "POLICY_ARMS",
     "RAW_ARMS",
     "TERMINAL_CODES",
+    "VOLATILE_RESOURCE_FIELDS",
     "ArtifactBuildCorpus",
     "ArtifactBuildEpisode",
     "Full256BuildLooConfig",

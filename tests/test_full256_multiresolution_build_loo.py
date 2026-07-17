@@ -16,6 +16,7 @@ from o1_crypto_lab.full256_action_pool import (
 from o1_crypto_lab.full256_multiresolution_build_loo import (
     POLICY_ARMS,
     RAW_ARMS,
+    VOLATILE_RESOURCE_FIELDS,
     ArtifactBuildCorpus,
     ArtifactBuildEpisode,
     Full256BuildLooConfig,
@@ -267,6 +268,14 @@ class Full256MultiresolutionBuildLooTests(unittest.TestCase):
             result.raw_predictions.shape,
             (1, len(RAW_ARMS), KEY_BITS),
         )
+        self.assertEqual(
+            result.slot_orders.shape,
+            (1, len(POLICY_ARMS), config.controller.maximum_actions),
+        )
+        self.assertEqual(
+            result.checkpoint_slot_counts.shape,
+            (1, len(POLICY_ARMS), 3),
+        )
         self.assertTrue(np.all(np.isfinite(result.nll_bits)))
         self.assertTrue(np.all(np.isfinite(result.raw_nll_bits)))
         self.assertTrue(
@@ -302,15 +311,52 @@ class Full256MultiresolutionBuildLooTests(unittest.TestCase):
             result.report["resources"]["physical_public_pools_generated"],
             0,
         )
+        commitments = result.report["artifact_commitments"]
+        self.assertEqual(
+            commitments["slot_orders_sha256"],
+            _sha256(result.slot_orders.astype("<u2", copy=False).tobytes(order="C")),
+        )
+        self.assertEqual(
+            commitments["checkpoint_slot_counts_sha256"],
+            _sha256(
+                result.checkpoint_slot_counts.astype("<u2", copy=False).tobytes(
+                    order="C"
+                )
+            ),
+        )
+        execution_payload = {
+            key: value
+            for key, value in result.report.items()
+            if key not in {"execution_report_sha256", "result_sha256"}
+        }
+        self.assertEqual(
+            result.report["execution_report_sha256"],
+            _canonical_sha256(execution_payload),
+        )
+        scientific_payload = dict(execution_payload)
+        scientific_payload["resources"] = {
+            key: value
+            for key, value in result.report["resources"].items()
+            if key not in VOLATILE_RESOURCE_FIELDS
+        }
         self.assertEqual(
             result.result_sha256,
-            _canonical_sha256(
-                {
-                    key: value
-                    for key, value in result.report.items()
-                    if key != "result_sha256"
-                }
-            ),
+            _canonical_sha256(scientific_payload),
+        )
+
+        repeated = run_full256_multiresolution_build_loo(config, corpus)
+        self.assertEqual(repeated.result_sha256, result.result_sha256)
+        self.assertEqual(
+            repeated.report["artifact_commitments"],
+            result.report["artifact_commitments"],
+        )
+        self.assertEqual(
+            repeated.report["folds"][0]["learning_freeze_sha256"],
+            result.report["folds"][0]["learning_freeze_sha256"],
+        )
+        self.assertEqual(
+            repeated.report["folds"][0]["prediction_freeze_sha256"],
+            result.report["folds"][0]["prediction_freeze_sha256"],
         )
 
     def test_finalized_real_discovery_is_key_lazy_and_config_is_exact(self) -> None:
