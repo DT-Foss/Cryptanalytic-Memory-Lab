@@ -66,9 +66,19 @@ class DeterministicKnownTargetTests(unittest.TestCase):
         self.assertNotEqual(first.key_sha256, evaluation.key_sha256)
         self.assertEqual(first.public.block_count, 1)
 
-        with self.assertRaisesRegex(Full256ProofPoolError, "action_pool_sha256"):
-            first.labels_after_pool_freeze("not-a-hash")
-        labels = first.labels_after_pool_freeze(SHA_A)
+        pool = _pool()
+        frozen = FrozenFull256ProofPool(
+            target_id=first.target_id,
+            public=first.public,
+            action_pool=pool,
+            action_pool_bytes=serialize_action_pool(pool),
+            instance={},
+            probe={},
+            resources={},
+        )
+        with self.assertRaisesRegex(Full256ProofPoolError, "FrozenFull256"):
+            first.labels_after_pool_freeze(SHA_A)  # type: ignore[arg-type]
+        labels = first.labels_after_pool_freeze(frozen)
         self.assertEqual(labels.shape, (256,))
         self.assertEqual(labels.dtype, np.uint8)
         self.assertFalse(labels.flags.writeable)
@@ -81,6 +91,18 @@ class DeterministicKnownTargetTests(unittest.TestCase):
         self.assertEqual(public["unknown_key_bits_at_probe"], 256)
         self.assertNotIn("key", public)
         self.assertNotIn(first._key.hex(), repr(public))
+
+        wrong_target = FrozenFull256ProofPool(
+            target_id=evaluation.target_id,
+            public=evaluation.public,
+            action_pool=pool,
+            action_pool_bytes=serialize_action_pool(pool),
+            instance={},
+            probe={},
+            resources={},
+        )
+        with self.assertRaisesRegex(Full256ProofPoolError, "does not belong"):
+            first.labels_after_pool_freeze(wrong_target)
 
     def test_target_validation_rejects_overlap_primitives(self) -> None:
         with self.assertRaisesRegex(Full256ProofPoolError, "split"):
@@ -248,6 +270,82 @@ class ProofPoolBuilderTests(unittest.TestCase):
             self.assertFalse(any("key" in name or "label" in name for name in fields))
             self.assertEqual(captured_config.sentinel_reruns, 0)
             self.assertEqual(captured_config.expected_clause_count, 188010)
+
+    def test_builder_removes_runtime_resources_from_scientific_pool_hash(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            config, workspace, _manifest, _template, _map = self._fixture(root)
+            base = _pool()
+            timed = Full256ActionPool(
+                horizons=base.horizons,
+                branch_features=base.branch_features,
+                final_resources=np.full(
+                    (256, 2, 3), 987_654_321, dtype=np.uint64
+                ),
+                pair_sha256=base.pair_sha256,
+                source_stream_sha256=base.source_stream_sha256,
+            )
+            instance = SimpleNamespace(
+                key_unit_clause_count=0,
+                assumption_unit_clause_count=0,
+                public_unit_clause_count=640,
+                variable_count=32128,
+                clause_count=188010,
+                instance_sha256="1" * 64,
+                describe=lambda: {"instance_sha256": "1" * 64},
+            )
+
+            def core(pool: Full256ActionPool, runtime: int) -> SimpleNamespace:
+                return SimpleNamespace(
+                    success_gate_passed=True,
+                    action_pool=pool,
+                    report={
+                        "result_sha256": "2" * 64,
+                        "gates": {"success_gate_passed": True},
+                        "resources": {
+                            "total_native_solver_branches": 512,
+                            "runtime_marker": runtime,
+                        },
+                    },
+                    event_index={"event_index_sha256": "3" * 64},
+                )
+
+            target = make_deterministic_known_target(
+                seed=180018, split="BUILD", index=0
+            )
+            with (
+                mock.patch(
+                    "o1_crypto_lab.full256_proof_pool.verify_full256_template",
+                    return_value={"variable_count": 32128, "clause_count": 187370},
+                ),
+                mock.patch(
+                    "o1_crypto_lab.full256_proof_pool.build_native_sensor",
+                    side_effect=self._fake_build,
+                ),
+                mock.patch(
+                    "o1_crypto_lab.full256_proof_pool.write_full256_instance",
+                    return_value=instance,
+                ),
+                mock.patch(
+                    "o1_crypto_lab.full256_proof_pool.run_full256_probe_core",
+                    side_effect=(core(base, 1), core(timed, 2)),
+                ),
+            ):
+                builder = Full256ProofPoolBuilder(
+                    root=root, config=config, workspace=workspace
+                )
+                first = builder.probe_public(
+                    target_id=target.target_id, public=target.public
+                )
+                second = builder.probe_public(
+                    target_id=target.target_id, public=target.public
+                )
+
+            self.assertEqual(first.action_pool_bytes, second.action_pool_bytes)
+            self.assertEqual(first.action_pool_sha256, second.action_pool_sha256)
+            self.assertTrue(np.all(first.action_pool.final_resources == 0))
+            self.assertTrue(np.all(second.action_pool.final_resources == 0))
+            self.assertNotEqual(first.resources, second.resources)
 
     def test_builder_detects_source_mutation_after_probe(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

@@ -204,10 +204,25 @@ class DeterministicKnownTarget:
     def key_sha256(self) -> str:
         return hashlib.sha256(self._key).hexdigest()
 
-    def labels_after_pool_freeze(self, action_pool_sha256: str) -> np.ndarray:
-        """Materialize labels only against an already existing pool commitment."""
+    def labels_after_pool_freeze(
+        self,
+        frozen_pool: FrozenFull256ProofPool,
+    ) -> np.ndarray:
+        """Materialize labels only against this target's exact frozen pool."""
 
-        _sha256(action_pool_sha256, "action_pool_sha256")
+        if not isinstance(frozen_pool, FrozenFull256ProofPool):
+            raise Full256ProofPoolError(
+                "labels require a FrozenFull256ProofPool receipt"
+            )
+        if (
+            frozen_pool.target_id != self.target_id
+            or frozen_pool.public.digest() != self.public.digest()
+            or frozen_pool.public.describe() != self.public.describe()
+        ):
+            raise Full256ProofPoolError(
+                "frozen pool does not belong to this known target"
+            )
+        _sha256(frozen_pool.action_pool_sha256, "action_pool_sha256")
         labels = np.unpackbits(
             np.frombuffer(self._key, dtype=np.uint8), bitorder="little"
         ).astype(np.uint8)
@@ -295,8 +310,8 @@ class FrozenFull256ProofPool:
     def action_pool_sha256(self) -> str:
         return hashlib.sha256(self.action_pool_bytes).hexdigest()
 
-    def describe(self) -> dict[str, object]:
-        return {
+    def describe(self, *, include_resources: bool = True) -> dict[str, object]:
+        result = {
             "schema": PROOF_POOL_SCHEMA,
             "target_id": self.target_id,
             "public_view": self.public.describe(),
@@ -306,11 +321,13 @@ class FrozenFull256ProofPool:
             "action_pool_sha256": self.action_pool_sha256,
             "instance": dict(self.instance),
             "probe": dict(self.probe),
-            "resources": dict(self.resources),
             "label_access_phase": "AFTER_ACTION_POOL_FREEZE",
             "target_key_inputs": 0,
             "target_trace_inputs": 0,
         }
+        if include_resources:
+            result["resources"] = dict(self.resources)
+        return result
 
 
 class Full256ProofPoolBuilder:
@@ -442,11 +459,22 @@ class Full256ProofPoolBuilder:
             )
             if not core.success_gate_passed:
                 raise Full256ProofPoolError("full-round probe-core gate failed")
-            pool_bytes = serialize_action_pool(core.action_pool)
+            # Solver timing/RSS counters are operational telemetry, not part of
+            # the scientific observation.  Zero them before freezing the pool so
+            # identical public evidence has identical bytes across machines and
+            # runs; the real counters remain available through ``resources``.
+            scientific_pool = Full256ActionPool(
+                horizons=core.action_pool.horizons,
+                branch_features=core.action_pool.branch_features,
+                final_resources=np.zeros_like(core.action_pool.final_resources),
+                pair_sha256=core.action_pool.pair_sha256,
+                source_stream_sha256=core.action_pool.source_stream_sha256,
+            )
+            pool_bytes = serialize_action_pool(scientific_pool)
             frozen = FrozenFull256ProofPool(
                 target_id=target_id,
                 public=public,
-                action_pool=core.action_pool,
+                action_pool=scientific_pool,
                 action_pool_bytes=pool_bytes,
                 instance=instance.describe(),
                 probe={
@@ -454,6 +482,7 @@ class Full256ProofPoolBuilder:
                     "source_stream_sha256": core.action_pool.source_stream_sha256,
                     "event_index_sha256": core.event_index["event_index_sha256"],
                     "gates": core.report["gates"],
+                    "operational_final_resources_removed_from_pool": True,
                 },
                 resources=core.report["resources"],
             )

@@ -1102,6 +1102,7 @@ class ActionChoice:
 class RevealLearningReport:
     actions: int
     critic_updates: int
+    critic_labels_match_reader_labels: bool
     reward_sum_bits: float
     critic_reward_sum: float
     reward_positive_actions: int
@@ -1110,6 +1111,45 @@ class RevealLearningReport:
     training_loss_bits: tuple[float, ...]
     slow_state_sha256_before: str
     slow_state_sha256_after: str
+
+
+@dataclass(frozen=True)
+class ActionRewardReplay:
+    """Non-mutating reveal-time credit assignment for one frozen action order."""
+
+    action_order: np.ndarray
+    contexts: np.ndarray
+    delta_nll_bits: np.ndarray
+    initial_nll_bits: float
+    final_nll_bits: float
+
+    def __post_init__(self) -> None:
+        order = np.asarray(self.action_order)
+        contexts = np.asarray(self.contexts)
+        rewards = np.asarray(self.delta_nll_bits)
+        if (
+            order.ndim != 1
+            or order.dtype != np.uint16
+            or contexts.ndim != 2
+            or contexts.shape[0] != order.shape[0]
+            or contexts.dtype != np.float32
+            or rewards.shape != order.shape
+            or rewards.dtype != np.float64
+            or not np.all(np.isfinite(contexts))
+            or not np.all(np.isfinite(rewards))
+        ):
+            raise OnlineCausalControllerError("action-reward replay arrays differ")
+        for field in ("initial_nll_bits", "final_nll_bits"):
+            _finite_float(getattr(self, field), field, minimum=0.0)
+        order = np.array(order, dtype=np.uint16, order="C", copy=True)
+        contexts = np.array(contexts, dtype=np.float32, order="C", copy=True)
+        rewards = np.array(rewards, dtype=np.float64, order="C", copy=True)
+        order.setflags(write=False)
+        contexts.setflags(write=False)
+        rewards.setflags(write=False)
+        object.__setattr__(self, "action_order", order)
+        object.__setattr__(self, "contexts", contexts)
+        object.__setattr__(self, "delta_nll_bits", rewards)
 
 
 def _module_bytes(module: object) -> bytes:
@@ -1305,7 +1345,7 @@ class OnlineCausalController:
             )
 
     def slow_state_bytes(self) -> bytes:
-        model = _module_bytes(self.reader)
+        model = self.reader_state_bytes()
         critic = self.critic.to_bytes()
         metadata = canonical_json_bytes(
             {
@@ -1321,6 +1361,15 @@ class OnlineCausalController:
     @property
     def slow_state_sha256(self) -> str:
         return hashlib.sha256(self.slow_state_bytes()).hexdigest()
+
+    def reader_state_bytes(self) -> bytes:
+        """Return the canonical reader-only checkpoint for matched controls."""
+
+        return _module_bytes(self.reader)
+
+    @property
+    def reader_state_sha256(self) -> str:
+        return hashlib.sha256(self.reader_state_bytes()).hexdigest()
 
     def load_slow_state_bytes(self, value: bytes) -> None:
         """Restore a canonical slow checkpoint for deterministic resume."""
@@ -1795,6 +1844,36 @@ class OnlineCausalController:
             self.observe(state, PairedCausalObservation.from_pool(pool, choice.action))
         return state
 
+    def run_action_order(
+        self,
+        pool: Full256ActionPool,
+        flat_action_order: Sequence[int],
+    ) -> OnlineCausalFastState:
+        """Run one predeclared pool-blind order after validating it atomically."""
+
+        self.validate_pool(pool)
+        if not isinstance(flat_action_order, Sequence):
+            raise TypeError("flat_action_order must be a sequence")
+        order = list(flat_action_order)
+        if (
+            len(order) > self.config.maximum_actions
+            or any(
+                isinstance(value, bool)
+                or not isinstance(value, int)
+                or not 0 <= value < self.config.maximum_actions
+                for value in order
+            )
+            or len(set(order)) != len(order)
+        ):
+            raise OnlineCausalControllerError(
+                "flat_action_order must contain unique configured actions"
+            )
+        state = self.initial_fast_state(pool.source_stream_sha256)
+        for flat_index in order:
+            action = CausalAction.from_flat_index(flat_index, self.config)
+            self.observe(state, PairedCausalObservation.from_pool(pool, action))
+        return state
+
     def run_work_budgeted_policy(
         self,
         pool: Full256ActionPool,
@@ -1863,6 +1942,50 @@ class OnlineCausalController:
             rewards.append(before - after)
         final_nll = _binary_nll_bits(state.posterior_logits, labels)
         return contexts, rewards, initial_nll, final_nll
+
+    def replay_action_rewards(
+        self,
+        pool: Full256ActionPool,
+        flat_action_order: Sequence[int],
+        key_labels: np.ndarray | Sequence[int],
+    ) -> ActionRewardReplay:
+        """Replay frozen public actions after reveal without changing slow state."""
+
+        self.validate_pool(pool)
+        if not isinstance(flat_action_order, Sequence):
+            raise TypeError("flat_action_order must be a sequence")
+        order = list(flat_action_order)
+        if (
+            len(order) > self.config.maximum_actions
+            or any(
+                isinstance(value, bool)
+                or not isinstance(value, int)
+                or not 0 <= value < self.config.maximum_actions
+                for value in order
+            )
+            or len(set(order)) != len(order)
+        ):
+            raise OnlineCausalControllerError(
+                "flat_action_order must contain unique configured actions"
+            )
+        labels = np.asarray(key_labels, dtype=np.float32)
+        if labels.shape != (KEY_BITS,) or np.any((labels != 0.0) & (labels != 1.0)):
+            raise OnlineCausalControllerError("key_labels must be binary shape [256]")
+        slow_before = self.slow_state_bytes()
+        contexts, rewards, initial_nll, final_nll = self._replay_for_rewards(
+            pool,
+            order,
+            labels,
+        )
+        if self.slow_state_bytes() != slow_before:
+            raise AssertionError("reward replay mutated slow state")
+        return ActionRewardReplay(
+            action_order=np.asarray(order, dtype=np.uint16),
+            contexts=np.asarray(contexts, dtype=np.float32),
+            delta_nll_bits=np.asarray(rewards, dtype=np.float64),
+            initial_nll_bits=initial_nll,
+            final_nll_bits=final_nll,
+        )
 
     def _train_reader_episode(
         self,
@@ -1967,8 +2090,10 @@ class OnlineCausalController:
         pool: Full256ActionPool,
         completed_state: OnlineCausalFastState,
         key_labels: np.ndarray | Sequence[int],
+        *,
+        critic_reward_labels: np.ndarray | Sequence[int] | None = None,
     ) -> RevealLearningReport:
-        """Learn only after reveal; the completed prediction remains immutable."""
+        """Learn after reveal, optionally using a label-shifted critic control."""
 
         self.validate_pool(pool)
         self._validate_live_state(completed_state)
@@ -1977,13 +2102,25 @@ class OnlineCausalController:
         labels = np.asarray(key_labels, dtype=np.float32)
         if labels.shape != (KEY_BITS,) or np.any((labels != 0.0) & (labels != 1.0)):
             raise OnlineCausalControllerError("key_labels must be binary shape [256]")
+        reward_labels = (
+            labels
+            if critic_reward_labels is None
+            else np.asarray(critic_reward_labels, dtype=np.float32)
+        )
+        if reward_labels.shape != (KEY_BITS,) or np.any(
+            (reward_labels != 0.0) & (reward_labels != 1.0)
+        ):
+            raise OnlineCausalControllerError(
+                "critic_reward_labels must be binary shape [256]"
+            )
+        critic_labels_match = bool(np.array_equal(reward_labels, labels))
         order = [
             int(value)
             for value in completed_state.action_order[: completed_state.action_count]
         ]
         slow_before = self.slow_state_sha256
         contexts, rewards, initial_nll, final_nll = self._replay_for_rewards(
-            pool, order, labels
+            pool, order, reward_labels
         )
         model_before = _module_bytes(self.reader)
         critic_before = self.critic.clone()
@@ -2004,6 +2141,7 @@ class OnlineCausalController:
         return RevealLearningReport(
             actions=len(order),
             critic_updates=len(rewards),
+            critic_labels_match_reader_labels=critic_labels_match,
             reward_sum_bits=initial_nll - final_nll,
             critic_reward_sum=float(sum(rewards)),
             reward_positive_actions=sum(reward > 0.0 for reward in rewards),
@@ -2018,6 +2156,7 @@ class OnlineCausalController:
 __all__ = [
     "ADDRESS_HARMONIC_PAIRS",
     "CRITIC_BASE_CONTEXT_DIMENSION",
+    "ActionRewardReplay",
     "ActionChoice",
     "BoundedLinUCBCritic",
     "CausalAction",

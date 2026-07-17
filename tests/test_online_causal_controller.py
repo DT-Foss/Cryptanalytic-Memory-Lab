@@ -409,6 +409,27 @@ class OnlineCausalControllerTests(unittest.TestCase):
         with self.assertRaisesRegex(OnlineCausalControllerError, "observed twice"):
             controller.observe(state, first_observation)
 
+    def test_predeclared_action_order_is_atomic_and_exact(self) -> None:
+        controller = OnlineCausalController(self.config)
+        order = [
+            CausalAction(bit, self.config.horizons[index % 2]).flat_index(
+                self.config
+            )
+            for index, bit in enumerate((3, 17, 91, 207))
+        ]
+        slow_before = controller.slow_state_bytes()
+
+        state = controller.run_action_order(self.pool, order)
+
+        self.assertEqual(
+            [int(value) for value in state.action_order[: state.action_count]],
+            order,
+        )
+        self.assertEqual(controller.slow_state_bytes(), slow_before)
+        with self.assertRaisesRegex(OnlineCausalControllerError, "unique"):
+            controller.run_action_order(self.pool, [order[0], order[0]])
+        self.assertEqual(controller.slow_state_bytes(), slow_before)
+
     def test_work_budget_filters_actions_and_is_recomputed_from_ledger(self) -> None:
         controller = OnlineCausalController(self.config)
         state = controller.initial_fast_state(SOURCE_SHA256)
@@ -594,6 +615,58 @@ class OnlineCausalControllerTests(unittest.TestCase):
         with self.assertRaisesRegex(OnlineCausalControllerError, "already consumed"):
             controller.reveal_and_learn(self.pool, state, labels)
 
+    def test_shifted_critic_control_keeps_reader_byte_identical(self) -> None:
+        primary = OnlineCausalController(self.config)
+        shifted = OnlineCausalController(self.config)
+        order = [
+            CausalAction(bit, self.config.horizons[index % 2]).flat_index(
+                self.config
+            )
+            for index, bit in enumerate((3, 17, 91, 207))
+        ]
+        primary_state = primary.run_action_order(self.pool, order)
+        shifted_state = shifted.run_action_order(self.pool, order)
+        labels = (np.arange(KEY_BITS) % 2).astype(np.float32)
+        slow_before_replay = primary.slow_state_bytes()
+        replay = primary.replay_action_rewards(self.pool, order, labels)
+
+        self.assertEqual(primary.slow_state_bytes(), slow_before_replay)
+        self.assertEqual(replay.action_order.tolist(), order)
+        self.assertEqual(
+            replay.contexts.shape,
+            (len(order), self.config.critic_context_dimension),
+        )
+        self.assertAlmostEqual(
+            float(replay.delta_nll_bits.sum()),
+            replay.initial_nll_bits - replay.final_nll_bits,
+            places=10,
+        )
+        self.assertFalse(replay.contexts.flags.writeable)
+        with self.assertRaisesRegex(OnlineCausalControllerError, "unique"):
+            primary.replay_action_rewards(
+                self.pool,
+                [order[0], order[0]],
+                labels,
+            )
+
+        primary_report = primary.reveal_and_learn(
+            self.pool,
+            primary_state,
+            labels,
+        )
+        shifted_report = shifted.reveal_and_learn(
+            self.pool,
+            shifted_state,
+            labels,
+            critic_reward_labels=np.roll(labels, 1),
+        )
+
+        self.assertTrue(primary_report.critic_labels_match_reader_labels)
+        self.assertFalse(shifted_report.critic_labels_match_reader_labels)
+        self.assertEqual(primary.reader_state_bytes(), shifted.reader_state_bytes())
+        self.assertEqual(primary.reader_state_sha256, shifted.reader_state_sha256)
+        self.assertNotEqual(primary.critic.to_bytes(), shifted.critic.to_bytes())
+
     def test_invalid_labels_and_sources_are_rejected_without_slow_update(self) -> None:
         controller = OnlineCausalController(self.config)
         state = controller.initial_fast_state(SOURCE_SHA256)
@@ -620,6 +693,15 @@ class OnlineCausalControllerTests(unittest.TestCase):
         bad_labels[0] = 2.0
         with self.assertRaisesRegex(OnlineCausalControllerError, "binary shape"):
             controller.reveal_and_learn(self.pool, state, bad_labels)
+        with self.assertRaisesRegex(
+            OnlineCausalControllerError, "critic_reward_labels"
+        ):
+            controller.reveal_and_learn(
+                self.pool,
+                state,
+                np.zeros(KEY_BITS, dtype=np.float32),
+                critic_reward_labels=bad_labels,
+            )
         other_pool = _synthetic_pool(
             self.config, source_stream_sha256=OTHER_SOURCE_SHA256
         )
