@@ -22,6 +22,11 @@ from o1_crypto_lab.cadical_sensor import (
     SolverSnapshot,
 )
 from o1_crypto_lab.causal_bitfield import ARX_NEIGHBORS, CausalBitfieldPlan
+from o1_crypto_lab.full256_action_pool import (
+    ACTION_POOL_SCHEMA,
+    BRANCH_FEATURES,
+    branch_feature_vector,
+)
 from o1_crypto_lab.full256_probe_core import (
     READER_FEATURES,
     Full256ProbeCoreConfig,
@@ -296,6 +301,10 @@ class ProbeCoreSyntheticTests(unittest.TestCase):
         self.assertEqual(first.state.state_sha256, replay.state.state_sha256)
         self.assertEqual(first.reader_features_sha256, replay.reader_features_sha256)
         self.assertEqual(
+            first.action_pool.action_pool_sha256,
+            replay.action_pool.action_pool_sha256,
+        )
+        self.assertEqual(
             first.event_index["event_index_sha256"],
             replay.event_index["event_index_sha256"],
         )
@@ -304,12 +313,27 @@ class ProbeCoreSyntheticTests(unittest.TestCase):
         self.assertFalse(first.reader_features.flags.writeable)
         self.assertEqual(len(first.reader_features_bytes()), 256 * 39 * 4)
         self.assertEqual(
+            first.action_pool.branch_features.shape,
+            (3, KEY_BITS, 2, BRANCH_FEATURES),
+        )
+        self.assertEqual(first.action_pool.branch_features.dtype, np.float32)
+        self.assertFalse(first.action_pool.branch_features.flags.writeable)
+        self.assertEqual(first.action_pool.final_resources.shape, (KEY_BITS, 2, 3))
+        self.assertEqual(first.action_pool.final_resources.dtype, np.uint64)
+        self.assertFalse(first.action_pool.final_resources.flags.writeable)
+        self.assertEqual(
             first.report["reader_features"]["reader_features_sha256"],
             first.reader_features_sha256,
         )
         self.assertTrue(
             first.report["reader_features"]["polarity_swap_exactly_negates"]
         )
+        self.assertEqual(first.report["action_pool"]["schema"], ACTION_POOL_SCHEMA)
+        self.assertEqual(
+            first.report["action_pool"]["action_pool_sha256"],
+            first.action_pool.action_pool_sha256,
+        )
+        self.assertTrue(first.report["action_pool_polarity_swap_control"]["passed"])
         self.assertEqual(first.report["probe_stream"]["paired_bit_count"], 256)
         self.assertEqual(first.report["probe_stream"]["branch_count"], 512)
         self.assertEqual(first.report["probe_stream"]["proof_frontier_count"], 1_536)
@@ -317,6 +341,68 @@ class ProbeCoreSyntheticTests(unittest.TestCase):
         self.assertEqual(first.report["input_contract"]["accepted_labels"], 0)
         self.assertEqual(first.report["input_contract"]["accepted_diagnostics"], 0)
         self.assertFalse(first.report["input_contract"]["source_capsule_required"])
+
+        source_stream_sha256 = first.state.source_stream_sha256
+        self.assertEqual(
+            first.action_pool.source_stream_sha256,
+            source_stream_sha256,
+        )
+        self.assertEqual(
+            first.event_index["source_stream_sha256"],
+            source_stream_sha256,
+        )
+        self.assertEqual(
+            first.report["probe_stream"]["source_stream_sha256"],
+            source_stream_sha256,
+        )
+        self.assertEqual(
+            first.action_pool.pair_sha256,
+            tuple(row["pair_sha256"] for row in first.event_index["rows"]),
+        )
+
+        expected_features = np.empty_like(first.action_pool.branch_features)
+        expected_resources = np.empty_like(first.action_pool.final_resources)
+        horizons = self.config.state_plan.horizons
+        for expected_bit in range(KEY_BITS):
+            for polarity in (0, 1):
+                record = _record(expected_bit, polarity)
+                summaries = _summary(record, self.provenance, horizons)
+                for horizon_index, horizon in enumerate(horizons):
+                    expected_features[horizon_index, expected_bit, polarity] = (
+                        branch_feature_vector(summaries[horizon])
+                    )
+                expected_resources[expected_bit, polarity] = (
+                    record.resources["solver_cpu_microseconds"],
+                    record.resources["solver_wall_microseconds"],
+                    record.resources["solver_peak_rss_bytes"],
+                )
+        np.testing.assert_array_equal(
+            first.action_pool.branch_features,
+            expected_features,
+        )
+        np.testing.assert_array_equal(
+            first.action_pool.final_resources,
+            expected_resources,
+        )
+
+        resources = first.report["resources"]
+        self.assertEqual(resources["action_pool_feature_bytes"], 2_027_520)
+        self.assertEqual(resources["action_pool_resource_bytes"], 12_288)
+        self.assertEqual(resources["action_pool_payload_bytes"], 2_039_808)
+        self.assertEqual(
+            resources["action_pool_serialized_bytes"],
+            first.report["action_pool"]["byte_inventory"]["serialized_bytes"],
+        )
+        for gate_name in (
+            "action_pool_schema_valid",
+            "action_pool_hash_valid",
+            "action_pool_byte_inventory_valid",
+            "action_pool_source_bound",
+            "action_pool_polarity_swap_antisymmetry",
+            "action_pool_contains_no_labels",
+        ):
+            with self.subTest(gate_name=gate_name):
+                self.assertTrue(first.report["gates"][gate_name])
 
         np.testing.assert_array_equal(first.reader_features[:, :3], first.state.unary.T)
         bit = 9

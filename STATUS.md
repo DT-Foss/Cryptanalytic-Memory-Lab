@@ -1,9 +1,11 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-17T12:37:21+02:00 (`Europe/Berlin`)
-- **Reader implementation commit:** `4f4c5280ecf876083222138db4cb55dae9e2dfca`
-- **Worktree:** O1C-0016 completed, independently verified and published in the
-  cockpit; the immutable run capsule remains untouched
+- **Last updated:** 2026-07-17T13:59:43+02:00 (`Europe/Berlin`)
+- **Published baseline commit:** `c89e2d2` (`O1C-0016` result and online pivot)
+- **O1C-0017 freeze rule:** the formal CLI accepts only a clean committed tree and
+  records that exact commit in the immutable capsule
+- **Worktree:** O1C-0017 implementation and canonical preregistration are ready
+  for a clean committed freeze; all earlier immutable capsules remain untouched
 - **Research phase:** O1-256 Living Inverse — paired-assumption solver events into
   coordinate-bound unary-plus-interaction O1 state
 - **Strongest internal mechanism:** O1C-0013 turns each complete 512-branch public
@@ -11,14 +13,15 @@
   target-independent reader emits all 256 key-bit probabilities
 - **Strongest read-only mechanism intake:** A447-A449 proof ancestry, A465 cubic
   Product-of-Experts and A469 positive bucket-local correction
-- **Active runs:** none
+- **Active runs:** none; O1C-0017 formal seeds `20000..20015` remain unconsumed
 - **Strongest completed scientific attempt:** `O1C-0016` — frozen h96/h65
   replication on 32 new sealed full-round output-only keys; independently verified
   and classified `NOT_REPLICATED / DO_NOT_PROMOTE`
 - **Last operational attempt:** `O1C-0016` — all lifecycle and resource gates pass;
   32 targets and 17,920 branches complete in 414.813 MiB peak RSS
-- **Next attempt:** `O1C-0017` — no-fresh-entropy learned online nuisance removal
-  and adaptive causal representation on self-generated known-key folds
+- **Next attempt:** `O1C-0017` — one canonical no-fresh-entropy run testing
+  anonymous 330-channel discovery and full-256 Bit-Vault retention on 16 untouched
+  synthetic whole-key episodes
 - **Primary uncertainty:** whether common-mode-rejected proof/carry innovations can
   acquire portable key orientation when O1 learns its representation and O1-O
   learns its sensing policy rather than receiving a fixed scalar reader
@@ -30,6 +33,22 @@
   full ChaCha20 key
 
 ## Headline
+
+The O1C-0017 preregistered implementation is complete and audited but has not yet
+consumed its formal evaluation seeds. It ports O1's carried selective GSSM,
+signed multi-slot holographic carrier and exact fast-state serialization into the
+lab; adds a 330-channel immutable paired-action pool, label-free nuisance stream,
+mirrored antisymmetric reader, 256-coordinate Bit-Vault, reveal-delayed learner
+and pool-blind LinUCB picker; and binds it to the immutable capsule CLI.
+
+The formal gate intentionally fixes complete coordinate coverage so it measures
+anonymous signal discovery and addressed retention rather than picker efficacy.
+Eight BUILD targets and 16 untouched evaluation targets require at least +16 bits
+mean compression, +12 bits over signal ablation, shuffled learning and the raw
+end-of-stream O1 field, at least 70% bit accuracy and 16/16 positive targets. The
+29,184 action passes include freeze, reward replay and gradient replay. A pass is
+synthetic pipeline evidence only: no ChaCha20, O1-memory-necessity, stateless-
+baseline or cryptanalytic claim follows from it.
 
 `O1C-0016` is complete and independently verified. The frozen equal-logit h96+h65
 ensemble obtains `4093/8192` bits and `-0.078249097` bit/key compression on 32
@@ -49,12 +68,11 @@ is approximately zero.
 
 The primary mechanistic breadcrumb is common mode. Per-target h65 primary and
 matched-shuffled compression correlate `0.999905`; the reader tracks public-target
-difficulty/amplitude, not a stable hidden-key polarity. The next architecture will
-therefore center/whiten nuisance modes and let a bounded continuous O1 state learn
-residual causal representations while O1-O learns which coordinate, sparse
-interaction, horizon and operator to deepen. O1C-0017 uses only self-generated
-known-key folds and no fresh target entropy; only a cross-fitted residual reader
-that beats matched amplitude/spectrum controls can advance to O1C-0018.
+difficulty/amplitude, not a stable hidden-key polarity. O1C-0017 therefore isolates
+the prerequisite mechanism: autonomous anonymous-channel discovery plus exact
+full-width Bit-Vault retention under matched frozen controls. If that synthetic
+gate passes, O1C-0018 replaces only the generator with deterministic known-key
+full-round proof pools and evaluates nuisance rejection and the learned picker.
 
 The O1C-0016 capsule verifies 680/680 members. All commitments open and every
 output independently recomputes. It used `1972.624545` billed CPU seconds,
@@ -255,18 +273,16 @@ The next continuous fast/slow learner is frozen at design level in
 
 ## Highest-ROI next actions
 
-1. Build `O1C-0017` as a no-fresh-entropy representation experiment on
-   self-generated known-key folds. Stream operator/lane/horizon events and learn
-   bounded online common-mode removal plus residual causal encoding.
-2. Cross-fit by whole key and nonce. Compare residual orientation against raw
-   h65/h96, a common-mode-only sentinel, and a frozen norm/spectrum-matched balanced
-   rotation that destroys coordinate alignment.
-3. Let O1-O choose h96 deepening from label-free innovation, uncertainty, surprise
-   and coverage debt. Measure information gain per branch; do not optimize fidelity
-   to the now-null h96 decision.
-4. Advance to `O1C-0018` only if repeated held-out generated-key folds lower NLL,
-   beat the matched null and retain split-stable coordinate orientation. Then freeze
-   encoder, nuisance projector and policy before entirely new sealed entropy.
+1. Commit the audited `O1C-0017` snapshot, then execute its canonical configuration
+   exactly once on untouched synthetic seeds `20000..20015`.
+2. If the five-arm mechanism gate passes, build `O1C-0018` by replacing only the
+   synthetic generator with deterministic known-key standard twenty-round ChaCha20
+   raw paired-proof action pools.
+3. Cross-fit O1C-0018 by whole key and nonce across multiple proof horizons. Compare
+   autonomous residual discovery and the pool-blind learned picker with matched
+   fixed-work, shuffled, common-mode and coordinate-destroying controls.
+4. Spend fresh sealed entropy only after repeated attacker-valid whole-key holdouts
+   lower NLL and the learned policy improves information gain per unit work.
 
 ## Recent attempts
 
@@ -360,13 +376,11 @@ The next continuous fast/slow learner is frozen at design level in
 
 ## Resume here
 
-Start `O1C-0017` with zero fresh entropy. Preserve O1C-0015 as an immutable
-operational failure and O1C-0016 as the completed negative replication; never
-reuse either revealed panel for selection or efficacy. Keep exact h65/h96 only as
-sentinels. Learn bounded target/horizon and operator/lane nuisance removal plus a
-residual event representation on self-generated known-key folds, then let O1-O
-adaptively deepen coordinates or sparse interactions from label-free innovation,
-uncertainty, surprise and coverage debt. Cross-fit by whole keys/nonces and require
-repeated NLL lift over a norm/spectrum-matched coordinate-destroying null before
-freezing `O1C-0018` on entirely new sealed keys. Keep the sibling recovery queue
-read-only, CPU-only and prioritized.
+Freeze and execute `O1C-0017` exactly once on untouched seeds `20000..20015` with
+zero fresh entropy. Preserve O1C-0015 as an immutable operational failure and
+O1C-0016 as the completed negative replication; never reuse either revealed panel
+for selection or efficacy. If the synthetic five-arm discovery/retention gate
+passes, build `O1C-0018` from deterministic known-key standard twenty-round
+ChaCha20 raw paired-proof pools, multiple proof horizons and the pool-blind learned
+picker. Cross-fit by whole keys/nonces before any new sealed target. Keep the
+sibling recovery queue read-only, CPU-only and prioritized.

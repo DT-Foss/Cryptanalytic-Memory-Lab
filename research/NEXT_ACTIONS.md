@@ -1,15 +1,15 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T12:30:00+02:00.
+Last ranked: 2026-07-17T13:59:43+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Build `O1C-0017` as a no-fresh-entropy online representation experiment: exact polarity differencing, per-target/horizon zero-sum centering, operator/lane cohort normalization, and bounded low-rank nuisance removal over raw event tokens | State of the art | Very high | Very high | Medium | Determines whether the causal stream contains key-oriented innovation after O1C-0016's common mode is removed |
-| 2 | Cross-fit by whole self-generated key and nonce; train O1 fast-state encoding and O1-O sensing utility only on legal event streams, with h65/h96 as frozen sentinels rather than targets | State of the art | Very high | Very high | Medium | Tests genuine next-key transfer without spending sealed entropy or prescribing a scalar signal |
-| 3 | Add two nulls: common-mode-only and a frozen norm/spectrum-matched balanced sign/orthogonal rotation in zero-sum coordinate space | State of the art | High | High | Low | Distinguishes learned key-coordinate orientation from amplitude, shrinkage and accidental geometry |
-| 4 | Let the policy choose coordinate, causally linked sparse pair/triple, horizon, operator and budget from learned utility plus uncertainty, surprise and coverage debt; retain a posterior epsilon floor | State of the art | Very high | Very high | Medium | Measures information gain per branch and prevents the scheduler from starving weak regions |
-| 5 | Freeze `O1C-0018` only after repeated positive whole-key holdouts, primary-over-both-null margins and split-stable residual coordinates | State of the art | Very high | Very high | High | Authorizes entirely new sealed full-256 targets for the learned continuous organism |
-| 6 | If O1C-0017 cannot beat its nulls, close global proof difficulty and build the query-rooted carry/proof ancestry sensor directly | State of the art | High | Very high | Medium | Moves to causally local events without spending another blind panel on a null global field |
+| 1 | Commit the audited O1C-0017 snapshot, then execute its canonical config exactly once on untouched seeds `20000..20015` | State of the art enabling | Very high | Very high | Low | Decides whether anonymous-channel discovery plus the 256-register Bit-Vault works reproducibly across full-width streams |
+| 2 | If O1C-0017 passes, replace only its synthetic generator with deterministic known-key standard twenty-round ChaCha20 raw paired-proof action pools | State of the art | Very high | Very high | Medium | Tests whether any attacker-valid raw causal channel can be learned without a prescribed scalar signal |
+| 3 | Give the known-key proof-pool gate multiple horizons and a strict sub-exhaustive budget; compare the pool-blind learned picker with fixed-order and uniform controls | State of the art | Very high | Very high | Medium | Separates representation lift from genuine sensing-work savings |
+| 4 | Preserve raw end-of-stream O1, Bit-Vault, signal-ablation, shuffled, untrained and common-only arms throughout the ChaCha transition | State of the art | High | Very high | Low | Localizes channel discovery, holographic crosstalk, retention and common-mode failure without losing breadcrumbs |
+| 5 | Add sparse Möbius pair/triple actions only after unary proof pools establish unseen-key NLL or information-per-branch lift | State of the art | High | High | Medium | Tests carry/proof interactions without exhausting the combinatorial field |
+| 6 | Spend fresh sealed entropy only after repeated deterministic known-key whole-key holdouts pass; otherwise pivot to query-rooted carry/proof ancestry | State of the art | Very high | Very high | High | Protects the next blind panel while keeping the terminal exact-recovery objective unchanged |
 
 ## Hard target contract
 

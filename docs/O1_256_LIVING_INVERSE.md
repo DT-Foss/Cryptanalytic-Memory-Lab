@@ -175,11 +175,15 @@ are a factor-256 domain reduction.  Exact key verification is the terminal signa
    `-0.078249` bit/key, only `11/32` targets positive, paired `z=-0.555` and zero
    exact keys. Exact h96/h65 are also negative; class
    `NOT_REPLICATED / DO_NOT_PROMOTE`.
-10. `O1C-0017`: spend zero fresh sealed entropy. Cross-fit a bounded online
-    nuisance projector, residual event encoder and O1-O learned sensing policy on
-    self-generated known full-256 keys. Optimize unseen-key NLL and information
-    gain per work, not fidelity to h96.
-11. `O1C-0018`: only after O1C-0017 beats common-mode and norm/spectrum-matched
-    coordinate-destroying controls, freeze the continuous fast/slow organism and
-    attack entirely new sealed keys. The detailed design is in
-    `docs/O1_ONLINE_MOBIUS_CONTROLLER.md`.
+10. `O1C-0017`: spend zero fresh sealed entropy. Run the synthetic anonymous-
+    channel integration gate: a shared online reader must discover one hidden
+    oriented channel among 330 and the 256-register Bit-Vault must retain all
+    addressed readings across a full-width stream. Five frozen arms separate
+    discovery, ablation, shuffled learning, an untrained reader and the raw final
+    O1 field. Coverage is fixed; this gate does not evaluate the picker or ChaCha20.
+11. `O1C-0018`: only after O1C-0017 passes, replace the synthetic generator with
+    deterministic known-key standard twenty-round ChaCha20 raw paired-proof pools.
+    Cross-fit whole keys and nonces across multiple proof horizons, then evaluate
+    the bounded learned picker against matched fixed-work policies. Fresh sealed
+    entropy remains forbidden until repeated attacker-valid holdouts pass. The
+    detailed design is in `docs/O1_ONLINE_MOBIUS_CONTROLLER.md`.

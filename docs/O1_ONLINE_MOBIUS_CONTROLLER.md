@@ -186,37 +186,50 @@ O1C-0016 proves that shuffled labels alone are insufficient: the shuffled h65 fi
 became a positive scalar copy of primary h65. The balanced rotation explicitly
 destroys coordinate alignment while preserving amplitude geometry.
 
-## O1C-0017 gate: learn without fresh sealed entropy
+## O1C-0017 gate: autonomous anonymous-channel discovery
 
-O1C-0017 generates known full-256 keys and splits by whole key and nonce. No event,
-target, nonce or fitted nuisance statistic crosses folds. It reports:
+O1C-0017 is deliberately a synthetic integration and representation gate, not a
+ChaCha20 inverse experiment. Each episode exposes 256 addressed paired actions
+with 330 anonymous raw channels. Exactly one channel contains transferable signed
+evidence; its index is used only by the corpus generator and is never passed to
+the controller. Eight known-label BUILD episodes update slow weights only after
+their frozen prequential states. Sixteen disjoint evaluation episodes are frozen
+before scoring.
 
-- unseen-key NLL and compression;
-- primary-minus-each-null NLL;
-- target sign count and leave-one-key-out minimum;
-- split-stable coordinates and sparse interactions;
-- calibration and expected/realized information gain per branch;
-- work savings against round-robin and uniform schedules;
-- exact fast-state, slow-state, Attic and artifact bytes;
-- counterfactual policy replay on the same frozen event pools.
+The action order is fixed complete coordinate coverage. This isolates whether the
+shared O1 reader discovers a useful raw channel and whether the exact Bit-Vault
+retains all 256 addressed readings. It does not test the learned picker. Five
+frozen arms are reported:
 
-Advance only if repeated folds are positive, both coordinate-destroying controls
-lose, orientation is split-stable and the adaptive policy improves information per
-work. Policy efficiency without NLL lift is retained as scheduler evidence, not an
-inverse claim.
+- learned reader plus addressed Bit-Vault;
+- identical reader with only the hidden-channel signal ablated;
+- identical learner trained on shifted labels;
+- identically initialized untrained reader;
+- the learned reader's raw end-of-stream O1 field before Bit-Vault retention.
 
-## O1C-0018 gate: next-challenge-only sealed test
+The frozen gate requires at least 16 bits of mean compression, at least 12 bits
+over each learned control and the raw end-state field, at least 70% aggregate bit
+accuracy, positive compression on all 16 targets, exact polarity antisymmetry,
+common-only zero orientation and fixed fast-state bytes. All 29,184 logical model
+action passes are declared: BUILD freeze, reward replay and gradient replay are
+counted separately. No solver, fresh entropy, sibling, MPS or GPU work occurs.
 
-Freeze encoder, nuisance projector, holographic addresses, reader, policy,
-thresholds, budgets, controls and exact posterior serialization before fresh
-entropy. Then attack entirely new standard full-round keys under the public-only
-contract. All predictions persist before reveal. O1C-0015 and O1C-0016 targets are
-never reused.
+A pass establishes anonymous-channel discovery and full-width Bit-Vault pipeline
+integration. It does not establish a stateless-baseline advantage, O1-memory
+necessity, learned-picker efficacy or cryptographic signal.
 
-If O1C-0018 lowers NLL, the residual field may enter a bounded verification beam
-and causal Attic. If O1C-0017 already fails known-key holdouts, no sealed panel is
-spent: global proof difficulty is closed and the sensor pivots directly to
-query-rooted carry/proof ancestry.
+## O1C-0018 gate: full-round known-key proof pools
+
+Replace only the synthetic generator with deterministic known-key standard
+twenty-round ChaCha20 paired proof pools. Retain raw channels, slow/fast boundary,
+whole-key holdouts and controls. Add multiple horizons and a strict sub-exhaustive
+work budget so the pool-blind learned picker is compared with fixed-order and
+uniform schedulers. Only repeated unseen-key NLL and information-per-branch lift
+can authorize a later fresh sealed challenge.
+
+The subsequent sealed attempt freezes encoder, nuisance projector, addresses,
+reader, policy, thresholds, budgets and posterior serialization before fresh
+entropy. O1C-0015 and O1C-0016 targets are never reused.
 
 ## Continuous runtime
 

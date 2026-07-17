@@ -112,8 +112,8 @@ not.
 
 ## L4 — O1-O adaptive proposal organism
 
-O1C-0017 upgrades this layer from a hand-scored scheduler to a continuous
-fast/slow learner. The legal action is
+The O1C-0017 implementation upgrades this layer from a hand-scored scheduler to a
+continuous fast/slow learner. The legal action is
 `(coordinate, sparse interaction, horizon, operator, phase, budget)`. O1's
 target-local fast state learns label-free nuisance removal and residual event
 encoding; O1-O's slow policy learns next-challenge information gain on completed
@@ -129,6 +129,12 @@ zero-probability regions; only exact UNSAT or public verification may harden a b
 to 0/1. Compare against fixed round-robin and uniform schedules at equal solver
 work. Only high-surprise compact motifs may enter a separately billed capped
 causal attic.
+
+Its first formal gate intentionally does not score that picker: O1C-0017 uses one
+horizon and fixed complete 256-coordinate coverage to isolate anonymous-channel
+learning and Bit-Vault retention. Picker efficacy moves to deterministic known-key
+full-round proof pools, where multiple legal horizons and a sub-exhaustive work
+budget make the scheduling counterfactual meaningful.
 
 Gate: better held-out entropy reduction per cipher call without state/index budget
 escape.
@@ -179,11 +185,13 @@ h96 and h65 are also negative and zero exact keys are recovered. Classification:
 Post-reveal forensics show h65 primary/shuffled target compression correlation
 `0.999905`: the global reader mostly tracks public-instance difficulty. O1C-0017
 therefore uses zero fresh sealed entropy and does not optimize fidelity to h96.
-Across self-generated known-key whole-key folds it learns zero-sum/cohort nuisance
-removal and residual event representation, while O1-O adaptively chooses where to
-deepen. Raw h65/h96, a common-mode-only sentinel and a norm/spectrum-matched
-coordinate-destroying rotation are mandatory controls. O1C-0018 may spend new
-sealed entropy only after repeated held-out NLL and control margins pass.
+It first tests the wiring on 330 anonymous synthetic raw channels across eight
+BUILD and 16 untouched evaluation episodes. Signal ablation, shifted-label,
+untrained, common-only, polarity-swap and raw O1 end-state controls separate
+channel discovery, common mode, holographic crosstalk and Bit-Vault retention.
+O1C-0018 then replaces only the generator with deterministic known-key full-round
+paired proof pools. Fresh sealed entropy remains forbidden until repeated real-
+sensor whole-key holdouts and matched controls pass.
 
 ## L7 — Exact recovery frontier
 

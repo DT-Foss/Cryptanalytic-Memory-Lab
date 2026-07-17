@@ -30,6 +30,11 @@ from .full256_multikey_calibration import (
     load_full256_multikey_calibration_config,
     run_full256_multikey_calibration,
 )
+from .online_self_discovery import (
+    PREDICTION_ARMS,
+    load_online_self_discovery_config,
+    run_online_self_discovery,
+)
 from .full256_paired_sensor import (
     load_full256_paired_sensor_config,
     run_full256_paired_sensor,
@@ -4896,6 +4901,539 @@ def _full256_frozen_reader_replication(args: argparse.Namespace) -> int:
     return 0
 
 
+def _full256_online_self_discovery(args: argparse.Namespace) -> int:
+    root = _lab_root()
+    requested_config = args.config
+    if requested_config.is_symlink():
+        raise RuntimeError("full-256 online self-discovery config cannot be a symlink")
+    config_path = requested_config.resolve(strict=True)
+    expected_config = (root / "configs/full256_online_self_discovery_v1.json").resolve(
+        strict=True
+    )
+    if config_path != expected_config:
+        raise RuntimeError(
+            "full-256 online self-discovery requires its canonical lab config"
+        )
+    top_level, experiment, budgets = load_online_self_discovery_config(config_path)
+    attempt_id = str(top_level["attempt_id"])
+    if attempt_id != "O1C-0017":
+        raise RuntimeError("online self-discovery attempt identity differs")
+
+    participating = (
+        "cadical_sensor.py",
+        "chacha_trace.py",
+        "cli.py",
+        "full256_action_pool.py",
+        "living_inverse.py",
+        "o1_streaming_core.py",
+        "online_causal_controller.py",
+        "online_self_discovery.py",
+        "orchestrator.py",
+        "run_capsule.py",
+        "types.py",
+    )
+
+    def current_source_hashes() -> dict[str, str]:
+        return {
+            "online_self_discovery_config": _sha256(config_path),
+            "pyproject": _sha256(root / "pyproject.toml"),
+            **{
+                f"module_{Path(name).stem}": _sha256(root / "src/o1_crypto_lab" / name)
+                for name in participating
+            },
+        }
+
+    manager = RunCapsuleManager(root)
+    published = manager.finalized_attempt(attempt_id)
+    if published is not None:
+        metrics_document = json.loads(
+            (published.path / "metrics.json").read_text(encoding="utf-8")
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": published.attempt_id,
+                    "path": str(published.path),
+                    "manifest_sha256": published.manifest_sha256,
+                    "verified": published.verification.ok,
+                    "status": "already-finalized-no-replay",
+                    "capsule_status": metrics_document.get("status"),
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 0 if metrics_document.get("status") == "completed" else 2
+    if attempt_id in manager.recoverable_attempt_ids():
+        interrupted = manager.recover(attempt_id)
+        if interrupted.publication_prepared:
+            finalized = interrupted.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 2
+        finalized = interrupted.finalize(
+            metrics={
+                "schema": "o1-256-online-self-discovery-interrupted-v1",
+                "hard_interruption_recovered": True,
+                "scientific_result_claimed": False,
+                "evaluation_labels_scored": "unknown-after-hard-interruption",
+                "fresh_entropy_calls": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            },
+            status="stopped",
+            next_action=(
+                "Preserve the partial O1C-0017 mechanism capsule, do not replay "
+                "the consumed attempt identity, and advance the identical frozen "
+                "protocol under a new attempt ID."
+            ),
+        )
+        print(
+            json.dumps(
+                {
+                    "attempt_id": finalized.attempt_id,
+                    "path": str(finalized.path),
+                    "manifest_sha256": finalized.manifest_sha256,
+                    "verified": finalized.verification.ok,
+                    "status": "stopped-after-hard-interruption",
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 2
+
+    expected_action_observations = (
+        experiment.train_targets * 256 * 2 * 3
+        + experiment.evaluation_targets * 256 * 4
+        + 2 * 256
+    )
+    zero_budget_fields = (
+        "maximum_fresh_entropy_calls",
+        "maximum_sibling_reads",
+        "maximum_sibling_writes",
+        "maximum_mps_calls",
+        "maximum_gpu_calls",
+    )
+    if expected_action_observations != budgets.maximum_action_observations or any(
+        getattr(budgets, field) != 0 for field in zero_budget_fields
+    ):
+        raise RuntimeError("O1C-0017 fixed execution accounting differs")
+
+    commit = _clean_git_commit(root)
+    source_hashes = current_source_hashes()
+    if _clean_git_commit(root) != commit:
+        raise RuntimeError("lab Git commit changed before O1C-0017 reservation")
+    if current_source_hashes() != source_hashes:
+        raise RuntimeError("lab source hashes changed before O1C-0017 reservation")
+
+    run = manager.start(
+        attempt_id=attempt_id,
+        slug=str(top_level["slug"]),
+        commit=commit,
+        hypothesis=str(top_level["hypothesis"]),
+        prediction=str(top_level["prediction"]),
+        controls=tuple(str(value) for value in top_level["controls"]),
+        budgets=dict(top_level["budgets"]),
+        source_hashes=source_hashes,
+        claim_level=ClaimLevel(str(top_level["claim_level"])),
+        next_action=str(top_level["next_action"]),
+        config=top_level,
+        command=(
+            "o1-crypto-lab",
+            "full256-online-self-discovery",
+            "--config",
+            str(config_path),
+        ),
+        environment={
+            "experiment_boundary": "synthetic-full-256-mechanism-gate",
+            "cryptographic_inverse_claim": False,
+            "controller_receives_hidden_channel_index": False,
+            "planned_action_observations": expected_action_observations,
+            "planned_train_targets": experiment.train_targets,
+            "planned_evaluation_targets": experiment.evaluation_targets,
+            "accelerator": "none",
+            "fresh_entropy_calls": 0,
+            "sibling_repository_reads": 0,
+            "sibling_repository_writes": 0,
+            "mps_calls": 0,
+            "gpu_calls": 0,
+            "outcome_bearing_execution_begins_after_attempt_reservation": True,
+            "hard_interruption_policy": "FINALIZE_STOPPED_AND_NEVER_REPLAY",
+        },
+    )
+    persisted_artifacts: dict[str, dict[str, object]] = {}
+    persistent_artifact_bytes = 0
+    predictions_frozen = False
+    frozen_prediction_sha256 = ""
+    scoring_completed = False
+    result_artifacts_persisted = False
+    outcome_cpu_started = time.process_time()
+    outcome_wall_started = time.monotonic()
+
+    def json_bytes(value: object) -> bytes:
+        return (
+            json.dumps(
+                value,
+                indent=2,
+                sort_keys=True,
+                ensure_ascii=True,
+                allow_nan=False,
+            )
+            + "\n"
+        ).encode("ascii")
+
+    def persist_group(artifacts: Mapping[str, bytes], *, phase: str) -> None:
+        nonlocal persistent_artifact_bytes
+        if not isinstance(artifacts, Mapping) or not artifacts:
+            raise RuntimeError(f"O1C-0017 {phase} artifact group differs")
+        group_bytes = 0
+        for relative, payload in artifacts.items():
+            if (
+                not isinstance(relative, str)
+                or not relative
+                or not isinstance(payload, bytes)
+                or relative in persisted_artifacts
+            ):
+                raise RuntimeError(f"O1C-0017 {phase} artifact entry differs")
+            group_bytes += len(payload)
+        if (
+            persistent_artifact_bytes + group_bytes
+            > budgets.maximum_persistent_artifact_bytes
+        ):
+            raise RuntimeError("O1C-0017 would exceed its artifact-byte budget")
+        for relative, payload in sorted(artifacts.items()):
+            path = run.write_artifact(relative, payload)
+            digest = hashlib.sha256(payload).hexdigest()
+            if _sha256(path) != digest or path.stat().st_size != len(payload):
+                raise RuntimeError(f"persisted O1C-0017 {phase} artifact differs")
+            persisted_artifacts[relative] = {
+                "sha256": digest,
+                "bytes": len(payload),
+                "phase": phase,
+            }
+            persistent_artifact_bytes += len(payload)
+
+    def on_predictions_frozen(
+        artifacts: Mapping[str, bytes], document: Mapping[str, object]
+    ) -> None:
+        nonlocal frozen_prediction_sha256, predictions_frozen
+        if predictions_frozen or set(artifacts) != {
+            "prediction_freeze.json",
+            "predictions.f32le",
+        }:
+            raise RuntimeError("O1C-0017 prediction-freeze artifact set differs")
+        try:
+            persisted_document = json.loads(artifacts["prediction_freeze.json"])
+        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            raise RuntimeError("O1C-0017 prediction-freeze JSON differs") from exc
+        prediction_bytes = artifacts["predictions.f32le"]
+        if (
+            dict(document) != persisted_document
+            or document.get("phase")
+            != "ALL_SYNTHETIC_PREDICTIONS_FROZEN_BEFORE_SCORING"
+            or document.get("evaluation_targets") != experiment.evaluation_targets
+            or document.get("labels_exposed_to_controllers") != 0
+            or document.get("controller_receives_hidden_channel_index") is not False
+            or document.get("fresh_entropy_calls") != 0
+            or document.get("prediction_bytes") != len(prediction_bytes)
+            or len(prediction_bytes)
+            != len(PREDICTION_ARMS) * experiment.evaluation_targets * 256 * 4
+            or document.get("prediction_sha256")
+            != hashlib.sha256(prediction_bytes).hexdigest()
+        ):
+            raise RuntimeError("O1C-0017 prediction-freeze document differs")
+        persist_group(artifacts, phase="prediction-freeze-before-scoring")
+        frozen_prediction_sha256 = hashlib.sha256(prediction_bytes).hexdigest()
+        predictions_frozen = True
+        run.checkpoint(
+            {
+                "phase": "ALL_O1C0017_PREDICTIONS_PERSISTED_BEFORE_SCORING",
+                "prediction_sha256": document.get("prediction_sha256"),
+                "freeze_sha256": document.get("freeze_sha256"),
+                "evaluation_targets": experiment.evaluation_targets,
+                "evaluation_labels_scored": 0,
+                "persistent_artifact_bytes": persistent_artifact_bytes,
+                "fresh_entropy_calls": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            }
+        )
+
+    try:
+        run.checkpoint(
+            {
+                "phase": "FULL256_ONLINE_SELF_DISCOVERY_RESERVED",
+                "synthetic_key_bits": 256,
+                "planned_action_observations": expected_action_observations,
+                "planned_train_targets": experiment.train_targets,
+                "planned_evaluation_targets": experiment.evaluation_targets,
+                "predictions_frozen": False,
+                "evaluation_labels_scored": 0,
+                "fresh_entropy_calls": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            }
+        )
+        run.append_stdout(
+            "O1C-0017 full-256 synthetic online self-discovery gate started.\n"
+        )
+        result = run_online_self_discovery(
+            experiment,
+            on_predictions_frozen=on_predictions_frozen,
+        )
+        if not predictions_frozen:
+            raise RuntimeError("O1C-0017 predictions were not persisted before scoring")
+        scoring_completed = True
+
+        commitments = result.report["artifact_commitments"]
+        if (
+            hashlib.sha256(result.prediction_bytes()).hexdigest()
+            != frozen_prediction_sha256
+            or commitments["prediction_sha256"] != frozen_prediction_sha256
+            or commitments["label_sha256"]
+            != hashlib.sha256(result.label_bytes()).hexdigest()
+            or commitments["compression_sha256"]
+            != hashlib.sha256(result.compression_bytes()).hexdigest()
+            or commitments["primary_slow_state_sha256"]
+            != hashlib.sha256(result.primary_slow_state).hexdigest()
+            or commitments["shuffled_slow_state_sha256"]
+            != hashlib.sha256(result.shuffled_slow_state).hexdigest()
+            or commitments["representative_fast_state_sha256"]
+            != hashlib.sha256(result.representative_fast_state).hexdigest()
+        ):
+            raise RuntimeError("O1C-0017 result artifact commitment differs")
+
+        final_artifacts = {
+            "online_self_discovery.json": json_bytes(result.report),
+            "labels.bitpack": result.label_bytes(),
+            "compressions.f64le": result.compression_bytes(),
+            "primary_slow_state.bin": result.primary_slow_state,
+            "shuffled_slow_state.bin": result.shuffled_slow_state,
+            "representative_fast_state.bin": result.representative_fast_state,
+        }
+        persist_group(final_artifacts, phase="post-freeze-scored-result")
+        result_artifacts_persisted = True
+        artifact_index = {
+            "schema": "o1-256-online-self-discovery-artifact-index-v1",
+            "attempt_id": attempt_id,
+            "artifacts": dict(sorted(persisted_artifacts.items())),
+            "indexed_artifact_count": len(persisted_artifacts),
+            "indexed_artifact_bytes": persistent_artifact_bytes,
+            "artifact_index_self_entry": False,
+            "artifact_index_self_exclusion_reason": (
+                "the capsule manifest binds this index without a recursive hash"
+            ),
+        }
+        persist_group(
+            {"artifact_index.json": json_bytes(artifact_index)},
+            phase="artifact-index",
+        )
+
+        if _clean_git_commit(root) != commit:
+            raise RuntimeError("lab Git commit changed during O1C-0017")
+        if current_source_hashes() != source_hashes:
+            raise RuntimeError("lab source hashes changed during O1C-0017")
+
+        resources = result.report["resources"]
+        static_accounting = result.report["static_accounting"]
+        actual_action_observations = int(
+            static_accounting["train_action_observations"]
+        ) + int(static_accounting["evaluation_action_observations"])
+        total_cpu_seconds = max(
+            float(resources["cpu_seconds"]),
+            time.process_time() - outcome_cpu_started,
+        )
+        total_wall_seconds = max(
+            float(resources["wall_seconds"]),
+            time.monotonic() - outcome_wall_started,
+        )
+        peak_rss_bytes = max(
+            int(resources["process_peak_rss_bytes"]),
+            int(_peak_rss_mib() * 1024 * 1024),
+        )
+        zero_accounting = {
+            "fresh_entropy": int(resources["fresh_entropy_calls"]) == 0,
+            "sibling_reads": int(resources["sibling_reads"]) == 0,
+            "sibling_writes": int(resources["sibling_writes"]) == 0,
+            "mps": int(resources["mps_calls"]) == 0,
+            "gpu": int(resources["gpu_calls"]) == 0,
+            "native_solver_branches": int(resources["native_solver_branches"]) == 0,
+        }
+        budget_checks = {
+            "cpu": total_cpu_seconds <= budgets.maximum_cpu_seconds,
+            "wall": total_wall_seconds <= budgets.maximum_wall_seconds,
+            "resident_memory": peak_rss_bytes
+            <= budgets.maximum_resident_memory_mib * 1024 * 1024,
+            "persistent_artifacts": persistent_artifact_bytes
+            <= budgets.maximum_persistent_artifact_bytes,
+            "action_observations": actual_action_observations
+            == expected_action_observations
+            and actual_action_observations <= budgets.maximum_action_observations,
+            **zero_accounting,
+        }
+        failed_budgets = sorted(
+            name for name, passed in budget_checks.items() if not passed
+        )
+        outcome_failed = bool(failed_budgets) or not result.success_gate_passed
+        metrics = {
+            "schema": "o1-256-online-self-discovery-cli-result-v1",
+            "classification": result.report["classification"],
+            "claim_boundary": result.report["claim_boundary"],
+            "result_sha256": result.report["result_sha256"],
+            "scientific_gates": result.report["gates"],
+            "scientific_success_gate_passed": result.success_gate_passed,
+            "arms": result.report["arms"],
+            "margins": result.report["margins"],
+            "cpu_seconds": total_cpu_seconds,
+            "wall_seconds": total_wall_seconds,
+            "peak_rss_bytes": peak_rss_bytes,
+            "peak_rss_mib": peak_rss_bytes / (1024.0 * 1024.0),
+            "persistent_artifact_bytes": persistent_artifact_bytes,
+            "persisted_artifact_count": len(persisted_artifacts),
+            "action_observations": actual_action_observations,
+            "planned_action_observations": expected_action_observations,
+            "predictions_persisted_before_scoring": True,
+            "evaluation_labels_scored": experiment.evaluation_targets,
+            "fresh_entropy_calls": int(resources["fresh_entropy_calls"]),
+            "sibling_reads": int(resources["sibling_reads"]),
+            "sibling_writes": int(resources["sibling_writes"]),
+            "mps_calls": int(resources["mps_calls"]),
+            "gpu_calls": int(resources["gpu_calls"]),
+            "budget_checks": budget_checks,
+            "failed_budgets": failed_budgets,
+            "outcome_failed": outcome_failed,
+            "failure_reasons": [
+                *(f"cli_budget:{name}" for name in failed_budgets),
+                *(
+                    ["scientific_success_gate_failed"]
+                    if not result.success_gate_passed
+                    else []
+                ),
+            ],
+        }
+        run.checkpoint(
+            {
+                "phase": "O1C0017_SCORED_ARTIFACTS_PERSISTED",
+                "result_sha256": result.report["result_sha256"],
+                "scientific_success_gate_passed": result.success_gate_passed,
+                "failed_budgets": failed_budgets,
+                "persistent_artifact_bytes": persistent_artifact_bytes,
+                "evaluation_labels_scored": experiment.evaluation_targets,
+                "fresh_entropy_calls": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            }
+        )
+        run.append_stdout(json.dumps(metrics, sort_keys=True) + "\n")
+        finalized = run.finalize(
+            metrics=metrics,
+            status="failed" if outcome_failed else "completed",
+        )
+    except Exception as exc:
+        if run.publication_prepared:
+            finalized = run.finalize(metrics={})
+            metrics_document = json.loads(
+                (finalized.path / "metrics.json").read_text(encoding="utf-8")
+            )
+            print(
+                json.dumps(
+                    {
+                        "attempt_id": finalized.attempt_id,
+                        "path": str(finalized.path),
+                        "manifest_sha256": finalized.manifest_sha256,
+                        "verified": finalized.verification.ok,
+                        "status": "prepared-publication-completed-no-replay",
+                        "capsule_status": metrics_document.get("status"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 0 if metrics_document.get("status") == "completed" else 1
+        run.append_stderr(f"{type(exc).__name__}: {exc}\n")
+        finalized = run.finalize(
+            metrics={
+                "schema": "o1-256-online-self-discovery-failure-v1",
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "predictions_persisted_before_scoring": predictions_frozen,
+                "evaluation_scoring_completed": scoring_completed,
+                "result_artifacts_persisted": result_artifacts_persisted,
+                "persistent_artifact_bytes": persistent_artifact_bytes,
+                "persisted_artifact_count": len(persisted_artifacts),
+                "fresh_entropy_calls": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+                "scientific_result_claimed": False,
+            },
+            status="failed",
+            next_action=(
+                "Preserve the O1C-0017 failure capsule and its frozen predictions; "
+                "fix the exact lifecycle, accounting, or persistence invariant "
+                "under a new attempt ID without replaying this attempt."
+            ),
+        )
+        print(f"failed capsule: {finalized.path}", file=sys.stderr)
+        return 1
+
+    print(
+        json.dumps(
+            {
+                "attempt_id": finalized.attempt_id,
+                "path": str(finalized.path),
+                "manifest_sha256": finalized.manifest_sha256,
+                "verified": finalized.verification.ok,
+                "capsule_status": "failed" if outcome_failed else "completed",
+                "scientific_success_gate_passed": result.success_gate_passed,
+                "classification": result.report["classification"],
+                "primary_mean_compression_bits": result.report["arms"][
+                    "primary_learned"
+                ]["mean_compression_bits"],
+                "primary_bit_accuracy": result.report["arms"]["primary_learned"][
+                    "bit_accuracy"
+                ],
+                "failed_budgets": failed_budgets,
+                "persistent_artifact_bytes": persistent_artifact_bytes,
+                "action_observations": actual_action_observations,
+                "fresh_entropy_calls": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "mps_calls": 0,
+                "gpu_calls": 0,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 1 if outcome_failed else 0
+
+
 def _full256_polyphase_replication(args: argparse.Namespace) -> int:
     from .full256_polyphase_replication import (
         load_full256_polyphase_replication_config,
@@ -5852,6 +6390,19 @@ def build_parser() -> argparse.ArgumentParser:
         default=root / "configs/full256_multikey_causal_calibration_v1.json",
     )
     multikey_calibration.set_defaults(handler=_full256_multikey_calibration)
+    online_self_discovery = subparsers.add_parser(
+        "full256-online-self-discovery",
+        help=(
+            "train O1 online on anonymous channels, then freeze full-256 "
+            "synthetic predictions before scoring"
+        ),
+    )
+    online_self_discovery.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/full256_online_self_discovery_v1.json",
+    )
+    online_self_discovery.set_defaults(handler=_full256_online_self_discovery)
     frozen_reader_replication = subparsers.add_parser(
         "full256-frozen-reader-replication",
         help=("replicate the frozen causal reader on fresh sealed full-256 targets"),

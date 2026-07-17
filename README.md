@@ -58,11 +58,14 @@ and matched-shuffled compression correlate `0.999905`, while O1C-0014-to-0016
 coordinate transfer is approximately zero. The global unary readers saw a
 repeatable public-instance difficulty/amplitude field but did not learn hidden-key
 orientation. [The post-reveal audit](research/O1C0016_POST_REVEAL_FORENSICS_20260717.md)
-therefore pivots O1C-0017 to zero-fresh-entropy online representation learning:
-bounded nuisance removal, residual event encoding and O1-O adaptive sensing are
-cross-fitted on self-generated known-key folds. Only a residual reader that beats
-norm/spectrum-matched coordinate-destroying controls may advance to new sealed
-O1C-0018 targets.
+therefore pivots O1C-0017 to a zero-fresh-entropy synthetic integration gate. From
+330 anonymous channels, the shared reader must discover one hidden oriented signal
+and preserve all 256 addressed readings in the Bit-Vault across a full-width
+stream. Five frozen arms separate learned discovery, signal ablation, shuffled
+learning, an untrained reader and the raw end-of-stream O1 field. Coverage is fixed,
+so this gate makes no picker or cryptanalytic claim. A pass advances O1C-0018 to
+deterministic known-key standard twenty-round ChaCha20 paired-proof pools with
+multiple horizons and bounded learned sensing; fresh sealed entropy remains closed.
 
 ## What the first benchmark proves
 

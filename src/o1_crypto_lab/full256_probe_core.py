@@ -42,7 +42,14 @@ from .causal_bitfield import (
     PairedCausalEvent,
     state_swap_control,
 )
-from .living_inverse import canonical_sha256
+from .full256_action_pool import (
+    ACTION_POOL_SCHEMA,
+    BRANCH_FEATURES,
+    Full256ActionPool,
+    branch_feature_vector,
+    serialize_action_pool,
+)
+from .living_inverse import canonical_json_bytes, canonical_sha256
 
 
 PROBE_CORE_SCHEMA = "o1-256-full256-probe-core-v1"
@@ -155,6 +162,7 @@ class Full256ProbeCoreResult:
 
     state: FrozenCausalBitfieldState
     reader_features: np.ndarray
+    action_pool: Full256ActionPool
     event_index: Mapping[str, object]
     report: Mapping[str, object]
 
@@ -170,6 +178,16 @@ class Full256ProbeCoreResult:
             )
         features.setflags(write=False)
         object.__setattr__(self, "reader_features", features)
+        if not isinstance(self.action_pool, Full256ActionPool):
+            raise Full256ProbeCoreError("action_pool must be Full256ActionPool")
+        if self.action_pool.horizons != self.state.plan.horizons:
+            raise Full256ProbeCoreError("action pool and state horizons differ")
+        if (
+            self.action_pool.source_stream_sha256 != self.state.source_stream_sha256
+            or self.event_index.get("source_stream_sha256")
+            != self.state.source_stream_sha256
+        ):
+            raise Full256ProbeCoreError("action pool source binding differs")
 
     @property
     def success_gate_passed(self) -> bool:
@@ -387,6 +405,11 @@ def run_full256_probe_core(
     )
     key_touch_delta = np.empty((HORIZON_COUNT, KEY_BITS, KEY_BITS), dtype=np.float32)
     information_mass = np.empty((HORIZON_COUNT, KEY_BITS), dtype=np.float64)
+    raw_branch_features = np.empty(
+        (HORIZON_COUNT, KEY_BITS, 2, BRANCH_FEATURES),
+        dtype=np.float32,
+    )
+    final_resources = np.empty((KEY_BITS, 2, 3), dtype=np.uint64)
     pair_hashes: list[str] = []
     event_rows: list[dict[str, object]] = []
     frontier_event_gaps: list[int] = []
@@ -451,6 +474,12 @@ def run_full256_probe_core(
         for horizon_index, horizon in enumerate(horizons):
             zero_summary = zero_summaries[horizon]
             one_summary = one_summaries[horizon]
+            raw_branch_features[horizon_index, expected_bit, 0] = branch_feature_vector(
+                zero_summary
+            )
+            raw_branch_features[horizon_index, expected_bit, 1] = branch_feature_vector(
+                one_summary
+            )
             zero_cost = branch_difficulty(zero_summary)
             one_cost = branch_difficulty(one_summary)
             costs[horizon_index, expected_bit] = (zero_cost, one_cost)
@@ -500,7 +529,12 @@ def run_full256_probe_core(
                 }
             )
         event_rows.append(row)
-        for record in (zero, one):
+        for polarity, record in enumerate((zero, one)):
+            final_resources[expected_bit, polarity] = (
+                record.resources["solver_cpu_microseconds"],
+                record.resources["solver_wall_microseconds"],
+                record.resources["solver_peak_rss_bytes"],
+            )
             _record_resources(record, resource_totals)
             final_overshoots.append(record.final_overshoot_conflicts)
 
@@ -513,6 +547,20 @@ def run_full256_probe_core(
             "pair_hashes": pair_hashes,
             "horizons": list(horizons),
         }
+    )
+    action_pool = Full256ActionPool(
+        horizons=horizons,
+        branch_features=raw_branch_features,
+        final_resources=final_resources,
+        pair_sha256=tuple(pair_hashes),
+        source_stream_sha256=source_stream_sha256,
+    )
+    action_pool_description = action_pool.describe()
+    action_pool_swap_control = action_pool.swap_control()
+    action_pool_bytes = serialize_action_pool(action_pool)
+    action_pool_byte_inventory = cast(
+        Mapping[str, object],
+        action_pool_description["byte_inventory"],
     )
     quantiles = np.empty_like(costs)
     unary_scores = np.empty((HORIZON_COUNT, KEY_BITS), dtype=np.float64)
@@ -662,6 +710,10 @@ def run_full256_probe_core(
         "semantic_map_bytes": semantic_map.stat().st_size,
         "state_bytes": len(state_bytes),
         "reader_feature_bytes": reader_description["serialized_bytes"],
+        "action_pool_feature_bytes": action_pool.raw_feature_bytes,
+        "action_pool_resource_bytes": action_pool.resource_bytes,
+        "action_pool_payload_bytes": action_pool_byte_inventory["payload_bytes"],
+        "action_pool_serialized_bytes": len(action_pool_bytes),
         "native_final_conflict_overshoot_min": min(final_overshoots),
         "native_final_conflict_overshoot_max": max(final_overshoots),
         "native_final_conflict_overshoot_mean": float(np.mean(final_overshoots)),
@@ -680,6 +732,28 @@ def run_full256_probe_core(
         "polarity_swap_antisymmetry": bool(swap_control["passed"]),
         "reader_feature_swap_antisymmetry": bool(
             reader_description["polarity_swap_exactly_negates"]
+        ),
+        "action_pool_schema_valid": (
+            action_pool_description["schema"] == ACTION_POOL_SCHEMA
+        ),
+        "action_pool_hash_valid": (
+            action_pool_description["action_pool_sha256"]
+            == hashlib.sha256(action_pool_bytes).hexdigest()
+        ),
+        "action_pool_byte_inventory_valid": (
+            action_pool_byte_inventory["payload_bytes"]
+            == action_pool.raw_feature_bytes + action_pool.resource_bytes
+            and action_pool_byte_inventory["serialized_bytes"] == len(action_pool_bytes)
+        ),
+        "action_pool_source_bound": (
+            action_pool.source_stream_sha256 == source_stream_sha256
+            and action_pool.pair_sha256 == tuple(pair_hashes)
+        ),
+        "action_pool_polarity_swap_antisymmetry": bool(
+            action_pool_swap_control["passed"]
+        ),
+        "action_pool_contains_no_labels": (
+            b"label" not in canonical_json_bytes(action_pool_description).lower()
         ),
         "bounded_state_under_budget": len(state_bytes) <= config.maximum_state_bytes,
         "state_has_unary_signal": cast(int, state_description["unary_nonzero"]) > 0,
@@ -734,7 +808,9 @@ def run_full256_probe_core(
         },
         "state": state_description,
         "reader_features": reader_description,
+        "action_pool": action_pool_description,
         "polarity_swap_control": swap_control,
+        "action_pool_polarity_swap_control": action_pool_swap_control,
         "event_index": {
             "schema": event_index["schema"],
             "paired_bits": event_index["paired_bits"],
@@ -750,6 +826,7 @@ def run_full256_probe_core(
     return Full256ProbeCoreResult(
         state=frozen,
         reader_features=reader_features,
+        action_pool=action_pool,
         event_index=event_index,
         report=report,
     )
