@@ -128,7 +128,10 @@ Challenge `n` may teach challenge `n+1`; it may never improve its own score.
 ## Learned picker
 
 At a decision boundary O1-O deterministically composes a bounded candidate action
-set. O1 scores each action using learned utility plus exploration terms:
+set. Every affordable address first receives a cheap, target-conditioned public
+preview; a pool-blind hash is only a deterministic tie-break, never the source of
+the shortlist. O1 then scores actions, including `HOLD/STOP/DECAY`, using learned
+utility plus exploration terms:
 
 ```text
 score(a) = E[delta key NLL | state, a] / predicted_work(a)
@@ -139,10 +142,18 @@ score(a) = E[delta key NLL | state, a] / predicted_work(a)
 ```
 
 The coefficients and utility representation are learned on whole-key BUILD
-episodes. A small frozen exploration floor prevents starvation. No coordinate may
-be assigned exact posterior mass zero solely because the policy did not inspect
+episodes. Coverage and age are soft priors; only a finite-age starvation trigger
+may temporarily force an old coordinate. This preserves eventual reachability
+without forbidding immediate amplification of a strong coordinate. No coordinate
+may be assigned exact posterior mass zero solely because the policy did not inspect
 it; only exact UNSAT or successful public verification can harden probability to
 0 or 1.
+
+H64/H65/H96 occupy separate coordinate-bound carriers. A learned incremental head
+and precision gate decide how much new evidence reaches the deployed posterior;
+the live updater never adds a cumulative O1 query as though it were an increment.
+Critic rewards are bound to the exact reader SHA and replayed from bounded completed
+episodes whenever that reader changes.
 
 The initial action families are:
 
@@ -230,16 +241,50 @@ generator/picker transition below.
 
 ## O1C-0018 gate: full-round known-key proof pools
 
-Replace only the synthetic generator with deterministic known-key standard
-twenty-round ChaCha20 paired proof pools. Retain raw channels, slow/fast boundary,
-whole-key holdouts and controls. Add multiple horizons and a strict sub-exhaustive
-work budget so the pool-blind learned picker is compared with fixed-order and
-uniform schedulers. Only repeated unseen-key NLL and information-per-branch lift
-can authorize a later fresh sealed challenge.
+Completed from execution commit `f40e71a`: four reveal-delayed BUILD targets and
+two disjoint DEVELOPMENT targets, deterministic standard twenty-round ChaCha20
+paired-proof pools, three horizons, all 256 bits unknown at probe and five matched
+policy arms. Every structural and resource gate passes; the capsule verifies 51/51
+members.
+
+The raw learned field is negative at `-1.284644` mean bits, so the frozen class is
+`NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`. The true-reward picker is best at W1 on
+both targets (`+0.326847/+0.160175`) and beats shifted reward in all six cells, but
+static wins aggregate IAUC. Exact post-reveal replay shows that the first score has
+coverage contribution `0.5` versus learned reward about `0.00195`; true/shifted
+routes are nearly identical and forced later spending destroys early lift.
+
+The reader also trains a cumulative query but deploys it as a repeated increment,
+while the critic mixes credits collected from successive reader versions. These
+are mechanism failures with direct fixes, not evidence to discard the full-round
+sensor. See
+[`O1C0018_POST_REVEAL_FORENSICS_20260717.md`](../research/O1C0018_POST_REVEAL_FORENSICS_20260717.md).
+
+## O1C-0019 gate: packetized incremental autonomous picker
+
+O1C-0019 uses only the six opened O1C-0018 pools until its architecture is selected:
+
+1. compare legacy re-integration, cumulative replace and a learned incremental
+   delta head;
+2. package one coordinate's H64/H65/H96 raw odd/common fields plus cross-horizon
+   Möbius differences into one local stream event;
+3. freeze the reader, replay bounded BUILD episodes and fit a reader-SHA-bound
+   stationary state-conditioned critic;
+4. preview and score all affordable addresses, using soft coverage plus a finite
+   starvation guard;
+5. learn gate/shrinkage and `HOLD/STOP/DECAY` instead of filling every work cap.
+
+The O1-O composer compares isolated/direct, packet/raw, packet-plus-Möbius,
+packet-plus-gate and packet-plus-gate-plus-stationary-critic arms. Existing
+true/shifted/static/shortest/hash policies and raw/untrained/rotation/direct-field
+readers remain fixed controls. A full packet over all 256 coordinates costs at
+most `49,152` physical conflicts because one H96 proof record contains its H64 and
+H65 prefixes.
 
 The subsequent sealed attempt freezes encoder, nuisance projector, addresses,
 reader, policy, thresholds, budgets and posterior serialization before fresh
-entropy. O1C-0015 and O1C-0016 targets are never reused.
+entropy. O1C-0015/16 targets and O1C-0018 DEVELOPMENT targets are never reused as
+fresh evidence.
 
 ## Continuous runtime
 

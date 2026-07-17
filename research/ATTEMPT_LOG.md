@@ -746,3 +746,57 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   paired-proof pools, multiple horizons and a sub-exhaustive learned-picker budget.
 - **Artifact:**
   `runs/20260717_140953_O1C-0017_full256-online-self-discovery-v1/`.
+
+## O1C-0018 — Full-round online real gate
+
+- **Recorded:** 2026-07-17T15:59:32+02:00
+- **Execution commit:** `f40e71aa8ed80b4653acf44d98e14eabec18a955`
+- **Claim level:** `TEST` full-round reader/picker gate; no recovery, sealed-target
+  or cryptanalytic SOTA claim.
+- **Classification:** `NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`; every structural,
+  lifecycle and resource gate passed.
+- **Frozen experiment:** four deterministic reveal-delayed BUILD keys, then two
+  disjoint DEVELOPMENT keys under standard twenty-round ChaCha20. The public probe
+  receives counter/nonce/output and generates H64/H96/H65 paired-proof pools while
+  all 256 key bits and target traces remain unavailable. Predictions, both slow
+  states and all trajectories are frozen before DEVELOPMENT labels.
+- **Raw reader:** learned Bit-Vault `-1.400387/-1.168901` bits, mean `-1.284644`;
+  untrained mean `-2.009015`; learned-minus-untrained `+0.724371`. Coordinate
+  rotation is `+0.203963` mean and direct final O1 is `-0.093388`, so the raw gate
+  fails.
+- **Policy result:** true reward W1/W2/W3 means
+  `+0.243511/-0.124100/-0.507493`, IAUC `-0.085264`. Shifted IAUC is `-0.306661`,
+  static `+0.177296`, shortest `-0.156428`, hash `+0.035494`. True is best W1 on
+  both targets and beats shifted reward in all six target-by-checkpoint cells, but
+  does not beat all controls on both targets.
+- **Agency forensics:** the first true decision contains coverage contribution
+  `0.5`, exploration `0.013378` and learned reward `0.001955`; mean learned W1
+  score share is about `0.17%`. True/shifted common-action rank correlations are
+  `0.970..0.996` through W2, and cross-target true correlation is
+  `0.986/0.995`. The hash shortlist and hard minimum-coverage gate dominate.
+- **Accumulation forensics:** the reader trains a cumulative addressed query while
+  deployment repeatedly adds that query. Direct final O1 is `1.191256` mean bits
+  better than the exhaustive re-integrated vault. BUILD reward correlation is
+  `0.013824` pairwise and `0.023765` leave-one-out because credits are mixed across
+  changing readers. H65-only is post-reveal positive on both consumed targets at
+  `+0.124720/+0.083065`; it is not promoted.
+- **Structural result:** exact polarity antisymmetry, common-only zero, nested
+  checkpoint paths, bounded state, prediction-before-label freeze and unchanged
+  slow states all pass. Six pools contain exactly 3,072 native branches.
+- **Resources:** `545.024331` CPU s, `510.875` elapsed wall s, peak RSS
+  `315,703,296 B`, persistent artifacts `13,139,765 B`; zero fresh entropy,
+  sibling reads/writes, MPS or GPU work.
+- **Verification:** 51/51 capsule members; manifest
+  `fcbf43c99994c0debe5b39bb3e734ea1d1e23ba58e89b10ff2bb7e23886493fb`;
+  internal result
+  `db92bd86849ff93e0f9b935a72f64f1b4bd46b134747c913ee82e5d772ac11c9`;
+  prediction freeze
+  `529356d380baec494ddfe0710e8b9cf0f85308c50b2913600e4c39b9a041c30e`.
+- **Conclusion:** preserve the public proof sensor and the true-versus-shifted
+  breadcrumb, but replace double integration, nonstationary credit, hash-only
+  observability, compulsory breadth and forced spending. O1C-0019 uses local
+  multiresolution packets, learned incremental/gated evidence, reader-bound credit,
+  all-address preview, soft no-starvation attention and HOLD/STOP/DECAY.
+- **Artifact:**
+  `runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/`;
+  forensics `research/O1C0018_POST_REVEAL_FORENSICS_20260717.md`.

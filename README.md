@@ -48,12 +48,29 @@ positive. It beats signal ablation by `46.701393` bits, shifted-label learning b
 `42.764897` and its own raw end-of-stream O1 field by `47.231321`. Classification:
 `MECHANISM_PASS`.
 
-The strongest real-cipher attempt remains O1C-0016. It froze exact h96 and a fixed
-equal-logit h96+h65 successor before attacking 32 entirely new OS-random sealed
-keys using only public counter/nonce/output. The ensemble obtains `4093/8192` bits
-and `-0.078249` bit/key, with `11/32` positive targets and a `-0.080225` margin
-over shuffled (`z=-0.555`); no exact key is emitted. Classification:
-`NOT_REPLICATED / DO_NOT_PROMOTE`.
+O1C-0018 has now executed that architecture on deterministic known-key standard
+twenty-round ChaCha20 paired-proof pools while hiding all 256 key bits from the
+target-time reader. The raw learned Bit-Vault is negative on both disjoint
+DEVELOPMENT targets (`-1.284644` mean bits), so the frozen classification is
+`NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`. The early true-reward picker nevertheless
+is positive on both targets at W1 (`+0.326847/+0.160175`) and beats its shifted-
+reward control in all six target-by-checkpoint cells.
+
+Deterministic post-reveal replay explains the boundary. Hard coverage contributes
+`0.5` to the first score while learned reward is about `0.00195`; the hash-32
+shortlist and compulsory breadth therefore own almost the entire route. The reader
+also adds an already cumulative O1 query repeatedly, and the critic mixes credits
+from changing reader versions. [O1C-0018 forensics](research/O1C0018_POST_REVEAL_FORENSICS_20260717.md)
+turn these failures into the O1C-0019 design: same-coordinate multiresolution
+packets, learned incremental/gated evidence, reader-SHA-bound stationary credit,
+all-address public preview, soft no-starvation attention and learned stopping.
+
+The strongest sealed cryptanalytic attempt remains O1C-0016. It froze exact h96
+and a fixed equal-logit h96+h65 successor before attacking 32 entirely new
+OS-random sealed keys using only public counter/nonce/output. The ensemble obtains
+`4093/8192` bits and `-0.078249` bit/key, with `11/32` positive targets and a
+`-0.080225` margin over shuffled (`z=-0.555`); no exact key is emitted.
+Classification: `NOT_REPLICATED / DO_NOT_PROMOTE`.
 
 The full lifecycle is nevertheless validated: 680/680 capsule members verify,
 every commitment and independently recomputed output matches, all resource gates
@@ -66,13 +83,11 @@ and matched-shuffled compression correlate `0.999905`, while O1C-0014-to-0016
 coordinate transfer is approximately zero. The global unary readers saw a
 repeatable public-instance difficulty/amplitude field but did not learn hidden-key
 orientation. [The post-reveal audit](research/O1C0016_POST_REVEAL_FORENSICS_20260717.md)
-therefore motivated the zero-fresh-entropy O1C-0017 integration gate, which has now
-passed every frozen control. The result proves autonomous anonymous-channel
-discovery and Bit-Vault retention in the synthetic full-width mechanism, not that
-ChaCha20 exposes the channel and not that the learned picker already saves work.
-O1C-0018 now replaces only the generator with deterministic known-key standard
-twenty-round ChaCha20 paired-proof pools, multiple horizons and bounded learned
-sensing; fresh sealed entropy remains closed.
+therefore motivated the zero-fresh-entropy O1C-0017 integration gate, which passed
+every frozen control. O1C-0018 then completed the full-round transition and found
+an early true-versus-shifted policy breadcrumb without a raw reader pass. O1C-0019
+now gives learned utility real agency and aligns the trained readout with its live
+update. Fresh sealed entropy remains closed until artifact-only cross-fits win.
 
 ## What the first benchmark proves
 
@@ -88,8 +103,8 @@ confound:
    target-blind order while structurally rejecting any path that uses a revealed
    model or target secret?
 
-It does **not** claim that a full-round cipher exposes such a signal. That is the
-next and substantially harder observability gate.
+It does **not** claim that a full-round cipher exposes such a signal. O1C-0018 is
+the first direct observability test and does not pass its raw-signal gate.
 
 The full-context attention arm is an explicitly invalid `O(T)` attack but an exact
 harness ceiling. The direct 256-register vault is an intentionally honest bounded
@@ -178,6 +193,15 @@ prior result. Verify any capsule with:
 
 ```bash
 .venv/bin/o1-crypto-lab verify-run runs/<capsule-name>
+```
+
+Recompute the label-using O1C-0018 diagnostics without generating a target or
+changing any model state:
+
+```bash
+PYTHONPATH=src .venv/bin/python \
+  -m o1_crypto_lab.full256_online_real_forensics \
+  --capsule runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1
 ```
 
 The Direct12 dependency chain originally lived in a dirty sibling worktree. It is

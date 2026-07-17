@@ -143,6 +143,28 @@ learning by `42.764897` and the same reader's raw O1 end state by `47.231321`.
 This validates autonomous anonymous-channel discovery plus full-width retention;
 it does not yet validate the picker or any real-cipher signal.
 
+O1C-0018 has now run the real counterfactual. The learned raw full-round field is
+negative at `-1.284644` mean bits on two disjoint DEVELOPMENT keys, so its class is
+`NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`. True reward is nevertheless the best W1
+arm on both keys and beats shifted reward in all six checkpoint cells. Exact replay
+shows that hard coverage plus a pool-blind hash-32 shortlist controls almost the
+entire route: only about `0.17%` of W1 score mass is learned reward, and forced
+spending destroys the early lift.
+
+O1C-0019 changes the organism rather than resweeping it:
+
+- one coordinate-local H64/H65/H96 packet exposes raw odd/common and mixed Möbius
+  fields without prescribing their useful direction;
+- an incremental/gated head learns the deployed evidence delta instead of
+  repeatedly adding a cumulative query;
+- critic credits are replayed only against the exact frozen reader SHA;
+- every affordable candidate receives a target-conditioned public preview before
+  shortlisting;
+- soft coverage and age preserve nonzero reachability, with a finite starvation
+  trigger instead of compulsory equal coverage;
+- HOLD/STOP/DECAY is a learned legal action and separate horizon carriers prevent
+  blind compounding.
+
 Gate: better held-out entropy reduction per cipher call without state/index budget
 escape.
 
@@ -197,10 +219,12 @@ BUILD and 16 untouched evaluation episodes. Signal ablation, shifted-label,
 untrained, common-only, polarity-swap and raw O1 end-state controls separate
 channel discovery, common mode, holographic crosstalk and Bit-Vault retention.
 That gate now passes with `+42.308742` bits mean compression and every control in
-the frozen direction. O1C-0018 therefore replaces only the generator with
-deterministic known-key full-round paired proof pools and activates the multiple-
-horizon sub-exhaustive picker comparison. Fresh sealed entropy remains forbidden
-until repeated real-sensor whole-key holdouts and matched controls pass.
+the frozen direction. O1C-0018 then replaced the generator with deterministic
+known-key full-round paired proof pools and activated the multiple-horizon picker.
+Its raw gate failed, but its true critic beat shifted reward in all six cells. The
+O1C-0019 packet/increment/preview/stop gate now runs artifact-only on those consumed
+pools. Fresh sealed entropy remains forbidden until repeated real-sensor whole-key
+holdouts and matched controls pass.
 
 ## L7 — Exact recovery frontier
 

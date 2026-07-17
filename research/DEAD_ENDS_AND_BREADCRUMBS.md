@@ -354,3 +354,51 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Breadcrumb:** retain the exact Bit-Vault and raw-end-state sentinel together in
   O1C-0018. Let O1 learn representation and temporal context; let the vault preserve
   addressed evidence; evaluate both on attacker-valid full-round proof pools.
+
+## B-0021 — Learned-versus-untrained lift is not an absolute inverse signal
+
+- **Evidence:** O1C-0018 freezes learned, untrained, coordinate-rotation and direct
+  O1 readouts before two disjoint full-round DEVELOPMENT labels.
+- **Result:** learned exhaustive compression is `-1.400387/-1.168901` bits. It
+  improves untrained by `+0.724371` mean bits, but loses absolutely on both targets
+  and loses the `+0.203963` mean rotation control.
+- **Conclusion:** smaller calibration damage is useful optimization evidence, not
+  proof of correct key orientation.
+- **Do not repeat:** promote learned-minus-untrained alone, post-select rotation 73,
+  or re-sign/rescale the two consumed DEVELOPMENT targets.
+- **Breadcrumb:** direct O1 is only `-0.093388` mean bits and coverage-normalized
+  final logits improve to `-0.322875`; fix accumulation semantics before replacing
+  the sensor.
+
+## B-0022 — Pool-blind breadth prevents autonomous strongest-signal picking
+
+- **Evidence:** O1C-0018 deterministically replays every persisted true/shifted
+  action and decomposes the live score without labels.
+- **Result:** first true score terms are learned reward `0.001955`, exploration
+  `0.013378` and coverage `0.5`; mean learned W1 share is about `0.17%`. True and
+  shifted W1/W2 rank correlations are `0.970..0.996`; cross-target true ranks are
+  `0.986/0.995`. Hard minimum coverage forbids revisiting a promising coordinate
+  through W2, and filling W3 destroys target-0 compression.
+- **Conclusion:** this is not yet the autonomous signal picker. The critic perturbs
+  a hash-/coverage-defined route.
+- **Do not repeat:** add more BUILD keys to the same hash-32/forced-cap controller,
+  call true-greater-than-shifted a picker pass, or make minimum coverage even harder.
+- **Breadcrumb:** true reward is best W1 on both targets and beats shifted in all
+  six cells. Score every affordable public preview, use soft coverage plus a finite
+  starvation trigger, and learn HOLD/STOP/DECAY.
+
+## B-0023 — Cumulative queries and nonstationary credits cannot be compounded
+
+- **Evidence:** deterministic post-reveal O1C-0018 path, horizon and reward replay.
+- **Result:** deployment repeatedly adds a cumulative `q_i(S_t)`, yielding
+  `-1.284644` mean bits versus direct final O1 `-0.093388`. BUILD per-action reward
+  correlations are only `0.013824` pairwise and `0.023765` leave-one-out because
+  each episode used a changing reader. H65-only is positive on both consumed
+  targets, while H64/H96 are heterogeneous.
+- **Conclusion:** the deployed updater and training target differ, and the critic
+  sees stale reward functions. Fixed equal compounding cannot repair either.
+- **Do not repeat:** add another cumulative query, hand-freeze h65 from these two
+  reveals, or train the critic across unversioned reader changes.
+- **Breadcrumb:** learn an incremental gated delta, keep horizon carriers separate,
+  packetize their raw/Möbius relations locally, and bind stationary credit replay
+  to the exact reader SHA.

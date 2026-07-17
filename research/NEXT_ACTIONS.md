@@ -1,15 +1,15 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T14:12:09+02:00.
+Last ranked: 2026-07-17T15:59:32+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Build O1C-0018 by replacing only O1C-0017's synthetic generator with deterministic known-key standard twenty-round ChaCha20 raw paired-proof action pools | State of the art | Very high | Very high | Medium | Tests whether any attacker-valid causal channel can be learned without a prescribed scalar signal |
-| 2 | Give O1C-0018 multiple proof horizons and a strict sub-exhaustive budget; compare the pool-blind learned picker with fixed-order and uniform controls at equal work | State of the art | Very high | Very high | Medium | Separates representation lift from genuine autonomous sensing-work savings |
-| 3 | Preserve raw end-of-stream O1, Bit-Vault, shuffled, untrained, common-only and coordinate-destroying arms throughout the ChaCha transition | State of the art | High | Very high | Low | Localizes discovery, crosstalk, retention and common-mode failure without losing breadcrumbs |
-| 4 | Cross-fit BUILD and evaluation only by whole keys/nonces; persist all predictions before scoring and never reuse O1C-0017 seeds as fresh evidence | State of the art | Very high | Very high | Low | Prevents target-time adaptation from masquerading as portable causal orientation |
-| 5 | Add sparse Möbius pair/triple actions only after unary proof pools establish unseen-key NLL or information-per-branch lift | State of the art | High | High | Medium | Tests carry/proof interactions without exhausting the combinatorial field |
-| 6 | Spend fresh sealed entropy only after repeated deterministic known-key whole-key holdouts pass; otherwise pivot to query-rooted carry/proof ancestry | State of the art | Very high | Very high | High | Protects the next blind panel while keeping the terminal exact-recovery objective unchanged |
+| 1 | O1C-0019: replace cumulative-query re-integration with a learned incremental/gated update and package each coordinate's H64/H65/H96 fields locally | State of the art | Very high | Very high | Medium | Separates a real sensor failure from the proven accumulation mismatch and exposes raw multiresolution relations without hand-picking a signal |
+| 2 | Freeze the reader first, bind rewards to its SHA and refit the state-conditioned critic from bounded BUILD replays | State of the art | Very high | Very high | Low | Removes stale nonstationary credit before judging whether live utility is learnable |
+| 3 | Give every affordable action a target-conditioned public preview; remove hash-32 shortlisting and replace hard equal coverage with soft age/coverage plus finite starvation | State of the art | Very high | Very high | Medium | Lets strong evidence compound while keeping every one of 256 coordinates eventually reachable |
+| 4 | Add learned HOLD/STOP/DECAY and preserve the best frozen prefix; retain true/shifted/static/shortest/hash and raw/untrained/rotation/direct-field controls | State of the art | Very high | Very high | Low | Tests autonomous marginal-work allocation instead of forcing a promising W1 trajectory to become a bad W3 trajectory |
+| 5 | Compose isolated/direct, packet/raw, packet+Möbius, packet+gate and packet+gate+stationary-critic arms with whole-key BUILD-LOO on the six consumed pools | State of the art | High | Very high | Medium | Selects one falsifiable O1C-0020 architecture without consuming new target entropy |
+| 6 | Spend a new disjoint full-256 gate only after repeated artifact-only positive NLL/IAUC/control margins; otherwise pivot packets to query-rooted carry/proof ancestry | State of the art | Very high | Very high | High | Protects the next blind panel while keeping exact 256-bit recovery as the terminal objective |
 
 ## Hard target contract
 
@@ -55,6 +55,11 @@ Last ranked: 2026-07-17T14:12:09+02:00.
   O1C-0016 closes all three;
 - replaying O1C-0017's formal seeds, tuning its hidden-channel amplitude after the
   pass, or treating a synthetic mechanism result as ChaCha20 evidence;
+- replaying or rescaling O1C-0018 DEVELOPMENT targets as fresh evidence, promoting
+  their post-reveal h65-only arm, or calling true-greater-than-shifted 6/6 a picker
+  pass while static/hash still win aggregate controls;
+- sending more BUILD keys through the unchanged hash-32, hard-minimum-coverage,
+  forced-cap controller before fixing observability, accumulation and credit;
 - treating the scaled shuffled-h65 copy as the only null for learned orientation;
 - spending another blind panel on the pre-existing ARX24 or ARX24+Motif12 arms,
   which were already negative before the larger panel also closed unary h96/h65;

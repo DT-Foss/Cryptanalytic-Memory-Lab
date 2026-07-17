@@ -76,6 +76,13 @@ The `4,096` local assignments are observations, never resident memory.  Randomiz
 global-to-local mappings prevent a solver-position artifact from being mistaken
 for a global key coordinate.
 
+O1C-0019 adds separate bounded `coordinate x horizon` carriers and an incremental
+gate. H64, H65 and H96 for one coordinate arrive as one multiresolution packet;
+their raw odd/common fields and cross-horizon Möbius differences remain available
+to O1. The architecture does not label one horizon or motif as “the signal.” A
+learned delta/gate decides what reaches the posterior, while the three carriers
+remain separately queryable instead of being blindly summed.
+
 ## W52 mechanisms retained, not copied
 
 The read-only 2026-07-17 intake from `arx-carry-leak` changes the architecture in
@@ -106,6 +113,13 @@ ROI = uncertainty * expected_information_gain * expert_disagreement / work
 Its failure memory is contextual.  A negative result suppresses the measured
 combination, not an entire mechanism family.  Rare high-surprise motifs may later
 enter the bounded external index; ordinary events disappear after updating state.
+
+In O1C-0019, O1-O first streams a cheap public preview over every affordable action
+address, then chooses the expensive continuation or `HOLD/STOP/DECAY`. Coverage is
+a soft reachability prior with a finite starvation trigger, not a rule that forbids
+immediate re-examination of a strong coordinate. Thus representation and action
+utility are learned online; only the objective — future reduction in key NLL per
+physical work — is specified.
 
 ## Data lifecycle
 
@@ -182,9 +196,17 @@ are a factor-256 domain reduction.  Exact key verification is the terminal signa
     `+42.308742` bits mean compression, `80.224609%` accuracy and `16/16` positive;
     all five-arm and structural gates passed. Coverage was fixed, so this result
     does not evaluate the picker or ChaCha20.
-11. `O1C-0018`: following the O1C-0017 pass, replace the synthetic generator with
-    deterministic known-key standard twenty-round ChaCha20 raw paired-proof pools.
-    Cross-fit whole keys and nonces across multiple proof horizons, then evaluate
-    the bounded learned picker against matched fixed-work policies. Fresh sealed
-    entropy remains forbidden until repeated attacker-valid holdouts pass. The
-    detailed design is in `docs/O1_ONLINE_MOBIUS_CONTROLLER.md`.
+11. `O1C-0018` (completed negative full-round gate): four BUILD and two disjoint
+    DEVELOPMENT keys supplied deterministic standard twenty-round ChaCha20 public
+    paired-proof pools. Raw learned compression is `-1.284644` mean bits, so the
+    class is `NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`. True reward is best at W1 on
+    both targets and beats shifted reward in all six cells, but hard coverage,
+    hash shortlisting, cumulative-query double integration and nonstationary
+    credits prevent a picker claim. The post-reveal h65-only values
+    `+0.124720/+0.083065` are an architecture breadcrumb only.
+12. `O1C-0019`: on the six consumed pools, compare legacy re-integration, direct
+    replace and learned incremental updates; packetize H64/H65/H96 by coordinate;
+    refit reader-bound stationary credits; score all affordable public previews;
+    learn soft no-starvation attention plus HOLD/STOP/DECAY. Only an artifact-only
+    whole-key cross-fit pass can authorize a new disjoint target gate. The detailed
+    design is in `docs/O1_ONLINE_MOBIUS_CONTROLLER.md`.

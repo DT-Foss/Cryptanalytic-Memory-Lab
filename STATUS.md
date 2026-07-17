@@ -1,11 +1,11 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-17T14:12:09+02:00 (`Europe/Berlin`)
-- **Prior published baseline:** `c89e2d2` (`O1C-0016` result and online pivot)
-- **Latest execution commit:** `22ea4dd0bfedd3134f82624ea434c9b339f35a73`
-  (`O1C-0017` clean preregistered freeze)
-- **Publication:** the O1C-0017 outcome is recorded below; all immutable capsules
-  and sibling repositories remain untouched
+- **Last updated:** 2026-07-17T15:59:32+02:00 (`Europe/Berlin`)
+- **Prior published baseline:** `dbbe63a` (`O1C-0017` mechanism result)
+- **Latest execution commit:** `f40e71aa8ed80b4653acf44d98e14eabec18a955`
+  (`O1C-0018` clean full-round real-gate freeze)
+- **Publication:** the O1C-0018 outcome and deterministic post-reveal forensics are
+  recorded below; immutable capsules and sibling repositories remain untouched
 - **Research phase:** O1-256 Living Inverse — paired-assumption solver events into
   coordinate-bound unary-plus-interaction O1 state
 - **Strongest internal mechanism:** O1C-0017 autonomously discovers one oriented
@@ -13,29 +13,67 @@
   a 21,472-byte exact fast state, reaching 80.225% held-out bit accuracy
 - **Strongest read-only mechanism intake:** A447-A449 proof ancestry, A465 cubic
   Product-of-Experts and A469 positive bucket-local correction
-- **Active runs:** none; O1C-0017 formal seeds `20000..20015` are consumed and may
-  not be replayed as a fresh panel
+- **Active runs:** none; O1C-0018 BUILD/DEVELOPMENT pools and O1C-0017 formal seeds
+  are consumed and may not be replayed as fresh evidence
 - **Strongest completed mechanism attempt:** `O1C-0017` — independently verified
   `MECHANISM_PASS` on 16/16 untouched synthetic full-256 episodes
-- **Strongest completed cryptanalytic attempt:** `O1C-0016` — frozen h96/h65
-  replication on 32 new sealed full-round output-only keys, classified
-  `NOT_REPLICATED / DO_NOT_PROMOTE`
-- **Last operational attempt:** `O1C-0017` — 29,184 action observations, 78.089 CPU
-  s, 79.853 wall s and 286.438 MiB peak RSS; every resource gate passed
-- **Next attempt:** `O1C-0018` — deterministic known-key standard twenty-round
-  ChaCha20 raw paired-proof pools with multiple horizons and a sub-exhaustive
-  learned-picker comparison
+- **Strongest completed full-round online attempt:** `O1C-0018` — public-only
+  paired-proof reader/picker on two disjoint DEVELOPMENT keys, classified
+  `NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`
+- **Last operational attempt:** `O1C-0018` — 3,072 native branches, 545.024 CPU s,
+  510.875 wall s and 315,703,296 B peak RSS; every structural/resource gate passed
+- **Next attempt:** `O1C-0019` — packetized incremental reader, reader-SHA-bound
+  stationary critic, all-candidate preview, soft no-starvation attention and
+  learned HOLD/STOP/DECAY on the six already opened pools
 - **Primary uncertainty:** whether common-mode-rejected proof/carry innovations can
   acquire portable key orientation when O1 learns its representation and O1-O
   learns its sensing policy rather than receiving a fixed scalar reader
-- **SOTA status:** no cryptanalytic SOTA claim and no recovery. O1C-0017 is a
-  synthetic architecture mechanism pass; O1C-0016 remains the real-cipher result
-  at `-0.078249` bit/key, 11/32 positive targets and zero exact keys
+- **SOTA status:** no cryptanalytic SOTA claim and no recovery. O1C-0018's raw
+  learned field is `-1.284644` mean bits on two consumed full-round targets; its
+  W1 true picker is positive on both but is not yet an autonomous gate pass
 - **SOTA target:** a stream-length-bounded living inverse that reduces the 256-bit
   key code length on sealed uniform targets and ultimately emits an exactly verified
   full ChaCha20 key
 
 ## Headline
+
+`O1C-0018` completed from clean execution commit `f40e71a`. It is the first full
+256-bit, standard twenty-round ChaCha20 run of the continuous O1 reader and learned
+picker: four reveal-delayed BUILD keys, then two disjoint DEVELOPMENT keys, all 256
+bits unknown at probe time and only public counter/nonce/output passed to the
+deterministic paired-proof sensor. Its frozen classification is
+`NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`.
+
+The exhaustive learned Bit-Vault is negative on both targets at
+`-1.400387/-1.168901` bits (mean `-1.284644`). Training still improves the
+untrained mean by `+0.724371` bits, but the coordinate-rotation control reaches
+`+0.203963` mean and the direct final O1 field is `-0.093388`; raw transferable
+orientation is therefore not established.
+
+The early learned picker preserves a real breadcrumb. At W1, true reward is the
+best arm on both targets at `+0.326847/+0.160175` bits. It beats the shifted-reward
+critic in all six target-by-checkpoint cells, with positive IAUC margins on both
+targets. Yet the score replay shows why this cannot be promoted: the first
+decision has coverage contribution `0.5` versus learned reward about `0.00195`,
+and only `0.169%` mean W1 score mass comes from learned reward. The hard
+minimum-coverage gate and hash-32 shortlist make true/shifted and cross-target
+routes nearly identical; forced later spending then destroys target-0 compression.
+
+Post-reveal forensics also finds a training/deployment mismatch: a cumulative O1
+query is repeatedly added as though it were incremental evidence. The direct
+field avoids `1.191256` mean bits of the exhaustive path's damage. BUILD per-action
+reward transfer is near zero (`0.013824` pairwise, `0.023765` leave-one-out), so
+the critic is additionally trained on a nonstationary reader. These observations
+define O1C-0019: packetize same-coordinate horizons, train an incremental/gated
+readout, refit credits against the exact frozen reader, let every affordable
+address be scored, replace compulsory breadth with soft no-starvation attention,
+and learn HOLD/STOP/DECAY. Full forensics are in
+[`research/O1C0018_POST_REVEAL_FORENSICS_20260717.md`](research/O1C0018_POST_REVEAL_FORENSICS_20260717.md).
+
+The capsule verifies 51/51 members. Manifest
+`fcbf43c99994c0debe5b39bb3e734ea1d1e23ba58e89b10ff2bb7e23886493fb`;
+internal result
+`db92bd86849ff93e0f9b935a72f64f1b4bd46b134747c913ee82e5d772ac11c9`.
 
 `O1C-0017` completed from clean freeze commit `22ea4dd` and is independently
 verified `MECHANISM_PASS`. After eight reveal-delayed BUILD episodes, the unchanged
@@ -59,8 +97,9 @@ was not told which of 330 channels carried orientation, learned only after prior
 episodes were frozen, and retained the useful addressed readings where the raw
 holographic end field lost them to crosstalk. It is deliberately not evidence that
 ChaCha20 exposes such a channel, not a stateless-baseline comparison, not proof
-that O1 memory is necessary, and not a learned-picker result. O1C-0018 now replaces
-only the generator with attacker-valid full-round known-key proof pools.
+that O1 memory is necessary, and not a learned-picker result. O1C-0018 has now
+tested that transition and localizes the next limits to reader accumulation,
+critic stationarity and picker agency.
 
 `O1C-0016` is complete and independently verified. The frozen equal-logit h96+h65
 ensemble obtains `4093/8192` bits and `-0.078249097` bit/key compression on 32
@@ -81,9 +120,9 @@ is approximately zero.
 The O1C-0016 common-mode diagnosis still determines the real-cipher transition:
 per-target h65 primary and matched-shuffled compression correlate `0.999905`.
 O1C-0017 shows that the replacement machinery can autonomously discover a hidden
-orientation and retain it. O1C-0018 must now determine whether attacker-valid
-full-round proof/carry streams contain any analogous residual channel and whether
-the pool-blind learned picker improves information per unit solver work.
+orientation and retain it. O1C-0018 finds a positive early true-versus-shifted
+picker margin but no raw full-round gate pass; O1C-0019 must give that learned
+utility actual control over target-conditioned packet selection and stopping.
 
 The O1C-0016 capsule verifies 680/680 members. All commitments open and every
 output independently recomputes. It used `1972.624545` billed CPU seconds,
@@ -285,20 +324,21 @@ O1C-0017 result boundary are documented in
 
 ## Highest-ROI next actions
 
-1. Build `O1C-0018` by replacing only O1C-0017's synthetic generator with
-   deterministic known-key standard twenty-round ChaCha20 raw paired-proof pools.
-2. Expose multiple proof horizons and enforce a sub-exhaustive branch budget.
-   Compare the pool-blind learned picker with fixed-order and uniform policies at
-   exactly matched work.
-3. Preserve Bit-Vault, raw end-state, shuffled, untrained, common-mode and
-   coordinate-destroying arms; cross-fit only by whole key and nonce.
-4. Spend no fresh sealed entropy until repeated attacker-valid holdouts lower NLL
-   and the learned policy improves information gain per branch.
+1. Build `O1C-0019` as a packetized incremental reader: one coordinate-local
+   H64/H65/H96 event, learned delta/gate, separate horizon carriers and no
+   cumulative-query double integration.
+2. Refit the reward critic only after freezing the reader, bind credits to the
+   reader SHA and replay bounded BUILD memories to make rewards stationary.
+3. Score every affordable address or a live public preview; replace hash-32 plus
+   compulsory minimum coverage with soft attention and a finite starvation guard.
+4. Add learned HOLD/STOP/DECAY, compare artifact-only leave-one-BUILD-out arms on
+   the six consumed pools and spend no fresh sealed entropy until this gate wins.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0018` | 2026-07-17 | A reveal-delayed O1 reader can learn attacker-valid full-round paired-proof orientation and a true reward critic can select more information per work | `NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`: raw learned mean -1.284644 bits; W1 true +0.326847/+0.160175 and true beats shifted in all 6 cells, but static wins mean IAUC and hard coverage/hash dominate selection | `TEST` negative full-round gate with autonomous-picker breadcrumb | 545.024 CPU s; 510.875 wall s; 315,703,296 B peak; 3,072 native branches | Remove cumulative-query double integration; packetize horizons; stationary reader-bound credit; all-address preview; soft no-starvation plus STOP | [Run capsule](runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/RUN.md) |
 | `O1C-0017` | 2026-07-17 | A bounded O1 reader can autonomously discover one oriented channel among 330 anonymous channels and retain all 256 addressed readings without target-time updates | `MECHANISM_PASS`: 3286/4096 bits, +42.308742 bits mean compression, 80.225% accuracy, 16/16 positive; +46.701 over ablation, +42.765 over shuffled, +47.231 over raw end state | `VALIDATION` synthetic mechanism; no crypto/picker claim | 78.089 CPU s; 79.853 wall s; 286.438 MiB peak; 29,184 action observations | Anonymous signal discovery works; raw holographic end state is crosstalk-limited while the exact Bit-Vault retains the learned readings | [Run capsule](runs/20260717_140953_O1C-0017_full256-online-self-discovery-v1/RUN.md) |
 | `O1C-0016` | 2026-07-17 | Frozen h96 and equal-logit h96+h65 remove transferable code length on 32 new full-256 output-only keys | `NOT_REPLICATED / DO_NOT_PROMOTE`: 4093/8192 bits, -0.078249 bit/key, 11/32 positive, paired z -0.555, null-like byte/block ranks, 0 exact keys | `VALIDATION` negative; lifecycle/integrity pass | 1972.625 CPU s; 1620.537 wall s; 414.813 MiB peak; 17,920 branches | h65 primary/shuffled target compression corr 0.999905 exposes common-mode difficulty; learn nuisance rejection and residual orientation online | [Run capsule](runs/20260717_115325_O1C-0016_full256-polyphase-blind-replication-v2/RUN.md) |
 | `O1C-0015` | 2026-07-17 | The fixed h96+h65 polyphase reader transfers to 32 new full-256 output-only keys | Operational resource failure after all 32 reveals occurred in memory; no evaluation or reveal receipt persisted, so no scientific metric or classification exists | `OPERATIONAL_FAILURE`; no scientific result | CPU >1600 s; wall >1400 s; RSS >384 MiB; exact values unavailable; 17,920 branches | Burn all 32 targets; rerun the identical science as O1C-0016 with truthful pre-reveal accounting and corrected soft ceilings | [Failed capsule](runs/20260717_103252_O1C-0015_full256-polyphase-blind-replication-v1/RUN.md) |
@@ -321,6 +361,14 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0018` capsule manifest | `fcbf43c99994c0debe5b39bb3e734ea1d1e23ba58e89b10ff2bb7e23886493fb` |
+| `O1C-0018` internal result commitment | `db92bd86849ff93e0f9b935a72f64f1b4bd46b134747c913ee82e5d772ac11c9` |
+| `O1C-0018` result artifact | `a8e5940edc5887e404725c98631df89e1f91963abd47d1fa51263fc681e9df4d` |
+| `O1C-0018` canonical config | `fd539d2a2461f879ebdbcad2c29f3c6de7c514385fece2ef1bf8ddb06707056a` |
+| `O1C-0018` prediction freeze | `529356d380baec494ddfe0710e8b9cf0f85308c50b2913600e4c39b9a041c30e` |
+| `O1C-0018` learning freeze | `09043f7dec8eb916baff3879706111add83f1c4337f321e01842bc351fc2564a` |
+| `O1C-0018` primary slow state | `de7030eab45e7e88770d4789183e0ca604ecf943302d6c3e8b792f0a316c035c` |
+| `O1C-0018` shifted slow state | `bc71d80b9f98feaf9c5f1ffe9244384f8fdd8775359b27fe62bc60076098f8b7` |
 | `O1C-0017` capsule manifest | `59f1f59b4e24545391cb06cd2bee395285d4385c893af36d18def28bcb3858fd` |
 | `O1C-0017` internal result commitment | `609014695bc3013bb971d7d05b682d18797af5c9d9cd31561cdc41de120ff28c` |
 | `O1C-0017` prediction freeze | `a2f5a8ba939bdedf9fdce4bb1e0dabac9fc3ac850a3b9e249b9b2f1d3abafba7` |
@@ -394,11 +442,12 @@ O1C-0017 result boundary are documented in
 
 ## Resume here
 
-Build `O1C-0018` from the exact O1C-0017 controller and frozen control suite. Replace
-only the synthetic generator with deterministic known-key standard twenty-round
-ChaCha20 raw paired-proof pools; add multiple proof horizons and a strict
-sub-exhaustive budget so the pool-blind learned picker has a real counterfactual.
-Cross-fit by whole keys/nonces and require NLL plus information-per-branch lift
-before any new sealed target. Never replay O1C-0015/16 targets or O1C-0017 formal
-seeds as fresh evidence. Keep the sibling recovery queue read-only, CPU-only and
-prioritized.
+Build `O1C-0019` on the six immutable O1C-0018 pools. First eliminate cumulative-
+query double integration and freeze a reader-SHA-bound stationary reward replay.
+Then package H64/H65/H96 by coordinate, let O1 learn the raw odd/common and mixed
+Möbius fields, score all affordable addresses, use soft coverage plus a finite
+starvation guard, and learn HOLD/STOP/DECAY. Run only artifact-based BUILD-LOO and
+consumed-DEV diagnostics until the new controller beats frozen controls; only then
+allocate a new disjoint gate. Never reuse O1C-0015/16 targets, O1C-0017 formal seeds
+or O1C-0018 DEVELOPMENT targets as fresh evidence. Keep the sibling recovery queue
+read-only, CPU-only and prioritized.
