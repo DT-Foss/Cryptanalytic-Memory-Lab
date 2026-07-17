@@ -4903,13 +4903,22 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
     )
 
     root = _lab_root()
+    canonical_config_name = getattr(
+        args,
+        "polyphase_canonical_config",
+        "full256_polyphase_replication_v1.json",
+    )
+    expected_attempt_id = getattr(args, "polyphase_attempt_id", "O1C-0015")
+    command_name = getattr(
+        args,
+        "polyphase_command_name",
+        "full256-polyphase-replication",
+    )
     requested_config = args.config
     if requested_config.is_symlink():
         raise RuntimeError("full-256 polyphase config cannot be a symlink")
     config_path = requested_config.resolve(strict=True)
-    expected_config = (
-        root / "configs/full256_polyphase_replication_v1.json"
-    ).resolve(strict=True)
+    expected_config = (root / "configs" / canonical_config_name).resolve(strict=True)
     if config_path != expected_config:
         raise RuntimeError(
             "full-256 polyphase replication requires its canonical lab config"
@@ -4917,6 +4926,13 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
     top_level, replication_config = load_full256_polyphase_replication_config(
         config_path
     )
+    attempt_id = str(top_level["attempt_id"])
+    if attempt_id != expected_attempt_id:
+        raise RuntimeError(
+            "full-256 polyphase replication attempt identity differs from its "
+            "canonical CLI path"
+        )
+    attempt_token = attempt_id.lower().replace("-", "")
     runs_root = (root / "runs").resolve(strict=True)
 
     def pinned_source_hashes() -> dict[str, str]:
@@ -4934,7 +4950,7 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
                     or not capsule.is_dir()
                 ):
                     raise RuntimeError(
-                        "O1C-0015 sources must be finalized run capsules"
+                        f"{attempt_id} sources must be finalized run capsules"
                     )
                 manifest = (capsule / "artifacts.sha256").resolve(strict=True)
                 manifest_sha256 = _sha256(manifest)
@@ -4943,7 +4959,7 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
                     expected_manifest is not None
                     and manifest_sha256 != expected_manifest
                 ):
-                    raise RuntimeError(f"O1C-0015 pinned {prefix}manifest differs")
+                    raise RuntimeError(f"{attempt_id} pinned {prefix}manifest differs")
                 hashes[f"{prefix}manifest"] = manifest_sha256
                 for key, value in sorted(node.items()):
                     expected_key = f"{key}_sha256"
@@ -4956,11 +4972,11 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
                     path = (capsule / value).resolve(strict=True)
                     if not path.is_relative_to(capsule) or not path.is_file():
                         raise RuntimeError(
-                            f"O1C-0015 pinned {prefix}{key} escapes its capsule"
+                            f"{attempt_id} pinned {prefix}{key} escapes its capsule"
                         )
                     actual = _sha256(path)
                     if actual != node[expected_key]:
-                        raise RuntimeError(f"O1C-0015 pinned {prefix}{key} differs")
+                        raise RuntimeError(f"{attempt_id} pinned {prefix}{key} differs")
                     hashes[f"{prefix}{key}"] = actual
             for key, value in sorted(node.items()):
                 if isinstance(value, Mapping):
@@ -4999,9 +5015,9 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
         native_header_sha256 = _sha256(native_header)
         native_library_sha256 = _sha256(native_library)
         if native_header_sha256 != replication_config.native.cadical_header_sha256:
-            raise RuntimeError("O1C-0015 pinned native CaDiCaL header differs")
+            raise RuntimeError(f"{attempt_id} pinned native CaDiCaL header differs")
         if native_library_sha256 != replication_config.native.cadical_library_sha256:
-            raise RuntimeError("O1C-0015 pinned native CaDiCaL library differs")
+            raise RuntimeError(f"{attempt_id} pinned native CaDiCaL library differs")
         return {
             "polyphase_replication_config": _sha256(config_path),
             "pyproject": _sha256(root / "pyproject.toml"),
@@ -5017,7 +5033,6 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
         }
 
     manager = RunCapsuleManager(root)
-    attempt_id = str(top_level["attempt_id"])
     published = manager.finalized_attempt(attempt_id)
     if published is not None:
         metrics_document = json.loads(
@@ -5074,7 +5089,7 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
             },
             status="stopped",
             next_action=(
-                "Preserve the partial O1C-0015 capsule, never replay its sealed "
+                f"Preserve the partial {attempt_id} capsule, never replay its sealed "
                 "targets, and advance the polyphase replication under a new "
                 "attempt ID."
             ),
@@ -5097,9 +5112,9 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
     commit = _clean_git_commit(root)
     source_hashes = current_source_hashes()
     if _clean_git_commit(root) != commit:
-        raise RuntimeError("lab Git commit changed before O1C-0015 reservation")
+        raise RuntimeError(f"lab Git commit changed before {attempt_id} reservation")
     if current_source_hashes() != source_hashes:
-        raise RuntimeError("lab source hashes changed before O1C-0015 reservation")
+        raise RuntimeError(f"lab source hashes changed before {attempt_id} reservation")
     planned_sweeps = replication_config.corpus.sealed_targets + len(
         replication_config.controls.transforms
     )
@@ -5118,7 +5133,7 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
         or replication_config.budgets.maximum_mps_calls != 0
         or replication_config.budgets.maximum_gpu_calls != 0
     ):
-        raise RuntimeError("O1C-0015 fixed execution accounting differs")
+        raise RuntimeError(f"{attempt_id} fixed execution accounting differs")
     run = manager.start(
         attempt_id=attempt_id,
         slug=str(top_level["slug"]),
@@ -5133,7 +5148,7 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
         config=top_level,
         command=(
             "o1-crypto-lab",
-            "full256-polyphase-replication",
+            command_name,
             "--config",
             str(config_path),
         ),
@@ -5171,13 +5186,20 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
     persistent_artifact_bytes = 0
     protocol_frozen = False
     predictions_frozen = False
+    post_reveal_persistence_started = False
+    post_reveal_artifacts_persisted = False
     outcome_parent_cpu_started = time.process_time()
     outcome_wall_started = time.monotonic()
 
-    def persist_group(artifacts: Mapping[str, bytes], *, phase: str) -> None:
+    def persist_group(
+        artifacts: Mapping[str, bytes],
+        *,
+        phase: str,
+        enforce_budget: bool = True,
+    ) -> None:
         nonlocal persistent_artifact_bytes
         if not isinstance(artifacts, Mapping) or not artifacts:
-            raise RuntimeError(f"O1C-0015 {phase} artifact group differs")
+            raise RuntimeError(f"{attempt_id} {phase} artifact group differs")
         group_bytes = 0
         for relative, payload in artifacts.items():
             if (
@@ -5186,18 +5208,19 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
                 or not isinstance(payload, bytes)
                 or relative in persisted_artifacts
             ):
-                raise RuntimeError(f"O1C-0015 {phase} artifact entry differs")
+                raise RuntimeError(f"{attempt_id} {phase} artifact entry differs")
             group_bytes += len(payload)
         if (
-            persistent_artifact_bytes + group_bytes
+            enforce_budget
+            and persistent_artifact_bytes + group_bytes
             > replication_config.budgets.maximum_persistent_artifact_bytes
         ):
-            raise RuntimeError("O1C-0015 would exceed its artifact-byte budget")
+            raise RuntimeError(f"{attempt_id} would exceed its artifact-byte budget")
         for relative, payload in sorted(artifacts.items()):
             path = run.write_artifact(relative, payload)
             expected_sha256 = hashlib.sha256(payload).hexdigest()
             if _sha256(path) != expected_sha256 or path.stat().st_size != len(payload):
-                raise RuntimeError(f"persisted O1C-0015 {phase} artifact differs")
+                raise RuntimeError(f"persisted {attempt_id} {phase} artifact differs")
             persisted_artifacts[relative] = {
                 "sha256": expected_sha256,
                 "bytes": len(payload),
@@ -5224,14 +5247,14 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
     ) -> None:
         nonlocal protocol_frozen
         if protocol_frozen or predictions_frozen:
-            raise RuntimeError("O1C-0015 protocol freeze callback order differs")
+            raise RuntimeError(f"{attempt_id} protocol freeze callback order differs")
         if (
             document.get("phase")
             != "FROZEN_PROTOCOL_VERIFIED_BEFORE_FRESH_TARGET_ENTROPY"
             or document.get("fresh_target_entropy_calls") != 0
             or not document_is_persisted(artifacts, document)
         ):
-            raise RuntimeError("O1C-0015 protocol freeze document differs")
+            raise RuntimeError(f"{attempt_id} protocol freeze document differs")
         persist_group(artifacts, phase="protocol-freeze")
         protocol_frozen = True
         run.checkpoint(
@@ -5261,7 +5284,7 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
             or not isinstance(sealed_targets, list)
             or len(sealed_targets) != 32
         ):
-            raise RuntimeError("O1C-0015 prediction freeze document differs")
+            raise RuntimeError(f"{attempt_id} prediction freeze document differs")
         persist_group(artifacts, phase="prediction-freeze")
         predictions_frozen = True
         run.checkpoint(
@@ -5302,10 +5325,10 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
             }
         )
         run.append_stdout(
-            "O1C-0015 polyphase full-256 blind replication started.\n"
+            f"{attempt_id} polyphase full-256 blind replication started.\n"
         )
         with tempfile.TemporaryDirectory(
-            prefix="o1c0015-polyphase-", dir="/tmp"
+            prefix=f"{attempt_token}-polyphase-", dir="/tmp"
         ) as temporary:
             result = run_full256_polyphase_replication(
                 replication_config,
@@ -5313,27 +5336,35 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
                 working_directory=temporary,
                 on_protocol_frozen=on_protocol_frozen,
                 on_predictions_frozen=on_predictions_frozen,
+                attempt_id=attempt_id,
             )
             if not protocol_frozen or not predictions_frozen:
                 raise RuntimeError(
-                    "O1C-0015 freeze callbacks did not complete before reveal"
+                    f"{attempt_id} freeze callbacks did not complete before reveal"
                 )
-            if not result.success_gate_passed:
-                raise RuntimeError("O1C-0015 mandatory lifecycle gate failed")
+            # Once targets have been revealed, preserving their complete truth is
+            # the first post-result action. The final budget and source gates below
+            # can still mark the capsule failed without discarding those truths.
+            post_reveal_persistence_started = True
+            persist_group(
+                result.final_artifacts,
+                phase="post-reveal-evaluation",
+                enforce_budget=False,
+            )
+            post_reveal_artifacts_persisted = True
             if _clean_git_commit(root) != commit:
-                raise RuntimeError("lab Git commit changed during O1C-0015")
+                raise RuntimeError(f"lab Git commit changed during {attempt_id}")
             if current_source_hashes() != source_hashes:
-                raise RuntimeError("lab source hashes changed during O1C-0015")
-            if set(result.final_artifacts) & set(persisted_artifacts):
-                raise RuntimeError("O1C-0015 final artifact paths overlap freezes")
-            persist_group(result.final_artifacts, phase="post-reveal-evaluation")
+                raise RuntimeError(f"lab source hashes changed during {attempt_id}")
 
             module_metrics = result.metrics()
             module_resources = result.report["resources"]
             if int(module_metrics["persistent_artifact_bytes"]) != (
                 persistent_artifact_bytes
             ):
-                raise RuntimeError("O1C-0015 persistent artifact accounting differs")
+                raise RuntimeError(
+                    f"{attempt_id} persistent artifact accounting differs"
+                )
             h96_baseline_compression_bits_per_key = float(
                 result.report["sealed_evaluation"]["h96_component"][
                     "compression_bits_per_key"
@@ -5350,7 +5381,7 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
                 or int(module_metrics["mps_calls"]) != 0
                 or int(module_metrics["gpu_calls"]) != 0
             ):
-                raise RuntimeError("O1C-0015 module fixed accounting differs")
+                raise RuntimeError(f"{attempt_id} module fixed accounting differs")
             outcome_parent_cpu_seconds = (
                 time.process_time() - outcome_parent_cpu_started
             )
@@ -5406,10 +5437,15 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
             failed_budgets = sorted(
                 name for name, passed in budget_checks.items() if not passed
             )
-            if failed_budgets:
-                raise RuntimeError(
-                    "O1C-0015 exceeded budgets: " + ", ".join(failed_budgets)
-                )
+            outcome_failed = bool(failed_budgets) or not result.success_gate_passed
+            failure_reasons = [
+                *(f"cli_budget:{name}" for name in failed_budgets),
+                *(
+                    ["module_success_gate_failed"]
+                    if not result.success_gate_passed
+                    else []
+                ),
+            ]
             metrics = {
                 **base_metrics,
                 "peak_rss_mib": peak_rss_mib,
@@ -5420,6 +5456,9 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
                 "planned_sweeps": planned_sweeps,
                 "planned_native_solver_branches": planned_native_branches,
                 "budget_checks": budget_checks,
+                "sealed_target_reveals": 32,
+                "outcome_failed": outcome_failed,
+                "failure_reasons": failure_reasons,
             }
             run.checkpoint(
                 {
@@ -5452,7 +5491,17 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
             run.append_stdout(
                 json.dumps(metrics, sort_keys=True, allow_nan=False) + "\n"
             )
-            finalized = run.finalize(metrics=metrics)
+            finalized = run.finalize(
+                metrics=metrics,
+                status="failed" if outcome_failed else "completed",
+                next_action=(
+                    f"Preserve the complete {attempt_id} result and all 32 sealed "
+                    "reveals; correct only the failed runtime or lifecycle invariant "
+                    "under a new attempt ID and never replay these targets."
+                    if outcome_failed
+                    else None
+                ),
+            )
             process_peak_rss_mib = _peak_rss_mib()
     except Exception as exc:
         if run.publication_prepared:
@@ -5475,6 +5524,38 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
                 )
             )
             return 0 if metrics_document.get("status") == "completed" else 1
+        pre_reveal_resource_failure = type(
+            exc
+        ).__name__ == "Full256PolyphaseReplicationError" and str(exc).startswith(
+            "pre-reveal polyphase resource budget exceeded:"
+        )
+        generated_target_count: int | str = (
+            32
+            if predictions_frozen
+            else "unknown-after-protocol-freeze"
+            if protocol_frozen
+            else 0
+        )
+        persisted_reveal_count = sum(
+            relative.startswith("sealed/")
+            and relative.endswith("/reveal.json")
+            and metadata.get("phase") == "post-reveal-evaluation"
+            for relative, metadata in persisted_artifacts.items()
+        )
+        persisted_post_reveal_artifact_count = sum(
+            metadata.get("phase") == "post-reveal-evaluation"
+            for metadata in persisted_artifacts.values()
+        )
+        actually_persisted_artifact_bytes = sum(
+            int(metadata["bytes"]) for metadata in persisted_artifacts.values()
+        )
+        revealed_in_memory_count: int | str = (
+            32
+            if post_reveal_persistence_started
+            else 0
+            if not predictions_frozen or pre_reveal_resource_failure
+            else "unknown-after-prediction-freeze"
+        )
         run.append_stderr(f"{type(exc).__name__}: {exc}\n")
         finalized = run.finalize(
             metrics={
@@ -5484,8 +5565,25 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
                 "unknown_target_key_bits": 256,
                 "protocol_freeze_persisted": protocol_frozen,
                 "prediction_set_persisted": predictions_frozen,
+                "generated_target_count": generated_target_count,
+                "revealed_in_memory_count": revealed_in_memory_count,
+                "persisted_reveal_count": persisted_reveal_count,
+                "post_reveal_persistence_started": post_reveal_persistence_started,
+                "post_reveal_artifacts_persisted": (
+                    post_reveal_artifacts_persisted
+                ),
+                "persisted_post_reveal_artifact_count": (
+                    persisted_post_reveal_artifact_count
+                ),
+                "actually_persisted_artifact_bytes": (
+                    actually_persisted_artifact_bytes
+                ),
                 "fresh_target_state": (
-                    "possibly-generated-after-protocol-freeze"
+                    "generated-32-predictions-frozen-zero-reveals"
+                    if pre_reveal_resource_failure
+                    else "generated-32-revealed-32-truth-persistence-started"
+                    if post_reveal_persistence_started
+                    else "possibly-generated-after-protocol-freeze"
                     if protocol_frozen
                     else "not-generated-before-protocol-freeze"
                 ),
@@ -5499,7 +5597,7 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
             },
             status="failed",
             next_action=(
-                "Preserve the failed O1C-0015 capsule, fix the exact protocol, "
+                f"Preserve the failed {attempt_id} capsule, fix the exact protocol, "
                 "source, reader, native, or budget invariant under a new attempt "
                 "ID, and never replay any sealed target from this attempt."
             ),
@@ -5553,6 +5651,8 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
                 "end_to_end_process_peak_rss_mib": process_peak_rss_mib,
                 "fresh_target_count": metrics.get("fresh_random_targets"),
                 "fresh_targets_revealed": True,
+                "capsule_status": "failed" if outcome_failed else "completed",
+                "failure_reasons": metrics.get("failure_reasons"),
                 "primary_h96_exact_o1c0013_bytes": True,
                 "source_build_cal_reader_reconstructions": 3,
                 "target_reader_refits": 0,
@@ -5562,7 +5662,7 @@ def _full256_polyphase_replication(args: argparse.Namespace) -> int:
             sort_keys=True,
         )
     )
-    return 0
+    return 1 if outcome_failed else 0
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -5771,7 +5871,30 @@ def build_parser() -> argparse.ArgumentParser:
         type=Path,
         default=root / "configs/full256_polyphase_replication_v1.json",
     )
-    polyphase_replication.set_defaults(handler=_full256_polyphase_replication)
+    polyphase_replication.set_defaults(
+        handler=_full256_polyphase_replication,
+        polyphase_canonical_config="full256_polyphase_replication_v1.json",
+        polyphase_attempt_id="O1C-0015",
+        polyphase_command_name="full256-polyphase-replication",
+    )
+    polyphase_replication_v2 = subparsers.add_parser(
+        "full256-polyphase-replication-v2",
+        help=(
+            "repeat the frozen h96+h65 polyphase reader on 32 fresh full-256 "
+            "targets under corrected resource ceilings"
+        ),
+    )
+    polyphase_replication_v2.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/full256_polyphase_replication_v2.json",
+    )
+    polyphase_replication_v2.set_defaults(
+        handler=_full256_polyphase_replication,
+        polyphase_canonical_config="full256_polyphase_replication_v2.json",
+        polyphase_attempt_id="O1C-0016",
+        polyphase_command_name="full256-polyphase-replication-v2",
+    )
     return parser
 
 

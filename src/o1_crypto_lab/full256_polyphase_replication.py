@@ -1,4 +1,4 @@
-"""O1C-0015 exact-byte polyphase replication on fresh full-256 keys."""
+"""Exact-byte polyphase replication on fresh full-256 keys."""
 
 from __future__ import annotations
 
@@ -80,7 +80,7 @@ ENSEMBLE_WEIGHTS = (0.5, 0.5)
 
 
 class Full256PolyphaseReplicationError(ValueError):
-    """The O1C-0015 polyphase protocol or lifecycle differs."""
+    """The polyphase protocol or lifecycle differs."""
 
 
 def _strict_mapping(
@@ -524,6 +524,7 @@ class ReplicationDecisionConfig:
 
 @dataclass(frozen=True)
 class Full256PolyphaseReplicationConfig:
+    attempt_id: str
     source: PolyphaseCalibrationSource
     design_lineage: DesignLineageSource
     native: NativeDependencyConfig
@@ -584,7 +585,10 @@ def load_full256_polyphase_replication_config(
         "next_action",
     ):
         _string(row[field], f"config.{field}")
-    if row["attempt_id"] != "O1C-0015" or row["claim_level"] != "VALIDATION":
+    if (
+        row["attempt_id"] not in {"O1C-0015", "O1C-0016"}
+        or row["claim_level"] != "VALIDATION"
+    ):
         raise Full256PolyphaseReplicationError("polyphase attempt identity differs")
     control_descriptions = row["controls"]
     if (
@@ -597,6 +601,7 @@ def load_full256_polyphase_replication_config(
         raise Full256PolyphaseReplicationError("config.state_plan differs")
     try:
         config = Full256PolyphaseReplicationConfig(
+            attempt_id=str(row["attempt_id"]),
             source=PolyphaseCalibrationSource.from_mapping(row["source"]),
             design_lineage=DesignLineageSource.from_mapping(row["design_lineage"]),
             native=NativeDependencyConfig.from_mapping(row["native"]),
@@ -625,11 +630,11 @@ def load_full256_polyphase_replication_config(
         ) from exc
     if config.corpus.sealed_targets != TARGET_COUNT:
         raise Full256PolyphaseReplicationError(
-            "O1C-0015 requires exactly 32 sealed targets"
+            "polyphase replication requires exactly 32 sealed targets"
         )
     if config.controls.transforms != ALLOWED_CONTROLS:
         raise Full256PolyphaseReplicationError(
-            "O1C-0015 requires its exact three target controls"
+            "polyphase replication requires its exact three target controls"
         )
     if (
         config.decision.directional_minimum_positive_targets
@@ -638,7 +643,9 @@ def load_full256_polyphase_replication_config(
         or config.decision.strong_z_threshold != DECISION_THRESHOLD
         or not config.decision.strong_requires_positive_leave_one_out_minimum
     ):
-        raise Full256PolyphaseReplicationError("O1C-0015 decision thresholds differ")
+        raise Full256PolyphaseReplicationError(
+            "polyphase replication decision thresholds differ"
+        )
     if config.state_plan.serialized_state_bytes > config.maximum_state_bytes:
         raise Full256PolyphaseReplicationError(
             "causal state exceeds maximum_state_bytes"
@@ -677,7 +684,7 @@ def load_full256_polyphase_replication_config(
         or config.reader.ensemble_weights != ENSEMBLE_WEIGHTS
     ):
         raise Full256PolyphaseReplicationError(
-            "O1C-0015 reconstruction and ensemble freeze differs"
+            "polyphase reconstruction and ensemble freeze differs"
         )
     return dict(row), config
 
@@ -1283,6 +1290,7 @@ def run_full256_polyphase_replication(
     on_predictions_frozen: FreezeCallback,
     sealed_entropy_source: Callable[[int], bytes] = os.urandom,
     sealed_entropy_source_id: str = "os.urandom",
+    attempt_id: str | None = None,
 ) -> Full256PolyphaseReplicationResult:
     """Freeze an O1C-0013 h96+h65 ensemble and attack 32 fresh targets."""
 
@@ -1294,6 +1302,16 @@ def run_full256_polyphase_replication(
         raise TypeError("sealed_entropy_source must be callable")
     if not isinstance(sealed_entropy_source_id, str) or not sealed_entropy_source_id:
         raise Full256PolyphaseReplicationError("entropy source id is required")
+    if attempt_id is None:
+        attempt_id = config.attempt_id
+    if (
+        attempt_id not in {"O1C-0015", "O1C-0016"}
+        or attempt_id != config.attempt_id
+    ):
+        raise Full256PolyphaseReplicationError(
+            "polyphase runtime attempt identity differs from loaded config"
+        )
+    attempt_token = attempt_id.lower().replace("-", "")
 
     fresh_target_entropy_calls = 0
 
@@ -1458,7 +1476,7 @@ def run_full256_polyphase_replication(
     protocol_unsigned = {
         "schema": PROTOCOL_FREEZE_SCHEMA,
         "phase": "FROZEN_PROTOCOL_VERIFIED_BEFORE_FRESH_TARGET_ENTROPY",
-        "attempt_id": "O1C-0015",
+        "attempt_id": attempt_id,
         "unknown_target_key_bits": KEY_BITS,
         "reader_source_capsule": config.source.capsule,
         "reader_source_manifest_sha256": config.source.manifest_sha256,
@@ -1526,7 +1544,7 @@ def run_full256_polyphase_replication(
             block_count=1,
             entropy_source=counted_entropy,
             entropy_source_id=sealed_entropy_source_id,
-            target_id=f"o1c0015-replication-{index:04d}",
+            target_id=f"{attempt_token}-replication-{index:04d}",
         )
         publication = broker.publish()
         public = public_view_from_publication(publication)
@@ -1849,6 +1867,95 @@ def run_full256_polyphase_replication(
             }
         )
 
+    def resource_accounting_snapshot() -> dict[str, object]:
+        children_current = resource.getrusage(resource.RUSAGE_CHILDREN)
+        process_child_cpu_seconds = max(
+            0.0,
+            (children_current.ru_utime + children_current.ru_stime)
+            - (children_started.ru_utime + children_started.ru_stime),
+        )
+        parent_cpu_seconds = time.process_time() - parent_cpu_started
+        native_cpu_seconds = math.fsum(
+            float(row["native_cpu_seconds"]) for row in resource_rows
+        )
+        process_peak_rss_bytes = _peak_rss_bytes()
+        native_peak_rss_bytes = max(
+            (int(row["native_peak_rss_bytes"]) for row in resource_rows), default=0
+        )
+        conservative_core_peak = max(
+            (
+                int(row["conservative_process_group_peak_rss_bytes"])
+                for row in resource_rows
+            ),
+            default=process_peak_rss_bytes,
+        )
+        conservative_process_group_peak = max(
+            conservative_core_peak,
+            process_peak_rss_bytes + 2 * native_peak_rss_bytes,
+        )
+        branches_per_sweep = 2 * KEY_BITS + 2 * config.probe.sentinel_reruns_per_sweep
+        return {
+            "parent_cpu_seconds": parent_cpu_seconds,
+            "process_child_cpu_seconds": process_child_cpu_seconds,
+            "native_cpu_seconds": native_cpu_seconds,
+            "budgeted_cpu_seconds": parent_cpu_seconds
+            + max(native_cpu_seconds, process_child_cpu_seconds),
+            "wall_seconds": time.monotonic() - wall_started,
+            "process_peak_rss_bytes": process_peak_rss_bytes,
+            "native_peak_rss_bytes": native_peak_rss_bytes,
+            "conservative_process_group_peak_rss_bytes": (
+                conservative_process_group_peak
+            ),
+            "peak_rss_bytes": conservative_process_group_peak,
+            "rss_accounting": (
+                "maximum of sequential probe-core conservative peaks and current "
+                "Python peak plus one native parent and child"
+            ),
+            "sweep_attempts": sweep_attempts,
+            "native_solver_branches": sweep_attempts * branches_per_sweep,
+            "native_solver_branches_accounting": (
+                "conservative billed upper bound; early-resolved controls are "
+                "charged one complete 512-branch sweep"
+            ),
+            "fresh_random_targets": config.corpus.sealed_targets,
+            "fresh_target_entropy_calls": fresh_target_entropy_calls,
+            "target_controls_executed": sum(
+                row["status"] == "prediction-frozen" for row in control_rows
+            ),
+            "target_controls_resolved_early": sum(
+                row["status"] == "relation-resolved-before-frozen-horizon"
+                for row in control_rows
+            ),
+            "reader_refits": 0,
+            "reader_hyperparameter_changes": 0,
+            "source_build_cal_reader_reconstructions": 3,
+            "sibling_reads": 0,
+            "sibling_writes": 0,
+            "mps_calls": 0,
+            "gpu_calls": 0,
+        }
+
+    def resource_budget_gates(resources: Mapping[str, object]) -> dict[str, bool]:
+        return {
+            "cpu_under_budget": float(resources["budgeted_cpu_seconds"])
+            <= config.budgets.maximum_cpu_seconds,
+            "wall_under_budget": float(resources["wall_seconds"])
+            <= config.budgets.maximum_wall_seconds,
+            "resident_memory_under_budget": int(resources["peak_rss_bytes"])
+            <= config.budgets.maximum_resident_memory_mib * 1024 * 1024,
+            "native_branches_under_budget": int(resources["native_solver_branches"])
+            <= config.budgets.maximum_native_solver_branches,
+            "fresh_targets_under_budget": config.corpus.sealed_targets
+            <= config.budgets.maximum_fresh_random_targets,
+            "zero_sibling_reads": 0 <= config.budgets.maximum_sibling_reads,
+            "zero_sibling_writes": 0 <= config.budgets.maximum_sibling_writes,
+            "zero_mps_calls": 0 <= config.budgets.maximum_mps_calls,
+            "zero_gpu_calls": 0 <= config.budgets.maximum_gpu_calls,
+            "persistent_artifacts_under_budget": True,
+        }
+
+    pre_reveal_resources = resource_accounting_snapshot()
+    pre_reveal_resource_gates = resource_budget_gates(pre_reveal_resources)
     prediction_set_rows = [
         {
             "target_id": row["publication"]["target_id"],
@@ -1873,6 +1980,8 @@ def run_full256_polyphase_replication(
             }
             for row in control_rows
         ],
+        "pre_reveal_resources": pre_reveal_resources,
+        "pre_reveal_resource_gates": pre_reveal_resource_gates,
         "artifacts": _artifact_inventory(prediction_freeze_artifacts),
     }
     prediction_set_document = {
@@ -1887,6 +1996,26 @@ def run_full256_polyphase_replication(
         prediction_set_document,
     )
     predictions_frozen_at = time.monotonic()
+    post_persistence_pre_reveal_resources = resource_accounting_snapshot()
+    post_persistence_pre_reveal_gates = resource_budget_gates(
+        post_persistence_pre_reveal_resources
+    )
+    if not all(post_persistence_pre_reveal_gates.values()):
+        failed = sorted(
+            name
+            for name, passed in post_persistence_pre_reveal_gates.items()
+            if not passed
+        )
+        raise Full256PolyphaseReplicationError(
+            "pre-reveal polyphase resource budget exceeded: "
+            + ", ".join(failed)
+            + "; cpu_seconds="
+            + f"{float(post_persistence_pre_reveal_resources['budgeted_cpu_seconds']):.6f}"
+            + "; wall_seconds="
+            + f"{float(post_persistence_pre_reveal_resources['wall_seconds']):.6f}"
+            + "; peak_rss_bytes="
+            + str(post_persistence_pre_reveal_resources["peak_rss_bytes"])
+        )
     reveal_started_at = time.monotonic()
 
     receipts: list[dict[str, object]] = []
@@ -2196,37 +2325,6 @@ def run_full256_polyphase_replication(
     final_artifacts["sealed_reveals.json"] = canonical_json_bytes(reveals)
 
     final_source_hashes = bundle.hashes()
-    children_finished = resource.getrusage(resource.RUSAGE_CHILDREN)
-    process_child_cpu_seconds = max(
-        0.0,
-        (children_finished.ru_utime + children_finished.ru_stime)
-        - (children_started.ru_utime + children_started.ru_stime),
-    )
-    parent_cpu_seconds = time.process_time() - parent_cpu_started
-    native_cpu_seconds = math.fsum(
-        float(row["native_cpu_seconds"]) for row in resource_rows
-    )
-    budgeted_cpu_seconds = parent_cpu_seconds + max(
-        native_cpu_seconds, process_child_cpu_seconds
-    )
-    wall_seconds = time.monotonic() - wall_started
-    process_peak_rss_bytes = _peak_rss_bytes()
-    native_peak_rss_bytes = max(
-        (int(row["native_peak_rss_bytes"]) for row in resource_rows), default=0
-    )
-    conservative_core_peak = max(
-        (
-            int(row["conservative_process_group_peak_rss_bytes"])
-            for row in resource_rows
-        ),
-        default=process_peak_rss_bytes,
-    )
-    conservative_process_group_peak = max(
-        conservative_core_peak,
-        process_peak_rss_bytes + 2 * native_peak_rss_bytes,
-    )
-    branches_per_sweep = 2 * KEY_BITS + 2 * config.probe.sentinel_reruns_per_sweep
-    native_solver_branches = sweep_attempts * branches_per_sweep
     artifact_names = (
         list(reader_freeze_artifacts)
         + list(prediction_freeze_artifacts)
@@ -2246,65 +2344,14 @@ def run_full256_polyphase_replication(
         )
         for payload in group.values()
     )
-    resources: dict[str, object] = {
-        "parent_cpu_seconds": parent_cpu_seconds,
-        "process_child_cpu_seconds": process_child_cpu_seconds,
-        "native_cpu_seconds": native_cpu_seconds,
-        "budgeted_cpu_seconds": budgeted_cpu_seconds,
-        "wall_seconds": wall_seconds,
-        "process_peak_rss_bytes": process_peak_rss_bytes,
-        "native_peak_rss_bytes": native_peak_rss_bytes,
-        "conservative_process_group_peak_rss_bytes": (conservative_process_group_peak),
-        "peak_rss_bytes": conservative_process_group_peak,
-        "rss_accounting": (
-            "maximum of sequential probe-core conservative peaks and current "
-            "Python peak plus one native parent and child"
-        ),
-        "sweep_attempts": sweep_attempts,
-        "native_solver_branches": native_solver_branches,
-        "native_solver_branches_accounting": (
-            "conservative billed upper bound; early-resolved controls are charged "
-            "one complete 512-branch sweep"
-        ),
-        "fresh_random_targets": config.corpus.sealed_targets,
-        "fresh_target_entropy_calls": fresh_target_entropy_calls,
-        "target_controls_executed": sum(
-            row["status"] == "prediction-frozen" for row in control_rows
-        ),
-        "target_controls_resolved_early": sum(
-            row["status"] == "relation-resolved-before-frozen-horizon"
-            for row in control_rows
-        ),
-        "reader_refits": 0,
-        "reader_hyperparameter_changes": 0,
-        "source_build_cal_reader_reconstructions": 3,
-        "sibling_reads": 0,
-        "sibling_writes": 0,
-        "mps_calls": 0,
-        "gpu_calls": 0,
-        "persistent_artifact_bytes_without_result_report": persistent_without_report,
-        "persistent_artifact_bytes": 0,
-    }
-    resource_gates = {
-        "cpu_under_budget": budgeted_cpu_seconds <= config.budgets.maximum_cpu_seconds,
-        "wall_under_budget": wall_seconds <= config.budgets.maximum_wall_seconds,
-        "resident_memory_under_budget": conservative_process_group_peak
-        <= config.budgets.maximum_resident_memory_mib * 1024 * 1024,
-        "native_branches_under_budget": native_solver_branches
-        <= config.budgets.maximum_native_solver_branches,
-        "fresh_targets_under_budget": config.corpus.sealed_targets
-        <= config.budgets.maximum_fresh_random_targets,
-        "zero_sibling_reads": 0 <= config.budgets.maximum_sibling_reads,
-        "zero_sibling_writes": 0 <= config.budgets.maximum_sibling_writes,
-        "zero_mps_calls": 0 <= config.budgets.maximum_mps_calls,
-        "zero_gpu_calls": 0 <= config.budgets.maximum_gpu_calls,
-        "persistent_artifacts_under_budget": True,
-    }
-    if not all(resource_gates.values()):
-        failed = sorted(name for name, passed in resource_gates.items() if not passed)
-        raise Full256PolyphaseReplicationError(
-            "polyphase resource budget exceeded: " + ", ".join(failed)
-        )
+    resources = resource_accounting_snapshot()
+    resources.update(
+        {
+            "persistent_artifact_bytes_without_result_report": persistent_without_report,
+            "persistent_artifact_bytes": 0,
+        }
+    )
+    resource_gates = resource_budget_gates(resources)
 
     swap_gates = all(
         row["freeze"]["assumption_swap_scores_negate"]
@@ -2460,11 +2507,6 @@ def run_full256_polyphase_replication(
     else:
         raise Full256PolyphaseReplicationError(
             "persistent artifact accounting did not reach a fixed point"
-        )
-    if not all(resource_gates.values()):
-        failed = sorted(name for name, passed in resource_gates.items() if not passed)
-        raise Full256PolyphaseReplicationError(
-            "polyphase resource budget exceeded: " + ", ".join(failed)
         )
     final_artifacts["full256_polyphase_replication.json"] = report_payload
     actual_persistent_bytes = sum(

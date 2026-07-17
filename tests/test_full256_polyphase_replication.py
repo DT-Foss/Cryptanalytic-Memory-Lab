@@ -30,6 +30,8 @@ from o1_crypto_lab.living_inverse import KEY_BITS, PublicTargetView
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "configs/full256_polyphase_replication_v1.json"
+CONFIG_V2 = ROOT / "configs/full256_polyphase_replication_v2.json"
+CONFIG_V1_SHA256 = "5084c24909cc344cb37587b3eb544f107ce3676b40fdbbb72f9df2643cc470c7"
 
 PRIMARY_H96_SHA256 = "796e79ec932b990a59ecbc34216c4878b9279bae3bb136fe0832e580bcb2e9f8"
 PRIMARY_H65_SHA256 = "b7dd365753bf2ca131c2c263f3c04e5e644d9d438feaf17a5a313790dcf8409d"
@@ -51,10 +53,16 @@ def _canonical_config():
 
 
 class Full256PolyphaseReplicationConfigTests(unittest.TestCase):
+    def test_v1_config_remains_byte_identical(self) -> None:
+        self.assertEqual(
+            hashlib.sha256(CONFIG.read_bytes()).hexdigest(), CONFIG_V1_SHA256
+        )
+
     def test_canonical_config_freezes_the_exact_32_target_operator(self) -> None:
         raw, config = _canonical_config()
 
         self.assertEqual(raw["attempt_id"], "O1C-0015")
+        self.assertEqual(config.attempt_id, "O1C-0015")
         self.assertEqual(config.corpus.sealed_targets, 32)
         self.assertEqual(config.reader.arms, ("horizon_1", "horizon_2"))
         self.assertEqual(config.reader.ensemble_weights, (0.5, 0.5))
@@ -72,6 +80,80 @@ class Full256PolyphaseReplicationConfigTests(unittest.TestCase):
             tuple(config.controls.transforms),
             ("output_bit_flip", "wrong_nonce", "output_byte_rotate"),
         )
+
+    def test_v2_changes_only_attempt_slug_and_three_soft_resource_ceilings(
+        self,
+    ) -> None:
+        raw_v1, config_v1 = load_full256_polyphase_replication_config(CONFIG)
+        raw_v2, config_v2 = load_full256_polyphase_replication_config(CONFIG_V2)
+
+        self.assertEqual(raw_v2["attempt_id"], "O1C-0016")
+        self.assertEqual(config_v2.attempt_id, "O1C-0016")
+        self.assertEqual(raw_v2["slug"], "full256-polyphase-blind-replication-v2")
+        self.assertEqual(config_v2.budgets.maximum_cpu_seconds, 3_000)
+        self.assertEqual(config_v2.budgets.maximum_wall_seconds, 3_000)
+        self.assertEqual(config_v2.budgets.maximum_resident_memory_mib, 768)
+
+        allowed_differences = {
+            ("attempt_id",),
+            ("slug",),
+            ("budgets", "maximum_cpu_seconds"),
+            ("budgets", "maximum_wall_seconds"),
+            ("budgets", "maximum_resident_memory_mib"),
+            ("controls",),
+            ("next_action",),
+        }
+
+        def differing_paths(left, right, prefix=()):
+            if isinstance(left, dict) and isinstance(right, dict):
+                paths = set()
+                for key in left.keys() | right.keys():
+                    if key not in left or key not in right:
+                        paths.add((*prefix, key))
+                    else:
+                        paths.update(
+                            differing_paths(left[key], right[key], (*prefix, key))
+                        )
+                return paths
+            return {prefix} if left != right else set()
+
+        self.assertEqual(differing_paths(raw_v1, raw_v2), allowed_differences)
+        self.assertEqual(config_v1.corpus, config_v2.corpus)
+        self.assertEqual(raw_v1["controls"], raw_v2["controls"][:-1])
+        self.assertIn(
+            "326bc30a1499f6479d306df43b17ec390c020832bb5d1816fa8ab9f7f9660314",
+            raw_v2["controls"][-1],
+        )
+        self.assertIn("runtime-only provenance", raw_v2["controls"][-1])
+        self.assertIn("no O1C-0015 public views", raw_v2["controls"][-1])
+        self.assertIn(
+            "Never reuse any revealed O1C-0015 or O1C-0016 target",
+            raw_v2["next_action"],
+        )
+        self.assertEqual(config_v1.reader, config_v2.reader)
+        self.assertEqual(config_v1.controls, config_v2.controls)
+        self.assertEqual(config_v1.decision, config_v2.decision)
+        self.assertEqual(config_v1.state_plan, config_v2.state_plan)
+        self.assertEqual(config_v1.source, config_v2.source)
+        self.assertEqual(config_v1.design_lineage, config_v2.design_lineage)
+        self.assertEqual(config_v1.maximum_state_bytes, config_v2.maximum_state_bytes)
+        self.assertEqual(
+            config_v1.maximum_live_target_state_bytes,
+            config_v2.maximum_live_target_state_bytes,
+        )
+        for field in (
+            "maximum_persistent_artifact_bytes",
+            "maximum_native_solver_branches",
+            "maximum_mps_calls",
+            "maximum_gpu_calls",
+            "maximum_sibling_reads",
+            "maximum_sibling_writes",
+            "maximum_fresh_random_targets",
+        ):
+            self.assertEqual(
+                getattr(config_v1.budgets, field),
+                getattr(config_v2.budgets, field),
+            )
 
     def test_reader_pins_and_o1c0014_lineage_boundary_are_explicit(self) -> None:
         raw, config = _canonical_config()
@@ -370,9 +452,34 @@ class Full256PolyphaseReplicationOrchestrationTests(unittest.TestCase):
             b"o1c0015-test-sealed-target\0" + index.to_bytes(4, "little")
         ).digest(ENTROPY_BYTES)
 
-    def _run(self):
-        _raw, config = _canonical_config()
+    def _run(
+        self,
+        *,
+        maximum_cpu_seconds: float | None = None,
+        maximum_persistent_artifact_bytes: int | None = None,
+        attempt_id: str = "O1C-0015",
+    ):
+        config_path = CONFIG_V2 if attempt_id == "O1C-0016" else CONFIG
+        _raw, config = load_full256_polyphase_replication_config(config_path)
         config = replace(config, reader=replace(config.reader, decoy_count=7))
+        if maximum_cpu_seconds is not None:
+            config = replace(
+                config,
+                budgets=replace(
+                    config.budgets,
+                    maximum_cpu_seconds=maximum_cpu_seconds,
+                ),
+            )
+        if maximum_persistent_artifact_bytes is not None:
+            config = replace(
+                config,
+                budgets=replace(
+                    config.budgets,
+                    maximum_persistent_artifact_bytes=(
+                        maximum_persistent_artifact_bytes
+                    ),
+                ),
+            )
         self.run_index += 1
         workspace = self.workspace_root / f"workspace-{self.run_index}"
         events: list[str] = []
@@ -397,6 +504,7 @@ class Full256PolyphaseReplicationOrchestrationTests(unittest.TestCase):
                 "FROZEN_PROTOCOL_VERIFIED_BEFORE_FRESH_TARGET_ENTROPY",
             )
             self.assertEqual(document["fresh_target_entropy_calls"], 0)
+            self.assertEqual(document["attempt_id"], attempt_id)
             self.assertEqual(document["ensemble_logit_weights"], [0.5, 0.5])
             for name in (
                 "source/o1c0013_h96_exact.bin",
@@ -414,6 +522,14 @@ class Full256PolyphaseReplicationOrchestrationTests(unittest.TestCase):
             self.assertNotIn("reveal", events)
             self.assertEqual(
                 document["phase"], "ALL_PREDICTIONS_FROZEN_BEFORE_ANY_REVEAL"
+            )
+            self.assertEqual(document["pre_reveal_resources"]["sweep_attempts"], 35)
+            self.assertEqual(
+                document["pre_reveal_resources"]["native_solver_branches"], 17_920
+            )
+            self.assertEqual(
+                document["pre_reveal_resource_gates"]["native_branches_under_budget"],
+                True,
             )
             prediction_artifacts.update(artifacts)
             publication_names = sorted(
@@ -473,6 +589,7 @@ class Full256PolyphaseReplicationOrchestrationTests(unittest.TestCase):
             events.append("reveal")
             return original_reveal(broker, receipt)
 
+        self.last_events = events
         monotonic = itertools.count(10)
         usage = SimpleNamespace(ru_utime=0.0, ru_stime=0.0)
         with (
@@ -500,7 +617,11 @@ class Full256PolyphaseReplicationOrchestrationTests(unittest.TestCase):
                 "monotonic",
                 side_effect=lambda: float(next(monotonic)),
             ),
-            patch.object(replication.time, "process_time", side_effect=(2.0, 3.0)),
+            patch.object(
+                replication.time,
+                "process_time",
+                side_effect=(2.0, 2.25, 2.5, 3.0),
+            ),
             patch.object(replication.resource, "getrusage", return_value=usage),
             patch.object(replication, "_peak_rss_bytes", return_value=4_096),
             patch.object(Full256TargetBroker, "reveal", new=tracked_reveal),
@@ -513,8 +634,57 @@ class Full256PolyphaseReplicationOrchestrationTests(unittest.TestCase):
                 on_predictions_frozen=on_predictions_frozen,
                 sealed_entropy_source=entropy_source,
                 sealed_entropy_source_id="test.deterministic-v1",
+                attempt_id=attempt_id,
             )
         return result, events, entropy_payloads, prediction_artifacts
+
+    def test_attempt_identity_propagates_into_protocol_and_target_ids(self) -> None:
+        result, _events, _entropy, _artifacts = self._run(attempt_id="O1C-0016")
+
+        self.assertEqual(result.report["protocol_freeze"]["attempt_id"], "O1C-0016")
+        self.assertTrue(
+            all(
+                row["target_id"].startswith("o1c0016-replication-")
+                for row in result.report["sealed_evaluation"]["per_target"]
+            )
+        )
+
+    def test_runtime_attempt_cannot_differ_from_loaded_config(self) -> None:
+        _raw, config = _canonical_config()
+
+        with self.assertRaisesRegex(
+            Full256PolyphaseReplicationError,
+            "runtime attempt identity differs from loaded config",
+        ):
+            run_full256_polyphase_replication(
+                config,
+                lab_root=ROOT,
+                working_directory=self.workspace_root / "identity-mismatch-work",
+                on_protocol_frozen=lambda *_args: None,
+                on_predictions_frozen=lambda *_args: None,
+                attempt_id="O1C-0016",
+            )
+
+    def test_resource_failure_after_prediction_persistence_never_reveals(self) -> None:
+        with self.assertRaisesRegex(
+            Full256PolyphaseReplicationError,
+            "pre-reveal polyphase resource budget exceeded",
+        ):
+            self._run(maximum_cpu_seconds=0.1)
+
+        self.assertIn("predictions-freeze", self.last_events)
+        self.assertNotIn("reveal", self.last_events)
+
+    def test_post_reveal_budget_failure_returns_complete_truth_artifacts(self) -> None:
+        result, events, _entropy, _artifacts = self._run(
+            maximum_persistent_artifact_bytes=1
+        )
+
+        self.assertEqual(events.count("reveal"), 32)
+        self.assertFalse(result.success_gate_passed)
+        self.assertFalse(result.report["gates"]["persistent_artifacts_under_budget"])
+        self.assertIn("sealed_reveals.json", result.final_artifacts)
+        self.assertIn("sealed_evaluation.json", result.final_artifacts)
 
     def test_exact_frozen_lifecycle_counts_and_output_only_boundary(self) -> None:
         result, events, entropy_payloads, artifacts = self._run()

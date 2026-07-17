@@ -27,6 +27,7 @@ FULL256_FROZEN_READER_CONFIG = (
     ROOT / "configs/full256_frozen_reader_replication_v1.json"
 )
 FULL256_POLYPHASE_CONFIG = ROOT / "configs/full256_polyphase_replication_v1.json"
+FULL256_POLYPHASE_CONFIG_V2 = ROOT / "configs/full256_polyphase_replication_v2.json"
 O1C0009_MANIFEST = "f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2"
 
 
@@ -841,6 +842,26 @@ class Full256PolyphaseReplicationCLITests(unittest.TestCase):
                     path.write_bytes(payload)
                     return path
 
+                def finalize(self, *, metrics, status="completed", next_action=None):
+                    events.append(
+                        (
+                            "finalize_metrics",
+                            metrics.get("sealed_target_reveals"),
+                            metrics.get("cpu_seconds"),
+                            metrics.get("wall_seconds"),
+                            metrics.get("peak_rss_mib"),
+                            metrics.get("outcome_failed"),
+                            metrics.get("budget_checks", {}).get(
+                                "persistent_artifacts"
+                            ),
+                            metrics.get("persisted_reveal_count"),
+                            metrics.get("post_reveal_artifacts_persisted"),
+                        )
+                    )
+                    return super().finalize(
+                        metrics=metrics, status=status, next_action=next_action
+                    )
+
             run = RecordingRun(events)
 
             class Manager:
@@ -927,7 +948,7 @@ class Full256PolyphaseReplicationCLITests(unittest.TestCase):
                     maximum_cpu_seconds=1600,
                     maximum_wall_seconds=1400,
                     maximum_resident_memory_mib=384,
-                    maximum_persistent_artifact_bytes=24_000_000,
+                    maximum_persistent_artifact_bytes=5_000,
                     maximum_native_solver_branches=17_920,
                     maximum_fresh_random_targets=32,
                     maximum_sibling_reads=0,
@@ -956,17 +977,18 @@ class Full256PolyphaseReplicationCLITests(unittest.TestCase):
                 events.append(("load", path))
                 return top_level, replication_config
 
-            def fail_after_freezes(*args, **kwargs):
+            def return_failed_gate_after_reveal(*args, **kwargs):
                 events.append(("polyphase", "entered"))
+                events.append(("attempt_id", kwargs["attempt_id"]))
                 protocol = {
                     "phase": "FROZEN_PROTOCOL_VERIFIED_BEFORE_FRESH_TARGET_ENTROPY",
                     "fresh_target_entropy_calls": 0,
                     "protocol_freeze_sha256": "1" * 64,
                     "reader_freeze_sha256": "2" * 64,
                 }
+                protocol_payload = json.dumps(protocol).encode()
                 kwargs["on_protocol_frozen"](
-                    {"protocol_freeze.json": json.dumps(protocol).encode()},
-                    protocol,
+                    {"protocol_freeze.json": protocol_payload}, protocol
                 )
                 events.append(("entropy", "first-sealed-target"))
                 predictions = {
@@ -975,15 +997,71 @@ class Full256PolyphaseReplicationCLITests(unittest.TestCase):
                     "prediction_set_sha256": "3" * 64,
                     "sealed_targets": [f"target-{index:04d}" for index in range(32)],
                 }
+                predictions_payload = json.dumps(predictions).encode()
                 kwargs["on_predictions_frozen"](
-                    {"prediction_set_freeze.json": json.dumps(predictions).encode()},
-                    predictions,
+                    {"prediction_set_freeze.json": predictions_payload}, predictions
                 )
                 events.append(("reveal", "first-sealed-target"))
-                raise RuntimeError("synthetic polyphase failure")
+                final_payload = b'{"complete":true}' + b" " * 8_192 + b"\n"
+                final_artifacts = {
+                    "full256_polyphase_replication.json": final_payload,
+                    **{
+                        f"sealed/target-{index:04d}/reveal.json": b"{}"
+                        for index in range(32)
+                    },
+                }
+                persistent_bytes = (
+                    len(protocol_payload)
+                    + len(predictions_payload)
+                    + sum(len(payload) for payload in final_artifacts.values())
+                )
+                module_metrics = {
+                    "schema": "o1-256-polyphase-replication-metrics-v1",
+                    "success_gate_passed": False,
+                    "sealed_compression_bits_per_key": 0.125,
+                    "sealed_correct_bits": 4_112,
+                    "sealed_total_bits": 8_192,
+                    "sealed_exact_keys": 0,
+                    "positive_target_count": 18,
+                    "replication_classification": "DIRECTIONAL",
+                    "architecture_promotion_classification": "DO_NOT_PROMOTE",
+                    "architecture_promotion_passed": False,
+                    "ensemble_minus_h96_conditional_z_score": 0.25,
+                    "conditional_null_z_score": 1.0,
+                    "paired_conditional_null_z_score": 1.0,
+                    "minimum_million_decoy_rank": 10,
+                    "live_target_state_bytes": 67_584,
+                    "native_solver_branches": 17_920,
+                    "cpu_seconds": 10.0,
+                    "wall_seconds": 10.0,
+                    "peak_rss_bytes": 64 * 1024 * 1024,
+                    "persistent_artifact_bytes": persistent_bytes,
+                    "fresh_random_targets": 32,
+                    "sibling_reads": 0,
+                    "sibling_writes": 0,
+                    "mps_calls": 0,
+                    "gpu_calls": 0,
+                }
+                return SimpleNamespace(
+                    success_gate_passed=False,
+                    final_artifacts=final_artifacts,
+                    report={
+                        "result_sha256": "4" * 64,
+                        "resources": {
+                            "native_cpu_seconds": 9.0,
+                            "process_child_cpu_seconds": 9.0,
+                        },
+                        "sealed_evaluation": {
+                            "h96_component": {"compression_bits_per_key": 0.0625}
+                        },
+                    },
+                    metrics=lambda: module_metrics,
+                )
 
             fake_module.load_full256_polyphase_replication_config = load_config
-            fake_module.run_full256_polyphase_replication = fail_after_freezes
+            fake_module.run_full256_polyphase_replication = (
+                return_failed_gate_after_reveal
+            )
             with (
                 patch.dict(
                     sys.modules,
@@ -998,11 +1076,45 @@ class Full256PolyphaseReplicationCLITests(unittest.TestCase):
                     argparse.Namespace(config=config_path)
                 )
 
+            normal_events = list(events)
+            events = []
+            run = RecordingRun(events)
+            clean_checks = 0
+
+            def fail_clean_check_after_result(_root):
+                nonlocal clean_checks
+                clean_checks += 1
+                events.append(("clean-check", clean_checks))
+                if clean_checks == 3:
+                    raise RuntimeError("synthetic post-reveal source drift")
+                return "2" * 40
+
+            with (
+                patch.dict(
+                    sys.modules,
+                    {"o1_crypto_lab.full256_polyphase_replication": fake_module},
+                ),
+                patch.object(cli, "_lab_root", return_value=root),
+                patch.object(cli, "RunCapsuleManager", Manager),
+                patch.object(
+                    cli,
+                    "_clean_git_commit",
+                    side_effect=fail_clean_check_after_result,
+                ),
+                patch("sys.stderr", new=io.StringIO()),
+            ):
+                failure_code = cli._full256_polyphase_replication(
+                    argparse.Namespace(config=config_path)
+                )
+            failure_events = list(events)
+            events = normal_events
+
         names = [event[0] for event in events]
         self.assertEqual(code, 1)
         self.assertLess(names.index("load"), names.index("start"))
         self.assertLess(names.index("start"), names.index("checkpoint"))
         self.assertLess(names.index("checkpoint"), names.index("polyphase"))
+        self.assertIn(("attempt_id", "O1C-0015"), events)
         protocol_checkpoint = events.index(
             ("checkpoint", "POLYPHASE_PROTOCOL_PERSISTED_BEFORE_FRESH_ENTROPY")
         )
@@ -1018,10 +1130,43 @@ class Full256PolyphaseReplicationCLITests(unittest.TestCase):
         self.assertLess(
             prediction_checkpoint, events.index(("reveal", "first-sealed-target"))
         )
+        final_artifact = events.index(
+            ("artifact", "full256_polyphase_replication.json")
+        )
+        reveal_checkpoint = events.index(
+            ("checkpoint", "POLYPHASE_TARGETS_REVEALED_ONCE_AND_RESULT_PERSISTED")
+        )
+        finalize_event = events.index(
+            ("finalize", "failed", "o1-256-polyphase-replication-metrics-v1")
+        )
+        self.assertLess(events.index(("reveal", "first-sealed-target")), final_artifact)
+        self.assertLess(final_artifact, reveal_checkpoint)
+        self.assertLess(reveal_checkpoint, finalize_event)
         self.assertIn(
-            ("finalize", "failed", "o1-256-polyphase-replication-failure-v1"),
+            ("finalize", "failed", "o1-256-polyphase-replication-metrics-v1"),
             events,
         )
+        finalized_metrics = next(
+            event for event in events if event[0] == "finalize_metrics"
+        )
+        self.assertEqual(finalized_metrics[1:4], (32, 10.0, 10.0))
+        self.assertGreaterEqual(finalized_metrics[4], 64.0)
+        self.assertIs(finalized_metrics[5], True)
+        self.assertIs(finalized_metrics[6], False)
+        self.assertEqual(failure_code, 1)
+        failure_report = failure_events.index(
+            ("artifact", "full256_polyphase_replication.json")
+        )
+        failure_source_check = failure_events.index(("clean-check", 3))
+        failure_finalize = failure_events.index(
+            ("finalize", "failed", "o1-256-polyphase-replication-failure-v1")
+        )
+        self.assertLess(failure_report, failure_source_check)
+        self.assertLess(failure_source_check, failure_finalize)
+        failure_metrics = next(
+            event for event in failure_events if event[0] == "finalize_metrics"
+        )
+        self.assertEqual(failure_metrics[7:], (32, True))
 
     def test_recoverable_polyphase_interruption_stops_without_replay(self):
         events = []
@@ -1096,10 +1241,65 @@ class Full256PolyphaseReplicationCLITests(unittest.TestCase):
         args = cli.build_parser().parse_args(["full256-polyphase-replication"])
         self.assertEqual(args.config, FULL256_POLYPHASE_CONFIG)
         self.assertIs(args.handler, cli._full256_polyphase_replication)
+        self.assertEqual(args.polyphase_attempt_id, "O1C-0015")
+        self.assertEqual(
+            args.polyphase_canonical_config,
+            "full256_polyphase_replication_v1.json",
+        )
+        self.assertEqual(
+            args.polyphase_command_name,
+            "full256-polyphase-replication",
+        )
+
+    def test_parser_exposes_budget_corrected_polyphase_command(self):
+        args = cli.build_parser().parse_args(["full256-polyphase-replication-v2"])
+        self.assertEqual(args.config, FULL256_POLYPHASE_CONFIG_V2)
+        self.assertIs(args.handler, cli._full256_polyphase_replication)
+        self.assertEqual(args.polyphase_attempt_id, "O1C-0016")
+        self.assertEqual(
+            args.polyphase_canonical_config,
+            "full256_polyphase_replication_v2.json",
+        )
+        self.assertEqual(
+            args.polyphase_command_name,
+            "full256-polyphase-replication-v2",
+        )
+
+    def test_budget_corrected_cli_rejects_cross_attempt_config_identity(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            config_path = root / "configs/full256_polyphase_replication_v2.json"
+            config_path.parent.mkdir(parents=True)
+            config_path.write_text("{}\n", encoding="utf-8")
+            fake_module = ModuleType("o1_crypto_lab.full256_polyphase_replication")
+            fake_module.load_full256_polyphase_replication_config = lambda _path: (
+                {"attempt_id": "O1C-0015"},
+                SimpleNamespace(),
+            )
+            fake_module.run_full256_polyphase_replication = lambda *_a, **_k: None
+            with (
+                patch.dict(
+                    sys.modules,
+                    {"o1_crypto_lab.full256_polyphase_replication": fake_module},
+                ),
+                patch.object(cli, "_lab_root", return_value=root),
+                self.assertRaisesRegex(RuntimeError, "attempt identity differs"),
+            ):
+                cli._full256_polyphase_replication(
+                    argparse.Namespace(
+                        config=config_path,
+                        polyphase_canonical_config=(
+                            "full256_polyphase_replication_v2.json"
+                        ),
+                        polyphase_attempt_id="O1C-0016",
+                        polyphase_command_name="full256-polyphase-replication-v2",
+                    )
+                )
 
     def test_help_names_polyphase_replication(self):
         help_text = cli.build_parser().format_help()
         self.assertIn("full256-polyphase-replication", help_text)
+        self.assertIn("full256-polyphase-replication-v2", help_text)
         self.assertIn("frozen h96+h65 polyphase reader", help_text)
         self.assertIn("32", help_text)
         self.assertIn("full-256 targets", help_text)
