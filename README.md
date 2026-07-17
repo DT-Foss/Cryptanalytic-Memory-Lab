@@ -37,14 +37,15 @@ The complete attacker contract and architecture are in
 inspected read-only and are summarized in
 [the 2026-07-17 transfer map](research/W52_TRANSFER_20260717.md).
 
-The current immutable mechanism is O1C-0012.  It runs all 512 opposite key-bit
-assumptions against O1C-0011's exact public-only full-256 relation and streams 1,536
-closed proof-prefix frontiers into a deterministic 17,408-byte unary/ARX/
-holographic O1 state.  It retains no transcript or candidate keys and passes exact
-assumption-swap antisymmetry.  Its first uncalibrated W52-weighted known-key readout
-is negative (119/256, -86.779990-bit compression), so O1C-0013 now learns orientation
-and horizon mixing across multiple known full-256 keys before consuming a fresh
-sealed output-only target.
+The current immutable result is O1C-0013.  It learned a shared causal orientation
+from four BUILD and two CAL full-256 proof fields, froze and reloaded the reader,
+then attacked two OS-random sealed keys using only public counter/nonce/output.  It
+obtained 259/512 bits and `+0.0889215` bit/key aggregate compression while its
+shuffled-key reader obtained `-3.217332` bit/key; all three output/nonce controls
+were negative.  This is the first positive prospective breadcrumb, not a recovery
+or SOTA claim: the two target compressions split negative/positive and zero exact
+keys were emitted.  O1C-0014 therefore reuses the exact reader bytes without any
+refit or rescaling on eight new sealed keys.
 
 ## What the first benchmark proves
 

@@ -1,15 +1,15 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T06:57:01+02:00.
+Last ranked: 2026-07-17T08:03:43+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | `O1C-0013`: generate a deterministic multi-key full-256 BUILD/CAL corpus and run each public CNF one at a time through the unchanged O1C-0012 event contract | State of the art | Very high | Very high | Medium | Measures whether the complete paired proof field has reusable cross-key orientation |
-| 2 | Compare frozen h64, h96 and h65 readers with a small regularized learned mixture; keep imported `(7,1,4)` only as a negative control | State of the art | Very high | Very high | Low | Distinguishes a portable wavelength from a wrong fixed orientation without another sensor build |
-| 3 | Train unary/proof-motif/ARX-local/holographic readouts only on BUILD/CAL keys and hash-freeze model bytes, split receipts and controls | State of the art | Very high | High | Medium | Produces the first target-independent full-256 inverse reader over the causal stream |
-| 4 | Consume one fresh broker-sealed standard-ChaCha20 output-only target with assumption-swap, output-permutation/flip, wrong-nonce and ancestry-erasure controls | State of the art | Very high | High | Medium | Converts the h96 breadcrumb into prospective entropy reduction or closes it cleanly |
-| 5 | If transfer is null, localize sign stability by proof motif, horizon and ARX orbit, then let O1-O select the cheapest new event family | State of the art | High | Very high | Medium | Turns a negative panel into a precise causal-sensor iteration instead of another global retune |
-| 6 | Scale Attic retention, adaptive scheduling or MPS only after a cross-key reader removes reproducible entropy under matched CPU work | High | Medium | High | High | Prevents capacity work from outrunning observability and protects the recovery queue |
+| 1 | `O1C-0014`: pin and reload the exact O1C-0013 primary/shuffled reader bytes, then attack eight new sealed output-only full-256 keys with no fit or selection | State of the art | Very high | Very high | Medium | Distinguishes portable causal entropy removal from the two-target seed |
+| 2 | Predeclare total 2,048-bit NLL, conditional-uniform null z, target sign count and primary-minus-shuffled margin; persist all eight predictions before reveal | State of the art | Very high | Very high | Low | Prevents the replication from turning into another target-conditioned sweep |
+| 3 | Reuse output-bit flip, wrong nonce and byte rotation on one anchor under the unchanged reader and exact work accounting | High | High | High | Medium | Tests whether factual public evidence remains directionally distinct on the replication panel |
+| 4 | If O1C-0014 holds, scale the identical bytes to a larger blind panel before adding Attic memory, interaction capacity or a beam | State of the art | Very high | Very high | Medium | Converts a directional seed into a stable full-256 frontier claim |
+| 5 | If O1C-0014 fails, rank frozen target/coordinate residuals by proof motif, horizon and ARX orbit and build exactly one new causal sensor family | State of the art | High | Very high | Medium | Turns the negative into a mechanistically targeted successor without retuning h96 |
+| 6 | Add surprise-driven Attic compounding and O1-O scheduling only after a fixed causal reader removes reproducible entropy under matched CPU work | High | Medium | High | High | Makes long-run learning amplify an observed channel instead of storing noise |
 
 ## Hard target contract
 
@@ -44,6 +44,8 @@ Last ranked: 2026-07-17T06:57:01+02:00.
   reusing its paired solver events;
 - retuning O1C-0012 on the same opened RFC key or reporting h96's 139/256 as a
   transferable signal before cross-key calibration;
+- refitting or rescaling O1C-0013's reader on either revealed sealed key, replaying
+  BUILD/CAL selection inside O1C-0014, or treating two-key compression as SOTA;
 - inventing proof events at exact conflict cutoffs, including billed overshoot in
   the evidence prefix, or discarding the complete sensor because its first fixed
   readout is negative.

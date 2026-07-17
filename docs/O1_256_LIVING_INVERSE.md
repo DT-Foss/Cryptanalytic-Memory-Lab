@@ -50,21 +50,18 @@ without retaining the proposals.
 
 ## Living state
 
-The first architecture budget is deliberately small and fixed in stream length:
+The first implemented causal-reader budget is fixed in stream length:
 
 | State | Shape | Logical bytes | Role |
 |---|---:|---:|---|
-| Unary vault | `256 x {logit, precision, age}` | 2,560 | stable bit posterior |
-| Holographic banks | `8 x 256 complex64` | 16,384 | operator/phase/context residuals |
-| GSSM | `128 float32` | 512 | current stream dynamics |
-| Expert reliability | `4 horizons x 3 experts x 4 float32` | 192 | calibrated B/H/O trust |
-| Active local marginal scratch | `3 x 12 x 2 float64` | 576 | log-sum-exp reduction only |
-| Scheduler/control | fixed | 64 | current operator window |
-| Frozen point scorer | `3 x (16 weights + bias) float32` | 204 | event-to-evidence map |
+| Causal bitfield | unary + ARX + holographic banks | 17,408 | streamed paired-proof evidence |
+| Bounded reader feature bank | `256 x 39 float32` | 39,936 | per-coordinate U3/ARX/motif reduction |
+| Posterior logits | `256 float32` | 1,024 | current 256-bit posterior |
 
-Initial total: **20,492 logical bytes**, independent of the number of streamed
-contrasts.  The external `.causal` attic is disabled in the first experiment.  If
-enabled later, its retained bytes and growth are reported separately.
+Implemented total: **58,368 live logical bytes**, independent of the number of
+streamed contrasts. The 281,764-byte O1C-0013 primary reader is a separately billed
+static model, not live state. The external `.causal` attic is disabled. If enabled
+later, its retained bytes and growth are reported separately.
 
 For a local assignment stream with score `ell(x)`, candidate rows are reduced
 online:
@@ -160,9 +157,13 @@ are a factor-256 domain reduction.  Exact key verification is the terminal signa
 4. `O1C-0011` (completed infrastructure validation): compiled the exact full-256
    public ChaCha20 CNF, 656 x 32 causal bit ranges and opposite-assumption
    instances; fixed-key SAT, flipped-output UNSAT and independent-vector SAT pass.
-5. `O1C-0012`: stream paired propagation/conflict/decision/proof evidence through
-   the 20,492-byte O1 state, add the A465 backbone and A469 local correction, then
-   freeze on known full-width keys before any sealed development target.
-6. Iterate on round/carry/proof observability, operator scheduling and holographic
-   binding until uniform held-out entropy moves; do not retreat to a reduced-width
-   target when a full-256 arm is negative.
+5. `O1C-0012` (completed mechanism): streamed all 512 paired branches into the
+   17,408-byte causal bitfield; the imported fixed W52 orientation was negative.
+6. `O1C-0013` (completed prospective seed): learned shared orientation from four
+   BUILD/two CAL keys, froze h96, then obtained 259/512 bits and `+0.0889215`
+   bit/key on two sealed targets; shuffled and three transformed controls were
+   negative, but the panel is too small for a stable claim.
+7. `O1C-0014`: reload those exact primary/shuffled reader bytes without fitting or
+   selection and attack eight new sealed keys. Use aggregate/conditional-null NLL,
+   target robustness and frozen-control margins to decide whether to scale the
+   reader or build one residual-driven proof/ARX sensor successor.

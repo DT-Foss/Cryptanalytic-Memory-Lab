@@ -459,3 +459,54 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   readout, not the mechanism.  O1C-0013 must learn orientation/horizon mixing on
   multiple known full-256 keys, freeze it, then attack a new sealed output-only
   target without inspecting O1C-0012's opened key again.
+
+## O1C-0013 — Multi-key causal calibration and sealed full-256 attack
+
+- **Recorded:** 2026-07-17T07:55:37+02:00
+- **Source commit:** `a99206baabeb4ae21cf07f909186db9f25354d6e`
+- **Claim level:** `TEST` prospective signal; independent replication required
+- **Hypothesis:** shared signed orientation learned only from multiple known
+  full-256 paired-proof fields can turn the O1C-0012 causal state into a portable
+  output-only key posterior with lower sealed NLL than uniform and a frozen
+  shuffled-key reader.
+- **Lifecycle:** four BUILD states and two disjoint CAL states were persisted before
+  their labels were opened. CAL selected `horizon_1`, ridge `0.001`, temperature
+  `0.5` and logit scale `1.0`. Primary and shuffled readers, all control transforms
+  and split receipts were frozen before exactly two `os.urandom` target calls.
+  The persisted primary reader was deserialized for inference; every factual and
+  control posterior was persisted before either target reveal.
+- **Known splits:** BUILD gives 520/1,024 bits and `+0.094509` bit/key. CAL gives
+  269/512 and `+0.571530`; shuffled CAL gives 253/512 and `-2.982440` bit/key.
+- **Sealed result:** 259/512 bits, mean NLL `255.9110784812`, compression
+  `+0.0889215188` bit/key. Individual targets give 133/256 with `-0.1867018020`
+  bit and 126/256 with `+0.3645448397` bit. The frozen shuffled reader gives
+  239/512 and `-3.2173322436` bit/key, so the aggregate factual margin is
+  `+3.3062537624` bit/key.
+- **Ranks and recovery:** million-decoy ranks `580,519` and `194,708`; zero exact
+  keys, zero correctly predicted bytes and zero correctly predicted 16-bit blocks.
+  Factorized value ranks over 64 bytes have best `2`, mean `130.5`, five top-16;
+  over 32 words best `99`, mean `33,307.28125`.
+- **Controls:** on the sealed anchor key, output-bit flip compression
+  `-0.2729867102`, wrong nonce `-0.1673760755`, and output-byte rotation
+  `-0.0406180758`. Exact assumption-swap complement, public recomputation, reader
+  reload, pre-reveal persistence and all containment gates pass.
+- **State and resources:** `58,368` live target bytes (`17,408` causal + `39,936`
+  bounded feature bank + `1,024` logits); `281,764` static primary reader bytes;
+  zero retained candidate keys/transcripts. `392.187980` billed CPU seconds,
+  `314.384032` wall seconds, `5,632` billed native branches, `321.90625` MiB
+  conservative group peak and `2,479,016` persistent bytes; zero sibling reads/
+  writes, MPS or GPU calls.
+- **Verification:** capsule 63/63; result
+  `a70610d3d589e97048c6045747c0821e5669c5dc89e420df79b0fca43476d4cd`;
+  sealed evaluation
+  `11d3cdfffb6cb078f7d8a54e56ff827d3c9a4237df32632274c2176e7e5efa38`;
+  primary reader
+  `796e79ec932b990a59ecbc34216c4878b9279bae3bb136fe0832e580bcb2e9f8`.
+- **Conclusion:** this is the first positive prospective causal-reader breadcrumb,
+  but two targets cannot distinguish portable entropy removal from panel variance.
+  O1C-0014 must reload the exact primary and shuffled reader bytes, prohibit all
+  refitting/selection, and attack eight new sealed keys under the same public-only
+  relation before changing the sensor.
+- **Artifact:**
+  `runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1/`; manifest
+  `a0d4df5c01f7de3c65a429f9589e46d784f802bc1f8e0aa90dffb011be46922c`.

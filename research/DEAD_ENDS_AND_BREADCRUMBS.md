@@ -254,3 +254,25 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Breadcrumb:** O1C-0013 must estimate orientation and a small horizon mixture
   across multiple known full-256 build/CAL keys, hash-freeze the reader, and only
   then consume a fresh sealed output-only target.
+
+## B-0016 — Two-key positive causal compression is replication-limited
+
+- **Evidence:** O1C-0013 fits shared signed orientation on four BUILD keys, selects
+  only on two CAL keys, freezes the resulting h96 reader, and attacks two fresh
+  sealed uniform full-round keys with no target-time traces or refit.
+- **Result:** aggregate compression is `+0.0889215188` bit/key and exceeds the
+  frozen shuffled-reader result by `+3.3062537624` bit/key. All three anchor
+  transforms are negative. However, target-level compression splits
+  `-0.1867018020` and `+0.3645448397` bit, with zero exact bytes or keys.
+- **Conclusion:** the causal stream now has a nonzero prospective breadcrumb that
+  raw end-output regression lacked, but two independent keys provide neither a
+  stable mean nor a trustworthy coordinate map. The correct discriminator is
+  no-refit replication, not immediate mechanism enlargement or dismissal.
+- **Do not repeat:** reselect the horizon, temperature, ridge or sign using either
+  revealed O1C-0013 target; merge those targets into BUILD/CAL before replication;
+  advertise the aggregate as SOTA; or discard h96 before its frozen bytes receive
+  an independent panel.
+- **Breadcrumb:** O1C-0014 pins both reader binaries and all hypotheses before
+  entropy, then attacks eight new keys. Aggregate NLL below 2,048 bits and a
+  positive margin over the shuffled reader are the primary efficacy directions;
+  target sign count and per-coordinate consistency diagnose what to build next.

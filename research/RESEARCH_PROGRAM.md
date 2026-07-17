@@ -15,30 +15,32 @@ contamination risk. Green tests and document count are not research outcomes.
 
 ## Current milestone
 
-O1C-0009/O1C-0010 closed linear full-round end-output regression. O1C-0011 then
-compiled the exact public-only full-256 ChaCha20 relation, and O1C-0012 executed the
-entire upstream mechanism: 512 symmetric assumptions, 1,536 closed proof frontiers
-and a 17,408-byte coordinate-bound unary/ARX/holographic state. Its structural and
-resource gates pass, while the single-known-key `(7,1,4)` diagnostic is negative at
-119/256 bits and -86.779990-bit compression. The active milestone is O1C-0013:
-learn event orientation and horizon mixing across multiple known full-256 keys,
-freeze the reader, and attack a fresh sealed target. No W12/W52 residual target is
-part of the result ladder.
+O1C-0009/O1C-0010 closed linear full-round end-output regression. O1C-0011/O1C-0012
+then built the exact public-only full-256 relation and complete 512-branch causal
+state. O1C-0013 learned shared orientation from four BUILD and two CAL keys, froze
+an h96 reader, and attacked two fresh sealed output-only keys. It produced the first
+positive prospective seed: 259/512 bits, `+0.0889215` bit/key and a
+`+3.3062538`-bit/key margin over its shuffled reader, with all three transformed
+controls negative. The targets split negative/positive and no key was recovered,
+so the active milestone is O1C-0014: an exact-byte, no-refit replication on eight
+new sealed keys. No W12/W52 residual target is part of the result ladder.
 
 ## Evidence ladder from here
 
-1. Generate deterministic known-key full-256 BUILD/CAL public instances and run
-   them one at a time through the frozen O1C-0012 branch/prefix contract.
-2. Persist each bounded state before reading its known label; fit only portable
-   per-horizon, proof-motif and ARX-orbit orientation across keys.
-3. Compare single wavelengths, a small regularized unary mixture and an
-   identity-preserving local-interaction arm against swap/output/ancestry controls.
-4. Freeze model bytes, data split, control transforms and all commitments before a
-   broker produces a fresh uniform output-only 256-bit target.
-5. Measure sealed full-key NLL against 256 bits, correct bits/blocks, million-decoy
-   rank and exact public verification once; reveal only after predictions persist.
-6. If signal transfers, spend it on O1-O scheduling, Attic compounding and a bounded
-   uncertainty beam; if not, localize the failed sensor context and iterate upstream.
+1. Pin O1C-0013's exact primary and shuffled reader binaries plus source-capsule
+   manifest before any O1C-0014 target entropy is requested.
+2. Predeclare eight fresh targets, three anchor controls, aggregate NLL, frozen-
+   shuffled margin, conditional-null z and target-level sign robustness; prohibit
+   BUILD/CAL replay or any reader change.
+3. Run each public relation sequentially through the unchanged h96 branch/prefix
+   contract and persist every state/posterior before the first reveal.
+4. Reveal once, recompute every public block, and report total code length from the
+   exact 2,048-bit random baseline plus bits/blocks, decoy ranks and coordinate map.
+5. If fixed-reader signal transfers, scale the same bytes to a larger blind panel,
+   then spend the replicated posterior on O1-O scheduling, Attic compounding and a
+   bounded verification beam.
+6. If it fails, use the frozen eight-key residuals to choose one new proof-motif or
+   ARX-local sensor family; do not retune h96 on the revealed replication panel.
 
 ## Operating contract
 

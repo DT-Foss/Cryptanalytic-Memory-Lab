@@ -13,6 +13,7 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0008-FOUNDATION` | Full-256 public-output attacker/teacher boundary and metric harness | `SMOKE` | 256 unknown bits; 72 contrasts across six families; 2,576 deployment features; 0 target-trace fields; random NLL exactly 256.0 bits; 1M-decoy and exact-beam harness | [Capsule](runs/20260717_031113_O1C-0008_full256-living-inverse-foundation/RUN.md) |
 | `O1C-0011-CNF` | Exact target-independent full-256 public ChaCha20 CNF and causal bit map | `VALIDATION` infrastructure | 32,128 vars; 187,370 clauses; 656 operators x 32 exact bit ranges; public instance 640 public/0 key units; byte-identical compile; SAT/UNSAT/SAT self-tests | [Capsule](runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/RUN.md) |
 | `O1C-0012-SENSOR` | Complete paired-assumption proof-prefix sensor feeding a bounded full-256 causal state | `TEST` mechanism | 512 polarity branches; 1,536 closed frontiers at 64/96/65; all 256 coordinates; 17,408 B state; exact signed swap antisymmetry; 0 transcripts/candidate keys | [Capsule](runs/20260717_065248_O1C-0012_full256-paired-causal-sensor-v1/RUN.md) |
+| `O1C-0013-LIFECYCLE` | BUILD/CAL causal-reader freeze followed by fresh full-256 output-only inference | `TEST` lifecycle | 4 BUILD + 2 CAL + 2 sealed keys; reader reloaded before two entropy calls; all predictions persisted before reveal; 63/63 capsule members | [Capsule](runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1/RUN.md) |
 
 ## Real O1-O replay
 
@@ -40,6 +41,7 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0007-MEM` | Upstream unary solver-evidence freeze with no candidate rows | `RETROSPECTIVE` | 12 registers; 266 B conservative logical-state bound; 162 B frozen binary; 672 complete target-blind A355 orders persisted before truth | [Report](runs/20260715_174537_O1C-0007_upstream-solver-evidence-bit-vault-freeze/artifacts/upstream_ising_retrospective.json) |
 | `O1C-0007-FREEZE` | Exact selected decoder and future target-blind deployment template | `RETROSPECTIVE` | Selected `search_propagations/h1/signed-log1p/degree1/negative`; A355 rank 73; A356 complete order frozen with zero target/outcome reads | [Template](runs/20260715_174537_O1C-0007_upstream-solver-evidence-bit-vault-freeze/artifacts/selection/frozen_future_template.json) |
 | `O1C-0012-STATE` | Coordinate-bound full-256 unary/ARX/holographic living state | `TEST` mechanism | 768 signed updates; 17,408 B exact serialization; 768 unary, 772 interaction and 512 holographic nonzeros; exact swap antisymmetry; 0 retained transcripts/keys | [State report](runs/20260717_065248_O1C-0012_full256-paired-causal-sensor-v1/artifacts/causal_bitfield.json) |
+| `O1C-0013-READER` | Shared target-independent orientation over causal h96 proof features | `TEST` mechanism | selected on disjoint CAL: ridge 0.001, temperature 0.5, scale 1.0; 281,764 B static model; 58,368 B live target state; zero coordinate-specific parameters | [Frozen reader](runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1/artifacts/frozen_reader.json) |
 
 ## Replicated validation
 
@@ -67,13 +69,23 @@ O1C-0011 now independently validates the complete full-width symbolic relation,
 per-bit carry/clause ancestry and opposite-assumption instance contract needed to
 generate those events. O1C-0012 executes all 512 branches and streams the resulting
 proof prefixes into the bounded O1 state; its mechanism gates are independently
-green, while its only known-key diagnostic is strongly negative. Neither O1C-0011
-nor O1C-0012 is key-recovery evidence.
+green, while its only known-key diagnostic is strongly negative. O1C-0013 then
+learns orientation on disjoint known keys, freezes it, and produces a small positive
+aggregate on two fresh targets. It is prospective evidence, but the panel is too
+small to establish stable transfer or SOTA.
+
+## Prospective full-256 inverse evidence
+
+| ID | Result | Claim level | Metrics | Artifact |
+|---|---|---|---|---|
+| `O1C-0013-SIGNAL` | Frozen causal reader reduces aggregate code length on two sealed uniform full-round 256-bit keys | `TEST` prospective signal | 259/512 bits; NLL 255.911078 bit/key; compression +0.088922; shuffled compression -3.217332; target compressions -0.186702/+0.364545; 0 exact keys | [Sealed evaluation](runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1/artifacts/sealed_evaluation.json) |
+| `O1C-0013-CONTROLS` | Public-evidence transforms do not inherit the small factual compression on the anchor key | `TEST` control | output-bit flip -0.272987 bit; wrong nonce -0.167376; byte rotation -0.040618; factual aggregate beats frozen shuffled reader by +3.306254 bit/key | [Result](runs/20260717_075537_O1C-0013_full256-multikey-causal-calibration-v1/artifacts/full256_multikey_calibration.json) |
 
 ## Frontier and state-of-the-art results
 
-None produced by this lab yet. Existing sibling-project recoveries are baselines,
-not results of this integration.
+None produced by this lab yet. O1C-0013 is a positive two-target breadcrumb, not a
+stable frontier or state-of-the-art claim. Existing sibling-project recoveries are
+baselines, not results of this integration.
 
 ## Negative bounds
 

@@ -90,13 +90,20 @@ initial state:
 - A465 cubic Product-of-Experts backbone;
 - A469 positive bucket-local residual with an exact identity branch.
 
-The initial living plus scratch/scorer budget is 20,492 logical bytes, invariant in
-the number of contrasts.  Every candidate event is discarded after its update.  The
+The implemented O1C-0013 live target budget is 58,368 logical bytes, invariant in
+stream length: 17,408 bytes of causal state, a bounded `256 x 39` float32 reader
+feature bank (39,936 bytes), and 1,024 bytes of logits. Static reader parameters are
+accounted separately. Every candidate event is discarded after its update and the
 external attic is disabled.
 
 Gate: the streamed state matches batch reduction, stays flat in stream length and
 improves minimum held-out bit/block metrics over the strongest L1 arm at matched
 cipher calls.
+
+Result: mechanism and lifecycle passed. O1C-0013's frozen h96 reader produced
+259/512 bits and `+0.0889215` bit/key on two fresh sealed targets, versus
+`-3.217332` for its shuffled reader. This is a replication seed, not a stable gate
+pass: the two factual targets split negative/positive and no exact key was emitted.
 
 ## L4 — O1-O adaptive proposal organism
 
@@ -135,11 +142,17 @@ Report:
 After reveal, the challenge may enter the O1/O1-O learning attic.  It cannot alter
 its own result.
 
+Result: O1C-0013 completed this lifecycle for two sealed targets with all 63 capsule
+members verified. Its positive aggregate is explicitly held out of the learning
+attic until the exact frozen reader receives an independent replication panel.
+
 ## L6 — Living challenge sequence
 
-Repeat L5 with a new sealed random target.  Challenge `n` may teach mechanisms used
-on `n+1`, never itself.  Promote the result when entropy removal and stable bits
-replicate across target sequences and controls.
+Repeat L5 with new sealed random targets. Challenge `n` may teach mechanisms used
+on `n+1`, never itself. The active O1C-0014 step pins O1C-0013's exact primary and
+shuffled reader bytes, then attacks eight new keys without refit, selection or
+rescaling. Promote the result only when entropy removal and control margins
+replicate across target sequences.
 
 ## L7 — Exact recovery frontier
 
