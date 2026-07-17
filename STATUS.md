@@ -1,10 +1,15 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T00:52:15+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T01:14:34+02:00 (`Europe/Berlin`)
 - **Latest implementation freeze:** `O1C-0022` at
   `ce56ba44ef9fe8583c0603ab145afa6133849954` — frozen O1C-0019 packet deltas into
   the exact 352-byte O1C-0021 vault, literal native O1-O composition control and
   immutable BUILD-LOO capsule runner; no O1C-0022 attempt reserved or executed
+- **Latest source hardening:**
+  `ac5691c5a563e43c8dc1788cf22e183f4295e6ab` — a real immutable O1C-0018
+  `.fap` now traverses the production Torch reader, label-free quantizer and
+  352-byte vault at K12 with exact repeat, polarity, duplicate and work-ledger
+  checks
 - **Latest completed validation:** `O1C-0020` — exact learned-mask MQAR-256
   retention through `2^20` distractors in a 352-byte live state
 - **Latest execution commit:** `3aefaf7a88aaf425bd52bc1c56614348a024ba1c`
@@ -22,11 +27,16 @@
   distractors, and recalls 256/256 bits in every one of 12 unseen cells with a
   352-byte live state and no oracle deployment mask
 - **Strongest read-only mechanism intake:** A447-A449 proof ancestry, A465 cubic
-  Product-of-Experts and A469 positive bucket-local correction
-- **Active lab runs:** no local scientific run. The sibling W52/A539 production
+  Product-of-Experts and A469 positive bucket-local correction; A539/A541 now
+  close the tested additive single-position clause marginals and prioritize
+  interaction-bearing pairs, proof antecedents or exact contradictions
+- **Active lab runs:** no local scientific run. The sibling W52 production
   work remains active, so O1C-0019, O1C-0022 and the O1C-0021 broad/formal gate
   have not started. O1C-0022 preflight is correctly `prerequisite-pending` and
-  creates no reservation. Consumed pools/seeds remain ineligible as fresh evidence
+  creates no reservation. At watcher poll 396, W52 had 8/8 running workers,
+  `174,141/16,777,216` cells (`1.037961%`), 24 related live processes, no stop
+  marker, 47% free memory, load/core `0.240381` and exact frozen sources. Consumed
+  pools/seeds remain ineligible as fresh evidence
 - **Strongest completed mechanism attempt:** `O1C-0020` — independently reviewed
   `EXACT_256_LEARNED_GATE_RETENTION` on 4 unseen seeds x 3 stream lengths
 - **Strongest completed full-round online attempt:** `O1C-0018` — public-only
@@ -59,7 +69,12 @@ quantizes them, and nested `K=12/52/128/256` public sensors feed the 352-byte O1
 state while all 256 key bits remain unknown. Exact frozen work is 32 reader replays,
 17,664 packet slots, 1,130,496 public work units and 7,391,232 nonnegative
 calibration evaluations, with zero new pools, solver branches, entropy, sibling,
-MPS or GPU calls.
+MPS or GPU calls. Post-freeze commit `ac5691c` additionally proves the real
+`.fap -> 330D Torch reader -> q-delta -> quantizer -> vault` ABI at K12 without
+opening a label: three deterministic replays bill 36 slots and 2,304 work units
+each, the primary state is exactly 352 bytes and actual polarity swap is
+antisymmetric to `1e-6`. This is transport validation with an untrained reader,
+not efficacy.
 
 The seven-arm control matrix separates raw/normalized float evidence, int8 vault
 retention, last-horizon-only, unit-sign, coordinate-shuffled and zero-prior paths.
@@ -69,14 +84,28 @@ three mechanism controls. Real polarity-swapped K256 replay, duplicate invarianc
 coordinate commutation and fold-local label exclusion override efficacy. The
 literal O1-O path now compiles the exact CAUSAL MessagePack envelope through the
 real local KnowledgeEngine/CodeAssembler and byte-replays a 64-byte table into an
-independent 273-byte FSM without writing to O1-O. Twenty-seven focused tests,
-34 upstream regression tests with 575 subtests and three final audits are green.
+independent 273-byte FSM without writing to O1-O. The focused surface is now 28
+tests including the real-artifact ABI test; all ten native O1-O tests plus four
+subtests pass when `O1O_FORGE_ROOT` is supplied. Thirty-four upstream regression
+tests with 575 subtests and three final audits are green.
 
 The cheap handcrafted alternative is closed rather than forgotten: four rank
 regimes times eight manually summed feature families were negative at every
 K/alpha setting. The least-negative K256 member reached 519/1,024 aggregate bits
 but lost 213.404152 code bits. That preserves the learned 330D O1C-0019 reader as
 the higher-ROI path and records a reproducible negative breadcrumb, not efficacy.
+
+The latest sibling intake is also bounded rather than transplanted. A539's
+training-frozen RACF-DES clause reader beat both declared controls on its first
+12-target panel, but A541's fresh 12-target panel put all five learned readers
+behind both controls and recovered zero of 108 executed top candidates. Across 24
+prospective targets the unchanged A539 raw/centered anchors return to
+`0.984864/0.991111` of the exact discrete-uniform geometric-rank expectation.
+O1C-0022 therefore remains unchanged; only an all-float sensor null activates a
+fallback using clause identity plus interaction-bearing pairs, proof antecedents
+or exact contradictions. Exact hashes and the direct-versus-derived boundary are
+recorded in
+[`research/A539_A541_TRANSFER_20260718.md`](research/A539_A541_TRANSFER_20260718.md).
 
 `O1C-0021` is implementation-frozen at `4ba1cc6` without consuming formal EVAL.
 The full-width BUILD/CAL/DEV scratch path previously recovered 256/256 bits on

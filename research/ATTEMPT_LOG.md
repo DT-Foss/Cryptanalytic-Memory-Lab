@@ -1017,3 +1017,56 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   exactly once from `ce56ba4`. Promote a fresh DEVELOPMENT target only if the
   frozen real-packet gate passes; otherwise change only the stage named by its
   width/control classification.
+
+## 2026-07-18 — O1C-0022 real-artifact ABI hardening (non-attempt)
+
+- **Recorded:** 2026-07-18T01:14:34+02:00
+- **Source hardening:**
+  `ac5691c5a563e43c8dc1788cf22e183f4295e6ab`; the scientific O1C-0022 config
+  and source freeze `ce56ba4` are unchanged. No attempt, reservation, label score,
+  target, entropy or solver branch was created.
+- **Gap closed:** the earlier tests exercised real O1C-0018 corpus discovery but
+  mocked packet extraction. The new optional regression loads the immutable real
+  `.fap`, instantiates a genuine untrained `MultiResolutionCausalController`,
+  restores it through production `_fresh_extraction`, fits the real label-free
+  median-absolute quantizer and executes the exact 352-byte bridge.
+- **Exact smoke ledger:** K12, H64/H65/H96, 36 packet slots and 2,304 public work
+  units per replay. Base, exact repeat and actual polarity swap total 6,912 reader
+  work units. All 12 groups and 36 slots are accepted by the primary bridge.
+- **Integrity:** the label oracle is patched to raise before config/corpus loading;
+  it is never called. Extraction bytes repeat exactly; authentic q-deltas are
+  finite and nonzero; actual swap delta and logit residuals are at most `1e-6`;
+  duplicate application leaves primary and control bytes unchanged; the output is
+  finite `7x256`, and primary state is exactly 352 bytes.
+- **Verification:** Ruff, format and pycompile pass. All 18 bridge/runner tests
+  pass. With the 10 native O1-O tests the focused surface totals 28 tests plus four
+  subtests; the native path passes separately with `O1O_FORGE_ROOT` supplied. The
+  real-artifact test itself passes in 1.39 seconds under the local pytest timing.
+- **Boundary:** the reader is intentionally untrained and the K12 quantizer is fit
+  on the same public replay. This proves production transport and invariants, not
+  trained O1C-0019 compatibility, formal cross-pool K256 calibration or efficacy.
+  Add the trained-fold version only after O1C-0019 finalizes.
+
+## 2026-07-18 — A539/A541 read-only clause transfer (non-attempt)
+
+- **Recorded:** 2026-07-18T01:14:34+02:00
+- **Scope:** four stable sibling RACF-DES artifacts were SHA-256 verified and both
+  `.causal` files reopened with native integrity checks. No sibling write, copy,
+  local science run or O1C attempt occurred.
+- **Direct result:** A539's training-frozen raw clause reader beat both declared
+  controls on its first 12-target panel with zero recovery. On A541's fresh
+  12-target panel, all five learned readers lost to both controls and zero of 108
+  executed frozen top candidates matched.
+- **Replication boundary:** unchanged A539 raw and centered anchors combine across
+  24 prospective targets to `0.9848642579531143` and `0.9911105120337214` of the
+  exact discrete-uniform geometric-rank expectation. The first-panel concentration
+  is therefore not a portable additive single-position reader.
+- **Transfer:** preserve projected clause identity, proof ancestry, prospective
+  selection and immutable baselines. Do not add another single-position marginal
+  or manual family sum. If and only if frozen O1C-0022 returns an all-float
+  sensor/reader null, use consumed BUILD folds to test interaction-bearing signed-
+  variable pairs, proof antecedents or exact candidate contradictions at matched
+  work. O1C-0022 itself remains unchanged.
+- **Artifact:**
+  `research/A539_A541_TRANSFER_20260718.md` records exact hashes, direct metrics,
+  derived 24-target arithmetic and the materialized-inference boundary.

@@ -57,7 +57,22 @@ unit/shuffled controls and exact work ledger make a negative result actionable.
 The literal O1-O CAUSAL graph now selects and assembles a deterministic 273-byte
 public-FSM replay through the real local KnowledgeEngine without writing to the
 external tree. This proves integration mechanics only. O1C-0022 preflight is
-correctly pending and unreserved until O1C-0019 finalizes.
+correctly pending and unreserved until O1C-0019 finalizes. Source hardening
+`ac5691c` now exercises one real immutable O1C-0018 `.fap` through the production
+Torch reader, label-free quantizer and 352-byte bridge at K12 with exact repeat,
+polarity, duplicate and work accounting. That closes the actual artifact ABI; its
+untrained reader is deliberately not an efficacy result or substitute for the
+formal cross-pool K256 run.
+
+A new hash-bound sibling intake narrows the fallback before it costs a target.
+A539's training-frozen RACF-DES single-position clause reader concentrated its
+first prospective panel, but A541's fresh panel put every learned family reader
+behind both controls, with zero of 108 executed candidates recovered. The
+unchanged A539 anchors return to the exact uniform geometric-rank expectation
+across 24 targets. The transferable representation is projected clause identity,
+proof ancestry and interaction-bearing pairs/antecedents/contradictions, not an
+additive marginal. O1C-0022 remains frozen; this fallback activates only if every
+real float arm is null.
 
 ## Evidence ladder from here
 
@@ -78,8 +93,11 @@ correctly pending and unreserved until O1C-0019 finalizes.
    compression and matched control margins; exact 256/256 remains the terminal
    synthetic causal-accumulation gate.
 6. If the real O1C-0022 reader/vault gate passes, freeze the combined architecture
-   and attack one untouched full-256 DEVELOPMENT target under a new identity. If it
-   fails, replace only the stage named by the frozen classification.
+   and attack one untouched full-256 DEVELOPMENT target under a new identity. If
+   every float arm is null, use consumed BUILD folds for one matched-work reader
+   over projected signed-variable pairs, proof antecedents or exact contradictions;
+   for every other failure, replace only the stage named by the frozen
+   classification.
 7. After stable entropy reduction, add surprise-selected Causal Attic summaries,
    bounded beam concentration and exact ChaCha20 verification toward recovery.
 

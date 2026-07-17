@@ -23,6 +23,7 @@ listed at the strongest claim level actually supported by its retained artifact.
 | `O1C-0020-LIFECYCLE` | Learned-mask MQAR-256 with gate and predictions frozen before unseen streams/truth | `VALIDATION` mechanism lifecycle | clean commit; 32 BUILD + 8 CAL + 4 EVAL seeds; 12 frozen cells; no oracle deployment mask; truth revealed once after prediction freeze; second invocation is no-replay; 21/21 capsule members verify | [Capsule](runs/20260717_211433_O1C-0020_selective-mqar-256-learned-gate-v1/RUN.md) |
 | `O1C-0021-HARNESS` | Full-width bounded causal-evidence accumulator and one-shot sealed runner | `INSTRUMENT` pre-run freeze | source `4ba1cc6`; 352-byte O1 state; independent 273-byte/64-byte-table public FSM; exact FSM work 262,144 BUILD / 524,288 CAL / 1,835,008 EVAL lookups; 31 focused tests and three read-only audits clear; formal EVAL unused | [Frozen config](configs/causal_evidence_stream_256_v1.json) |
 | `O1C-0022-HARNESS` | Frozen real packet-reader deltas into the exact addressed O1C-0021 vault | `RETROSPECTIVE` pre-run instrument | source `ce56ba4`; nested K=12/52/128/256; exact 352-byte primary state; 32 frozen-reader replays, 17,664 slots, 1,130,496 public work units and 7,391,232 calibration evaluations; no new solver/entropy; 17 bridge/runner tests and three P0/P1 audits clear; O1C-0019 prerequisite pending and no O1C-0022 reservation | [Frozen config](configs/o1c19_causal_vault_bridge_v1.json) |
+| `O1C-0022-REAL-FAP-ABI` | Real immutable O1C-0018 FAP traverses the production O1C-0019 reader and 352-byte causal-vault bridge without labels | `SMOKE` transport only | source hardening `ac5691c`; K12; three reader replays x 36 slots/x 2,304 work = 6,912; exact repeated extraction; real polarity delta/logit residual <=1e-6; duplicate byte invariance; finite 7x256 logits; untrained reader and no efficacy score | [Regression](tests/test_o1c19_causal_vault_real_artifact.py) |
 
 ## Operational failures
 
@@ -36,6 +37,12 @@ listed at the strongest claim level actually supported by its retained artifact.
 |---|---|---|---|---|
 | `O1C-0000-REPLAY` | Read-only replay of session `2026-02-18_013412` | `INSTRUMENT` | 16 tasks, 54 typed events, deterministic bounded neutral ingestion; generated programs never executed | [Replay JSON](runs/o1o-2026-02-18-replay.json) |
 | `O1C-0022-O1O-BRIDGE` | Literal CAUSAL graph selection and public-FSM fragment assembly through native local O1-O | `INSTRUMENT` composition parity | native and dependency-free MessagePack paths byte-identical; exact 64-byte int8[4,8,2] table; KnowledgeEngine selects the bridge triplet; CodeAssembler emits the replay wrapper; final state is byte-equal to the 273-byte O1C-0021 reference; 10 native tests plus 4 subtests; zero external writes | [Bridge source](src/o1_crypto_lab/o1o_public_fsm_bridge.py) |
+
+## Read-only sibling mechanism intake
+
+| ID | Result | Claim level | Metrics | Artifact |
+|---|---|---|---|---|
+| `A539/A541-CLAUSE-INTAKE` | Prospective RACF-DES replication closes the tested additive single-position learned-clause marginal as a portable reader and identifies the next representation | `EXTERNAL_READ_ONLY` mechanism breadcrumb, not an O1C result | A539 first-panel raw geometric rank `1.312e12`; A541 all 5 readers lose both controls; 0/108 executed candidates recover; unchanged A539 raw/centered 24-target rank ratios `0.984864/0.991111` to exact discrete-uniform expectation | [Hash-bound intake](research/A539_A541_TRANSFER_20260718.md) |
 
 ## Verified publication source
 

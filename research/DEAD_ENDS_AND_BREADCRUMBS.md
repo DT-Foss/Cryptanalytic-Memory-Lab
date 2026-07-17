@@ -527,3 +527,30 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   merely rejecting all proof channels.
 - **Artifact:**
   [`O1C0022_HANDCRAFTED_SCALAR_DIAGNOSTIC_20260718.json`](O1C0022_HANDCRAFTED_SCALAR_DIAGNOSTIC_20260718.json).
+
+## B-0030 — Additive single-position learned-clause marginals do not survive a second prospective panel
+
+- **Evidence:** read-only sibling RACF-DES A539 selected a raw clause PoE using
+  training-only LOTO and beat both declared controls on twelve jointly sealed
+  targets. A541 then froze five clause-family readers before twelve new targets,
+  executed all 108 view-by-target top candidates, and found zero matches.
+- **Result:** A541's best reader geometric rank was
+  `2,469,680,727,411.216`, behind candidate-static
+  `1,369,410,812,342.0042` and label-frequency
+  `1,625,511,087,292.7014`. Across both prospective panels, unchanged A539 raw
+  and centered anchors reach `0.9848642579531143` and
+  `0.9911105120337214` of the exact discrete-uniform geometric-rank expectation.
+- **Boundary:** this closes the tested additive single-position clause marginal as
+  a portable reader in that `39^8` DES setting. It does not close clause identity,
+  pair interactions, proof antecedents, exact contradictions, ChaCha20 sensors or
+  O1's learned temporal composition. These are external mechanism results, not an
+  O1C efficacy result.
+- **Do not repeat:** transplant A539's first-panel concentration, quote its mean
+  `saving_bits` as improvement above random, or run another scalar/additive clause
+  family without interaction-bearing structure and a fresh prospective freeze.
+- **Breadcrumb:** keep projected clause/proof identity. If frozen O1C-0022 makes
+  every real float arm null, test one equal-work signed-variable-pair, proof-
+  antecedent or exact-contradiction reader on already consumed BUILD folds before
+  spending a new key. Do not mutate the currently frozen O1C-0022 gate.
+- **Artifact:**
+  [`A539_A541_TRANSFER_20260718.md`](A539_A541_TRANSFER_20260718.md).

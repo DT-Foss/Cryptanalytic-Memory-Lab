@@ -1,6 +1,6 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T00:52:15+02:00.
+Last ranked: 2026-07-18T01:14:34+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
@@ -8,6 +8,7 @@ Last ranked: 2026-07-18T00:52:15+02:00.
 | 2 | When O1C-0019 finalizes, run source-frozen O1C-0022 `ce56ba4` exactly once; classify K12/52/128/256 raw/normalized/int8/last/unit/shuffled evidence under its exact ledger | State of the art | Very high | Very high | Low/Medium | Separates no packet signal, cross-coordinate dilution, scale weighting, quantization, confidence, compounding and binding before any new target |
 | 3 | Preserve O1C-0021 source freeze `4ba1cc6`; once the shared interlock is idle, run the committed two-seed broad DEV recheck and four never-used formal EVAL seeds exactly once | State of the art | Very high | Very high | Low/Medium | Decides terminal synthetic causal accumulation without racing the real packet gate |
 | 4 | If O1C-0022 passes, freeze one prospective combined architecture and attack one untouched O1C-0018 DEVELOPMENT pool under a new identity; otherwise change only the stage named by its classification | State of the art | Extreme | Very high | Medium | Converts the BUILD-LOO mechanism into the first genuinely fresh full-round 256-bit entropy/recovery test |
+| 5 | Only if O1C-0022 returns an all-float sensor/reader null, use the consumed BUILD folds for one A539/A541-informed equal-work reader over projected signed-variable pairs, proof antecedents or exact contradictions | State of the art | Very high | High | Medium | Tests whether interaction-bearing causal identity survives where additive single-position clause marginals do not, without spending a fresh target |
 
 ## Hard target contract
 
@@ -42,6 +43,10 @@ Last ranked: 2026-07-18T00:52:15+02:00.
 - O1C-0022 code/config/tests are clean at `ce56ba4`; its preflight verifies the
   O1C-0018 corpus and 352-byte O1C-0021 contract but exits pending without a run
   reservation until finalized O1C-0019 exists. Do not bypass that prerequisite.
+- Post-freeze hardening `ac5691c` now sends a real immutable O1C-0018 `.fap`
+  through the production Torch reader, quantizer and 352-byte bridge at K12 with
+  zero labels and exact repeat/swap/duplicate/work assertions. It is an untrained
+  transport smoke and does not replace the frozen O1C-0022 K256 calibration.
 
 ## Do not spend the next cycle on
 
@@ -74,6 +79,9 @@ Last ranked: 2026-07-18T00:52:15+02:00.
 - resweeping O1C-0022's closed handcrafted 4-regime x 8-family scalar collapse,
   relaxing unit-sign/last-only/shuffled promotion gates, or treating K12/52/128 as
   reduced-key ciphers rather than active sensors inside one full-256 model;
+- transplanting A539's first-panel RACF-DES concentration as efficacy, reporting
+  its `saving_bits.mean` as gain above random, or building another additive single-
+  position clause marginal after A541's fresh-panel and 24-target boundary;
 - replaying O1C-0020's four frozen EVAL seeds, extending the same explicit-binding
   haystack merely to enlarge a number, reintroducing an oracle route mask, or
   calling exact synthetic retention causal accumulation or cipher inversion;
