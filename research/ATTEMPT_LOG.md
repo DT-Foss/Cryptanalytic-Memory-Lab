@@ -804,7 +804,7 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 ## O1C-0019 — Artifact-only BUILD-LOO gate (implementation freeze)
 
 - **Recorded:** 2026-07-17T17:29:19+02:00
-- **Implementation commit:** `27cd5b1bde5fe4044bc89b80e8d28711f9933e68`
+- **Implementation commit:** `27cd5b1f1e3172218c9c993846f1dcc950bb909a`
   (base runner `dc249ad`; deterministic commitment hardening `27cd5b1`).
 - **State:** runner/config frozen and tested; no run capsule or efficacy result yet.
 - **Source:** four immutable BUILD `.fap` files from O1C-0018, verified through

@@ -1,0 +1,125 @@
+{
+  "attempt_id": "O1C-0019",
+  "release": {
+    "maximum_load_per_cpu": 0.75,
+    "minimum_memory_free_percent": 25,
+    "poll_seconds": 60.0,
+    "report_every_polls": 15,
+    "stable_terminal_polls": 3
+  },
+  "run": {
+    "config": "configs/full256_multiresolution_build_loo_v1.json",
+    "config_sha256": "96d9017d2262537281218ccd23b52533c8ed801e245bea6bcb13fa13bd186c61",
+    "frozen_source_sha256": {
+      "src/o1_crypto_lab/full256_action_pool.py": "df0d6a0df60d811e7cf674aa1a91b22a80834fab3acee534f77f7e1c289c1883",
+      "src/o1_crypto_lab/full256_multiresolution_build_loo.py": "34654f54e66a91ee8ac517c9022d7f41e943b22ebb63304bb463f9730a20a740",
+      "src/o1_crypto_lab/full256_multiresolution_build_loo_run.py": "36f03de45a7841f02feb713e0188c52d5ef9259b8e4d6e40e398c8e804c2c30d",
+      "src/o1_crypto_lab/full256_proof_pool.py": "7fec03dd03ffe61144f836491db9be7094dda20a80e1aedd4e6a7c26a689d30c",
+      "src/o1_crypto_lab/living_inverse.py": "16c22a9776b693c40e0d6c3a3196c73c7a4c15913bde0bdb14e8d9fc4dbe127e",
+      "src/o1_crypto_lab/o1_streaming_core.py": "c918789a668d2e4a47f927cfe44e7e0dd3825e84dfa46e29aa48dee14d737fd7",
+      "src/o1_crypto_lab/online_causal_controller.py": "e28cd7d43b71040d91ea850d1ff76b700feaa20996825ea35448221c9936f157",
+      "src/o1_crypto_lab/online_multiresolution_controller.py": "4833513502d18ad390b7e5e572f97608d7b31c94c1fa38ceed74b02a7fb79a58",
+      "src/o1_crypto_lab/run_capsule.py": "13681939e0a5cd09d4f32c6d92c9a56894cfe8af90f07d5d4190c96b90a1b664",
+      "src/o1_crypto_lab/stationarity_critic.py": "80ad977cb2ad6591866aff77da8ef101f1371a68b3a894a52655b6f376dc0a28"
+    },
+    "required_ancestor_commit": "27cd5b1f1e3172218c9c993846f1dcc950bb909a"
+  },
+  "schema": "o1-256-w52-interlocked-o1c0019-launcher-config-v1",
+  "sibling": {
+    "assignments_per_cell": 268435456,
+    "fingerprint_sha256": [
+      "28cecdbe33f23a7524079bb3e47852ed82bc19a468548c3563a4ccaf35ef3f55",
+      "0bc106625aef1b36a0499fc70cfb383d6a2882af769c323769b924475eda5a5e",
+      "de700a0231802010c1faede055e31fdc681d056b05b4c068526f17db481e8cf8",
+      "0a215195a5105562e73d12cb4ef5adc2f25d945453449c0bd64ae26cb86663ff",
+      "baa6e408bfac2c3ffc796eb79f0b56e6cebf69a50fff575ac1f8d662afdcce30",
+      "524b913c6a2792b59e715684722f0ab1b634f3f5ee412a63c676ddf6c72b35fa",
+      "b0e9ac6dd4ff12ab6056e21d06ff61e3e06531f9277051f609874f7d2cd522f3",
+      "fac1d08e1d83be64282cc271b370569ffa3b5cb860854abf2b2a269bfb26ac82"
+    ],
+    "launcher_release_pattern": "chacha20_round20_w52_protocol_bound_launcher_a528_worker_{worker_index}_release_v1.json",
+    "launcher_source_marker": "chacha20_round20_w52_protocol_bound_launcher_a528.py",
+    "observed_processes": [
+      {
+        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_7_release_v1.json"],
+        "pid": 69459
+      },
+      {
+        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_3_release_v1.json"],
+        "pid": 69648
+      },
+      {
+        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_0_release_v1.json"],
+        "pid": 69654
+      },
+      {
+        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_6_release_v1.json"],
+        "pid": 69710
+      },
+      {
+        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_4_release_v1.json"],
+        "pid": 69792
+      },
+      {
+        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_1_release_v1.json"],
+        "pid": 69893
+      },
+      {
+        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_5_release_v1.json"],
+        "pid": 69903
+      },
+      {
+        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_2_release_v1.json"],
+        "pid": 70165
+      },
+      {
+        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
+        "pid": 70959
+      },
+      {
+        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
+        "pid": 70960
+      },
+      {
+        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
+        "pid": 70969
+      },
+      {
+        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
+        "pid": 70970
+      },
+      {
+        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
+        "pid": 70971
+      },
+      {
+        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
+        "pid": 70977
+      },
+      {
+        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
+        "pid": 70984
+      },
+      {
+        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
+        "pid": 70986
+      }
+    ],
+    "pid_pattern": "a528_worker_{worker_index}_launcher_v1.pid",
+    "progress_pattern": "a526_worker_{worker_index}_progress_v1.json",
+    "progress_schema": "chacha20-round20-w52-persistent-stream-adapter-a526-progress-v1",
+    "related_process_markers": [
+      ["chacha20_round20_w52_protocol_bound_launcher_a528.py"],
+      ["chacha20_round20_w52_persistent_stream_adapter_a526"]
+    ],
+    "repository": "arx-carry-leak",
+    "state_directory": "research/results/v1/chacha20_round20_w52_a528_production_state_v1",
+    "terminal_statuses": [
+      "candidate_confirmed",
+      "peer_confirmed",
+      "worker_exhausted"
+    ],
+    "worker_count": 8,
+    "worker_tasks": 2097152
+  }
+}

@@ -4,7 +4,7 @@
 - **Prior published baseline:** `dbbe63a` (`O1C-0017` mechanism result)
 - **Latest execution commit:** `f40e71aa8ed80b4653acf44d98e14eabec18a955`
   (`O1C-0018` clean full-round real-gate freeze)
-- **Latest implementation freeze:** `27cd5b1bde5fe4044bc89b80e8d28711f9933e68`
+- **Latest implementation freeze:** `27cd5b1f1e3172218c9c993846f1dcc950bb909a`
   (`O1C-0019` artifact-only four-fold BUILD-LOO gate plus deterministic
   science/execution commitment split; no scientific run yet)
 - **Publication:** the O1C-0018 outcome and deterministic post-reveal forensics are
