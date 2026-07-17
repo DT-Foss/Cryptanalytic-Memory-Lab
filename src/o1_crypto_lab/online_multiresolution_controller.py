@@ -567,6 +567,7 @@ class PacketActionDecision:
     context: np.ndarray
     allowed_horizons: tuple[int, ...] = ()
     maximum_work_units: int | None = None
+    allow_stop: bool = True
 
     def __post_init__(self) -> None:
         if not isinstance(self.action, CausalAction):
@@ -617,6 +618,8 @@ class PacketActionDecision:
                 0,
                 2_000_000_000,
             )
+        if not isinstance(self.allow_stop, bool):
+            raise MultiResolutionControllerError("allow_stop must be boolean")
 
 
 @dataclass(frozen=True)
@@ -1396,6 +1399,7 @@ class MultiResolutionCausalController(OnlineCausalController):
             "state_before_sha256",
             "allowed_horizons",
             "maximum_work_units",
+            "allow_stop",
         )
         return all(
             getattr(left, field) == getattr(right, field) for field in scalar_fields
@@ -1422,6 +1426,7 @@ class MultiResolutionCausalController(OnlineCausalController):
             state,
             allowed_horizons=decision.allowed_horizons,
             maximum_work_units=decision.maximum_work_units,
+            allow_stop=decision.allow_stop,
         )
         if not isinstance(
             recomputed, PacketActionDecision
@@ -1601,9 +1606,12 @@ class MultiResolutionCausalController(OnlineCausalController):
         *,
         allowed_horizons: Iterable[int] | None = None,
         maximum_work_units: int | None = None,
+        allow_stop: bool = True,
     ) -> PacketActionDecision | PacketStopDecision | PacketExhaustedDecision:
         """Query every affordable address and return ACTION, STOP, or EXHAUSTED."""
 
+        if not isinstance(allow_stop, bool):
+            raise MultiResolutionControllerError("allow_stop must be boolean")
         self._validate_live_state(state)
         self._validate_critic_binding()
         normalized_allowed = self._normalized_allowed_horizons(allowed_horizons)
@@ -1665,6 +1673,7 @@ class MultiResolutionCausalController(OnlineCausalController):
                 context=context,
                 allowed_horizons=normalized_allowed,
                 maximum_work_units=maximum_work_units,
+                allow_stop=allow_stop,
             )
             ranked.append(
                 (
@@ -1676,7 +1685,8 @@ class MultiResolutionCausalController(OnlineCausalController):
         ranked.sort(key=lambda row: (row[0], row[1]))
         best = ranked[0][2]
         if (
-            not starvation_forced
+            allow_stop
+            and not starvation_forced
             and self._stop_is_eligible(state)
             and best.score <= self.controller_config.stop_margin
         ):

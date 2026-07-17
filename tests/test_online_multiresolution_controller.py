@@ -413,6 +413,7 @@ class OnlineMultiResolutionControllerTests(unittest.TestCase):
             stop_margin=1.0,
         )
         controller = MultiResolutionCausalController(config)
+        pool = _synthetic_pool(config)
         zero_design = np.zeros(
             (1, config.critic_context_dimension),
             dtype=np.float64,
@@ -434,6 +435,27 @@ class OnlineMultiResolutionControllerTests(unittest.TestCase):
         self.assertIsInstance(stop, PacketStopDecision)
         assert isinstance(stop, PacketStopDecision)
         self.assertGreaterEqual(stop.score, stop.best_candidate_score)
+
+        no_stop_state = controller.initial_fast_state(SOURCE_SHA256)
+        no_stop = controller.choose_action(no_stop_state, allow_stop=False)
+        self.assertIsInstance(no_stop, PacketActionDecision)
+        assert isinstance(no_stop, PacketActionDecision)
+        self.assertFalse(no_stop.allow_stop)
+        receipt = controller.apply_policy_action(
+            no_stop_state,
+            pool,
+            no_stop,
+        )
+        self.assertEqual(receipt.requested_action, no_stop.action)
+        with self.assertRaisesRegex(
+            MultiResolutionControllerError,
+            "allow_stop must be boolean",
+        ):
+            controller.choose_action(
+                controller.initial_fast_state(SOURCE_SHA256),
+                allow_stop=1,  # type: ignore[arg-type]
+            )
+
         controller.apply_stop(state, stop)
         self.assertTrue(state.stopped)
         self.assertEqual(state.stop_decision_count, 0)
