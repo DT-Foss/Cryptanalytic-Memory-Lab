@@ -1,33 +1,52 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-17T03:11:14+02:00 (`Europe/Berlin`)
-- **Implementation commit:** `826149ded68f0c9afbdd7a1c4f9ea90235f1ef56`
-- **Worktree:** clean after the O1C-0008 implementation commit
-- **Research phase:** O1-256 Living Inverse — first trained full-width readers
+- **Last updated:** 2026-07-17T04:16:16+02:00 (`Europe/Berlin`)
+- **Implementation commit:** `f718e78cf63ee457298288cc80e192b9bc110228`
+- **Worktree:** O1C-0009 result-cockpit update pending commit; run capsule immutable
+- **Research phase:** O1-256 Living Inverse — signed-direction replication and
+  upstream solver sensor
 - **Strongest internal mechanism:** O1C-0007's 12-register/266-byte unary state is
   retained as a negative-calibrated primitive; the active design adds proof
   interactions, switching wavelengths and a 20,492-byte full-256 living state
 - **Strongest read-only mechanism intake:** A447-A449 proof ancestry, A465 cubic
   Product-of-Experts and A469 positive bucket-local correction
 - **Active runs:** none
-- **Last completed attempt:** `O1C-0008` — full-256 Living Inverse foundation
-- **Next attempt:** `O1C-0009` — matched output-only, candidate-relative and
-  teacher-distilled full-256 readers
-- **Primary uncertainty:** whether any attacker-valid full-round public-output
-  contrast channel removes stable entropy from uniform unseen 256-bit keys
-- **SOTA status:** no inverse signal yet; O1C-0008 is a successful `SMOKE` result,
-  not evidence that public full-round output predicts a random key
+- **Last completed attempt:** `O1C-0009` — first sealed full-256 reader panel
+- **Next attempt:** `O1C-0010` — preregister and replicate the O1C-0009
+  calibration-only signed-direct breadcrumb on a new larger sealed panel
+- **Primary uncertainty:** whether the exploratory `0.023159`-bit signed-direct
+  gain replicates, or whether all end-output readers are pure selection noise and
+  the attack must move entirely to public-CNF solver events
+- **SOTA status:** no inverse signal yet; O1C-0009 is a lifecycle-valid negative
+  `VALIDATION` result, with one explicitly post-reveal replication breadcrumb
 - **SOTA target:** a stream-length-bounded living inverse that reduces the 256-bit
   key code length on sealed uniform targets and ultimately emits an exactly verified
   full ChaCha20 key
 
 ## Headline
 
-`O1C-0008` makes the target contract executable: every attacked key has 256 unknown bits from the
-first experiment.  The deployment path sees only public counter/nonce/output plus
-self-generated candidate keys, their outputs and their internally computable
-traces.  Target round states, carry paths and proof objects are training labels
-only.  Reduced-width residual recovery is not an intermediate target claim.
+`O1C-0009` attacked 128 broker-secret uniform keys with all 256 bits unknown.  The
+four frozen readers and every factual/control posterior were persisted before the
+one-shot reveal.  Calibration selected scale zero for direct, relative, distilled
+and shuffled-key arms, so all declared DEV posteriors remained exactly uniform:
+mean NLL `256.0`, effective compression `0.0`, zero familywise transferable bits.
+This closes the first linear full-round end-output reader, not the moonshot.
+
+The immutable capsule verifies 25/25 members.  Its 128 publications are unique,
+all 128 revealed keys exactly reproduce their public ChaCha20 outputs, and every
+reveal receipt binds prediction blob
+`8431b3c19a697ce0d48e66d29b199ec6d199670870d40231564c9516e3c34ad2`.
+Peak RSS was `182.90625` MiB, CPU work `6.923216` s, with zero sibling, MPS or GPU
+work.  Capsule manifest:
+`f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2`.
+
+One post-reveal diagnostic is retained rather than discarded: allowing a signed
+global scale chosen from CAL only gives the frozen direct reader scale
+`-0.03860970720667151`, CAL NLL `255.984754` and O1C-0009 DEV NLL `255.976841`
+(`+0.023159` bit).  This was not preregistered and is not a result claim.  Its
+target-level standard deviation is `0.199937` bit, so O1C-0010 will freeze the
+exact model/scale and test at least 1,024 entirely new secret keys before the
+solver pivot consumes heavy work.
 
 The 2026-07-17 read-only W52 intake supplied mechanism, not target data.  A447/A448
 show that exact proof ancestry transfers where flattened clause provenance does
@@ -63,21 +82,23 @@ transfer map is in
 
 ## Highest-ROI next actions
 
-1. `O1C-0009`: train output-only, candidate-relative and teacher-distilled 256-bit
-   readers on a much larger generated build corpus, CPU-only.
-2. Measure uniform development-key NLL and stable bits against shuffled-key,
-   output-flip and wrong-nonce controls; retain round/orbit breadcrumbs if null.
-3. Add a reusable streamed dataset interface so corpus size grows without retaining
-   target/candidate traces in RAM.
-4. `O1C-0010`: stream the best reader evidence through the O1 vault, holographic banks,
-   A465 backbone and A469 local correction; attack a sealed uniform 256-bit target.
-5. Iterate at full width on round/carry/proof observability and O1-O scheduling;
+1. `O1C-0010`: freeze O1C-0009 direct model SHA-256 and signed scale, then evaluate
+   at least 1,024 new broker-secret keys with shuffled/output/nonce controls and
+   predictions persisted before reveal.
+2. Refactor the full-256 broker to retain only the public block and commitment, not
+   privileged target traces, so larger sealed panels stay below 256 MiB.
+3. In parallel, build a target-independent one-block full-256 public-output CNF and
+   exact key/output literal maps in the isolated lab.
+4. Stream paired bit-assumption conflict/decision/propagation/proof events at
+   horizons `64/96/65` through O1 vault/Holo banks, then apply A465/A469.
+5. Iterate at full width on carry/proof observability and O1-O scheduling;
    short MPS windows require an explicit resource check and must not overlap W52.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0009` | 2026-07-17 | Direct, candidate-relative or teacher-distilled full-width readers remove reproducible entropy from unseen public-output targets | Declared gate failed; all CAL scales 0, DEV NLL 256.0, compression 0, transferable bits 0; sealed lifecycle passed | `VALIDATION` negative | 6.923 CPU s; 182.906 MiB peak; 128 fresh keys; zero sibling/GPU work | Post-reveal CAL-only signed direct scale gives exploratory DEV +0.023159 bit; replicate once on a larger new panel, then move upstream | [Run capsule](runs/20260717_040741_O1C-0009_full256-output-only-reader-v1/RUN.md) |
 | `O1C-0008` | 2026-07-17 | A strict full-256 public-output attacker/teacher foundation can execute without sibling or accelerator use | Gate passed; 256 unknown bits, 72 contrasts, 2,576 features, 1M decoys, random NLL 256.0, zero target-trace fields | `SMOKE` | 0.996 s; 78 logical blocks; zero sibling/GPU work | The moonshot is now measurable; train the first full-width reader and demand uniform held-out entropy gain | [Run capsule](runs/20260717_031113_O1C-0008_full256-living-inverse-foundation/RUN.md) |
 | `O1C-0007` | 2026-07-15 | Low-degree upstream solver evidence can populate a genuine compact O1 memory | Protocol passed; 12 registers, 266 B; A355 rank 73 but exact conditional `p=0.593506`; target-blind A356 order frozen | `RETROSPECTIVE` | 10.799 s; 672 views; zero solver/GPU work | Compact mechanism exists, efficacy does not yet; run the exact decoder once on fresh paired-assumption trajectories | [Run capsule](runs/20260715_174537_O1C-0007_upstream-solver-evidence-bit-vault-freeze/RUN.md) |
 | `O1C-0006` | 2026-07-15 | Corrected codec plus adaptive DC-complete registers can form a high-fidelity bounded ceiling | Gate passed; exact A355/A356; 8,014 B, worst Spearman 0.999224; 24/24 orders | `VALIDATION` | 7.347 s; 9 arms; zero solver/GPU work | Full-basis state is table-equivalent and 2.045× larger; move upstream to compact causal/bit evidence | [Run capsule](runs/20260715_154553_O1C-0006_corrected-codec-adaptive-dc-bridge/RUN.md) |
@@ -91,6 +112,11 @@ transfer map is in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0009` capsule manifest | `f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2` |
+| `O1C-0009` internal result commitment | `40276d71516d4d150b02cc8235c08d00fb8ceb28daf64d1316826b38fd094bf9` |
+| `O1C-0009` report artifact | `e007dd7964269036c427be53e9563a4bc450955cafecbd0b8ae2f6a9db064332` |
+| `O1C-0009` pre-reveal prediction blob | `8431b3c19a697ce0d48e66d29b199ec6d199670870d40231564c9516e3c34ad2` |
+| `O1C-0009` frozen calibration selection | `8e938893dcda020cadb5aa3d3cde0efc43cfe9cd6d34879ca00eb4538dd4d24d` |
 | `O1C-0008` capsule manifest | `50cd1dcd83034d69aafd2e7890d62b9f2c25b6e65c5a929d3119027a71105449` |
 | `O1C-0008` deterministic foundation result | `14bfa1dd9e4593cac223a779562ff8b591bf88c485486814be62e6f73baa79a2` |
 | `O1C-0008` deployment contrast set | `ab28ca614b27c20e71acc7815a9daff33c8ec20c4d331496dad45fb1fa6e7496` |
@@ -116,9 +142,8 @@ transfer map is in
 
 ## Resume here
 
-Start from `O1C-0009`: use the frozen O1C-0008 deployment schema to train three
-matched full-256 readers—raw public output, candidate-relative residual/trace and
-teacher-distilled deployment student.  The evaluation corpus remains uniform and
-disjoint; target traces are auxiliary labels only.  Persist complete development
-posteriors and controls before considering a sealed target.  Keep the sibling W52
-queue read-only and resource-prioritized.
+Start from `O1C-0010`: copy and hash-bind the frozen O1C-0009 direct reader, freeze
+signed scale `-0.03860970720667151`, and evaluate it once on a larger newly sealed
+panel with no refit.  Regardless of outcome, retain the completed panel and move
+the main mechanism upstream to paired public-CNF solver/proof events.  Keep the
+sibling W52 queue read-only and resource-prioritized.

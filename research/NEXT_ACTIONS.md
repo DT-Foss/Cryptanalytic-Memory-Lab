@@ -1,14 +1,14 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-17T04:05:50+02:00.
+Last ranked: 2026-07-17T04:16:16+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | `O1C-0009`: train matched direct, candidate-relative and teacher-distilled 256-bit CPU readers on 512 known keys; target traces are unrepresentable in deployment | State of the art | Very high | High | Medium | Localizes whether public output, self-generated candidate trace or distillation supplies the first transferable bit |
-| 2 | Freeze on 64 calibration keys, then create 128 broker-secret uniform development keys and persist all factual/control posteriors before one reveal | State of the art | Very high | Very high | Medium | Distinguishes real code-length reduction from curriculum memorization without a derivable DEV seed |
-| 3 | If globally null, emit per-round-teacher, output-word, key-orbit, proposal-distance and feature-family observability maps before changing the reader | State of the art | Very high | Very high | Low | Converts the first full-round negative into the next exact mechanism |
-| 4 | `O1C-0010`: stream evidence into the 20,492-byte O1 state with H1/H2/H4/H8, wavelengths 64/96/65, A465 PoE and A469 positive bucket-local correction | State of the art | Very high | Very high | Medium | Tests the actual O1/O1-O synthesis on a full 256-bit target |
-| 5 | Freeze a new uniform random target and run matched controls; feed the revealed result into the attic only after completion | State of the art | Very high | High | Medium | Converts development signal into a genuine next-challenge learning loop |
+| 1 | `O1C-0010`: freeze O1C-0009 direct model and signed scale `-0.03860970720667151`; test at least 1,024 new broker-secret keys with no refit | State of the art if replicated | Very high | Very high | Low | Resolves the only positive post-reveal breadcrumb before heavier solver work |
+| 2 | Make the full-256 broker public-view-only in memory and keep every posterior/control frozen before the larger reveal | Infrastructure | High | Very high | Low | Preserves the 256 MiB budget while increasing replication power |
+| 3 | Build a target-independent one-block, full-key symbolic-output CNF with exact 256 key and 512 output literal maps inside this lab | State of the art | Very high | Very high | Medium | Creates an attacker-valid upstream sensor independent of sibling files at runtime |
+| 4 | Stream paired `k_i=0/1` conflict, decision, propagation and proof-ancestry deltas at horizons 64/96/65 into the O1 vault/Holo banks | State of the art | Very high | Very high | Medium | Tests the actual O1/O1-O synthesis on all 256 unknown bits |
+| 5 | Apply A465 cubic PoE and A469 positive bucket-local correction only after a unary solver event transfers across known-key CAL | State of the art | Very high | High | Medium | Adds interactions while preserving the strongest causal backbone |
 | 6 | Spend MPS/GPU only after CPU diagnostics show reusable entropy reduction and only in explicit windows that do not compete with W52 | High | Medium | High | High | Preserves recovery resources while scaling a demonstrated mechanism |
 
 ## Hard target contract

@@ -291,3 +291,40 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Next action:** O1C-0009 trains matched output-only, candidate-relative and
   teacher-distilled full-256 readers and measures uniform development-key NLL plus
   all controls before any sealed target is generated.
+
+## O1C-0009 — Sealed full-256 output-only readers
+
+- **Recorded:** 2026-07-17T04:16:16+02:00
+- **Source commit:** `f718e78cf63ee457298288cc80e192b9bc110228`
+- **Claim level:** `VALIDATION` negative
+- **Lifecycle:** 512 known TRAIN and 64 known CAL keys were created first. Four
+  models, scales, primary arm, proposal policy and familywise bit selections were
+  persisted while DEV entropy and labels were absent. Only then were 128 unique
+  broker-random targets published. All factual/control `128 x 256` posteriors were
+  stored in prediction blob
+  `8431b3c19a697ce0d48e66d29b199ec6d199670870d40231564c9516e3c34ad2`
+  before any reveal; all reveal receipts bind that blob.
+- **Declared result:** CAL selected `direct`, but scale zero for direct, relative,
+  distilled and shuffled-key control. DEV mean NLL `256.0`, compression `0.0`, zero
+  CAL-selected/familywise transferable bits and no exact beam key. Scientific gate
+  failed; no inverse or SOTA claim is made.
+- **Integrity:** capsule verification 25/25; 128/128 commitments open; every key
+  exactly recomputes its standard twenty-round public block; target trace fields in
+  deployment `0`; live accumulator bound `2,056` bytes.
+- **Resources:** `6.923216` CPU seconds, `182.90625` MiB peak RSS, CPU only, zero
+  MPS/GPU and zero sibling reads/writes.
+- **Post-reveal breadcrumb, not claim:** continuous signed scale fit on CAL alone
+  selects direct scale `-0.03860970720667151`, CAL NLL `255.98475392461603` and
+  revealed DEV NLL `255.97684081564623`, i.e. `0.02315918435379` bit compression.
+  Across 128 targets SD is `0.19993730517725` bit; the CAL-selected top-16
+  coordinates do not transfer (`49.7559%` oriented DEV accuracy), and relative/
+  distilled signed scales worsen DEV. This isolates a global sign breadcrumb, not
+  stable bits.
+- **Artifact:**
+  `runs/20260717_040741_O1C-0009_full256-output-only-reader-v1/`; manifest
+  `f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2`;
+  internal result
+  `40276d71516d4d150b02cc8235c08d00fb8ceb28daf64d1316826b38fd094bf9`.
+- **Next action:** freeze the exact direct model/negative scale for a larger new
+  sealed replication, then replace end-output regression with paired public-CNF
+  solver/proof evidence regardless of outcome.

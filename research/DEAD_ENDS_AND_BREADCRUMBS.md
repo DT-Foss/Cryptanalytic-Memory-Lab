@@ -179,3 +179,22 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   eventwise to multiple newly generated paired-assumption trajectories. Persist
   every state/order before reveal; use matched numeric, hash and random-label nulls;
   expand toward carry/round/conflict provenance only if the unary mechanism fails.
+
+## B-0012 — Linear full-round end-output regression freezes to chance
+
+- **Evidence:** `O1C-0009`, 512 known training keys, 64 calibration keys and 128
+  broker-secret uniform development keys with all factual/control predictions
+  persisted before reveal.
+- **Result:** direct, relative, distilled and shuffled-key readers all selected
+  calibration scale `0`; every declared DEV posterior is exactly `0.5`, mean NLL
+  `256.0`, compression `0.0`, with zero familywise transferable coordinates.
+- **Conclusion:** more capacity or more samples applied to the same linear
+  full-round final-output feature map has no current evidence path. Candidate-key
+  traces are attacker-valid but do not become target information merely because a
+  teacher auxiliary loss sees the hidden target trace during training.
+- **Do not repeat:** widen the same signed-hash ridge/MLP, loosen the stable-bit
+  threshold, or promote the sentinel's chance decoy rank.
+- **Breadcrumb:** a post-reveal CAL-only signed scale `-0.03860970720667151` gives
+  exploratory DEV compression `0.023159` bit (SD `0.199937` per target). Freeze and
+  replicate it once on at least 1,024 new keys. Then move to paired assumptions in
+  a public-output CNF, where conflict/propagation/proof topology is attacker-visible.
