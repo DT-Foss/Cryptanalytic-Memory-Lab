@@ -16,6 +16,7 @@ import json
 import math
 import os
 import re
+import select
 import signal
 import stat
 import subprocess
@@ -23,7 +24,7 @@ import sys
 import time
 import traceback
 from collections import Counter
-from contextlib import contextmanager
+from contextlib import contextmanager, nullcontext
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable, Iterator, Mapping, NoReturn, Sequence
@@ -835,6 +836,17 @@ def _emit_json(value: Mapping[str, object]) -> None:
 
 @contextmanager
 def exclusive_launcher_lock(path: Path) -> Iterator[int]:
+    descriptor = _acquire_launcher_lock(path)
+    try:
+        yield descriptor
+    finally:
+        try:
+            fcntl.flock(descriptor, fcntl.LOCK_UN)
+        finally:
+            os.close(descriptor)
+
+
+def _acquire_launcher_lock(path: Path) -> int:
     descriptor = os.open(path, os.O_CREAT | os.O_RDWR, 0o600)
     try:
         try:
@@ -845,12 +857,10 @@ def exclusive_launcher_lock(path: Path) -> Iterator[int]:
         os.write(descriptor, f"{os.getpid()}\n".encode("ascii"))
         os.fsync(descriptor)
         os.set_inheritable(descriptor, True)
-        yield descriptor
-    finally:
-        try:
-            fcntl.flock(descriptor, fcntl.LOCK_UN)
-        finally:
-            os.close(descriptor)
+        return descriptor
+    except BaseException:
+        os.close(descriptor)
+        raise
 
 
 def launch_environment(config: W52InterlockConfig) -> dict[str, str]:
@@ -870,6 +880,21 @@ def launch_environment(config: W52InterlockConfig) -> dict[str, str]:
     return environment
 
 
+def start_power_assertion(run_pid: int) -> subprocess.Popen[bytes]:
+    """Keep the later CPU gate awake without sharing its exclusive lock FD."""
+
+    _integer(run_pid, "O1C-0019 PID", 1, (1 << 31) - 1)
+    process = subprocess.Popen(
+        ("/usr/bin/caffeinate", "-dimsu", "-w", str(run_pid)),
+        stdin=subprocess.DEVNULL,
+        close_fds=True,
+        start_new_session=True,
+    )
+    if process.poll() is not None:
+        raise W52InterlockError("O1C-0019 power assertion exited before exec")
+    return process
+
+
 def exec_o1c0019(config: W52InterlockConfig) -> NoReturn:
     command = (
         sys.executable,
@@ -877,6 +902,15 @@ def exec_o1c0019(config: W52InterlockConfig) -> NoReturn:
         "o1_crypto_lab.full256_multiresolution_build_loo_run",
         "--config",
         str(config.run_config),
+    )
+    power_process = start_power_assertion(os.getpid())
+    _emit_json(
+        {
+            "schema": INTERLOCK_REPORT_SCHEMA,
+            "status": "O1C0019_POWER_ASSERTION_STARTED",
+            "pid": power_process.pid,
+            "watched_pid": os.getpid(),
+        }
     )
     os.chdir(config.lab_root)
     os.execvpe(command[0], command, launch_environment(config))
@@ -892,6 +926,7 @@ def wait_for_release(
     launch: Callable[[W52InterlockConfig], object] = exec_o1c0019,
     max_polls: int | None = None,
     lock_path: Path | None = None,
+    lock_descriptor: int | None = None,
 ) -> int:
     """Wait for a stable release and exec O1C-0019; dependency hooks aid tests."""
 
@@ -902,7 +937,19 @@ def wait_for_release(
     commitment: str | None = None
     previous_reasons: tuple[str, ...] | None = None
     polls = 0
-    with exclusive_launcher_lock(lock_path or config.lock_path):
+    if lock_descriptor is not None:
+        try:
+            os.fstat(lock_descriptor)
+        except OSError as exc:
+            raise W52InterlockError("inherited launcher lock is invalid") from exc
+        if not os.get_inheritable(lock_descriptor):
+            raise W52InterlockError("inherited launcher lock is not exec-safe")
+    lock_context = (
+        exclusive_launcher_lock(lock_path or config.lock_path)
+        if lock_descriptor is None
+        else nullcontext(lock_descriptor)
+    )
+    with lock_context:
         while True:
             polls += 1
             try:
@@ -998,6 +1045,30 @@ def _daemon_log_path(config: W52InterlockConfig, value: Path | None) -> Path:
     return path
 
 
+def _read_daemon_ack(descriptor: int, timeout_seconds: float = 15.0) -> bytes:
+    readable, _, _ = select.select((descriptor,), (), (), timeout_seconds)
+    if not readable:
+        raise W52InterlockError("detached watcher preflight timed out")
+    payload = os.read(descriptor, 4096)
+    if payload != b"READY\n":
+        detail = payload.decode("utf-8", errors="replace").strip()
+        raise W52InterlockError(
+            f"detached watcher preflight failed: {detail or 'no acknowledgement'}"
+        )
+    return payload
+
+
+def _terminate_unacknowledged_child(pid: int) -> None:
+    try:
+        os.kill(pid, signal.SIGTERM)
+    except ProcessLookupError:
+        pass
+    try:
+        os.waitpid(pid, 0)
+    except ChildProcessError:
+        pass
+
+
 def detach_and_watch(
     config: W52InterlockConfig,
     *,
@@ -1007,18 +1078,39 @@ def detach_and_watch(
     """Detach one low-resource watcher; its inherited lock spans O1C-0019."""
 
     log = _daemon_log_path(config, log_path)
-    pid = os.fork()
+    lock_descriptor = _acquire_launcher_lock(config.lock_path)
+    read_descriptor, write_descriptor = os.pipe()
+    try:
+        pid = os.fork()
+    except BaseException:
+        os.close(read_descriptor)
+        os.close(write_descriptor)
+        fcntl.flock(lock_descriptor, fcntl.LOCK_UN)
+        os.close(lock_descriptor)
+        raise
     if pid:
+        os.close(write_descriptor)
+        try:
+            _read_daemon_ack(read_descriptor)
+        except BaseException:
+            _terminate_unacknowledged_child(pid)
+            raise
+        finally:
+            os.close(read_descriptor)
+            # Do not LOCK_UN: the forked child shares this locked open-file entry.
+            os.close(lock_descriptor)
         emit(
             {
                 "schema": INTERLOCK_REPORT_SCHEMA,
                 "status": "WATCHER_DETACHED",
                 "pid": pid,
                 "log": str(log),
+                "preflight": "PASSED",
             }
         )
         return 0
 
+    os.close(read_descriptor)
     os.setsid()
     signal.signal(signal.SIGHUP, signal.SIG_IGN)
     os.umask(0o077)
@@ -1037,9 +1129,31 @@ def detach_and_watch(
             os.close(null_descriptor)
         if log_descriptor > 2:
             os.close(log_descriptor)
+    acknowledged = False
     try:
-        result = wait_for_release(config)
-    except BaseException:  # The detached child must leave a durable diagnosis.
+        initial = inspect_interlock(config)
+        report = initial.describe()
+        report["status"] = "WATCHER_PREFLIGHT_PASSED"
+        _emit_json(report)
+        os.write(write_descriptor, b"READY\n")
+        acknowledged = True
+        os.close(write_descriptor)
+        result = wait_for_release(config, lock_descriptor=lock_descriptor)
+    except BaseException as exc:  # The child must leave a durable diagnosis.
+        if not acknowledged:
+            try:
+                os.write(
+                    write_descriptor,
+                    f"ERROR {type(exc).__name__}: {exc}\n".encode(
+                        "utf-8", errors="replace"
+                    ),
+                )
+            except OSError:
+                pass
+            try:
+                os.close(write_descriptor)
+            except OSError:
+                pass
         traceback.print_exc()
         result = 1
     os._exit(result)
@@ -1106,5 +1220,6 @@ __all__ = [
     "main",
     "memory_free_percent",
     "related_process_pids",
+    "start_power_assertion",
     "wait_for_release",
 ]

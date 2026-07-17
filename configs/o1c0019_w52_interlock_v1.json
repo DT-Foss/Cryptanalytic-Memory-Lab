@@ -11,6 +11,7 @@
     "config": "configs/full256_multiresolution_build_loo_v1.json",
     "config_sha256": "96d9017d2262537281218ccd23b52533c8ed801e245bea6bcb13fa13bd186c61",
     "frozen_source_sha256": {
+      "pyproject.toml": "0248ec0fe7d42390b62e358fdd52f63d64f7d4e699f0f41ef77c569699716bd0",
       "src/o1_crypto_lab/full256_action_pool.py": "df0d6a0df60d811e7cf674aa1a91b22a80834fab3acee534f77f7e1c289c1883",
       "src/o1_crypto_lab/full256_multiresolution_build_loo.py": "34654f54e66a91ee8ac517c9022d7f41e943b22ebb63304bb463f9730a20a740",
       "src/o1_crypto_lab/full256_multiresolution_build_loo_run.py": "36f03de45a7841f02feb713e0188c52d5ef9259b8e4d6e40e398c8e804c2c30d",
@@ -39,78 +40,14 @@
     ],
     "launcher_release_pattern": "chacha20_round20_w52_protocol_bound_launcher_a528_worker_{worker_index}_release_v1.json",
     "launcher_source_marker": "chacha20_round20_w52_protocol_bound_launcher_a528.py",
-    "observed_processes": [
-      {
-        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_7_release_v1.json"],
-        "pid": 69459
-      },
-      {
-        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_3_release_v1.json"],
-        "pid": 69648
-      },
-      {
-        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_0_release_v1.json"],
-        "pid": 69654
-      },
-      {
-        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_6_release_v1.json"],
-        "pid": 69710
-      },
-      {
-        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_4_release_v1.json"],
-        "pid": 69792
-      },
-      {
-        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_1_release_v1.json"],
-        "pid": 69893
-      },
-      {
-        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_5_release_v1.json"],
-        "pid": 69903
-      },
-      {
-        "markers": ["chacha20_round20_w52_protocol_bound_launcher_a528.py", "worker_2_release_v1.json"],
-        "pid": 70165
-      },
-      {
-        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
-        "pid": 70959
-      },
-      {
-        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
-        "pid": 70960
-      },
-      {
-        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
-        "pid": 70969
-      },
-      {
-        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
-        "pid": 70970
-      },
-      {
-        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
-        "pid": 70971
-      },
-      {
-        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
-        "pid": 70977
-      },
-      {
-        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
-        "pid": 70984
-      },
-      {
-        "markers": ["chacha20_round20_w52_persistent_stream_adapter_a526"],
-        "pid": 70986
-      }
-    ],
+    "observed_processes": [],
     "pid_pattern": "a528_worker_{worker_index}_launcher_v1.pid",
     "progress_pattern": "a526_worker_{worker_index}_progress_v1.json",
     "progress_schema": "chacha20-round20-w52-persistent-stream-adapter-a526-progress-v1",
     "related_process_markers": [
       ["chacha20_round20_w52_protocol_bound_launcher_a528.py"],
-      ["chacha20_round20_w52_persistent_stream_adapter_a526"]
+      ["chacha20_round20_w52_persistent_stream_adapter_a526"],
+      ["launch_chacha20_round20_w52_a528_production.sh", "--worker"]
     ],
     "repository": "arx-carry-leak",
     "state_directory": "research/results/v1/chacha20_round20_w52_a528_production_state_v1",

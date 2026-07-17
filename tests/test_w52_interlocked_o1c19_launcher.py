@@ -1,6 +1,8 @@
+import fcntl
 import hashlib
 import json
 import os
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -17,6 +19,7 @@ from o1_crypto_lab.w52_interlocked_o1c19_launcher import (
     exclusive_launcher_lock,
     inspect_w52,
     load_interlock_config,
+    start_power_assertion,
     wait_for_release,
 )
 
@@ -331,10 +334,15 @@ class W52InterlockedLauncherTests(unittest.TestCase):
             with (
                 patch("o1_crypto_lab.w52_interlocked_o1c19_launcher.os.chdir") as chdir,
                 patch(
+                    "o1_crypto_lab.w52_interlocked_o1c19_launcher.start_power_assertion"
+                ) as power,
+                patch(
                     "o1_crypto_lab.w52_interlocked_o1c19_launcher.os.execvpe"
                 ) as execvpe,
             ):
+                power.return_value.pid = 54_321
                 exec_o1c0019(config)
+            power.assert_called_once_with(os.getpid())
             chdir.assert_called_once_with(config.lab_root)
             executable, command, environment = execvpe.call_args.args
             self.assertEqual(executable, command[0])
@@ -358,9 +366,15 @@ class W52InterlockedLauncherTests(unittest.TestCase):
             (fixture.lab / "runs").mkdir()
             config = load_interlock_config(fixture.config_path, lab_root=fixture.lab)
             reports: list[dict[str, object]] = []
-            with patch(
-                "o1_crypto_lab.w52_interlocked_o1c19_launcher.os.fork",
-                return_value=12_345,
+            with (
+                patch(
+                    "o1_crypto_lab.w52_interlocked_o1c19_launcher.os.fork",
+                    return_value=12_345,
+                ),
+                patch(
+                    "o1_crypto_lab.w52_interlocked_o1c19_launcher._read_daemon_ack",
+                    return_value=b"READY\n",
+                ),
             ):
                 result = detach_and_watch(
                     config,
@@ -369,6 +383,7 @@ class W52InterlockedLauncherTests(unittest.TestCase):
             self.assertEqual(result, 0)
             self.assertEqual(reports[0]["status"], "WATCHER_DETACHED")
             self.assertEqual(reports[0]["pid"], 12_345)
+            self.assertEqual(reports[0]["preflight"], "PASSED")
             self.assertTrue(
                 str(reports[0]["log"]).startswith(str((fixture.lab / "runs").resolve()))
             )
@@ -378,6 +393,134 @@ class W52InterlockedLauncherTests(unittest.TestCase):
                     log_path=fixture.workspace / "outside.log",
                     emit=lambda _row: None,
                 )
+
+    def test_power_assertion_is_pid_bound_and_closes_other_descriptors(self) -> None:
+        with patch(
+            "o1_crypto_lab.w52_interlocked_o1c19_launcher.subprocess.Popen"
+        ) as popen:
+            popen.return_value.poll.return_value = None
+            result = start_power_assertion(12_345)
+        self.assertIs(result, popen.return_value)
+        command = popen.call_args.args[0]
+        self.assertEqual(
+            command,
+            ("/usr/bin/caffeinate", "-dimsu", "-w", "12345"),
+        )
+        self.assertTrue(popen.call_args.kwargs["close_fds"])
+        self.assertTrue(popen.call_args.kwargs["start_new_session"])
+
+    def test_detach_refuses_duplicate_before_fork(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            fixture = InterlockFixture(Path(temporary))
+            (fixture.lab / "runs").mkdir()
+            config = load_interlock_config(fixture.config_path, lab_root=fixture.lab)
+            with (
+                exclusive_launcher_lock(config.lock_path),
+                patch("o1_crypto_lab.w52_interlocked_o1c19_launcher.os.fork") as fork,
+            ):
+                with self.assertRaisesRegex(W52InterlockError, "another"):
+                    detach_and_watch(config, emit=lambda _row: None)
+            fork.assert_not_called()
+
+    def test_flock_remains_exclusive_through_exec(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            lock = Path(temporary) / "exec.lock"
+            descriptor = os.open(lock, os.O_CREAT | os.O_RDWR, 0o600)
+            fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            os.set_inheritable(descriptor, True)
+            read_descriptor, write_descriptor = os.pipe()
+            os.set_inheritable(write_descriptor, True)
+            pid = os.fork()
+            if pid == 0:
+                os.close(read_descriptor)
+                script = (
+                    "import os,sys,time; "
+                    "os.write(int(sys.argv[1]), b'READY'); "
+                    "time.sleep(0.25)"
+                )
+                os.execv(
+                    sys.executable,
+                    (sys.executable, "-c", script, str(write_descriptor)),
+                )
+            os.close(write_descriptor)
+            # Closing without LOCK_UN leaves the fork-shared open-file lock held.
+            os.close(descriptor)
+            try:
+                self.assertEqual(os.read(read_descriptor, 5), b"READY")
+                with self.assertRaisesRegex(W52InterlockError, "another"):
+                    with exclusive_launcher_lock(lock):
+                        self.fail("execed child lost the launcher lock")
+            finally:
+                os.close(read_descriptor)
+                os.waitpid(pid, 0)
+            with exclusive_launcher_lock(lock):
+                pass
+
+    def test_real_detach_acknowledges_session_and_log_preflight(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            fixture = InterlockFixture(Path(temporary))
+            (fixture.lab / "runs").mkdir()
+            config = load_interlock_config(fixture.config_path, lab_root=fixture.lab)
+            w52 = inspect_w52(config, process_probe=lambda _pid, _markers: False)
+            blocked = evaluate_interlock(config, w52, fixture.local())
+
+            def short_watch(_config, **_kwargs):
+                os.write(
+                    1,
+                    (
+                        json.dumps(
+                            {
+                                "pid": os.getpid(),
+                                "session": os.getsid(0),
+                                "status": "SHORT_WATCH_EXIT",
+                            },
+                            sort_keys=True,
+                        )
+                        + "\n"
+                    ).encode("ascii"),
+                )
+                return 0
+
+            reports: list[dict[str, object]] = []
+            with (
+                patch(
+                    "o1_crypto_lab.w52_interlocked_o1c19_launcher.inspect_interlock",
+                    return_value=blocked,
+                ),
+                patch(
+                    "o1_crypto_lab.w52_interlocked_o1c19_launcher.wait_for_release",
+                    side_effect=short_watch,
+                ),
+            ):
+                self.assertEqual(
+                    detach_and_watch(
+                        config,
+                        emit=lambda row: reports.append(dict(row)),
+                    ),
+                    0,
+                )
+            child_pid = int(reports[0]["pid"])
+            os.waitpid(child_pid, 0)
+            log = Path(str(reports[0]["log"]))
+            rows = [json.loads(line) for line in log.read_text().splitlines()]
+            self.assertEqual(rows[0]["status"], "WATCHER_PREFLIGHT_PASSED")
+            self.assertEqual(rows[1]["status"], "SHORT_WATCH_EXIT")
+            self.assertEqual(rows[1]["pid"], child_pid)
+            self.assertEqual(rows[1]["session"], child_pid)
+
+    def test_real_detach_propagates_preflight_failure(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            fixture = InterlockFixture(Path(temporary))
+            (fixture.lab / "runs").mkdir()
+            config = load_interlock_config(fixture.config_path, lab_root=fixture.lab)
+            with patch(
+                "o1_crypto_lab.w52_interlocked_o1c19_launcher.inspect_interlock",
+                side_effect=W52InterlockError("forced preflight failure"),
+            ):
+                with self.assertRaisesRegex(
+                    W52InterlockError, "forced preflight failure"
+                ):
+                    detach_and_watch(config, emit=lambda _row: None)
 
 
 if __name__ == "__main__":
