@@ -4,6 +4,28 @@ This lab treats O1, O1-O and the full-round recovery work as complementary
 subsystems. It is not a repository-claim audit. The engineering question is which
 existing primitives can be composed into a stronger scientific machine.
 
+## Active full-256 path
+
+The current composition is a learned sequential inverse, not a progressively wider
+prefix order:
+
+```text
+public target Y (counter, nonce, output)
+  + attacker-generated candidate K_t, Y_t, trace(K_t)
+  -> contrast/proof reader
+  -> 256-bit vault + multi-timescale GSSM + holographic operator banks
+  -> A465 Product-of-Experts backbone
+  -> A469 positive bucket-local interaction
+  -> q(K_0..K_255 | Y)
+  -> bounded uncertainty beam
+  -> exact ChaCha20 verification
+```
+
+All 256 target bits are unknown in every serious experiment.  Known target traces
+exist only in the build teacher type.  The deployment type cannot contain them.
+Full details and byte budgets are in
+[`O1_256_LIVING_INVERSE.md`](O1_256_LIVING_INVERSE.md).
+
 ## System boundary
 
 ```mermaid
@@ -58,7 +80,8 @@ O1 supplies four different memory roles, kept distinct here:
 
 The explicit 256-channel belief bank is useful even though it is not compressed:
 it tests whether weak evidence can be integrated across an arbitrarily longer
-stream. Holography is a separate capacity/addressability experiment.
+stream. Holography binds operator family, phase, causal motif and interaction
+context; it is not used as a store for millions of candidate keys.
 
 ## Two orthogonal type axes
 

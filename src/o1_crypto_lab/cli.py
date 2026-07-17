@@ -15,6 +15,10 @@ from .corrected_direct12 import run_corrected_codec_bridge
 from .direct12_reproduction import run_direct12_reproduction
 from .spectral_experiment import run_bounded_memory_tournament
 from .isolation import IsolationPolicy
+from .living_inverse_foundation import (
+    load_foundation_config,
+    run_living_inverse_foundation,
+)
 from .replay import O1OSessionReplay
 from .reader_experiment import run_reader_experiment
 from .run_capsule import ClaimLevel, RunCapsuleManager
@@ -1742,6 +1746,128 @@ def _upstream_ising_freeze(args: argparse.Namespace) -> int:
     return 0
 
 
+def _living_inverse_foundation(args: argparse.Namespace) -> int:
+    root = _lab_root()
+    config_path = args.config.resolve()
+    top_level, foundation = load_foundation_config(config_path)
+    source_hashes = {
+        "config": _sha256(config_path),
+        "chacha_trace": _sha256(root / "src/o1_crypto_lab/chacha_trace.py"),
+        "living_inverse": _sha256(root / "src/o1_crypto_lab/living_inverse.py"),
+        "full256_broker": _sha256(root / "src/o1_crypto_lab/full256_broker.py"),
+        "foundation_runner": _sha256(
+            root / "src/o1_crypto_lab/living_inverse_foundation.py"
+        ),
+    }
+    manager = RunCapsuleManager(root)
+    command = (
+        "o1-crypto-lab",
+        "living-inverse-foundation",
+        "--config",
+        str(config_path),
+    )
+    run = manager.start(
+        attempt_id=str(top_level["attempt_id"]),
+        slug=str(top_level["slug"]),
+        commit=_clean_git_commit(root),
+        hypothesis=str(top_level["hypothesis"]),
+        prediction=str(top_level["prediction"]),
+        controls=tuple(str(value) for value in top_level["controls"]),
+        budgets=dict(top_level["budgets"]),
+        source_hashes=source_hashes,
+        claim_level=ClaimLevel(str(top_level["claim_level"])),
+        next_action=str(top_level["next_action"]),
+        config=top_level,
+        command=command,
+        environment={
+            "target_contract": "all-256-bits-unknown-public-output-only",
+            "sibling_repository_access": "none",
+            "accelerator": "none",
+        },
+    )
+    try:
+        run.append_stdout(
+            "O1C-0008 full-256 Living Inverse foundation started; "
+            "no fresh target and no sibling access.\n"
+        )
+        run.checkpoint(
+            {
+                "phase": "ATTACKER_CONTRACT_FROZEN",
+                "unknown_target_key_bits": 256,
+                "target_trace_fields_in_deployment": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+            }
+        )
+        result = run_living_inverse_foundation(foundation)
+        run.write_json_artifact("living_inverse_foundation.json", result.report)
+        run.write_json_artifact(
+            "attacker_contract.json", result.report["attacker_contract"]
+        )
+        run.write_json_artifact(
+            "metric_harness.json", result.report["metric_harness"]
+        )
+        run.checkpoint(
+            {
+                "phase": "FOUNDATION_MEASURED",
+                "result_sha256": result.report["result_sha256"],
+                "success_gate_passed": result.success_gate_passed,
+                "deployment_contrasts": result.report["corpus"][
+                    "deployment_contrasts"
+                ],
+                "fresh_target_revealed": False,
+            }
+        )
+        run.append_stdout(
+            json.dumps(result.metrics(), sort_keys=True, allow_nan=False) + "\n"
+        )
+        finalized = run.finalize(metrics=result.metrics())
+    except Exception as exc:
+        run.append_stderr(f"{type(exc).__name__}: {exc}\n")
+        finalized = run.finalize(
+            metrics={
+                "schema": "o1-256-living-inverse-foundation-failure-v1",
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "unknown_target_key_bits": 256,
+                "target_trace_fields_in_deployment": 0,
+                "sibling_reads": 0,
+                "sibling_writes": 0,
+                "fresh_target_revealed": False,
+                "scientific_inverse_signal_claimed": False,
+            },
+            status="failed",
+            next_action=(
+                "Fix the recorded full-256 foundation invariant under a new "
+                "attempt ID; do not weaken the attacker contract."
+            ),
+        )
+        print(f"failed capsule: {finalized.path}", file=sys.stderr)
+        return 1
+    print(
+        json.dumps(
+            {
+                "attempt_id": finalized.attempt_id,
+                "path": str(finalized.path),
+                "manifest_sha256": finalized.manifest_sha256,
+                "verified": finalized.verification.ok,
+                "success_gate_passed": result.success_gate_passed,
+                "unknown_target_key_bits": 256,
+                "deployment_contrasts": result.report["corpus"][
+                    "deployment_contrasts"
+                ],
+                "random_baseline_key_nll_bits": result.report["metric_harness"][
+                    "random_baseline"
+                ]["key_nll_bits"],
+                "fresh_target_revealed": False,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 0 if result.success_gate_passed else 1
+
+
 def build_parser() -> argparse.ArgumentParser:
     root = _lab_root()
     parser = argparse.ArgumentParser(
@@ -1867,6 +1993,17 @@ def build_parser() -> argparse.ArgumentParser:
         default=root / "configs/upstream_ising_retrospective_v1.json",
     )
     upstream.set_defaults(handler=_upstream_ising_freeze)
+
+    living = subparsers.add_parser(
+        "living-inverse-foundation",
+        help="freeze the full-256 public-output attacker and teacher boundary",
+    )
+    living.add_argument(
+        "--config",
+        type=Path,
+        default=root / "configs/living_inverse_foundation_v1.json",
+    )
+    living.set_defaults(handler=_living_inverse_foundation)
     return parser
 
 

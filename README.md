@@ -16,6 +16,27 @@ run, the strongest supported claim, active uncertainty and the ranked next actio
 Historical outcomes—including negative mechanisms—are indexed in
 [RESULTS_INDEX.md](RESULTS_INDEX.md) and the append-only files under `research/`.
 
+## Active Moonshot: O1-256 Living Inverse
+
+The active target is no longer a progressively wider residual-key benchmark.  Every
+serious target is standard twenty-round ChaCha20 plus feed-forward with **all 256
+key bits unknown**.  Deployment sees only public counter, nonce and output.  It may
+also evaluate keys it generated itself and inspect those candidate traces; target
+round states, carry paths and key labels are training-only.
+
+The system streams structured and uniform Contrast-Keys into a bounded O1 state,
+binds bit coordinates and operator families holographically, composes complementary
+wavelength readers with an A465-style Product-of-Experts, applies only A469-style
+positive bucket-local corrections, and emits `q(K_0..K_255 | Y)` plus a bounded
+verification beam.  It reports key NLL from the exact 256-bit random baseline,
+predictable bits, byte/16-bit ranks, million-decoy full-key rank, effective domain
+compression and exact public verification.
+
+The complete attacker contract and architecture are in
+[O1-256 Living Inverse](docs/O1_256_LIVING_INVERSE.md).  The W52 mechanisms were
+inspected read-only and are summarized in
+[the 2026-07-17 transfer map](research/W52_TRANSFER_20260717.md).
+
 ## What the first benchmark proves
 
 The initial benchmark deliberately separates three questions that are easy to
@@ -61,6 +82,8 @@ python3 -m venv .venv
 .venv/bin/o1-crypto-lab benchmark \
   --config configs/quick.json \
   --output runs/quick.json
+.venv/bin/o1-crypto-lab living-inverse-foundation \
+  --config configs/living_inverse_foundation_v1.json
 ```
 
 Inspect the operator compiler and its leakage rejection:
@@ -156,7 +179,7 @@ freedom are information-equivalent to the fixed candidate table, and its 8,014-b
 maximum serialized logical state is larger than the matched 3,918-byte direct
 baseline.
 
-The upstream freeze then replaces the dense final-field representation with a
+The upstream freeze replaced the dense final-field representation with a
 12-register unary solver-evidence memory. Its conservative logical-state bound is
 266 bytes and its frozen binary is 162 bytes. The complete target-blind A355 panel
 contained 672 orders; the frozen decoder ranked the retrospective target at 73,
@@ -164,9 +187,11 @@ but the exact conditional random-label tail was `2431/4096 = 0.593505859375`.
 That is a structurally eligible compact mechanism and a negative efficacy result,
 not SOTA. The same decoder emitted a complete A356 order before any A356 target or
 outcome read, but A356 still came from the same opened source capsule and is not a
-source-unseen holdout. O1C-0008 therefore carries the exact frozen decoder into
-newly generated, precommitted paired-assumption solver trajectories and performs
-the first genuinely fresh efficacy test.
+source-unseen holdout.  That planned narrow W46 follow-up is now superseded.
+O1C-0008 instead freezes the full-256 public-output attacker type, separately typed
+teacher labels, exact traced relation generator, six Contrast-Key families, sealed
+full-256 broker and the complete non-recovery progress vector.  The unary decoder
+remains one matched baseline inside the new architecture.
 
 The expensive immutable-snapshot integration gates are opt-in:
 
@@ -185,7 +210,8 @@ O1_CRYPTO_UPSTREAM_REAL=1 \
 - Runtime experiment bytes are confined to `runs/`. A separate symlink-safe writer
   may update only the seven enumerated cockpit Markdown files at the lab root and
   under `research/`; it cannot write arbitrary lab or sibling paths.
-- No GPU/Metal use.
+- CPU-only by default. MPS/GPU use requires a short explicit resource-checked window
+  and cannot compete with the active sibling recovery queue.
 - No target label, recovered model, post-reveal rank, or target-internal state may
   flow into a `TARGET_BLIND_ORDER`.
 - Training-time internal round states may teach an operator, but evaluation-time
@@ -200,6 +226,7 @@ O1_CRYPTO_UPSTREAM_REAL=1 \
   named explicitly.
 
 See [Architecture](docs/ARCHITECTURE.md),
+[O1-256 Living Inverse](docs/O1_256_LIVING_INVERSE.md),
 [Experiment ladder](docs/EXPERIMENT_LADDER.md), and
 [Scientific boundaries](docs/SCIENTIFIC_BOUNDARIES.md). The first reproducible
 smoke-test measurements are recorded in [First results](docs/FIRST_RESULTS.md).

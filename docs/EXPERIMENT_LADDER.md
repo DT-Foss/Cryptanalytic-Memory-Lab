@@ -1,139 +1,119 @@
-# Experiment Ladder
+# O1-256 Living Inverse Experiment Ladder
 
-Each stage isolates one uncertainty. A later stage starts only after the preceding
-gate is reproducible across seeds and held-out data.
+Every attacked target in this ladder has all 256 ChaCha20 key bits unknown.  A
+12-bit window is an internal contrast/proof operator, never a reduced-key target.
+The earlier MQAR, Direct12 and bounded-memory stages remain in immutable O1C-0000
+through O1C-0007 capsules and are prerequisites, not the current width ladder.
 
-## Stage 0 — MQAR-256 closed-gate storage qualification
+## L0 — Full-width attacker and teacher boundary (`O1C-0008`)
 
-Input: 256 shuffled `(position, bit)` bindings, a length sweep of irrelevant tokens,
-then shuffled queries.
+Build exact twenty-round ChaCha20 plus feed-forward with two disjoint types:
 
-Relevance is supplied by the harness: irrelevant tokens invoke an exact closed gate.
-This stage measures storage/crosstalk after selection, not a learned selective GSSM
-gate. A later Stage 0b must mix bindings and distractors in one token grammar and
-learn the routing decision on disjoint lengths.
+- deployment: public counter, nonce and output plus self-generated candidate key,
+  output and trace;
+- teacher: known target key, target round/carry trace and correction labels.
 
-Arms:
-
-- full-context attention: exact `O(T)` validity ceiling, never a bounded-state win;
-- direct 256-register vault: exact-address ceiling;
-- 128-complex-channel holographic state: equal scalar-cell count;
-- 64-slot CountSketch: deliberate capacity/collision control.
-
-Metrics: per-bit accuracy, exact-all-256 rate, state digest before/after haystack,
-state cells, numeric precision and canonical serialized bytes. Haystack lengths replay the same
-bindings and query order within a seed.
-
-Pass meaning: the mechanism retains information. It says nothing about whether a
-cipher makes key evidence observable.
-
-## Stage 1 — weak-evidence integration
-
-A fixed 256-dimensional log-odds state receives a nested stream of relations.
-One relation contains 256 scalar evidence values; the result therefore reports both
-relation vectors and total evidence scalars. At 1,024 relations the state consumes
-262,144 scalar observations per seed.
-
-Controls:
-
-- independent evidence with 55% per-observation correctness;
-- a matched no-signal stream at 50%;
-- a 55% stream whose error orientation is perfectly correlated and merely repeated.
-
-The first arm should improve with relation count, the no-signal arm should remain at
-chance and the correlated arm should not gain new information through repetition.
-This distinguishes accumulation from duplicate-confidence inflation.
-
-## Stage 2 — O1-O session replay
-
-The stored session `O1-O/2026-02-18_013412` is normalized offline into immutable
-`EvidenceEvent` records. Task envelopes plus the hashed engagement summary validate
-the combined event grammar, aggregate retry/recovery/chaining counts and a neutral,
-bounded TargetModel ingestion over a real 16-task adaptive run before any
-cryptanalytic data is used.
+Generate six proposal families: single-bit, Gray-window, repeated-word,
+low-complexity, posterior sample and uniform random.  Register shuffled-key,
+one-bit-output and wrong-nonce controls.
 
 Gate:
 
-- no generated program is imported or executed;
-- raw output is omitted from events; its unsalted fingerprint is integrity metadata,
-  not protection for low-entropy output;
-- generation, process, capability and mission outcomes stay separate;
-- repeated replay yields the same source and event hashes.
+- public target declares 256 unknown bits;
+- target key/trace fields cannot be represented by deployment;
+- RFC vector and full trace agree exactly;
+- random posterior NLL is exactly 256 bits;
+- byte/16-bit rank, decoy rank and beam harness pass an oracle ceiling;
+- no sibling read, fresh target, GPU or MPS work.
 
-The historical schema records aggregate retry and chained-tool counts but no parent
-task IDs. The adapter therefore does not invent edge-level ancestry; new runs should
-store explicit `parent_task`, `retry_index` and `followup_reason` fields.
+## L1 — First full-width inverse readers (`O1C-0009`)
 
-## Stage 3 — frozen recovery-artifact ingestion
+Train three equal-data CPU arms on known uniform 256-bit keys:
 
-The clean `fullround-key-recovery` snapshot is verified against
-`provenance/ARTIFACTS.sha256` before any byte is read. A derived dataset records the
-source commit, manifest hash, member hash and split assignment.
+1. direct public-output student;
+2. candidate-relative target/candidate residual reader;
+3. identical deployment reader with privileged round/carry auxiliary losses.
 
-Only immutable public challenge material and explicitly attacker-computable solver
-features may enter evaluation. Recovered keys and post-result ranks are audit-only
-labels and cannot reach the discovery ledger.
+Structured contrasts form a curriculum, but the held-out distribution is always
+uniform random full-width keys.  Report total NLL, per-bit calibration, stable-bit
+count and the complete control vector.  A negative result is split by output word,
+key orbit, round-teacher task, proposal distance and feature family.
 
-## Stage 4 — intervention atlas on training keys
+Gate to L2: a repeated development gain in key code length or a stable bit that is
+not present in shuffled-key/output-flip/wrong-nonce controls.  If no arm passes,
+retain the best observability map and change the reader mechanism without changing
+the target distribution.
 
-Instrumented training worlds may expose keys, carries, rounds and solver internals.
-O1-O searches a finite typed registry for cheap transformations that predict a key-
-bit intervention or distinguish factual from matched control trajectories.
+## L2 — O1 Causal Bitfield Crystallizer (`O1C-0010`)
 
-Candidate families:
+Stream L1 event logits through the fixed initial state:
 
-- carry propagation geometry;
-- conflict/propagation deltas under `bit_i=0` versus `bit_i=1` assumptions;
-- solver progress and learned-constraint signatures;
-- cross-round phase consistency;
-- execution-description and trajectory-compression proxies.
+- 256 `{logit, precision, age}` vault entries;
+- H1/H2/H4/H8 GSSM timescales;
+- eight 256-slot complex holographic banks;
+- switching wavelengths 64/96/65;
+- A465 cubic Product-of-Experts backbone;
+- A469 positive bucket-local residual with an exact identity branch.
 
-Operators are selected on training keys, calibrated on validation keys, frozen and
-hashed. Test keys are never used by Failure-Memory or operator search.
+The initial living plus scratch/scorer budget is 20,492 logical bytes, invariant in
+the number of contrasts.  Every candidate event is discarded after its update.  The
+external attic is disabled.
 
-## Stage 5 — public observability gate
+Gate: the streamed state matches batch reduction, stays flat in stream length and
+improves minimum held-out bit/block metrics over the strongest L1 arm at matched
+cipher calls.
 
-The frozen operator receives only public relations and solver state that an attacker
-can recompute from public equations under billed candidate assumptions.
+## L3 — O1-O adaptive proposal organism
 
-Controls include:
+Select the next `(anchor, orbit, contrast family, horizon, reader, phase)` by
 
-- independent new random keys;
-- matched ideal-PRF or random-permutation data where appropriate;
-- shuffled key-bit labels;
-- factual-versus-control symmetry;
-- same compute and candidate budgets.
+```text
+uncertainty * expected information gain * expert disagreement / work
+```
 
-Any positive result first triggers a leakage audit. Only a result that survives that
-audit becomes evidence for a cipher-level signal.
+Failure memory is contextual; it suppresses only the measured dead combination.
+Compare against fixed round-robin and uniform proposal schedules at equal cipher
+calls.  Only high-surprise compact motifs may enter a separately billed capped
+causal attic.
 
-## Stage 6 — target-blind ordering
+Gate: better held-out entropy reduction per cipher call without state/index budget
+escape.
 
-The O1 state emits a frozen bit belief or cell order. It may improve an existing
-complete-domain or strict-subset search, but it cannot change the declared success
-boundary after execution begins.
+## L4 — Sealed full-256 development attack
+
+Before reveal, persist model hash, O1 state plan, proposal scheduler, work budget,
+controls and complete output posterior.  Generate a new uniform 256-bit key through
+the one-shot full-256 broker.  Attack receives only its public relation.
 
 Report:
 
-- target cell rank and gain bits;
-- all solver/cipher calls used to build the order;
-- complete state and index cost;
-- matched control behavior;
-- prospective freeze hash.
+- key NLL and `256 - NLL` effective compression;
+- calibrated stable bits;
+- byte/16-bit ranks;
+- true-key rank among at least one million decoys;
+- posterior-mode and best-beam Hamming distance;
+- exact key in beam and public verification;
+- state, attic and complete work accounting.
 
-## Stage 7 — exact recovery
+After reveal, the challenge may enter the O1/O1-O learning attic.  It cannot alter
+its own result.
 
-The normal full-round backend executes the frozen plan, reconstructs a complete key
-and independently confirms the complete output. A memory or ranking win alone is
-not key recovery.
+## L5 — Living challenge sequence
 
-The end-to-end result is retained only if it beats the declared baseline after all
-training, operator-search, solver, storage and execution work is included.
+Repeat L4 with a new sealed random target.  Challenge `n` may teach mechanisms used
+on `n+1`, never itself.  Promote the result when entropy removal and stable bits
+replicate across target sequences and controls.
 
-## Immediate next experiment
+## L6 — Exact recovery frontier
 
-The next safe real-data step is Stage 3: verify the clean 570-member publication
-manifest, select a small frozen public/config/result fixture, and emit a provenance-
-typed event dataset inside this lab. The active Threefish-1024 run remains entirely
-outside this sequence until its own protocol has completed and published immutable
-artifacts.
+Use the factorized/interaction posterior to generate a bounded uncertainty beam.
+Every member is checked by exact standard ChaCha20.  Terminal success is the full
+256-bit key in the beam with independent public-relation confirmation and a
+material total-work advantage over the declared baseline.
+
+## Resource rule
+
+The active sibling W52 recovery queue has priority.  L0 and small L1 diagnostics are
+CPU-only.  MPS/GPU training requires a short explicit window after checking memory
+pressure and active workers; no large proof-corpus copy or concurrent accelerator
+job is allowed while recovery is active.

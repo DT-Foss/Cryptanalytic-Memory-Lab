@@ -30,6 +30,47 @@ This file records mechanism-level conclusions, not every failed parameter settin
 - **Breadcrumb:** instrument carry geometry, propagation conflicts and temporal
   solver deltas before revisiting any aggregate output metric.
 
+For the Living Inverse, raw target/candidate output distance remains an explicit
+matched control.  Candidate-relative readers may consume the complete residual
+pattern, but a scalar Hamming distance can never be the only proposed evidence.
+
+## B-0009 — Reduced-width staging as the Moonshot target
+
+- **Evidence:** user target contract fixed on 2026-07-17 after the W52 read-only
+  intake.
+- **Result:** W12/W52 residual-key recovery is no longer the experiment ladder for
+  this session.
+- **Conclusion:** every serious target must contain all 256 unknown key bits.
+- **Breadcrumb:** small windows remain useful as randomized interventions and
+  online log-sum-exp reducers inside the full-256 model.
+
+## B-0010 — Clause-output topology without proof ancestry
+
+- **Evidence:** sibling A446 pure provenance reaches only `+0.03767` all-128 bit
+  gain and three of eight positive blocks; A447/A448 proof ancestry transfers in
+  all eight blocks.
+- **Conclusion:** flattening learned clauses discards the higher-value causal path.
+- **Breadcrumb:** stream direct/ancestral assumption touches, depth, fan-in, reuse,
+  recurrence and deletion/rejection before clause-output aggregation.
+
+## B-0011 — Global interaction replacement
+
+- **Evidence:** sibling A468's frozen global copula reaches minimum block gain
+  `-0.514548`, while A469's backbone-preserving bucket-local correction reaches
+  `+0.418279`.
+- **Conclusion:** interaction evidence is locally useful but destructive as a
+  global replacement for a robust unary/PoE order.
+- **Breadcrumb:** keep an exact identity branch, apply positive residuals only in
+  predeclared confidence buckets and cap displacement.
+
+## B-0012 — Pair permutation as memory
+
+- **Evidence:** W52 complete pair schedules contain 16,777,216 entries and occupy
+  64 MiB; the causal event stream itself is much larger.
+- **Conclusion:** these are deployment orders, not an admissible O1 living state.
+- **Breadcrumb:** reduce every local assignment stream online into bit marginals,
+  discard rows immediately and report the external attic separately.
+
 ## B-0004 — Two-target selection over 119 raw readers
 
 - **Evidence:** `O1C-0002`, with the exact selection procedure replayed for every

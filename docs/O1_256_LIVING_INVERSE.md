@@ -1,0 +1,152 @@
+# O1-256 Living Inverse
+
+Last updated: 2026-07-17T02:44:45+02:00 (`Europe/Berlin`).
+
+## Moonshot contract
+
+The attacked object is standard ChaCha20 with all 256 key bits unknown, twenty
+rounds plus feed-forward, a public counter and nonce, and one or more public output
+blocks.  The attack path receives exactly that public view.  It never receives an
+internal state, carry, round trace, target-key prefix, reduced-width assignment or
+target-derived solver trace.
+
+Training may use known keys and privileged teacher labels.  The deployment API is
+separate and smaller:
+
+```text
+public target (counter, nonce, output)
+    + self-generated proposal K_t
+    + ChaCha20(K_t) and trace(K_t)
+    -> streamed contrast event
+    -> O1-256 living state
+    -> q(K_0..K_255 | public target)
+    -> exact public ChaCha20 verification
+```
+
+Candidate traces are attacker-computable because the candidate key is chosen by
+the attacker.  Target traces are teacher-only and cannot cross into the deployment
+event schema.
+
+The model is 256-bit from the first experiment.  Width-12 objects may be used as
+internal interventions or randomized local operators, but never as a reduced-key
+target or a staged claim that W12/W52 recovery equals the 256-bit task.
+
+## Why contrast streaming is the scalable object
+
+The living inverse does not store or rank `2^256` keys.  It generates a stream of
+experiments around anchors proposed from the current posterior:
+
+- one-bit and sparse flips;
+- Gray-code walks and randomized coordinate windows;
+- repeated-word and low-Kolmogorov-complexity anchors;
+- posterior samples and uncertainty-directed flips;
+- eventually fully uniform random keys.
+
+For a known training target, the correction mask `K* xor K_t` and target round/carry
+trace are labels.  For a sealed target, only public output residuals and the trace
+of `K_t` exist.  A learned point reader converts each attacker-valid contrast into
+signed bit evidence and a declared information mass.  O1 accumulates the evidence
+without retaining the proposals.
+
+## Living state
+
+The first architecture budget is deliberately small and fixed in stream length:
+
+| State | Shape | Logical bytes | Role |
+|---|---:|---:|---|
+| Unary vault | `256 x {logit, precision, age}` | 2,560 | stable bit posterior |
+| Holographic banks | `8 x 256 complex64` | 16,384 | operator/phase/context residuals |
+| GSSM | `128 float32` | 512 | current stream dynamics |
+| Expert reliability | `4 horizons x 3 experts x 4 float32` | 192 | calibrated B/H/O trust |
+| Active local marginal scratch | `3 x 12 x 2 float64` | 576 | log-sum-exp reduction only |
+| Scheduler/control | fixed | 64 | current operator window |
+| Frozen point scorer | `3 x (16 weights + bias) float32` | 204 | event-to-evidence map |
+
+Initial total: **20,492 logical bytes**, independent of the number of streamed
+contrasts.  The external `.causal` attic is disabled in the first experiment.  If
+enabled later, its retained bytes and growth are reported separately.
+
+For a local assignment stream with score `ell(x)`, candidate rows are reduced
+online:
+
+```text
+Z[e,j,x_j] <- logaddexp(Z[e,j,x_j], ell_e(x))
+delta_j    <- PoE_e(Z[e,j,1] - Z[e,j,0])
+M[i]       <- gamma[i] * M[i] + gate[i] * delta_j
+```
+
+The `4,096` local assignments are observations, never resident memory.  Randomized
+global-to-local mappings prevent a solver-position artifact from being mistaken
+for a global key coordinate.
+
+## W52 mechanisms retained, not copied
+
+The read-only 2026-07-17 intake from `arx-carry-leak` changes the architecture in
+five concrete ways:
+
+1. A447-A449 proof ancestry, conflict path and propagation depth become the primary
+   causal sensor.  Clause-output provenance alone remains only a secondary feature.
+2. H1/H2/H4/H8 become explicit GSSM timescales.
+3. A460/A462/A463 supply complementary switching wavelengths `64/96/65`.
+4. A465 supplies the backbone Product-of-Experts:
+   `7*(rank64+1)^3 + (rank96+1)^3 + 4*(rank65+1)^3`.
+5. A469 supplies a safe interaction rule: positive, bucket-local corrections only;
+   preserve the backbone and use the identity branch everywhere else.
+
+No W52 target order, key label, active progress file or 64 MiB pair permutation is
+an input to the living inverse.  The scientific transfer is the event and update
+mechanism.
+
+## O1-O role
+
+O1-O chooses the next attacker-valid intervention from
+`(anchor, coordinate/orbit, contrast family, horizon, reader, phase)` using:
+
+```text
+ROI = uncertainty * expected_information_gain * expert_disagreement / work
+```
+
+Its failure memory is contextual.  A negative result suppresses the measured
+combination, not an entire mechanism family.  Rare high-surprise motifs may later
+enter the bounded external index; ordinary events disappear after updating state.
+
+## Data lifecycle
+
+1. Unlimited build stream with known keys and privileged teacher labels.
+2. Fixed development corpus for aggressive iteration.
+3. One newly generated, sealed uniform-random 256-bit target per serious freeze.
+4. Shuffled-key, output-flip and wrong-nonce controls at matched work.
+5. Only after reveal may that target enter O1/O1-O failure memory.
+
+The uncommitted W46 fresh-challenge broker found on 2026-07-17 is retained as a
+tested side artifact.  It is not the target definition and will be generalized or
+replaced by a full-256 sealed-target broker before the first outcome-bearing run.
+
+## Progress vector
+
+Full recovery remains terminal, but every freeze reports the complete vector:
+
+- true-key cross-entropy/code length in bits; random baseline exactly `256`;
+- calibrated predictable bits on uniform held-out keys;
+- byte and 16-bit block rank;
+- true full-key rank among at least one million matched decoys;
+- effective compression `256 - key_nll_bits` with calibration stated;
+- Hamming distance of posterior mode and best beam member;
+- whether exact public verification appears in the generated beam;
+- state bytes, index bytes, generated proposals, cipher calls and wall/CPU work.
+
+One stable unseen bit is a structural result.  Eight independent transferable bits
+are a factor-256 domain reduction.  Exact key verification is the terminal signal.
+
+## Immediate experiment sequence
+
+1. `O1C-0008`: implement the full-256 attacker/teacher boundary, structured and
+   uniform contrast generator, trace instrumentation and all progress metrics.
+2. `O1C-0009`: train the first output-only 256-bit baseline and contrast reader on
+   CPU; include raw-output, candidate-relative and teacher-distilled arms.
+3. `O1C-0010`: stream reader evidence through the 20,492-byte O1 state, add the
+   A465 backbone and A469 local correction, then attack a sealed random 256-bit
+   development target.
+4. Iterate on round/carry/proof observability, operator scheduling and holographic
+   binding until uniform held-out entropy moves; do not retreat to a reduced-width
+   target when a full-256 arm is negative.

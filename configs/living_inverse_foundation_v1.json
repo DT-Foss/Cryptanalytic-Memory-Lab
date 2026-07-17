@@ -1,0 +1,37 @@
+{
+  "schema": "o1-256-living-inverse-foundation-config-v1",
+  "attempt_id": "O1C-0008",
+  "slug": "full256-living-inverse-foundation",
+  "claim_level": "SMOKE",
+  "hypothesis": "A strict full-256 public-output attacker type, physically separate teacher labels, exact traced ChaCha20 contrasts and a complete non-recovery progress vector can be made executable without reading or competing with the sibling W52 project.",
+  "prediction": "Every target declares 256 unknown bits; no target key or target trace enters a deployment document or feature vector; all six contrast families execute; the random posterior is exactly 256 bits; the oracle ceiling verifies the metric and beam harness.",
+  "controls": [
+    "uniform 0.5 posterior with exact 256-bit key NLL",
+    "one-bit public-output flip",
+    "one-bit wrong-nonce view with unchanged output",
+    "registered shuffled-key control for the first trained reader",
+    "0.99 truth-posterior oracle metric ceiling"
+  ],
+  "budgets": {
+    "maximum_cpu_seconds": 120,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_fresh_targets": 0,
+    "maximum_decoys": 1000000
+  },
+  "next_action": "Train O1C-0009 output-only, candidate-relative and teacher-distilled full-256 readers on the frozen deployment schema, then compare uniform development-key NLL and controls before sealing a target.",
+  "foundation": {
+    "build_targets": 4,
+    "development_targets": 2,
+    "contrasts_per_family": 2,
+    "block_count": 1,
+    "seed": 256017,
+    "decoy_count": 1000000,
+    "decoy_seed": 469465,
+    "confidence_threshold": 0.75,
+    "beam_uncertain_bits": 16,
+    "beam_size": 65536
+  }
+}

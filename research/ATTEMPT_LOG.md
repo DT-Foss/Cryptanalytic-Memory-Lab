@@ -233,6 +233,29 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   panel blob `2ed242ba8582798cd23618be18a230cecabe27c9aed2546f5a88814117f86949`;
   future-template artifact `836d6f0b01a7b86d50b0b5f81eaaaef1df235dfa45804b2a5ccc2a18d24775fd`.
 - **Breadcrumb:** preserve the compact mechanism and the negative calibration;
-  never resweep A355. O1C-0008 must apply the exact frozen decoder once to multiple
-  new OS-random paired-assumption trajectories, persist outputs before reveal and
-  demand reproducible downstream search advantage.
+  never resweep A355. The originally proposed narrow W46 O1C-0008 is superseded by
+  the full-256 Living Inverse; the decoder remains a matched unary arm.
+
+## 2026-07-17 — W52 read-only intake and full-256 target pivot (non-attempt)
+
+- **Recorded:** 2026-07-17T02:44:45+02:00
+- **Mutation boundary:** `arx-carry-leak` was inspected read-only; no project script
+  executed and no sibling file changed.  This entry records architecture intake,
+  not an outcome-bearing O1C experiment.
+- **Resource state:** 16 GiB physical RAM, 47% system-wide free memory, zero
+  throttled pages; observed active solver engines used roughly 13 MiB RSS each.
+  Local work remains light while that queue is active.
+- **New evidence:** A447/A448 proof ancestry transfers across all eight held blocks;
+  A449 transfers the operator target-label-blind to W52.  Wavelengths 64/96/65 are
+  complementary; A465's cubic PoE and A469's positive bucket-local correction form
+  the strongest reusable composition.
+- **Target decision:** all 256 ChaCha20 key bits are unknown from experiment one.
+  Attack inputs are public counter/nonce/output plus self-generated candidate
+  traces.  Target internal traces are teacher-only.
+- **Superseded action:** do not generate a fresh W46 target merely to exercise the
+  frozen O1C-0007 decoder and do not scale a residual-width ladder through W52.
+- **New O1C-0008:** implement the full-256 attacker/teacher type boundary, traced
+  relation generator, structured-to-uniform contrast stream and complete progress
+  metrics before training the first Living Inverse reader.
+- **Artifacts:** `docs/O1_256_LIVING_INVERSE.md` and
+  `research/W52_TRANSFER_20260717.md`.

@@ -2,8 +2,10 @@
 
 ## Objective
 
-Produce a real end-to-end O1/O1-O cryptanalytic evidence loop and pursue a
-replicated frontier or state-of-the-art result, not merely a larger scaffold.
+Produce an end-to-end O1/O1-O living inverse for standard full-round ChaCha20 with
+all 256 key bits unknown and only the public counter, nonce and output visible at
+attack time.  The objective is measured entropy removal and ultimately exact key
+verification on sealed uniform targets, not a larger reduced-width scaffold.
 
 ## ROI definition
 
@@ -13,26 +15,28 @@ contamination risk. Green tests and document count are not research outcomes.
 
 ## Current milestone
 
-O1C-0007 established the first structurally eligible compact upstream mechanism:
-12 unary registers, a 266-byte conservative logical-state bound and no candidate
-rows. Its retrospective A355 efficacy test was negative at exact conditional
-`p=0.593505859375`; A356 is target-/outcome-blind but not source-unseen. The active
-milestone is O1C-0008: apply that exact frozen decoder to multiple newly generated
-paired-assumption solver trajectories, with complete pre-reveal persistence and
-matched controls. No SOTA claim exists until fresh reproducible downstream utility
-passes.
+O1C-0007 established a compact unary primitive but returned negative calibrated
+efficacy (`p=0.593505859375`).  The read-only W52 intake then identified the missing
+mechanisms: proof ancestry before clause flattening, four causal horizons,
+switching-wavelength experts, A465 PoE fusion and A469 backbone-preserving local
+interaction.  The active milestone is O1C-0008: build the full-256 attacker/teacher
+boundary, contrast generator and complete progress vector.  No W12/W52 residual
+target is part of the new result ladder.
 
 ## Evidence ladder from here
 
-1. Freeze target generation, solver budget, decoder hash, controls and reveal rule.
-2. Generate source-unseen explicit `k_i=0`/`k_i=1` assumption pairs and stream their
-   signed event deltas into the fixed state.
-3. Persist every compact state and target-blind output before opening any target.
-4. Evaluate multi-target exact/null evidence and downstream search-space or
-   time-to-hit advantage under matched work.
-5. Only after that gate passes, attempt bounded full-round recovery and independent
-   confirmation; otherwise preserve the observability boundary and expand only the
-   implicated carry/round/conflict mechanism.
+1. Generate full 256-bit known-key build data: structured contrasts first, then
+   uniform keys, always through the exact twenty-round plus feed-forward relation.
+2. Separate privileged target teacher traces from the deployment schema; the latter
+   accepts only public target output and self-generated candidate traces.
+3. Train direct output-only and candidate-relative readers and measure full-key NLL
+   against the exact 256-bit random baseline.
+4. Stream their evidence into the fixed O1 state; compose switching-wavelength
+   experts with A465 and allow only A469-style local positive correction.
+5. Iterate on a fixed development corpus, then attack a newly sealed uniform 256-bit
+   target with matched shuffled-key, output-flip and wrong-nonce controls.
+6. Promote any stable bit/entropy gain into better proposal scheduling and a bounded
+   uncertainty beam until exact public verification appears.
 
 ## Operating contract
 
@@ -50,6 +54,9 @@ passes.
 
 ## Non-negotiable scientific boundaries
 
+- all 256 target key bits unknown from the first outcome-bearing experiment;
+- target-time inputs limited to public relation data and attacker-computable
+  self-generated candidate traces;
 - bounded state in stream length;
 - no KV cache or full `O(T)` attention except a named ceiling;
 - no alphabet-indexed dictionary presented as a memory breakthrough;
@@ -62,7 +69,8 @@ passes.
 
 ## Terminal condition
 
-Completion requires a real full-round Stage-3-to-Stage-7 path with disjoint splits
-and controls, plus either a replicated independently confirmed frontier advantage or
-a mechanistically supported negative boundary that identifies the next attack
-frontier. Instrumentation alone is not completion.
+Completion requires exact 256/256 long-stream retention, reproducible entropy or
+search reduction on sealed uniform full-round 256-bit targets, and ultimately a
+full key emitted by the bounded-state/beam path and independently verified against
+the public ChaCha20 relation. Instrumentation or reduced-width recovery alone is not
+completion.

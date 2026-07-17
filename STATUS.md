@@ -1,56 +1,52 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-15T17:55:31+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-17T02:44:45+02:00 (`Europe/Berlin`)
 - **Implementation commit:** `cf7ef298caf80006ae3470240d509c661221b150`
-- **Research phase:** Stage 6 — preparing the frozen compact solver-evidence memory
-  for its first genuinely fresh paired-assumption test
-- **Strongest internal mechanism:** a 12-register unary solver-evidence memory with
-  266-byte conservative logical-state bound and 162-byte frozen binary state
-- **Strongest external frontier anchors:** confirmed Threefish-1024 W39 complete
-  domain and ChaCha20 A325 W46 strict-subset recovery; both remain read-only inputs
+- **Worktree note:** two tested W46 fresh-challenge files and the new O1-256 design
+  documents are intentionally uncommitted pending integration with O1C-0008
+- **Research phase:** O1-256 Living Inverse — full-width attacker contract and
+  contrast-stream foundation
+- **Strongest internal mechanism:** O1C-0007's 12-register/266-byte unary state is
+  retained as a negative-calibrated primitive; the active design adds proof
+  interactions, switching wavelengths and a 20,492-byte full-256 living state
+- **Strongest read-only mechanism intake:** A447-A449 proof ancestry, A465 cubic
+  Product-of-Experts and A469 positive bucket-local correction
 - **Active runs:** none
 - **Last completed attempt:** `O1C-0007` — upstream solver-evidence Bit-Vault freeze
-- **Primary uncertainty:** whether the frozen unary evidence decoder transfers to
-  unseen OS-random paired-assumption trajectories and improves search/recovery
+- **Next attempt:** `O1C-0008` — full-256 public-output attacker/teacher boundary,
+  contrast generator, trace instrumentation and progress-vector baseline
+- **Primary uncertainty:** whether any attacker-valid full-round public-output
+  contrast channel removes stable entropy from uniform unseen 256-bit keys
 - **SOTA status:** no lab SOTA result yet; O1C-0007 passed its protocol and compact-
   state gates but failed scientific efficacy at exact conditional `p=0.593505859375`
-- **SOTA target:** the smallest genuine O(1)-in-stream solver-event memory with
-  reproducible fresh unseen-key search-space reduction
+- **SOTA target:** a stream-length-bounded living inverse that reduces the 256-bit
+  key code length on sealed uniform targets and ultimately emits an exactly verified
+  full ChaCha20 key
 
 ## Headline
 
-`O1C-0007` moved upstream of the dense final score table. It persisted all 672
-complete target-blind A355 orders before opening the single A355 truth, applied a
-target-blind tie gate to the 448 streamable views, and enumerated all 4,096 possible
-labels through the exact resulting 152-view selection procedure. The selected
-decoder is:
+The target contract is now final: every attacked key has 256 unknown bits from the
+first experiment.  The deployment path sees only public counter/nonce/output plus
+self-generated candidate keys, their outputs and their internally computable
+traces.  Target round states, carry paths and proof objects are training labels
+only.  Reduced-width residual recovery is not an intermediate target claim.
 
-- `search_propagations__h1__signed-log1p__degree1__negative`;
-- 12 implicit unary Walsh registers, zero candidate rows, evidence rows or KV
-  entries;
-- 266-byte conservative maximum logical mechanism state; 162-byte frozen binary;
-- A355 rank `73`, raw rank gain `5.8101754411` bits;
-- exact conditional random-label tail `2431/4096 = 0.593505859375`.
+The 2026-07-17 read-only W52 intake supplied mechanism, not target data.  A447/A448
+show that exact proof ancestry transfers where flattened clause provenance does
+not.  A460/A462/A463 expose complementary switching wavelengths `64/96/65`; A465
+combines them with a cubic Product-of-Experts; A469 shows that interaction evidence
+must be positive, bucket-local and identity-preserving.  These become the sensor,
+timescale, backbone and correction layers of the Living Inverse.
 
-That probability is negative evidence after the declared selection family: the raw
-5.81-bit rank is not demonstrated utility. The exact null also does not adjust for
-pre-panel exploration or establish label exchangeability. The 266-byte figure is
-only below O1C-0006's 3,918-byte prior table budget; the two states encode different
-fields and fidelity targets, so this is not matched-information compression
-dominance.
+O1C-0007 remains a useful boundary: a pure unary state is structurally compact but
+its selected result has exact conditional `p=0.593505859375`.  The new architecture
+therefore includes pair/causal interaction from its first trained arm rather than
+repeating the unary decoder on another narrow target.
 
-The compact accumulator was exercised eventwise over a materialized canonical
-4,096-address field. Its accumulator contents and serialization are real, but
-end-to-end source-event streaming is not yet demonstrated; that remains part of
-O1C-0008 rather than a property inferred from this retrospective run.
-
-After the template and A355 state were persisted, the same decoder emitted the
-complete A356 order with SHA-256
-`0a6e32430a97c968c3a831ef23c58eaacaaf411fcc9f44e59661f62efa764159`
-without any A356 target or outcome read. A356 is a transductive target-/outcome-
-blind freeze, not a source-unseen holdout. This gives O1C-0008 one clean question:
-does the frozen 12-register mechanism produce reproducible gain on newly generated,
-precommitted paired-assumption solver trajectories?
+The full design and exact attacker boundary are in
+[`docs/O1_256_LIVING_INVERSE.md`](docs/O1_256_LIVING_INVERSE.md); the measured W52
+transfer map is in
+[`research/W52_TRANSFER_20260717.md`](research/W52_TRANSFER_20260717.md).
 
 ## Active process table
 
@@ -60,16 +56,18 @@ precommitted paired-assumption solver trajectories?
 
 ## Highest-ROI next actions
 
-1. `O1C-0008`: generate OS-random paired-assumption solver trajectories under a
-   fully precommitted protocol; pass every tested key bit as an explicit assumption.
-2. Apply the exact frozen O1C-0007 decoder eventwise, persist all output orders and
-   compact states before any reveal, and compare matched numeric/hash/null controls.
-3. Require reproducible gain across multiple unseen targets or a downstream
-   time-to-hit/search-space advantage; one favorable rank is insufficient.
-4. If the unary decoder fails, preserve the failure and localize new evidence by
-   carry, round, conflict and assumption-pair provenance before expanding the state.
-5. Attempt full-round recovery only after a compact mechanism passes the fresh,
-   multi-target scientific-efficacy gate.
+1. `O1C-0008`: implement the 256-bit public-output deployment schema, privileged
+   teacher schema, full-round traced ChaCha20 generator and structured/uniform
+   contrast stream.
+2. Implement the complete metric vector: 256-bit key NLL, predictable bits,
+   byte/16-bit rank, million-decoy full-key rank, effective domain compression and
+   exact-beam verification.
+3. `O1C-0009`: train output-only and candidate-relative 256-bit baselines on CPU,
+   with target-trace inputs mechanically impossible.
+4. `O1C-0010`: stream contrast evidence through the O1 vault, holographic banks,
+   A465 backbone and A469 local correction; attack a sealed uniform 256-bit target.
+5. Iterate at full width on round/carry/proof observability and O1-O scheduling;
+   short MPS windows require an explicit resource check and must not overlap W52.
 
 ## Recent attempts
 
@@ -108,8 +106,8 @@ precommitted paired-assumption solver trajectories?
 
 ## Resume here
 
-Start from `O1C-0008`: use frozen template
-`39cd8db1f10e6366cc26cbc896a8f8a7418d0fa8804277e5b373df08436d73cf`
-on newly generated OS-random paired-assumption trajectories. Persist the complete
-target-blind output before reveal, use multiple unseen targets and matched controls,
-and treat O1C-0007's `p=0.593505859375` as the negative calibration breadcrumb it is.
+Start from `O1C-0008`: build the full-256 attacker/teacher boundary and contrast
+generator described in `docs/O1_256_LIVING_INVERSE.md`.  Preserve the tested
+uncommitted W46 broker as a side artifact, but do not generate a W46 target.  The
+first outcome-bearing target must be uniform random, 256-bit, sealed, full-round and
+public-output-only.  Keep the sibling W52 queue read-only and resource-prioritized.
