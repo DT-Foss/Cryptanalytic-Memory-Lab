@@ -666,6 +666,8 @@ class OnlineMultiResolutionControllerTests(unittest.TestCase):
         self.assertTrue(training_report.critic_invalidated)
         self.assertEqual(training_report.decisions, len(order))
         self.assertEqual(training_report.observed_slots, 5)
+        self.assertEqual(training_report.training_passes, 1)
+        self.assertEqual(training_report.streamed_training_slots, 5)
         self.assertGreaterEqual(len(training_report.training_loss_bits), 1)
         self.assertNotEqual(self.controller.reader_state_sha256, reader_before_learn)
         self.assertEqual(self.controller.reader_episodes, 1)
@@ -749,10 +751,27 @@ class OnlineMultiResolutionControllerTests(unittest.TestCase):
         report = self.controller.learn_reader_after_reveal(self.pool, state, labels)
         self.assertEqual(report.decisions, 2)
         self.assertEqual(report.observed_slots, 3)
+        self.assertEqual(report.training_passes, 1)
+        self.assertEqual(report.streamed_training_slots, 3)
         self.assertTrue(all(np.isfinite(report.training_loss_bits)))
         self.assertNotEqual(
             report.reader_state_sha256_before, report.reader_state_sha256_after
         )
+
+    def test_multiple_training_passes_replay_whole_frozen_stream(self) -> None:
+        config = _config(reader_training_passes=2)
+        controller = MultiResolutionCausalController(config)
+        pool = _synthetic_pool(config)
+        order = [CausalAction(23, 2).flat_index(config.base)]
+        state = controller.run_action_order(pool, order)
+        labels = (np.arange(KEY_BITS) % 2).astype(np.float32)
+
+        report = controller.learn_reader_after_reveal(pool, state, labels)
+
+        self.assertEqual(report.training_passes, 2)
+        self.assertEqual(report.observed_slots, 2)
+        self.assertEqual(report.streamed_training_slots, 4)
+        self.assertEqual(len(report.training_loss_bits), 2)
 
     def test_training_forwards_entire_episode_with_one_frozen_snapshot(self) -> None:
         order = [

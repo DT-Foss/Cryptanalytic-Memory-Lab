@@ -107,6 +107,7 @@ class MultiResolutionControllerConfig:
     starvation_steps: int = 256
     minimum_decisions_before_stop: int = 256
     minimum_critic_episodes_before_stop: int = 2
+    reader_training_passes: int = 1
     stop_margin: float = 0.0
     require_all_coordinates_before_stop: bool = True
 
@@ -139,6 +140,12 @@ class MultiResolutionControllerConfig:
             "minimum_critic_episodes_before_stop",
             2,
             1 << 31,
+        )
+        _integer(
+            self.reader_training_passes,
+            "reader_training_passes",
+            1,
+            1 << 16,
         )
         if not isinstance(self.require_all_coordinates_before_stop, bool):
             raise MultiResolutionControllerError(
@@ -182,6 +189,7 @@ class MultiResolutionControllerConfig:
             "minimum_critic_episodes_before_stop": (
                 self.minimum_critic_episodes_before_stop
             ),
+            "reader_training_passes": self.reader_training_passes,
             "stop_margin": self.stop_margin,
             "require_all_coordinates_before_stop": (
                 self.require_all_coordinates_before_stop
@@ -759,6 +767,8 @@ class PacketRewardReplay:
 class PacketTrainingReport:
     decisions: int
     observed_slots: int
+    training_passes: int
+    streamed_training_slots: int
     training_loss_bits: tuple[float, ...]
     reader_state_sha256_before: str
     reader_state_sha256_after: str
@@ -2226,13 +2236,21 @@ class MultiResolutionCausalController(OnlineCausalController):
         binding_before = self.critic_reader_sha256
         episodes_before = self.reader_episodes
         try:
-            losses, observed_slots = self._train_packet_reader_episode(
-                pool,
-                order,
-                labels,
-                train_stream=train_stream,
-                train_gate=train_gate,
-            )
+            all_losses: list[float] = []
+            observed_slots = 0
+            for _training_pass in range(self.controller_config.reader_training_passes):
+                pass_losses, pass_slots = self._train_packet_reader_episode(
+                    pool,
+                    order,
+                    labels,
+                    train_stream=train_stream,
+                    train_gate=train_gate,
+                )
+                if observed_slots not in (0, pass_slots):
+                    raise AssertionError("training pass slot inventory differs")
+                observed_slots = pass_slots
+                all_losses.extend(pass_losses)
+            losses = tuple(all_losses)
             self.reader_episodes += 1
             critic_invalidated = self.critic.episode_count > 0
             self.critic = EpisodeEqualRidgeCritic.initial(
@@ -2256,6 +2274,10 @@ class MultiResolutionCausalController(OnlineCausalController):
         return PacketTrainingReport(
             decisions=len(order),
             observed_slots=observed_slots,
+            training_passes=self.controller_config.reader_training_passes,
+            streamed_training_slots=(
+                observed_slots * self.controller_config.reader_training_passes
+            ),
             training_loss_bits=losses,
             reader_state_sha256_before=reader_sha_before,
             reader_state_sha256_after=reader_sha_after,
