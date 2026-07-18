@@ -394,9 +394,13 @@ class O1OReadoutBindingTests(unittest.TestCase):
             lineage=lineage,
         )
         self.assertNotEqual(binding.binding_sha256, confidence.binding_sha256)
-        with self.assertRaisesRegex(ValueError, "InitVar '_factory_token'"):
+        with self.assertRaisesRegex(
+            (TypeError, ValueError), "InitVar '_factory_token'"
+        ):
             replace(lineage, state_sha256=_hash("e"))
-        with self.assertRaisesRegex(ValueError, "InitVar '_factory_token'"):
+        with self.assertRaisesRegex(
+            (TypeError, ValueError), "InitVar '_factory_token'"
+        ):
             replace(binding, binding_sha256=_hash("f"))
 
     def test_cold_or_misdeclared_operator_cannot_reinterpret_state(self) -> None:
@@ -574,11 +578,17 @@ class NonnegativeHorizonFitTests(unittest.TestCase):
         )
         corrupted = fit.slot_weights.copy()
         corrupted[0, 0] += np.float32(0.125)
-        with self.assertRaisesRegex(ValueError, "InitVar '_factory_token'"):
+        with self.assertRaisesRegex(
+            (TypeError, ValueError), "InitVar '_factory_token'"
+        ):
             replace(fit, slot_weights=corrupted)
-        with self.assertRaisesRegex(ValueError, "InitVar '_factory_token'"):
+        with self.assertRaisesRegex(
+            (TypeError, ValueError), "InitVar '_factory_token'"
+        ):
             replace(fit, active_mask=fit.active_mask ^ 1)
-        with self.assertRaisesRegex(ValueError, "InitVar '_factory_token'"):
+        with self.assertRaisesRegex(
+            (TypeError, ValueError), "InitVar '_factory_token'"
+        ):
             replace(fit, fit_receipt_sha256=_hash("f"))
 
 

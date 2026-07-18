@@ -1,0 +1,295 @@
+{
+  "attempt_id": "O1C-0029",
+  "budgets": {
+    "maximum_cpu_seconds": 120.0,
+    "maximum_fresh_targets_consumed": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_mps_calls": 0,
+    "maximum_native_solver_branches": 0,
+    "maximum_persistent_artifact_bytes": 2097152,
+    "maximum_resident_memory_mib": 768,
+    "maximum_scientific_entropy_calls": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_source_artifact_bytes_read": 134217728,
+    "maximum_wall_seconds": 240.0,
+    "required_label_artifact_opens": 2,
+    "required_lineage_verification_consumes": 4,
+    "required_state_bytes": 25128,
+    "required_state_count": 16,
+    "required_trusted_manager_label_payload_reads": 1,
+    "required_trusted_manager_verification_count": 1
+  },
+  "claim_level": "RETROSPECTIVE",
+  "controls": [
+    "O1C-0029 is conditional on the reserved manager-authoritative finalized O1C-0022 capsule; preflight never reserves an attempt and reports prerequisite-pending while that capsule is absent.",
+    "One complete manager verification runs in an isolated trusted child, reads the finalized capsule including labels.bitpack exactly once for integrity, and transfers no label payload or filesystem capability into the scientific protocol.",
+    "All sixteen owner-by-episode sufficient states and their receipts are durably persisted before the first scientific index-bound label opening; that opening returns only an owner-excluding calibration broker.",
+    "All four fits, four prediction receipts and eight 256-logit vectors are durably persisted before a separate artifact-index and labels.bitpack re-read can create heldout scoring authority.",
+    "Both precommitted arms are always scored at exact top-K 65536; an actual O1C-0023 selection is optional metadata and never chooses an arm, fit, temperature, frontier or scientific classification.",
+    "The trusted manager verification, label-excluding producer-authentic pass, disposable placeholder projection, packet projection, accounting probe and both scientific index-plus-label openings are billed separately and exactly as source-artifact reads.",
+    "No fresh target, solver branch, scientific entropy, sibling read or write, MPS call or GPU call is authorized; interruption is finalized stopped and scientific work is never replayed under O1C-0029."
+  ],
+  "experiment": {
+    "actual_o1c23_selection_role": "OPTIONAL_METADATA_ONLY_NEVER_SELECTION",
+    "alpha": 1.0,
+    "arms": [
+      "horizon_nonnegative_simplex_v1",
+      "magnitude_confidence_calibration_v1"
+    ],
+    "confidence_temperature_grid": [
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "fold_ids": [
+      "build-0000",
+      "build-0001",
+      "build-0002",
+      "build-0003"
+    ],
+    "fresh_work_authority": "ZERO",
+    "label_artifact": "labels.bitpack",
+    "label_bitorder": "little",
+    "label_openings": [
+      "CALIBRATION_AFTER_ALL_STATES_PERSISTED",
+      "SCORING_AFTER_ALL_FITS_AND_LOGITS_PERSISTED"
+    ],
+    "protocol": "OUTER_FOLD_STACKED_HOT_CALIBRATION",
+    "schema": "o1-256-o1c29-stacked-hot-calibration-experiment-v1",
+    "state_bytes": 25128,
+    "state_inventory": 16,
+    "top_k_limit": 65536
+  },
+  "hypothesis": "The complete real O1C-0022 H64/H65/H96 packet field contains portable key orientation that a constant 25128-byte O1 V2 state can expose when only nonnegative horizon weights and one precommitted confidence temperature are fitted across the three nonheldout episodes of each outer reader owner.",
+  "next_action": "If the retrospective four-fold gate is positive, freeze this operator and authorize exactly one newly sealed DEVELOPMENT target under a new attempt identity; otherwise preserve byte, block and full-key ranks as failure memory and advance to the next non-repeating operator without consuming a fresh target.",
+  "prediction": "After a single 4x4 state-stream consume, both fixed hot arms will be reproducibly scored on every heldout 256-bit build key with exact byte, 16-bit block and top-65536 full-key ranks, while all phase, lineage and zero-authority controls remain satisfied.",
+  "prerequisite": {
+    "artifact_count": 384,
+    "artifact_index_schema": "o1-256-o1c19-causal-vault-artifact-index-v1",
+    "attempt_id": "O1C-0022",
+    "config_path": "configs/o1c22_postresult_composer_v1.json",
+    "config_sha256": "f218bfa343afb977149165b59d55d0e85f4c488b24ed0dd5e170c710d5990afb",
+    "label_phase": "POST_FREEZE_SCORED_RESULT",
+    "source_selection": "reserved-finalized-attempt-only"
+  },
+  "runtime": {
+    "application_closure": {
+      "closure_sha256": "dd9675a9017ed9be240dee0d50f195cbd938cbb6044c29851e736cdeeb6ba3ec",
+      "module_count": 25,
+      "modules": {
+        "o1_crypto_lab": {
+          "path": "src/o1_crypto_lab/__init__.py",
+          "sha256": "eddbf60c1d2cd5f7181c69a6f45118d73ab8d089fab03a7bf819e10ab5f72582"
+        },
+        "o1_crypto_lab.benchmark": {
+          "path": "src/o1_crypto_lab/benchmark.py",
+          "sha256": "963cec73dccf6831b1f94dd6e84901ef98e459fbe856bd04c0b232a95328d492"
+        },
+        "o1_crypto_lab.chacha_trace": {
+          "path": "src/o1_crypto_lab/chacha_trace.py",
+          "sha256": "58b8272f2cdd6665291158cecc2456258d3cb58f2ab3970d1c4c38e749473b01"
+        },
+        "o1_crypto_lab.composer": {
+          "path": "src/o1_crypto_lab/composer.py",
+          "sha256": "51f4081efa10573e2722e82fb74b7555697b441b40d1c8a385d8c86cb3511b3a"
+        },
+        "o1_crypto_lab.events": {
+          "path": "src/o1_crypto_lab/events.py",
+          "sha256": "fd8ba230d570616782596846530ada72e46f4558b91cb6d27b01ab1567e6497a"
+        },
+        "o1_crypto_lab.full256_broker": {
+          "path": "src/o1_crypto_lab/full256_broker.py",
+          "sha256": "1929006561400bb4091b39955a4b15cc73e492ab5b0bd56788afd58e6a28ea7e"
+        },
+        "o1_crypto_lab.isolation": {
+          "path": "src/o1_crypto_lab/isolation.py",
+          "sha256": "50399219de30c9f9e3ed23ee1d5b4c434d8736107316a7647276aa481900b652"
+        },
+        "o1_crypto_lab.living_inverse": {
+          "path": "src/o1_crypto_lab/living_inverse.py",
+          "sha256": "16c22a9776b693c40e0d6c3a3196c73c7a4c15913bde0bdb14e8d9fc4dbe127e"
+        },
+        "o1_crypto_lab.memory": {
+          "path": "src/o1_crypto_lab/memory.py",
+          "sha256": "75fa10898fe49dd67aa1294915658e463ce5f7753839a588d080f22022351188"
+        },
+        "o1_crypto_lab.o1c22_packet_codec": {
+          "path": "src/o1_crypto_lab/o1c22_packet_codec.py",
+          "sha256": "73f2e8b2b775684427e777e4671c33d7c0ede2c2ae7a90e1f4ebf84c209914ac"
+        },
+        "o1_crypto_lab.o1c22_polyphase_bridge": {
+          "path": "src/o1_crypto_lab/o1c22_polyphase_bridge.py",
+          "sha256": "0f60d82ccf048661e41943406721c0b85725f21141395f86121bb72a01b4f046"
+        },
+        "o1_crypto_lab.o1c22_postresult_composer": {
+          "path": "src/o1_crypto_lab/o1c22_postresult_composer.py",
+          "sha256": "ba241c00f1a3a501f426d89e514c2145d4d397559f52ff684704d803fd90939c"
+        },
+        "o1_crypto_lab.o1c22_postresult_composer_run": {
+          "path": "src/o1_crypto_lab/o1c22_postresult_composer_run.py",
+          "sha256": "79a37541e77dccfa7097cdbcdc56551eab96ce11d28b048fd3fd0fe50608727f"
+        },
+        "o1_crypto_lab.o1c23_selection_authority": {
+          "path": "src/o1_crypto_lab/o1c23_selection_authority.py",
+          "sha256": "81c85c48afab89592773964dae1d29bc0eeb042698c4c19cc2ac0b736227fb60"
+        },
+        "o1_crypto_lab.o1c29_packet_corpus": {
+          "path": "src/o1_crypto_lab/o1c29_packet_corpus.py",
+          "sha256": "6a8d522b46e86ed34db64e1e48d0d33ecd17fd88d5e5a3342fd28ebdf7b96c15"
+        },
+        "o1_crypto_lab.o1c29_real_protocol": {
+          "path": "src/o1_crypto_lab/o1c29_real_protocol.py",
+          "sha256": "8e7af357df5684c8235cb974ed0d39611934bc31b9748f10cca9a9b8cbc61be1"
+        },
+        "o1_crypto_lab.o1c29_stacked_hot_calibration": {
+          "path": "src/o1_crypto_lab/o1c29_stacked_hot_calibration.py",
+          "sha256": "585b0780db2308957b11140b5ee5e67f2d01776d4b42e9d6281e1c162d540e6d"
+        },
+        "o1_crypto_lab.o1c29_stacked_hot_calibration_run": {
+          "path": "src/o1_crypto_lab/o1c29_stacked_hot_calibration_run.py",
+          "sha256": "747431b7c2f7dfa1fcf81aecbf58cc6f519db72cf81dcec22dbc2192ba9b6f72"
+        },
+        "o1_crypto_lab.o1o_public_fsm_bridge": {
+          "path": "src/o1_crypto_lab/o1o_public_fsm_bridge.py",
+          "sha256": "01df7ee111dc453b278ff968fe8f1d064bb078f35d4bd09389d17db749ddb6a1"
+        },
+        "o1_crypto_lab.polyphase_sufficient_state": {
+          "path": "src/o1_crypto_lab/polyphase_sufficient_state.py",
+          "sha256": "06d338e890a466d7723d60cbb56a63e069cc99f5cc25ecd9916fa4c0072a75c3"
+        },
+        "o1_crypto_lab.polyphase_sufficient_state_v2": {
+          "path": "src/o1_crypto_lab/polyphase_sufficient_state_v2.py",
+          "sha256": "ed97d5a0f7acb7191f2ce5574da2b26c3a03fdb1a2e5f5499e95ccba3b9b65e1"
+        },
+        "o1_crypto_lab.posterior_logit_frontier": {
+          "path": "src/o1_crypto_lab/posterior_logit_frontier.py",
+          "sha256": "c262dc3157f22d0b03e932c2dcc3aac08ad27568d212e6d053d0bc176de55e1e"
+        },
+        "o1_crypto_lab.replay": {
+          "path": "src/o1_crypto_lab/replay.py",
+          "sha256": "f71df0518fd7fe4a91992ac9d2098c589c677c034794ad5c00e736afecaeba7f"
+        },
+        "o1_crypto_lab.run_capsule": {
+          "path": "src/o1_crypto_lab/run_capsule.py",
+          "sha256": "13681939e0a5cd09d4f32c6d92c9a56894cfe8af90f07d5d4190c96b90a1b664"
+        },
+        "o1_crypto_lab.types": {
+          "path": "src/o1_crypto_lab/types.py",
+          "sha256": "91e3e8116b40fec516b6467dd4e22ae7a4aed9e4343f0dcce80be8b9da6d6693"
+        }
+      },
+      "package": "o1_crypto_lab"
+    },
+    "numpy": {
+      "build_fingerprint_sha256": "e8b1f43b408df27ad703f5727d1969ab79e138f4c4b623ca819b40c3b13c161a",
+      "core_extension_basename": "_multiarray_umath.cpython-313-darwin.so",
+      "core_extension_bytes": 3346360,
+      "core_extension_sha256": "ce77ee956531caf8f1b7c3274089149fc81f6c2679e57aed8910865ca0947bb9",
+      "enabled_cpu_features": [
+        "ASIMD",
+        "ASIMDDP",
+        "ASIMDHP",
+        "FPHP",
+        "NEON",
+        "NEON_FP16",
+        "NEON_VFPV4"
+      ],
+      "ndarray_c_version": 33554432,
+      "version": "2.2.6"
+    },
+    "python": {
+      "byteorder": "little",
+      "cache_tag": "cpython-313",
+      "implementation": "CPython",
+      "implementation_name": "cpython",
+      "machine": "arm64",
+      "platform": "macosx-10.13-universal2",
+      "soabi": "cpython-313-darwin",
+      "version": [
+        3,
+        13,
+        1
+      ]
+    },
+    "schema": "o1-256-o1c29-runtime-freeze-v1",
+    "verifier": {
+      "module": "o1_crypto_lab.o1c29_runtime_freeze",
+      "path": "src/o1_crypto_lab/o1c29_runtime_freeze.py",
+      "sha256": "b9c8503de5d04da4034d64c257ac606f386f5f90a949219b11114d39b8849aa0"
+    }
+  },
+  "schema": "o1-256-o1c29-stacked-hot-calibration-run-config-v1",
+  "slug": "stacked-hot-calibration-real-v1",
+  "source": {
+    "files": {
+      "chacha_trace": {
+        "path": "src/o1_crypto_lab/chacha_trace.py",
+        "sha256": "58b8272f2cdd6665291158cecc2456258d3cb58f2ab3970d1c4c38e749473b01"
+      },
+      "packet_corpus": {
+        "path": "src/o1_crypto_lab/o1c29_packet_corpus.py",
+        "sha256": "6a8d522b46e86ed34db64e1e48d0d33ecd17fd88d5e5a3342fd28ebdf7b96c15"
+      },
+      "living_inverse": {
+        "path": "src/o1_crypto_lab/living_inverse.py",
+        "sha256": "16c22a9776b693c40e0d6c3a3196c73c7a4c15913bde0bdb14e8d9fc4dbe127e"
+      },
+      "o1c22_packet_codec": {
+        "path": "src/o1_crypto_lab/o1c22_packet_codec.py",
+        "sha256": "73f2e8b2b775684427e777e4671c33d7c0ede2c2ae7a90e1f4ebf84c209914ac"
+      },
+      "o1c22_polyphase_bridge": {
+        "path": "src/o1_crypto_lab/o1c22_polyphase_bridge.py",
+        "sha256": "0f60d82ccf048661e41943406721c0b85725f21141395f86121bb72a01b4f046"
+      },
+      "o1c22_postresult_composer": {
+        "path": "src/o1_crypto_lab/o1c22_postresult_composer.py",
+        "sha256": "ba241c00f1a3a501f426d89e514c2145d4d397559f52ff684704d803fd90939c"
+      },
+      "o1c22_postresult_composer_run": {
+        "path": "src/o1_crypto_lab/o1c22_postresult_composer_run.py",
+        "sha256": "79a37541e77dccfa7097cdbcdc56551eab96ce11d28b048fd3fd0fe50608727f"
+      },
+      "polyphase_sufficient_state_v2": {
+        "path": "src/o1_crypto_lab/polyphase_sufficient_state_v2.py",
+        "sha256": "ed97d5a0f7acb7191f2ce5574da2b26c3a03fdb1a2e5f5499e95ccba3b9b65e1"
+      },
+      "polyphase_sufficient_state": {
+        "path": "src/o1_crypto_lab/polyphase_sufficient_state.py",
+        "sha256": "06d338e890a466d7723d60cbb56a63e069cc99f5cc25ecd9916fa4c0072a75c3"
+      },
+      "posterior_logit_frontier": {
+        "path": "src/o1_crypto_lab/posterior_logit_frontier.py",
+        "sha256": "c262dc3157f22d0b03e932c2dcc3aac08ad27568d212e6d053d0bc176de55e1e"
+      },
+      "pyproject": {
+        "path": "pyproject.toml",
+        "sha256": "0248ec0fe7d42390b62e358fdd52f63d64f7d4e699f0f41ef77c569699716bd0"
+      },
+      "real_protocol": {
+        "path": "src/o1_crypto_lab/o1c29_real_protocol.py",
+        "sha256": "8e7af357df5684c8235cb974ed0d39611934bc31b9748f10cca9a9b8cbc61be1"
+      },
+      "run_capsule": {
+        "path": "src/o1_crypto_lab/run_capsule.py",
+        "sha256": "13681939e0a5cd09d4f32c6d92c9a56894cfe8af90f07d5d4190c96b90a1b664"
+      },
+      "runner": {
+        "path": "src/o1_crypto_lab/o1c29_stacked_hot_calibration_run.py",
+        "sha256": "747431b7c2f7dfa1fcf81aecbf58cc6f519db72cf81dcec22dbc2192ba9b6f72"
+      },
+      "selection_authority": {
+        "path": "src/o1_crypto_lab/o1c23_selection_authority.py",
+        "sha256": "81c85c48afab89592773964dae1d29bc0eeb042698c4c19cc2ac0b736227fb60"
+      },
+      "stacked_hot_calibration": {
+        "path": "src/o1_crypto_lab/o1c29_stacked_hot_calibration.py",
+        "sha256": "585b0780db2308957b11140b5ee5e67f2d01776d4b42e9d6281e1c162d540e6d"
+      }
+    },
+    "source_freeze_commit": "9356c61f17b52163da0938ed417758edf546e6c1",
+    "source_selection": "exact-hash-and-clean-descendant"
+  }
+}
