@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T00:24:50+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T00:40:19+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -75,9 +75,18 @@
   falls from `152/281` to `43/87` conflicts, but the matched clause rotation is
   still better at `22/46`; Full-256 remains unresolved. The exact frontier stays
   at 9 bits and greedy local marginal scheduling is closed.
-- **Next paid experiment:** preserve the frozen O1C-0044 global score but stop
-  converting it into one-variable greedy marginals. Test a bounded best-first key
-  prefix or score-aware factor-activation handoff on the consumed target first.
+- **O1C-0047:** the unchanged complete-state score ranks consumed truth `1/256`,
+  `5/4096` and `50/65536` on nested post-reveal residual cubes W8/W12/W16.
+  Width-16 rotations rank `60592/65536` and `43059/65536`; the primary top-256
+  beam contains the uniquely verified exact key at rank 50. This is 10.356 bits
+  of privileged local search compression, not attacker-valid Full-256 recovery.
+- **Apple parallel track:** a feed-forward-derived public Full-256 fixed-point and
+  output-Hamming descent were tested on 32 deterministic targets. Holdout gain is
+  `-0.484` key bits, one-flip AUC `0.50572`, exact recoveries `0`; close this
+  local-fitness direction. Output error can fall while key distance stays random.
+- **Next paid experiment:** translate the demonstrated complete-state ordering
+  into the smallest pre-reveal pairwise key-group/prefix scheduler and compare it
+  with internal and both rotations at identical work.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -91,14 +100,14 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** isolated bias-free “Apfel” Full-256 microexperiment only;
-  the main O1C-0046 run is complete. Sibling repositories remain read-only.
+- **Active local run:** none. O1C-0047 and the isolated Apple track are complete;
+  sibling repositories remain read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
   the north star; the scored objective is the strongest reproducible
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest result:**
-  [O1C-0046 key-only criticality search](research/O1C0046_KEY_ONLY_CRITICALITY_SEARCH_RESULT_20260719.md).
+  [O1C-0047 global criticality residual beam](research/O1C0047_GLOBAL_CRITICALITY_RESIDUAL_BEAM_RESULT_20260719.md).
 
 ## Headline
 
@@ -134,7 +143,12 @@ branching: primary work improves 3.5x/3.2x at residual 8/9, yet the clause
 rotation with the identical key-decision set remains faster. The loss is
 therefore not only internal-variable competition; local greedy marginals do not
 carry the global rank orientation into search. Preserve the global score and
-change the handoff geometry, not the reader, target or conflict cap.
+change the handoff geometry, not the reader, target or conflict cap. O1C-0047
+now proves why: the unchanged global score places truth at rank `50/65536` on a
+complete W16 cube while both rotations are in the bottom third. Its top-256 beam
+contains and independently verifies the exact key. The remaining problem is no
+longer whether this consumed score has local joint information; it is how to
+approximate that complete-state order before the 240-bit complement is known.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does
@@ -703,16 +717,16 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Main scientific run | — | — | none | O1C-0046 finalized; global-prefix successor pending | — |
-| Bias-free parallel track | isolated worker | 2026-07-19 | Apple-view Full-256 microexperiment | active inside `research/apple_view/` only | short |
+| Main scientific run | — | — | none | O1C-0047 finalized; pre-reveal joint-group successor pending | — |
+| Bias-free parallel track | — | 2026-07-19 | Apple-view Full-256 fixed-point/fitness test | complete; negative, isolated commit `dba4143c` | — |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Preserve the O1C-0044 global score and compile it into a bounded best-first key
-   prefix or score-aware factor-activation search, not another greedy marginal.
-2. Reuse the identical consumed target, score bytes and 512-conflict boundary;
-   demand a primary margin over the matched clause rotation before a fresh target.
+1. Compile the O1C-0047 complete-state order into a reversible pairwise
+   key-group/prefix policy; do not collapse it back into uniform unary marginals.
+2. Reuse the identical consumed target, factors and 512-conflict boundary;
+   demand a primary conflict/width/time-to-hit margin over both rotations.
 3. Evaluate the independent Apfel-spur mechanism on its own declared Full-256
    metric, then merge only a measured advantage rather than its vocabulary.
 4. Reuse A325/A526 unchanged only when their native complement gate is met, and
@@ -722,6 +736,8 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0047` | 2026-07-19 00:40 | The transferred signal is global over complete assignments and survives nested residual-cube ranking | Truth ranks W8 `1/256`, W12 `5/4096`, W16 `50/65536`; rotations W16 `60592/43059`; primary top-256 contains uniquely verified key | `POST_REVEAL_CEILING`; 240 truth bits fixed, no Full-256 attack claim | 67.546893 s; 89,325,568 B peak; 65,536 forward evaluations; zero fresh/sibling/MPS/GPU | Global score yields 10.356 bits local search compression; build a pre-reveal joint-group/prefix scheduler, not another unary marginal | [Capsule](runs/20260719_004019_O1C-0047_global-criticality-residual-beam-v1/RUN.md) |
+| `APPLE-VIEW-0001` | 2026-07-19 | Public ChaCha feed-forward fixed-point projection or output-Hamming descent exposes Full-256 key direction | 32 targets; holdout gain -0.484 key bits, AUC 0.50572, direction accuracy 0.49854, exact recoveries 0 | `EXPLORATORY_FULL256_NEGATIVE`; deterministic unsealed targets | 10.478 s; 43.43 MB peak; 21,108 R20 core evaluations; zero MPS/GPU | Output distance can be optimized without approaching the key; close fixed-point/local-output-fitness descent | [Result](research/apple_view/apple_view_result.md) |
 | `O1C-0046` | 2026-07-19 00:24 | Key-only external decisions preserve O1C-0044's primary orientation while native CDCL owns internal variables | Full-256 0/4; residual 9 internal UNKNOWN, primary SAT/87, key rotation SAT/331, clause rotation SAT/46; primary has no matched control margin | `CONSUMED_SEARCH_DIAGNOSTIC`; residual rows are post-reveal ceilings | 7.767220 s; 122,552,320 B peak; 12 calls; zero fresh/sibling/MPS/GPU | Internal-variable competition was costly, but key-only greedy marginals still lose to matched clause rotation; move the unchanged global score to bounded prefixes/activation | [Capsule](runs/20260719_002450_O1C-0046_key-only-criticality-search-v1/RUN.md) |
 | `O1C-0045` | 2026-07-19 00:10 | The frozen rank-54 reader reduces exact search work after lossless local-factor compilation | Full-256 0/4; residual 9 internal UNKNOWN, primary SAT/281 conflicts, rotations SAT/69 and SAT/129 | `CONSUMED_SEARCH_DIAGNOSTIC`; residual rows are post-reveal ceilings | 17.290067 s; 130,269,184 B peak; 12 calls; zero fresh/sibling/MPS/GPU | Factor geometry expands 8→9, but all-variable scheduling erases primary specificity; decide keys only next | [Capsule](runs/20260719_001005_O1C-0045_criticality-live-search-v1/RUN.md) |
 | `O1C-0040` | 2026-07-18 22:22 | The transferred occurrence field ranks the true complete execution above attacker-generated decoys | Raw truth ranks 1905/4097 and 2292/4097; surprise 1078/4097 and 1461/4097, dominated by key rotation 107/4097 and 423/4097 | `POST_REVEAL_DIAGNOSTIC` negative; consumed targets | 3.981557 s; 101,466,112 B peak; 8,194 forward evaluations; zero solver/sibling/MPS/GPU | Close clause-occurrence scoring; move to branch-exclusive signed antecedent chains | [Capsule](runs/20260718_222255_O1C-0040_relation-candidate-rank-v1/RUN.md) |
@@ -770,6 +786,11 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0047` source freeze | `0a34020cb1f3cd88929d55811c9b2b48fa247f7c` |
+| `O1C-0047` canonical config | `c83fc9b8e35bb1fd6756ce45288583f328ce45c211cb9ddd21dc922abf9c907d` |
+| `O1C-0047` runner source | `b4bfc452bde957e80985fce76eb2813ea5ffee371cdd26379cec9d6f0e19667f` |
+| `O1C-0047` formal result | `91709eb6c7a0f378e8ef0046a81d4211a428d75fa6636553c218c023cab3380d` |
+| `O1C-0047` capsule manifest | `2c4bbb4986b175e84748da9c2bf24f65aecff5e3ff0a3d95e3b0ee2bbd2bf117` |
 | `O1C-0046` source freeze | `b0f8bcbd38fd5eb93d25712c1fd92fbeea5d18ae` |
 | `O1C-0046` canonical config | `850693f456c146be6dfd10b4beca783acd46482c52047b21d331c4d62c87b2b9` |
 | `O1C-0046` runner source | `c1dc705599f5c5544531caa24d4a69b6283c489f641625ad79bded819e46373a` |

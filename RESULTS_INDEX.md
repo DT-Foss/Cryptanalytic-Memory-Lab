@@ -166,6 +166,7 @@ attacker-valid cipher evidence.
 | `O1C-0044-FRESH-CRITICALITY` | Exact O1C-0043 reader on one sealed uniform Full-256 key | `TEST` prospective joint-rank transfer; no recovery | primary 54/4097 (1.318%, z +2.325), key rotation 3567/4097, clause rotation 2972/4097; 11.095 s, 142,262,272 B peak | [Result](research/O1C0044_FRESH_PARENT_CRITICALITY_RANK_RESULT_20260718.md) |
 | `O1C-0045-LIVE-CRITICALITY` | Lossless local-factor compilation of O1C-0044 into reversible exact search | `CONSUMED_SEARCH_DIAGNOSTIC`; Full-256 attacker-valid, residual rows post-reveal | scores exact within 1.25e-14; Full-256 0/4; internal residual frontier 8, primary/key/clause 9; width-9 conflicts 281/69/129; no primary control margin | [Result](research/O1C0045_CRITICALITY_LIVE_SEARCH_RESULT_20260718.md) |
 | `O1C-0046-KEY-ONLY-CRITICALITY` | Same frozen local factors with all variables observed but external decisions restricted to 126 key coordinates | `CONSUMED_SEARCH_DIAGNOSTIC`; Full-256 attacker-valid, residual rows post-reveal | Full-256 0/4; residual frontier unchanged at 8/9/9/9; primary conflicts fall to 43/87 at widths 8/9, but matched clause rotation remains better at 22/46 | [Result](research/O1C0046_KEY_ONLY_CRITICALITY_SEARCH_RESULT_20260719.md) |
+| `O1C-0047-GLOBAL-RESIDUAL-BEAM` | Complete-state criticality ordering on nested exhaustive W8/W12/W16 cubes | `POST_REVEAL_CEILING`; 240 truth bits fixed | primary truth ranks 1/256, 5/4096, 50/65536 versus W16 rotations 60592/43059; primary top-256 contains unique verified key; 10.356 bits local search compression | [Result](research/O1C0047_GLOBAL_CRITICALITY_RESIDUAL_BEAM_RESULT_20260719.md) |
 
 ## Frontier and state-of-the-art results
 
@@ -220,12 +221,20 @@ relational-completion mechanism progress below 256, not a primary-specific or
 attacker-valid recovery frontier. Greedy local marginal scheduling is closed;
 the frozen global rank signal must next enter bounded prefixes or factor
 activation without refitting.
+O1C-0047 isolates that global signal directly. On a complete nested W16 cube the
+exact consumed key ranks `50/65536`; rotations rank `60592/65536` and
+`43059/65536`, and only the primary top-256 beam contains the independently
+verified public match. The measured 10.356-bit compression is a strong decoder
+ceiling, but 240 truth bits define the cube. It authorizes a soft reversible
+pairwise group/max-envelope adapter, not a claim of Full-256 recovery and not a
+hard prefix copied from the opened truth or the decoy panel.
 Existing sibling-project recoveries are baselines, not results of this integration.
 
 ## Negative bounds
 
 | ID | Boundary | Claim level | Evidence | Breadcrumb |
 |---|---|---|---|---|
+| `APPLE-VIEW-0001` | Public feed-forward fixed-point projection and output-Hamming local descent | `EXPLORATORY_FULL256_NEGATIVE` | 32 deterministic Full-256 targets; -0.484 holdout keybits, AUC 0.50572, direction accuracy 0.49854, 0 recoveries; 21,108 R20 core evaluations | Output score admits descent without key-distance descent; close this fixed-point/local-fitness path | [Result](research/apple_view/apple_view_result.md) |
 | `O1C-0040-N1` | H16 branch-difference clause occurrence transfers structural relation accuracy but does not rank the target key | `POST_REVEAL` consumed diagnostic | raw primary ranks 1905/4097 and 2292/4097; surprise 1078/4097 and 1461/4097; key-rotated surprise 107/4097 and 423/4097 | Close occurrence and its one structural-surprise correction; retain exact proof stream and extract branch-exclusive signed antecedent chains |
 | `O1C-0042-N1` | Unique signed leaf collapse does not reproduce its consumed-panel chain-rank concentration on one fresh key | `TEST` fresh negative | primary 1371/4097 versus frozen best-quarter gate; key/factor controls 1399/3385; exact freeze/reveal lifecycle | Close this leaf-sum reader; preserve ordered parent role and clause criticality next |
 | `O1C-0000-N1` | Equal-cell single-state holography is crosstalk-limited on MQAR-256 | `NEGATIVE_BOUND` | 83.5938% mean bit accuracy, 0/5 exact | Test structured slots/polyphase separation instead of more identical superposition |

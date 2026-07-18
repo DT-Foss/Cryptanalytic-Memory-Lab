@@ -978,3 +978,36 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   the clause rotation before prospective promotion.
 - **Artifact:**
   [`O1C-0046 result`](O1C0046_KEY_ONLY_CRITICALITY_SEARCH_RESULT_20260719.md).
+
+## B-0049 — The signal is complete-state local, not a reusable hard prefix
+
+- **Evidence:** O1C-0047 ranks consumed truth `1/256`, `5/4096` and `50/65536`
+  on exhaustive nested W8/W12/W16 cubes. At W16 the rotations rank 60,592 and
+  43,059; only the primary top-256 contains the independently verified key.
+- **Conclusion:** the transferred reader retains strong coordinated local
+  geometry that O1C-0045/0046 destroy by averaging into unary decisions.
+- **Boundary:** 240 truth bits define this cube. A separate attacker-valid scratch
+  projection from the O1C-0044 decoy-bank maximum does not supply the missing
+  prefix: its truth-prefix rank has already collapsed to `463/511` by depth 9.
+- **Do not repeat:** present the local cube as Full-256 recovery, fix the decoy-bank
+  maximum as a hard prefix, or enumerate a larger truth-centered cube for vanity.
+- **Breadcrumb:** implement soft reversible pairwise key-group/max-envelope
+  branching so native CDCL can repair choices; compare primary and rotations
+  before any fresh target.
+- **Artifact:**
+  [`O1C-0047 result`](O1C0047_GLOBAL_CRITICALITY_RESIDUAL_BEAM_RESULT_20260719.md).
+
+## B-0050 — Output-fitness descent is not key-distance descent
+
+- **Evidence:** APPLE-VIEW-0001 tests a public feed-forward fixed-point projection,
+  all 256 one-bit flips and coordinate descent on 32 deterministic Full-256
+  targets. Holdout gain is -0.484 key bits, AUC 0.50572, direction accuracy
+  0.49854 and exact recovery 0.
+- **Conclusion:** lower public output Hamming error is an optimizable multiple-
+  choice surface, but it carries no measured direction toward the secret key.
+- **Do not repeat:** more projection iterations, restarts, coordinate descents or
+  targets under this same public fitness.
+- **Breadcrumb:** require causal/internal relational structure such as O1C-0047's
+  complete-state criticality; never use raw final-output distance as a proxy for
+  key proximity.
+- **Artifact:** [`Apple result`](apple_view/apple_view_result.md).

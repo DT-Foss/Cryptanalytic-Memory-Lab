@@ -1,12 +1,12 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T00:24:50+02:00.
+Last ranked: 2026-07-19T00:40:19+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Preserve the O1C-0044 complete-assignment score and compare bounded key prefixes or score-aware factor groups rather than one-variable marginals | State of the art | Extreme | Extreme | Medium | Tests whether the prospectively transferred global rank can reduce exact search work without another reader or target |
-| 2 | Run the smallest consumed primary/internal/key-rotation/clause-rotation comparison at the unchanged 512-conflict boundary | State of the art | Extreme | Extreme | Low | A primary-specific conflict, width or time-to-hit gain authorizes prospective promotion; another matched control win closes this adapter |
-| 3 | Finish the isolated bias-free Apfel Full-256 microexperiment and import only a measured mechanism advantage | State of the art | High | Medium | Low | Tests a genuinely different problem geometry without derailing the exact O1 chain |
+| 1 | Compile O1C-0047's complete-state geometry into a soft reversible pairwise key-group/max-envelope scheduler | State of the art | Extreme | Extreme | Medium | Tests whether 10.356 bits of privileged local compression can become attacker-valid matched search work without a hard prefix |
+| 2 | Run the smallest consumed primary/internal/key-rotation/clause-rotation Full-256 plus residual-8/9 comparison at 512 conflicts | State of the art | Extreme | Extreme | Low | A primary-specific conflict, width or time-to-hit gain authorizes prospective promotion; another matched control win closes this adapter |
+| 3 | Keep the completed Apple fixed-point/output-fitness path closed | Operational | High | High | Zero | Prevents spending on a measured chance surface while retaining its output-distance trap |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 | 5 | Keep occurrence scoring, key-phase guidance and O1C-0023/25/29 over the closed unary field parked | Operational | High | High | Zero | Prevents scaling measured-null representations while retaining reusable adapters |
 
@@ -32,7 +32,11 @@ Last ranked: 2026-07-19T00:24:50+02:00.
   work from 152/281 to 43/87 conflicts with key-only decisions, but matched
   clause rotation is still better at 22/46. This is relational mechanism progress
   rather than a primary-specific frontier result.
-- **Next measurable advance:** bounded prefix or factor-group scheduling preserves
+- **Complete-state decoder ceiling:** O1C-0047 ranks truth `50/65536` on a nested
+  W16 cube versus rotations `60592/43059`; the primary top-256 uniquely verifies
+  the key. This is 10.356 bits of post-reveal local compression with 240 truth
+  bits fixed, not attacker-valid recovery.
+- **Next measurable advance:** soft pairwise factor-group scheduling preserves
   a residual-width, conflict or time-to-hit gain specifically for primary over
   internal and both rotations. Exact 256 remains the terminal moonshot.
 
@@ -81,6 +85,10 @@ Last ranked: 2026-07-19T00:24:50+02:00.
   improves materially, yet matched clause rotation still wins. Close both greedy
   marginal variants. Keep the global score bytes and change only the unit of
   search to bounded prefixes or factor groups.
+- O1C-0047 confirms the complete-state field is highly concentrated locally.
+  Do not enlarge the truth-centered cube: translate it. A decoy-bank maximum is
+  not an attacker-valid prefix and has collapsed to truth-prefix rank `463/511`
+  by depth 9. The next adapter must remain soft and reversible.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not

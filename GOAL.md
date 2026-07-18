@@ -196,5 +196,18 @@ all-variable and key-only forms. The active relational task preserves the frozen
 global O1C-0044 score and changes only its search unit to bounded key prefixes or
 score-aware factor groups before any new reader, budget or fresh target.
 
+O1C-0047 confirms the complete-state side of that hypothesis. On exhaustive
+nested post-reveal cubes, truth ranks `1/256`, `5/4096` and `50/65536`; the W16
+rotations rank `60592/65536` and `43059/65536`, and only the primary top-256 beam
+contains the independently verified key. This is `10.356` bits of local search
+compression with 240 truth bits fixed, not attacker-valid Full-256 recovery. The
+active conversion is therefore a soft reversible pairwise key-group/max-envelope
+policy. It must not copy a hard prefix from truth or from O1C-0044's decoy bank.
+
+The isolated bias-free Apple track independently tested a public Full-256
+fixed-point/output-fitness view on 32 deterministic targets. Its AUC `0.50572`,
+`-0.484` gained key bits and zero recoveries close that local-fitness direction;
+it does not alter the positive complete-state criticality path.
+
 All writes stay inside this repository. Sibling projects remain read-only and no
 competing heavy job starts without a resource check.

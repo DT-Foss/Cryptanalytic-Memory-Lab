@@ -1868,3 +1868,44 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:**
   [`result`](O1C0046_KEY_ONLY_CRITICALITY_SEARCH_RESULT_20260719.md) and
   [`capsule`](../runs/20260719_002450_O1C-0046_key-only-criticality-search-v1/RUN.md).
+
+## O1C-0047 — Global criticality residual beam
+
+- **Recorded:** 2026-07-19T00:40:19+02:00.
+- **Hypothesis:** the prospectively transferred criticality signal is global over
+  coordinated complete assignments and survives exhaustive residual ranking even
+  though one-variable search schedulers erase it.
+- **Result:** passed as a post-reveal ceiling. Primary truth ranks W8 `1/256`,
+  W12 `5/4096` and W16 `50/65536`; W16 rotations rank `60592/65536` and
+  `43059/65536`. The primary top-256 contains exactly one public-output match,
+  the independently verified consumed key at rank 50; rotated beams contain none.
+- **Boundary:** 240 truth-key complement bits define the W16 cube. Every member is
+  a complete 256-bit forward execution, but this is not attacker-valid Full-256
+  recovery. Reader/potential bytes and support order are unchanged; zero fresh
+  targets.
+- **Resources:** `67.546893` s; `89,325,568` B peak; 65,536 forward evaluations;
+  196,608 scores; 769 public verifications; zero sibling/MPS/GPU.
+- **Decision:** preserve complete-state ordering and build only a soft reversible
+  pairwise key-group/max-envelope scheduler. Do not hard-code a truth or decoy-
+  maximum prefix; require matched Full-256/control work before promotion.
+- **Artifacts:**
+  [`result`](O1C0047_GLOBAL_CRITICALITY_RESIDUAL_BEAM_RESULT_20260719.md) and
+  [`capsule`](../runs/20260719_004019_O1C-0047_global-criticality-residual-beam-v1/RUN.md).
+
+## APPLE-VIEW-0001 — Public fixed-point and output-fitness descent
+
+- **Recorded:** 2026-07-19, isolated parallel track.
+- **Hypothesis:** treating ChaCha as 16 coupled 32-bit odometers exposes key
+  direction through the public feed-forward fixed point or output-Hamming fitness.
+- **Result:** negative. Across 32 deterministic Full-256 targets, holdout
+  projection gains `-0.484` key bits, one-flip landscape AUC is `0.50572`,
+  direction accuracy `0.49854`, and exact recoveries are zero.
+- **Breadcrumb:** projection chains reduce output error by 23.906 bits and
+  coordinate descent by 33.0 bits while key distance remains random. Public
+  output improvement is therefore not a key-proximity surrogate.
+- **Resources:** `10.478` s wall, `10.425` s CPU, `43.43 MB` peak; 21,108
+  20-round core evaluations; zero MPS/GPU.
+- **Decision:** close this fixed-point/local-output-fitness direction; do not
+  scale target count, descent depth or restart count.
+- **Artifact:** [`isolated result`](apple_view/apple_view_result.md), commit
+  `dba4143c73aa84559e6b0466ca6cc232500c5fe9`.

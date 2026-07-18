@@ -176,6 +176,19 @@ decision set and remains better at 22/46, so key-only greedy marginals still do
 not preserve the reader's global orientation. Close local marginal scheduling;
 reuse the unchanged global score in bounded prefix or factor-group search.
 
+O1C-0047 measures that global geometry directly. The unchanged score ranks truth
+`1/256`, `5/4096` and `50/65536` on exhaustive nested W8/W12/W16 cubes; at W16
+the rotations rank 60,592 and 43,059, and only the primary top-256 beam contains
+the independently verified key. The 10.356-bit compression is privileged because
+240 truth bits define the cube. It authorizes soft pairwise group/max-envelope
+branching, not a hard prefix or a Full-256 recovery claim.
+
+In parallel, the bias-free Apple track derives a public full-key fixed-point map
+directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
+targets. AUC 0.50572, -0.484 gained key bits and zero recoveries close that exact
+local-fitness direction. Output-distance reduction without key-distance reduction
+is preserved as its single breadcrumb.
+
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
 untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches
@@ -384,8 +397,9 @@ evidence.
    O1C-0044 confirms it freshly at rank 54/4097. O1C-0045 converts it losslessly;
    the potential family expands residual 8→9 but rotations beat primary. O1C-0046
    removes internal variables from external decisions and cuts primary work, yet
-   matched clause rotation remains faster. Preserve all score bytes and move from
-   one-variable marginals to bounded prefixes or factor-group activation.
+   matched clause rotation remains faster. O1C-0047 then shows the global score
+   ranks truth 50/65536 on a privileged W16 cube. Preserve all score bytes and
+   move from one-variable marginals to soft pairwise group/max-envelope activation.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.
