@@ -765,3 +765,44 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   efficacy or ChaCha20 key recovery.
 - **Artifact:**
   [`O1C-0028 result`](O1C0028_HORIZON_MAJOR_HOT_ROUTING_RESULT_20260718.md).
+
+## B-0039 — A verified source capsule is not pre-freeze scientific label authority
+
+- **Risk:** a normal in-process successor preflight can fully verify O1C-0022 and
+  accidentally retain its `labels.bitpack` capability before the 16-state
+  barrier. A self-hashed packet projection is also forgeable if arbitrary wire
+  bytes may mint the same factory type. Counting that manager verification as a
+  scientific label opening would then obscure when labels actually become
+  available to fitting and scoring.
+- **Resolution:** O1C-0029 performs exactly one complete manager verification in
+  an isolated trusted process. Its parent receives only a factory-minted,
+  label-byte-free authority receipt and a one-shot nonce-bound, label-free packet
+  corpus. The compatibility verifier substitutes a committed 128-byte placeholder
+  instead of reading, linking or copying the real label artifact. Full manager
+  verification and the exactly two scientific index-plus-label openings are
+  separately instrumented and byte-accounted.
+- **Lifecycle:** all 16 O1C-0022 owner/episode states persist before the first
+  scientific opening. Four fits and eight held-out logit vectors then persist
+  before the second opening. The first capability grants only owner-excluding
+  calibration labels; held-out scoring authority does not exist until every
+  prediction is frozen.
+- **Dependency correction:** O1C-0023 availability cannot be recorded truthfully
+  under a zero-sibling-read budget without looking it up. O1C-0029 therefore
+  removes that lookup entirely, records availability as unknown and keeps
+  `consumed: false`; O1C-0023 has no selection authority in this instrument.
+- **Do not repeat:** load manager-authoritative labels in the science parent,
+  hardlink the true label payload into a compatibility projection, deserialize
+  arbitrary self-committed corpus bytes into an authority type, merge the trusted
+  manager pass with scientific opens or probe O1C-0023 under a claimed zero-read
+  budget.
+- **Breadcrumb:** fresh evidence remains cold: it must enter the fixed packet-to-
+  state path and produce a newly committed state. Reader weights and positive
+  temperatures are hot over an already persisted state, so calibration can
+  iterate without evidence replay or state mutation. The complete runtime and
+  transitive source closure must stay pinned across that boundary.
+- **Boundary:** source `22d417ca73c73af59c8043c456c5475ed57f66a3`
+  freezes only the conditional instrument. Formal preflight is currently
+  `prerequisite-pending`, unreserved and zero-work; no O1C-0029 run, result or
+  cryptanalytic signal exists.
+- **Artifact:**
+  [`O1C-0029 design`](O1C0029_STACKED_HOT_CALIBRATION_DESIGN_20260718.md).

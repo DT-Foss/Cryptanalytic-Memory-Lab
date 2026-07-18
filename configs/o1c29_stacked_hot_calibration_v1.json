@@ -289,7 +289,7 @@
         "sha256": "585b0780db2308957b11140b5ee5e67f2d01776d4b42e9d6281e1c162d540e6d"
       }
     },
-    "source_freeze_commit": "9356c61f17b52163da0938ed417758edf546e6c1",
+    "source_freeze_commit": "22d417ca73c73af59c8043c456c5475ed57f66a3",
     "source_selection": "exact-hash-and-clean-descendant"
   }
 }

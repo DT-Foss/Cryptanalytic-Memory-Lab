@@ -1417,3 +1417,42 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:**
   [`result note`](O1C0028_HORIZON_MAJOR_HOT_ROUTING_RESULT_20260718.md),
   [`capsule`](../runs/20260718_103518_O1C-0028_horizon-major-hot-routing-full256-v1/RUN.md).
+
+## 2026-07-18 — O1C-0029 conditional stacked-hot calibration source freeze (non-attempt)
+
+- **Recorded:** 2026-07-18T12:56:28+02:00
+- **Source freeze:** `22d417ca73c73af59c8043c456c5475ed57f66a3`.
+  This is a source-only `INSTRUMENT`, conditional on the manager-authoritative
+  finalized O1C-0022 publication. No O1C-0029 attempt or capsule is reserved,
+  and no scientific run, result, null, key-recovery claim or signal exists.
+- **Live preflight:** reports `prerequisite-pending` while O1C-0022 is absent.
+  The formal call performs zero state construction, target/label science, solver
+  work, entropy, sibling access, MPS or GPU work and creates no reservation.
+- **Truth-safe authority:** one isolated trusted process performs the sole full
+  manager verification. The parent receives only a factory-minted, path- and
+  label-byte-free authority receipt plus a nonce-bound label-free packet corpus.
+  Arbitrary self-hashed wire bytes cannot mint either authority. Manager-pass
+  reads and the two later scientific label openings are separately committed
+  and accounted.
+- **Frozen lifecycle:** after readiness, 12 calibration and 4 held-out O1C-0022
+  packet ledgers construct and persist all 16 owner/episode states before any
+  scientific label opening. The first exact artifact-index plus `labels.bitpack`
+  opening authorizes four owner-safe fits. All 4 fits and 8 held-out logit vectors
+  persist before the second exact index-plus-label opening authorizes scoring.
+- **Dependency boundary:** O1C-0023 is not looked up, read or used for selection;
+  optional metadata stays unavailable/unknown and `consumed: false`. The full
+  application/runtime closure, Python/NumPy ABI and every transitive source byte
+  are pinned and freshly verified before reservation.
+- **Hot/cold boundary:** O1C-0022 evidence and its 16 state constructions are
+  cold. Once a state is persisted, reader weights and positive temperatures are
+  hot and may change without packet replay or state mutation.
+- **Verification:** 44 focused tests plus 25 subtests pass; 45 neighboring tests
+  plus 12 subtests pass. Ruff, Mypy, runtime/source-closure checks, pycompile and
+  `git diff --check` are clean.
+- **Boundary/next:** preserve this conditional source freeze unchanged until the
+  authoritative O1C-0022 capsule exists. A future activation must use the exact
+  two-opening lifecycle; this source freeze itself contributes no evidence.
+- **Artifacts:**
+  [`design`](O1C0029_STACKED_HOT_CALIBRATION_DESIGN_20260718.md),
+  [`config`](../configs/o1c29_stacked_hot_calibration_v1.json), and
+  [`runner`](../src/o1_crypto_lab/o1c29_stacked_hot_calibration_run.py).

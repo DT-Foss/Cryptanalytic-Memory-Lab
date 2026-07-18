@@ -1,14 +1,15 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T10:35:18+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T13:04:33+02:00 (`Europe/Berlin`)
 - **Latest implementation freeze:** `O1C-0028` at
   `17c02dfdbf56de6a81ae34700b258815bf0b7f88` — byte-exact K256
   H64/H65/H96 packet transposition into a self-describing, allocation-invariant
   25,128-byte V2 state with zero-replay hot readers and explicit cold migration
-- **Latest source-only instrument freeze:** conditional `O1C-0026` formal runner
-  at `7855492ac754f156d5de9bbea65fd2b6cf1910f9`, over proxy-v2 mechanism
-  `0af57fbeb6beaf69be66e64c3f0981227f829fd7`. It remains unreserved and
-  `prerequisite-pending`; `O1C-0025` stays frozen unchanged at `b008e21`
+- **Latest source-only instrument freeze:** conditional `O1C-0029` at
+  `22d417ca73c73af59c8043c456c5475ed57f66a3` — real O1C-0022 packets become
+  sixteen 25,128-byte V2 states once, then two fixed hot readers are calibrated
+  and scored at exact top-K 65,536 under isolated manager authority. It remains
+  unreserved and `prerequisite-pending`; no scientific result is claimed
 - **Latest completed attempt:** `O1C-0028` —
   `HORIZON_MAJOR_HOT_ROUTING_PASS`; all 14 gates pass on a target-free complete
   K256 packet ledger, with one canonical three-group V2 consume, two bound hot
@@ -39,15 +40,15 @@
   close the tested additive single-position clause marginals and prioritize
   interaction-bearing pairs, proof antecedents or exact contradictions
 - **Active lab runs:** no local scientific run; O1C-0024, O1C-0027 and O1C-0028 are
-  finalized and O1C-0025/O1C-0026 have no reservations. O1C-0026 completed a label-free BUILD
+  finalized and O1C-0025/O1C-0026/O1C-0029 have no reservations. O1C-0026 completed a label-free BUILD
   structural replay and a synthetic formal-lifecycle fixture only. The sibling
   W52 production work remains
   active, so O1C-0019, O1C-0022 and the O1C-0021 broad/formal gate have not
   started. O1C-0022 and O1C-0023 preflights are correctly
-  `prerequisite-pending` and create no reservations. At the latest read-only host
-  check, W52 had 8/8 running workers, `311,084/16,777,216` cells
-  (`1.8542051315%`), 24 related live processes, no stop marker, 35% free memory,
-  load/core about `0.27`, exact frozen sources and a clean lab tree. Consumed
+  `prerequisite-pending` and create no reservations. O1C-0029's fresh-process
+  preflight is also pending without a reservation. At the latest read-only host
+  check, W52 had 8/8 running workers, `380,870/16,777,216` cells
+  (`2.2701621056%`), no factual/control candidate and 32% free memory. Consumed
   pools/seeds remain ineligible as fresh evidence
 - **Strongest completed mechanism attempt:** `O1C-0020` — independently reviewed
   `EXACT_256_LEARNED_GATE_RETENTION` on 4 unseen seeds x 3 stream lengths
@@ -58,10 +59,10 @@
   wall s (0.143779 s complete capsule), 44,892,160 B peak RSS, 378,809 persistent
   artifact bytes and every mechanism/resource gate passed
 - **Next attempt:** the existing watcher executes frozen O1C-0019 after W52 clears;
-  its finalized capsule unlocks source-frozen O1C-0022, whose authoritative
-  finalized result then unlocks source-frozen O1C-0023. The first authoritative
-  V2 packet→state→hot-reader efficacy run must use a new O1C identity and nested
-  fold-safe lineage. Run O1C-0021 broad/formal only when the interlock is idle
+  its finalized capsule unlocks source-frozen O1C-0022. That authoritative result
+  directly unlocks O1C-0029's fixed V2 packet→state→hot-reader retrospective;
+  O1C-0023 remains an independent optional composer and never selects an O1C-0029
+  arm. Run O1C-0021 broad/formal only when the interlock is idle
 - **Primary uncertainty:** whether common-mode-rejected proof/carry innovations can
   acquire portable key orientation when O1 learns its representation and O1-O
   learns its sensing policy rather than receiving a fixed scalar reader
@@ -70,7 +71,9 @@
   global all-coordinate recovery frontier and O1C-0025 preserves native K256
   logits into it without probability rounding. O1C-0028 adds a byte-exact,
   allocation-invariant one-pass packet adapter and a verified hot/cold routing
-  boundary at 42.8125 MiB formal peak. None of those
+  boundary at 42.8125 MiB formal peak. O1C-0029 now supplies the first real-packet
+  4x4 state barrier, two fixed hot calibration arms, exact byte/16-bit/full-key
+  ranks and a trusted two-stage label boundary. None of those
   mechanisms creates evidence and the burned O1C-0024 posterior remains too flat.
   There is still no cryptanalytic SOTA or recovery claim: causal full-round
   evidence (b) and recovery frontier efficacy (c) remain open
@@ -79,6 +82,26 @@
   full ChaCha20 key
 
 ## Headline
+
+`O1C-0029` is source-frozen at `22d417c` as a conditional `RETROSPECTIVE`
+instrument only. One isolated trusted child performs exactly one complete
+manager verification of a future authoritative O1C-0022 capsule; its single
+integrity read of `labels.bitpack` cannot enter the parent. A nonce-bound wire
+transfers only the path-free packet corpus and manifest/index commitments. The
+scientific process then persists all sixteen owner-by-episode 25,128-byte V2
+states before its first label opening, persists four fits, four prediction
+receipts and eight 256-logit vectors before its second opening, and scores both
+precommitted arms at exact global top-K 65,536.
+
+Inputs, manager authority, label capabilities and scores are factory-only. The
+runtime is frozen in a fresh `-I -B` process to CPython 3.13.1, NumPy 2.2.6 and
+25 application modules plus the separately pinned verifier. The original
+pre-state label-read, self-hashed forged-input and incomplete-runtime-closure
+audit attacks now fail. Forty-four focused tests plus 25 subtests and 45
+neighboring tests plus 12 subtests pass. The live preflight reports
+`prerequisite-pending`, creates no O1C-0029 reservation/run directory and reads
+neither O1C-0023 nor any sibling repository. This is a source-frozen instrument,
+not a ChaCha20 signal or recovery result.
 
 `O1C-0028` is finalized from source commit `17c02df` with capsule manifest
 `aab7484b36b4a7c6e59ad556d41f44fbb88477b2f3f1f45270c0685e7a16ce09`.
@@ -631,7 +654,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Sibling W52/A539 (external, read-only) | 24 live process identities / 8 workers | 2026-07-17 | A528/A526 W52 production observed read-only | 311,084/16,777,216 pair cells (1.854205%); latest host check free RAM 35%; no competing local science | unknown |
+| Sibling W52/A539 (external, read-only) | 24 live process identities / 8 workers | 2026-07-17 | A528/A526 W52 production observed read-only | 380,870/16,777,216 pair cells (2.270162%); latest host check free RAM 32%; no competing local science | unknown |
 | O1C-0019 interlock | 67247 | 2026-07-17 18:39 | read-only 60 s poll, three-stable-poll release | preflight/lock/log verified; zero sibling writes; heavy gate not started | automatic after W52 and local gates clear |
 
 ## Highest-ROI next actions
@@ -656,16 +679,18 @@ O1C-0017 result boundary are documented in
    and unreserved. Execute the pinned config only if authoritative O1C-0023
    selects `proof_ancestry_pair_residual_v1`; a completed proxy null closes only
    its exact proxy fingerprint and leaves parent R07 open.
-7. Preserve O1C-0028 `17c02df` as the packet/V2/hot-routing API. After the
-   authoritative O1C-0022/O1C-0023 chain finalizes, use a new O1C identity and
-   nested fold-safe fit lineage to ingest each held-out packet stream once. Reader
-   weight/temperature switches are hot; evidence, addressing, encoder, kernel or
-   phase changes require cold replay.
+7. Preserve O1C-0028 `17c02df` as the packet/V2/hot-routing API and conditional
+   O1C-0029 `22d417c` as its real-packet calibration instrument. Authoritative
+   O1C-0022 completion is the only scientific prerequisite; O1C-0023 remains an
+   independent optional composer and does not select an O1C-0029 arm. Build the
+   sixteen fixed states once, then keep reader-weight and temperature iteration
+   hot; evidence, addressing, encoder, kernel or phase changes require cold replay.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0029` source freeze | 2026-07-18 12:53 | Sixteen real owner-by-episode O1C-0022 packet states can be built once and support outcome-independent hot calibration of two fixed readers without label leakage or evidence replay | Source `22d417c`; one trusted manager verification, nonce-bound label-free corpus, factory-only input/manager/score authority, 16-state persistence barrier, 4 fits + 8 logits before scoring authority, exact byte/16-bit/global-K65,536 ranks, complete CPython/NumPy/module closure | `INSTRUMENT`; conditional, unreserved and prerequisite-pending; no scientific run/result/signal | 44 focused tests + 25 subtests; 45 neighboring tests + 12 subtests; live preflight creates zero reservation/target/solver/entropy/sibling/MPS/GPU work | Real evidence generation remains cold, but all reader weights and confidence temperatures are now a bounded hot operation over the same persisted state; execute only after authoritative O1C-0022 | [Design](research/O1C0029_STACKED_HOT_CALIBRATION_DESIGN_20260718.md) |
 | `O1C-0028` | 2026-07-18 10:35 | Complete K256 O1C-0022-shaped packets can be transposed once into an allocation-invariant V2 state and safely queried by O1-O-shaped hot readers | `HORIZON_MAJOR_HOT_ROUTING_PASS`; 14/14 gates, 64/64 allocation repeats byte-identical, two hot bindings, 13 cold replay probes, exact legacy wire ABI | `VALIDATION` synthetic mechanism only; no ChaCha20 signal/recovery or authoritative O1C-0023 claim | 0.112165 CPU / 0.123936 measured wall s; 42.8125 MiB peak RSS; 25,128 B/state; 378,809 persistent B | Horizon-major transposition removes artificial coordinate-order decay; V1→V2 is one cold migration, then reader iteration is sub-second and replay-free | [Capsule](runs/20260718_103518_O1C-0028_horizon-major-hot-routing-full256-v1/RUN.md) |
 | `O1C-0027` | 2026-07-18 09:02 | A fixed all-256 resonator bank is a T-independent sufficient statistic for late-bound slot/temperature readers after one-pass ingestion | `POLYPHASE_SUFFICIENT_STATE_PASS`; 12/12 gates, four distinct normalized readers from one state hash, exact rechunk/swap/serialization invariants and three hard replay boundaries | `VALIDATION` mechanism only; no cryptanalytic signal/recovery claim | 0.081856 CPU / 0.094719 measured wall s; 39.390625 MiB peak RSS; 25,096 B/state; 164,132 artifact B | O1 can run continuously while reader weights/temperature change instantly; encoder/kernel/phase changes still require replay. Feed real causal packets next instead of rerunning synthetic streams | [Capsule](runs/20260718_090248_O1C-0027_polyphase-sufficient-state-full256-v1/RUN.md) |
 | `O1C-0026` formal runner source freeze | 2026-07-18 | The selected proxy can execute exactly once with truth-safe BUILD-LOO freezes, bounded state and result authority derived only from a complete semantic capsule | Source `7855492`; exact O1C-0023 gate, 4 BUILD/0 DEVELOPMENT, 64 fits, 4,927,488 alpha-bit and 4,096 diagnostic evaluations, four transient 8-KiB state replays over 1,024 coordinates from persisted weights to persisted/reloaded logits, 120 indexed artifacts | `INSTRUMENT`; conditional, unreserved, no scientific run/result/signal; activated capsule is `RETROSPECTIVE` | 23 focused tests; 33 pass/1 skip/61 subtests plus 12 pass/5 subtests in neighbors; 0 formal scientific work | Candidate result is not closure authority; only completed verified metrics can close the exact proxy fingerprint, while all operational failures close nothing | [Config](configs/proof_ancestry_pair_residual_run_v1.json) |
@@ -699,6 +724,10 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0029` source freeze | `22d417ca73c73af59c8043c456c5475ed57f66a3` |
+| `O1C-0029` canonical config | `86a34d70d714333adfd72ec9b6100ab475c872afffa7fcf707f401b7eac7d98f` |
+| `O1C-0029` runner source | `747431b7c2f7dfa1fcf81aecbf58cc6f519db72cf81dcec22dbc2192ba9b6f72` |
+| `O1C-0029` runtime closure | `dd9675a9017ed9be240dee0d50f195cbd938cbb6044c29851e736cdeeb6ba3ec` |
 | `O1C-0028` source freeze | `17c02dfdbf56de6a81ae34700b258815bf0b7f88` |
 | `O1C-0028` canonical config | `7d3f547032c11cfcf879ad97406c946a68e101762279047bfeb81897d0a19a48` |
 | `O1C-0028` V2 basis | `75b0c13e830c2bf586c0df5fd180eb84ff0d7676b2f28759cc3ce0e3c4f579f6` |
@@ -814,11 +843,19 @@ O1C-0017 result boundary are documented in
 
 ## Resume here
 
+O1C-0029 is source-frozen at `22d417c`, conditional and unreserved. Its preflight
+must remain `prerequisite-pending` without creating a run directory until an
+authoritative finalized O1C-0022 capsule exists. O1C-0023 is not a prerequisite
+and cannot select an O1C-0029 arm. When O1C-0022 becomes authoritative, execute
+the pinned O1C-0029 config unchanged: one trusted manager verification, sixteen
+persisted V2 states, four frozen fits and eight persisted logits precede exactly
+two scientific label/index openings. Any evidence, addressing, encoder, kernel
+or phase change requires a new cold attempt; fixed reader weights and confidence
+temperatures remain hot over those persisted states.
+
 O1C-0028 is complete and immutable at `17c02df`; do not replay its synthetic
 packet fixture or promote its fit to cipher evidence. Reuse the byte-exact packet
-codec, V2 state and factory-bound hot/cold APIs. The next efficacy-bearing run
-must use authoritative O1C-0022 packet bytes, a verified O1C-0023 decision and
-nested fold-safe lineage under a new attempt. V1 remains immutable; V1→V2 is
+codec, V2 state and factory-bound hot/cold APIs. V1 remains immutable; V1→V2 is
 always a cold replay, never reinterpretation.
 
 O1C-0020 is complete and immutable at execution commit `3aefaf7`; do not replay its
