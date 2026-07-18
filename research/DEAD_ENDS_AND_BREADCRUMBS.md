@@ -876,3 +876,21 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Artifacts:**
   [`O1C-0037`](O1C0037_RELATIONAL_GUIDED_SEARCH_RESULT_20260718.md) and
   [`O1C-0038`](O1C0038_EXACT_RESIDUAL_COMPLETION_RESULT_20260718.md).
+
+## B-0043 — Transferred pair accuracy is not automatically a CDCL decision policy
+
+- **Evidence:** O1C-0039's frozen H16 half-unit relation field reaches `55.84%`
+  pooled signed-edge accuracy on two unseen targets and beats both pooled endpoint
+  rotations, but its first-encounter external decisions produce zero Full-256 or
+  residual-9 recoveries at the frozen 512-conflict budget.
+- **Conclusion:** the relation source is positive; the present one-shot conversion
+  of noisy pair edges into irreversible-per-run decision attempts is not yet a
+  recovery mechanism. A recovery null must not be misreported as a signal null.
+- **Do not repeat:** sweep H16, edge weight or conflict budget on these opened
+  targets, or count 397 correct pair signs as independently recovered key bits.
+- **Breadcrumb:** forward-score complete candidate executions first. If the true
+  execution ranks, aggregate the same frozen factors in a context-reversible live
+  objective; if it does not, preserve the proof stream and move from clause
+  occurrence to signed antecedent-chain identity.
+- **Artifact:**
+  [`O1C-0039 result`](O1C0039_PROOF_CLAUSE_RELATION_TRANSFER_RESULT_20260718.md).

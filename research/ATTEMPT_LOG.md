@@ -1710,3 +1710,24 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:**
   [`result`](O1C0038_EXACT_RESIDUAL_COMPLETION_RESULT_20260718.md) and
   [`capsule`](../runs/20260718_212009_O1C-0038_exact-residual-completion-v1/RUN.md).
+
+## O1C-0039 — Attacker-valid proof-clause relation transfer
+
+- **Recorded:** 2026-07-18T22:02:17+02:00.
+- **Hypothesis:** the BUILD-selected H16 signed clause-occurrence contrast retains
+  target-specific key-to-internal relation orientation on unseen full-round keys.
+- **Result:** supported at relation level on both DEVELOPMENT targets: `238/432`
+  (`55.0926%`) and `159/279` (`56.9892%`), pooled `397/711` (`55.8368%`).
+  Pooled key-rotated and factor-rotated controls are `52.8833%` and `49.5077%`.
+- **Boundary:** fields, controls, residual coordinates and Full-256 search outputs
+  froze before labels. The current factor injector recovered `0` Full-256 keys;
+  the explicit post-reveal residual-9 arms also recovered `0`. Classification:
+  `RELATION_TRANSFER_ONLY`, not entropy removal or a ChaCha break.
+- **Resources:** `12.202150` elapsed s; `142,262,272` B peak; 1,024 paired
+  branches; 18 exact-solver calls; zero sibling/MPS/GPU work.
+- **Decision:** preserve H16/`|J|=0.5` unchanged. Test whether the aggregate field
+  ranks true forward executions above decoys, then make it live/reversible only
+  on a positive rank result; otherwise move to signed antecedent-chain factors.
+- **Artifacts:**
+  [`result`](O1C0039_PROOF_CLAUSE_RELATION_TRANSFER_RESULT_20260718.md) and
+  [`capsule`](../runs/20260718_220217_O1C-0039_proof-clause-relation-v1/RUN.md).

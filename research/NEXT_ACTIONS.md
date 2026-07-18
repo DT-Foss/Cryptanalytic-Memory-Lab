@@ -1,14 +1,14 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T21:22:00+02:00.
+Last ranked: 2026-07-18T22:04:35+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Bind attacker-computable signed clause/proof/relation factors—not key phases—to the working O1C-0037 exact adapter, preserving O1's bounded live state and confidence routing | State of the art | Extreme | Extreme | Medium | Tests the missing joint mechanism directly while reusing the exact Full-256 relation and verifier |
-| 2 | Measure true-key joint rank, effective residual width and equal-work time-to-hit against internal and factor-shuffled search; the O1C-0038 eight-bit zone is a ceiling target, not a binary promotion gate | State of the art | Extreme | Extreme | Low | Preserves genuine sub-256 progress and tells whether the factor source moves the real search frontier |
-| 3 | If relational width falls materially, hand its domain to the exact adapter; if a factorized complement becomes tractable first, pass it unchanged into A526/W52 | State of the art | Extreme | Extreme | High | Lets measured geometry choose the terminal backend without rebuilding either verifier |
-| 4 | Keep O1C-0037 key-phase guidance closed: real O1 is no better than shuffled and one wrong hint survives 32,768 conflicts | Operational | High | High | Zero | Prevents conflict-limit scaling on a field with measured zero practical error radius |
-| 5 | Keep O1C-0023/25/29 parked on the closed unary field and keep A296/A448/A465/A469 closed only at their exact tested projections | Operational | High | High | Zero | Prevents null-field tuning while retaining reusable components |
+| 1 | Forward-evaluate O1C-0039's frozen H16/`|J|=0.5` field on the true execution and a large attacker-computable uniform/structured decoy panel for both now-consumed DEVELOPMENT targets | State of the art | Extreme | Extreme | Low | Converts the new 55.84% pair signal into the decisive joint-rank question without spending a fresh target or changing extraction |
+| 2 | If true-key rank separates, replace first-encounter decisions with context-reversible live factor aggregation and compare Full-256 work against internal and endpoint-rotated controls | State of the art | Extreme | Extreme | Medium | Tests whether the positive relation source reduces actual search rather than merely describing the true model after reveal |
+| 3 | If candidate rank is null, close clause-occurrence factors and extract signed antecedent-chain relations from the same paired stream; do not sweep H16, `|J|` or conflict limits | State of the art | Extreme | High | Medium | Moves one causal level deeper while preserving the positive proof-stream breadcrumb and avoiding an opened-target rescue sweep |
+| 4 | Retain O1C-0038's exact residual-width-8 zone and the unchanged A526 backend as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
+| 5 | Keep O1C-0037 key-phase guidance and O1C-0023/25/29 over the closed unary field parked | Operational | High | High | Zero | Prevents compute scaling on measured-null fields while retaining reusable adapters |
 
 ## Effect-first stop rules
 
@@ -29,6 +29,10 @@ Last ranked: 2026-07-18T21:22:00+02:00.
   do not raise its conflict budget. O1C-0038 retains an exact post-reveal
   residual-width-8 ceiling; it is the target of a new factor source, not evidence
   that the attacker already knows 248 bits.
+- O1C-0039 establishes the new factor source at relation level: pooled primary
+  `55.84%` on both held-out keys versus `52.88%` key rotation and `49.51%` factor
+  rotation. Its current first-encounter injector has zero recovery. Preserve the
+  extraction bytes and test candidate-level rank before changing search policy.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not

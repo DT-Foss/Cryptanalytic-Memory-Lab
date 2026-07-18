@@ -95,6 +95,17 @@ milestone: learn attacker-computable signed proof/relation factors that reduce
 joint rank or effective width toward the exact zone, rather than attempting to
 manufacture 248 separately perfect unary bits.
 
+O1C-0039 finds that new factor source at the first progress-ladder level. The
+BUILD-frozen H16 half-unit clause contrast produces 432 and 279 bounded signed
+key-to-internal edges on the two DEVELOPMENT targets. After both fields and every
+attacker-valid search arm froze, revealed truth scores them at `55.09%` and
+`56.99%`; pooled primary is `55.84%`, above key rotation `52.88%` and factor
+rotation `49.51%`. Full-256 and privileged residual-9 recovery remain zero, so
+this is transferred relation evidence, not entropy removal or recovery. The next
+lowest-cost discriminator is the aggregate score of complete forward candidate
+executions. Only a positive true-key rank earns a context-reversible live-CDCL
+successor; a null closes clause occurrence and advances to antecedent chains.
+
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
 untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches
@@ -295,13 +306,16 @@ evidence.
 3. O1C-0022's post-reveal ceiling across all precommitted raw arms is only
    `120/210` and `118/204`. The true key is therefore outside both residual
    domains, so no backend search is authorized yet.
-4. The next paid experiment must introduce a genuinely new public all256 evidence
-   source. Score exact complement correctness or exact-containing beam rank
-   immediately; no scheduler/state/composer layer counts as the result.
-5. Once the complement gate passes, reuse the sibling candidate order/evaluator
+4. O1C-0039 now supplies a genuinely new public all256 relation source at
+   `55.84%` held-out pair accuracy. Its one-shot factor decisions do not yet move
+   recovery, so score complete-candidate joint rank before allocating new data.
+5. If the frozen relation objective ranks truth, convert it into live reversible
+   exact-search guidance and measure effective residual width/time-to-hit. If it
+   does not, pivot to signed antecedent chains without retuning H16 or `|J|`.
+6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.
-6. Preserve O1C-0023/25/29 as code only; do not execute them on the closed unary
+7. Preserve O1C-0023/25/29 as code only; do not execute them on the closed unary
    field. After stable attacker-valid entropy reduction, the existing logit
    handoff and exact global decoder may be reused unchanged.
 

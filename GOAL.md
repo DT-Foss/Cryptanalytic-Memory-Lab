@@ -110,11 +110,21 @@ and independently verifies the full key in 135,441 us; nine residual bits remain
 unresolved through 32,768 conflicts. This is post-reveal mechanism capacity, not
 attacker-valid recovery.
 
-The active frontier is therefore target-specific signed clause/proof/relation
-guidance inside the exact adapter. A500 already closes fixed joint-parity
-marginals and A503 closes its tested target-aligned Jacobian factor model, so the
-successor must measure true-key joint rank, effective residual width or real
-search work without requiring 248 independently perfect unary predictions.
+O1C-0039 supplies the first attacker-valid relational transfer. A BUILD-frozen
+H16 signed clause-contrast field reaches `55.09%` and `56.99%` key-to-internal
+relation accuracy on two unseen DEVELOPMENT keys (`397/711`, `55.84%` pooled),
+above key-rotated `52.88%` and factor-rotated `49.51%`. The bounded fields occupy
+3,512 and 2,288 bytes. This advances the first progress rung, but the present
+first-encounter factor decisions recover no Full-256 key and do not extend the
+post-reveal residual ceiling beyond eight bits.
+
+The active frontier is therefore conversion rather than rediscovery: use the
+frozen target-specific relation field as an attacker-computable forward-candidate
+objective, then as context-reversible live guidance inside the exact adapter.
+A500 already closes fixed joint-parity marginals and A503 closes its tested
+target-aligned Jacobian factor model, so the successor must measure true-key joint
+rank, effective residual width or real search work without requiring 248
+independently perfect unary predictions.
 
 All writes stay inside this repository. Sibling projects remain read-only and no
 competing heavy job starts without a resource check.

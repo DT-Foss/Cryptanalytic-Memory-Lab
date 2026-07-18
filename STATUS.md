@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T21:22:00+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T22:04:35+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -37,9 +37,15 @@
   verifies the full 256-bit key with `8` O1-ordered bits left unknown: `89`
   conflicts and `135,441 us`. Residual width `9` remains unresolved through
   `32,768` conflicts. This is a mechanism ceiling, not attacker-valid recovery.
-- **Next paid experiment:** replace key-phase guidance with attacker-valid
-  target-specific relation/proof factors and measure whether they reduce joint
-  rank or effective residual width toward the now-measured eight-bit exact zone.
+- **O1C-0039:** the BUILD-frozen H16/`|J|=0.5` signed proof-clause field transfers
+  to both DEVELOPMENT targets: `238/432` (`55.09%`) and `159/279` (`56.99%`),
+  pooled `397/711` (`55.84%`) versus key-rotated `52.88%` and factor-rotated
+  `49.51%`. Fields are 3,512/2,288 B. Full-256 and residual-9 recovery remain
+  `0`; classification `RELATION_TRANSFER_ONLY`.
+- **Next paid experiment:** score the frozen relation objective on true forward
+  executions versus attacker-computable decoys, then promote it to reversible
+  live solver guidance only if it produces joint-rank separation. Do not sweep
+  H16 or `|J|` on the opened targets.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -56,7 +62,7 @@
 - **Active local run:** none. Sibling repositories remain read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key.
 - **Latest result:**
-  [O1C-0038 exact residual completion](research/O1C0038_EXACT_RESIDUAL_COMPLETION_RESULT_20260718.md).
+  [O1C-0039 proof-clause relation transfer](research/O1C0039_PROOF_CLAUSE_RELATION_TRANSFER_RESULT_20260718.md).
 
 ## Headline
 
@@ -68,10 +74,13 @@ least 90 of 210 A325 complement bits and 86 of 204 A526 bits. O1C-0035 now freez
 the exact 204-bit completion frontier feeding the unchanged W52 backend. That
 factorized branch remains active. O1C-0037 now closes simple key-phase-only CDCL
 guidance on the frozen unary field, while O1C-0038 proves that the unchanged exact
-relation can complete an O1-ordered residual width of eight in `135,441 us`. The
-active H-RELATIONAL-037 question is therefore sharper: can attacker-computable
-proof/relation factors drive effective residual width toward that exact zone
-without requiring 248 independently perfect unary decisions?
+relation can complete an O1-ordered residual width of eight in `135,441 us`.
+O1C-0039 now answers the first H-RELATIONAL-037 subquestion positively: a tiny
+attacker-valid signed proof field transfers at `55.84%` pooled relation accuracy
+on both held-out keys. Its current one-shot factor injector has not reduced exact
+search or recovered a key. The active question is therefore whether the frozen
+relation objective ranks true forward executions and, if so, how to make that
+score live and reversible inside CDCL.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does
@@ -659,6 +668,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0039` | 2026-07-18 22:02 | A BUILD-frozen signed proof-clause contrast transfers target-specific key-to-internal relation orientation | Both DEVELOPMENT targets exceed chance: 55.09%/56.99%, pooled 397/711 = 55.84% versus key/factor rotations 52.88%/49.51%; Full-256 recovery 0 | `TEST` attacker-valid relation transfer; no entropy or recovery claim | 12.202150 s; 142,262,272 B peak; 18 exact calls; zero sibling/MPS/GPU | Freeze H16/`|J|=0.5`; test complete-candidate rank, then live reversible guidance only on a positive separation | [Capsule](runs/20260718_220217_O1C-0039_proof-clause-relation-v1/RUN.md) |
 | `O1C-0038` | 2026-07-18 21:20 | The unchanged exact ChaCha relation can close a nonzero O1-ordered residual once every supplied prefix bit is correct | Full key verified for residual widths `0/1/2/4/8` at 512 conflicts; residual `8` takes 89 conflicts / 135,441 us; residual `9` remains UNKNOWN through 32,768 conflicts | `POST_REVEAL_CEILING`; consumed target, no attacker-valid recovery claim | 11.494730 s; 139,575,296 B peak; 10 calls; zero sibling/MPS/GPU | Exact bridge has an eight-bit completion zone; next reduce effective width with attacker-valid relation/proof factors | [Capsule](runs/20260718_212009_O1C-0038_exact-residual-completion-v1/RUN.md) |
 | `O1C-0037` | 2026-07-18 21:10 | Frozen O1 scores improve exact full-round search when used as reversible first-encounter key decisions | Exact truth ceiling recovers in 5,065 us; real O1 and shuffled recover 0; one wrong hint is not repaired through 32,768 conflicts | `TEST` plus explicit post-reveal ceilings; consumed target | 14.513263 s; 139,853,824 B peak; 12 calls; zero sibling/MPS/GPU | Close key-phase-only guidance; retain exact adapter for relation factors and residual ceilings | [Capsule](runs/20260718_211056_O1C-0037_relational-guided-search-v1/RUN.md) |
 | `O1C-0022` | 2026-07-18 19:06 | Frozen O1C-0019 packet deltas compound in the exact 352-byte addressed vault | `CROSS_COORDINATE_DILUTION`: K256 int8 `-1.181837` bits; every fixed arm negative or nonportable; best post-reveal complement ceiling `120/210`, `118/204` | `RETROSPECTIVE`; consumed BUILD folds | 70.218 elapsed s; 284.1 MiB peak; zero solver/entropy/sibling/MPS/GPU | Close this unary packet/vault line; do not run derivative hot readers or residual backend | [Capsule](runs/20260718_190629_O1C-0022_o1c19-causal-vault-build-loo-v1/RUN.md) |
@@ -703,6 +713,14 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0039` source freeze | `fdd0874fb499e9f4a6ac1e5a652a784e0937e044` |
+| `O1C-0039` canonical config | `c151c3aea89b1834085db6f2b0c45692371d331c50e8c00a61b8c322eed99ca4` |
+| `O1C-0039` runner source | `5a40d23545982feafbf37200168e9860b4e5b743d87266e343786e34c3671947` |
+| `O1C-0039` relation field source | `24f16ad1dbf255c74bd62e5e4669a6895ee427f7b630a48248f2d00e9dafddd1` |
+| `O1C-0039` native factor adapter | `687fa973a066053c841efe0405feceddab50189cc2ffc4431c8bfab34424c941` |
+| `O1C-0039` attacker freeze | `a8ed2b3d7acdce935b07c052a05f64d7ad3e288e7b3707c706f2d56fdaaefb14` |
+| `O1C-0039` formal result | `f1c6860f59db4fd5c1aca2123ac23c69b5f4f01e99d05ff53a2144f3fa594b87` |
+| `O1C-0039` capsule manifest | `1bda99959ca5367a16e92d7c579d2f24e3b1216852ad04b2e1061b2b9f21898f` |
 | `O1C-0038` source freeze | `1596c3eb9467124e1ba7e6c218277d0a7a1abebe` |
 | `O1C-0038` canonical config | `b14b5948cbfd5530e05d737137e4befeb539de1f1b4a77a07a71b854a7dac0b5` |
 | `O1C-0038` runner source | `d5876cd3438092b31f451220ebb4e12e68368536d59281c500a57b64a155e314` |
