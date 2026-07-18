@@ -1,0 +1,81 @@
+{
+  "schema": "o1-256-criticality-live-search-config-v1",
+  "attempt_id": "O1C-0045",
+  "slug": "criticality-live-search-v1",
+  "claim_level": "CONSUMED_SEARCH_DIAGNOSTIC",
+  "hypothesis": "The prospectively transferred O1C-0044 parent-criticality reader contains joint geometry that can be compiled exactly into reversible local CaDiCaL decisions and reduce exact Full-256 or residual completion work without refitting.",
+  "prediction": "The compiled primary field will reproduce every frozen O1C-0044 panel score within 1e-12 and either recover a larger exact residual than the internal/key-rotated/clause-rotated arms or use strictly fewer conflicts at their largest shared recovered width. Full-256 recovery remains the terminal outcome and is measured directly before reveal.",
+  "source": {
+    "template": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.cnf",
+    "semantic_map": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.map.json",
+    "o1c43_result": "research/O1C0043_PARENT_CRITICALITY_RANK_RESULT_20260718.json",
+    "publication": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/publication.json",
+    "field": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/field.bin",
+    "candidate_keys": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/candidate_keys.bin",
+    "score_freeze": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/score_freeze.json",
+    "primary_scores": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/scores/primary.f64le",
+    "key_rotated_scores": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/scores/key_rotated.f64le",
+    "clause_rotated_scores": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/scores/clause_rotated.f64le",
+    "o1c44_result": "research/O1C0044_FRESH_PARENT_CRITICALITY_RANK_RESULT_20260718.json",
+    "reveal": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/reveal.json",
+    "potential_source": "src/o1_crypto_lab/criticality_potential.py",
+    "search_adapter": "src/o1_crypto_lab/criticality_factor_search.py",
+    "potential_native_source": "native/cadical_o1_criticality_search.cpp",
+    "internal_native_source": "native/cadical_o1_guided_search.cpp",
+    "runner": "src/o1_crypto_lab/o1c45_criticality_live_search_run.py",
+    "expected_sha256": {
+      "template": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+      "semantic_map": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+      "o1c43_result": "4e1910e564f913959051078d96ac3d6e165cd3739355a3b41e274c643cec9568",
+      "publication": "b985dd4e38e764c250fb4b2e4f38fff02873361a0838399b54ae1acfd87a279a",
+      "field": "58c8e2eb07632b4b4e2a26b148283effc30cc2391c276ed294a0bb64335c747f",
+      "candidate_keys": "c8aeb9031ac92f3e82d6b063cdb19535d63ef95d55f4de1782451dab442e4d55",
+      "score_freeze": "5c60a0b6bc43be24dd4f3210a79abb1178d89ed741ee7593909f43a0eb0c1fd0",
+      "primary_scores": "b90cca2036438b56f3fff02f6653110c9d400dde6512d17db15abdbd196db9f3",
+      "key_rotated_scores": "1b39b0e64fa3a5975e404c03b63acbf3109e9693a89f765be2568cd1ffed116a",
+      "clause_rotated_scores": "e89cba6fd4c84d2087fc66d701e928a7f8c91461782958aa541caaf22ec8fd25",
+      "o1c44_result": "b22f76e3fa9be4393f7e0cf03c3fa6f53607427b96ca630a45168ff03f93ef9e",
+      "reveal": "7caf9b1f83465138be80b28677207bf4a5e274b809ec65d55845168d21da0707",
+      "potential_source": "79aad3271bea2e146a758fce83e06fd5993419e41b6b57faefb4873a9c8ba378",
+      "search_adapter": "2e51ea5ef9034a0848334e932b095b9b470e738e643a8669aa00a8c0ff77914e",
+      "potential_native_source": "c1884ebcfb6f17de19f268d8721234091f96c12904b5eced7119470a4bfd977b",
+      "internal_native_source": "384870ffa73bf8b5fa404742669218c7d93918018507595c042d73d54a08eca9",
+      "runner": "c9d689c8d6f4177e63153df74d882cbe40c277be3de19850c168fb07b5ab9e67"
+    }
+  },
+  "target": {
+    "target_id": "o1c-0044-fresh-0000",
+    "rounds": 20,
+    "unknown_key_bits": 256,
+    "fresh_targets": 0
+  },
+  "compilation": {
+    "reader_weights_sha256": "c4149a4695b13efac42268162f8381956c9616f24f25741abbce8d46be6f4d30",
+    "candidate_count": 4096,
+    "arms": ["primary", "key_rotated", "clause_rotated"],
+    "maximum_abs_score_error": 1e-12,
+    "reader_refit": false
+  },
+  "search": {
+    "arms": ["internal", "primary", "key_rotated", "clause_rotated"],
+    "conflict_limit": 512,
+    "residual_widths": [8, 9],
+    "residual_selector": "descending-sum-abs-parent-score-units-then-count-then-coordinate",
+    "prefix_mode": "post-reveal-correct-key-unit-conditions",
+    "seed": 0
+  },
+  "budgets": {
+    "maximum_wall_seconds": 90,
+    "maximum_peak_rss_bytes": 536870912,
+    "maximum_candidate_forward_evaluations": 4097,
+    "maximum_native_solver_calls": 12,
+    "maximum_requested_conflicts": 6144,
+    "maximum_fresh_targets": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_persistent_artifact_bytes": 2097152
+  },
+  "next_action": "If primary expands the residual frontier or reduces matched conflicts, preserve the exact compiler and validate the same frozen reader/search rule on one new sealed Full-256 target. If search does not improve despite exact rank transfer, retain O1C-0044 and replace only the conditional decision scheduler with score-aware branching or bounded best-first clause activation; do not refit the reader or spend another fresh key on this adapter."
+}
