@@ -13,6 +13,32 @@ Research priority is proportional to expected frontier impact, information gain,
 reuse and downstream leverage, divided by implementation cost, compute cost and
 contamination risk. Green tests and document count are not research outcomes.
 
+## Effect-first amendment — 2026-07-18
+
+This section controls the next research cycle where older process text conflicts
+with it.
+
+- `ROI` means attacker-valid entropy removal, rank/search reduction or exact
+  recovery on standard full-round ChaCha20. Infrastructure, validation gates and
+  polished claims have zero standalone ROI.
+- Reuse a mechanism with positive recovery evidence before inventing a replacement.
+  The first transfer targets are the A291/A296 eight-channel causal reader and
+  exact recovery/verifier path, then the A317/A321/A325 rank-space nearest-
+  prototype L-infinity order. A465/A469 remain downstream fusion channels.
+- Until a transferred reader gives positive cached DEVELOPMENT compression, the
+  loop measures only natural-log-loss/compression, sign accuracy, runtime and
+  memory. Byte/u16 ranks, top-K decoding, broad controls, formal capsules and
+  publication hardening wait for an effect.
+- A negative result is a failed hypothesis, not a milestone. Record one concise
+  do-not-repeat breadcrumb and pivot. Do not reward nulls with more ceremony or
+  reinterpret them as progress.
+- New architecture or orchestration is paused unless it executes an already-
+  positive sibling mechanism or removes a measured runtime/memory bottleneck.
+- During cheap discovery retain only four boundaries: public-only target input,
+  no target-label leakage, matched scored work, and strict sibling isolation.
+  Replication, fresh sealed targets, controls and provenance hardening follow in
+  that order only after a positive cached effect.
+
 ## Current milestone
 
 O1C-0016 closed the fixed global h96/h65 reader family on 32 independent keys.
@@ -193,61 +219,44 @@ evidence.
 
 ## Evidence ladder from here
 
-1. Preserve O1C-0020's code, four EVAL seeds, gate and capsule byte-exact. Reuse only
-   its public state API, never its frozen evaluation outcomes.
-2. Preserve O1C-0018 and its six pools byte-exact; keep the watcher alive so W52
-   release automatically executes the frozen three-checkpoint, four-fold O1C-0019
-   config with zero new solver branches, entropy, sibling or GPU work.
-3. Persist each O1C-0019 fold's reader/critics and every policy/raw trajectory before
-   reconstructing its key; report compression, IAUC, agency, stationarity,
-   STOP/no-STOP and exact bounded-state/resource ledgers.
-4. Immediately after O1C-0019 finalizes, run O1C-0022 once from `ce56ba4`. Require
-   exact lifecycle/work/invariance gates, then use its K ladder and raw/normalized/
-   int8/last/unit/shuffled matrix to localize signal, dilution, scale, quantization,
-   confidence, compounding or address binding. Route positive frozen K256 logits
-   through fixed O1C-0025 into unchanged O1C-0024 global decoding and public
-   verification.
-5. After authoritative O1C-0022 completion, run conditional O1C-0029 exactly once
-   from `22d417ca73c73af59c8043c456c5475ed57f66a3`. Preserve O1C-0028 as its K256
-   packet/state ABI; persist all 16 real states before the calibration opening,
-   then all four fixed fits and eight logits before the heldout scoring opening.
-   Permit no third scientific label/index opening. Treat packet evidence,
-   quantizer, addressing, encoder, recurrence and phase changes as cold; keep only
-   reader weights and temperature hot over the frozen states.
-6. O1C-0023 may run separately after O1C-0022 from `aa17eed`. Preserve its complete
-   result-bound decision, native double-assembly receipt and immutable
-   failure-memory context; execute its selected operator only under a new ID. Do
-   not delay or gate O1C-0029 on O1C-0023 availability.
-7. Once the shared interlock is idle, rerun O1C-0021 broad DEV from `4ba1cc6`, then
-   run its four never-used EVAL episodes exactly once. Require positive held-out
-   compression and matched control margins; exact 256/256 remains the terminal
-   synthetic causal-accumulation gate.
-8. If O1C-0029 finds portable K256 orientation, freeze that combined architecture
-   and attack one untouched full-256 DEVELOPMENT target under a new identity.
-   Once authoritative packet deltas exist, use O1C-0030's closed local-diagonal
-   result to avoid that resweep: compare an O1-O live scout-to-focus re-ranker
-   against an identical frozen one-shot policy at matched work. Preserve every
-   packet byte, block and full-key rank. If packet features are null, move to raw
-   antecedent/signed-pair evidence; execute O1C-0026 only through frozen one-shot
-   runner `7855492` and its exact config, on consumed BUILD folds, and only when a
-   separately executed authoritative O1C-0023 selected
-   `proof_ancestry_pair_residual_v1`. A completed, fully verified null may close
-   only its exact mechanism fingerprint; operational, stopped and publication
-   failures close nothing and preserve R07. For every other outcome, execute only
-   a separately authorized frozen successor.
-9. After stable entropy reduction, add surprise-selected Causal Attic summaries
-   and use O1C-0025's fixed logit handoff, O1C-0024's exact global frontier and
-   public ChaCha20 verification toward recovery.
+1. The cached transfer screen is complete. Exact A291/A296 is absent because the
+   FAP discarded H1/2/4/8 stage deltas and XOR-cube neighbors; its one honest H96
+   proxy is unstable. The exact-tied A317/A321/A325 512-action transpose is also
+   negative on consumed DEVELOPMENT. Preserve one closure and do not resweep.
+2. Reuse the existing A291/A296 RawCell ABI and frozen eight-feature scorer. Build
+   only the missing shallow measurement adapter for one fixed 256-value key-byte
+   cube on an all-256 public target, leaving the other 248 bits unknown.
+3. Microbenchmark one consumed-target cube under the resource interlock. If cheap,
+   score the predeclared byte and expand to all 32 bytes without changing sibling
+   means, scales, coefficients or candidate geometry. Report byte rank and work.
+4. Only if the frozen score transfers on both consumed DEVELOPMENT targets, repeat
+   it once and generate one fresh sealed all-256 target. A positive fresh result
+   unlocks controls and full frontier diagnostics.
+5. Feed the first confirmed positive score field into the already-built O1 bounded
+   state/hot-reader API. Compare frozen reader versus live accumulation at identical
+   evidence work; O1-O may automate parameter/operator choice only after this
+   executable baseline exists.
+6. Use the sibling's exact residual candidate evaluator and independent ChaCha20
+   verifier as the terminal/hybrid backend when the posterior fixes enough bits.
+   Do not mistake the sibling's W24/W46 residual recoveries for all-256 recovery.
+7. Keep the W52 watcher and source-frozen O1C-0019/22/29 chain intact as background
+   assets, but they no longer block the direct transfer experiment.
+8. After stable attacker-valid entropy reduction, add A465/A469 fusion,
+   surprise-selected Causal Attic summaries, O1C-0025 logit handoff and O1C-0024
+   global decoding toward exact public verification.
 
 ## Operating contract
 
 - Work only inside this lab; sibling projects are read-only.
 - Continue from `STATUS.md`; do not restart broad audits.
-- Every substantive experiment receives a monotone `O1C-NNNN` ID and immutable,
-  timestamped run directory.
-- Every result records hypothesis, prediction, controls, work budget, exact command,
-  source hashes, start/end times, metrics, interpretation and next action.
-- A negative result must yield explicit breadcrumbs before its family is abandoned.
+- Cheap scratch screens may iterate in-process and record timestamp, mechanism,
+  dataset, score, runtime and memory in one concise log entry. They do not require
+  a new architecture, capsule or publication bundle.
+- The first positive cached result and every fresh-target experiment receive a
+  monotone `O1C-NNNN` ID and immutable timestamped run directory with the usual
+  command, source, resource and metric record.
+- A negative result gets one explicit do-not-repeat breadcrumb, then its exact
+  hypothesis closes. It is not promoted to a milestone.
 - Repetition requires a new mechanism, variable, dataset, scaling question or
   replication purpose.
 - One targeted validity review per milestone is enough unless a concrete defect is

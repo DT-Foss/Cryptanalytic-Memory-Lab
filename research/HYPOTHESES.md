@@ -5,6 +5,7 @@ Hypotheses receive stable IDs. Status values are `OPEN`, `ACTIVE`, `SUPPORTED`,
 
 | ID | Status | Priority | Hypothesis | Cheapest discriminating test | Success signal | Failure pivot |
 |---|---|---:|---|---|---|---|
+| `H-TRANSFER-034` | `ACTIVE` | 0 | A291/A296's frozen shallow conflict/XOR reader retains some byte-value ordering when its exact H1/2/4/8 RawCell field is measured on an all-256 public target with the other 248 key bits unknown | Cached FAP audit already closed the H96 proxy and A325 512-action transpose. Now measure one fixed 256-value byte cube, apply the sibling's unchanged eight selected features, then expand to all bytes only if the microbenchmark is cheap | Better-than-numeric byte ranks on both consumed DEVELOPMENT targets, followed by one repeat and one positive fresh sealed all-256 target | If exact shallow fields are flat/null, record one closure and move to the next positive sibling channel; do not retune coefficients or wrap the null in a scheduler/state/lifecycle layer |
 | `H-LIVE-009` | `REFUTED` | 1 | The O1C-0009 linear full-256 direct/candidate contrast readers remove reproducible code length from a uniform unseen ChaCha20 key | Completed on 128 broker-secret keys with all predictions frozen before reveal, then its only signed breadcrumb replicated on 2,048 more | Held-out total NLL stably below 256 bits with matched controls at chance | O1C-0009 froze at zero and O1C-0010 signed direct reached -0.019088 bit; raw end-output regression is closed |
 | `H-SIGNED-013` | `REFUTED` | 1 | O1C-0009's CAL-only negative direct scale reflects a tiny transferable orientation rather than panel noise | O1C-0010 froze exact model/scale and evaluated 2,048 new broker-secret keys without refit | Positive mean compression, conditional and target-level evidence, plus matched frozen-control margins | Direct compression was -0.019088 bit, z -0.946, shuffled margin -0.017541 and output-permutation margin +0.000962; do not revisit |
 | `H-CNF-015` | `SUPPORTED` | 1 | A target-independent exact symbolic-output ChaCha20 CNF can expose an attacker-valid paired-assumption relation without retaining a target trace or reducing key width | O1C-0011 compiled, double-reproduced and solver-checked the complete one-block relation before reader training | Exact SAT/UNSAT mapping checks, zero target key units, per-bit causal ranges and bounded-memory generation | Achieved: 32,128 vars, 187,370 clauses, 656 x 32 bit ranges; retain immutable template and move event efficacy to H-SOLVER-014 |
@@ -40,6 +41,11 @@ Hypotheses receive stable IDs. Status values are `OPEN`, `ACTIVE`, `SUPPORTED`,
 | `H-PAIR-008` | `ACTIVE` | 2 | Paired coordinate interventions expose reusable causal innovations after common-mode removal even though their raw global proof difficulty is non-orienting | O1C-0022 first tests the frozen incremental packet reader; the predeclared fallback preserves projected clause/proof identity and compares pair/antecedent/contradiction structure on consumed BUILD folds | Cross-key residual NLL against both common-mode and coordinate-destroying controls | Localize by assumption-rooted proof/carry ancestry and sparse Möbius pairs rather than revealed coordinate masks or another additive single-position clause reader |
 
 ## Leakage kill conditions
+
+`H-TRANSFER-034` is the controlling research priority until the exact shallow
+byte-cube screen finishes. Older `ACTIVE` infrastructure, composer and packet-chain
+rows remain preserved background assets; they do not authorize new build work
+before a cipher score is positive.
 
 Any feature is excluded from discovery if it depends on the recovered target key,
 post-result target rank, target-only internal state, outcome-conditioned file

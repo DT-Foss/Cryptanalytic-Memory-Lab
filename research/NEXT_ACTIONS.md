@@ -1,17 +1,29 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T13:50:28+02:00.
+Last ranked: 2026-07-18T14:41:11+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Keep the ACK-confirmed watcher PID `67247` alive and let it launch frozen O1C-0019 only after W52 terminal/process/RAM/load/hash gates clear | State of the art | Very high | Very high | Medium | Produces the first corrected full-round packet-reader and autonomous-picker gate without disturbing recovery workers |
-| 2 | When O1C-0019 finalizes, run source-frozen O1C-0022 `ce56ba4` exactly once; classify K12/52/128/256 raw/normalized/int8/last/unit/shuffled evidence, then send positive frozen K256 logits through fixed O1C-0025 and unchanged O1C-0024 global decoding | State of the art | Very high | Very high | Low/Medium | Separates no packet signal, cross-coordinate dilution, scale weighting, quantization, confidence, compounding, binding and actual search concentration before any new target |
-| 3 | After authoritative O1C-0022 finalizes, run conditional source-frozen O1C-0029 `22d417ca73c73af59c8043c456c5475ed57f66a3` exactly once: persist all 16 real packet states before the calibration opening, then freeze four fixed reader fits and eight logits before the heldout scoring opening | State of the art | Extreme | Extreme | Low | Tests portable K256 orientation through hot readers without replaying cold evidence; O1C-0023 is optional context and is not a prerequisite |
-| 4 | After authoritative packet deltas exist, source-freeze one artifact-only O1-O live scout-to-focus gate: scout H64 across all 256 coordinates, consume H65/H96 one packet at a time under strictly positive learned priority, update the bounded O1 state and re-rank after every consume | State of the art | Extreme | Extreme | Low | The matched-work live recurrent versus identical frozen one-shot comparison directly decides whether living state improves the next evidence choice; round-robin, hash, magnitude, shifted-credit and no-state controls localize failure without new solver or target work |
-| 5 | After O1C-0022 finalizes, O1C-0023 `aa17eed` may run separately; preserve its complete-result decision, failure-memory context and isolated native O1-O double assembly without making it a gate for O1C-0029 | State of the art | Very high | Extreme | Low | Converts the localized outcome into one non-repeating next operator with zero target spend and removes manual iteration latency |
-| 6 | Preserve O1C-0021 source freeze `4ba1cc6`; once the shared interlock is idle, run the committed two-seed broad DEV recheck and four never-used formal EVAL seeds exactly once | State of the art | Very high | Very high | Low/Medium | Decides terminal synthetic causal accumulation without racing the real packet gate |
-| 7 | If O1C-0029 finds portable K256 orientation, freeze its positive posterior with O1C-0025 as the fixed logit handoff into O1C-0024 and attack one untouched O1C-0018 DEVELOPMENT pool under a new identity; otherwise preserve its byte/block/full-key ranks and advance only through a separately authorized successor | State of the art | Extreme | Very high | Medium | Converts the complete O1C-0019 to O1C-0022 to O1C-0029 chain into the first genuinely fresh full-round 256-bit entropy/rank/recovery test or a high-information localized repair |
-| 8 | Preserve O1C-0026 formal runner `7855492`, config `configs/proof_ancestry_pair_residual_run_v1.json` and proxy v2 `0af57fb`; only after authoritative O1C-0023 selects `proof_ancestry_pair_residual_v1`, reserve its consumed-BUILD four-fold residual exactly once | State of the art | Very high | High | Medium | The truth-safe one-shot lifecycle, 768D/8-KiB replay, matched controls and exact result authority are frozen; the remaining spend answers portable orientation without a fresh target, and a completed null closes only the exact proxy instance |
+| 1 | Reuse the exact A291/A296 RawCell ABI and frozen eight-feature scorer; implement only the missing H1/2/4/8 measurement adapter for one fixed 256-value key-byte cube with the other 248 target bits unknown | State of the art | Extreme | Extreme | Low | Executes the positive sibling mechanism on an all-256 public target instead of approximating it from incompatible cached fields |
+| 2 | Microbenchmark one 256-cell cube on a consumed target under the W52 resource gate; if cheap, score the predeclared byte and expand to all 32 bytes without refitting the sibling coefficients | State of the art | Extreme | Extreme | Low/Medium | Gives real byte ranks and measured work for the first literal causal-reader transplant |
+| 3 | If the frozen reader transfers on both consumed DEVELOPMENT targets, repeat once and generate exactly one fresh sealed all-256 target | State of the art | Extreme | Very high | Medium | Converts retrospective byte concentration into a prospective attacker-valid result |
+| 4 | Only after a positive fresh effect, add matched controls, O1 hot accumulation and full byte/u16/key frontier diagnostics, in that order | State of the art | Extreme | Extreme | Low/Medium | Tests whether living state compounds a score that already works and whether it shrinks actual search |
+| 5 | Reuse the sibling exact candidate evaluator and independent ChaCha20 verifier as the terminal/hybrid backend once enough posterior bits are fixed; do not build a second verifier/search engine | State of the art | Extreme | Extreme | Medium | Combines this lab's fast state path with the sibling's reliable recovery closure |
+| 6 | Keep watcher PID `67247`, W52 isolation and source-frozen O1C-0019/22/29 intact as background assets; they do not block ranks 1–2 | Operational | High | Very high | Zero | Preserves existing work without forcing the direct transplant through a long dependency chain |
+
+## Effect-first stop rules
+
+- Discovery loop: cached BUILD/DEVELOPMENT compression, sign accuracy, runtime and
+  memory only. A scratch null is allowed to be just a null.
+- Promotion order: positive cached effect -> cached repeat -> one fresh sealed
+  target -> matched controls/provenance -> byte/block/full-key frontier.
+- No new infrastructure unless it runs an already-positive recovery mechanism or
+  removes a measured bottleneck.
+- No celebration language for a negative result. Preserve one useful sentence so
+  the same exact test is not paid for twice, then pivot.
+- Closed now: the cached H96 A291-adjacent proxy and the A317/A321/A325 512-action
+  transpose. Neither transfers across both consumed DEVELOPMENT keys; do not tune
+  their sign, views, scale or temperature.
 
 ## Hard target contract
 
@@ -117,6 +129,12 @@ Last ranked: 2026-07-18T13:50:28+02:00.
 
 ## Do not spend the next cycle on
 
+- another new O1/O1-O scheduler, state representation, control matrix or formal
+  capsule before the A291/A296 and A317/A321/A325 direct-transfer screens finish;
+- byte/u16/top-K scoring during reader iteration; cheap NLL/sign screening already
+  answers whether an effect exists and is orders of magnitude faster;
+- treating O1C-0030 or any other null as progress beyond its one-line
+  do-not-repeat value;
 - scaling a recovered-width ladder from W12 through W52;
 - repeating O1C-0007's unary A355 sweep;
 - fitting another direct/relative/distilled reader on raw final-output features or

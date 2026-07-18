@@ -1492,3 +1492,40 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [`capsule`](../runs/20260718_134406_O1C-0030_incremental-diagonal-frontier-v1/RUN.md),
   [`result note`](O1C0030_INCREMENTAL_DIAGONAL_FRONTIER_RESULT_20260718.md), and
   [`post-result diagnostic`](O1C0030_POSTRESULT_DIAGNOSTIC_20260718.json).
+
+## 2026-07-18 — Effect-first recovery-transfer correction (non-attempt)
+
+- **Recorded:** 2026-07-18T14:24:04+02:00.
+- **Correction:** the preceding cycle put too much work into state, lifecycle and
+  routing machinery before establishing a useful cipher score. Negative results
+  are now treated as failed hypotheses with one do-not-repeat sentence, not as
+  milestones. O1C-0030 closes its exact local-diagonal lamp; no additional value
+  is assigned to the null.
+- **Read-only sibling evidence:** A291/A296's fixed eight-channel causal reader
+  achieved eight of eight exact strict-subset W24/W28 recoveries with `3.0821x`
+  geometric domain reduction and zero control hits. A317/A321/A325's frozen
+  nearest-prototype L-infinity rank operator recovered a fresh W46 residual at
+  rank `77/4096`, `5.733213459` gain bits and `53.194805x` domain reduction.
+  The sibling tree was not modified.
+- **A291/A296 boundary:** the literal eight-channel reader cannot be reconstructed
+  from cached FAPs. It requires accepted-learned-clause/conflict stage deltas at
+  H1/2/4/8 and one 256-cell XOR cube; FAPs retain H64/65/96 over 256 independent
+  bit x polarity actions. The only honest cached proxy, H96 derived-clause
+  pressure, is negative/unstable: BUILD-LOO `-1.939277` mean bits and consumed
+  DEVELOPMENT `[+1.802489,-0.794993]`. Close the proxy, not exact A296.
+- **A317/A321/A325 transpose:** exact nearest-L-infinity distance and six-field
+  A317 tie semantics were applied to three complete 512-action rank views with
+  BUILD-only prototypes and nested BUILD-only scale fitting. BUILD-LOO is positive
+  in 4/4 (`+1.113828` bits total), but consumed DEVELOPMENT is
+  `[+0.147004,-1.530953]`, `-1.383949` total and 255/512 correct. Opposite sign is
+  also null (`-0.057103` total). The transpose does not transfer; close it.
+- **Cost:** both write-nothing cached screens use zero fresh solver branches,
+  target entropy, sibling writes, MPS or GPU work. The A291 boundary/proxy screen
+  takes about `0.05` seconds and reads `12,424,733` bytes.
+- **Interpretation:** these are negative results. They are recorded once so the
+  exact proxy/transposition is not repeated; no full key or stable bit signal was
+  recovered.
+- **Next:** acquire the missing A291 H1/2/4/8 raw channels directly for one fixed
+  256-value byte-intervention cube while all 256 target bits remain unknown. Apply
+  the sibling's frozen eight-feature scorer unchanged. Only a positive consumed-
+  target screen that repeats may spend one fresh sealed all-256 target.

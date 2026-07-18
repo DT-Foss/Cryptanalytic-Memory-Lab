@@ -1,6 +1,11 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T13:50:28+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T14:41:11+02:00 (`Europe/Berlin`)
+- **Effect-first course correction:** direct transfer of sibling mechanisms with
+  actual recovery evidence is now the scientific priority. A291/A296 causal
+  channels and A317/A321/A325 rank-prototype ordering are tested first on cached
+  full-256 pools; new schedulers, state machinery and formal hardening are paused
+  until a positive compression effect exists
 - **Latest implementation freeze:** `O1C-0028` at
   `17c02dfdbf56de6a81ae34700b258815bf0b7f88` — byte-exact K256
   H64/H65/H96 packet transposition into a self-describing, allocation-invariant
@@ -15,6 +20,11 @@
   lamp is null on four consumed full-round BUILD artifacts. Primary compression
   is `-0.680620` bit/key, loses to cumulative replacement in 4/4 folds, and finds
   no exact key in four native-logit top-65,536 frontiers
+- **Latest direct-transfer screen:** no attempt ID or capsule. Exact A291/A296
+  inputs are absent from cached FAPs; its H96 clause-pressure proxy is unstable.
+  The A317/A321/A325 rank-prototype transpose is positive on 4/4 BUILD folds but
+  negative across consumed DEVELOPMENT (`-1.383949` bits total, 255/512 correct).
+  Both cached hypotheses are closed; exact shallow A296 evidence remains untested
 - **Latest source hardening:**
   `2d8bf69957fe689b75e61fea5cab8e9a693192ed` — a real immutable O1C-0018
   `.fap` now traverses the production Torch reader, label-free quantizer and
@@ -37,10 +47,12 @@
   family, routes exactly 256 bindings through more than one million interleaved
   distractors, and recalls 256/256 bits in every one of 12 unseen cells with a
   352-byte live state and no oracle deployment mask
-- **Strongest read-only mechanism intake:** A447-A449 proof ancestry, A465 cubic
-  Product-of-Experts and A469 positive bucket-local correction; A539/A541 now
-  close the tested additive single-position clause marginals and prioritize
-  interaction-bearing pairs, proof antecedents or exact contradictions
+- **Strongest read-only recovery intake:** A291/A296's frozen eight-channel causal
+  reader produced eight of eight exact strict-subset recoveries on fresh W24/W28
+  targets with `3.0821x` geometric domain reduction and zero control hits. The
+  A317/A321/A325 nearest-prototype L-infinity order then recovered a fresh W46
+  residual at rank `77/4096`, `5.7332` gain bits and `53.19x` domain reduction.
+  These are now executable transfer sources; A465/A469 remain later fusion arms
 - **Active lab runs:** no local scientific run; O1C-0024, O1C-0027, O1C-0028 and
   O1C-0030 are finalized and O1C-0025/O1C-0026/O1C-0029 have no reservations. O1C-0026 completed a label-free BUILD
   structural replay and a synthetic formal-lifecycle fixture only. The sibling
@@ -61,15 +73,15 @@
   wall s (7.473814 s complete capsule), 65,748,992 B peak RSS, 168,648 persistent
   artifact bytes, 262,144 exact frontier candidates and zero solver, entropy,
   sibling, MPS or GPU work; a second invocation performed no replay
-- **Next attempt:** the existing watcher executes frozen O1C-0019 after W52 clears;
-  its finalized capsule unlocks source-frozen O1C-0022. That authoritative result
-  directly unlocks O1C-0029's fixed V2 packet→state→hot-reader retrospective;
-  O1C-0023 remains an independent optional composer and never selects an O1C-0029
-  arm. Run O1C-0021 broad/formal only when the interlock is idle
-- **Primary uncertainty:** whether the full learned 330D packet reader can acquire
-  portable key orientation and whether a recurrent O1-O scout-to-focus policy can
-  route its nonstationary confidence globally; O1C-0030 now closes the simpler
-  same-coordinate hard-confidence attachment
+- **Next attempt:** collect the missing H1/2/4/8 A291 raw channels for one fixed
+  256-value key-byte intervention cube against an already-consumed public
+  full-round target while all 256 key bits remain unknown. Score it with the
+  sibling's frozen eight features unchanged; first microbenchmark one cube, then
+  expand only if its runtime/resource cost and key-byte rank justify it
+- **Primary uncertainty:** whether A296's proven shallow conflict/XOR geometry
+  survives the change from a residual domain to one byte intervention with the
+  other 248 bits unknown. The cached FAP cannot answer this because it discarded
+  precisely those horizons, stage deltas and cube neighbors
 - **SOTA status:** retention terminal (a) is achieved at 256/256 through `2^20`
   distractors with exact bounded-state accounting. O1C-0024 now supplies an exact
   global all-coordinate recovery frontier and O1C-0025 preserves native K256
@@ -88,6 +100,14 @@
   full ChaCha20 key
 
 ## Headline
+
+The program is now effect-first. The prior cycle over-invested in machinery after
+the cipher reader itself remained null. O1C-0030 is therefore simply a failed
+local-diagonal hypothesis. Direct transfer has now been executed: the honest A296
+cached proxy is unstable, and the exact-tied A325 rank-prototype transpose fails
+across the two consumed DEVELOPMENT keys. No positive result is claimed. The next
+real experiment collects A296's missing shallow channels instead of wrapping
+either null in more O1/O1-O machinery.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does
@@ -676,30 +696,21 @@ O1C-0017 result boundary are documented in
 
 ## Highest-ROI next actions
 
-1. Keep watcher PID `67247` and the frozen O1C-0019 sources alive; inspect only the
-   ignored interlock log while W52 runs and never touch its files or processes.
-2. Let the watcher execute the exact four-fold artifact-only capsule at W1/W2/W3
-   after its terminal/resource/hash gates clear, then use raw learned-vs-untrained,
-   true-vs-shifted/static/hash IAUC and STOP/no-STOP to localize the result.
-3. Once O1C-0019 finalizes, run source-frozen O1C-0022 `ce56ba4` exactly once. Its
-   K ladder and float/int8/last/unit/shuffled controls decide signal, dilution,
-   scale, quantization, confidence and compounding without a new solver branch.
-4. Preserve O1C-0028 `17c02df` as the packet/V2/hot-routing API and execute
-   conditional O1C-0029 `22d417c` only after authoritative O1C-0022. Build the
-   sixteen fixed states once, then keep reader-weight and temperature iteration
-   hot; evidence, addressing, encoder, kernel or phase changes remain cold.
-5. From the same finalized packet deltas, source-freeze one artifact-only O1-O
-   scout-to-focus gate: H64 scouts every coordinate, then the bounded live state
-   repeatedly selects H65/H96 under a strictly positive priority. Compare live
-   re-ranking directly with the identical frozen one-shot score at matched work.
-6. Keep O1C-0023 `aa17eed` an independent optional composer. If O1C-0029 is
-   positive, hand its frozen K256 logits losslessly through O1C-0025/O1C-0024 and
-   attack one untouched DEVELOPMENT target under a new ID. If packet evidence is
-   null, preserve raw antecedent or signed-pair identity rather than reopening the
-   O1C-0030 diagonal lamp.
-7. When the interlock is idle, preserve O1C-0021 `4ba1cc6` and execute its formal
-   seeds once. Keep O1C-0026 `7855492`/`0af57fb` conditional and unreserved unless
-   authoritative O1C-0023 selects its exact proxy.
+1. Reuse the A291/A296 raw-cell ABI and frozen eight-feature scorer. Add only the
+   missing H1/2/4/8 measurement adapter for one fixed key-byte cube on one consumed
+   all-256 target; do not alter its coefficients or search another proxy.
+2. Microbenchmark that 256-cell shallow cube under the W52 resource gate. If cheap,
+   score the predeclared byte and then all 32 bytes on the two consumed targets;
+   report exact byte ranks and work, not a new model.
+3. Only if the fixed scorer transfers on both consumed targets, repeat once and
+   spend one fresh sealed all-256 target. Then add controls, O1 hot accumulation
+   and the global frontier in that order.
+4. Keep the cached A291 H96 proxy and A325 512-action transpose closed. Their
+   DEVELOPMENT results are negative; do not resweep signs, views or temperatures.
+5. Reuse the sibling exact evaluator and independent ChaCha20 verifier when a
+   positive posterior has reduced the residual domain enough for real recovery.
+6. Keep W52 read-only and watcher PID `67247` alive. Frozen O1C-0019/22/29 remain
+   background assets and do not gate the shallow direct-transfer adapter.
 
 ## Recent attempts
 
@@ -868,6 +879,13 @@ O1C-0017 result boundary are documented in
 | `O1C-0001` capsule manifest | `376e3b27f107d132421e29c2669f468a57c8417924928ce41badadf14d3dd05f` |
 
 ## Resume here
+
+Resume with the exact shallow A291/A296 measurement adapter in
+`research/NEXT_ACTIONS.md`. The cached H96 proxy and the A317/A321/A325 512-action
+transpose are complete negative screens; do not resweep them. Do not begin
+O1C-0031 as a scout-to-focus architecture or add lifecycle code. A positive exact-
+channel result on the consumed targets must repeat before one fresh sealed
+all-256 target is spent.
 
 O1C-0030 is complete and immutable at `e7c1bf5`; its capsule manifest is
 `ed6ef945e0e05ebf3199b3526c71d70da8402cc07bd8d7c4ec6c66bed483b04e`.
