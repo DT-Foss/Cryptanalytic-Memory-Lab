@@ -1090,3 +1090,55 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   merely hash/address transport or a metadata-generated polarity. It remains an
   untrained K12 transport result and makes no claim about O1C-0019 efficacy or
   O1C-0022 cross-pool K256 calibration.
+
+## 2026-07-18 — O1C-0023 deterministic native composer source freeze (non-attempt)
+
+- **Recorded:** 2026-07-18T03:05:32+02:00
+- **Source freeze:**
+  `aa17eed6740edfdba18aaad487c93be8afaf5935`; composer SHA
+  `ba241c00f1a3a501f426d89e514c2145d4d397559f52ff684704d803fd90939c`,
+  runner SHA
+  `79a37541e77dccfa7097cdbcdc56551eab96ce11d28b048fd3fd0fe50608727f`
+  and policy SHA
+  `96f49e703fce24d9e8675596caf202a22618ef7886be411b915fa8c943d2f9c8`.
+  No O1C-0023 attempt, target, solver branch, entropy call or accelerator work
+  occurred.
+- **Authoritative input:** the runner accepts only the canonical manager-reserved
+  finalized O1C-0022 publication. It verifies source ancestry, exact config and 38
+  source hashes; all 384 indexed artifacts; four 36-artifact calibration and
+  58-artifact held-out phases; eight scored artifacts; every freeze commitment;
+  four K256 ledgers, executions and 352-byte states; and recomputed result,
+  classification, gates, resources and operational status before reservation.
+- **Composer:** the full result plus exact K256 quantization facts selects one
+  canonical operator over operational/integrity replay, dilution, scale,
+  quantization, true residual capacity, all-float sensor null, matched-control
+  failures, robustness or prospective pass. Immutable failure memory closes only
+  an exact scientific no-lift context; operational failure remains replayable and
+  exhausted contexts require a novel policy extension. Fresh-target authorization
+  is always false inside O1C-0023.
+- **Native O1-O:** two Python `-I -B -S` children receive one opaque route, one
+  data-only fragment and disposable byte-exact copies of eight pinned core files.
+  Seven imported runtime files are origin/hash-attested. The original O1-O path is
+  not disclosed; both sources must be byte-identical and are syntax-parsed but
+  never compiled or executed. An inherited exclusive lease plus a 35-second child
+  alarm prevents false concurrent recovery.
+- **Accounting/recovery:** CPU and wall baselines start immediately after lease
+  acquisition, before strict config, 384-artifact preflight, Git/source checks and
+  assembly. Parent plus child CPU and parent/child/native RSS are enforced on
+  success and retained on operational failure. Zero sibling writes is emitted
+  only after an exact audit; otherwise the value is null with a separate observed
+  lower bound. Prepared completed/failed/stopped capsules recover without replay
+  or a surviving source config.
+- **Verification:** 32 focused tests pass with one optional environment-driven
+  integration skip. They include the exact synthetic 384-artifact capsule,
+  canonical-authority negatives, unused-artifact and freeze corruption, exact AST
+  tamper cases, real native double assembly, active-lease rejection and complete
+  recovery truth cases. Ruff, Mypy, JSON validation and two final read-only
+  semantic/adversarial audits clear.
+- **Live state:** the real preflight verifies all local O1-O pins, returns
+  `prerequisite-pending` because O1C-0022 is not finalized and creates no
+  O1C-0023 reservation.
+- **Boundary/next:** this is autonomous result-to-next-operator infrastructure,
+  not efficacy or key recovery. After O1C-0019 and O1C-0022 finalize in order,
+  execute O1C-0023 once from this freeze. Execute its selected mechanism only
+  under a new source-frozen attempt ID.

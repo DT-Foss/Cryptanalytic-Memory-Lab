@@ -1,10 +1,10 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T01:28:01+02:00 (`Europe/Berlin`)
-- **Latest implementation freeze:** `O1C-0022` at
-  `ce56ba44ef9fe8583c0603ab145afa6133849954` — frozen O1C-0019 packet deltas into
-  the exact 352-byte O1C-0021 vault, literal native O1-O composition control and
-  immutable BUILD-LOO capsule runner; no O1C-0022 attempt reserved or executed
+- **Last updated:** 2026-07-18T03:08:54+02:00 (`Europe/Berlin`)
+- **Latest implementation freeze:** `O1C-0023` at
+  `aa17eed6740edfdba18aaad487c93be8afaf5935` — deterministic complete-result
+  O1C-0022-to-next-operator composer, immutable failure memory and twice-isolated
+  native O1-O assembly; no O1C-0023 attempt reserved or executed
 - **Latest source hardening:**
   `2d8bf69957fe689b75e61fea5cab8e9a693192ed` — a real immutable O1C-0018
   `.fap` now traverses the production Torch reader, label-free quantizer and
@@ -32,10 +32,11 @@
   interaction-bearing pairs, proof antecedents or exact contradictions
 - **Active lab runs:** no local scientific run. The sibling W52 production
   work remains active, so O1C-0019, O1C-0022 and the O1C-0021 broad/formal gate
-  have not started. O1C-0022 preflight is correctly `prerequisite-pending` and
-  creates no reservation. At the latest read-only host check, W52 had 8/8 running
-  workers, `177,962/16,777,216` cells (`1.060736%`), 24 related live processes,
-  no stop marker, 44% free memory, load/core `0.338379`, exact frozen sources and
+  have not started. O1C-0022 and O1C-0023 preflights are correctly
+  `prerequisite-pending` and create no reservations. At the latest read-only host
+  check, W52 had 8/8 running
+  workers, `207,007/16,777,216` cells (`1.233858%`), 24 related live processes,
+  no stop marker, 39% free memory, load/core `0.160449`, exact frozen sources and
   a clean lab tree. Consumed pools/seeds remain ineligible as fresh evidence
 - **Strongest completed mechanism attempt:** `O1C-0020` — independently reviewed
   `EXACT_256_LEARNED_GATE_RETENTION` on 4 unseen seeds x 3 stream lengths
@@ -46,8 +47,9 @@
   438,747,136 B peak RSS, 945,387 persistent bytes and every scientific/resource
   gate passed
 - **Next attempt:** the existing watcher executes frozen O1C-0019 after W52 clears;
-  its finalized capsule immediately unlocks the source-frozen O1C-0022 retrospective
-  bridge. Run O1C-0021 broad/formal only when the same resource interlock is idle
+  its finalized capsule unlocks source-frozen O1C-0022, whose authoritative
+  finalized result then unlocks source-frozen O1C-0023. Run O1C-0021 broad/formal
+  only when the same resource interlock is idle
 - **Primary uncertainty:** whether common-mode-rejected proof/carry innovations can
   acquire portable key orientation when O1 learns its representation and O1-O
   learns its sensing policy rather than receiving a fixed scalar reader
@@ -60,6 +62,30 @@
   full ChaCha20 key
 
 ## Headline
+
+`O1C-0023` is source-frozen at `aa17eed` without starting or reserving an
+attempt. It verifies the authoritative complete O1C-0022 publication down to its
+exact 384-artifact lifecycle, four 352-byte K256 states, result, metrics, source
+ancestry and recomputed resource gates before emitting one canonical successor
+operator. The policy separates operational/integrity replay, width dilution,
+scale, nonlinear int8 denoising, quantizer precision, true residual capacity,
+sensor null, binding, compounding, confidence, robustness and prospective pass.
+Immutable failure memory closes only an exact scientific no-lift context;
+operational failure remains replayable and a closed ladder advances to a novel
+policy-extension requirement.
+
+Native O1-O then routes one opaque token into one data-only fragment twice under
+Python `-I -B -S`. Each child sees only a disposable byte-exact copy of eight
+pinned core files, seven pinned runtime dependencies and a sanitized environment;
+the original O1-O path is not disclosed. An inherited exclusive lifecycle lease,
+35-second child timeout, exact AST marker, before/after tree audit and structural
+work ledger prevent false recovery or fabricated zero-work claims. CPU/wall
+accounting begins immediately after lease acquisition and therefore includes the
+complete 384-artifact preflight plus both children. Thirty-two focused tests pass
+(one optional environment-driven integration skips), two final semantic/adversarial
+audits clear, and the real preflight remains pending without an O1C-0023
+reservation. This is autonomous experiment composition infrastructure, not a new
+cryptanalytic efficacy result.
 
 `O1C-0022` is source-frozen at `ce56ba4` without starting or reserving a scientific
 attempt. It is the first literal join from the corrected real full-round packet

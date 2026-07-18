@@ -554,3 +554,31 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   spending a new key. Do not mutate the currently frozen O1C-0022 gate.
 - **Artifact:**
   [`A539_A541_TRANSFER_20260718.md`](A539_A541_TRANSFER_20260718.md).
+
+## B-0031 — Autonomous iteration must bind the complete result, not trust a label or execute generated code
+
+- **Risk:** a classification-only loop collapses distinct mechanisms, can repeat
+  the same failed operator under a renamed attempt and can mistake an operational
+  publication failure for scientific closure. Giving an assembler the result as
+  free-form intent additionally turns native routing into unbounded science
+  authority and makes crash recovery ambiguous.
+- **Resolution:** O1C-0023 binds the canonical O1C-0022 manager publication, all
+  384 artifacts, four K256 states/ledgers, complete result/metrics and recomputed
+  resource gates before a frozen policy selects one operator. Immutable failure
+  memory is context- and fingerprint-specific; native O1-O receives only one
+  opaque token and one static data-only marker in a disposable byte-exact core
+  clone. Generated source is parsed but never compiled or executed.
+- **Crash boundary:** a lifecycle lease is inherited by the bounded native child,
+  so a live or orphaned process cannot be falsely recovered. Unavailable audits
+  publish null rather than invented zero work. CPU/wall accounting begins before
+  the complete upstream preflight, not after it.
+- **Do not repeat:** route on the reported classification alone, let O1-O score
+  scientific evidence, blacklist an entire mechanism after an operational error,
+  reuse a fresh target inside the composer or report generated source as an
+  executed improvement.
+- **Breadcrumb:** after each finalized attempt, preserve the complete evidence
+  context and exact operator outcome. Let deterministic O1-O eliminate manual
+  orchestration latency while every selected mechanism remains a separately
+  frozen, auditable experiment.
+- **Artifact:**
+  [`O1C0023_POSTRESULT_NATIVE_COMPOSER_DESIGN_20260718.md`](O1C0023_POSTRESULT_NATIVE_COMPOSER_DESIGN_20260718.md).

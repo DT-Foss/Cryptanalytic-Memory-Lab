@@ -66,6 +66,18 @@ the real payload rather than only address metadata. That closes the actual artif
 ABI; its untrained reader is deliberately not an efficacy result or substitute for
 the formal cross-pool K256 run.
 
+O1C-0023 is the frozen autonomous post-result join at `aa17eed`. It accepts only
+the canonical finalized O1C-0022 publication and revalidates its exact 384-member
+artifact lifecycle, four K256 vault states, full result surface and resource
+accounting. A lab-owned policy maps the localized outcome plus immutable failure
+memory to one non-repeating successor; native O1-O receives only the opaque route
+and one data-only marker fragment. Two disposable byte-exact core clones run under
+an inherited lifecycle lease, isolated Python and complete child CPU/RSS billing.
+No generated source is compiled or executed, no target is authorized and the real
+preflight remains pending/unreserved. This implements the result-to-next-operator
+loop; the selected scientific mechanism still requires a new source-frozen
+attempt identity.
+
 A new hash-bound sibling intake narrows the fallback before it costs a target.
 A539's training-frozen RACF-DES single-position clause reader concentrated its
 first prospective panel, but A541's fresh panel put every learned family reader
@@ -90,17 +102,20 @@ real float arm is null.
    exact lifecycle/work/invariance gates, then use its K ladder and raw/normalized/
    int8/last/unit/shuffled matrix to localize signal, dilution, scale, quantization,
    confidence, compounding or address binding.
-5. Once the shared interlock is idle, rerun O1C-0021 broad DEV from `4ba1cc6`, then
+5. After O1C-0022 finalizes, run O1C-0023 once from `aa17eed`. Preserve its
+   complete result-bound decision, native double-assembly receipt and immutable
+   failure-memory context; execute the selected operator only under a new ID.
+6. Once the shared interlock is idle, rerun O1C-0021 broad DEV from `4ba1cc6`, then
    run its four never-used EVAL episodes exactly once. Require positive held-out
    compression and matched control margins; exact 256/256 remains the terminal
    synthetic causal-accumulation gate.
-6. If the real O1C-0022 reader/vault gate passes, freeze the combined architecture
+7. If the real O1C-0022 reader/vault gate passes, freeze the combined architecture
    and attack one untouched full-256 DEVELOPMENT target under a new identity. If
    every float arm is null, use consumed BUILD folds for one matched-work reader
    over projected signed-variable pairs, proof antecedents or exact contradictions;
    for every other failure, replace only the stage named by the frozen
    classification.
-7. After stable entropy reduction, add surprise-selected Causal Attic summaries,
+8. After stable entropy reduction, add surprise-selected Causal Attic summaries,
    bounded beam concentration and exact ChaCha20 verification toward recovery.
 
 ## Operating contract
