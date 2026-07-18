@@ -94,6 +94,28 @@ O1C19_CONFIG_SHA256 = "96d9017d2262537281218ccd23b52533c8ed801e245bea6bcb13fa13b
 O1C19_SCIENCE_COMMIT = "27cd5b1f1e3172218c9c993846f1dcc950bb909a"
 O1C21_CONFIG_SHA256 = "c683237f7f251ffb2314b01cfbfbbfeac9acd557379a3070e982c0bc15b4a39d"
 O1C21_SOURCE_COMMIT = "4ba1cc61c3b786139749c3e57137e3ba7ae6cf74"
+_O1C19_FROZEN_SOURCE_RELATIVES = {
+    "config": "configs/full256_multiresolution_build_loo_v1.json",
+    "pyproject": "pyproject.toml",
+    "module_full256_action_pool": "src/o1_crypto_lab/full256_action_pool.py",
+    "module_full256_multiresolution_build_loo": (
+        "src/o1_crypto_lab/full256_multiresolution_build_loo.py"
+    ),
+    "module_full256_multiresolution_build_loo_run": (
+        "src/o1_crypto_lab/full256_multiresolution_build_loo_run.py"
+    ),
+    "module_full256_proof_pool": "src/o1_crypto_lab/full256_proof_pool.py",
+    "module_living_inverse": "src/o1_crypto_lab/living_inverse.py",
+    "module_o1_streaming_core": "src/o1_crypto_lab/o1_streaming_core.py",
+    "module_online_causal_controller": (
+        "src/o1_crypto_lab/online_causal_controller.py"
+    ),
+    "module_online_multiresolution_controller": (
+        "src/o1_crypto_lab/online_multiresolution_controller.py"
+    ),
+    "module_run_capsule": "src/o1_crypto_lab/run_capsule.py",
+    "module_stationarity_critic": "src/o1_crypto_lab/stationarity_critic.py",
+}
 _COMPLEMENT_TOLERANCE = 1e-6
 _COMMUTATION_TOLERANCE = 1e-6
 _FORMAL_CONTROLS = (
@@ -218,6 +240,26 @@ def _git_blob_bytes(root: Path, commit: str, relative: str) -> bytes:
             f"source commit blob is unavailable: {commit}:{relative}"
         ) from exc
     return completed.stdout
+
+
+def _git_is_ancestor(root: Path, ancestor: str, descendant: str) -> bool:
+    completed = subprocess.run(
+        ("git", "merge-base", "--is-ancestor", ancestor, descendant),
+        cwd=root,
+        check=False,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    return completed.returncode == 0
+
+
+def _expected_o1c19_frozen_source_hashes(config: "O1C22RunConfig") -> dict[str, str]:
+    return {
+        field: _sha256_bytes(
+            _git_blob_bytes(config.root, config.o1c19_science_commit, relative)
+        )
+        for field, relative in _O1C19_FROZEN_SOURCE_RELATIVES.items()
+    }
 
 
 def _verify_commit_bound_files(
@@ -722,20 +764,38 @@ def _verify_upstream_capsule_config(
     config: O1C22RunConfig,
     capsule_config: Mapping[str, object],
 ) -> Mapping[str, object]:
-    """Bind the future run to the exact already-frozen O1C-0019 science commit."""
+    """Bind a descendant execution to the exact frozen O1C-0019 science bytes."""
 
     source_hashes = _mapping(
         capsule_config.get("source_hashes"), "O1C-0019 source hashes"
     )
+    capsule_commit = _commit(capsule_config.get("commit"), "O1C-0019 capsule commit")
     if (
         capsule_config.get("attempt_id") != UPSTREAM_ATTEMPT_ID
         or capsule_config.get("claim_level") != ClaimLevel.RETROSPECTIVE.value
-        or capsule_config.get("commit") != config.o1c19_science_commit
         or capsule_config.get("config") != config.upstream_top
         or source_hashes.get("config") != config.o1c19_config_sha256
     ):
         raise O1C19CausalVaultBridgeRunError(
-            "O1C-0019 exact frozen source config or science commit differs"
+            "O1C-0019 exact frozen source config differs"
+        )
+    if not _git_is_ancestor(
+        config.root,
+        config.o1c19_science_commit,
+        capsule_commit,
+    ):
+        raise O1C19CausalVaultBridgeRunError(
+            "O1C-0019 capsule commit does not descend from the science commit"
+        )
+    expected_hashes = _expected_o1c19_frozen_source_hashes(config)
+    mismatched = tuple(
+        field
+        for field, expected in expected_hashes.items()
+        if source_hashes.get(field) != expected
+    )
+    if mismatched:
+        raise O1C19CausalVaultBridgeRunError(
+            "O1C-0019 frozen source bytes differ: " + ", ".join(mismatched)
         )
     return source_hashes
 

@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import io
 import json
+import subprocess
 import tempfile
 import unittest
 from contextlib import redirect_stdout
@@ -24,6 +25,7 @@ from o1_crypto_lab.o1c19_causal_vault_bridge_run import (
     O1C19Prerequisite,
     O1C19CausalVaultBridgeRunError,
     _score_report,
+    _expected_o1c19_frozen_source_hashes,
     _verify_commit_bound_files,
     _verify_upstream_capsule_config,
     fit_nonnegative_calibration_scale,
@@ -128,18 +130,32 @@ class O1C19CausalVaultBridgeRunTests(unittest.TestCase):
         self.assertTrue(existing_report["o1c22_existing_finalized"])
         self.assertTrue(existing_report["o1c22_existing_recoverable"])
 
-    def test_upstream_capsule_commit_is_exactly_pinned(self) -> None:
+    def test_upstream_capsule_accepts_only_exact_science_bytes_on_descendant(self) -> None:
         document = {
             "attempt_id": "O1C-0019",
             "claim_level": "RETROSPECTIVE",
             "commit": self.config.o1c19_science_commit,
             "config": self.config.upstream_top,
-            "source_hashes": {"config": self.config.o1c19_config_sha256},
+            "source_hashes": _expected_o1c19_frozen_source_hashes(self.config),
         }
+        _verify_upstream_capsule_config(self.config, document)
+        document["commit"] = subprocess.run(
+            ("git", "rev-parse", "HEAD"),
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
         _verify_upstream_capsule_config(self.config, document)
         document["commit"] = "0" * 40
         with self.assertRaisesRegex(
-            O1C19CausalVaultBridgeRunError, "science commit differs"
+            O1C19CausalVaultBridgeRunError, "does not descend"
+        ):
+            _verify_upstream_capsule_config(self.config, document)
+        document["commit"] = self.config.o1c19_science_commit
+        document["source_hashes"]["module_living_inverse"] = "0" * 64
+        with self.assertRaisesRegex(
+            O1C19CausalVaultBridgeRunError, "frozen source bytes differ"
         ):
             _verify_upstream_capsule_config(self.config, document)
 
