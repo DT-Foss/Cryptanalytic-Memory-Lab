@@ -1,14 +1,14 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T19:50:13+02:00.
+Last ranked: 2026-07-18T20:08:53+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Run one genuinely new public all256 error-bit generator and demand a repeated reduction in complement Hamming error or exact-containing beam rank; do not add another scheduler/state layer first | State of the art | Extreme | High | Medium | Determines whether any mechanism actually creates the missing pre-W52 information |
-| 2 | Apply the exact residual handoff gate to every new completion; current post-reveal ceiling is only `120/210` A325 and `118/204` A526 | State of the art | Extreme | Extreme | Low | Prevents an expensive backend search whose domain excludes the true key |
-| 3 | Once a completion is exact or its beam is tractable, pass it unchanged into A325/W46 or A526/W52 and reuse the sibling evaluator plus independent ChaCha20 verifier | State of the art | Extreme | Extreme | Medium/High | Produces an actual verified key without rebuilding the working recovery backend |
+| 1 | Feed an eight-block public-output stream into an A526-native O1 reader trained only to predict fixed coordinates `52..255`; reuse existing fullround generation and O1 state | State of the art | Extreme | Extreme | Medium | Attacks the sole missing object instead of rebuilding the residual engine |
+| 2 | Score every successor through O1C-0035's frozen top-65,536 complement frontier; demand fewer fixed-bit errors and eventually an exact-containing beam | State of the art | Extreme | Extreme | Low | Converts every upstream change directly into W52 eligibility or rejection |
+| 3 | Once a complement is exact or its beam is tractable, pass it unchanged into A526/W52 and reuse A525/A526/A528 plus independent ChaCha20 verification | State of the art | Extreme | Extreme | High | Produces an actual verified key without rebuilding the working recovery backend |
 | 4 | Keep O1C-0023/25/29 unrun and close O1C-0019/22's unary packet field; no scale, quantizer, hot-reader, frontier or composer sweep | Operational | High | High | Zero | Stops process work from masquerading as recovery progress |
-| 5 | Keep the exact A296/A448/A465/A469 adapters and results, but do not resweep them | Operational | High | High | Zero | Preserves reusable measurement code without paying for closed readers |
+| 5 | Keep the A296/A448/A465/A469 projection code and results, but do not mistake their nulls for rejection of the native W52 chain | Operational | High | High | Zero | Preserves evidence without discarding the architecture at the wrong interface |
 
 ## Effect-first stop rules
 

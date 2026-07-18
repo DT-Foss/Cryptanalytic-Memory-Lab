@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T19:50:13+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T20:08:53+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -20,10 +20,13 @@
   those bits are an input contract, not an output of the sibling engine.
 - **Closed exact transfers:** A296 `118/61/9/230`, A448/A465 `47/239`, A469
   `56/239`, plus the O1C-0019/O1C-0022 unary full256 bridge.
-- **Next paid experiment:** only a genuinely new public all-256-unknown evidence
-  source that directly improves exact complement correctness or exact-containing
-  beam rank. Once the exact gate passes, reuse A325/A526 and public ChaCha
-  verification unchanged.
+- **Literal A526 combination completed:** O1C-0035 decoded 1,310,720 exact
+  complement candidates in 0.832396 s at 45,989,888 B peak. Across four consumed
+  folds and five frozen arms, no top-65,536 beam contains the exact 204-bit
+  complement. MAP max is `118/204`; post-reveal oracle beam max is `123/204`.
+- **Next paid experiment:** keep this decoder and A525/A526/A528 frozen. Change
+  only the upstream eight-block public-stream evidence for coordinates `52..255`
+  and score it through the same native complement beam before any W52 launch.
 - **Latest effect-first screens:** direct second-order proof pairs, terminal
   single-bit UNSAT, failed cores, inverse fixed points, one-bit candidate
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
@@ -36,13 +39,13 @@
 
 ## Headline
 
-The program is effect-first. The exact sibling A296/A448/A465/A469 transfers and
-the complete real O1C-0019/O1C-0022 all256 chain have run, not merely been
-discussed. Every one is negative and closed. The best post-reveal O1C-0022 raw
-arm still misses at least 90 of 210 A325 complement bits and 86 of 204 A526 bits.
-The only active scientific frontier is a genuinely new all256 evidence source;
-the historical sections below are retained for provenance, not as current run
-instructions.
+The program is now transfer-first and effect-first. A296/A448/A465/A469 were
+real but representation-level projections; their nulls close those projections,
+not the native W52 architecture. The complete O1C-0019/O1C-0022 all256 chain
+also ran and is negative. The best post-reveal O1C-0022 raw arm still misses at
+least 90 of 210 A325 complement bits and 86 of 204 A526 bits. O1C-0035 now freezes
+the exact 204-bit completion frontier feeding the unchanged W52 backend. The
+active object is only the upstream eight-block evidence entering that attack loop.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does

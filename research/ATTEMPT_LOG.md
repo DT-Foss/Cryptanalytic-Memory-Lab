@@ -1600,6 +1600,18 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Next:** preserve A325/A526 unchanged as terminal backends. Work only on an
   attacker-valid all256 source that can satisfy their exact complement/beam gate.
 
+## O1C-0035 — Literal A526-native completion frontier
+
+- Exact 204-bit complement decoder added at A526's real interface: coordinates
+  `52..255` are ranked; `0..51` remain the unchanged W52 residual domain.
+- Four consumed O1C-0022 BUILD folds x five frozen arms x 65,536 complements ran
+  in `0.832396` seconds at `45,989,888` B peak. MAP max is `118/204`; even the
+  post-reveal best beam member is only `123/204`; exact complement count is `0/20`.
+- **Decision:** do not launch W52 on this posterior. Retain the bridge and change
+  only upstream eight-block public-stream evidence.
+- **Artifact:**
+  [`O1C0035_A526_NATIVE_COMPLETION_FRONTIER_RESULT_20260718.json`](O1C0035_A526_NATIVE_COMPLETION_FRONTIER_RESULT_20260718.json).
+
 ## O1C-0019 / O1C-0022 — Real full256 unary bridge execution
 
 - **Recorded:** 2026-07-18T19:09:38+02:00.

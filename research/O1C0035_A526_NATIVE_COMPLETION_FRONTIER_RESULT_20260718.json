@@ -1,0 +1,75 @@
+{
+  "schema": "o1-256-a526-native-completion-frontier-result-v1",
+  "attempt_id": "O1C-0035",
+  "timestamp": "2026-07-18T20:08:53+02:00",
+  "target_role": "CONSUMED_BUILD",
+  "attack_contract": "O1C-0022 K256 logits for key coordinates 52..255 -> exact factorized top-65536 complement beam -> unchanged A526/W52 residual domain over coordinates 0..51",
+  "sources": {
+    "implementation_sha256": "f70e9441eda1417d21ae55e2346cd11a1ecf16804980aa6e5b2c145f5d977feb",
+    "test_sha256": "a8a918b0fd6bbab684289dbfa868c2a855a6b6388c605fa6b999cc85ddaba958",
+    "labels_bitpack_sha256": "7247e0d3b8c51c5b4b397bf4feaf4bf76845d37a2c06b4c1370be5375b33b749",
+    "aggregate_calibrated_predictions_sha256": "45bfebcd76bb0fee7cad1ec57b618ca1634a11f7141b69613800ce2ae0e867f1",
+    "fold_prediction_sha256": [
+      "cffb37e297eedf8f4dea4c11129fdd3d9db5f452e2c1a8789579ce13fd10aff8",
+      "4335892bc5b1cac884d648862e1b52743b71edbdc136b6c23739a7fa7ff78104",
+      "75ffff6c4cbf7c8ec53d55972fc584feb148972dbb6c25f4340eaa8f389442bb",
+      "cb87ada84095336e45f01c5391f211b00d18f5dfbef3c5703cc0faed59facc5b"
+    ]
+  },
+  "arms": [
+    "raw_float_delta_sum",
+    "normalized_float_delta_sum",
+    "quantized_int8_vault",
+    "last_horizon_only",
+    "unit_sign_sum"
+  ],
+  "frontier_limit_per_arm_fold": 65536,
+  "folds": [
+    {
+      "fold": "build-0000",
+      "map_correct": [91, 118, 91, 91, 101],
+      "oracle_best_beam_correct": [100, 123, 100, 100, 104],
+      "oracle_best_beam_rank": [12210, 13941, 12210, 12210, 14824]
+    },
+    {
+      "fold": "build-0001",
+      "map_correct": [104, 105, 110, 104, 114],
+      "oracle_best_beam_correct": [112, 112, 117, 110, 117],
+      "oracle_best_beam_rank": [61045, 41625, 27081, 25350, 12587]
+    },
+    {
+      "fold": "build-0002",
+      "map_correct": [94, 94, 94, 94, 112],
+      "oracle_best_beam_correct": [101, 101, 101, 101, 115],
+      "oracle_best_beam_rank": [42762, 42762, 42762, 42762, 15579]
+    },
+    {
+      "fold": "build-0003",
+      "map_correct": [94, 92, 91, 90, 103],
+      "oracle_best_beam_correct": [100, 99, 99, 99, 106],
+      "oracle_best_beam_rank": [14690, 15422, 46278, 14834, 10335]
+    }
+  ],
+  "aggregate": {
+    "evaluated_complements": 1310720,
+    "map_correct_fixed_bits_min": 90,
+    "map_correct_fixed_bits_max": 118,
+    "mean_map_correct_fixed_bits": 99.35,
+    "oracle_best_beam_correct_fixed_bits_min": 99,
+    "oracle_best_beam_correct_fixed_bits_max": 123,
+    "mean_oracle_best_beam_correct_fixed_bits": 105.85,
+    "exact_complements_in_beam": 0,
+    "required_exact_fixed_bits": 204,
+    "per_beam_worst_case_candidate_work_log2": 68.0
+  },
+  "resources": {
+    "elapsed_seconds": 0.8323964579994936,
+    "peak_rss_bytes": 45989888,
+    "backend_launched": false,
+    "sibling_writes": 0,
+    "gpu_or_mps": false
+  },
+  "decision": "CURRENT_O1C0022_POSTERIOR_CANNOT_ENTER_A526",
+  "interpretation": "The native bridge is executable, but none of the current O1C-0022 complement beams contains the true 204-bit fixed assignment. Even post-reveal oracle selection leaves at least 81 fixed bits wrong. Starting A526 would therefore exclude the true key and waste work.",
+  "next_action": "Keep the A526 complement frontier and sibling backend frozen. Change only the upstream eight-block public-stream evidence that predicts coordinates 52..255; score every successor through this same beam before any W52 launch."
+}
