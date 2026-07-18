@@ -1,0 +1,60 @@
+{
+  "schema": "o1-256-o1c26-build-only-structural-probe-v2",
+  "recorded_at": "2026-07-18T05:31:51+02:00",
+  "claim_level": "RETROSPECTIVE_STRUCTURAL_ONLY",
+  "attempt_reserved": false,
+  "projection_policy_sha256": "76b575e3454e2679164b4dc07ad7978abc5a356d098c88b2ecb6b0e8df9755d3",
+  "inputs": {
+    "build_faps": 4,
+    "development_faps": 0,
+    "labels_opened": 0,
+    "source_bytes": 8231208,
+    "source_sha256": [
+      "0473112acf83efec096418c90e14aa394fc86ff286b4923dd6caa3c7cba79520",
+      "47c184183f1211bd0a718cccf4ab202446574d9e21d5a969920280b8c0eb6df5",
+      "fcee9c6c05e40c47023417acf7df34bbcf694398b650810b96d6640871ad7b06",
+      "04a4b19797877fd7f6fc6dec9cd7af5b7608a5eab765090600be4567562bde0b"
+    ]
+  },
+  "raw_touch_audit": {
+    "self_count": 3072,
+    "self_nonzero": 1610,
+    "self_nonzero_fraction": 0.5240885416666666,
+    "self_rms": 0.005490715632324925,
+    "off_diagonal_count": 783360,
+    "off_diagonal_nonzero": 84273,
+    "off_diagonal_nonzero_fraction": 0.10757889093137254,
+    "off_diagonal_rms": 0.0006223171146948643
+  },
+  "projection": {
+    "rows": 1024,
+    "columns": 768,
+    "primary_zero_rows": 85,
+    "shuffle_zero_rows": 85,
+    "identical_primary_shuffle_rows": 85,
+    "primary_nonzero_fraction": 0.5449231465657552,
+    "shuffle_nonzero_fraction": 0.5270983378092448,
+    "primary_rms": 0.0000104971502956124,
+    "shuffle_rms": 0.000010405887753923692,
+    "primary_shuffle_rms_ratio": 1.0087702792733177,
+    "primary_shuffle_cosine": 0.027590972619008156
+  },
+  "resources": {
+    "projection_wall_seconds": 1.6095942077226937,
+    "max_rss_bytes": 105955328,
+    "fresh_targets": 0,
+    "solver_branches": 0,
+    "entropy_calls": 0,
+    "sibling_writes": 0,
+    "mps_calls": 0,
+    "gpu_calls": 0
+  },
+  "interpretation": {
+    "self_touch_is_denser_than_one_off_diagonal_touch": true,
+    "self_touch_is_unary_input": false,
+    "primary_and_shuffle_are_energy_matched": true,
+    "primary_and_shuffle_are_distinct_except_branch_empty_rows": true,
+    "scientific_key_signal_measured": false,
+    "full_o1c0026_run_authorized": false
+  }
+}

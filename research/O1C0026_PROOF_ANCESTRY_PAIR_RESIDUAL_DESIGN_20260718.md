@@ -25,7 +25,10 @@ O1C-0026 may reserve an attempt only when all of the following are true:
 
 A pending prerequisite, another selected operator, a failed upstream capsule or
 any hash mismatch exits without an O1C-0026 reservation. Development FAPs are
-never opened.
+never deserialized or exposed to scientific code. Whole-capsule byte hashing by
+the authoritative `RunCapsuleManager.verify()` is integrity work and is billed
+separately from a scientific FAP open; it cannot expose DEVELOPMENT tensors to
+the operator.
 
 ## Question answered
 
@@ -36,14 +39,18 @@ orientation. R07 asks the next distinct question:
 > between the assumed key coordinate and proof-ancestry coordinates that the
 > unary O1C-0022 scalar collapsed?
 
-This is not another quantizer, vault or beam sweep. A pass finds a representation
-missing from the unary reader. A clean null closes the interaction information
-available in the current 330D summary and authorizes a richer proof sensor.
+This is not another quantizer, vault or beam sweep. A pass shows that this fixed
+second-order inductive bias improves the frozen O1C-0022 scalar output. It does
+not prove O1C-0019's gated nonlinear reader class was incapable of representing
+the relation. A clean null closes only this exact v2 projected basis and
+authorizes a richer proof sensor.
 
 ## Honest input boundary
 
-Every FAP branch tensor is exact finite `float32[3,256,2,330]` with horizons
-`[64,96,65]`. The available columns are:
+Every FAP branch tensor is exact finite `float32[3,256,2,330]` with raw FAP
+horizon order `[64,96,65]`. That order is distinct from O1C-0022's reader order
+and must never be translated through an O1C-0022 horizon index. The available
+columns are:
 
 | Half-open columns | Public field |
 |---|---|
@@ -78,38 +85,59 @@ odd(v)  = (psi(v[h,i,1]) - psi(v[h,i,0])) / 2
 even(v) = (psi(v[h,i,1]) + psi(v[h,i,0])) / 2
 ```
 
+Each stored float32 value is promoted exactly to binary64 before `abs`, addition
+or division; `psi`, odd/even decomposition, sketch accumulation and outer
+products are all binary64 operations.
+
 Branch swap negates every `odd` vector and preserves every `even` vector.
 
 For each `(h,i)`, form:
 
 ```text
-odd_touch[j]  = odd(v[..., 74+j]), j != i
-even_touch[j] = even(v[..., 74+j]), j != i
+odd_touch[j]  = odd(v[..., 74+j]), j in 0..255
+even_touch[j] = even(v[..., 74+j]), j in 0..255
 
 odd_context  = odd(v[..., [6,7,9,10:74]])   # 67 values
 even_context = even(v[..., [6,7,9,10:74]])  # 67 values
 ```
 
-The self-touch value `j=i` is zeroed before projection. No constant context is
-added, so the primary feature cannot reduce to a free unary touch term.
+The self-touch value `j=i` is retained in a dedicated touch-sketch lane. This is
+not a free unary feature: it enters the primary only through multiplication by
+proof context. A BUILD-only, label-free audit found self-touch contrast to be
+nonzero in `1610/3072 = 52.408854%` of coordinate/horizon cells with RMS
+`0.005490716`, versus `84273/783360 = 10.757889%` and RMS `0.000622317` for an
+off-diagonal cell. It is `4.87x` denser and `8.82x` stronger. Both the old
+self-excluded projection and the retained-self projection have the same
+`85/1024` genuinely branch-empty target-coordinate rows, all in BUILD-0000;
+self retention preserves dense energy but does not manufacture coverage.
 
 ### Fixed hash projection
 
 Projection is frozen independently of every result and label. SHA-256 domains are
 
 ```text
-o1c26/touch-sketch/v1\0
-o1c26/context-sketch/v1\0
-o1c26/pair-shuffle/v1\0
+o1c26/touch-sketch/v2\0
+o1c26/context-sketch/v2\0
+o1c26/pair-shuffle/v2\0
 ```
 
-followed by fixed-width big-endian `(horizon_index, i, source_index)`. For touch
-source `j`, the first digest byte modulo `16` gives its bucket and the low bit of
-the second byte gives sign. Context source `c` uses eight buckets by the same
-rule. There is no configurable seed.
+followed by fixed-width big-endian `(horizon_index, i, source_index)`. For an
+off-diagonal touch source `j`, the exact suffix is
+`struct.pack(">HHH", horizon_index, i, j)`.
+For context source column `c`, the same suffix contains the actual FAP column
+number `c`, not its position in the 67-column subset. The first digest byte
+modulo `15`, plus one, gives off-diagonal touch bucket `1..15` (modulo `8` for
+context bucket `0..7`); an even second digest byte gives sign `+1` and an odd
+byte gives sign `-1` for every source, including self. Touch bucket `0` is the
+dedicated self lane. Horizon indices are exactly `0,1,2` for horizons
+`[64,96,65]`. There is no configurable seed.
 
-For each horizon, compute 16D touch sketches and 8D context sketches, normalized
-by `sqrt(255)` and `sqrt(67)` respectively. The primary residual row is
+For each horizon, compute 16D touch sketches and 8D context sketches. After all
+256 signed touch values accumulate, divide the complete 16D touch sketch by
+`sqrt(256)=16`; divide the context sketch by `sqrt(67)`. This matched global
+normalization keeps the dedicated self lane at about `17.73%` of real BUILD
+feature energy rather than the `98.22%` it would occupy unscaled. The primary
+residual row is
 
 ```text
 concat_h(
@@ -136,23 +164,32 @@ O1C-0026 keeps the exact O1C-0022 outer folds. For held-out BUILD target `f`:
    the same-reader training offsets;
 3. the held-out offset is the K256 `normalized_float_delta_sum` slice of the
    frozen O1C-0022 calibrated prediction;
-4. no held-out label is available while the projection, residual model,
-   calibration predictions, residual scale and outer prediction freeze; and
+4. that fold's held-out label is not supplied to its projection, residual model,
+   calibration predictions, residual scale or outer prediction before freeze;
+   historical use as a training target in another retrospective fold is
+   explicitly recorded rather than denied; and
 5. only after persistence of that fold's prediction freeze is the consumed BUILD
    label opened for scoring.
 
 For a feature matrix `X`, binary signs `y in {-1,+1}` and frozen offset logits
-`o`, fit one deterministic offset-aware ridge residual:
+`o`, fit one deterministic scale-invariant offset-aware ridge residual. Let
+`s2 = sum(X*X)/768`. If `s2 == 0`, the raw prediction and weights are exactly
+positive zero. Otherwise:
 
 ```text
 r = y - tanh(o / 2)
-lambda = max(trace(X.T @ X) / 768, 2**-20)
-w = X.T @ solve(X @ X.T + lambda * I, r)
-raw_residual = X @ w
+Z = X / sqrt(s2)
+u = Z.T @ solve(Z @ Z.T + I, r)
+raw_residual = (X / sqrt(s2)) @ u
 ```
 
-All operations use float64. A non-finite value or failed positive-definite solve
-is an operational failure, not a scientific null.
+After alpha selection, persist the raw-space effective weight
+`beta = alpha*u/sqrt(s2)`, so inference is simply `offset + X@beta`. The
+standardized Gram matrix has condition number at most `769`. All operations use
+float64. A non-finite value or failed positive-definite solve is an operational
+failure, not a scientific null. Persisted weights are hashed products of the
+frozen run; cross-BLAS recomputation is verified numerically, not claimed
+byte-identical across platforms.
 
 Residual magnitude is calibrated without orientation reversal. Inside each outer
 fold, three inner target-held-out fits generate one frozen residual prediction
@@ -174,21 +211,36 @@ Every learned control uses the same four outer folds, inner prediction lifecycle
 
 1. **`normalized_float_offset_only`** — unchanged O1C-0022 K256 normalized-float
    logit, with no fitted residual. This is the primary improvement baseline.
-2. **`pair_identity_shuffled`** — before touch sketching, `key_touch[j]` is moved
-   by one SHA-256-derived permutation fixed for `(h,i)` and shared by all four
+2. **`pair_identity_shuffled`** — for each `(h,i)`, sort all 256 touch
+   coordinates by
+   `SHA256(b"o1c26/pair-shuffle/v2\\0" + struct.pack(">HHH", h, i, j))` with
+   `j` as the tie breaker. Move the value at sorted position `k` to the
+   coordinate at position `(k+1) mod 256`, then sketch by the destination
+   coordinate. This is a fixed-point-free permutation shared by all four
    targets. Primitive values and work are unchanged; assumption-to-ancestry
    identity is broken.
-3. **`additive_factorized_matched`** — each of the two outer-product blocks is
-   replaced by `touch[a] + context[b]` at the same `(a,b)` position. It has the
-   same 768 columns and fit work but no bilinear interaction.
-4. **`polarity_even_common_mode`** — both blocks use only even touch and even
-   context, with a fixed sign-balanced copy for the second block. It has identical
-   dimensions and tests common-mode target difficulty rather than assumption
-   orientation.
+3. **`additive_factorized_matched`** — replace the first bilinear block by
+   `odd_touch_sketch[a]/sqrt(8)` broadcast over all eight `b`, and the second
+   block by `odd_context_sketch[b]/sqrt(16)` broadcast over all sixteen `a`.
+   The extra factors remove repeated-column regularization bias. It has the same
+   768 columns and fit work, remains exactly polarity-odd, and contains only
+   unary additive main effects.
+4. **`polarity_even_common_mode`** — the first block is
+   `even_touch_sketch[a] * even_context_sketch[b] / sqrt(2)`; the second is the
+   same magnitude multiplied by `+1` when `(a+b)` is even and `-1` otherwise.
+   The checkerboard has exactly 64 signs of each kind per horizon and the two
+   blocks retain matched total energy. This arm is branch-swap invariant, has
+   identical dimensions and tests common-mode target difficulty rather than
+   assumption orientation.
 
-Two diagnostic ablations do not enter the pass gate: zero columns `9`
-(exact-conflict gate) or `[10,74)` (motifs) before constructing the primary row.
-They localize a positive primary result without selecting it.
+Four diagnostic ablations do not enter the pass gate: zero column `9`
+(exact-conflict gate), zero columns `[10,74)` (motifs), zero touch lane `0`
+(off-diagonal only), or zero touch lanes `1..15` (self only) before constructing
+the primary row. They are inference-only: each outer fold applies its
+already-frozen effective primary weight to the ablated held-out row. They
+perform no ridge fit, alpha selection or model selection, and their feature
+tensors are not persisted. They localize a positive primary result without
+selecting it.
 
 ## Result and gates
 
@@ -197,7 +249,7 @@ uniform baseline, correct bits, primary-minus-offset improvement and all matched
 control margins. Also report the four alpha values, projection/model hashes and
 the K256 O1C-0022 source offsets.
 
-`PROJECTED_ANCESTRY_PAIR_RESIDUAL_PRESENT` requires all of:
+`FAP_ANCESTRY_TOUCH_BILINEAR_PROXY_PRESENT` requires all of:
 
 - every lifecycle, hash, finiteness, branch-swap and zero-work invariant passes;
 - primary compression is positive in all four held-out folds;
@@ -209,7 +261,7 @@ the K256 O1C-0022 source offsets.
   `polarity_even_common_mode`.
 
 Otherwise a scientifically complete run is
-`PROJECTED_ANCESTRY_PAIR_RESIDUAL_NULL`. Its result must retain these mutually
+`FAP_ANCESTRY_TOUCH_BILINEAR_PROXY_NULL`. Its result must retain these mutually
 non-exclusive breadcrumbs:
 
 - `primary_absolute_signal_null`;
@@ -220,9 +272,11 @@ non-exclusive breadcrumbs:
 - `exact_conflict_ablation_material`; and
 - `motif_ablation_material`.
 
-A clean null closes only interaction information recoverable from the current
-330D FAP summary. It does not close raw proof antecedents, literal-polarity pairs
-or exact contradiction traces that were never present in the input.
+A clean null closes only `fap_ancestry_touch_bilinear_proxy_v2`: this exact
+16-by-8 CountSketch, context inventory, normalization and residual learner. It
+does not close other interactions of the 330D FAP, raw proof antecedents,
+literal-polarity pairs or exact contradiction traces that were never present in
+the input.
 
 ## Work and state ceilings
 
@@ -237,6 +291,7 @@ The formal config should freeze these ceilings:
 | learned arms | exactly `4` including primary and three learned controls |
 | ridge fits | exactly `4 folds * 4 arms * (3 inner + 1 outer) = 64` |
 | alpha-grid NLL evaluations | exactly `4*4*401*3*256 = 4,927,488` bit evaluations |
+| inference-only ablation bit evaluations | exactly `4*4*256 = 4,096` |
 | fresh targets / entropy / solver branches | exactly `0 / 0 / 0` |
 | sibling writes / MPS / GPU | exactly `0 / 0 / 0` |
 | CPU / wall | at most `180 / 240` seconds |
@@ -244,7 +299,7 @@ The formal config should freeze these ceilings:
 | source artifact bytes read | at most `64 MiB` |
 | persistent artifacts | at most `32 MiB` |
 | one frozen residual weight vector | exactly `768` float64 = `6,144` bytes |
-| retained primary deployment slow state | at most `8 KiB` |
+| retained primary deployment reader weights (`alpha*w` already folded) | exactly `6,144` bytes |
 | retained 256-logit posterior | exactly `2,048` bytes float64 |
 | O1C-0021 vault state, if replayed | exactly `352` bytes |
 | peak per-coordinate feature scratch | at most `16 KiB`, separately billed |
@@ -255,15 +310,27 @@ state. This attempt measures a reader representation on consumed BUILD data; it
 does not claim an 8 KiB end-to-end attacker state until the frozen residual is
 streamed into the vault under a later prospective design.
 
+The source-only implementation may expose a bounded streaming inference state
+containing exactly one immutable effective `float64[768]` weight vector with
+`alpha` already multiplied in and one mutable `float64[256]` posterior: exactly
+`8,192` live bytes total. It must construct one coordinate row at a time and
+discard it immediately. Projection tables and immutable metadata are model
+data, not live target state. That implementation is an instrument, not an
+O1C-0026 attempt or scientific result, until the authoritative O1C-0023
+selection gate and finalized-capsule checks above pass.
+
 ## Required artifacts
 
 - `source_index.json`
 - `o1c0023_decision.json`
 - `projection_policy.json`
 - `projection_freeze.json`
-- `features/primary.f64le` and one feature tensor per learned control
+- `features/primary.f64le` and one feature tensor per learned control; no
+  diagnostic-ablation feature tensor
 - `folds/build-XXXX/inner_prediction_freeze.json`
-- `folds/build-XXXX/model.f64le`
+- `folds/build-XXXX/models.f64le` with exact shape `float64le[4,768]` in learned
+  arm order `[primary,pair_identity_shuffled,additive_factorized_matched,
+  polarity_even_common_mode]`; each row already contains `alpha*w`
 - `folds/build-XXXX/outer_prediction.f64le`
 - `folds/build-XXXX/prediction_freeze.json`
 - `post_freeze_labels.bitpack`
@@ -279,21 +346,25 @@ outer predictions and their source/model commitments freeze before
 
 O1C-0023 uses the canonical failure-memory functions in
 `o1c22_postresult_composer.py`, not the separate generic JSONL ledger in
-`failure_memory.py`.
+`failure_memory.py`. O1C-0026 is explicitly a collapsed-FAP proxy below R07,
+not the raw signed-pair/exact-antecedent sensor named by R07 itself.
 
 - A pass does not close the operator. Preserve its operator fingerprint and feed
   the frozen residual into a separately frozen vault/O1C-0024 handoff.
-- A scientifically complete null becomes `outcome="NO_LIFT"` for the exact R07
-  operator fingerprint and exact O1C-0022 result context.
+- A scientifically complete null records a local
+  `fap_ancestry_touch_bilinear_proxy_v2` no-lift breadcrumb. It must **not** call
+  `record_operator_failure(...)` on the parent R07 fingerprint, because the FAP
+  lacks the signed literals, raw pair co-occurrences and antecedent edges that
+  R07 names.
 - Resource, launch, persistence or lifecycle failure becomes
   `outcome="OPERATIONAL_FAILURE"` and must not close R07.
 
-The updated failure memory cannot live inside O1C-0026 because its entry binds the
-finalized O1C-0026 capsule manifest. After O1C-0026 finalizes, a later composer
-attempt reads its authoritative manifest and result hash, calls
-`record_operator_failure(...)`, and persists the new canonical memory. On a
-clean null, that memory makes the next decision advance to
-`exact_contradiction_antecedent_reader_v1` without repeating R07.
+Any parent failure-memory update cannot live inside O1C-0026 because it would
+both bind the finalized O1C-0026 manifest and over-close R07. After a clean
+proxy null, a later composer may advance *within* R07 to
+`exact_contradiction_antecedent_reader_v1`, while retaining R07 as unclosed. A
+future exact raw-pair sensor, not this proxy, is responsible for closing that
+parent fingerprint.
 
 ## Next transition
 
