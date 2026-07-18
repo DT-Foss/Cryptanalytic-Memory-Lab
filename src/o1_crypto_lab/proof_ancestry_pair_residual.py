@@ -5,10 +5,12 @@ module therefore exposes one deliberately narrow bilinear proxy.  It promotes
 the stored float32 values to binary64, applies a bounded odd/even decomposition,
 and projects ``ancestry_touch x proof_context`` into 768 deterministic features.
 
-No API accepts a target key, reveal, development pool, solver, or entropy
-source.  Projection is row-streamable.  A deployment state retains only one
-effective float64[768] weight vector and one float64[256] posterior: exactly
-8 KiB, independent of stream length.
+No API accepts a target key, reveal, split metadata, solver, or entropy source.
+The raw projector accepts any exact FAP ABI; the formal run layer remains
+responsible for pinned BUILD membership and zero DEVELOPMENT deserialization.
+Projection is row-streamable.  A deployment state retains only one effective
+float64[768] weight vector and one float64[256] posterior: exactly 8 KiB,
+independent of stream length.
 """
 
 from __future__ import annotations
@@ -39,7 +41,7 @@ from .o1c22_postresult_composer import (
 )
 
 
-PROJECTION_SCHEMA: Final = "o1-256-proof-ancestry-pair-projection-policy-v1"
+PROJECTION_SCHEMA: Final = "o1-256-proof-ancestry-pair-projection-policy-v2"
 SELECTION_RECEIPT_SCHEMA: Final = "o1-256-o1c26-selection-receipt-v1"
 SELECTED_OPERATOR_ID: Final = "proof_ancestry_pair_residual_v1"
 PROXY_OPERATOR_ID: Final = "fap_ancestry_touch_bilinear_proxy_v2"
@@ -78,10 +80,11 @@ ALPHA_GRID: Final = tuple(index / 200.0 for index in range(401))
 WEIGHT_BYTES: Final = FEATURE_WIDTH * np.dtype(np.float64).itemsize
 POSTERIOR_BYTES: Final = KEY_TOUCH_FEATURES * np.dtype(np.float64).itemsize
 LIVE_STATE_BYTES: Final = WEIGHT_BYTES + POSTERIOR_BYTES
-NUMERIC_SCRATCH_BYTES: Final = (
+ACCOUNTED_NUMERIC_PAYLOAD_BYTES: Final = (
     2 * WEIGHT_BYTES
     + (2 * TOUCH_BUCKETS + 2 * CONTEXT_BUCKETS) * np.dtype(np.float64).itemsize
 )
+PROCESS_LOCAL_SCRATCH_CEILING_BYTES: Final = 16 * 1024
 
 _TOUCH_DOMAIN: Final = b"o1c26/touch-sketch/v2\0"
 _CONTEXT_DOMAIN: Final = b"o1c26/context-sketch/v2\0"
@@ -137,7 +140,7 @@ class O1C26SelectionReceipt:
     operator_graph_sha256: str
     source_capsule_manifest_sha256: str
     source_result_sha256: str
-    operator_fingerprint: str
+    parent_operator_fingerprint: str
 
     def describe(self) -> dict[str, object]:
         return {
@@ -148,7 +151,7 @@ class O1C26SelectionReceipt:
             "operator_graph_sha256": self.operator_graph_sha256,
             "source_capsule_manifest_sha256": self.source_capsule_manifest_sha256,
             "source_result_sha256": self.source_result_sha256,
-            "operator_fingerprint": self.operator_fingerprint,
+            "parent_operator_fingerprint": self.parent_operator_fingerprint,
             "authoritative_capsule_verified": False,
             "attempt_reservation_authorized": False,
         }
@@ -360,7 +363,10 @@ def projection_policy() -> dict[str, object]:
         "effective_weight_bytes": WEIGHT_BYTES,
         "posterior_bytes": POSTERIOR_BYTES,
         "live_state_bytes": LIVE_STATE_BYTES,
-        "numeric_scratch_bytes": NUMERIC_SCRATCH_BYTES,
+        "accounted_numeric_payload_bytes": ACCOUNTED_NUMERIC_PAYLOAD_BYTES,
+        "process_local_projection_scratch_ceiling_bytes": (
+            PROCESS_LOCAL_SCRATCH_CEILING_BYTES
+        ),
         "fresh_targets": 0,
         "solver_branches": 0,
         "entropy_calls": 0,
@@ -438,10 +444,11 @@ def project_coordinate(
         even_context = np.zeros(CONTEXT_BUCKETS, dtype=np.float64)
 
         touch_table = touch_projection_table(horizon_index, coordinate)
+        sources: Sequence[int]
         if arm == PAIR_SHUFFLE_ARM:
             sources = pair_shuffle_sources(horizon_index, coordinate)
         else:
-            sources = tuple(range(KEY_TOUCH_FEATURES))
+            sources = range(KEY_TOUCH_FEATURES)
         for destination, source in enumerate(sources):
             column = TOUCH_COLUMN_START + source
             odd, even = _odd_even(
@@ -890,12 +897,13 @@ def verify_o1c23_selection(
         operator_graph_sha256=str(expected["operator_graph_sha256"]),
         source_capsule_manifest_sha256=str(source["capsule_manifest_sha256"]),
         source_result_sha256=str(source["result_sha256"]),
-        operator_fingerprint=str(operator["operator_fingerprint"]),
+        parent_operator_fingerprint=str(operator["operator_fingerprint"]),
     )
 
 
 __all__ = [
     "ADDITIVE_ARM",
+    "ACCOUNTED_NUMERIC_PAYLOAD_BYTES",
     "ALPHA_GRID",
     "COMMON_MODE_ARM",
     "CONTEXT_COLUMNS",
@@ -905,12 +913,12 @@ __all__ = [
     "FrozenOuterFoldPrediction",
     "LEARNED_ARMS",
     "LIVE_STATE_BYTES",
-    "NUMERIC_SCRATCH_BYTES",
     "O1C26SelectionReceipt",
     "OFF_DIAGONAL_ONLY_ABLATION",
     "OffsetRidgeFit",
     "PAIR_SHUFFLE_ARM",
     "POSTERIOR_BYTES",
+    "PROCESS_LOCAL_SCRATCH_CEILING_BYTES",
     "PRIMARY_ARM",
     "PROJECTION_SCHEMA",
     "PROXY_OPERATOR_ID",

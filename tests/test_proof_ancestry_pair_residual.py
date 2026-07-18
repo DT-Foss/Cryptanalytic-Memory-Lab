@@ -12,6 +12,7 @@ import numpy as np
 
 from o1_crypto_lab.full256_action_pool import BRANCH_FEATURES, Full256ActionPool
 from o1_crypto_lab.proof_ancestry_pair_residual import (
+    ACCOUNTED_NUMERIC_PAYLOAD_BYTES,
     ADDITIVE_ARM,
     ALPHA_GRID,
     COMMON_MODE_ARM,
@@ -19,10 +20,10 @@ from o1_crypto_lab.proof_ancestry_pair_residual import (
     EXPECTED_HORIZONS,
     FEATURE_WIDTH,
     LIVE_STATE_BYTES,
-    NUMERIC_SCRATCH_BYTES,
     OFF_DIAGONAL_ONLY_ABLATION,
     PAIR_SHUFFLE_ARM,
     POSTERIOR_BYTES,
+    PROCESS_LOCAL_SCRATCH_CEILING_BYTES,
     PRIMARY_ARM,
     PROXY_OPERATOR_ID,
     ProjectedResidualState,
@@ -135,6 +136,10 @@ def _reference_primary(pool: Full256ActionPool, coordinate: int) -> np.ndarray:
 class ProjectionPolicyTests(unittest.TestCase):
     def test_policy_freezes_v2_abi_and_exact_state_ceiling(self) -> None:
         policy = projection_policy()
+        self.assertEqual(
+            policy["schema"],
+            "o1-256-proof-ancestry-pair-projection-policy-v2",
+        )
         self.assertEqual(PROXY_OPERATOR_ID, "fap_ancestry_touch_bilinear_proxy_v2")
         self.assertEqual(policy["horizons_in_raw_fap_order"], [64, 96, 65])
         self.assertEqual(policy["input_shape"], [3, 256, 2, 330])
@@ -143,8 +148,12 @@ class ProjectionPolicyTests(unittest.TestCase):
         self.assertEqual(WEIGHT_BYTES, 6_144)
         self.assertEqual(POSTERIOR_BYTES, 2_048)
         self.assertEqual(LIVE_STATE_BYTES, 8_192)
-        self.assertEqual(NUMERIC_SCRATCH_BYTES, 12_672)
-        self.assertLess(NUMERIC_SCRATCH_BYTES, 16 * 1024)
+        self.assertEqual(ACCOUNTED_NUMERIC_PAYLOAD_BYTES, 12_672)
+        self.assertEqual(PROCESS_LOCAL_SCRATCH_CEILING_BYTES, 16_384)
+        self.assertLess(
+            ACCOUNTED_NUMERIC_PAYLOAD_BYTES,
+            PROCESS_LOCAL_SCRATCH_CEILING_BYTES,
+        )
         self.assertEqual(projection_policy_sha256(), projection_policy_sha256())
 
     def test_source_config_is_bound_to_policy_and_build_faps(self) -> None:

@@ -3,7 +3,7 @@
   "recorded_at": "2026-07-18T05:31:51+02:00",
   "claim_level": "RETROSPECTIVE_STRUCTURAL_ONLY",
   "attempt_reserved": false,
-  "projection_policy_sha256": "48fe4d04032c9ec4ce1a1ef48dd26f07c10c0018933fc35a240df5eb4b1e7ae0",
+  "projection_policy_sha256": "2e2c1e56d4a9db94a575337a74e6523fe300f05bc5a2b21228ecfd151f808a7f",
   "inputs": {
     "build_faps": 4,
     "development_faps": 0,
@@ -42,7 +42,9 @@
   "resources": {
     "projection_wall_seconds": 1.6095942077226937,
     "max_rss_bytes": 105955328,
-    "numeric_scratch_bytes": 12672,
+    "accounted_numeric_payload_bytes": 12672,
+    "measured_warmed_tracemalloc_peak_bytes": 14529,
+    "process_local_projection_scratch_ceiling_bytes": 16384,
     "fresh_targets": 0,
     "solver_branches": 0,
     "entropy_calls": 0,

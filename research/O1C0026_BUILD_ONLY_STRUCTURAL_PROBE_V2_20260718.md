@@ -3,7 +3,7 @@
 - **Recorded:** `2026-07-18T05:31:51+02:00`
 - **Status:** source instrument validated; no attempt reserved
 - **Claim level:** `RETROSPECTIVE_STRUCTURAL_ONLY`
-- **Policy:** `48fe4d04032c9ec4ce1a1ef48dd26f07c10c0018933fc35a240df5eb4b1e7ae0`
+- **Policy:** `2e2c1e56d4a9db94a575337a74e6523fe300f05bc5a2b21228ecfd151f808a7f`
 - **Machine path:** CPU-only; no solver, entropy, MPS or GPU
 
 ## Outcome
@@ -45,9 +45,10 @@ not rescue the 85 rows whose paired branches contain no interaction input.
 - deployment live state remains exactly `6,144 + 2,048 = 8,192` bytes; the
   measured RSS includes Python, NumPy, deserialized audit tensors and two
   retrospective matrices and is not deployment state
-- peak per-coordinate numeric projection scratch is conservatively `12,672`
-  bytes, including simultaneous mutable/immutable row bytes and four sketches;
-  this is below the frozen 16-KiB ceiling
+- accounted simultaneous NumPy payload is `12,672` bytes; a warmed
+  256-coordinate `tracemalloc` probe measured a maximum `14,529` bytes of
+  process-local projection scratch,
+  below the frozen `16,384`-byte ceiling
 
 ## Claim boundary
 
