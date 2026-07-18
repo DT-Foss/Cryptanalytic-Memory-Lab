@@ -1529,3 +1529,35 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   256-value byte-intervention cube while all 256 target bits remain unknown. Apply
   the sibling's frozen eight-feature scorer unchanged. Only a positive consumed-
   target screen that repeats may spend one fresh sealed all-256 target.
+
+## 2026-07-18 — Exact A296 full256 byte-2 transfer
+
+- **Mechanism:** the literal sibling `IdentityLearner`, cumulative H1/2/4/8
+  stages, complete 256-cell XOR cube and unchanged A268/A272/A291 selected-eight
+  coefficients. Key bits 16..23 form the candidate byte; all other 248 key bits
+  remain free in the standard 20-round public CNF.
+- **Runtime:** four complete cubes finished in `55.505`, `46.006`, `45.671` and
+  `54.063` seconds. Every one of the 4,096 stages remained UNKNOWN; no target key
+  or trace entered measurement.
+- **Result:** consumed RFC/DEVELOPMENT ranks were `118/61/9`. With no parameter
+  change, the precommitted fresh EVALUATION target ranked `230/256`.
+- **Decision:** `CLOSED_NULL_DOES_NOT_GENERALIZE`. Four-target geometric rank is
+  `62.129`, but exact uniform lower-tail rank-product `p=0.1766`; the fresh result
+  is negative. No byte, sign, coefficient or target resweep.
+- **Artifact:**
+  [`A296_FULL256_BYTE2_TRANSFER_20260718.json`](A296_FULL256_BYTE2_TRANSFER_20260718.json).
+
+## 2026-07-18 — Exact residual-backend entry boundary
+
+- **Direct reuse finding:** A325/W46 and A526/W52 are retained exact terminal
+  search engines. A325 assumes bits 46..255 are already correct; A526 assumes
+  bits 52..255 are already correct. Their sibling recoveries do not produce those
+  210/204 bits.
+- **Current real gate:** the strongest O1C-0018 completion has `115/210` correct
+  A325 complement bits and `110/204` correct A526 complement bits. It fixes 95/94
+  bits incorrectly, so the true key is absent from either residual domain.
+- **Action:** freeze the exact bit codec, completion hashes and public verifier;
+  do not spend a W46/W52 search until the complement is exact or a tractably small
+  beam contains an exact completion.
+- **Artifact:**
+  [`RESIDUAL_BACKEND_ENTRY_GATE_20260718.json`](RESIDUAL_BACKEND_ENTRY_GATE_20260718.json).

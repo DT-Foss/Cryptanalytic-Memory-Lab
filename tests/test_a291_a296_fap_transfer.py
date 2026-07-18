@@ -11,6 +11,7 @@ from o1_crypto_lab.a291_a296_fap_transfer import (
     A291_SELECTED_FEATURE_NAMES,
     audit_fap_compatibility,
     exact_a291_selected_channel_scores,
+    load_frozen_a291_model,
     require_exact_fap_mapping,
 )
 from o1_crypto_lab.full256_action_pool import BRANCH_FEATURES, Full256ActionPool
@@ -31,6 +32,13 @@ def _cells() -> tuple[dict[int, dict[str, float]], ...]:
 
 
 class A291TransferTests(unittest.TestCase):
+    def test_frozen_model_loads_from_lab_local_finalized_snapshot(self) -> None:
+        model = load_frozen_a291_model()
+        self.assertEqual(len(model.means), 532)
+        self.assertEqual(len(model.scales), 532)
+        self.assertEqual(len(model.coefficients), 532)
+        self.assertTrue(all(scale > 0.0 for scale in model.scales))
+
     def test_frozen_eight_feature_identity_and_score(self) -> None:
         self.assertEqual(
             tuple(FEATURE_NAMES[index] for index in A291_SELECTED_FEATURE_INDICES),

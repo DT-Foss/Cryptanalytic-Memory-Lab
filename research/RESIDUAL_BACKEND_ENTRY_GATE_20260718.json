@@ -1,0 +1,43 @@
+{
+  "schema": "o1-256-residual-backend-entry-gate-v1",
+  "recorded_at": "2026-07-18T15:12:00+02:00",
+  "source": {
+    "capsule": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1",
+    "artifact": "policy_predictions.f32le",
+    "artifact_sha256": "3b80fbc748722272044a64eafff61ff7cc90fbc8c4914e13fd2376ca402b254e",
+    "dtype": "<f4",
+    "shape": [5, 2, 3, 256],
+    "arm": "shortest_first",
+    "arm_index": 3,
+    "target_index": 1,
+    "checkpoint_index": 2,
+    "work_cap": 57600,
+    "bit_tie": "logit>=0"
+  },
+  "target": {
+    "target_id": "development-0001",
+    "public_view_sha256": "21078e73d308aa108cd95065cbae783232a51b81164eac37de7c4642a880f428",
+    "key_sha256": "001b9c40f5cd38840f9ab47162efde2e7098bea615a25767b17ce3a5f6af1dd3"
+  },
+  "A325_W46": {
+    "residual_width": 46,
+    "correct_bits": 115,
+    "required_bits": 210,
+    "wrong_bits": 95,
+    "first_wrong_coordinate": 47,
+    "eligible": false,
+    "fixed_bits_sha256": "e97a6b1e0e0bba653d80ad0a3565d6c444b89d1dfba134862a679428d4bea322"
+  },
+  "A526_W52": {
+    "residual_width": 52,
+    "correct_bits": 110,
+    "required_bits": 204,
+    "wrong_bits": 94,
+    "first_wrong_coordinate": 56,
+    "eligible": false,
+    "fixed_bits_sha256": "e6c4f434bcc1916349b1727bd839f62afcb2936e5cc250db20274ffed72ccee4"
+  },
+  "decision": "DO_NOT_RUN_RESIDUAL_SEARCH_TRUE_KEY_OUTSIDE_DOMAIN",
+  "interpretation": "A325 and A526 are exact terminal backends, not sources of the 210/204 complementary bits. The strongest existing O1C-0018 completion still fixes 95/94 of those bits incorrectly, so either residual search is guaranteed to exclude the real key.",
+  "next_action": "Improve attacker-valid full256 complement inference. Keep the exact handoff codec frozen; run the backend only when its complement gate is exact or a tractably small completion beam contains an exact member."
+}

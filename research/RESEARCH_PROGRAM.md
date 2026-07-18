@@ -219,28 +219,26 @@ evidence.
 
 ## Evidence ladder from here
 
-1. The cached transfer screen is complete. Exact A291/A296 is absent because the
-   FAP discarded H1/2/4/8 stage deltas and XOR-cube neighbors; its one honest H96
-   proxy is unstable. The exact-tied A317/A321/A325 512-action transpose is also
-   negative on consumed DEVELOPMENT. Preserve one closure and do not resweep.
-2. Reuse the existing A291/A296 RawCell ABI and frozen eight-feature scorer. Build
-   only the missing shallow measurement adapter for one fixed 256-value key-byte
-   cube on an all-256 public target, leaving the other 248 bits unknown.
-3. Microbenchmark one consumed-target cube under the resource interlock. If cheap,
-   score the predeclared byte and expand to all 32 bytes without changing sibling
-   means, scales, coefficients or candidate geometry. Report byte rank and work.
-4. Only if the frozen score transfers on both consumed DEVELOPMENT targets, repeat
-   it once and generate one fresh sealed all-256 target. A positive fresh result
-   unlocks controls and full frontier diagnostics.
-5. Feed the first confirmed positive score field into the already-built O1 bounded
-   state/hot-reader API. Compare frozen reader versus live accumulation at identical
-   evidence work; O1-O may automate parameter/operator choice only after this
-   executable baseline exists.
-6. Use the sibling's exact residual candidate evaluator and independent ChaCha20
-   verifier as the terminal/hybrid backend when the posterior fixes enough bits.
-   Do not mistake the sibling's W24/W46 residual recoveries for all-256 recovery.
+1. The exact A291/A296 transfer is complete and closed. Literal H1/2/4/8 byte-2
+   cubes cost 46–56 seconds and gave consumed ranks `118/61/9`, then fresh rank
+   `230/256`; no sign, byte or coefficient resweep follows.
+2. Keep the exact little-endian residual handoff to A325/W46 and A526/W52. These
+   engines require respectively 210 and 204 complementary key bits to be correct;
+   they do not recover those bits themselves.
+3. The strongest current O1C-0018 completion reaches only `115/210` and `110/204`.
+   The true key is therefore outside both residual domains, so no expensive backend
+   search is authorized yet.
+4. Execute the next already-positive sibling channel only if it accepts a standard
+   public fullround target with all 256 bits unknown. Improve exact complement
+   correctness or a tractably small completion beam; report the actual fixed-bit
+   error count, not an oracle-known reduced-width recovery as all256 progress.
+5. Once the complement gate passes, reuse the sibling candidate order/evaluator
+   and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
+   do not rebuild another search engine.
+6. After W52 is free, one consumed-target true-cell A526 invocation may verify the
+   plumbing and codec. It is not efficacy and cannot waive the complement gate.
 7. Keep the W52 watcher and source-frozen O1C-0019/22/29 chain intact as background
-   assets, but they no longer block the direct transfer experiment.
+   assets while CPU-only all256 evidence work continues separately.
 8. After stable attacker-valid entropy reduction, add A465/A469 fusion,
    surprise-selected Causal Attic summaries, O1C-0025 logit handoff and O1C-0024
    global decoding toward exact public verification.

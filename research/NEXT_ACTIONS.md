@@ -1,15 +1,15 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T14:41:11+02:00.
+Last ranked: 2026-07-18T15:12:00+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Reuse the exact A291/A296 RawCell ABI and frozen eight-feature scorer; implement only the missing H1/2/4/8 measurement adapter for one fixed 256-value key-byte cube with the other 248 target bits unknown | State of the art | Extreme | Extreme | Low | Executes the positive sibling mechanism on an all-256 public target instead of approximating it from incompatible cached fields |
-| 2 | Microbenchmark one 256-cell cube on a consumed target under the W52 resource gate; if cheap, score the predeclared byte and expand to all 32 bytes without refitting the sibling coefficients | State of the art | Extreme | Extreme | Low/Medium | Gives real byte ranks and measured work for the first literal causal-reader transplant |
-| 3 | If the frozen reader transfers on both consumed DEVELOPMENT targets, repeat once and generate exactly one fresh sealed all-256 target | State of the art | Extreme | Very high | Medium | Converts retrospective byte concentration into a prospective attacker-valid result |
-| 4 | Only after a positive fresh effect, add matched controls, O1 hot accumulation and full byte/u16/key frontier diagnostics, in that order | State of the art | Extreme | Extreme | Low/Medium | Tests whether living state compounds a score that already works and whether it shrinks actual search |
-| 5 | Reuse the sibling exact candidate evaluator and independent ChaCha20 verifier as the terminal/hybrid backend once enough posterior bits are fixed; do not build a second verifier/search engine | State of the art | Extreme | Extreme | Medium | Combines this lab's fast state path with the sibling's reliable recovery closure |
-| 6 | Keep watcher PID `67247`, W52 isolation and source-frozen O1C-0019/22/29 intact as background assets; they do not block ranks 1–2 | Operational | High | Very high | Zero | Preserves existing work without forcing the direct transplant through a long dependency chain |
+| 1 | Use the exact residual handoff gate on every candidate O1 completion; improve the full256 complement from the current `115/210` A325 and `110/204` A526 correctness instead of launching a search whose true key is outside the domain | State of the art | Extreme | Extreme | Low | Converts “partial recovery” from a slogan into the exact prerequisite that unlocks the already-working sibling engine |
+| 2 | Execute one already-positive sibling channel that accepts all 256 bits unknown and public output only; exclude every mechanism whose reported recovery begins with oracle-known complement bits | State of the art | Extreme | Extreme | Low/Medium | Finds the next real source of fixed-bit evidence after the literal A296 transfer failed fresh |
+| 3 | Once a completion is exact or its beam is tractable, pass it unchanged into A325/W46 or A526/W52 and reuse the sibling evaluator plus independent ChaCha20 verifier; do not rebuild their search engine | State of the art | Extreme | Extreme | Medium/High | Produces an actual verified key from this lab's living posterior and the sibling's proven residual closure |
+| 4 | After W52 is free, run exactly one true-cell A526 plumbing smoke on a consumed target; it is a codec/host check only and cannot promote complement quality | Instrument | Medium | Extreme | Low | Confirms the lab handoff reaches the generic engine without touching the target-bound A528 launcher |
+| 5 | Keep the exact A296 cube adapter but close its reader: ranks `118/61/9/230`, fresh failure, rank-product `p=0.1766`; no byte, sign or coefficient resweep | Operational | High | High | Zero | Prevents another 201-second null cycle while retaining cheap fullround H1/2/4/8 measurement |
+| 6 | Keep watcher PID `67247`, W52 isolation and source-frozen O1C-0019/22/29 intact as background assets | Operational | High | Very high | Zero | Preserves existing work while CPU-only all256 evidence work continues separately |
 
 ## Effect-first stop rules
 
@@ -21,9 +21,12 @@ Last ranked: 2026-07-18T14:41:11+02:00.
   removes a measured bottleneck.
 - No celebration language for a negative result. Preserve one useful sentence so
   the same exact test is not paid for twice, then pivot.
-- Closed now: the cached H96 A291-adjacent proxy and the A317/A321/A325 512-action
-  transpose. Neither transfers across both consumed DEVELOPMENT keys; do not tune
-  their sign, views, scale or temperature.
+- Closed now: the cached H96 A291-adjacent proxy, the A317/A321/A325 512-action
+  transpose and the literal A296 byte-2 full256 transfer. Do not tune their sign,
+  views, scale, byte or temperature.
+- A325 and A526 remain retained terminal backends. Their positive sibling results
+  assume 210 or 204 complementary key bits are already correct; those known bits
+  are an input contract, not partial recovery produced by the engine.
 
 ## Hard target contract
 

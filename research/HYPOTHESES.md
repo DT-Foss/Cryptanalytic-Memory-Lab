@@ -5,7 +5,8 @@ Hypotheses receive stable IDs. Status values are `OPEN`, `ACTIVE`, `SUPPORTED`,
 
 | ID | Status | Priority | Hypothesis | Cheapest discriminating test | Success signal | Failure pivot |
 |---|---|---:|---|---|---|---|
-| `H-TRANSFER-034` | `ACTIVE` | 0 | A291/A296's frozen shallow conflict/XOR reader retains some byte-value ordering when its exact H1/2/4/8 RawCell field is measured on an all-256 public target with the other 248 key bits unknown | Cached FAP audit already closed the H96 proxy and A325 512-action transpose. Now measure one fixed 256-value byte cube, apply the sibling's unchanged eight selected features, then expand to all bytes only if the microbenchmark is cheap | Better-than-numeric byte ranks on both consumed DEVELOPMENT targets, followed by one repeat and one positive fresh sealed all-256 target | If exact shallow fields are flat/null, record one closure and move to the next positive sibling channel; do not retune coefficients or wrap the null in a scheduler/state/lifecycle layer |
+| `H-TRANSFER-034` | `REFUTED` | 1 | A291/A296's frozen shallow conflict/XOR reader retains some byte-value ordering when its exact H1/2/4/8 RawCell field is measured on an all-256 public target with the other 248 key bits unknown | Completed literal byte-2 transfer on RFC plus two consumed DEVELOPMENT targets, then one parameter-unchanged fresh EVALUATION target | Better-than-uniform byte ranks on the consumed panel followed by a positive fresh target | Consumed ranks `118/61/9` failed to generalize: fresh rank `230/256`, four-target rank-product `p=0.1766`. Close without byte/sign/coefficient resweeps; retain only the exact 46–56 s cube adapter |
+| `H-RESIDUAL-035` | `ACTIVE` | 0 | The sibling A325/W46 or A526/W52 recovery engine can close a full256 O1 posterior once its complementary coordinates are exact or represented by a tractably small completion beam | Freeze the exact little-endian handoff and score the strongest consumed O1 posterior against the mathematical complement gate before invoking either backend | A325 requires `210/210` fixed bits; A526 requires `204/204`, or an explicitly bounded completion beam containing an exact member; a backend hit must pass independent public ChaCha verification | Current best is only `115/210` and `110/204`, so running either residual search now is guaranteed waste. Improve attacker-valid complement inference or find another exact all256 channel; never count the engines' oracle-known complement as recovered bits |
 | `H-LIVE-009` | `REFUTED` | 1 | The O1C-0009 linear full-256 direct/candidate contrast readers remove reproducible code length from a uniform unseen ChaCha20 key | Completed on 128 broker-secret keys with all predictions frozen before reveal, then its only signed breadcrumb replicated on 2,048 more | Held-out total NLL stably below 256 bits with matched controls at chance | O1C-0009 froze at zero and O1C-0010 signed direct reached -0.019088 bit; raw end-output regression is closed |
 | `H-SIGNED-013` | `REFUTED` | 1 | O1C-0009's CAL-only negative direct scale reflects a tiny transferable orientation rather than panel noise | O1C-0010 froze exact model/scale and evaluated 2,048 new broker-secret keys without refit | Positive mean compression, conditional and target-level evidence, plus matched frozen-control margins | Direct compression was -0.019088 bit, z -0.946, shuffled margin -0.017541 and output-permutation margin +0.000962; do not revisit |
 | `H-CNF-015` | `SUPPORTED` | 1 | A target-independent exact symbolic-output ChaCha20 CNF can expose an attacker-valid paired-assumption relation without retaining a target trace or reducing key width | O1C-0011 compiled, double-reproduced and solver-checked the complete one-block relation before reader training | Exact SAT/UNSAT mapping checks, zero target key units, per-bit causal ranges and bounded-memory generation | Achieved: 32,128 vars, 187,370 clauses, 656 x 32 bit ranges; retain immutable template and move event efficacy to H-SOLVER-014 |
@@ -42,10 +43,11 @@ Hypotheses receive stable IDs. Status values are `OPEN`, `ACTIVE`, `SUPPORTED`,
 
 ## Leakage kill conditions
 
-`H-TRANSFER-034` is the controlling research priority until the exact shallow
-byte-cube screen finishes. Older `ACTIVE` infrastructure, composer and packet-chain
-rows remain preserved background assets; they do not authorize new build work
-before a cipher score is positive.
+`H-RESIDUAL-035` is the controlling recovery boundary. The exact A325/A526
+handoff is ready, but the engines are not authorized until the true key can
+mathematically exist in their residual domain. Older `ACTIVE` infrastructure,
+composer and packet-chain rows remain background assets; they do not turn a
+wrong fixed complement into recovery evidence.
 
 Any feature is excluded from discovery if it depends on the recovered target key,
 post-result target rank, target-only internal state, outcome-conditioned file

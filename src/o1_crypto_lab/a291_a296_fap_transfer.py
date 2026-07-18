@@ -4,11 +4,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from numbers import Real
-from typing import Iterable, Sequence, cast
+from typing import Iterable, Mapping, Sequence, cast
 
 import numpy as np
 
 from .full256_action_pool import Full256ActionPool
+from .direct12 import A268_PREFLIGHT, finalized_direct12_adapter
 from .shape532 import (
     FEATURE_NAMES,
     RawCell,
@@ -29,6 +30,9 @@ A291_SELECTED_FEATURE_NAMES = (
     "ratio_learned_clause_accepted_stage_versus_conflicts__h4__xor_gradient_maxabs",
     "ratio_learned_clause_accepted_stage_versus_conflicts__h8__xor_gradient_l2",
 )
+A291_FROZEN_MODEL_SHA256 = (
+    "b096c08616a81712da881862b65f0c95388e4db3cf6b8e462bf7c2a072cb0da4"
+)
 
 if tuple(FEATURE_NAMES[index] for index in A291_SELECTED_FEATURE_INDICES) != (
     A291_SELECTED_FEATURE_NAMES
@@ -46,6 +50,42 @@ class FAPCompatibilityReport:
     observed_horizons: tuple[int, ...]
     missing_fields: tuple[str, ...]
     geometry_mismatches: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class FrozenA291Model:
+    """The unchanged A268/A272 model later reused by A291/A296."""
+
+    means: tuple[float, ...]
+    scales: tuple[float, ...]
+    coefficients: tuple[float, ...]
+
+
+def load_frozen_a291_model() -> FrozenA291Model:
+    """Load the reader from the finalized lab-local O1C-0003 snapshot."""
+
+    contract = finalized_direct12_adapter().load_reader_contract()
+    document = contract.get(A268_PREFLIGHT).document
+    frozen = cast(Mapping[str, object], document["frozen_model"])
+    model = cast(Mapping[str, object], frozen["model"])
+    if frozen.get("model_sha256") != A291_FROZEN_MODEL_SHA256:
+        raise A291A296TransferError("A291 frozen model commitment differs")
+    if tuple(cast(Sequence[str], model["feature_names"])) != FEATURE_NAMES:
+        raise A291A296TransferError("A291 frozen model feature ABI differs")
+    means = tuple(float(value) for value in cast(Sequence[Real], model["means"]))
+    scales = tuple(float(value) for value in cast(Sequence[Real], model["scales"]))
+    coefficients = tuple(
+        float(value) for value in cast(Sequence[Real], model["coefficients"])
+    )
+    if not (
+        len(means) == len(scales) == len(coefficients) == len(FEATURE_NAMES)
+        and np.isfinite(means).all()
+        and np.isfinite(scales).all()
+        and np.isfinite(coefficients).all()
+        and np.all(np.asarray(scales) > 0.0)
+    ):
+        raise A291A296TransferError("A291 frozen model values differ")
+    return FrozenA291Model(means, scales, coefficients)
 
 
 def audit_fap_compatibility(pool: Full256ActionPool) -> FAPCompatibilityReport:
@@ -117,10 +157,13 @@ def exact_a291_selected_channel_scores(
 __all__ = [
     "A291A296TransferError",
     "A291_HORIZONS",
+    "A291_FROZEN_MODEL_SHA256",
     "A291_SELECTED_FEATURE_INDICES",
     "A291_SELECTED_FEATURE_NAMES",
     "FAPCompatibilityReport",
+    "FrozenA291Model",
     "audit_fap_compatibility",
     "exact_a291_selected_channel_scores",
+    "load_frozen_a291_model",
     "require_exact_fap_mapping",
 ]
