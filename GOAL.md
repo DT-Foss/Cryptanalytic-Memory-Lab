@@ -17,6 +17,9 @@ synthetic mechanism pass.
    capsules support a run; they never count as the result.
 4. Score progress by recovered key entropy, byte/block/full-key rank, verified
    candidate count, time-to-hit and exact key recovery.
+5. Classify every imported mechanism by its true input contract before spending
+   compute. The sibling residual recoveries begin with 204--236 correct key bits;
+   preserve them as terminal backends, not as evidence that those bits were found.
 
 ## Iteration rule
 
@@ -29,6 +32,10 @@ synthetic mechanism pass.
 - Do not rebuild A325/W46 or A526/W52. They are working terminal residual engines;
   invoke them only when an upstream completion or tractable beam satisfies their
   exact 210/210 or 204/204 complement contract.
+- Before a positive recovery effect, retain only four hard gates: all 256 target
+  bits really unknown, no target-label/key leakage, equal scored work and strict
+  sibling isolation. Replication, broad controls and publication hardening follow
+  an effect; they do not precede every exploratory run.
 
 ## Scope and bookkeeping
 
@@ -39,6 +46,9 @@ decision and direct next action. Keep `STATUS.md`, `RESULTS_INDEX.md`,
 `research/NEXT_ACTIONS.md` current, but spend hardening effort only in proportion
 to an observed recovery effect.
 
-Current state: A296 (`118/61/9/230`) and A448 (`47/239`) exact all256 byte
-transfers are closed. The next action is the strongest remaining sibling channel
-whose deployment contract genuinely begins with all 256 key bits unknown.
+Current state: A296 (`118/61/9/230`), A448/A465 (`47/239`) and A469 (`56/239`)
+exact all256 byte transfers are closed. Read-only audit finds no demonstrated
+sibling recovery whose real deployment begins with all 256 bits unknown: the
+reliable W20--W52 recoveries assume 236--204 correct complement bits. The sole
+frontier task is therefore the missing all256-to-complement/beam bridge; once it
+meets the exact gate, reuse A325/A526 and verification unchanged.

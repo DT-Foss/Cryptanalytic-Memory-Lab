@@ -1,0 +1,46 @@
+{
+  "schema": "o1-256-a465-a469-full256-transfer-summary-v1",
+  "recorded_at": "2026-07-18T18:14:38+02:00",
+  "attacker_contract": {
+    "primitive": "ChaCha20",
+    "rounds": 20,
+    "known_at_attack_time": [
+      "counter",
+      "nonce",
+      "output"
+    ],
+    "unknown_key_bits": 256,
+    "candidate_intervention": "key bits 24..31",
+    "unassigned_complement_bits": 248
+  },
+  "source_chain": [
+    "A448",
+    "A460",
+    "A462",
+    "A463",
+    "A465",
+    "A469"
+  ],
+  "execution": {
+    "new_solver_stages": 0,
+    "new_targets": 0,
+    "source": "retained O1C-0031/O1C-0032 public telemetry"
+  },
+  "A465": {
+    "attempt_id": "O1C-0033",
+    "ranks": [47, 239],
+    "elapsed_seconds": 1.0688373330003742,
+    "prediction_freeze_sha256": "711aff0787185a80071ec85194bc5b9a78c8ba897fdaf375ce478fc4d8c3e95f",
+    "capsule_manifest_sha256": "7c11e863f2c05e254249f5dd67117fcfad603675d0355657ba9d28b8b6f87b08",
+    "decision": "CLOSED_NOT_REPLICATED"
+  },
+  "A469": {
+    "attempt_id": "O1C-0034",
+    "ranks": [56, 239],
+    "elapsed_seconds": 0.0025205839992850088,
+    "prediction_freeze_sha256": "af8e831a6c6fe772ced0988b3b2b8f565b6c2c5467cb995345ded586e40b706d",
+    "capsule_manifest_sha256": "f15f7ff3be909bc962e1d92fbf6ff09c2ea0153d4617a8f4af3078789bab7045",
+    "decision": "CLOSED_NOT_REPLICATED"
+  },
+  "conclusion": "The exact strongest A448-to-A469 sibling ranking chain does not transfer from its known-complement residual domain to the tested all-256-unknown byte intervention. Do not resweep this family. Retain A325/A526 only as terminal backends after an upstream exact-complement or exact-containing-beam gate is met."
+}

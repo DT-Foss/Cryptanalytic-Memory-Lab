@@ -1,14 +1,14 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T17:53:31+02:00.
+Last ranked: 2026-07-18T18:14:38+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
 | 1 | Use the exact residual handoff gate on every candidate O1 completion; improve the full256 complement from the current `115/210` A325 and `110/204` A526 correctness instead of launching a search whose true key is outside the domain | State of the art | Extreme | Extreme | Low | Converts “partial recovery” from a slogan into the exact prerequisite that unlocks the already-working sibling engine |
-| 2 | Execute the next exact already-positive sibling channel that accepts all 256 bits unknown and public output only; A296 and A448 are closed, and every mechanism beginning with oracle-known complement bits is excluded as an upstream reader | State of the art | Extreme | Extreme | Low/Medium | Finds the next real source of fixed-bit evidence without reinventing the sibling recovery stack |
+| 2 | Search only the remaining sibling sensors/operators for an input contract that genuinely begins all256-unknown; the recovery audit found no demonstrated recovery result in that class, so never confuse target-blind ranking inside W20--W52 with discovery of its known complement | State of the art | Extreme | Extreme | Low | Finds a legitimate upstream evidence source or proves that the missing bridge must be learned from the existing paired-assumption sensor |
 | 3 | Once a completion is exact or its beam is tractable, pass it unchanged into A325/W46 or A526/W52 and reuse the sibling evaluator plus independent ChaCha20 verifier; do not rebuild their search engine | State of the art | Extreme | Extreme | Medium/High | Produces an actual verified key from this lab's living posterior and the sibling's proven residual closure |
 | 4 | After W52 is free, run exactly one true-cell A526 plumbing smoke on a consumed target; it is a codec/host check only and cannot promote complement quality | Instrument | Medium | Extreme | Low | Confirms the lab handoff reaches the generic engine without touching the target-bound A528 launcher |
-| 5 | Keep the exact A296/A448 cube adapters but close both readers: A296 `118/61/9/230`; A448 `47/239`; no byte, sign, coefficient, horizon or operator resweep | Operational | High | High | Zero | Prevents repeated null cycles while retaining cheap fullround H1/2/4/8 and proof-antecedent measurement |
+| 5 | Keep the exact A296/A448 cube adapters but close the entire transferred ranking family: A296 `118/61/9/230`; A448/A465 `47/239`; A469 `56/239`; no byte, sign, coefficient, horizon, interaction or operator resweep | Operational | High | High | Zero | Prevents repeated null cycles while retaining cheap fullround H1/2/4/8 and proof-antecedent measurement |
 | 6 | Keep watcher PID `67247`, W52 isolation and source-frozen O1C-0019/22/29 intact as background assets | Operational | High | Very high | Zero | Preserves existing work while CPU-only all256 evidence work continues separately |
 
 ## Effect-first stop rules
@@ -22,8 +22,9 @@ Last ranked: 2026-07-18T17:53:31+02:00.
 - No celebration language for a negative result. Preserve one useful sentence so
   the same exact test is not paid for twice, then pivot.
 - Closed now: the cached H96 A291-adjacent proxy, the A317/A321/A325 512-action
-  transpose, the literal A296 byte-2 transfer and A448 byte-3 proof transfer. Do
-  not tune their sign, views, scale, byte, horizon, operator or temperature.
+  transpose, the literal A296 byte-2 transfer and complete A448--A469 byte-3
+  chain. Do not tune their sign, views, scale, byte, horizon, interaction,
+  operator or temperature.
 - A325 and A526 remain retained terminal backends. Their positive sibling results
   assume 210 or 204 complementary key bits are already correct; those known bits
   are an input contract, not partial recovery produced by the engine.

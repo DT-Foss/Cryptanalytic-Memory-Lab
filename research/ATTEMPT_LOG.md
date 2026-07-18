@@ -1582,3 +1582,20 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Next:** transfer the next exact sibling mechanism that accepts all 256 bits
   unknown; do not rebuild A325/A526, and do not invoke them before their exact
   complement gate is satisfied.
+
+## O1C-0033 / O1C-0034 — Exact retained A465/A469 all256 transfer
+
+- **Mechanism:** reconstruct A460/A462/A463 switching-wavelength ranks, the
+  frozen A465 cubic `(7,1,4)` Product-of-Experts and the selected A469 positive
+  bucket-local correction exactly from the already-retained A448 public
+  telemetry. No solver stage or target was added.
+- **Result:** A465 leaves RFC/DEVELOPMENT truth ranks at `47/239`; A469 changes
+  them to `56/239` in `1.068837` and `0.002521` scientific-path seconds.
+- **Decision:** `CLOSED_NOT_REPLICATED`. This is negative. Do not resweep the
+  A448--A469 family when the known complement is absent.
+- **Artifacts:**
+  [`summary`](A465_A469_FULL256_TRANSFER_20260718.md),
+  [O1C-0033 capsule](../runs/20260718_180604_O1C-0033_a465-retained-two-target-full256-transfer-v1/RUN.md),
+  [O1C-0034 capsule](../runs/20260718_181054_O1C-0034_a469-retained-two-target-full256-transfer-v1/RUN.md).
+- **Next:** preserve A325/A526 unchanged as terminal backends. Work only on an
+  attacker-valid all256 source that can satisfy their exact complement/beam gate.

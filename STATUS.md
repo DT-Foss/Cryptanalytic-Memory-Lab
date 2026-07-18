@@ -1,27 +1,24 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T17:53:31+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T18:14:38+02:00 (`Europe/Berlin`)
 - **Effect-first course correction:** direct transfer of sibling mechanisms with
-  actual recovery evidence is now the scientific priority. Literal A296 and A448
-  all256 transfers are closed; the next exact sibling reader is tested directly
-  from their retained public telemetry. New schedulers, state machinery and
+  actual recovery evidence is now the scientific priority. Literal A296, A448,
+  A465 and A469 all256 transfers are closed. New schedulers, state machinery and
   formal hardening remain paused until a recovery effect repeats
-- **Latest transfer freeze:** `O1C-0032` at
-  `4f9393eb57575c763087334d30a5f7284b60c185` — the A448/A442 byte-3 reader,
-  coordinate, operators and solver horizons are unchanged from O1C-0031; only
-  the disjoint consumed public target changed
+- **Latest transfer freeze:** `O1C-0034` at source `2fbb235` — exact A469
+  bucket-local correction over the exact A465 rank-PoE and retained A448 public
+  telemetry; zero new solver stages and zero new targets
 - **Latest source-only instrument freeze:** conditional `O1C-0029` at
   `22d417ca73c73af59c8043c456c5475ed57f66a3` — real O1C-0022 packets become
   sixteen 25,128-byte V2 states once, then two fixed hot readers are calibrated
   and scored at exact top-K 65,536 under isolated manager authority. It remains
   unreserved and `prerequisite-pending`; no scientific result is claimed
-- **Latest completed attempt:** `O1C-0032` — exact unchanged A448 full256
-  DEVELOPMENT repeat, `239/256`; the preceding consumed RFC result was `47/256`,
-  so the reader is closed as not replicated and no fresh target is spent
-- **Latest direct-transfer result:** exact A448 proof-antecedent/A442 Borda
-  byte-3 cubes run against the standard all-256 public relation in 48–55 seconds.
-  The unchanged reader ranked consumed RFC/DEVELOPMENT targets `47/239`; it is
-  closed without a fresh target or byte/sign/coefficient/horizon/operator resweep
+- **Latest completed attempt:** `O1C-0034` — exact A469 correction ranks the two
+  retained all256 targets `56/239`, after A465 left them at `47/239`; negative,
+  closed, and no fresh target is spent
+- **Latest direct-transfer result:** the complete strongest sibling chain
+  `A448 -> A460/A462/A463 -> A465 -> A469` has now run literally on all256
+  fields. It does not transfer outside the known-complement residual contract
 - **Exact sibling terminal boundary:** A325/W46 requires 210 already-correct
   complement bits and A526/W52 requires 204; those bits are inputs, not recovered
   outputs. The strongest current O1C-0018 completion reaches only `115/210` and
@@ -33,9 +30,8 @@
   checks
 - **Latest completed validation:** `O1C-0020` — exact learned-mask MQAR-256
   retention through `2^20` distractors in a 352-byte live state
-- **Latest execution freeze:** `O1C-0032` source
-  `4f9393eb57575c763087334d30a5f7284b60c185`; exact sibling sources remain
-  hash-bound and read-only
+- **Latest execution freeze:** `O1C-0034` source `2fbb235`; exact sibling sources
+  remain hash-bound and read-only
 - **Frozen next full-round gate:** `27cd5b1f1e3172218c9c993846f1dcc950bb909a`
   (`O1C-0019` artifact-only four-fold BUILD-LOO gate; no scientific run yet)
 - **Historical operational handoff:** `4511a06` recorded the ACK-confirmed
@@ -54,8 +50,9 @@
   targets with `3.0821x` geometric domain reduction and zero control hits. The
   A317/A321/A325 nearest-prototype L-infinity order then recovered a fresh W46
   residual at rank `77/4096`, `5.7332` gain bits and `53.19x` domain reduction.
-  These are now executable transfer sources; A465/A469 remain later fusion arms
-- **Active lab runs:** no local scientific run; A296 and A448 transfer cubes are
+  These remain terminal residual recovery sources. Their A465/A469 fusion was
+  transferred exactly and closed at all256 ranks `47/239` then `56/239`
+- **Active lab runs:** no local scientific run; A296 and A448--A469 transfers are
   complete. O1C-0024, O1C-0027, O1C-0028 and
   O1C-0030 are finalized and O1C-0025/O1C-0026/O1C-0029 have no reservations. O1C-0026 completed a label-free BUILD
   structural replay and a synthetic formal-lifecycle fixture only. After the host
@@ -71,18 +68,19 @@
 - **Strongest completed full-round online attempt:** `O1C-0018` — public-only
   paired-proof reader/picker on two disjoint DEVELOPMENT keys, classified
   `NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`
-- **Last operational attempt:** `O1C-0032` — 48.297538 measured wall seconds,
-  256 candidates, 1,024 solver stages, 214,024,192 B process peak, 306,263 B raw
-  compressed telemetry, zero assigned complement bits and zero MPS/GPU work;
-  capsule manifest `93b25fac...` verifies 10/10 members
-- **Next attempt:** transfer the next strongest exact sibling recovery channel
-  only if it accepts the standard public fullround target with all 256 key bits
-  unknown. Reuse the existing A325/A526 search and verifier only after upstream
-  completion reaches their exact complement gate
+- **Last operational attempt:** `O1C-0034` — 0.002521 seconds over retained
+  fields, zero new solver stages/targets, ranks `56/239`; capsule manifest
+  `f15f7ff3...` verifies 10/10 members
+- **Read-only recovery audit:** every demonstrated sibling ChaCha20 recovery is a
+  W20--W52 residual recovery with 236--204 correct complement bits supplied as
+  input. No released result starts from an all-256-unknown public relation
+- **Next attempt:** improve the all256 complement posterior/beam using only a
+  mechanism whose sensor itself accepts all bits unknown. At the exact gate,
+  reuse A325/A526 search and verification unchanged
 - **Primary uncertainty:** which attacker-valid full256 causal channel can make
   the complementary fixed-bit field exact or place it in a tractably small beam.
-  A296 and A448 do not generalize, and the partial-recovery sessions cannot supply
-  their own 204/210 assumed-known coordinates
+  A296 through A469 do not generalize, and the partial-recovery sessions cannot
+  supply their own 204/210 assumed-known coordinates
 - **SOTA status:** retention terminal (a) is achieved at 256/256 through `2^20`
   distractors with exact bounded-state accounting. O1C-0024 now supplies an exact
   global all-coordinate recovery frontier and O1C-0025 preserves native K256
@@ -102,14 +100,15 @@
 
 ## Headline
 
-The program is effect-first. A448 was copied literally, not approximated: its
-one-pass proof/A442 telemetry was byte-matched to the sibling artifacts, then two
-complete all256 cubes finished in 103.588 measured seconds. RFC rank `47` failed
-the unchanged repeat at `239`; the reader is closed and no fresh target is spent.
-A296 is already closed at `118/61/9/230`. The sibling residual engines remain
-wired unchanged, but current O1 completions still fix 94–95 required complement
-bits incorrectly and therefore exclude the true key. The active task is the next
-attacker-valid upstream sibling channel, not more infrastructure or rescue tuning.
+The program is effect-first. The exact strongest sibling ranking chain has now
+been transferred through A469, not merely discussed: A448/A465 ranks are
+`47/239`, and A469 gives `56/239`. It is negative and closed. The read-only
+recovery audit also resolves the apparent speed/recovery complement: the other
+session's recovery is real, but its W20--W52 domain receives 236--204 correct key
+bits as input. A325/A526 therefore stay unchanged as terminal backends. Current
+O1 completions still fix 94--95 required complement bits incorrectly, excluding
+the true key. The only active frontier is all256 evidence that closes this exact
+complement/beam gap.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does
@@ -715,6 +714,8 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0034` | 2026-07-18 18:10 | Frozen A469 bucket-local positive interaction rescues the retained all256 A465 fields | `NOT_REPLICATED`: A465 `47/239` becomes A469 `56/239` | `TEST`; retained consumed fields | 0.002521 scientific-path s; zero solver stages/targets | Close A448--A469 all256 transfer family | [Capsule](runs/20260718_181054_O1C-0034_a469-retained-two-target-full256-transfer-v1/RUN.md) |
+| `O1C-0033` | 2026-07-18 18:06 | Exact A460/A462/A463 switching wavelengths and A465 cubic PoE preserve A448's all256 byte advantage | `NOT_REPLICATED`: truth ranks remain `47/239` | `TEST`; retained consumed fields | 1.068837 scientific-path s; zero solver stages/targets | A465 does not repair the missing-complement transfer | [Capsule](runs/20260718_180604_O1C-0033_a465-retained-two-target-full256-transfer-v1/RUN.md) |
 | `O1C-0032` | 2026-07-18 17:51 | The unchanged A448/A442 byte-3 ordering repeats on disjoint consumed DEVELOPMENT-0000 with 248 complement bits free | `NOT_REPLICATED`: baseline/proof/hybrid ranks `242/236/239`; final `239/256` after RFC `47/256` | `TEST`; consumed repeat, no fresh target | 48.298 measured wall s; 256 cells / 1,024 stages; 204.1 MiB peak; no MPS/GPU | Close A448 once; do not resweep | [Capsule](runs/20260718_175112_O1C-0032_a448-proof-byte3-development-repeat-v1/RUN.md) |
 | `O1C-0031` | 2026-07-18 17:44 | Exact A448 proof/A442 ordering retains a better-than-median byte-3 rank with every other key bit unknown | consumed RFC rank `47/256`; repeat required before any fresh claim | `TEST`; consumed screen | 55.290 measured wall s; 256 cells / 1,024 stages; 180.1 MiB peak; no MPS/GPU | Positive single target authorized exactly one unchanged consumed repeat | [Capsule](runs/20260718_174416_O1C-0031_a448-proof-byte3-full256-transfer-v1/RUN.md) |
 | A296 full256 byte-2 transfer | 2026-07-18 15:05 | The unchanged shallow sibling reader transfers from residual W24/W28 cubes to a byte intervention with 248 other bits unknown | `CLOSED_NULL_DOES_NOT_GENERALIZE`: consumed `118/61/9`, fresh `230/256`, rank-product `p=0.1766` | Exact direct transfer; one fresh EVALUATION target | 201.244 s wall across four 256-cell/1,024-stage cubes; no MPS/GPU | Literal mechanism is cheap and executable, but its ordering does not generalize to all256 | [Result](research/A296_FULL256_BYTE2_TRANSFER_20260718.md) |

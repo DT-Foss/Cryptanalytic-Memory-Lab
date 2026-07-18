@@ -51,6 +51,16 @@ with it.
 
 ## Current milestone
 
+Effect-first transfer audit is complete through the strongest retained sibling
+ranking chain. Exact A296, A448, A465 and A469 operators were run on public
+all256 byte interventions; none replicated (`118/61/9/230`, `47/239`,
+`47/239`, `56/239`). The reliable sibling recoveries themselves are W20--W52
+terminal searches whose 236--204 complement bits are supplied inputs. Therefore
+the project does not rebuild their search engine and does not mine this ranking
+family again. The active milestone is exclusively the all256-to-exact-complement
+or exact-containing-beam bridge; A325/A526 execute unchanged once that gate is
+met.
+
 O1C-0016 closed the fixed global h96/h65 reader family on 32 independent keys.
 O1C-0017 then established the replacement architecture on anonymous synthetic
 full-256 streams: O1 learned the useful channel without being told its identity,
