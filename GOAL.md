@@ -142,12 +142,14 @@ attacker-generated decoys per target, raw primary truth ranks are `1905/4097` an
 transferred occurrence edges therefore describe mostly universal ChaCha geometry,
 not a usable target-key objective.
 
-The active frontier now moves one causal level deeper: retain exact branch
-identity and bind branch-exclusive signed antecedent chains rather than terminal
-clause occurrence. A500 already closes fixed joint-parity marginals and A503
-closes its tested target-aligned Jacobian factor model, so the successor must
-measure true-key joint rank, effective residual width or real search work without
-requiring 248 independently perfect unary predictions.
+O1C-0041 moves one causal level deeper and retains branch-exclusive proof-chain
+identity before signed original-leaf collapse. A BUILD-only rank-product selects
+global orientation `-1`; on the two consumed DEVELOPMENT keys the unchanged
+complete-candidate objective ranks truth `80/4097` and `998/4097`, geometric
+`6.90%`, versus `27.02%` key rotation and `16.26%` factor rotation. This is the
+first target-key joint-rank breadcrumb beyond terminal occurrence. It is
+retrospective, so the active frontier is exactly one unchanged fresh Full-256
+replication before any live solver integration.
 
 All writes stay inside this repository. Sibling projects remain read-only and no
 competing heavy job starts without a resource check.

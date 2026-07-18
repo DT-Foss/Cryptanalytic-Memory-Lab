@@ -127,6 +127,14 @@ universal ChaCha geometry. The relational program remains open at signed,
 branch-exclusive antecedent-chain identity; no occurrence or calibration sweep
 is authorized.
 
+O1C-0041 supplies the first complete-candidate joint-rank breadcrumb from that
+deeper identity. Its BUILD rank-product selects global orientation `-1`; the two
+consumed DEVELOPMENT keys rank `80/4097` and `998/4097`, geometric `6.90%`,
+better than key rotation `27.02%` and factor rotation `16.26%`. The strict
+per-target unanimity rule correctly remains unselected. Because discovery used
+consumed targets, the only authorized next efficacy spend is one unchanged fresh
+Full-256 replication. No H16, weight, sign or leaf-collapse sweep precedes it.
+
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
 untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches
@@ -330,9 +338,9 @@ evidence.
 4. O1C-0039 supplies a `55.84%` held-out relation source, but O1C-0040 proves its
    terminal occurrence score is near-median at complete-candidate level and its
    fixed surprise arm loses to key rotation. Close this representation.
-5. Extract branch-exclusive signed antecedent chains from the same native paired
-   proof stream. Demand BUILD control separation and consumed-DEVELOPMENT
-   candidate rank before any new target or live-search integration.
+5. O1C-0041 now supplies BUILD control separation and consumed-DEVELOPMENT joint
+   rank from branch-exclusive antecedent chains. Freeze the exact `-1` reader and
+   demand one fresh-target rank before live-search integration.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.

@@ -160,6 +160,7 @@ attacker-valid cipher evidence.
 | `O1C-0016-DECISION` | Exact h96, reconstructed h65 and fixed equal-logit polyphase fail larger prospective transfer | `VALIDATION` negative | ensemble 4093/8192, -0.078249 bit/key, 11/32 positive, paired z -0.555; h96 -0.175000; h65 -0.033913; 0 exact keys; `NOT_REPLICATED / DO_NOT_PROMOTE` | [Sealed evaluation](runs/20260717_115325_O1C-0016_full256-polyphase-blind-replication-v2/artifacts/sealed_evaluation.json) |
 | `O1C-0016-RANKS` | The frozen posterior has no useful byte, block or million-decoy advantage | `VALIDATION` negative | byte top1/top4/top16 4/16/61 versus null 4/16/64; no 16-bit top16; best 1M-decoy rank 45,147 has 32-try null probability 0.772 | [Forensics](research/O1C0016_POST_REVEAL_FORENSICS_20260717.md) |
 | `O1C-0039-RELATION` | A BUILD-frozen target-specific signed proof-clause field transfers key-to-internal relation orientation to both DEVELOPMENT keys | `TEST` attacker-valid relation signal; no recovery claim | target accuracies 55.09%/56.99%; pooled 397/711 = 55.84%; key-rotated 52.88%; factor-rotated 49.51%; bounded fields 3,512/2,288 B; Full-256 recoveries 0 | [Result](research/O1C0039_PROOF_CLAUSE_RELATION_TRANSFER_RESULT_20260718.md) |
+| `O1C-0041-CHAIN-RANK` | Branch-exclusive proof-chain identity concentrates complete true-key executions after one BUILD-only global rank-product orientation | `RETROSPECTIVE` joint-rank signal with control margin; fresh replication pending | DEVELOPMENT ranks 80/4097 and 998/4097; geometric 6.90% versus key rotation 27.02% and factor rotation 16.26%; 31.552 s; 131,629,056 B peak | [Result](research/O1C0041_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md) |
 
 ## Frontier and state-of-the-art results
 
@@ -187,6 +188,12 @@ O1C-0040 closes its direct candidate-sum conversion: raw truth is near median an
 the only frozen structural-surprise correction is dominated by key rotation. The
 O1C-0039 relation observation remains valid, but terminal clause occurrence is not
 promoted to entropy, rank or search reduction.
+O1C-0041 preserves branch-exclusive antecedent-chain identity and produces the
+first complete-key joint-rank concentration in this branch: both consumed truth
+keys beat the best quartile and the geometric primary rank beats both endpoint
+rotations. Because the exact representation was discovered on consumed targets,
+it remains a retrospective frontier breadcrumb until one unchanged fresh target
+confirms it.
 Existing sibling-project recoveries are baselines, not results of this integration.
 
 ## Negative bounds

@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T22:36:27+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T22:57:34+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -47,9 +47,14 @@
   are `1078/4097` and `1461/4097`, while key rotation is much better at
   `107/4097` and `423/4097`. Clause occurrence is structural, not a usable
   target-key objective.
-- **Next paid experiment:** extract branch-exclusive signed antecedent-chain
-  factors from the retained native proof stream. Do not sweep H16, edge weight,
-  surprise calibration or conflict limit on the opened occurrence field.
+- **O1C-0041:** branch-exclusive antecedent-chain identity restores complete-key
+  rank concentration on the consumed panel. BUILD rank-product selects `-1`;
+  DEVELOPMENT truth ranks are `80/4097` and `998/4097`, geometric `6.8967%`,
+  versus key-rotated `27.0187%` and factor-rotated `16.2556%`. Classification is
+  `RETROSPECTIVE_CHAIN_RANK_SIGNAL_WITH_CONTROL_MARGIN`.
+- **Next paid experiment:** freeze O1C-0041's H16 chain extractor, unit weights,
+  orientation `-1` and controls unchanged for exactly one fresh O1C-0042
+  Full-256 target. No sign, horizon, weight or chain-leaf sweep is authorized.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -69,7 +74,7 @@
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest result:**
-  [O1C-0040 complete-candidate relation rank](research/O1C0040_RELATION_CANDIDATE_RANK_RESULT_20260718.md).
+  [O1C-0041 antecedent-chain candidate rank](research/O1C0041_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md).
 
 ## Headline
 
@@ -87,9 +92,10 @@ attacker-valid signed proof field transfers at `55.84%` pooled relation accuracy
 on both held-out keys. O1C-0040 shows why that did not reduce search: the raw true
 complete execution is near median among decoys, and the fixed surprise correction
 is dominated by key rotation. The exact occurrence reader is now closed. The
-active H-RELATIONAL-037 question moves from clause endpoints to branch-exclusive
-signed antecedent chains, where target-dependent causal path identity has not yet
-been collapsed into universal late-round ARX structure.
+branch-exclusive O1C-0041 successor then ranks the two consumed true keys
+`80/4097` and `998/4097` with geometric fraction `6.90%`, beating both endpoint
+rotations. The active H-RELATIONAL-037 question is now prospective transfer of
+that exact frozen chain objective on one fresh Full-256 target.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does

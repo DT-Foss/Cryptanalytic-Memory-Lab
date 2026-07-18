@@ -913,3 +913,17 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   assumption, then demand candidate rank before live search integration.
 - **Artifact:**
   [`O1C-0040 result`](O1C0040_RELATION_CANDIDATE_RANK_RESULT_20260718.md).
+
+## B-0045 — Per-target sign unanimity is too brittle for sparse chain fields
+
+- **Evidence:** O1C-0041's four BUILD center signs are `[-1,-1,-1,+1]`, so the
+  strict unanimity rule selects nothing; the lone positive field is only
+  `z=+0.1174` from its decoy mean.
+- **Breadcrumb:** A465-style rank-product over all four BUILD targets selects
+  `-1` and reduces geometric BUILD rank from `70.78%` to `9.33%`; unchanged on
+  DEVELOPMENT it reaches `6.90%` and beats both rotations.
+- **Do not repeat:** require per-target sign unanimity, choose signs from
+  DEVELOPMENT, or sweep horizon/weights. Freeze the pooled orientation and test
+  it once on a fresh target.
+- **Artifact:**
+  [`O1C-0041 result`](O1C0041_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md).

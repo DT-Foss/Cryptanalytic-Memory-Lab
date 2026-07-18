@@ -1,12 +1,12 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T22:36:27+02:00.
+Last ranked: 2026-07-18T22:57:34+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Extract branch-exclusive signed antecedent-chain identities from the unchanged native H16 paired stream and keep them in a bounded O1 relation vault | State of the art | Extreme | Extreme | Medium | Preserves the causal path information erased by terminal occurrence while reusing the proven public sensor and exact forward reader |
-| 2 | On BUILD only, compare chain relations with exact chain-identity rotations; freeze one representation and score complete-candidate rank on the consumed DEVELOPMENT pair before solver integration | State of the art | Extreme | High | Low | Rejects another universal structural field in seconds while allowing sub-256 relation/rank progress to count |
-| 3 | Only after positive candidate rank, inject chain factors as context-reversible live guidance and compare equal-work Full-256 search plus effective residual width | State of the art | Extreme | Extreme | Medium | Converts a measured target-specific objective rather than repeating O1C-0039's premature one-shot injection |
+| 1 | Replicate O1C-0041's exact H16 unique-leaf chain reader, unit weights and global orientation `-1` on one fresh sealed Full-256 target | State of the art | Extreme | Extreme | Low | Distinguishes real transferable joint rank from consumed-panel selection in seconds |
+| 2 | Only after a positive fresh rank, inject the unchanged chain factors as context-reversible live guidance and compare equal-work Full-256 search plus effective residual width | State of the art | Extreme | Extreme | Medium | Converts a prospectively measured target-specific objective rather than repeating O1C-0039's premature one-shot injection |
+| 3 | If the fresh rank is null, retain signed parent role or pivot-literal identity before leaf collapse; do not tune H16, global sign or occurrence weights | State of the art | High | Extreme | Medium | Moves one causal level deeper while closing exactly the tested unique-leaf reader |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 | 5 | Keep occurrence scoring, key-phase guidance and O1C-0023/25/29 over the closed unary field parked | Operational | High | High | Zero | Prevents scaling measured-null representations while retaining reusable adapters |
 
@@ -20,13 +20,15 @@ Last ranked: 2026-07-18T22:36:27+02:00.
 - **Conversion frontier:** O1C-0040 shows that terminal clause occurrence does
   not improve complete-candidate rank. This closes only that representation, not
   relational completion.
+- **Joint-rank frontier:** O1C-0041's BUILD-selected chain objective ranks the two
+  consumed true keys `80/4097` and `998/4097`, geometric `6.90%`, and beats both
+  endpoint rotations. Fresh replication is the only open efficacy question.
 - **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.
-- **Next measurable advance:** branch-exclusive antecedent chains improve held-out
-  true-key joint rank, effective residual width, matched solver work or
-  time-to-hit. Any reproducible improvement counts even before exact recovery;
-  exact 256 remains the terminal moonshot.
+- **Next measurable advance:** the unchanged O1C-0041 objective ranks one fresh
+  true key below `25%` and beats both rotations. Any reproducible improvement
+  counts before exact recovery; exact 256 remains the terminal moonshot.
 
 ## Effect-first stop rules
 
@@ -54,6 +56,9 @@ Last ranked: 2026-07-18T22:36:27+02:00.
 - O1C-0040 completes that rank test and is null: primary raw geometric rank is
   `51.00%`; surprise is `30.63%` and loses to key rotation at `5.19%`. Close the
   endpoint-occurrence objective. Do not enlarge the panel or retune its weights.
+- O1C-0041 passes retrospectively at geometric rank `6.90%` versus `27.02%`
+  key rotation and `16.26%` factor rotation. Freeze `-1` globally and spend one
+  fresh target; do not rescue the rejected strict-unanimity rule or add an arm.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not

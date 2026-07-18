@@ -1750,3 +1750,23 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:**
   [`result`](O1C0040_RELATION_CANDIDATE_RANK_RESULT_20260718.md) and
   [`capsule`](../runs/20260718_222255_O1C-0040_relation-candidate-rank-v1/RUN.md).
+
+## O1C-0041 — Branch-exclusive antecedent-chain candidate rank
+
+- **Recorded:** 2026-07-18T22:55:50+02:00.
+- **Hypothesis:** exact branch-exclusive proof-chain identity preserves
+  target-specific joint information erased by terminal clause occurrence.
+- **Result:** strict BUILD unanimity selects nothing (`[-1,-1,-1,+1]`), while
+  the separately frozen BUILD rank-product selects global orientation `-1`.
+  DEVELOPMENT truth ranks are `80/4097` and `998/4097`; geometric primary is
+  `6.8967%`, versus key rotation `27.0187%` and factor rotation `16.2556%`.
+- **Boundary:** all six keys were already consumed; DEVELOPMENT scores and the
+  BUILD-selected orientation froze before the label artifact reread. This is a
+  retrospective joint-rank signal, not fresh transfer or recovery.
+- **Resources:** `31.551941` elapsed s; `131,629,056` B peak; 3,072 native H16
+  branches; 24,582 complete forward evaluations; zero sibling/MPS/GPU work.
+- **Decision:** freeze extractor, unit weights, `-1` orientation and controls;
+  run exactly one fresh O1C-0042 target before live-CDCL integration.
+- **Artifacts:**
+  [`result`](O1C0041_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md) and
+  [`capsule`](../runs/20260718_225550_O1C-0041_antecedent-chain-rank-v1/RUN.md).
