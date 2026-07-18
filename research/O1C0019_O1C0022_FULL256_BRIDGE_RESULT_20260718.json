@@ -1,0 +1,66 @@
+{
+  "schema": "o1-256-effect-first-full256-bridge-result-v1",
+  "recorded_at": "2026-07-18T19:09:38+02:00",
+  "target_contract": "standard 20-round ChaCha20; all 256 key bits unknown; public counter, nonce and output only at held-out prediction",
+  "o1c19": {
+    "attempt_id": "O1C-0019",
+    "classification": "BUILD_LOO_NO_TRANSFER",
+    "capsule": "runs/20260718_181855_O1C-0019_full256-multiresolution-build-loo-v1",
+    "manifest_sha256": "d636d9359c8e5f85f21e0903334d4a8fb172b4a216ad8413f1578dc471f431d7",
+    "result_sha256": "307998072a70db9d68811531c72aafc724af5992d16276f7e5f28ca9faca3b95",
+    "elapsed_seconds": 2467.325471,
+    "cpu_seconds": 2519.744295,
+    "peak_rss_bytes": 362528768,
+    "learned_policy_mean_compression_bits": -0.27108980858033505,
+    "raw_learned_reader_mean_compression_bits": 0.312763538118368,
+    "raw_untrained_reader_mean_compression_bits": 0.37123305914575866,
+    "raw_learned_minus_untrained_mean_compression_bits": -0.05846952102739067,
+    "scientific_success_gate_passed": false
+  },
+  "o1c22": {
+    "attempt_id": "O1C-0022",
+    "classification": "CROSS_COORDINATE_DILUTION",
+    "capsule": "runs/20260718_190629_O1C-0022_o1c19-causal-vault-build-loo-v1",
+    "manifest_sha256": "d5ae33be118cc2afea2704c337baca8c321776747ab42af77fdebd32010191db",
+    "result_sha256": "888a9ec9b77d09080b2e896b929d0546f965040848c27d525a0d97965756b7be",
+    "elapsed_seconds": 70.217948,
+    "cpu_seconds": 70.081227,
+    "peak_rss_bytes": 297910272,
+    "accumulator_live_state_bytes": 352,
+    "int8_mean_compression_curve_bits_k12_k52_k128_k256": [
+      -0.006771658785368118,
+      -0.021456561682271058,
+      -0.5804580628450253,
+      -1.1818371316239364
+    ],
+    "raw_float_k256_mean_compression_bits": -0.9898077985001521,
+    "normalized_float_k256_mean_compression_bits": -1.5775239582612883,
+    "unit_sign_k256_mean_compression_bits": -0.1151906833370262,
+    "scientific_success_gate_passed": false
+  },
+  "post_reveal_exact_complement_gate": {
+    "bit_rule": "logit>=0",
+    "a325_required": 210,
+    "a526_required": 204,
+    "o1c19_anchor_by_fold": {
+      "a325": [103, 107, 108, 101],
+      "a526": [102, 105, 106, 98]
+    },
+    "o1c22_raw_normalized_float_by_fold": {
+      "a325": [120, 108, 112, 95],
+      "a526": [118, 105, 108, 92]
+    },
+    "o1c22_raw_quantized_int8_by_fold": {
+      "a325": [118, 113, 115, 95],
+      "a526": [116, 110, 112, 91]
+    },
+    "post_reveal_maximum_over_all_precommitted_raw_arms_and_folds": {
+      "a325": 120,
+      "a526": 118
+    },
+    "any_backend_eligible": false
+  },
+  "decision": "CLOSE_UNARY_PACKET_ACCUMULATION_AND_DO_NOT_RUN_RESIDUAL_BACKEND",
+  "do_not_repeat": "Do not tune, reweight, hot-read, compose or frontier-decode the same unary O1C-0019 packet field; it does not supply an exact or tractable A325/A526 complement.",
+  "next_action": "Run only a genuinely new all-256-unknown evidence source that directly improves fixed-complement correctness or places the exact complement in a bounded beam; then reuse A325/A526 unchanged."
+}

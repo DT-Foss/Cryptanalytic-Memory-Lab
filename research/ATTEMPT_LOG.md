@@ -1599,3 +1599,31 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [O1C-0034 capsule](../runs/20260718_181054_O1C-0034_a469-retained-two-target-full256-transfer-v1/RUN.md).
 - **Next:** preserve A325/A526 unchanged as terminal backends. Work only on an
   attacker-valid all256 source that can satisfy their exact complement/beam gate.
+
+## O1C-0019 / O1C-0022 — Real full256 unary bridge execution
+
+- **Recorded:** 2026-07-18T19:09:38+02:00.
+- **O1C-0019:** the exact four-fold artifact-only BUILD-LOO reader/picker ran on
+  the existing public full-round pools with all 256 held-out bits unknown. It
+  completed in `2467.325471` elapsed seconds at `362528768` B peak RSS and
+  finalized under manifest `d636d935...`. Classification:
+  `BUILD_LOO_NO_TRANSFER`. Learned live compression is `-0.271089809` bit. The
+  raw learned reader is `+0.312763538`, but its untrained twin is better at
+  `+0.371233059`; learned-minus-untrained is `-0.058469521` bit.
+- **O1C-0022:** the four frozen readers streamed their exact K12/K52/K128/K256
+  packet deltas into the 352-byte addressed vault. It completed in `70.217948`
+  elapsed seconds at `297910272` B peak RSS and finalized under manifest
+  `d5ae33be...`. Classification: `CROSS_COORDINATE_DILUTION`. The int8 curve is
+  `[-0.006772,-0.021457,-0.580458,-1.181837]` bits; every K256 float/sign arm is
+  also negative.
+- **Residual gate:** across all precommitted raw arms and all post-reveal folds,
+  the maximum diagnostic complement is `120/210` for A325 and `118/204` for
+  A526. Neither terminal backend can contain the true key.
+- **Decision:** negative. Close the entire unary O1C-0019 packet/O1C-0022 vault
+  field. Do not run O1C-0023, O1C-0025 or O1C-0029 on it and do not sweep scale,
+  quantization, horizon weights or frontier size. The next paid run must add a
+  genuinely new all256 evidence source and score complement/beam effect directly.
+- **Artifacts:**
+  [`result`](O1C0019_O1C0022_FULL256_BRIDGE_RESULT_20260718.md),
+  [O1C-0019 capsule](../runs/20260718_181855_O1C-0019_full256-multiresolution-build-loo-v1/RUN.md),
+  [O1C-0022 capsule](../runs/20260718_190629_O1C-0022_o1c19-causal-vault-build-loo-v1/RUN.md).

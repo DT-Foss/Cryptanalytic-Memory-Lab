@@ -24,13 +24,11 @@ key bits unknown**.  Deployment sees only public counter, nonce and output.  It 
 also evaluate keys it generated itself and inspect those candidate traces; target
 round states, carry paths and key labels are training-only.
 
-The system streams structured and uniform Contrast-Keys into a bounded O1 state,
-binds bit coordinates and operator families holographically, composes complementary
-wavelength readers with an A465-style Product-of-Experts, applies only A469-style
-positive bucket-local corrections, and emits `q(K_0..K_255 | Y)` plus a bounded
-verification beam.  It reports key NLL from the exact 256-bit random baseline,
-predictable bits, byte/16-bit ranks, million-decoy full-key rank, effective domain
-compression and exact public verification.
+The execution path is effect-first:
+`public target -> new all256 evidence -> O1 completion/beam -> exact A325/A526
+entry gate -> unchanged residual backend -> public ChaCha verification`. Key NLL,
+fixed-complement correctness, exact-containing beam rank and verified recovery are
+the progress metrics; infrastructure and synthetic mechanism passes are not SOTA.
 
 The complete attacker contract and architecture are in
 [O1-256 Living Inverse](docs/O1_256_LIVING_INVERSE.md).  The W52 mechanisms were
@@ -38,6 +36,24 @@ inspected read-only and are summarized in
 [the 2026-07-17 transfer map](research/W52_TRANSFER_20260717.md).
 The post-O1C-0016 continuous fast/slow learner and learned picker are specified in
 [O1 Online Möbius Controller](docs/O1_ONLINE_MOBIUS_CONTROLLER.md).
+
+## Current result — 2026-07-18
+
+The exact A296/A448/A465/A469 sibling transfers and the complete real
+O1C-0019/O1C-0022 all256 chain have run. Every one is negative and closed.
+O1C-0019's learned policy averages `-0.271090` bit; its raw learned reader loses
+the untrained twin by `0.058470` bit. O1C-0022's exact 352-byte vault reaches
+`-1.181837` bits at K256, and no precommitted raw arm exceeds `120/210` A325 or
+`118/204` A526 complement bits. Neither residual backend can contain the true
+key.
+
+Do not run O1C-0023/25/29, a hot-reader sweep or another decoder over this null
+field. The next paid experiment must introduce a genuinely new public all256
+evidence source and move the exact complement or bounded-beam gate directly.
+[Full result](research/O1C0019_O1C0022_FULL256_BRIDGE_RESULT_20260718.md).
+
+The sections below retain the earlier architecture lineage and are historical,
+not current resume instructions.
 
 The strongest immutable architecture attempt is now O1C-0017. From 330 anonymous
 raw channels, a bounded reveal-delayed O1 reader autonomously discovered one hidden

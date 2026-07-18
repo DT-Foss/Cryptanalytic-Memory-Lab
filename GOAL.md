@@ -52,3 +52,11 @@ sibling recovery whose real deployment begins with all 256 bits unknown: the
 reliable W20--W52 recoveries assume 236--204 correct complement bits. The sole
 frontier task is therefore the missing all256-to-complement/beam bridge; once it
 meets the exact gate, reuse A325/A526 and verification unchanged.
+
+The real O1C-0019 and O1C-0022 all256 chain has now also run and is closed:
+learned live compression is `-0.271090` bit, the learned raw reader loses its
+untrained twin by `0.058470` bit, and the 352-byte vault falls to `-1.181837`
+bits at K256. No precommitted arm exceeds `120/210` A325 or `118/204` A526
+complement bits. Do not run the derivative O1C-0023/25/29 composer, frontier or
+hot-readout stack on this null field. The next real experiment must introduce a
+new all256-unknown evidence source and score its complement/beam effect directly.

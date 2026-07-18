@@ -1,15 +1,14 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T18:14:38+02:00.
+Last ranked: 2026-07-18T19:09:38+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Use the exact residual handoff gate on every candidate O1 completion; improve the full256 complement from the current `115/210` A325 and `110/204` A526 correctness instead of launching a search whose true key is outside the domain | State of the art | Extreme | Extreme | Low | Converts “partial recovery” from a slogan into the exact prerequisite that unlocks the already-working sibling engine |
-| 2 | Search only the remaining sibling sensors/operators for an input contract that genuinely begins all256-unknown; the recovery audit found no demonstrated recovery result in that class, so never confuse target-blind ranking inside W20--W52 with discovery of its known complement | State of the art | Extreme | Extreme | Low | Finds a legitimate upstream evidence source or proves that the missing bridge must be learned from the existing paired-assumption sensor |
-| 3 | Once a completion is exact or its beam is tractable, pass it unchanged into A325/W46 or A526/W52 and reuse the sibling evaluator plus independent ChaCha20 verifier; do not rebuild their search engine | State of the art | Extreme | Extreme | Medium/High | Produces an actual verified key from this lab's living posterior and the sibling's proven residual closure |
-| 4 | After W52 is free, run exactly one true-cell A526 plumbing smoke on a consumed target; it is a codec/host check only and cannot promote complement quality | Instrument | Medium | Extreme | Low | Confirms the lab handoff reaches the generic engine without touching the target-bound A528 launcher |
-| 5 | Keep the exact A296/A448 cube adapters but close the entire transferred ranking family: A296 `118/61/9/230`; A448/A465 `47/239`; A469 `56/239`; no byte, sign, coefficient, horizon, interaction or operator resweep | Operational | High | High | Zero | Prevents repeated null cycles while retaining cheap fullround H1/2/4/8 and proof-antecedent measurement |
-| 6 | Keep watcher PID `67247`, W52 isolation and source-frozen O1C-0019/22/29 intact as background assets | Operational | High | Very high | Zero | Preserves existing work while CPU-only all256 evidence work continues separately |
+| 1 | Run one genuinely new public all256 evidence source and score exact A325/A526 complement correctness or exact-containing beam rank directly; do not add another scheduler/state layer first | State of the art | Extreme | High | Medium | Determines whether any new mechanism actually moves the recovery boundary |
+| 2 | Apply the exact residual handoff gate to every new completion; current post-reveal ceiling is only `120/210` A325 and `118/204` A526 | State of the art | Extreme | Extreme | Low | Prevents an expensive backend search whose domain excludes the true key |
+| 3 | Once a completion is exact or its beam is tractable, pass it unchanged into A325/W46 or A526/W52 and reuse the sibling evaluator plus independent ChaCha20 verifier | State of the art | Extreme | Extreme | Medium/High | Produces an actual verified key without rebuilding the working recovery backend |
+| 4 | Keep O1C-0023/25/29 unrun and close O1C-0019/22's unary packet field; no scale, quantizer, hot-reader, frontier or composer sweep | Operational | High | High | Zero | Stops process work from masquerading as recovery progress |
+| 5 | Keep the exact A296/A448/A465/A469 adapters and results, but do not resweep them | Operational | High | High | Zero | Preserves reusable measurement code without paying for closed readers |
 
 ## Effect-first stop rules
 
@@ -23,8 +22,8 @@ Last ranked: 2026-07-18T18:14:38+02:00.
   the same exact test is not paid for twice, then pivot.
 - Closed now: the cached H96 A291-adjacent proxy, the A317/A321/A325 512-action
   transpose, the literal A296 byte-2 transfer and complete A448--A469 byte-3
-  chain. Do not tune their sign, views, scale, byte, horizon, interaction,
-  operator or temperature.
+  chain, plus the real O1C-0019/O1C-0022 unary packet/vault chain. Do not tune
+  their sign, views, scale, byte, horizon, interaction, operator or temperature.
 - A325 and A526 remain retained terminal backends. Their positive sibling results
   assume 210 or 204 complementary key bits are already correct; those known bits
   are an input contract, not partial recovery produced by the engine.
@@ -59,26 +58,17 @@ Last ranked: 2026-07-18T18:14:38+02:00.
   independent read-only audits clear. Its prior broad scratch DEV reached 256/256
   on both seeds in 134.523 s, but the hardened source recheck and formal four-seed
   EVAL remain deliberately unstarted while sibling compute is active.
-- O1C-0022 code/config/tests are clean at `ce56ba4`; its preflight verifies the
-  O1C-0018 corpus and 352-byte O1C-0021 contract but exits pending without a run
-  reservation until finalized O1C-0019 exists. Do not bypass that prerequisite.
-- O1C-0023 code/config/tests are clean at `aa17eed`; it verifies the complete
-  canonical O1C-0022 384-artifact capsule, composes one successor and runs two
-  disposable native O1-O assemblies under an inherited lease. Its preflight is
-  pending without a reservation until O1C-0022 finalizes. Do not execute the
-  selected operator inside O1C-0023 or bypass its new-attempt boundary.
+- O1C-0019 and O1C-0022 are finalized, verified and negative. O1C-0022's exact
+  352-byte state reaches `-1.181837` bits at K256 and no residual complement gate
+  passes. Close their unary packet field.
+- O1C-0023 remains source-frozen and unrun. Do not invoke its composer on the
+  null O1C-0022 field; autonomous bookkeeping is not a recovery effect.
 - O1C-0024 finalized from `36133bc` in 2.454 wall seconds and 109.922 MiB peak.
   Its global decoder, 65,536-key burned null, selected-member read boundary and
   capsule are frozen. Reuse the decoder API only; the opened O1C-0016 target is
   ineligible for tuning, K scaling or efficacy selection.
-- O1C-0025 is source-frozen at `b008e21` as an `INSTRUMENT`, with no attempt,
-  target or result reserved. Exact common-power-of-two integer units of native
-  binary64 logits rank the fixed 65,536-candidate frontier; 14 focused plus 18
-  neighboring tests pass (32 tests / 80 subtests), and the performance smoke is
-  0.937653 s at 44,384,256 B peak. Preserve its fixed K256
-  `quantized_int8_vault` slice and complete O1C22 to O1C19 to public-target
-  provenance chain. The future formal caller must resolve the authoritative
-  finalized O1C-0022 capsule through `RunCapsuleManager`.
+- O1C-0025 remains a frozen decoder instrument. Do not feed it the null O1C-0022
+  K256 slice; preserve it for a future positive posterior only.
 - O1C-0026 formal runner `7855492` and proxy mechanism `0af57fb` remain
   unreserved. Its preflight is `prerequisite-pending` and changes no ledger. If
   selected, config `configs/proof_ancestry_pair_residual_run_v1.json` opens
@@ -103,20 +93,9 @@ Last ranked: 2026-07-18T18:14:38+02:00.
   not ChaCha20 evidence. O1C-0029 is its new-ID real successor and requires the
   authoritative O1C-0019 to O1C-0022 chain; O1C-0023 may execute separately but
   is not a prerequisite.
-- O1C-0029 is source-frozen at
-  `22d417ca73c73af59c8043c456c5475ed57f66a3` as a conditional, unreserved
-  instrument. Its clean preflight remains prerequisite-pending until the
-  manager-authoritative finalized O1C-0022 capsule exists; O1C-0023 is optional
-  metadata only. The fixed lifecycle builds 16 real packet states, durably
-  persists the complete state barrier, fits four precommitted readers and
-  persists eight 256-logit vectors, then permits exactly two index-bound label
-  openings: calibration after the barrier and heldout scoring after every fit
-  and logit. Evidence, addressing, encoder, recurrence and phase changes remain
-  cold; only the frozen reader weights and temperature are hot. Runtime authority
-  pins all 25 application modules plus a separately pinned verifier under closure
-  `dd9675a9017ed9be240dee0d50f195cbd938cbb6044c29851e736cdeeb6ba3ec`.
-  Tests and pending preflight are clean; no O1C-0029 attempt, scientific run,
-  result or signal exists.
+- O1C-0029 remains source-frozen and unrun. Its hot reader changes no evidence;
+  the authoritative O1C-0022 source is now null, so O1C-0029 is parked until a
+  genuinely positive upstream packet field exists.
 - O1C-0030 is finalized and immutable at source `e7c1bf5`. Its complete
   four-fold consumed-BUILD diagnostic took 7.455637 measured wall seconds at
   65,748,992 B peak RSS, persisted 168,648 B, scored 262,144 exact frontier

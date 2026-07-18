@@ -61,6 +61,12 @@ family again. The active milestone is exclusively the all256-to-exact-complement
 or exact-containing-beam bridge; A325/A526 execute unchanged once that gate is
 met.
 
+The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
+The learned picker averages `-0.271090` bit, its raw learned reader loses the
+untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches
+`-1.181837` bits at K256. No precommitted raw arm exceeds `120/210` A325 or
+`118/204` A526 complement bits. O1C-0023/25/29 are not run on this null field.
+
 O1C-0016 closed the fixed global h96/h65 reader family on 32 independent keys.
 O1C-0017 then established the replacement architecture on anonymous synthetic
 full-256 streams: O1 learned the useful channel without being told its identity,
@@ -245,23 +251,18 @@ evidence.
 2. Keep the exact little-endian residual handoff to A325/W46 and A526/W52. These
    engines require respectively 210 and 204 complementary key bits to be correct;
    they do not recover those bits themselves.
-3. The strongest current O1C-0018 completion reaches only `115/210` and `110/204`.
-   The true key is therefore outside both residual domains, so no expensive backend
-   search is authorized yet.
-4. Execute the next already-positive sibling channel only if it accepts a standard
-   public fullround target with all 256 bits unknown. Improve exact complement
-   correctness or a tractably small completion beam; report the actual fixed-bit
-   error count, not an oracle-known reduced-width recovery as all256 progress.
+3. O1C-0022's post-reveal ceiling across all precommitted raw arms is only
+   `120/210` and `118/204`. The true key is therefore outside both residual
+   domains, so no backend search is authorized yet.
+4. The next paid experiment must introduce a genuinely new public all256 evidence
+   source. Score exact complement correctness or exact-containing beam rank
+   immediately; no scheduler/state/composer layer counts as the result.
 5. Once the complement gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.
-6. After W52 is free, one consumed-target true-cell A526 invocation may verify the
-   plumbing and codec. It is not efficacy and cannot waive the complement gate.
-7. Keep the W52 watcher and source-frozen O1C-0019/22/29 chain intact as background
-   assets while CPU-only all256 evidence work continues separately.
-8. After stable attacker-valid entropy reduction, add A465/A469 fusion,
-   surprise-selected Causal Attic summaries, O1C-0025 logit handoff and O1C-0024
-   global decoding toward exact public verification.
+6. Preserve O1C-0023/25/29 as code only; do not execute them on the closed unary
+   field. After stable attacker-valid entropy reduction, the existing logit
+   handoff and exact global decoder may be reused unchanged.
 
 ## Operating contract
 
