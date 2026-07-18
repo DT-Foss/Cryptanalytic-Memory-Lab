@@ -1788,3 +1788,22 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:**
   [`result`](O1C0042_FRESH_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md) and
   [`capsule`](../runs/20260718_230437_O1C-0042_fresh-antecedent-chain-rank-v1/RUN.md).
+
+## O1C-0043 — Ordered parent-role criticality joint rank
+
+- **Recorded:** 2026-07-18T23:34:58+02:00.
+- **Hypothesis:** exact RUP parent role and original functional-clause criticality
+  retain the causal candidate information erased by unordered leaf union.
+- **Result:** passed on consumed keys. DEVELOPMENT ranks are `5/4097` and
+  `91/4097`, geometric `0.52%` versus best control `38.52%`. The conditional
+  unchanged O1C-0042 repeat ranks `141/4097` versus controls `3623/3475`.
+- **Boundary:** 15 weights fit only from four BUILD truths; all Development and
+  repeat scores freeze before label parsing; public units excluded; zero fresh
+  targets and no exact recovery claim.
+- **Resources:** `63.609326` s; `183,795,712` B peak; 3,584 H16 branches; 28,679
+  forward evaluations; 571,189-byte capsule.
+- **Decision:** freeze exactly one fresh replication. No channel, horizon, sign,
+  weight, panel or rotation adjustment.
+- **Artifacts:**
+  [`result`](O1C0043_PARENT_CRITICALITY_RANK_RESULT_20260718.md) and
+  [`capsule`](../runs/20260718_233458_O1C-0043_parent-criticality-rank-v1/RUN.md).

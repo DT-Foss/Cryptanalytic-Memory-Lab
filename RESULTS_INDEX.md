@@ -162,6 +162,7 @@ attacker-valid cipher evidence.
 | `O1C-0039-RELATION` | A BUILD-frozen target-specific signed proof-clause field transfers key-to-internal relation orientation to both DEVELOPMENT keys | `TEST` attacker-valid relation signal; no recovery claim | target accuracies 55.09%/56.99%; pooled 397/711 = 55.84%; key-rotated 52.88%; factor-rotated 49.51%; bounded fields 3,512/2,288 B; Full-256 recoveries 0 | [Result](research/O1C0039_PROOF_CLAUSE_RELATION_TRANSFER_RESULT_20260718.md) |
 | `O1C-0041-CHAIN-RANK` | Branch-exclusive proof-chain identity concentrates complete true-key executions after one BUILD-only global rank-product orientation | `RETROSPECTIVE` joint-rank signal with control margin; fresh replication pending | DEVELOPMENT ranks 80/4097 and 998/4097; geometric 6.90% versus key rotation 27.02% and factor rotation 16.26%; 31.552 s; 131,629,056 B peak | [Result](research/O1C0041_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md) |
 | `O1C-0042-FRESH-CHAIN` | Exact O1C-0041 unique-leaf chain objective on one sealed fresh Full-256 key | `TEST` not replicated; no recovery | primary 1371/4097 (33.46%), key rotation 1399/4097, factor rotation 3385/4097; best-quarter gate failed; 7.435 s; 131,579,904 B peak | [Result](research/O1C0042_FRESH_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md) |
+| `O1C-0043-PARENT-CRITICALITY` | BUILD-fitted bounded reader over ordered RUP parent role and original functional-clause criticality | `CONSUMED_DIAGNOSTIC` joint-rank signal; fresh pending | DEVELOPMENT 5/4097 and 91/4097, geometric 0.52% versus best control 38.52%; unchanged consumed repeat 141/4097 versus controls 3623/3475; 63.609 s, 183,795,712 B peak | [Result](research/O1C0043_PARENT_CRITICALITY_RANK_RESULT_20260718.md) |
 
 ## Frontier and state-of-the-art results
 
@@ -198,6 +199,10 @@ confirms it.
 O1C-0042 performs that sole fresh test and does not confirm the frozen threshold.
 Its small primary-over-rotation margin is retained as a representation breadcrumb,
 but the exact unique-leaf sum is not promoted to live solver guidance.
+O1C-0043 preserves the ordered causal information that leaf union erased. Its
+BUILD-fitted 15-channel reader concentrates both consumed DEVELOPMENT keys and
+one unchanged consumed repeat with large endpoint-control margins. It is the
+current joint-rank frontier and now requires exactly one sealed fresh replication.
 Existing sibling-project recoveries are baselines, not results of this integration.
 
 ## Negative bounds

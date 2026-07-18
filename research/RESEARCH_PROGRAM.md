@@ -142,6 +142,14 @@ does not. Close the unique-leaf sum without retry. The next cheapest causal
 discriminator preserves ordered direct-parent role and candidate-relative clause
 criticality, first on already consumed targets only.
 
+O1C-0043 implements that causal refinement. Fifteen fixed channels retain RUP
+parent role, original functional-clause criticality, expected pivot and unique
+literal polarity; public units and derived-parent satisfaction are excluded.
+The BUILD-fitted reader ranks consumed DEVELOPMENT truths `5/4097` and `91/4097`
+(geometric `0.52%` versus best control `38.52%`) and the unchanged consumed
+O1C-0042 key `141/4097` versus controls `3623/3475`. This earns one exact sealed
+fresh replication, not immediate live-search injection and not a recovery claim.
+
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
 untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches
@@ -345,9 +353,9 @@ evidence.
 4. O1C-0039 supplies a `55.84%` held-out relation source, but O1C-0040 proves its
    terminal occurrence score is near-median at complete-candidate level and its
    fixed surprise arm loses to key rotation. Close this representation.
-5. O1C-0041 supplies consumed-DEVELOPMENT chain rank, but O1C-0042 fails its one
-   fresh top-quarter gate. Close unique-leaf summation and preserve ordered parent
-   role plus clause criticality before any further target or live-search spend.
+5. O1C-0041 supplies consumed chain rank and O1C-0042 closes unique-leaf summation.
+   O1C-0043 restores strong consumed rank through ordered parent criticality and
+   now authorizes exactly one unchanged sealed fresh target before live search.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.

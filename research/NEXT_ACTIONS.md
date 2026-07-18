@@ -1,12 +1,12 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T23:04:37+02:00.
+Last ranked: 2026-07-18T23:34:58+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Preserve ordered direct-parent role and candidate-relative clause criticality inside branch-exclusive H16 chains; rank consumed BUILD/DEV targets | State of the art | Extreme | Extreme | Medium | Tests the exact causal information destroyed by unique-leaf union without spending another target |
-| 2 | If parent-role criticality ranks consumed truth with rotation margin, repeat unchanged on the consumed O1C-0042 target before considering fresh entropy | State of the art | Extreme | High | Low | Separates a reusable mechanism from another two-target selection effect |
-| 3 | Only after that repeat, inject the unchanged factors as context-reversible live guidance and compare equal-work Full-256 search plus effective residual width | State of the art | Extreme | Extreme | Medium | Converts a measured joint objective rather than a unary or terminal-occurrence score |
+| 1 | Replicate O1C-0043's exact H16 field, 15-channel reader weights, panel and rotations on one sealed fresh Full-256 target | State of the art | Extreme | Extreme | Low | Distinguishes transferable causal joint rank from consumed-panel fit in seconds |
+| 2 | Only after a fresh positive, inject the unchanged criticality field as context-reversible live guidance and compare equal-work Full-256 search plus effective residual width | State of the art | Extreme | Extreme | Medium | Converts prospectively measured joint rank into real search reduction |
+| 3 | If fresh rank is null, retain nested derived-parent path/break identity without changing H16 or the closed 15 channels | State of the art | High | Extreme | Medium | Moves one causal level deeper instead of rescuing the tested reader |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 | 5 | Keep occurrence scoring, key-phase guidance and O1C-0023/25/29 over the closed unary field parked | Operational | High | High | Zero | Prevents scaling measured-null representations while retaining reusable adapters |
 
@@ -27,9 +27,9 @@ Last ranked: 2026-07-18T23:04:37+02:00.
 - **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.
-- **Next measurable advance:** parent-role/clause-criticality factors recover
-  consumed-panel joint-rank concentration and beat both rotations without tuning
-  the closed leaf sum. Exact 256 remains the terminal moonshot.
+- **Next measurable advance:** the exact O1C-0043 reader ranks one sealed fresh
+  true key below `25%` and beats both rotations. Exact 256 remains the terminal
+  moonshot; a stable prospective joint-rank gain is the next SOTA rung.
 
 ## Effect-first stop rules
 
@@ -63,6 +63,9 @@ Last ranked: 2026-07-18T23:04:37+02:00.
 - O1C-0042 is the sole fresh test and misses at `33.46%`. Close unique-leaf
   summation now; its narrow control margin authorizes parent-role preservation,
   not a retry or threshold change.
+- O1C-0043 passes consumed Development at `5/4097` and `91/4097`, then the
+  unchanged consumed repeat at `141/4097`, all with control margin. Freeze the
+  exact 15-channel reader for one fresh key; do not improve it first.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not

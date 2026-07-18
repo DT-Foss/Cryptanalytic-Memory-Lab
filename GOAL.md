@@ -158,5 +158,14 @@ sum reader is closed without a retry. The next causal level preserves ordered
 direct-parent role and candidate-relative clause criticality before leaf collapse;
 it must earn consumed-panel joint rank before another fresh target.
 
+O1C-0043 now earns that next rung. A 15-channel BUILD-fitted reader over ordered
+RUP parent role and original functional-clause criticality ranks the two consumed
+DEVELOPMENT truths `5/4097` and `91/4097` (geometric `0.52%`) versus `38.52%`
+for the best endpoint control. Unchanged on the consumed O1C-0042 key it ranks
+truth `141/4097` (`3.44%`) versus `3623/4097` key rotation and `3475/4097`
+clause rotation. This is a strong consumed joint-rank result, not recovery. The
+only authorized efficacy step is one sealed fresh target with the exact field,
+reader weights, panel and rotations unchanged.
+
 All writes stay inside this repository. Sibling projects remain read-only and no
 competing heavy job starts without a resource check.
