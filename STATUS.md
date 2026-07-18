@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T23:42:33+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T00:10:05+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -65,10 +65,14 @@
   (`1.318%`, z `+2.325`) versus key rotation `3567/4097` and clause rotation
   `2972/4097`. One entropy call, reveal after score freeze, independent ChaCha
   verification; classification `FRESH_PARENT_CRITICALITY_RANK_TRANSFER`.
-- **Next paid experiment:** inject the unchanged O1C-0044 criticality factors as
-  reversible live guidance into the existing Full-256 exact solver. Compare
-  matched conflicts/work, time-to-hit and effective residual width on consumed
-  targets before spending another fresh key.
+- **O1C-0045:** exact algebraic compilation preserves every frozen score within
+  `1.25e-14` and primary rank `54/4097`. Full-256 is still unresolved at 512
+  conflicts. On the post-reveal ceiling, internal search closes residual 8 but
+  not 9; primary closes 9 in 281 conflicts, while key/clause rotations also close
+  9 in 69/129. The factor family expands 8→9, but primary has no control margin.
+- **Next paid experiment:** keep the reader, factor tables, target, residual sets
+  and budget fixed; observe internal variables but allow external decisions only
+  on key variables. This isolates O1 orientation from generic clause branching.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -88,7 +92,7 @@
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest result:**
-  [O1C-0044 fresh parent-criticality rank](research/O1C0044_FRESH_PARENT_CRITICALITY_RANK_RESULT_20260718.md).
+  [O1C-0045 criticality live search](research/O1C0045_CRITICALITY_LIVE_SEARCH_RESULT_20260718.md).
 
 ## Headline
 
@@ -117,8 +121,11 @@ that move concrete: frozen Development ranks `5/4097` and `91/4097` beat both
 endpoint controls, and the unchanged consumed O1C-0042 repeat ranks `141/4097`.
 That earned exactly one prospective replication. O1C-0044 answers yes at
 `54/4097` with both rotations in the bottom third. The
-frontier now moves from candidate ranking to equal-work exact-search reduction;
-another reader or fresh key is not the next action.
+O1C-0045 exact compiler then turns that score into local factors. The factor
+family expands the consumed residual ceiling from eight to nine bits, but both
+rotations beat primary, localizing the loss to the all-variable greedy scheduler.
+The next action is a key-only decision policy over the unchanged factors; another
+reader or fresh key is not authorized.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does
@@ -692,13 +699,12 @@ O1C-0017 result boundary are documented in
 
 ## Highest-ROI next actions
 
-1. Move O1 decisions from key phases onto attacker-computable signed
-   clause/proof/relation factors inside the exact target relation.
-2. Score the first factor field by true-key joint rank, effective residual width
-   and equal-work time-to-hit; eight bits is the measured consumed-target exact
-   completion zone, not a required first-pass threshold.
-3. Keep the O1C-0037 adapter as the exact ceiling/verifier and do not spend more
-   conflicts on its closed one-wrong key-only field.
+1. Reuse the exact O1C-0045 factors while observing every internal assignment but
+   returning external decisions only for key variables.
+2. Repeat the identical Full-256/residual-8/9 512-conflict comparison on the same
+   consumed target; promote only a primary margin over internal and both rotations.
+3. If controls still win, close greedy marginal branching and preserve the global
+   score for bounded best-first key prefixes or score-aware clause activation.
 4. Reuse A325/A526 unchanged only when their native complement gate is met, and
    keep every sibling repository read-only.
 
@@ -706,6 +712,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0045` | 2026-07-19 00:10 | The frozen rank-54 reader reduces exact search work after lossless local-factor compilation | Full-256 0/4; residual 9 internal UNKNOWN, primary SAT/281 conflicts, rotations SAT/69 and SAT/129 | `CONSUMED_SEARCH_DIAGNOSTIC`; residual rows are post-reveal ceilings | 17.290067 s; 130,269,184 B peak; 12 calls; zero fresh/sibling/MPS/GPU | Factor geometry expands 8→9, but all-variable scheduling erases primary specificity; decide keys only next | [Capsule](runs/20260719_001005_O1C-0045_criticality-live-search-v1/RUN.md) |
 | `O1C-0040` | 2026-07-18 22:22 | The transferred occurrence field ranks the true complete execution above attacker-generated decoys | Raw truth ranks 1905/4097 and 2292/4097; surprise 1078/4097 and 1461/4097, dominated by key rotation 107/4097 and 423/4097 | `POST_REVEAL_DIAGNOSTIC` negative; consumed targets | 3.981557 s; 101,466,112 B peak; 8,194 forward evaluations; zero solver/sibling/MPS/GPU | Close clause-occurrence scoring; move to branch-exclusive signed antecedent chains | [Capsule](runs/20260718_222255_O1C-0040_relation-candidate-rank-v1/RUN.md) |
 | `O1C-0039` | 2026-07-18 22:02 | A BUILD-frozen signed proof-clause contrast transfers target-specific key-to-internal relation orientation | Both DEVELOPMENT targets exceed chance: 55.09%/56.99%, pooled 397/711 = 55.84% versus key/factor rotations 52.88%/49.51%; Full-256 recovery 0 | `TEST` attacker-valid relation transfer; no entropy or recovery claim | 12.202150 s; 142,262,272 B peak; 18 exact calls; zero sibling/MPS/GPU | Freeze H16/`|J|=0.5`; test complete-candidate rank, then live reversible guidance only on a positive separation | [Capsule](runs/20260718_220217_O1C-0039_proof-clause-relation-v1/RUN.md) |
 | `O1C-0038` | 2026-07-18 21:20 | The unchanged exact ChaCha relation can close a nonzero O1-ordered residual once every supplied prefix bit is correct | Full key verified for residual widths `0/1/2/4/8` at 512 conflicts; residual `8` takes 89 conflicts / 135,441 us; residual `9` remains UNKNOWN through 32,768 conflicts | `POST_REVEAL_CEILING`; consumed target, no attacker-valid recovery claim | 11.494730 s; 139,575,296 B peak; 10 calls; zero sibling/MPS/GPU | Exact bridge has an eight-bit completion zone; next reduce effective width with attacker-valid relation/proof factors | [Capsule](runs/20260718_212009_O1C-0038_exact-residual-completion-v1/RUN.md) |
@@ -752,6 +759,12 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0045` source freeze | `d3b927b6f9ff65b9520aa4c2631d5106fa592b70` |
+| `O1C-0045` canonical config | `1cb62f0d746c86b1fa3c7ff1fb29546ad0222601af669e7745b72c69b8d67984` |
+| `O1C-0045` runner source | `a2212c716775ef4af933f8a9ccee6693578dd6d5bfb5920707cb8f88f01a14e2` |
+| `O1C-0045` attacker freeze | `df198262ee632496c855496e1d327b3717ad74ef346e17d1eda2f77ee5f7fbb2` |
+| `O1C-0045` formal result | `fb35fab89c293e229c3adaf1c63de4274b29d5f84e1892baf410cf715b71d779` |
+| `O1C-0045` capsule manifest | `dace5023b25b8a2fbe6d52f0eee239cecca32154f4bfcba712218899b5c67c63` |
 | `O1C-0040` source freeze | `284f7f272611e926ea50bd310feba7bca758995b` |
 | `O1C-0040` canonical config | `f76560431d38de051386fc0d233e399789e82ff848f127c6108bb26bdf1e9abc` |
 | `O1C-0040` runner source | `22af4fc7aa270fa7d195de0723129e6e53e61ab732a2a4a563a569f6fb8d1bc8` |

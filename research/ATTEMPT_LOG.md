@@ -1825,3 +1825,23 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:**
   [`result`](O1C0044_FRESH_PARENT_CRITICALITY_RANK_RESULT_20260718.md) and
   [`capsule`](../runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/RUN.md).
+
+## O1C-0045 — Lossless parent-criticality live search
+
+- **Recorded:** 2026-07-19T00:10:05+02:00.
+- **Hypothesis:** the prospectively transferred rank-54 reader reduces exact
+  search work when compiled into reversible local conditional decisions.
+- **Result:** mixed. Full-256 has zero hits at 512 conflicts. Internal residual 9
+  is UNKNOWN; primary verifies the exact key in 281 conflicts, but key/clause
+  rotations also verify in 69/129. All arms recover residual 8.
+- **Boundary:** exact score error at most `1.25e-14`; no refit; Full-256 search
+  precedes reveal; residual prefixes are explicit post-reveal conditions; zero
+  fresh targets.
+- **Resources:** `17.290067` s; `130,269,184` B peak; 12 native calls; 6,144
+  requested conflicts; 4,097 forward evaluations; zero sibling/MPS/GPU.
+- **Decision:** preserve reader/factors. The all-variable greedy scheduler is
+  closed; rerun the consumed boundary with internal variables observed but only
+  key variables externally decided.
+- **Artifacts:**
+  [`result`](O1C0045_CRITICALITY_LIVE_SEARCH_RESULT_20260718.md) and
+  [`capsule`](../runs/20260719_001005_O1C-0045_criticality-live-search-v1/RUN.md).

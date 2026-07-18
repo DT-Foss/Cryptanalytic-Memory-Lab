@@ -1,12 +1,12 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T23:42:33+02:00.
+Last ranked: 2026-07-19T00:10:05+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Inject O1C-0044's unchanged criticality factors as reversible live guidance into the existing exact Full-256 solver on consumed targets | State of the art | Extreme | Extreme | Medium | Tests whether prospective joint rank becomes less matched work, lower time-to-hit or smaller effective residual width |
-| 2 | Compare primary, key-rotated, clause-rotated and unguided under identical conflict/work budgets; retain the exact decoder and verifier | State of the art | Extreme | Extreme | Medium | Separates causal guidance from generic solver perturbation without another reader fit |
-| 3 | If direct first-decision injection is null, use the same frozen field as dynamic branch/polarity updates at proof-event boundaries | State of the art | High | Extreme | Medium | Changes adapter timing while preserving the prospectively supported evidence source |
+| 1 | Reuse O1C-0045 unchanged but let the external policy decide key variables only while observing all internal assignments | State of the art | Extreme | Extreme | Low | Tests whether generic internal-factor branching caused rotations to erase the primary rank advantage |
+| 2 | Compare primary, key-rotated, clause-rotated and internal at the same Full-256/residual-8/9 512-conflict boundary | State of the art | Extreme | Extreme | Low | A primary-specific gain authorizes one unchanged consumed repeat; another control win closes this scheduler |
+| 3 | If key-only still loses, preserve the exact score tables and use bounded best-first key prefixes or score-aware clause activation | State of the art | High | Extreme | Medium | Converts the global joint objective without another reader, field or fresh key |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 | 5 | Keep occurrence scoring, key-phase guidance and O1C-0023/25/29 over the closed unary field parked | Operational | High | High | Zero | Prevents scaling measured-null representations while retaining reusable adapters |
 
@@ -27,9 +27,13 @@ Last ranked: 2026-07-18T23:42:33+02:00.
 - **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.
-- **Next measurable advance:** the exact O1C-0044 factors reduce matched exact
-  search work, time-to-hit or effective residual width versus unguided and both
-  rotations. Exact 256 remains the terminal moonshot.
+- **Live completion frontier:** O1C-0045 compiles O1C-0044 exactly and expands the
+  consumed factor-family residual ceiling 8→9. Primary beats internal but not
+  rotations, so this is relational mechanism progress rather than a
+  primary-specific frontier result.
+- **Next measurable advance:** key-only conditional scheduling preserves a
+  residual-width or conflict gain specifically for primary over internal and
+  both rotations. Exact 256 remains the terminal moonshot.
 
 ## Effect-first stop rules
 
@@ -69,6 +73,10 @@ Last ranked: 2026-07-18T23:42:33+02:00.
 - O1C-0044 passes that fresh gate at `54/4097` versus rotations `3567/2972`.
   Stop rank-panel replication. Preserve the reader and test real exact-search
   consequence under matched work.
+- O1C-0045 preserves all scores but its all-variable scheduler lets generic
+  factor geometry dominate: primary/key/clause all close residual 9 while
+  internal stops at 8; rotations are faster. Do not spend a fresh target or refit.
+  Change only decision targets to key variables.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not

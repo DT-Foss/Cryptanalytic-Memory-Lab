@@ -940,3 +940,22 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   the proof step causal. Preserve those roles in the next joint factor.
 - **Artifact:**
   [`O1C-0042 result`](O1C0042_FRESH_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md).
+
+## B-0047 — Greedy all-variable marginals erase the primary rank advantage
+
+- **Evidence:** O1C-0045 compiles the O1C-0044 score exactly. Primary expands the
+  consumed post-reveal residual frontier from internal width 8 to 9, but key and
+  clause rotations also recover width 9 and need only 69/129 conflicts versus
+  primary 281. Full-256 remains unresolved for every arm.
+- **Conclusion:** the potential representation can improve completion, but
+  selecting the strongest local marginal across internal and key variables is
+  dominated by generic factor-graph geometry and is not the transferred reader's
+  target-specific search policy.
+- **Do not repeat:** raise conflicts, refit weights, alter the factor tables or
+  spend a fresh key on this all-variable scheduler.
+- **Breadcrumb:** keep all internal assignments observable for conditioning but
+  return external decisions only for key variables, leaving internal branching
+  to native CDCL. If controls still win, move the unchanged global score into
+  bounded best-first key prefixes rather than another marginal reader.
+- **Artifact:**
+  [`O1C-0045 result`](O1C0045_CRITICALITY_LIVE_SEARCH_RESULT_20260718.md).

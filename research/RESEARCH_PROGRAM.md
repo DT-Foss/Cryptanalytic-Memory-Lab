@@ -158,6 +158,16 @@ joint-rank transfer. Because every candidate still receives a full forward
 execution, the next scientific claim must be matched exact-search or residual
 reduction; another rank panel is not authorized.
 
+O1C-0045 performs the relational-completion conversion. The frozen reader expands
+into 836 local factors of at most four variables and reproduces all frozen scores
+within `1.25e-14`. Full-256 remains unresolved at 512 conflicts. On the explicit
+post-reveal ceiling, internal search closes residual 8 but not 9; primary closes
+9 in 281 conflicts. Key/clause rotations also close 9 in 69/129 conflicts. Thus
+the factor family improves exact completion geometry, a real sub-256 outcome,
+while the greedy all-variable marginal scheduler fails to retain primary-specific
+orientation. Reuse the identical consumed setup with key-only decisions before
+any new evidence source, reader fit or fresh target.
+
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
 untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches
@@ -363,8 +373,9 @@ evidence.
    fixed surprise arm loses to key rotation. Close this representation.
 5. O1C-0041 supplies consumed chain rank and O1C-0042 closes unique-leaf summation.
    O1C-0043 restores strong consumed rank through ordered parent criticality and
-   O1C-0044 confirms it freshly at rank 54/4097. Preserve the reader and test
-   equal-work live exact search before any new target or representation.
+   O1C-0044 confirms it freshly at rank 54/4097. O1C-0045 converts it losslessly;
+   the potential family expands residual 8→9 but rotations beat primary. Preserve
+   all score bytes and change only all-variable scheduling to key-only decisions.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.

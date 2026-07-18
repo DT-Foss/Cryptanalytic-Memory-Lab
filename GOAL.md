@@ -176,5 +176,16 @@ candidate executions were still scored. The active task is now to reuse the same
 criticality field inside the existing exact solver and demonstrate less matched
 search work or a smaller effective residual domain.
 
+O1C-0045 executes that conversion without refitting. Exact local truth tables
+reproduce all 4,097 frozen scores within `1.25e-14` and preserve primary rank
+`54/4097`. At 512 conflicts Full-256 remains unresolved. Under an explicit
+post-reveal prefix, internal search closes residual width 8 but not 9; primary
+closes width 9 in 281 conflicts. Key and clause rotations also close width 9 in
+69/129 conflicts, so the local potential family improves completion geometry but
+the all-variable greedy scheduler does not preserve the primary reader's
+target-specific margin. The active task changes only scheduling: observe every
+factor variable, externally decide key variables only, and rerun the identical
+consumed boundary before any fresh key or reader change.
+
 All writes stay inside this repository. Sibling projects remain read-only and no
 competing heavy job starts without a resource check.
