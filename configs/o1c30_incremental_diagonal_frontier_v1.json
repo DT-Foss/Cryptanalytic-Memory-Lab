@@ -121,5 +121,5 @@
     "metrics_sha256": "f6e31f64cbfefd9b8923a91efc3369dcd33c1df18970604ed55ad34a5d778dea",
     "result_sha256": "a8e5940edc5887e404725c98631df89e1f91963abd47d1fa51263fc681e9df4d"
   },
-  "source_freeze_commit": "4781fa6db6d1fce947504105ee5ecf6b2e4b5f86"
+  "source_freeze_commit": "e7c1bf551f2abf3c00a82c46d48b021452dfd417"
 }
