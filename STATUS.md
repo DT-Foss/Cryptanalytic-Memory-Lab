@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T04:52:53+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T05:00:24+02:00 (`Europe/Berlin`)
 - **Latest implementation freeze:** `O1C-0024` at
   `36133bc6e75349c2cd3999f60eee08f2cbeb903a` — exact global factorized
   all-256 top-K frontier, selected-member no-follow reveal lifecycle and
@@ -45,8 +45,8 @@
   started. O1C-0022 and O1C-0023 preflights are correctly
   `prerequisite-pending` and create no reservations. At the latest read-only host
   check, W52 had 8/8 running
-  workers, `222,401/16,777,216` cells (`1.325613%`), 24 related live processes,
-  no stop marker, 39% free memory, load/core `0.350635`, exact frozen sources and
+  workers, `239,867/16,777,216` cells (`1.429719%`), 24 related live processes,
+  no stop marker, 30% free memory, load/core `0.350635`, exact frozen sources and
   a clean lab tree. Consumed pools/seeds remain ineligible as fresh evidence
 - **Strongest completed mechanism attempt:** `O1C-0020` — independently reviewed
   `EXACT_256_LEARNED_GATE_RETENTION` on 4 unseen seeds x 3 stream lengths
@@ -556,7 +556,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Sibling W52/A539 (external, read-only) | 24 live process identities / 8 workers | 2026-07-17 | A528/A526 W52 production observed read-only | 222,401/16,777,216 pair cells (1.325613%); latest watcher free RAM 39%; O1C-0024 finished and no competing local science remains | unknown |
+| Sibling W52/A539 (external, read-only) | 24 live process identities / 8 workers | 2026-07-17 | A528/A526 W52 production observed read-only | 239,867/16,777,216 pair cells (1.429719%); latest watcher free RAM 30%; no competing local science | unknown |
 | O1C-0019 interlock | 67247 | 2026-07-17 18:39 | read-only 60 s poll, three-stable-poll release | preflight/lock/log verified; zero sibling writes; heavy gate not started | automatic after W52 and local gates clear |
 
 ## Highest-ROI next actions
