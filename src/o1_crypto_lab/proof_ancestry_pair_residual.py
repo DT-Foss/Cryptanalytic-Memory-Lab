@@ -109,10 +109,58 @@ class OffsetRidgeFit:
     regularization: float
     training_rows: int
 
+    def __post_init__(self) -> None:
+        weights = _frozen_float64(self.weights, shape=(FEATURE_WIDTH,))
+        regularization = float(self.regularization)
+        if not math.isfinite(regularization) or regularization < 0.0:
+            raise ProofAncestryPairResidualError(
+                "ridge regularization must be finite and nonnegative"
+            )
+        if (
+            isinstance(self.training_rows, bool)
+            or not isinstance(self.training_rows, int)
+            or self.training_rows < 1
+        ):
+            raise ProofAncestryPairResidualError(
+                "ridge training_rows must be a positive integer"
+            )
+        object.__setattr__(self, "weights", weights)
+        object.__setattr__(self, "regularization", regularization)
+
     def predict(self, features: np.ndarray) -> np.ndarray:
         matrix = _feature_matrix(features, "features")
         result = _finite_matmul(matrix, self.weights, "ridge prediction")
         return _frozen_float64(result)
+
+
+@dataclass(frozen=True)
+class FrozenInnerOOF:
+    """Three inner-held-out residual predictions frozen before alpha selection."""
+
+    raw_predictions: np.ndarray
+    regularizations: tuple[float, float, float]
+    ridge_fits: int
+
+    def __post_init__(self) -> None:
+        predictions = _frozen_float64(
+            self.raw_predictions,
+            shape=(3, KEY_TOUCH_FEATURES),
+        )
+        regularizations = tuple(float(value) for value in self.regularizations)
+        if len(regularizations) != 3 or any(
+            not math.isfinite(value) or value < 0.0 for value in regularizations
+        ):
+            raise ProofAncestryPairResidualError(
+                "inner regularizations must contain three finite nonnegative values"
+            )
+        if self.ridge_fits != 3:
+            raise ProofAncestryPairResidualError("inner ridge_fits must equal three")
+        object.__setattr__(self, "raw_predictions", predictions)
+        object.__setattr__(self, "regularizations", regularizations)
+
+    @property
+    def raw_prediction_bytes(self) -> bytes:
+        return self.raw_predictions.astype("<f8", copy=False).tobytes(order="C")
 
 
 @dataclass(frozen=True)
@@ -126,6 +174,40 @@ class FrozenOuterFoldPrediction:
     regularizations: tuple[float, float, float, float]
     ridge_fits: int
     alpha_bit_evaluations: int
+
+    def __post_init__(self) -> None:
+        weights = _frozen_float64(self.effective_weights, shape=(FEATURE_WIDTH,))
+        inner = _frozen_float64(
+            self.inner_raw_predictions,
+            shape=(3, KEY_TOUCH_FEATURES),
+        )
+        held = _frozen_float64(
+            self.held_out_logits,
+            shape=(KEY_TOUCH_FEATURES,),
+        )
+        alpha = float(self.alpha)
+        regularizations = tuple(float(value) for value in self.regularizations)
+        if alpha not in ALPHA_GRID:
+            raise ProofAncestryPairResidualError(
+                "outer alpha must be one exact frozen grid value"
+            )
+        if len(regularizations) != 4 or any(
+            not math.isfinite(value) or value < 0.0 for value in regularizations
+        ):
+            raise ProofAncestryPairResidualError(
+                "outer regularizations must contain four finite nonnegative values"
+            )
+        if self.ridge_fits != 4:
+            raise ProofAncestryPairResidualError("outer ridge_fits must equal four")
+        if self.alpha_bit_evaluations != len(ALPHA_GRID) * 3 * KEY_TOUCH_FEATURES:
+            raise ProofAncestryPairResidualError(
+                "outer alpha_bit_evaluations differs from the frozen grid"
+            )
+        object.__setattr__(self, "effective_weights", weights)
+        object.__setattr__(self, "inner_raw_predictions", inner)
+        object.__setattr__(self, "held_out_logits", held)
+        object.__setattr__(self, "alpha", alpha)
+        object.__setattr__(self, "regularizations", regularizations)
 
     @property
     def effective_weight_bytes(self) -> bytes:
@@ -611,7 +693,12 @@ def fit_offset_ridge(
     checked_labels = _labels(labels, row_count)
     checked_offsets = _vector(offsets, "offsets", row_count)
     residual = checked_labels - np.tanh(checked_offsets / 2.0)
-    regularization = float(np.sum(np.square(matrix), dtype=np.float64)) / FEATURE_WIDTH
+    with np.errstate(over="ignore", invalid="ignore"):
+        regularization = (
+            float(np.sum(np.square(matrix), dtype=np.float64)) / FEATURE_WIDTH
+        )
+    if not math.isfinite(regularization):
+        raise ProofAncestryPairResidualError("offset ridge feature scale is non-finite")
     if regularization == 0.0:
         return OffsetRidgeFit(
             weights=_frozen_float64(np.zeros(FEATURE_WIDTH, dtype=np.float64)),
@@ -664,25 +751,90 @@ def select_nonnegative_alpha(
     best_alpha = ALPHA_GRID[0]
     best_nll = math.inf
     for alpha in ALPHA_GRID:
-        signed_logits = checked_labels * (checked_offsets + alpha * raw)
+        with np.errstate(over="ignore", invalid="ignore"):
+            candidate_logits = checked_offsets + alpha * raw
+        if not np.all(np.isfinite(candidate_logits)):
+            raise ProofAncestryPairResidualError(
+                "alpha candidate logits are non-finite"
+            )
+        signed_logits = checked_labels * candidate_logits
         nll = float(
             np.sum(np.logaddexp(0.0, -signed_logits), dtype=np.float64) / math.log(2.0)
         )
+        if not math.isfinite(nll):
+            raise ProofAncestryPairResidualError("alpha candidate NLL is non-finite")
         if nll < best_nll:
             best_nll = nll
             best_alpha = alpha
     return best_alpha, len(ALPHA_GRID) * raw.size
 
 
-def fit_outer_fold(
+def fit_inner_oof(
+    training_features: Sequence[np.ndarray],
+    training_labels: Sequence[np.ndarray],
+    training_offsets: Sequence[np.ndarray],
+) -> FrozenInnerOOF:
+    """Generate the three OOF residual rows without selecting alpha."""
+
+    if not (
+        len(training_features) == len(training_labels) == len(training_offsets) == 3
+    ):
+        raise ProofAncestryPairResidualError(
+            "an outer fold requires exactly three training targets"
+        )
+    matrices = [
+        _feature_matrix(value, f"training_features[{index}]")
+        for index, value in enumerate(training_features)
+    ]
+    if any(matrix.shape[0] != KEY_TOUCH_FEATURES for matrix in matrices):
+        raise ProofAncestryPairResidualError(
+            "every training feature matrix must contain 256 coordinates"
+        )
+    labels = [_labels(value, KEY_TOUCH_FEATURES) for value in training_labels]
+    offsets = [
+        _vector(value, f"training_offsets[{index}]", KEY_TOUCH_FEATURES)
+        for index, value in enumerate(training_offsets)
+    ]
+
+    inner_predictions = np.empty((3, KEY_TOUCH_FEATURES), dtype=np.float64)
+    regularizations: list[float] = []
+    for inner_held_out in range(3):
+        training_indices = [index for index in range(3) if index != inner_held_out]
+        fit = fit_offset_ridge(
+            np.concatenate([matrices[index] for index in training_indices], axis=0),
+            np.concatenate([labels[index] for index in training_indices]),
+            np.concatenate([offsets[index] for index in training_indices]),
+        )
+        inner_predictions[inner_held_out] = _finite_matmul(
+            matrices[inner_held_out],
+            fit.weights,
+            "inner-held-out prediction",
+        )
+        regularizations.append(fit.regularization)
+
+    return FrozenInnerOOF(
+        raw_predictions=inner_predictions,
+        regularizations=(
+            regularizations[0],
+            regularizations[1],
+            regularizations[2],
+        ),
+        ridge_fits=3,
+    )
+
+
+def finish_outer_fold(
     training_features: Sequence[np.ndarray],
     training_labels: Sequence[np.ndarray],
     training_offsets: Sequence[np.ndarray],
     held_out_features: np.ndarray,
     held_out_offsets: np.ndarray,
+    frozen_inner: FrozenInnerOOF,
 ) -> FrozenOuterFoldPrediction:
-    """Generate three inner-held-out predictions and one truth-free outer logit."""
+    """Select alpha from a persisted inner freeze, then emit a truth-free fold."""
 
+    if not isinstance(frozen_inner, FrozenInnerOOF):
+        raise ProofAncestryPairResidualError("frozen_inner must be FrozenInnerOOF")
     if not (
         len(training_features) == len(training_labels) == len(training_offsets) == 3
     ):
@@ -713,24 +865,8 @@ def fit_outer_fold(
         KEY_TOUCH_FEATURES,
     )
 
-    inner_predictions = np.empty((3, KEY_TOUCH_FEATURES), dtype=np.float64)
-    regularizations: list[float] = []
-    for inner_held_out in range(3):
-        training_indices = [index for index in range(3) if index != inner_held_out]
-        fit = fit_offset_ridge(
-            np.concatenate([matrices[index] for index in training_indices], axis=0),
-            np.concatenate([labels[index] for index in training_indices]),
-            np.concatenate([offsets[index] for index in training_indices]),
-        )
-        inner_predictions[inner_held_out] = _finite_matmul(
-            matrices[inner_held_out],
-            fit.weights,
-            "inner-held-out prediction",
-        )
-        regularizations.append(fit.regularization)
-
     alpha, evaluations = select_nonnegative_alpha(
-        inner_predictions.reshape(-1),
+        frozen_inner.raw_predictions.reshape(-1),
         np.concatenate(labels),
         np.concatenate(offsets),
     )
@@ -739,7 +875,6 @@ def fit_outer_fold(
         np.concatenate(labels),
         np.concatenate(offsets),
     )
-    regularizations.append(outer_fit.regularization)
     raw_effective_weights = alpha * outer_fit.weights
     raw_effective_weights[raw_effective_weights == 0.0] = 0.0
     effective_weights = _frozen_float64(
@@ -758,19 +893,40 @@ def fit_outer_fold(
     return FrozenOuterFoldPrediction(
         effective_weights=effective_weights,
         alpha=alpha,
-        inner_raw_predictions=_frozen_float64(
-            inner_predictions,
-            shape=(3, KEY_TOUCH_FEATURES),
-        ),
+        inner_raw_predictions=frozen_inner.raw_predictions,
         held_out_logits=held_logits,
         regularizations=(
-            regularizations[0],
-            regularizations[1],
-            regularizations[2],
-            regularizations[3],
+            frozen_inner.regularizations[0],
+            frozen_inner.regularizations[1],
+            frozen_inner.regularizations[2],
+            outer_fit.regularization,
         ),
         ridge_fits=4,
         alpha_bit_evaluations=evaluations,
+    )
+
+
+def fit_outer_fold(
+    training_features: Sequence[np.ndarray],
+    training_labels: Sequence[np.ndarray],
+    training_offsets: Sequence[np.ndarray],
+    held_out_features: np.ndarray,
+    held_out_offsets: np.ndarray,
+) -> FrozenOuterFoldPrediction:
+    """Convenience wrapper; formal runs persist the inner result before finish."""
+
+    inner = fit_inner_oof(
+        training_features,
+        training_labels,
+        training_offsets,
+    )
+    return finish_outer_fold(
+        training_features,
+        training_labels,
+        training_offsets,
+        held_out_features,
+        held_out_offsets,
+        inner,
     )
 
 
@@ -910,6 +1066,7 @@ __all__ = [
     "DIAGNOSTIC_ABLATIONS",
     "EXPECTED_HORIZONS",
     "FEATURE_WIDTH",
+    "FrozenInnerOOF",
     "FrozenOuterFoldPrediction",
     "LEARNED_ARMS",
     "LIVE_STATE_BYTES",
@@ -930,6 +1087,8 @@ __all__ = [
     "WEIGHT_BYTES",
     "context_projection_table",
     "fit_offset_ridge",
+    "finish_outer_fold",
+    "fit_inner_oof",
     "fit_outer_fold",
     "iter_projected_rows",
     "pair_shuffle_sources",

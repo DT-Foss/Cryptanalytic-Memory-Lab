@@ -1,0 +1,95 @@
+{
+  "attempt_id": "O1C-0026",
+  "budgets": {
+    "expected_alpha_bit_evaluations": 4927488,
+    "expected_build_faps": 4,
+    "expected_diagnostic_bit_evaluations": 4096,
+    "expected_ridge_fits": 64,
+    "maximum_cpu_seconds": 180.0,
+    "maximum_development_faps_deserialized": 0,
+    "maximum_fresh_targets": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_live_state_bytes": 8192,
+    "maximum_mps_calls": 0,
+    "maximum_native_solver_branches": 0,
+    "maximum_persistent_artifact_bytes": 33554432,
+    "maximum_projection_scratch_bytes": 16384,
+    "maximum_resident_memory_mib": 512,
+    "maximum_scientific_entropy_calls": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_source_artifact_bytes_read": 67108864,
+    "maximum_wall_seconds": 240.0
+  },
+  "claim_level": "RETROSPECTIVE",
+  "controls": [
+    "O1C-0026 reserves only after the authoritative finalized O1C-0023 capsule selects proof_ancestry_pair_residual_v1 from the exact all-real-primary-null O1C-0022 reason surface.",
+    "The four exact already-consumed O1C-0018 BUILD FAPs are projected for primary, pair-shuffled, additive and common-mode arms before labels.bitpack is scientifically opened; DEVELOPMENT FAP deserializations remain zero.",
+    "Every outer fold uses same-reader O1C-0022 calibration offsets for its three cyclic training targets and the frozen held-out normalized-float K256 offset for its own target.",
+    "Three inner OOF predictions freeze before nonnegative alpha selection; alpha-folded weights and held-out logits freeze before the own-fold label is scored.",
+    "BUILD-LOO is represented honestly: a target label is training data in three other folds, but its own label never enters its fit and no disjoint evaluation or fresh-target claim follows.",
+    "Pair-identity-shuffled, additive-factorized and polarity-even common-mode arms receive identical dimensions, four-fold ridge work and alpha grids; four ablations reuse only the frozen primary weights.",
+    "A scientific null closes only fap_ancestry_touch_bilinear_proxy_v2, never parent R07 or the unobserved raw antecedent/signed-pair space.",
+    "No fresh target, solver branch, scientific entropy, sibling read/write, MPS or GPU work is permitted; the retained reader plus posterior is exactly 8192 bytes."
+  ],
+  "experiment": {
+    "ablation_material_bits": 0.25,
+    "alpha_bit_evaluations": 4927488,
+    "cross_fold_labels_are_training_data": true,
+    "diagnostic_ablations": [
+      "without_exact_conflict",
+      "without_motif",
+      "off_diagonal_only",
+      "self_only"
+    ],
+    "diagnostic_bit_evaluations": 4096,
+    "learned_arms": [
+      "primary",
+      "pair_identity_shuffled",
+      "additive_factorized_matched",
+      "polarity_even_common_mode"
+    ],
+    "offset_arm": "normalized_float_offset_only",
+    "own_fold_label_used_in_fit": false,
+    "projection_policy_sha256": "2e2c1e56d4a9db94a575337a74e6523fe300f05bc5a2b21228ecfd151f808a7f",
+    "proxy_operator_id": "fap_ancestry_touch_bilinear_proxy_v2",
+    "ridge_fits": 64,
+    "schema": "o1-256-proof-ancestry-pair-residual-experiment-v1",
+    "selected_parent_operator_id": "proof_ancestry_pair_residual_v1"
+  },
+  "hypothesis": "Portable full-round key orientation survives the unary O1C-0022 collapse in a bounded second-order interaction between assumed coordinates, proof-ancestry touch and proof context, and the fixed v2 projection can recover at least one mean code bit beyond the same-reader normalized-float offset while beating matched controls.",
+  "next_action": "If the proxy passes, preserve its all-BUILD deployment lineage and hand the resulting K256 logits to the frozen O1C-0025/O1C-0024 global frontier before spending one untouched target. If it is null, record only the exact proxy fingerprint and advance R07 to a raw signed-pair, antecedent-edge or exact-contradiction sensor.",
+  "prediction": "Across four consumed BUILD leave-one-out folds, the primary v2 residual is positive and improves the normalized-float offset in every fold, gains at least one mean bit, and beats pair-shuffled, additive and common-mode controls under exactly 64 ridge fits and 4,927,488 alpha-bit evaluations.",
+  "prerequisites": {
+    "o1c22": {
+      "attempt_id": "O1C-0022",
+      "config_path": "configs/o1c19_causal_vault_bridge_v1.json",
+      "config_sha256": "ea313fd6bb80384e4ef73e4a72f3705c79b2a98ad5a69552d043657b56f1a10d",
+      "source_selection": "decision-bound-authoritative-finalized"
+    },
+    "o1c23": {
+      "attempt_id": "O1C-0023",
+      "config_path": "configs/o1c22_postresult_composer_v1.json",
+      "config_sha256": "f218bfa343afb977149165b59d55d0e85f4c488b24ed0dd5e170c710d5990afb",
+      "required_operator_id": "proof_ancestry_pair_residual_v1",
+      "required_reason_field": "all_real_primary_k256_arms_nonpositive",
+      "source_freeze_commit": "aa17eed6740edfdba18aaad487c93be8afaf5935",
+      "source_selection": "reserved-finalized-attempt-only"
+    }
+  },
+  "schema": "o1-256-proof-ancestry-pair-residual-run-config-v1",
+  "slug": "proof-ancestry-pair-residual-v2",
+  "source": {
+    "local_source_sha256": {
+      "posterior_logit_module": "c262dc3157f22d0b03e932c2dcc3aac08ad27568d212e6d053d0bc176de55e1e",
+      "projection_module": "9cad10f4ad3471db371bb46e98f8b4da2a917673efa4e37b8ecca6783fe0b960",
+      "pyproject": "0248ec0fe7d42390b62e358fdd52f63d64f7d4e699f0f41ef77c569699716bd0",
+      "run_capsule_module": "13681939e0a5cd09d4f32c6d92c9a56894cfe8af90f07d5d4190c96b90a1b664",
+      "runner_module": "0e3ae438b9df8189a2042dc1a78db1a734350ebab64de2764e2ec4c773ff1ddf",
+      "source_config": "431a2bfd2a7a5a9c2e41f5bde5fc4e8c4cc9ec72d506473481e2c2a9ef5ab0ad"
+    },
+    "source_config_path": "configs/proof_ancestry_pair_residual_v2.json",
+    "source_config_sha256": "431a2bfd2a7a5a9c2e41f5bde5fc4e8c4cc9ec72d506473481e2c2a9ef5ab0ad",
+    "source_freeze_commit": "11258c0295e886b0f08dac5e494b37d11d20833f"
+  }
+}

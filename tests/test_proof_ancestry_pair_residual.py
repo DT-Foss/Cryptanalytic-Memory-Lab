@@ -19,6 +19,7 @@ from o1_crypto_lab.proof_ancestry_pair_residual import (
     CONTEXT_COLUMNS,
     EXPECTED_HORIZONS,
     FEATURE_WIDTH,
+    FrozenInnerOOF,
     LIVE_STATE_BYTES,
     OFF_DIAGONAL_ONLY_ABLATION,
     PAIR_SHUFFLE_ARM,
@@ -30,6 +31,8 @@ from o1_crypto_lab.proof_ancestry_pair_residual import (
     ProofAncestryPairResidualError,
     SELF_ONLY_ABLATION,
     WEIGHT_BYTES,
+    finish_outer_fold,
+    fit_inner_oof,
     fit_offset_ridge,
     fit_outer_fold,
     pair_shuffle_sources,
@@ -360,6 +363,72 @@ class RidgeAndStateTests(unittest.TestCase):
         self.assertEqual(logit, expected)
         self.assertEqual(state.posterior()[11], expected)
         self.assertFalse(state.effective_weights.flags.writeable)
+
+    def test_inner_freeze_then_finish_is_exactly_wrapper_equivalent(self) -> None:
+        matrices: list[np.ndarray] = []
+        labels: list[np.ndarray] = []
+        offsets: list[np.ndarray] = []
+        for target in range(3):
+            matrix = np.zeros((256, FEATURE_WIDTH), dtype=np.float64)
+            matrix[:, target] = np.linspace(-1.0, 1.0, 256)
+            matrices.append(matrix)
+            labels.append(
+                np.where(np.arange(256) % 2 == target % 2, 1.0, -1.0).astype(np.float64)
+            )
+            offsets.append(np.full(256, target * 0.1, dtype=np.float64))
+        held = np.zeros((256, FEATURE_WIDTH), dtype=np.float64)
+        held[:, :3] = 0.25
+        held_offsets = np.linspace(-0.2, 0.2, 256, dtype=np.float64)
+        inner = fit_inner_oof(matrices, labels, offsets)
+        self.assertIsInstance(inner, FrozenInnerOOF)
+        self.assertEqual(len(inner.raw_prediction_bytes), 3 * 256 * 8)
+        reloaded = FrozenInnerOOF(
+            np.frombuffer(inner.raw_prediction_bytes, dtype="<f8")
+            .reshape(3, 256)
+            .copy(),
+            inner.regularizations,
+            inner.ridge_fits,
+        )
+        split = finish_outer_fold(
+            matrices,
+            labels,
+            offsets,
+            held,
+            held_offsets,
+            reloaded,
+        )
+        wrapped = fit_outer_fold(
+            matrices,
+            labels,
+            offsets,
+            held,
+            held_offsets,
+        )
+        self.assertEqual(split.effective_weight_bytes, wrapped.effective_weight_bytes)
+        self.assertEqual(split.alpha, wrapped.alpha)
+        self.assertEqual(
+            split.held_out_logits.tobytes(), wrapped.held_out_logits.tobytes()
+        )
+
+    def test_nonfinite_scale_or_alpha_candidate_is_operational_failure(self) -> None:
+        matrix = np.zeros((1, FEATURE_WIDTH), dtype=np.float64)
+        matrix[0, 0] = np.finfo(np.float64).max
+        with self.assertRaisesRegex(
+            ProofAncestryPairResidualError, "feature scale is non-finite"
+        ):
+            fit_offset_ridge(
+                matrix,
+                np.ones(1, dtype=np.float64),
+                np.zeros(1, dtype=np.float64),
+            )
+        with self.assertRaisesRegex(
+            ProofAncestryPairResidualError, "candidate logits are non-finite"
+        ):
+            select_nonnegative_alpha(
+                np.full(1, np.finfo(np.float64).max, dtype=np.float64),
+                np.ones(1, dtype=np.float64),
+                np.zeros(1, dtype=np.float64),
+            )
 
 
 class SelectionGateTests(unittest.TestCase):
