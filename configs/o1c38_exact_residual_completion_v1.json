@@ -1,0 +1,43 @@
+{
+  "schema": "o1-256-exact-residual-completion-config-v1",
+  "attempt_id": "O1C-0038",
+  "slug": "exact-residual-completion-v1",
+  "claim_level": "POST_REVEAL_CEILING",
+  "hypothesis": "The unchanged exact full-round ChaCha20 relation can close a nonzero O1-confidence-ordered residual domain once every supplied key decision is correct.",
+  "prediction": "At a 512-conflict limit the exact adapter will recover through at least eight unguided bits, while nine unguided bits will remain unresolved through 32768 conflicts on the consumed target.",
+  "source_o1c37_result": "research/O1C0037_RELATIONAL_GUIDED_SEARCH_RESULT_20260718.json",
+  "target": {
+    "target_id": "build-0000",
+    "source_pool_sidecar": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/build-0000.json",
+    "source_result": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/full256_online_real_gate.json",
+    "labels": "runs/20260718_190629_O1C-0022_o1c19-causal-vault-build-loo-v1/artifacts/labels.bitpack",
+    "fold_predictions": "runs/20260718_190629_O1C-0022_o1c19-causal-vault-build-loo-v1/artifacts/folds/build-0000/heldout/calibrated_predictions.f64le",
+    "fold_prediction_freeze": "runs/20260718_190629_O1C-0022_o1c19-causal-vault-build-loo-v1/artifacts/folds/build-0000/heldout/prediction_freeze.json",
+    "width_index": 3,
+    "o1_arm_index": 2
+  },
+  "exact_relation": {
+    "template": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.cnf",
+    "semantic_map": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.map.json",
+    "native_source": "native/cadical_o1_guided_search.cpp"
+  },
+  "sweep": {
+    "base_conflict_limit": 512,
+    "residual_bits_at_base": [0, 1, 2, 4, 8, 9, 16],
+    "residual_nine_extra_conflict_limits": [2048, 8192, 32768],
+    "expected_recovered_at_base": [0, 1, 2, 4, 8],
+    "expected_unresolved_at_base": [9, 16]
+  },
+  "budgets": {
+    "maximum_wall_seconds": 120,
+    "maximum_native_solver_calls": 10,
+    "maximum_conflicts": 46592,
+    "maximum_peak_rss_bytes": 536870912,
+    "maximum_fresh_targets": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0
+  },
+  "next_action": "Use the measured exact residual frontier as a ceiling target for attacker-valid target-specific relation/proof-factor guidance; do not mistake oracle-correct prefixes for recovered key bits."
+}
