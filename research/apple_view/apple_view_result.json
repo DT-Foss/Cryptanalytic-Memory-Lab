@@ -1,0 +1,687 @@
+{
+  "config": {
+    "coordinate_steps": 6,
+    "coordinate_targets": 6,
+    "projection_starts": 4,
+    "projection_steps": 24,
+    "seed": "apple-view-full256-v1-20260719",
+    "targets": 32
+  },
+  "constraints": {
+    "gpu_or_mps_used": false,
+    "public_target": "counter + 96-bit nonce + one 512-bit output block",
+    "rounds": 20,
+    "sealed_targets_used": false,
+    "secret_key_access": "measurement harness only; absent from search interfaces",
+    "sibling_repositories_written": false,
+    "standard": "RFC 8439 ChaCha20 block",
+    "target_source": "deterministically generated build data",
+    "unknown_key_bits_seen_by_search": 256
+  },
+  "decision": "stop the fixed-point/local-fitness direction at 20 rounds: no gated holdout signal or exact recovery; this bounded negative result does not establish impossibility",
+  "hypothesis": "H-Apple-1 feed-forward fixed-point attraction",
+  "local_one_bit_landscape": {
+    "all": {
+      "auc_for_wrong_bit": {
+        "ci95_high": 0.513219260725978,
+        "ci95_low": 0.4864784480328224,
+        "mean": 0.49984885437940024,
+        "mean_minus_null": -0.00015114562059975745,
+        "null": 0.5
+      },
+      "base_wrong_bit_fraction": {
+        "ci95_high": 0.5016041155076665,
+        "ci95_low": 0.4808177594923335,
+        "mean": 0.4912109375,
+        "mean_minus_null": -0.0087890625,
+        "null": 0.5
+      },
+      "bits_scored": 8192,
+      "direction_accuracy_ties_half": {
+        "ci95_high": 0.5101468762834515,
+        "ci95_low": 0.48802206902904854,
+        "mean": 0.49908447265625,
+        "mean_minus_null": -0.00091552734375,
+        "null": 0.5
+      },
+      "empirical_mutual_information_label_vs_fitness_sign_bits": 0.00017367278203645189,
+      "fitness_tie_fraction": {
+        "ci95_high": 0.029176906804965853,
+        "ci95_low": 0.019895358820034147,
+        "mean": 0.0245361328125
+      },
+      "observations": 32,
+      "pooled_contingency": {
+        "label_0_sign_-1": 2048,
+        "label_0_sign_0": 112,
+        "label_0_sign_1": 2008,
+        "label_1_sign_-1": 1995,
+        "label_1_sign_0": 89,
+        "label_1_sign_1": 1940
+      },
+      "top1_wrong_bit_fraction": {
+        "ci95_high": 0.5454240441918619,
+        "ci95_low": 0.20457595580813817,
+        "mean": 0.375,
+        "mean_minus_null": -0.125,
+        "null": 0.5
+      },
+      "top32_wrong_bit_fraction": {
+        "ci95_high": 0.5212122146906242,
+        "ci95_low": 0.4436315353093758,
+        "mean": 0.482421875,
+        "mean_minus_null": -0.017578125,
+        "null": 0.5
+      },
+      "top8_wrong_bit_fraction": {
+        "ci95_high": 0.56125,
+        "ci95_low": 0.43875000000000003,
+        "mean": 0.5,
+        "mean_minus_null": 0.0,
+        "null": 0.5
+      }
+    },
+    "holdout": {
+      "auc_for_wrong_bit": {
+        "ci95_high": 0.5241358783311557,
+        "ci95_low": 0.48730908680865237,
+        "mean": 0.505722482569904,
+        "mean_minus_null": 0.005722482569904042,
+        "null": 0.5
+      },
+      "base_wrong_bit_fraction": {
+        "ci95_high": 0.5015800315079328,
+        "ci95_low": 0.47449418724206716,
+        "mean": 0.488037109375,
+        "mean_minus_null": -0.011962890625,
+        "null": 0.5
+      },
+      "bits_scored": 4096,
+      "direction_accuracy_ties_half": {
+        "ci95_high": 0.5159433065275456,
+        "ci95_low": 0.4811270059724544,
+        "mean": 0.49853515625,
+        "mean_minus_null": -0.00146484375,
+        "null": 0.5
+      },
+      "empirical_mutual_information_label_vs_fitness_sign_bits": 0.0004338011716863453,
+      "fitness_tie_fraction": {
+        "ci95_high": 0.031508332947834256,
+        "ci95_low": 0.020249479552165748,
+        "mean": 0.02587890625
+      },
+      "observations": 16,
+      "pooled_contingency": {
+        "label_0_sign_-1": 1149,
+        "label_0_sign_0": 62,
+        "label_0_sign_1": 886,
+        "label_1_sign_-1": 1115,
+        "label_1_sign_0": 44,
+        "label_1_sign_1": 840
+      },
+      "top1_wrong_bit_fraction": {
+        "ci95_high": 0.46913466179497937,
+        "ci95_low": 0.03086533820502063,
+        "mean": 0.25,
+        "mean_minus_null": -0.25,
+        "null": 0.5
+      },
+      "top32_wrong_bit_fraction": {
+        "ci95_high": 0.5449622048705465,
+        "ci95_low": 0.4276940451294535,
+        "mean": 0.486328125,
+        "mean_minus_null": -0.013671875,
+        "null": 0.5
+      },
+      "top8_wrong_bit_fraction": {
+        "ci95_high": 0.5741774336753885,
+        "ci95_low": 0.42582256632461146,
+        "mean": 0.5,
+        "mean_minus_null": 0.0,
+        "null": 0.5
+      }
+    },
+    "train": {
+      "auc_for_wrong_bit": {
+        "ci95_high": 0.5135247150337141,
+        "ci95_low": 0.4744257373440787,
+        "mean": 0.4939752261888964,
+        "mean_minus_null": -0.006024773811103612,
+        "null": 0.5
+      },
+      "base_wrong_bit_fraction": {
+        "ci95_high": 0.5104441758485452,
+        "ci95_low": 0.47832535540145477,
+        "mean": 0.494384765625,
+        "mean_minus_null": -0.005615234375,
+        "null": 0.5
+      },
+      "bits_scored": 4096,
+      "direction_accuracy_ties_half": {
+        "ci95_high": 0.5138684560255193,
+        "ci95_low": 0.4853991220994806,
+        "mean": 0.4996337890625,
+        "mean_minus_null": -0.0003662109375,
+        "null": 0.5
+      },
+      "empirical_mutual_information_label_vs_fitness_sign_bits": 2.94842507098913e-05,
+      "fitness_tie_fraction": {
+        "ci95_high": 0.030703666809670366,
+        "ci95_low": 0.015683051940329634,
+        "mean": 0.023193359375
+      },
+      "observations": 16,
+      "pooled_contingency": {
+        "label_0_sign_-1": 899,
+        "label_0_sign_0": 50,
+        "label_0_sign_1": 1122,
+        "label_1_sign_-1": 880,
+        "label_1_sign_0": 45,
+        "label_1_sign_1": 1100
+      },
+      "top1_wrong_bit_fraction": {
+        "ci95_high": 0.753034911952218,
+        "ci95_low": 0.24696508804778206,
+        "mean": 0.5,
+        "mean_minus_null": 0.0,
+        "null": 0.5
+      },
+      "top32_wrong_bit_fraction": {
+        "ci95_high": 0.5311807570093028,
+        "ci95_low": 0.4258504929906972,
+        "mean": 0.478515625,
+        "mean_minus_null": -0.021484375,
+        "null": 0.5
+      },
+      "top8_wrong_bit_fraction": {
+        "ci95_high": 0.6000208311636465,
+        "ci95_low": 0.39997916883635354,
+        "mean": 0.5,
+        "mean_minus_null": 0.0,
+        "null": 0.5
+      }
+    }
+  },
+  "predeclared_continuation_gates": {
+    "landscape": "holdout mean AUC >= 0.53 and 95% CI excludes 0.5",
+    "landscape_passed": false,
+    "projection": "holdout mean improvement >= 2 key bits and 95% CI excludes 0",
+    "projection_passed": false
+  },
+  "projection_diagnostic": {
+    "all": {
+      "observations": 128,
+      "public_selector_advantage_over_uniform_choice_bits": {
+        "ci95_high": 1.529776350237979,
+        "ci95_low": -0.4985263502379791,
+        "mean": 0.515625,
+        "mean_minus_null": 0.515625,
+        "null": 0.0,
+        "observations": 128,
+        "target_clusters": 32
+      },
+      "public_selector_exact_secret_keys": 0,
+      "start_key_distance_bits": {
+        "ci95_high": 129.7707651816393,
+        "ci95_low": 126.91673481836071,
+        "mean": 128.34375,
+        "mean_minus_null": 0.34375,
+        "null": 128.0,
+        "observations": 128,
+        "target_clusters": 32
+      },
+      "target_clusters": 32,
+      "variants": {
+        "even_bits": {
+          "distance_improvement_bits": {
+            "ci95_high": 2.1935851002012066,
+            "ci95_low": -0.9904601002012066,
+            "mean": 0.6015625,
+            "mean_minus_null": 0.6015625,
+            "null": 0.0,
+            "observations": 128,
+            "target_clusters": 32
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 129.1616749262569,
+            "ci95_low": 126.3227000737431,
+            "mean": 127.7421875,
+            "mean_minus_null": -0.2578125,
+            "null": 128.0,
+            "observations": 128,
+            "target_clusters": 32
+          }
+        },
+        "full": {
+          "distance_improvement_bits": {
+            "ci95_high": 2.8806263022246874,
+            "ci95_low": -1.1931263022246874,
+            "mean": 0.84375,
+            "mean_minus_null": 0.84375,
+            "null": 0.0,
+            "observations": 128,
+            "target_clusters": 32
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 129.06087709265884,
+            "ci95_low": 125.93912290734117,
+            "mean": 127.5,
+            "mean_minus_null": -0.5,
+            "null": 128.0,
+            "observations": 128,
+            "target_clusters": 32
+          }
+        },
+        "high16_each_word": {
+          "distance_improvement_bits": {
+            "ci95_high": 2.5997786515236934,
+            "ci95_low": -0.5997786515236936,
+            "mean": 1.0,
+            "mean_minus_null": 1.0,
+            "null": 0.0,
+            "observations": 128,
+            "target_clusters": 32
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 128.89119500332208,
+            "ci95_low": 125.79630499667793,
+            "mean": 127.34375,
+            "mean_minus_null": -0.65625,
+            "null": 128.0,
+            "observations": 128,
+            "target_clusters": 32
+          }
+        },
+        "low16_each_word": {
+          "distance_improvement_bits": {
+            "ci95_high": 1.4742117734734121,
+            "ci95_low": -1.7867117734734121,
+            "mean": -0.15625,
+            "mean_minus_null": -0.15625,
+            "null": 0.0,
+            "observations": 128,
+            "target_clusters": 32
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 130.27396613461875,
+            "ci95_low": 126.72603386538125,
+            "mean": 128.5,
+            "mean_minus_null": 0.5,
+            "null": 128.0,
+            "observations": 128,
+            "target_clusters": 32
+          }
+        },
+        "odd_bits": {
+          "distance_improvement_bits": {
+            "ci95_high": 1.4921221744523032,
+            "ci95_low": -1.0077471744523032,
+            "mean": 0.2421875,
+            "mean_minus_null": 0.2421875,
+            "null": 0.0,
+            "observations": 128,
+            "target_clusters": 32
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 129.65261783527976,
+            "ci95_low": 126.55050716472024,
+            "mean": 128.1015625,
+            "mean_minus_null": 0.1015625,
+            "null": 128.0,
+            "observations": 128,
+            "target_clusters": 32
+          }
+        }
+      }
+    },
+    "holdout": {
+      "observations": 64,
+      "public_selector_advantage_over_uniform_choice_bits": {
+        "ci95_high": 1.2762065587656497,
+        "ci95_low": -1.7918315587656497,
+        "mean": -0.2578125,
+        "mean_minus_null": -0.2578125,
+        "null": 0.0,
+        "observations": 64,
+        "target_clusters": 16
+      },
+      "public_selector_exact_secret_keys": 0,
+      "start_key_distance_bits": {
+        "ci95_high": 130.13411967745498,
+        "ci95_low": 125.45963032254501,
+        "mean": 127.796875,
+        "mean_minus_null": -0.203125,
+        "null": 128.0,
+        "observations": 64,
+        "target_clusters": 16
+      },
+      "target_clusters": 16,
+      "variants": {
+        "even_bits": {
+          "distance_improvement_bits": {
+            "ci95_high": 2.6739377691133015,
+            "ci95_low": -2.5176877691133015,
+            "mean": 0.078125,
+            "mean_minus_null": 0.078125,
+            "null": 0.0,
+            "observations": 64,
+            "target_clusters": 16
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 130.06524594697427,
+            "ci95_low": 125.37225405302573,
+            "mean": 127.71875,
+            "mean_minus_null": -0.28125,
+            "null": 128.0,
+            "observations": 64,
+            "target_clusters": 16
+          }
+        },
+        "full": {
+          "distance_improvement_bits": {
+            "ci95_high": 2.8768216456345574,
+            "ci95_low": -3.8455716456345574,
+            "mean": -0.484375,
+            "mean_minus_null": -0.484375,
+            "null": 0.0,
+            "observations": 64,
+            "target_clusters": 16
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 130.869017196349,
+            "ci95_low": 125.693482803651,
+            "mean": 128.28125,
+            "mean_minus_null": 0.28125,
+            "null": 128.0,
+            "observations": 64,
+            "target_clusters": 16
+          }
+        },
+        "high16_each_word": {
+          "distance_improvement_bits": {
+            "ci95_high": 2.6053179461193468,
+            "ci95_low": -1.7615679461193468,
+            "mean": 0.421875,
+            "mean_minus_null": 0.421875,
+            "null": 0.0,
+            "observations": 64,
+            "target_clusters": 16
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 129.86188074368943,
+            "ci95_low": 124.88811925631056,
+            "mean": 127.375,
+            "mean_minus_null": -0.625,
+            "null": 128.0,
+            "observations": 64,
+            "target_clusters": 16
+          }
+        },
+        "low16_each_word": {
+          "distance_improvement_bits": {
+            "ci95_high": 1.7464242599057775,
+            "ci95_low": -3.5589242599057775,
+            "mean": -0.90625,
+            "mean_minus_null": -0.90625,
+            "null": 0.0,
+            "observations": 64,
+            "target_clusters": 16
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 131.24893270070294,
+            "ci95_low": 126.15731729929708,
+            "mean": 128.703125,
+            "mean_minus_null": 0.703125,
+            "null": 128.0,
+            "observations": 64,
+            "target_clusters": 16
+          }
+        },
+        "odd_bits": {
+          "distance_improvement_bits": {
+            "ci95_high": 1.3355253993734295,
+            "ci95_low": -2.4605253993734295,
+            "mean": -0.5625,
+            "mean_minus_null": -0.5625,
+            "null": 0.0,
+            "observations": 64,
+            "target_clusters": 16
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 130.74606936123655,
+            "ci95_low": 125.97268063876345,
+            "mean": 128.359375,
+            "mean_minus_null": 0.359375,
+            "null": 128.0,
+            "observations": 64,
+            "target_clusters": 16
+          }
+        }
+      }
+    },
+    "train": {
+      "observations": 64,
+      "public_selector_advantage_over_uniform_choice_bits": {
+        "ci95_high": 2.550617981567464,
+        "ci95_low": 0.02750701843253589,
+        "mean": 1.2890625,
+        "mean_minus_null": 1.2890625,
+        "null": 0.0,
+        "observations": 64,
+        "target_clusters": 16
+      },
+      "public_selector_exact_secret_keys": 0,
+      "start_key_distance_bits": {
+        "ci95_high": 130.56427494566518,
+        "ci95_low": 127.21697505433484,
+        "mean": 128.890625,
+        "mean_minus_null": 0.890625,
+        "null": 128.0,
+        "observations": 64,
+        "target_clusters": 16
+      },
+      "target_clusters": 16,
+      "variants": {
+        "even_bits": {
+          "distance_improvement_bits": {
+            "ci95_high": 3.021707234481203,
+            "ci95_low": -0.771707234481203,
+            "mean": 1.125,
+            "mean_minus_null": 1.125,
+            "null": 0.0,
+            "observations": 64,
+            "target_clusters": 16
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 129.44553954860805,
+            "ci95_low": 126.08571045139195,
+            "mean": 127.765625,
+            "mean_minus_null": -0.234375,
+            "null": 128.0,
+            "observations": 64,
+            "target_clusters": 16
+          }
+        },
+        "full": {
+          "distance_improvement_bits": {
+            "ci95_high": 4.396172214618211,
+            "ci95_low": -0.05242221461821117,
+            "mean": 2.171875,
+            "mean_minus_null": 2.171875,
+            "null": 0.0,
+            "observations": 64,
+            "target_clusters": 16
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 128.46832849090384,
+            "ci95_low": 124.96917150909617,
+            "mean": 126.71875,
+            "mean_minus_null": -1.28125,
+            "null": 128.0,
+            "observations": 64,
+            "target_clusters": 16
+          }
+        },
+        "high16_each_word": {
+          "distance_improvement_bits": {
+            "ci95_high": 3.952948452867953,
+            "ci95_low": -0.796698452867953,
+            "mean": 1.578125,
+            "mean_minus_null": 1.578125,
+            "null": 0.0,
+            "observations": 64,
+            "target_clusters": 16
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 129.2392968886211,
+            "ci95_low": 125.38570311137889,
+            "mean": 127.3125,
+            "mean_minus_null": -0.6875,
+            "null": 128.0,
+            "observations": 64,
+            "target_clusters": 16
+          }
+        },
+        "low16_each_word": {
+          "distance_improvement_bits": {
+            "ci95_high": 2.507718581029131,
+            "ci95_low": -1.3202185810291314,
+            "mean": 0.59375,
+            "mean_minus_null": 0.59375,
+            "null": 0.0,
+            "observations": 64,
+            "target_clusters": 16
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 130.84739393718874,
+            "ci95_low": 125.74635606281127,
+            "mean": 128.296875,
+            "mean_minus_null": 0.296875,
+            "null": 128.0,
+            "observations": 64,
+            "target_clusters": 16
+          }
+        },
+        "odd_bits": {
+          "distance_improvement_bits": {
+            "ci95_high": 2.6354241857745544,
+            "ci95_low": -0.5416741857745544,
+            "mean": 1.046875,
+            "mean_minus_null": 1.046875,
+            "null": 0.0,
+            "observations": 64,
+            "target_clusters": 16
+          },
+          "exact_secret_keys": 0,
+          "key_distance_bits": {
+            "ci95_high": 129.89643236603555,
+            "ci95_low": 125.79106763396445,
+            "mean": 127.84375,
+            "mean_minus_null": -0.15625,
+            "null": 128.0,
+            "observations": 64,
+            "target_clusters": 16
+          }
+        }
+      }
+    }
+  },
+  "public_only_searches": {
+    "coordinate_greedy": {
+      "budgeted_steps_per_trial": 6,
+      "exact_block_matches": 0,
+      "exact_keys_verified": 0,
+      "executed_steps": 15,
+      "key_distance_change_bits": {
+        "ci95_high": 1.48,
+        "ci95_low": -0.48,
+        "mean": 0.5,
+        "mean_minus_null": 0.5,
+        "null": 0.0
+      },
+      "output_mismatch_bits": {
+        "ci95_high": 224.20419528560146,
+        "ci95_low": 220.46247138106523,
+        "mean": 222.33333333333334
+      },
+      "output_mismatch_reduction_bits": {
+        "ci95_high": 39.239247817913096,
+        "ci95_low": 26.760752182086904,
+        "mean": 33.0,
+        "mean_minus_null": 33.0,
+        "null": 0.0
+      },
+      "trials": 6
+    },
+    "projection_chain": {
+      "best_key_distance_bits": {
+        "ci95_high": 129.77916346517728,
+        "ci95_low": 127.79896153482274,
+        "mean": 128.7890625,
+        "mean_minus_null": 0.7890625,
+        "null": 128.0,
+        "observations": 128,
+        "target_clusters": 32
+      },
+      "best_output_mismatch_bits": {
+        "ci95_high": 234.63697296711567,
+        "ci95_low": 232.80052703288433,
+        "mean": 233.71875,
+        "observations": 128,
+        "target_clusters": 32
+      },
+      "budgeted_steps_per_trial": 24,
+      "exact_block_matches": 0,
+      "exact_keys_verified": 0,
+      "executed_steps": 3072,
+      "output_mismatch_reduction_bits": {
+        "ci95_high": 26.116923145457825,
+        "ci95_low": 21.695576854542175,
+        "mean": 23.90625,
+        "mean_minus_null": 23.90625,
+        "null": 0.0,
+        "observations": 128,
+        "target_clusters": 32
+      },
+      "trials": 128
+    }
+  },
+  "resources": {
+    "core_permutation_evaluations_per_wall_second": 2014.5559091609348,
+    "cpu_seconds": 10.425080000000001,
+    "lean_block_evaluations": 17875,
+    "lean_permutation_evaluations": 21075,
+    "lean_permutation_only_evaluations": 3200,
+    "major_page_faults_delta": 4,
+    "minor_page_faults_delta": 1096,
+    "pid": 39290,
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "process_max_rss_bytes": 43433984,
+    "project_helper_block_evaluations": 33,
+    "python": "3.13.1",
+    "python_tracemalloc_current_bytes": 6416423,
+    "python_tracemalloc_peak_bytes": 6420387,
+    "total_chacha20_core_permutation_evaluations": 21108,
+    "wall_seconds": 10.477743458999612
+  },
+  "schema": "apple-view-full256-projection-result-v1",
+  "validation": {
+    "exact_recovery_definition": "candidate equals generated 256-bit secret and both standard block implementations reproduce all 512 output bits",
+    "lean_rfc8439_vector": true,
+    "project_helper_cross_checks": 33
+  }
+}
