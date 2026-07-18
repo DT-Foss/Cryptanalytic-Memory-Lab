@@ -1,0 +1,53 @@
+{
+    "schema": "o1-256-logit-frontier-handoff-config-v1",
+    "attempt_id": "O1C-0025",
+    "slug": "logit-native-global-frontier-handoff-v1",
+    "claim_level": "INSTRUMENT",
+    "hypothesis": "A frozen full-256 log-odds field can enter the exact O1C-0024 global frontier without a sigmoid materialization, preserving posterior order even when binary64 probabilities would round to zero or one, while a hash-bound certificate keeps the handoff truth-free.",
+    "prediction": "The logit-native frontier will exactly match O1C-0024 on a fixed moderate, well-resolved binary64 discriminator where sigmoid roundtrips preserve MAP signs and penalty order, retain the native exact-logit order when probability materialization rounds away information, remain finite and globally ordered for logits of magnitude at least 1000, recover a constructed standard 20-round ChaCha20 key at its declared rank through public verification, and extract the exact K256 quantized_int8_vault slice from an O1C-0022 prediction payload without reading labels.",
+    "controls": [
+        "a fixed moderate well-resolved logit panel is decoded independently through the existing probability-native O1C-0024 path and must produce identical ranked keys/topology with displayed scores equal to 1e-12",
+        "adjacent binary64 logits whose probability-space penalties collide must retain their exact natural-logit posterior order",
+        "extreme positive and negative logits exercise the binary64 sigmoid-saturation boundary without materializing zero or one probabilities",
+        "equal-penalty ties retain O1C-0024's deterministic topology ordering",
+        "the exact O1C-0022 float64 little-endian [4,7,256] payload is selected only at K256 and quantized_int8_vault",
+        "the freeze certificate cryptographically cross-verifies the supplied capsule manifest, artifact index, O1C-0022 prediction freeze, upstream O1C-0019 prediction freeze, selected bytes and public target before committing candidate limit and zero truth/label reads",
+        "the verified lifecycle must bind fold, target ID, action pool and upstream public-view digest to the supplied public ChaCha20 target",
+        "candidate generation receives no true key, reveal, label bitpack, evaluation score or target trace",
+        "zero fresh targets, solver branches, sibling reads or writes, entropy, MPS and GPU"
+    ],
+    "budgets": {
+        "maximum_source_artifact_bytes": 57344,
+        "selected_logit_bytes": 2048,
+        "unknown_key_bits": 256,
+        "maximum_scientific_entropy_calls": 0,
+        "maximum_native_solver_branches": 0,
+        "maximum_sibling_reads": 0,
+        "maximum_sibling_writes": 0,
+        "maximum_mps_calls": 0,
+        "maximum_gpu_calls": 0
+    },
+    "experiment": {
+        "upstream_attempt_id": "O1C-0022",
+        "upstream_prediction_schema": "o1-256-o1c22-heldout-prediction-freeze-v1",
+        "source_shape": [4, 7, 256],
+        "active_coordinate_widths": [12, 52, 128, 256],
+        "prediction_arms": [
+            "raw_float_delta_sum",
+            "normalized_float_delta_sum",
+            "quantized_int8_vault",
+            "last_horizon_only",
+            "unit_sign_sum",
+            "coordinate_shuffled_vault",
+            "zero_prior"
+        ],
+        "selected_width": 256,
+        "selected_arm": "quantized_int8_vault",
+        "coordinate_order": "RFC-little-bit-within-byte",
+        "logit_semantics": "natural-log-p-bit-1-over-p-bit-0",
+        "candidate_limit": 65536,
+        "decoder_attempt_id": "O1C-0024",
+        "decoder_source_commit": "36133bc6e75349c2cd3999f60eee08f2cbeb903a"
+    },
+    "next_action": "Keep this handoff and O1C-0024 fixed. If O1C-0022 yields a positive frozen K256 posterior, decode and publicly verify it without reveal; if every real float arm is null, do not manufacture a posterior and execute the O1C-0023-selected proof_ancestry_pair_residual_v1 operator on consumed BUILD data instead."
+}
