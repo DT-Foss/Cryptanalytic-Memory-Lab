@@ -191,6 +191,7 @@ class O1C22PolyphaseBridgeRunTests(unittest.TestCase):
 
     def test_source_hashes_bind_both_legacy_and_v2_state_implementations(self) -> None:
         hashes = _source_hashes(ROOT, CONFIG)
+        self.assertIn("module_o1c19_causal_vault_bridge", hashes)
         self.assertIn("module_polyphase_sufficient_state", hashes)
         self.assertIn("module_polyphase_sufficient_state_v2", hashes)
         self.assertIn("module_o1c22_packet_codec", hashes)

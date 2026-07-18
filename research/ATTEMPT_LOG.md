@@ -1383,3 +1383,37 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   only finalized O1C-0019/O1C-0022 may later supply efficacy-bearing packets.
 - **Artifact:**
   [`capsule`](../runs/20260718_090248_O1C-0027_polyphase-sufficient-state-full256-v1/RUN.md).
+
+## 2026-07-18 — O1C-0028 horizon-major V2 hot routing
+
+- **Claim level:** `VALIDATION`, synthetic mechanism only.
+- **Source freeze:** `17c02dfdbf56de6a81ae34700b258815bf0b7f88`.
+- **Hypothesis:** a byte-exact O1C-0022-compatible full-256 packet ledger can be
+  transposed into a bounded, allocation-invariant polyphase state once, after
+  which O1-O may bind immutable horizon readers without replaying evidence.
+- **Construction:** a pure-standard-library codec reconstructs the pinned
+  O1C-0019 packet wire ABI and both normalized/int8 transports. Canonical
+  horizon-major H64/H65/H96 groups enter a self-describing V2 state; two hot
+  bindings and thirteen cold-operator probes exercise the routing boundary.
+- **Result:** `HORIZON_MAJOR_HOT_ROUTING_PASS`; all 14 frozen gates pass. The
+  primary V2 state SHA is `02837fe6...`, result commitment `ed3517f2...`, and
+  eight fresh processes reproduce the same result SHA. A second formal call
+  returns the verified finalized capsule without mechanism replay.
+- **Bounded state/work:** 25,128-byte persistent state, 9,216-byte dense stream
+  per encoding, one primary consume, zero primary reingested groups, 75 total
+  consumes, 731 group updates and 2,245,632 resonator-cell updates.
+- **Resources:** 0.112165 CPU seconds, 0.123936 measured mechanism wall,
+  0.143779 complete-capsule seconds and 44,892,160 B / 42.8125 MiB peak RSS;
+  persistent artifacts occupy 378,809 B and every resource budget passes.
+- **Breadcrumb:** coordinate-major sparse replay creates artificial decay from
+  ledger row order, so complete K256 ledgers must be transposed horizon-major.
+  O1C-0027 V1 stays immutable; V2 freezes explicit float32 rounding and embeds
+  the basis digest because this runtime exposed two allocation-dependent one-ULP
+  V1 variants. Legacy and foreign state bytes require cold replay.
+- **Boundary:** this contains no ChaCha20 evidence, target key, solver result or
+  key signal. The real successor must use nested cross-fitting so held-out fold A
+  never receives a hot reader fit from states whose upstream reader trained with
+  A labels, and it must verify the authoritative O1C-0023 decision graph.
+- **Artifacts:**
+  [`result note`](O1C0028_HORIZON_MAJOR_HOT_ROUTING_RESULT_20260718.md),
+  [`capsule`](../runs/20260718_103518_O1C-0028_horizon-major-hot-routing-full256-v1/RUN.md).

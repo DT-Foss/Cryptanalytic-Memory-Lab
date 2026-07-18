@@ -741,3 +741,27 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   It claims neither ChaCha key information nor key recovery.
 - **Artifact:**
   [`O1C-0027 capsule`](../runs/20260718_090248_O1C-0027_polyphase-sufficient-state-full256-v1/RUN.md).
+
+## B-0038 — Allocation-dependent vector kernels are not serialization ABIs
+
+- **Risk:** a mathematically equivalent vectorized complex64 update may select a
+  fused or unfused arithmetic path from allocation alignment. On this
+  NumPy/macOS runtime, the O1C-0027 V1 recurrence therefore emitted two valid
+  one-ULP byte variants despite identical values, shapes and logical work.
+- **Resolution:** preserve O1C-0027 and its archived V1 bytes unchanged. O1C-0028
+  introduces a cold V2 state ABI with nine explicit float32 rounding points, a
+  locally frozen numerical-error policy and the 32-byte basis digest inside the
+  serialized state. Legacy or foreign bytes raise `ReplayRequiredError`.
+- **Evidence:** 64 repeated-allocation arms now produce the same V2 state SHA
+  `02837fe6...`; eight fresh processes reproduce result SHA `ed3517f2...`, and
+  exact serialize/deserialize plus independent complex128-reference gates pass.
+- **Do not repeat:** use byte identity of an implementation-selected vector
+  kernel as a cross-process scientific commitment, reinterpret V1 bytes as V2,
+  or mutate the frozen O1C-0027 source to repair a successor ABI.
+- **Breadcrumb:** every persistent learned state needs an explicit scalar
+  rounding schedule and self-describing basis commitment. Treat migrations as
+  cold replay; only reader weights and positive temperature remain hot.
+- **Boundary:** this fixes deterministic mechanism transport, not cryptanalytic
+  efficacy or ChaCha20 key recovery.
+- **Artifact:**
+  [`O1C-0028 result`](O1C0028_HORIZON_MAJOR_HOT_ROUTING_RESULT_20260718.md).
