@@ -1,15 +1,16 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T07:47:03+02:00.
+Last ranked: 2026-07-18T09:08:36+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
 | 1 | Keep the ACK-confirmed watcher PID `67247` alive and let it launch frozen O1C-0019 only after W52 terminal/process/RAM/load/hash gates clear | State of the art | Very high | Very high | Medium | Produces the first corrected full-round packet-reader and autonomous-picker gate without disturbing recovery workers |
 | 2 | When O1C-0019 finalizes, run source-frozen O1C-0022 `ce56ba4` exactly once; classify K12/52/128/256 raw/normalized/int8/last/unit/shuffled evidence, then send positive frozen K256 logits through fixed O1C-0025 and unchanged O1C-0024 global decoding | State of the art | Very high | Very high | Low/Medium | Separates no packet signal, cross-coordinate dilution, scale weighting, quantization, confidence, compounding, binding and actual search concentration before any new target |
 | 3 | Immediately after O1C-0022 finalizes, run source-frozen O1C-0023 `aa17eed` once and preserve its complete-result decision, failure-memory context and isolated native O1-O double assembly | State of the art | Very high | Extreme | Low | Converts the localized outcome into one non-repeating next operator with zero target spend and removes manual iteration latency |
-| 4 | Preserve O1C-0021 source freeze `4ba1cc6`; once the shared interlock is idle, run the committed two-seed broad DEV recheck and four never-used formal EVAL seeds exactly once | State of the art | Very high | Very high | Low/Medium | Decides terminal synthetic causal accumulation without racing the real packet gate |
-| 5 | If O1C-0022 passes, freeze one prospective combined architecture with O1C-0025 as the fixed logit handoff into O1C-0024 and attack one untouched O1C-0018 DEVELOPMENT pool under a new identity; otherwise execute only the stage named by O1C-0023 under a new identity | State of the art | Extreme | Very high | Medium | Converts the BUILD-LOO mechanism into the first genuinely fresh full-round 256-bit entropy/rank/recovery test or the highest-information localized repair |
-| 6 | Preserve O1C-0026 formal runner `7855492`, config `configs/proof_ancestry_pair_residual_run_v1.json` and proxy v2 `0af57fb`; only after authoritative O1C-0023 selects `proof_ancestry_pair_residual_v1`, reserve its consumed-BUILD four-fold residual exactly once | State of the art | Very high | High | Medium | The truth-safe one-shot lifecycle, 768D/8-KiB replay, matched controls and exact result authority are frozen; the remaining spend answers portable orientation without a fresh target, and a completed null closes only the exact proxy instance |
+| 4 | Freeze O1C-0027 `f47a6da` as the hot-readout API; bind O1-O successor choices that alter only weights/temperature to immutable `PolyphaseReadoutSpec` values, then ingest authoritative real O1C-0022 causal packets once and query selected readers without replay | State of the art | Very high | Extreme | Low | Converts autonomous experiment selection into sub-second reader iteration while preserving a hard replay boundary for encoder/kernel/phase changes |
+| 5 | Preserve O1C-0021 source freeze `4ba1cc6`; once the shared interlock is idle, run the committed two-seed broad DEV recheck and four never-used formal EVAL seeds exactly once | State of the art | Very high | Very high | Low/Medium | Decides terminal synthetic causal accumulation without racing the real packet gate |
+| 6 | If O1C-0022 passes, freeze one prospective combined architecture with O1C-0025 as the fixed logit handoff into O1C-0024 and attack one untouched O1C-0018 DEVELOPMENT pool under a new identity; otherwise execute only the stage named by O1C-0023 under a new identity | State of the art | Extreme | Very high | Medium | Converts the BUILD-LOO mechanism into the first genuinely fresh full-round 256-bit entropy/rank/recovery test or the highest-information localized repair |
+| 7 | Preserve O1C-0026 formal runner `7855492`, config `configs/proof_ancestry_pair_residual_run_v1.json` and proxy v2 `0af57fb`; only after authoritative O1C-0023 selects `proof_ancestry_pair_residual_v1`, reserve its consumed-BUILD four-fold residual exactly once | State of the art | Very high | High | Medium | The truth-safe one-shot lifecycle, 768D/8-KiB replay, matched controls and exact result authority are frozen; the remaining spend answers portable orientation without a fresh target, and a completed null closes only the exact proxy instance |
 
 ## Hard target contract
 
@@ -72,6 +73,11 @@ Last ranked: 2026-07-18T07:47:03+02:00.
   Only completed verified metrics can close the exact proxy; any operational,
   stopped or publication failure closes nothing, and parent R07 always remains
   open.
+- O1C-0027 finalized from `f47a6da` in 0.122845 capsule seconds at
+  39.390625 MiB peak with zero sibling access. Its 25,096-byte state and hot
+  readout API are frozen; reuse does not authorize replaying its synthetic source
+  or treating reader diversity as cipher evidence. While W52 is active, only a
+  small packet-adapter/router microbenchmark may extend this API.
 - Post-freeze hardening `2d8bf69` now sends a real immutable O1C-0018 `.fap`
   through the production Torch reader, quantizer and 352-byte bridge at K12 with
   zero labels and exact repeat/swap/duplicate/work assertions. A same-resource,
@@ -94,6 +100,9 @@ Last ranked: 2026-07-18T07:47:03+02:00.
 - materializing O1C-0025 logits through sigmoid, ranking rounded `/ln2` penalties,
   changing its fixed K256 arm/K limit after an outcome or treating its instrument
   smoke as signal;
+- replaying a fixed evidence stream merely to change reader weights or
+  temperature, silently applying a new encoder/kernel/phase basis to old state,
+  or promoting O1C-0027's synthetic reader separation to ChaCha20 signal;
 - reserving O1C-0026 before an authoritative O1C-0023
   `proof_ancestry_pair_residual_v1` selection, changing its v2 self/global-scale/
   all-256-shuffle basis after labels, closing parent R07 from a proxy null, or

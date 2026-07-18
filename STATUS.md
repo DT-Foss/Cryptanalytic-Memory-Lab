@@ -1,18 +1,18 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T07:57:47+02:00 (`Europe/Berlin`)
-- **Latest implementation freeze:** `O1C-0024` at
-  `36133bc6e75349c2cd3999f60eee08f2cbeb903a` — exact global factorized
-  all-256 top-K frontier, selected-member no-follow reveal lifecycle and
-  budget-safe one-shot runner
+- **Last updated:** 2026-07-18T09:08:36+02:00 (`Europe/Berlin`)
+- **Latest implementation freeze:** `O1C-0027` at
+  `f47a6dacd54a7d9c93bc41c0ee08902bf855e85d` — exact 25,096-byte
+  full-256 polyphase sufficient state with one-pass ingestion, immutable
+  basis commitment and zero-replay hot readouts
 - **Latest source-only instrument freeze:** conditional `O1C-0026` formal runner
   at `7855492ac754f156d5de9bbea65fd2b6cf1910f9`, over proxy-v2 mechanism
   `0af57fbeb6beaf69be66e64c3f0981227f829fd7`. It remains unreserved and
   `prerequisite-pending`; `O1C-0025` stays frozen unchanged at `b008e21`
-- **Latest completed attempt:** `O1C-0024` —
-  `EXACT_GLOBAL_FRONTIER_VALIDATED_BURNED_NULL`; synthetic full-round rank-4
-  discriminator passes, burned O1C-0016 target has no exact hit in 65,536 global
-  candidates and best Hamming 110 at rank 15,405
+- **Latest completed attempt:** `O1C-0027` —
+  `POLYPHASE_SUFFICIENT_STATE_PASS`; all 12 mechanism gates pass on a
+  target-free `float32[384,3,256]` stream, with four late-bound readers from one
+  final state hash and no stream replay
 - **Latest source hardening:**
   `2d8bf69957fe689b75e61fea5cab8e9a693192ed` — a real immutable O1C-0018
   `.fap` now traverses the production Torch reader, label-free quantizer and
@@ -38,26 +38,25 @@
   Product-of-Experts and A469 positive bucket-local correction; A539/A541 now
   close the tested additive single-position clause marginals and prioritize
   interaction-bearing pairs, proof antecedents or exact contradictions
-- **Active lab runs:** no local scientific run; O1C-0024 is finalized and
-  O1C-0025/O1C-0026 have no reservations. O1C-0026 completed a label-free BUILD
+- **Active lab runs:** no local scientific run; O1C-0024 and O1C-0027 are
+  finalized and O1C-0025/O1C-0026 have no reservations. O1C-0026 completed a label-free BUILD
   structural replay and a synthetic formal-lifecycle fixture only. The sibling
   W52 production work remains
   active, so O1C-0019, O1C-0022 and the O1C-0021 broad/formal gate have not
   started. O1C-0022 and O1C-0023 preflights are correctly
   `prerequisite-pending` and create no reservations. At the latest read-only host
-  check, W52 had 8/8 running
-  workers, `273,074/16,777,216` cells (`1.6276478767%`), 24 related live processes,
-  no stop marker, 35% free memory, load/core `0.3318`, exact frozen sources and
-  a temporarily dirty lab tree only because this source/ledger freeze was being
-  committed. Consumed pools/seeds remain ineligible as fresh evidence
+  check, W52 had 8/8 running workers, `311,084/16,777,216` cells
+  (`1.8542051315%`), 24 related live processes, no stop marker, 35% free memory,
+  load/core about `0.27`, exact frozen sources and a clean lab tree. Consumed
+  pools/seeds remain ineligible as fresh evidence
 - **Strongest completed mechanism attempt:** `O1C-0020` — independently reviewed
   `EXACT_256_LEARNED_GATE_RETENTION` on 4 unseen seeds x 3 stream lengths
 - **Strongest completed full-round online attempt:** `O1C-0018` — public-only
   paired-proof reader/picker on two disjoint DEVELOPMENT keys, classified
   `NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`
-- **Last operational attempt:** `O1C-0024` — 2.438 CPU s, 2.454 wall s,
-  115,261,440 B peak RSS, 2,890,445 persistent artifact bytes and every
-  scientific/resource gate passed
+- **Last operational attempt:** `O1C-0027` — 0.081856 CPU s, 0.094719 measured
+  wall s (0.122845 s complete capsule), 41,304,064 B peak RSS, 164,132 persistent
+  artifact bytes and every mechanism/resource gate passed
 - **Next attempt:** the existing watcher executes frozen O1C-0019 after W52 clears;
   its finalized capsule unlocks source-frozen O1C-0022, whose authoritative
   finalized result then unlocks source-frozen O1C-0023. Run O1C-0021 broad/formal
@@ -68,15 +67,38 @@
 - **SOTA status:** retention terminal (a) is achieved at 256/256 through `2^20`
   distractors with exact bounded-state accounting. O1C-0024 now supplies an exact
   global all-coordinate recovery frontier and O1C-0025 preserves native K256
-  logits into it without probability rounding, but neither instrument creates
-  evidence and the burned O1C-0024 posterior remains too flat. There is still no
-  cryptanalytic SOTA or recovery claim: causal full-round evidence (b) and
-  recovery frontier efficacy (c) remain open
+  logits into it without probability rounding. O1C-0027 adds a validated one-pass
+  all-256 state with genuinely hot reader weights/temperature. None of those
+  mechanisms creates evidence and the burned O1C-0024 posterior remains too flat.
+  There is still no cryptanalytic SOTA or recovery claim: causal full-round
+  evidence (b) and recovery frontier efficacy (c) remain open
 - **SOTA target:** a stream-length-bounded living inverse that reduces the 256-bit
   key code length on sealed uniform targets and ultimately emits an exactly verified
   full ChaCha20 key
 
 ## Headline
+
+`O1C-0027` is finalized from source commit `f47a6da` with capsule manifest
+`1361823ceb8711090b4773fd8409ced7123e490b71c30a2a9e41c5ec205c2023`.
+It consumes a complete 384-group, three-wavelength, all-256 evidence field once
+into exactly 25,096 persistent bytes per state, independent of stream length.
+Four slot/temperature readers then query the same final state with zero stream
+reingestion and zero state writes. Rechunking is byte exact, branch swap negates
+slots and readouts exactly, direct complex128 reference error stays inside the
+derived float32 bound, and encoder/kernel/phase basis changes correctly require
+replay.
+
+The four hot readers are not merely differently scaled copies: their minimum
+pairwise RMS after normalization is `0.0816628445`, while a deliberately
+collapsed slot bank gives only `1.23956887e-16` and is rejected. Scientific work
+is 4,131,840 production resonator-cell updates; the measured path takes 0.094719
+wall seconds at 39.390625 MiB peak RSS with no target, label, entropy, solver,
+GPU, MPS or sibling access. This validates the constant-streaming parameter
+boundary: reader weights and temperature are hot; encoder, recurrence and phase
+basis remain cold. It is a synthetic mechanism result, not ChaCha signal or key
+recovery. The next light bridge must feed O1C-0022-compatible causal packets into
+this unchanged state and bind O1-O-selected reader operators without bypassing
+the W52/O1C-0019/O1C-0022 lifecycle.
 
 `O1C-0025` is source-frozen at `b008e21` as an `INSTRUMENT` only. It is the exact
 logit-native global 256-bit frontier: ranking uses common-power-of-two integer
@@ -588,7 +610,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Sibling W52/A539 (external, read-only) | 24 live process identities / 8 workers | 2026-07-17 | A528/A526 W52 production observed read-only | 239,867/16,777,216 pair cells (1.429719%); latest watcher free RAM 30%; no competing local science | unknown |
+| Sibling W52/A539 (external, read-only) | 24 live process identities / 8 workers | 2026-07-17 | A528/A526 W52 production observed read-only | 311,084/16,777,216 pair cells (1.854205%); latest host check free RAM 35%; no competing local science | unknown |
 | O1C-0019 interlock | 67247 | 2026-07-17 18:39 | read-only 60 s poll, three-stable-poll release | preflight/lock/log verified; zero sibling writes; heavy gate not started | automatic after W52 and local gates clear |
 
 ## Highest-ROI next actions
@@ -613,11 +635,17 @@ O1C-0017 result boundary are documented in
    and unreserved. Execute the pinned config only if authoritative O1C-0023
    selects `proof_ancestry_pair_residual_v1`; a completed proxy null closes only
    its exact proxy fingerprint and leaves parent R07 open.
+7. Preserve O1C-0027 `f47a6da` as the hot-readout state API. Bind future O1-O
+   successor choices that change only weights/temperature to immutable
+   `PolyphaseReadoutSpec` values and feed authoritative O1C-0022 causal packets
+   through the state once. Any encoder/kernel/phase change requires replay under
+   a new O1C identity.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0027` | 2026-07-18 09:02 | A fixed all-256 resonator bank is a T-independent sufficient statistic for late-bound slot/temperature readers after one-pass ingestion | `POLYPHASE_SUFFICIENT_STATE_PASS`; 12/12 gates, four distinct normalized readers from one state hash, exact rechunk/swap/serialization invariants and three hard replay boundaries | `VALIDATION` mechanism only; no cryptanalytic signal/recovery claim | 0.081856 CPU / 0.094719 measured wall s; 39.390625 MiB peak RSS; 25,096 B/state; 164,132 artifact B | O1 can run continuously while reader weights/temperature change instantly; encoder/kernel/phase changes still require replay. Feed real causal packets next instead of rerunning synthetic streams | [Capsule](runs/20260718_090248_O1C-0027_polyphase-sufficient-state-full256-v1/RUN.md) |
 | `O1C-0026` formal runner source freeze | 2026-07-18 | The selected proxy can execute exactly once with truth-safe BUILD-LOO freezes, bounded state and result authority derived only from a complete semantic capsule | Source `7855492`; exact O1C-0023 gate, 4 BUILD/0 DEVELOPMENT, 64 fits, 4,927,488 alpha-bit and 4,096 diagnostic evaluations, four transient 8-KiB state replays over 1,024 coordinates from persisted weights to persisted/reloaded logits, 120 indexed artifacts | `INSTRUMENT`; conditional, unreserved, no scientific run/result/signal; activated capsule is `RETROSPECTIVE` | 23 focused tests; 33 pass/1 skip/61 subtests plus 12 pass/5 subtests in neighbors; 0 formal scientific work | Candidate result is not closure authority; only completed verified metrics can close the exact proxy fingerprint, while all operational failures close nothing | [Config](configs/proof_ancestry_pair_residual_run_v1.json) |
 | `O1C-0025` source freeze | 2026-07-18 | Native full-256 natural logits can enter the exact global frontier without sigmoid saturation or rounded `/ln2` ranking | Source `b008e21`: exact binary64-logit integer ordering; fixed 57,344 B O1C-0022 tensor to 2,048 B K256 `quantized_int8_vault` slice; internally verified supplied manifest→index→O1C22 freeze→O1C19 freeze→public-target chain; K=65,536 | `INSTRUMENT`; no attempt, target, scientific run, result or signal claim | 32 tests / 80 subtests; smoke 0.937653 wall s and 44,384,256 B peak; 0 scientific work | The lossless deployment handoff is fixed; authoritative future capsule resolution remains with the formal caller | [Design](research/O1C0025_LOGIT_FRONTIER_HANDOFF_DESIGN_20260718.md) |
 | `O1C-0026` proxy v2 source freeze | 2026-07-18 | A balanced self-plus-offdiagonal ancestry-touch x proof-context basis can expose interaction orientation collapsed by the frozen scalar output | Source `0af57fb`; 768D deterministic v2 projection, all-256 pair derangement, scale-invariant offset ridge and exact 8,192 B reader+posterior state; four real BUILD FAP primary/shuffle replay is equal-scale and distinct | `INSTRUMENT` / `RETROSPECTIVE_STRUCTURAL_ONLY`; conditional, unreserved, no label/key-signal result | 1.609594 wall s; 105,955,328 B process peak; 8,231,208 source B; 0 labels/targets/solver/entropy/MPS/GPU | Self-touch is 4.87x denser/8.82x stronger than one offdiagonal cell; global sqrt(256) scaling retains it without diagonal collapse; proxy null cannot close R07 | [Probe](research/O1C0026_BUILD_ONLY_STRUCTURAL_PROBE_V2_20260718.md) |
@@ -649,6 +677,14 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0027` source freeze | `f47a6dacd54a7d9c93bc41c0ee08902bf855e85d` |
+| `O1C-0027` canonical config | `6fab58bb10101067eecaa7c206f66e0b0463e9032bee6a3aeb7605778993747b` |
+| `O1C-0027` state core source | `06d338e890a466d7723d60cbb56a63e069cc99f5cc25ecd9916fa4c0072a75c3` |
+| `O1C-0027` runner source | `41f38290a2ab6595fa633934d39c59188f7944a83df67c0e402eb3c27d743872` |
+| `O1C-0027` capsule manifest | `1361823ceb8711090b4773fd8409ced7123e490b71c30a2a9e41c5ec205c2023` |
+| `O1C-0027` internal result commitment | `6041fbb157cb96c98a988da60b0a88f958507b3c5d0e1b5cd8ebe2733280a568` |
+| `O1C-0027` result artifact | `a52f8d94a0202d9df508daedc812d3efb6d88c4bbfe3e30bd4e6ea04f376291c` |
+| `O1C-0027` primary/rechunk state | `9d3cf08570f64a31eac9723b10105d5948e5898a2da6ee1b9543d3f10e1046e1` |
 | `O1C-0026` formal runner source freeze | `7855492ac754f156d5de9bbea65fd2b6cf1910f9` |
 | `O1C-0026` formal config | `17df7a8a1cc3100c13ef86d4d355783b97382700b6d68fcf045362183131efb4` |
 | `O1C-0026` formal runner source | `0e3ae438b9df8189a2042dc1a78db1a734350ebab64de2764e2ec4c773ff1ddf` |
@@ -748,6 +784,14 @@ O1C-0017 result boundary are documented in
 | `O1C-0001` capsule manifest | `376e3b27f107d132421e29c2669f468a57c8417924928ce41badadf14d3dd05f` |
 
 ## Resume here
+
+O1C-0027 is complete and immutable at `f47a6da`; do not replay its synthetic
+stream or promote reader distinctness to cipher evidence. Reuse only the state
+and immutable readout-spec APIs. Weight/temperature changes are hot; encoder,
+kernel and phase-basis changes require a new attempt and replay. The next light
+integration is O1-O result-to-`PolyphaseReadoutSpec` routing plus one-pass
+adaptation of O1C-0022-compatible causal packets. Authoritative efficacy-bearing
+packets still wait for finalized O1C-0019/O1C-0022.
 
 O1C-0020 is complete and immutable at execution commit `3aefaf7`; do not replay its
 four EVAL seeds or tune the synthetic family cue. O1C-0021 is implementation-frozen

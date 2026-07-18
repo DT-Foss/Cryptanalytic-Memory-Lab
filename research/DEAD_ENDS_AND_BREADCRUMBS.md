@@ -713,3 +713,31 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Artifacts:**
   [`formal config`](../configs/proof_ancestry_pair_residual_run_v1.json) and
   [`design`](O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md).
+
+## B-0037 — Constant streaming does not make every model parameter hot
+
+- **Risk:** treating an O(1)-state stream processor as if arbitrary encoder,
+  recurrence or phase parameters could change after ingestion would silently ask
+  a state encoded in one basis to answer queries in another. Any apparent
+  zero-replay result could then be a stale-state or scale artifact.
+- **Resolution:** O1C-0027 separates the parameter boundary explicitly. Slot
+  weights and positive temperature are late-bound readout parameters; they make
+  zero state writes and reingest zero groups. Encoder coordinate order, resonator
+  kernel and phase wavelengths are committed into one basis SHA and each foreign
+  basis raises `ReplayRequiredError` before computation.
+- **Evidence:** four normalized-distinct readers query the same final
+  25,096-byte state, with minimum pairwise RMS `0.08166284453308809`. A collapsed
+  slot bank produces only `1.2395688701142996e-16`, preventing trivial rescaling
+  from counting as reader diversity. Rechunking is byte exact and an exact
+  polarity swap negates slots/readouts.
+- **Do not repeat:** rerun the evidence stream merely to tune slot weights or
+  temperature; conversely, do not relabel an encoder/kernel/phase change as a hot
+  query. Preserve the state hash and basis commitment in every receipt.
+- **Breadcrumb:** make O1-O emit immutable `PolyphaseReadoutSpec` choices for
+  reader-only successors. Feed O1C-0022-compatible packets once into the fixed
+  state, then compare hot readers at equal ingestion work. Scientific efficacy
+  remains gated on finalized full-round packet readers.
+- **Boundary:** `POLYPHASE_SUFFICIENT_STATE_PASS` validates a synthetic mechanism.
+  It claims neither ChaCha key information nor key recovery.
+- **Artifact:**
+  [`O1C-0027 capsule`](../runs/20260718_090248_O1C-0027_polyphase-sufficient-state-full256-v1/RUN.md).

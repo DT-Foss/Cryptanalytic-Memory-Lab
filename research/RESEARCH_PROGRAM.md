@@ -130,6 +130,17 @@ nothing; prepared-publication recovery never reruns science. Parent R07 remains
 open under every proxy outcome, and the runner cannot bypass the
 W52/O1C-0019/O1C-0022/O1C-0023 chain.
 
+O1C-0027 now separates live streaming from reader iteration. From source
+`f47a6da`, a deterministic full-256 evidence stream is consumed once into a
+25,096-byte T-independent polyphase state. Four immutable weight/temperature
+readers query the same final bytes with zero replay, reingestion or mutation,
+while encoder, recurrence-kernel and phase-basis changes correctly require
+replay. Every reference, rechunk, swap, collapsed-bank and resource gate passes
+in 0.122845 capsule seconds at 39.390625 MiB peak. This is reusable mechanism
+validation, not attacker-valid ChaCha20 evidence. It converts future O1-O reader
+choices into cheap hot updates; real causal packets remain gated by the unchanged
+O1C-0019/O1C-0022 chain.
+
 ## Evidence ladder from here
 
 1. Preserve O1C-0020's code, four EVAL seeds, gate and capsule byte-exact. Reuse only
@@ -149,11 +160,16 @@ W52/O1C-0019/O1C-0022/O1C-0023 chain.
 5. After O1C-0022 finalizes, run O1C-0023 once from `aa17eed`. Preserve its
    complete result-bound decision, native double-assembly receipt and immutable
    failure-memory context; execute the selected operator only under a new ID.
-6. Once the shared interlock is idle, rerun O1C-0021 broad DEV from `4ba1cc6`, then
+6. Preserve O1C-0027 `f47a6da` as the state/readout ABI. Bind any O1-O successor
+   that changes only weights or temperature to an immutable
+   `PolyphaseReadoutSpec`; after O1C-0022 finalizes, ingest its authoritative
+   causal packet stream once and query those readers without replay. Treat
+   encoder, kernel and phase changes as cold mechanisms under a new O1C ID.
+7. Once the shared interlock is idle, rerun O1C-0021 broad DEV from `4ba1cc6`, then
    run its four never-used EVAL episodes exactly once. Require positive held-out
    compression and matched control margins; exact 256/256 remains the terminal
    synthetic causal-accumulation gate.
-7. If the real O1C-0022 reader/vault gate passes, freeze the combined architecture
+8. If the real O1C-0022 reader/vault gate passes, freeze the combined architecture
    and attack one untouched full-256 DEVELOPMENT target under a new identity. If
    every float arm is null, execute O1C-0026 only through frozen one-shot runner
    `7855492` and its exact config, on consumed BUILD folds, and only when
@@ -162,7 +178,7 @@ W52/O1C-0019/O1C-0022/O1C-0023 chain.
    operational, stopped and publication failures close nothing and preserve R07.
    For every other outcome, execute only the stage named by the frozen
    classification.
-8. After stable entropy reduction, add surprise-selected Causal Attic summaries
+9. After stable entropy reduction, add surprise-selected Causal Attic summaries
    and use O1C-0025's fixed logit handoff, O1C-0024's exact global frontier and
    public ChaCha20 verification toward recovery.
 

@@ -1332,3 +1332,54 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [`config`](../configs/proof_ancestry_pair_residual_run_v1.json),
   [`runner`](../src/o1_crypto_lab/proof_ancestry_pair_residual_run.py), and
   [`design`](O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md).
+
+## 2026-07-18 — O1C-0027 full-256 polyphase sufficient state
+
+- **Recorded:** 2026-07-18T09:08:36+02:00
+- **Source/run identity:** source commit
+  `f47a6dacd54a7d9c93bc41c0ee08902bf855e85d`; finalized capsule
+  `runs/20260718_090248_O1C-0027_polyphase-sufficient-state-full256-v1`;
+  manifest SHA-256
+  `1361823ceb8711090b4773fd8409ced7123e490b71c30a2a9e41c5ec205c2023`;
+  result SHA-256
+  `6041fbb157cb96c98a988da60b0a88f958507b3c5d0e1b5cd8ebe2733280a568`.
+- **Hypothesis:** a fixed bank of stable polyphase resonators is a
+  stream-length-independent sufficient statistic of a once-consumed, full-256
+  evidence stream for late-bound slot weights and temperature. Encoder, kernel
+  and phase basis changes are not hot parameters and must require replay.
+- **Input/control:** one deterministic, target-free
+  `float32[384,3,256]` source with a regime switch before group 193. Primary,
+  rechunk, exact polarity-swap and prefix arms are matched by explicit work;
+  a collapsed-slot negative control distinguishes genuine reader geometry from
+  scalar rescaling. There are zero target, label, entropy, outcome, solver,
+  sibling, network, GPU, MPS, gradient or optimizer accesses.
+- **Result:** `POLYPHASE_SUFFICIENT_STATE_PASS`; all 12 frozen gates pass.
+  Primary and rechunk states are byte identical, polarity swap negates all complex
+  slots and readouts exactly, serialization roundtrips exactly, coverage/clock
+  accounting is exact, and an independent chronological complex128 recurrence
+  stays inside the derived float32 error envelope.
+- **Hot-reader result:** four readers query one immutable final state with zero
+  stream reingestion and zero state writes. Their minimum pairwise RMS after
+  normalization is `0.08166284453308809`; the collapsed-bank maximum is
+  `1.2395688701142996e-16` and correctly fails the distinctness gate. Encoder
+  order, one kernel timescale and one phase wavelength each raise
+  `ReplayRequiredError` before computation.
+- **Bounded state/work:** one state is exactly 25,096 bytes at T=0/193/384;
+  four deployment arms are 100,384 bytes. The run bills 294,912 generated
+  evidence values, 4,131,840 production resonator-cell updates, 12 successful
+  readouts and 3 replay-required probes.
+- **Resources:** 0.081856 CPU seconds, 0.094719 measured wall seconds and
+  0.122845 complete-capsule seconds at 41,304,064 B peak RSS; persistent artifacts
+  occupy 164,132 B. Programmatic verification checks 22 members with no missing,
+  mismatched or unexpected paths.
+- **Interpretation:** this answers the continuous-machine question narrowly and
+  usefully. O1 may keep streaming while reader weights/temperature switch after
+  ingestion; changing the evidence encoder, recurrence or phase binding still
+  needs replay. This is synthetic mechanism validation, not a cryptanalytic
+  signal or full-round key-recovery result.
+- **Next action:** adapt immutable O1C-0022 `PacketDeltaGroup` packets to sparse
+  three-horizon full-256 groups and bind O1-O operator choices to immutable hot
+  readout specs. Validate the adapter with no target/reveal and no W52 access;
+  only finalized O1C-0019/O1C-0022 may later supply efficacy-bearing packets.
+- **Artifact:**
+  [`capsule`](../runs/20260718_090248_O1C-0027_polyphase-sufficient-state-full256-v1/RUN.md).
