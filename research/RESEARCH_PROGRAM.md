@@ -78,6 +78,17 @@ preflight remains pending/unreserved. This implements the result-to-next-operato
 loop; the selected scientific mechanism still requires a new source-frozen
 attempt identity.
 
+O1C-0024 fixes the terminal recovery geometry at `36133bc`. Its exact global
+product-Bernoulli frontier ranges over all 256 coordinates instead of varying only
+a preselected uncertainty cube. Exhaustive low-width proofs establish exact order;
+a constructed full-round ChaCha20 case places the true key at global rank four
+while the matched local cube cannot emit it. On one already opened O1C-0016 target,
+the source-frozen decoder produced 65,536 unique keys in 2.454 wall seconds and
+109.922 MiB peak RSS, with MAP Hamming 117, best Hamming 110 and no exact public
+verification. This is a validated decoder and an honest burned null, not new cipher
+signal. Keep it unchanged and route only future frozen positive posteriors through
+it.
+
 A new hash-bound sibling intake narrows the fallback before it costs a target.
 A539's training-frozen RACF-DES single-position clause reader concentrated its
 first prospective panel, but A541's fresh panel put every learned family reader
@@ -101,7 +112,8 @@ real float arm is null.
 4. Immediately after O1C-0019 finalizes, run O1C-0022 once from `ce56ba4`. Require
    exact lifecycle/work/invariance gates, then use its K ladder and raw/normalized/
    int8/last/unit/shuffled matrix to localize signal, dilution, scale, quantization,
-   confidence, compounding or address binding.
+   confidence, compounding or address binding. Route any frozen positive posterior
+   through unchanged O1C-0024 global decoding and public verification.
 5. After O1C-0022 finalizes, run O1C-0023 once from `aa17eed`. Preserve its
    complete result-bound decision, native double-assembly receipt and immutable
    failure-memory context; execute the selected operator only under a new ID.
@@ -115,8 +127,9 @@ real float arm is null.
    over projected signed-variable pairs, proof antecedents or exact contradictions;
    for every other failure, replace only the stage named by the frozen
    classification.
-8. After stable entropy reduction, add surprise-selected Causal Attic summaries,
-   bounded beam concentration and exact ChaCha20 verification toward recovery.
+8. After stable entropy reduction, add surprise-selected Causal Attic summaries
+   and use O1C-0024's exact global frontier plus public ChaCha20 verification toward
+   recovery.
 
 ## Operating contract
 
@@ -155,9 +168,10 @@ The full program is not complete:
   distractors in a 352-byte live state with learned non-oracle routing.
 - **(b) OPEN — causal evidence:** require reproducible posterior/entropy or search
   reduction from attacker-valid evidence on unseen full-round 256-bit targets.
-- **(c) OPEN — recovery frontier:** require a material search/recovery gain and
-  ultimately a full key emitted by the bounded-state/beam path and independently
-  verified against the public ChaCha20 relation.
+- **(c) OPEN — recovery efficacy:** O1C-0024 supplies an exact full-256 posterior
+  frontier; require a material search/recovery gain and ultimately a full key
+  emitted by the bounded-state/frontier path and independently verified against
+  the public ChaCha20 relation.
 
 Synthetic retention, instrumentation or reduced-width recovery alone is not full
 completion.

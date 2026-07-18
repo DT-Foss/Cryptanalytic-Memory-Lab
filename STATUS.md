@@ -1,10 +1,14 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T03:08:54+02:00 (`Europe/Berlin`)
-- **Latest implementation freeze:** `O1C-0023` at
-  `aa17eed6740edfdba18aaad487c93be8afaf5935` — deterministic complete-result
-  O1C-0022-to-next-operator composer, immutable failure memory and twice-isolated
-  native O1-O assembly; no O1C-0023 attempt reserved or executed
+- **Last updated:** 2026-07-18T04:01:34+02:00 (`Europe/Berlin`)
+- **Latest implementation freeze:** `O1C-0024` at
+  `36133bc6e75349c2cd3999f60eee08f2cbeb903a` — exact global factorized
+  all-256 top-K frontier, selected-member no-follow reveal lifecycle and
+  budget-safe one-shot runner
+- **Latest completed attempt:** `O1C-0024` —
+  `EXACT_GLOBAL_FRONTIER_VALIDATED_BURNED_NULL`; synthetic full-round rank-4
+  discriminator passes, burned O1C-0016 target has no exact hit in 65,536 global
+  candidates and best Hamming 110 at rank 15,405
 - **Latest source hardening:**
   `2d8bf69957fe689b75e61fea5cab8e9a693192ed` — a real immutable O1C-0018
   `.fap` now traverses the production Torch reader, label-free quantizer and
@@ -30,22 +34,22 @@
   Product-of-Experts and A469 positive bucket-local correction; A539/A541 now
   close the tested additive single-position clause marginals and prioritize
   interaction-bearing pairs, proof antecedents or exact contradictions
-- **Active lab runs:** no local scientific run. The sibling W52 production
+- **Active lab runs:** no local scientific run; O1C-0024 is finalized. The sibling W52 production
   work remains active, so O1C-0019, O1C-0022 and the O1C-0021 broad/formal gate
   have not started. O1C-0022 and O1C-0023 preflights are correctly
   `prerequisite-pending` and create no reservations. At the latest read-only host
   check, W52 had 8/8 running
-  workers, `207,007/16,777,216` cells (`1.233858%`), 24 related live processes,
-  no stop marker, 39% free memory, load/core `0.160449`, exact frozen sources and
+  workers, `222,401/16,777,216` cells (`1.325613%`), 24 related live processes,
+  no stop marker, 39% free memory, load/core `0.350635`, exact frozen sources and
   a clean lab tree. Consumed pools/seeds remain ineligible as fresh evidence
 - **Strongest completed mechanism attempt:** `O1C-0020` — independently reviewed
   `EXACT_256_LEARNED_GATE_RETENTION` on 4 unseen seeds x 3 stream lengths
 - **Strongest completed full-round online attempt:** `O1C-0018` — public-only
   paired-proof reader/picker on two disjoint DEVELOPMENT keys, classified
   `NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`
-- **Last operational attempt:** `O1C-0020` — 9.553 CPU s, 9.915 elapsed s,
-  438,747,136 B peak RSS, 945,387 persistent bytes and every scientific/resource
-  gate passed
+- **Last operational attempt:** `O1C-0024` — 2.438 CPU s, 2.454 wall s,
+  115,261,440 B peak RSS, 2,890,445 persistent artifact bytes and every
+  scientific/resource gate passed
 - **Next attempt:** the existing watcher executes frozen O1C-0019 after W52 clears;
   its finalized capsule unlocks source-frozen O1C-0022, whose authoritative
   finalized result then unlocks source-frozen O1C-0023. Run O1C-0021 broad/formal
@@ -54,14 +58,35 @@
   acquire portable key orientation when O1 learns its representation and O1-O
   learns its sensing policy rather than receiving a fixed scalar reader
 - **SOTA status:** retention terminal (a) is achieved at 256/256 through `2^20`
-  distractors with exact bounded-state accounting. There is still no cryptanalytic
-  SOTA or recovery claim: causal full-round evidence (b) and recovery frontier (c)
-  remain open
+  distractors with exact bounded-state accounting. O1C-0024 now supplies an exact
+  global all-coordinate recovery frontier, but its burned posterior is too flat
+  for actionable recovery. There is still no cryptanalytic SOTA or recovery claim:
+  causal full-round evidence (b) and recovery frontier efficacy (c) remain open
 - **SOTA target:** a stream-length-bounded living inverse that reduces the 256-bit
   key code length on sealed uniform targets and ultimately emits an exactly verified
   full ChaCha20 key
 
 ## Headline
+
+`O1C-0024` is finalized from source commit `36133bc` with capsule manifest
+`44d2f75b53c7f0d0f08a431a12ee6bc90d24b860ef6d7de9218b34b535250c3f`.
+It replaces the misleading assumption that the old least-uncertain 16-bit cube
+was a global beam: exact integer-scaled subset penalties now emit the true global
+factorized top-K over all 256 coordinates in `O(K log K)`. Exhaustive widths
+3/6/10 match exactly; a standard 20-round synthetic target is recovered at global
+rank four while the matched two-bit cube cannot contain it, and wrong-nonce plus
+output-flip controls remain null.
+
+The burned O1C-0016 target-0000 frontier contains 65,536 unique score-ordered keys
+and no exact match. MAP is Hamming 117; the best global candidate is Hamming 110 at
+rank 15,405, while the complete legacy 16-bit cube has an oracle Hamming floor of
+108 but still cannot contain the key. The top-K score band is only
+`-251.968003` to `-251.975124` log2 probability, so this is a decoder/mechanism
+milestone and a flat-posterior null, not cryptanalytic evidence. The full run took
+2.438 CPU / 2.454 wall seconds at 109.922 MiB peak RSS. Its candidate bytes and
+scores froze before one selected reveal read; one selected evaluation read
+followed, the 680-member source capsule was never scanned, and all 28 final capsule
+members verify.
 
 `O1C-0023` is source-frozen at `aa17eed` without starting or reserving an
 attempt. It verifies the authoritative complete O1C-0022 publication down to its
@@ -500,7 +525,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Sibling W52/A539 (external, read-only) | 24 live process identities / 8 workers | 2026-07-17 | A528/A526 W52 production observed read-only | active after midnight at about 0.95% of 16,777,216 pair cells; latest sampled free RAM 38%; no competing science | unknown |
+| Sibling W52/A539 (external, read-only) | 24 live process identities / 8 workers | 2026-07-17 | A528/A526 W52 production observed read-only | 222,401/16,777,216 pair cells (1.325613%); latest watcher free RAM 39%; O1C-0024 finished and no competing local science remains | unknown |
 | O1C-0019 interlock | 67247 | 2026-07-17 18:39 | read-only 60 s poll, three-stable-poll release | preflight/lock/log verified; zero sibling writes; heavy gate not started | automatic after W52 and local gates clear |
 
 ## Highest-ROI next actions
@@ -516,11 +541,15 @@ O1C-0017 result boundary are documented in
 4. When the interlock is idle, preserve O1C-0021 `4ba1cc6`, rerun its two-seed broad
    DEV check and execute four never-used formal EVAL seeds exactly once. A positive
    O1C-0022 gate then authorizes one untouched DEVELOPMENT target under a new ID.
+5. Preserve O1C-0024 `36133bc` and its global decoder unchanged. Feed future
+   frozen O1C-0019/O1C-0022 posteriors through it only after they show portable
+   entropy reduction; do not enlarge K on the opened O1C-0016 target.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0024` | 2026-07-18 | The least-uncertain-bit cube is not a global factorized beam; an exact all-coordinate frontier can recover excluded high-probability keys and honestly measure burned search concentration | `EXACT_GLOBAL_FRONTIER_VALIDATED_BURNED_NULL`: synthetic 20-round truth rank 4 while legacy excludes it; burned target 0/65,536 exact, MAP H117, best H110 at rank 15,405; 4,096 exact public checks null | `RETROSPECTIVE` decoder validation and burned diagnostic; no cipher signal | 2.438 CPU s; 2.454 wall s; 109.922 MiB peak; 2,890,445 artifact B; 0 solver/entropy/sibling/GPU | Global beam geometry is fixed; O1C-0016 posterior remains far too flat, so improve evidence orientation rather than K | [Run capsule](runs/20260718_035947_O1C-0024_exact-factorized-posterior-frontier-v1/RUN.md) |
 | `O1C-0022` pre-run | 2026-07-18 | Frozen incremental O1C-0019 packet evidence can compound in the exact 352-byte addressed vault and beat binding/confidence/horizon controls as active sensors expand 12→256 | Source frozen at `ce56ba4`; exact 32 replays / 17,664 slots / 1,130,496 work / 7,391,232 calibration evaluations; literal native O1-O path and 27 focused tests green; preflight pending with no reservation | `RETROSPECTIVE` pre-run instrument only | no scientific run, fresh entropy, solver branch, sibling write or accelerator call | Handcrafted 32-scalar collapse is negative; preserve the learned 330D fold reader and let the width/control matrix localize the next real bottleneck | [Design](research/O1C0022_ARTIFACT_CAUSAL_VAULT_DESIGN_20260718.md) |
 | `O1C-0021` pre-run | 2026-07-17 | A bounded O1 state can autonomously learn delayed reliability and exactly accumulate weak contradictory evidence over 256 coordinates | Source frozen at `4ba1cc6`; prior broad scratch DEV 256/256 on 2/2 seeds in 134.523 s; independent 273-byte FSM and exact work ledgers hardened; 31 focused tests and three audits clear; formal EVAL untouched | `INSTRUMENT` pre-run only | no formal compute/entropy; source work only while sibling production is active | Enumerable operator has a smaller O1-O-targetable FSM ceiling, so the formal result measures autonomous learning/streaming rather than O1 necessity | [Config](configs/causal_evidence_stream_256_v1.json) |
 | `O1C-0020` | 2026-07-17 | A BUILD-trained O1 gate can select all 256 bindings from a unified stream and preserve them exactly through at least `2^20` distractors without an oracle deployment mask | `EXACT_256_LEARNED_GATE_RETENTION`: 12/12 cells at 256/256, TP 256/FP 0/FN 0; nested live state byte-exact; all longest-stream controls fail | `VALIDATION` synthetic retention; terminal (a), no cipher claim | 9.553 CPU s; 9.915 elapsed s; 438,747,136 B peak; 352 B live state | Learned routing plus exact addressed vault closes retention; next test must learn causal evidence accumulation rather than explicit binding storage | [Run capsule](runs/20260717_211433_O1C-0020_selective-mqar-256-learned-gate-v1/RUN.md) |

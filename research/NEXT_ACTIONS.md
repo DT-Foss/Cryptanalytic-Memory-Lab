@@ -1,14 +1,14 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T03:05:32+02:00.
+Last ranked: 2026-07-18T04:01:34+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
 | 1 | Keep the ACK-confirmed watcher PID `67247` alive and let it launch frozen O1C-0019 only after W52 terminal/process/RAM/load/hash gates clear | State of the art | Very high | Very high | Medium | Produces the first corrected full-round packet-reader and autonomous-picker gate without disturbing recovery workers |
-| 2 | When O1C-0019 finalizes, run source-frozen O1C-0022 `ce56ba4` exactly once; classify K12/52/128/256 raw/normalized/int8/last/unit/shuffled evidence under its exact ledger | State of the art | Very high | Very high | Low/Medium | Separates no packet signal, cross-coordinate dilution, scale weighting, quantization, confidence, compounding and binding before any new target |
+| 2 | When O1C-0019 finalizes, run source-frozen O1C-0022 `ce56ba4` exactly once; classify K12/52/128/256 raw/normalized/int8/last/unit/shuffled evidence, then send any frozen positive posterior through unchanged O1C-0024 global decoding | State of the art | Very high | Very high | Low/Medium | Separates no packet signal, cross-coordinate dilution, scale weighting, quantization, confidence, compounding, binding and actual search concentration before any new target |
 | 3 | Immediately after O1C-0022 finalizes, run source-frozen O1C-0023 `aa17eed` once and preserve its complete-result decision, failure-memory context and isolated native O1-O double assembly | State of the art | Very high | Extreme | Low | Converts the localized outcome into one non-repeating next operator with zero target spend and removes manual iteration latency |
 | 4 | Preserve O1C-0021 source freeze `4ba1cc6`; once the shared interlock is idle, run the committed two-seed broad DEV recheck and four never-used formal EVAL seeds exactly once | State of the art | Very high | Very high | Low/Medium | Decides terminal synthetic causal accumulation without racing the real packet gate |
-| 5 | If O1C-0022 passes, freeze one prospective combined architecture and attack one untouched O1C-0018 DEVELOPMENT pool under a new identity; otherwise execute only the stage named by O1C-0023 under a new identity | State of the art | Extreme | Very high | Medium | Converts the BUILD-LOO mechanism into the first genuinely fresh full-round 256-bit entropy/recovery test or the highest-information localized repair |
+| 5 | If O1C-0022 passes, freeze one prospective combined architecture with O1C-0024 as its fixed terminal decoder and attack one untouched O1C-0018 DEVELOPMENT pool under a new identity; otherwise execute only the stage named by O1C-0023 under a new identity | State of the art | Extreme | Very high | Medium | Converts the BUILD-LOO mechanism into the first genuinely fresh full-round 256-bit entropy/rank/recovery test or the highest-information localized repair |
 | 6 | Only if O1C-0022 returns an all-float sensor/reader null, let O1C-0023 select the consumed-BUILD A539/A541-informed equal-work reader over projected signed-variable pairs, proof antecedents or exact contradictions | State of the art | Very high | High | Medium | Tests whether interaction-bearing causal identity survives where additive single-position clause marginals do not, without spending a fresh target |
 
 ## Hard target contract
@@ -49,6 +49,10 @@ Last ranked: 2026-07-18T03:05:32+02:00.
   disposable native O1-O assemblies under an inherited lease. Its preflight is
   pending without a reservation until O1C-0022 finalizes. Do not execute the
   selected operator inside O1C-0023 or bypass its new-attempt boundary.
+- O1C-0024 finalized from `36133bc` in 2.454 wall seconds and 109.922 MiB peak.
+  Its global decoder, 65,536-key burned null, selected-member read boundary and
+  capsule are frozen. Reuse the decoder API only; the opened O1C-0016 target is
+  ineligible for tuning, K scaling or efficacy selection.
 - Post-freeze hardening `2d8bf69` now sends a real immutable O1C-0018 `.fap`
   through the production Torch reader, quantizer and 352-byte bridge at K12 with
   zero labels and exact repeat/swap/duplicate/work assertions. A same-resource,
@@ -65,6 +69,9 @@ Last ranked: 2026-07-18T03:05:32+02:00.
 - storing W52's 64 MiB pair permutations;
 - global unconstrained copula corrections after A468's tail failure;
 - treating raw ciphertext Hamming distance as dense evidence;
+- enlarging O1C-0024 K, tuning its penalties or selecting prefixes on the opened
+  O1C-0016 target; the exact decoder is solved and the posterior, not the beam, is
+  the current bottleneck;
 - polishing SOTA prose before a stable held-out bit exists;
 - rebuilding or weakening O1C-0011's already verified full-256 relation instead of
   reusing its paired solver events;

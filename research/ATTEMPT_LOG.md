@@ -1142,3 +1142,53 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   not efficacy or key recovery. After O1C-0019 and O1C-0022 finalize in order,
   execute O1C-0023 once from this freeze. Execute its selected mechanism only
   under a new source-frozen attempt ID.
+
+## 2026-07-18 — O1C-0024 exact global posterior frontier
+
+- **Recorded:** 2026-07-18T04:01:34+02:00
+- **Source freeze:** `36133bc6e75349c2cd3999f60eee08f2cbeb903a`;
+  decoder SHA `f57f20ae32311f1c5291953e9619a0bd32c31fa04ab969c8bf3a787dfd800fb8`,
+  runner SHA `11d9a9a340dbc6a17ea32255c7a3a73fd989444f3d18b3930cb8827edc778652`
+  and config SHA `d0b393ea14fc3594907b2ed1abf63f2ef7a5cbdecf6dc1bf29701a6c4889f84d`.
+- **Capsule:**
+  `runs/20260718_035947_O1C-0024_exact-factorized-posterior-frontier-v1`,
+  manifest `44d2f75b53c7f0d0f08a431a12ee6bc90d24b860ef6d7de9218b34b535250c3f`;
+  28/28 members independently verify with zero missing, mismatched or unexpected.
+- **Hypothesis:** the old least-uncertain-coordinate cube is not a global
+  factorized posterior beam. Exact all-coordinate subset-sum decoding should emit
+  high-probability keys excluded by that cube and give honest rank/Hamming values
+  at configured K.
+- **Mechanism:** binary64 flip penalties are represented in common exact
+  power-of-two integer units. Lazy add/replace children give deterministic
+  `O(K log K)` global top-K over all 256 coordinates. Candidate generation accepts
+  posterior plus K only; truth and exact 20-round public verification are separate
+  post-freeze consumers.
+- **Proof/control result:** exhaustive widths 3/6/10 match exactly. The synthetic
+  full-round truth is global rank four while the matched two-coordinate cube cannot
+  contain it. Factual verification hits rank four; identical wrong-nonce and
+  one-bit-output controls have zero matches.
+- **Burned result:** O1C-0016 target-0000 yields 65,536 unique score-ordered keys,
+  no exact key, and no match in the first 4,096 exact public verifications. MAP is
+  Hamming 117; the best global candidate is Hamming 110 at rank 15,405. The legacy
+  complete 16-bit cube has oracle floor 108 but cannot contain the exact key. The
+  global top-K score interval is only `-251.968003323662` to
+  `-251.9751244505961`, confirming a nearly flat recovery frontier rather than
+  useful key concentration.
+- **Reveal boundary:** one pinned 680-entry manifest is parsed without scanning its
+  member tree. Exactly publication, posterior and original freeze are read before
+  the new frontier freeze; exactly one selected reveal and one selected evaluation
+  are read afterward. START/COMPLETE phases are durable, all five selected member
+  hashes bind the pinned manifest, no-follow traversal rejects links, and reveal,
+  publication and evaluation identities cross-bind.
+- **Work/resources:** 65,544 global candidates, 2,192 proof evaluations, 65,540
+  legacy assignments, 20 synthetic plus 4,096 burned public verifications, zero
+  solver branches/entropy/sibling/MPS/GPU. Runtime was 2.438174 CPU s and
+  2.4539935 wall s; peak RSS 115,261,440 B (109.922 MiB); persistent artifacts
+  2,890,445 B. Every resource gate passed.
+- **Classification:** `EXACT_GLOBAL_FRONTIER_VALIDATED_BURNED_NULL` at
+  `RETROSPECTIVE`; `terminal_c_achieved=false` and
+  `cryptanalytic_signal_claimed=false`.
+- **Breadcrumb/next:** global beam geometry is now solved and fixed. Do not enlarge
+  K or tune the decoder on this opened target. Improve portable evidence
+  orientation through O1C-0019/O1C-0022, then stream any frozen positive posterior
+  through the unchanged O1C-0024 decoder and exact public verifier.

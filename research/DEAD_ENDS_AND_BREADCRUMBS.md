@@ -582,3 +582,34 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   frozen, auditable experiment.
 - **Artifact:**
   [`O1C0023_POSTRESULT_NATIVE_COMPOSER_DESIGN_20260718.md`](O1C0023_POSTRESULT_NATIVE_COMPOSER_DESIGN_20260718.md).
+
+## B-0032 — A least-uncertain-bit cube is not a global posterior beam
+
+- **Evidence:** O1C-0024 proves by exhaustive widths 3/6/10 and a 256-bit
+  20-round discriminator that fixing all but the `m` least-confident coordinates
+  can exclude a globally higher-probability key. The legacy truncated diagnostic
+  also reports the complete cube's Hamming floor rather than the emitted prefix's
+  actual best distance.
+- **Resolution:** the new exact factorized frontier emits global top-K over every
+  coordinate using deterministic integer-scaled subset penalties. The synthetic
+  truth appears at global rank four while the matched two-bit cube cannot contain
+  it; wrong-nonce and output-flip controls remain null.
+- **Burned result:** on O1C-0016 target-0000, 65,536 unique candidates contain no
+  exact key. MAP Hamming 117 improves only to 110 at global rank 15,405. The full
+  legacy 16-bit cube reaches an oracle Hamming floor of 108 yet still fixes 108
+  wrong coordinates, so exact recovery is impossible. Global top-K probability
+  spans just 0.007121 bits from MAP to cutoff and 4,096 exact public checks are
+  null.
+- **Conclusion:** search geometry was partly wrong, but it was not the main
+  bottleneck. Correcting it does not manufacture concentration from the nearly
+  flat O1C-0016 posterior. Hamming improvement among many correlated candidates
+  is a breadcrumb, not transferable key information.
+- **Do not repeat:** enlarge K, choose a best-looking prefix, or tune penalties on
+  this opened target; call the restricted cube a global beam; or report its
+  oracle Hamming floor as an emitted-candidate metric.
+- **Breadcrumb:** keep O1C-0024 fixed as the terminal decoder. First demand
+  portable held-out entropy reduction from O1C-0019/O1C-0022; then measure global
+  rank, exact public time-to-hit and matched random/diversity controls on a frozen
+  posterior.
+- **Artifact:**
+  [`O1C-0024 burned result`](../runs/20260718_035947_O1C-0024_exact-factorized-posterior-frontier-v1/artifacts/burned/result.json).
