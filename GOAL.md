@@ -118,13 +118,19 @@ above key-rotated `52.88%` and factor-rotated `49.51%`. The bounded fields occup
 first-encounter factor decisions recover no Full-256 key and do not extend the
 post-reveal residual ceiling beyond eight bits.
 
-The active frontier is therefore conversion rather than rediscovery: use the
-frozen target-specific relation field as an attacker-computable forward-candidate
-objective, then as context-reversible live guidance inside the exact adapter.
-A500 already closes fixed joint-parity marginals and A503 closes its tested
-target-aligned Jacobian factor model, so the successor must measure true-key joint
-rank, effective residual width or real search work without requiring 248
-independently perfect unary predictions.
+O1C-0040 then evaluates the complete candidate-level consequence. Across 4,096
+attacker-generated decoys per target, raw primary truth ranks are `1905/4097` and
+`2292/4097`; one frozen structural-surprise correction reaches `1078/4097` and
+`1461/4097` but loses decisively to key rotation (`107/4097`, `423/4097`). The
+transferred occurrence edges therefore describe mostly universal ChaCha geometry,
+not a usable target-key objective.
+
+The active frontier now moves one causal level deeper: retain exact branch
+identity and bind branch-exclusive signed antecedent chains rather than terminal
+clause occurrence. A500 already closes fixed joint-parity marginals and A503
+closes its tested target-aligned Jacobian factor model, so the successor must
+measure true-key joint rank, effective residual width or real search work without
+requiring 248 independently perfect unary predictions.
 
 All writes stay inside this repository. Sibling projects remain read-only and no
 competing heavy job starts without a resource check.

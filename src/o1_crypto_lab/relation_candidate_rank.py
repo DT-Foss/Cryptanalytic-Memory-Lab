@@ -85,8 +85,11 @@ def weighted_relation_scores(
         or not np.all(np.isfinite(vector))
     ):
         raise RelationCandidateRankError("weighted score shape differs")
-    # Explicit float64 conversion avoids platform BLAS integer-matmul quirks.
-    return np.asarray(matrix, dtype=np.float64) @ np.asarray(vector, dtype=np.float64)
+    # Explicit multiply-reduce avoids platform Accelerate matmul warnings on
+    # small, highly discrete matrices while preserving canonical float64 sums.
+    matrix64 = np.asarray(matrix, dtype=np.float64)
+    vector64 = np.asarray(vector, dtype=np.float64)
+    return np.sum(matrix64 * vector64, axis=-1, dtype=np.float64)
 
 
 def exact_candidate_rank(

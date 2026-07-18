@@ -106,6 +106,16 @@ lowest-cost discriminator is the aggregate score of complete forward candidate
 executions. Only a positive true-key rank earns a context-reversible live-CDCL
 successor; a null closes clause occurrence and advances to antecedent chains.
 
+O1C-0040 supplies that null cheaply and exactly. The forward-wire evaluator
+reconstructs every selected late-round/feed-forward CNF spin for arbitrary keys
+and reproduces O1C-0039 truth counts without SAT. Against 4,096 decoys per target,
+raw primary truth ranks are `1905/4097` and `2292/4097`. The only frozen surprise
+correction reaches `1078/4097` and `1461/4097`, but key rotation is far stronger
+at `107/4097` and `423/4097`. Terminal occurrence has therefore collapsed onto
+universal ChaCha geometry. The relational program remains open at signed,
+branch-exclusive antecedent-chain identity; no occurrence or calibration sweep
+is authorized.
+
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
 untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches
@@ -306,12 +316,12 @@ evidence.
 3. O1C-0022's post-reveal ceiling across all precommitted raw arms is only
    `120/210` and `118/204`. The true key is therefore outside both residual
    domains, so no backend search is authorized yet.
-4. O1C-0039 now supplies a genuinely new public all256 relation source at
-   `55.84%` held-out pair accuracy. Its one-shot factor decisions do not yet move
-   recovery, so score complete-candidate joint rank before allocating new data.
-5. If the frozen relation objective ranks truth, convert it into live reversible
-   exact-search guidance and measure effective residual width/time-to-hit. If it
-   does not, pivot to signed antecedent chains without retuning H16 or `|J|`.
+4. O1C-0039 supplies a `55.84%` held-out relation source, but O1C-0040 proves its
+   terminal occurrence score is near-median at complete-candidate level and its
+   fixed surprise arm loses to key rotation. Close this representation.
+5. Extract branch-exclusive signed antecedent chains from the same native paired
+   proof stream. Demand BUILD control separation and consumed-DEVELOPMENT
+   candidate rank before any new target or live-search integration.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.

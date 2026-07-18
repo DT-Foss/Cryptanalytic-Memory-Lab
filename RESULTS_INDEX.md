@@ -183,12 +183,17 @@ bounded proof field exceeds chance on both DEVELOPMENT keys and beats both poole
 endpoint-rotation controls. It does not yet produce entropy/rank/search reduction,
 so it is a progress-ladder level-one signal rather than a cryptanalytic frontier
 or key-recovery result.
+O1C-0040 closes its direct candidate-sum conversion: raw truth is near median and
+the only frozen structural-surprise correction is dominated by key rotation. The
+O1C-0039 relation observation remains valid, but terminal clause occurrence is not
+promoted to entropy, rank or search reduction.
 Existing sibling-project recoveries are baselines, not results of this integration.
 
 ## Negative bounds
 
 | ID | Boundary | Claim level | Evidence | Breadcrumb |
 |---|---|---|---|---|
+| `O1C-0040-N1` | H16 branch-difference clause occurrence transfers structural relation accuracy but does not rank the target key | `POST_REVEAL` consumed diagnostic | raw primary ranks 1905/4097 and 2292/4097; surprise 1078/4097 and 1461/4097; key-rotated surprise 107/4097 and 423/4097 | Close occurrence and its one structural-surprise correction; retain exact proof stream and extract branch-exclusive signed antecedent chains |
 | `O1C-0000-N1` | Equal-cell single-state holography is crosstalk-limited on MQAR-256 | `NEGATIVE_BOUND` | 83.5938% mean bit accuracy, 0/5 exact | Test structured slots/polyphase separation instead of more identical superposition |
 | `O1C-0000-N2` | Repeating correlated weak evidence does not create independent information | `NEGATIVE_BOUND` | 55.8594% mean bit accuracy after 1,024 repetitions | Estimate effective evidence independence before assigning confidence |
 | `O1C-0002-N1` | Selecting 1 of 119 readers on two validation targets is multiplicity-dominated | `NEGATIVE_BOUND` | Observed 3.348 validation bits; exact familywise null `p=0.6641`, null mean best 3.823 bits | Reduce the hypothesis class using independently frozen semantic groups and joint temporal/XOR geometry |

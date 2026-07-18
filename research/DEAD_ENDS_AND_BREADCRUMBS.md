@@ -894,3 +894,22 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   occurrence to signed antecedent-chain identity.
 - **Artifact:**
   [`O1C-0039 result`](O1C0039_PROOF_CLAUSE_RELATION_TRANSFER_RESULT_20260718.md).
+
+## B-0044 — Clause-occurrence relation accuracy is universal geometry, not target rank
+
+- **Evidence:** O1C-0040 forward-evaluates the exact frozen O1C-0039 fields on
+  4,096 attacker-generated decoys per consumed target. The raw true scores rank
+  `1905/4097` and `2292/4097`, near the decoy median.
+- **Surprise control:** subtracting attacker-generated structural match odds from
+  frozen BUILD reliability improves primary to `1078/4097` and `1461/4097`, but
+  key rotation reaches `107/4097` and `423/4097`.
+- **Conclusion:** correct terminal key-to-carry pair signs mostly encode invariant
+  ChaCha algebra. Their transfer is real, but it is not target-specific search
+  information at this representation.
+- **Do not repeat:** enlarge the decoy panel, tune H16/`|J|`, fit another marginal
+  normalization or send the same score back into CDCL.
+- **Breadcrumb:** preserve branch and proof identity before the universal endpoint
+  collapse. Contrast signed antecedent chains that occur only under one key-bit
+  assumption, then demand candidate rank before live search integration.
+- **Artifact:**
+  [`O1C-0040 result`](O1C0040_RELATION_CANDIDATE_RANK_RESULT_20260718.md).

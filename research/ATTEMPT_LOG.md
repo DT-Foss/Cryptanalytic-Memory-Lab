@@ -1731,3 +1731,22 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:**
   [`result`](O1C0039_PROOF_CLAUSE_RELATION_TRANSFER_RESULT_20260718.md) and
   [`capsule`](../runs/20260718_220217_O1C-0039_proof-clause-relation-v1/RUN.md).
+
+## O1C-0040 — Complete-candidate relation rank diagnostic
+
+- **Recorded:** 2026-07-18T22:22:55+02:00.
+- **Hypothesis:** O1C-0039's transferred occurrence edges jointly rank the true
+  forward execution, raw or after one fixed structural-surprise correction.
+- **Result:** refuted. Raw primary ranks are `1905/4097` and `2292/4097`;
+  surprise ranks are `1078/4097` and `1461/4097`. Primary geometric surprise
+  rank fraction is `30.6315%`, versus `5.1927%` for key rotation.
+- **Boundary:** consumed post-reveal targets; all 8,192 decoys, forward wires,
+  weights and score vectors froze before the runner reread truth. Zero recovered
+  bits, entropy reduction or recovery claim.
+- **Resources:** `3.981557` elapsed s; `101,466,112` B peak; 8,194 candidate
+  forward evaluations; zero solver/sibling/MPS/GPU work.
+- **Decision:** close H16 clause-occurrence scoring and its single surprise arm.
+  Move to branch-exclusive signed antecedent-chain factors without a sweep.
+- **Artifacts:**
+  [`result`](O1C0040_RELATION_CANDIDATE_RANK_RESULT_20260718.md) and
+  [`capsule`](../runs/20260718_222255_O1C-0040_relation-candidate-rank-v1/RUN.md).

@@ -1,14 +1,14 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T22:04:35+02:00.
+Last ranked: 2026-07-18T22:22:55+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Forward-evaluate O1C-0039's frozen H16/`|J|=0.5` field on the true execution and a large attacker-computable uniform/structured decoy panel for both now-consumed DEVELOPMENT targets | State of the art | Extreme | Extreme | Low | Converts the new 55.84% pair signal into the decisive joint-rank question without spending a fresh target or changing extraction |
-| 2 | If true-key rank separates, replace first-encounter decisions with context-reversible live factor aggregation and compare Full-256 work against internal and endpoint-rotated controls | State of the art | Extreme | Extreme | Medium | Tests whether the positive relation source reduces actual search rather than merely describing the true model after reveal |
-| 3 | If candidate rank is null, close clause-occurrence factors and extract signed antecedent-chain relations from the same paired stream; do not sweep H16, `|J|` or conflict limits | State of the art | Extreme | High | Medium | Moves one causal level deeper while preserving the positive proof-stream breadcrumb and avoiding an opened-target rescue sweep |
-| 4 | Retain O1C-0038's exact residual-width-8 zone and the unchanged A526 backend as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
-| 5 | Keep O1C-0037 key-phase guidance and O1C-0023/25/29 over the closed unary field parked | Operational | High | High | Zero | Prevents compute scaling on measured-null fields while retaining reusable adapters |
+| 1 | Extract branch-exclusive signed antecedent-chain identities from the unchanged native H16 paired stream and keep them in a bounded O1 relation vault | State of the art | Extreme | Extreme | Medium | Preserves the causal path information erased by terminal occurrence while reusing the proven public sensor and exact forward reader |
+| 2 | On BUILD only, compare chain relations with exact chain-identity rotations; freeze one representation and score complete-candidate rank on the consumed DEVELOPMENT pair before solver integration | State of the art | Extreme | High | Low | Rejects another universal structural field in seconds while allowing sub-256 relation/rank progress to count |
+| 3 | Only after positive candidate rank, inject chain factors as context-reversible live guidance and compare equal-work Full-256 search plus effective residual width | State of the art | Extreme | Extreme | Medium | Converts a measured target-specific objective rather than repeating O1C-0039's premature one-shot injection |
+| 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
+| 5 | Keep occurrence scoring, key-phase guidance and O1C-0023/25/29 over the closed unary field parked | Operational | High | High | Zero | Prevents scaling measured-null representations while retaining reusable adapters |
 
 ## Effect-first stop rules
 
@@ -33,6 +33,9 @@ Last ranked: 2026-07-18T22:04:35+02:00.
   `55.84%` on both held-out keys versus `52.88%` key rotation and `49.51%` factor
   rotation. Its current first-encounter injector has zero recovery. Preserve the
   extraction bytes and test candidate-level rank before changing search policy.
+- O1C-0040 completes that rank test and is null: primary raw geometric rank is
+  `51.00%`; surprise is `30.63%` and loses to key rotation at `5.19%`. Close the
+  endpoint-occurrence objective. Do not enlarge the panel or retune its weights.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not
