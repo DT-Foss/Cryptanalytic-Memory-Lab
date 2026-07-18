@@ -79,7 +79,7 @@ WEIGHT_BYTES: Final = FEATURE_WIDTH * np.dtype(np.float64).itemsize
 POSTERIOR_BYTES: Final = KEY_TOUCH_FEATURES * np.dtype(np.float64).itemsize
 LIVE_STATE_BYTES: Final = WEIGHT_BYTES + POSTERIOR_BYTES
 NUMERIC_SCRATCH_BYTES: Final = (
-    WEIGHT_BYTES
+    2 * WEIGHT_BYTES
     + (2 * TOUCH_BUCKETS + 2 * CONTEXT_BUCKETS) * np.dtype(np.float64).itemsize
 )
 
@@ -162,13 +162,11 @@ def _frozen_float64(
         raise ProofAncestryPairResidualError(f"array shape must equal {shape}")
     if not np.issubdtype(raw.dtype, np.number):
         raise ProofAncestryPairResidualError("array must be numeric")
-    contiguous = np.array(raw, dtype=np.float64, copy=True, order="C")
+    contiguous = np.asarray(raw, dtype=np.float64, order="C")
     if not np.all(np.isfinite(contiguous)):
         raise ProofAncestryPairResidualError("array must be finite")
-    contiguous[contiguous == 0.0] = 0.0
-    return np.frombuffer(contiguous.tobytes(order="C"), dtype=np.float64).reshape(
-        contiguous.shape
-    )
+    payload = contiguous.tobytes(order="C")
+    return np.frombuffer(payload, dtype=np.float64).reshape(contiguous.shape)
 
 
 def _sha256(value: bytes) -> str:
@@ -518,6 +516,7 @@ def project_coordinate(
 
     if cursor != FEATURE_WIDTH or not np.all(np.isfinite(row)):
         raise ProofAncestryPairResidualError("projected row is invalid")
+    row[row == 0.0] = 0.0
     return _frozen_float64(row, shape=(FEATURE_WIDTH,))
 
 
@@ -633,6 +632,7 @@ def fit_offset_ridge(
     weights = standardized_weights / feature_scale
     if not np.all(np.isfinite(weights)):
         raise ProofAncestryPairResidualError("offset ridge weights are non-finite")
+    weights[weights == 0.0] = 0.0
     return OffsetRidgeFit(
         weights=_frozen_float64(weights, shape=(FEATURE_WIDTH,)),
         regularization=regularization,
@@ -733,8 +733,10 @@ def fit_outer_fold(
         np.concatenate(offsets),
     )
     regularizations.append(outer_fit.regularization)
+    raw_effective_weights = alpha * outer_fit.weights
+    raw_effective_weights[raw_effective_weights == 0.0] = 0.0
     effective_weights = _frozen_float64(
-        alpha * outer_fit.weights,
+        raw_effective_weights,
         shape=(FEATURE_WIDTH,),
     )
     held_logits = _frozen_float64(

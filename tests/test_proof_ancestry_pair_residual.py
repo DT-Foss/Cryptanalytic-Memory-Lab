@@ -143,6 +143,7 @@ class ProjectionPolicyTests(unittest.TestCase):
         self.assertEqual(WEIGHT_BYTES, 6_144)
         self.assertEqual(POSTERIOR_BYTES, 2_048)
         self.assertEqual(LIVE_STATE_BYTES, 8_192)
+        self.assertEqual(NUMERIC_SCRATCH_BYTES, 12_672)
         self.assertLess(NUMERIC_SCRATCH_BYTES, 16 * 1024)
         self.assertEqual(projection_policy_sha256(), projection_policy_sha256())
 
