@@ -303,6 +303,10 @@ public:
     for (int variable = 1; variable <= variable_count; ++variable)
       if (touched_[variable])
         observed_.push_back(variable);
+    for (const int variable : decision_variables)
+      if (!touched_[variable])
+        throw std::runtime_error(
+            "decision variable is absent from pair-envelope potential");
     for (size_t index = 0; index < decision_variables.size(); index += 2U) {
       PairGroup group;
       group.first = decision_variables[index];

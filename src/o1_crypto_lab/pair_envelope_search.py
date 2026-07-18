@@ -239,7 +239,28 @@ def run_pair_envelope_search(
     except (OSError, subprocess.TimeoutExpired) as exc:
         execution_error = exc
         completed = None
-    post_bytes, post_field, post_path = _read_potential_file(resolved_potential_path)
+    try:
+        post_decision_values, post_decision_sha256, post_decision_path = (
+            _read_decision_file(decision_variables_path)
+        )
+    except O1RelationalSearchError as exc:
+        raise O1RelationalSearchError(
+            "pair-envelope decision-variable file changed during execution"
+        ) from exc
+    if (
+        post_decision_path != decision_path
+        or post_decision_values != decision_values
+        or post_decision_sha256 != decision_sha256
+    ):
+        raise O1RelationalSearchError(
+            "pair-envelope decision-variable file changed during execution"
+        )
+    try:
+        post_bytes, post_field, post_path = _read_potential_file(potential_path)
+    except O1RelationalSearchError as exc:
+        raise O1RelationalSearchError(
+            "pair-envelope potential changed during execution"
+        ) from exc
     if (
         post_path != resolved_potential_path
         or post_bytes != potential_bytes

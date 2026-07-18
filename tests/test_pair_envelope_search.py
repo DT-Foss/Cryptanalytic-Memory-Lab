@@ -184,6 +184,37 @@ def test_runner_rejects_wrong_explicit_subset_count_and_order_hash(
         payload["envelope"][field] = original
 
 
+def test_runner_rejects_decision_file_mutation_during_execution(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    executable = tmp_path / "fake-search"
+    executable.write_text("placeholder\n", encoding="ascii")
+    cnf = tmp_path / "tiny.cnf"
+    cnf.write_text("p cnf 257 0\n", encoding="ascii")
+    potential = tmp_path / "potential.txt"
+    write_pair_envelope_potential(potential, _field())
+    decisions = tmp_path / "decisions.txt"
+    decision_sha = write_pair_envelope_decision_variables(decisions, (2, 1))
+    payload = _fake_payload(decision_sha)
+
+    def mutate_decisions(*args: object, **kwargs: object) -> SimpleNamespace:
+        decisions.write_bytes(b"1\n2\n")
+        return SimpleNamespace(returncode=0, stdout=json.dumps(payload), stderr="")
+
+    monkeypatch.setattr(pair_search_module.subprocess, "run", mutate_decisions)
+    with pytest.raises(
+        O1RelationalSearchError,
+        match="decision-variable file changed during execution",
+    ):
+        run_pair_envelope_search(
+            executable=executable,
+            cnf_path=cnf,
+            potential_path=potential,
+            decision_variables_path=decisions,
+            conflict_limit=32,
+        )
+
+
 @pytest.mark.skipif(not _native_available(), reason="CaDiCaL development files absent")
 def test_native_global_envelope_makes_joint_pair_choice_without_internal_decision(
     tmp_path: Path,
@@ -223,3 +254,34 @@ def test_native_global_envelope_makes_joint_pair_choice_without_internal_decisio
     assert result.envelope["backtracks"] == 0
     assert result.envelope["maximum_score_gap"] == pytest.approx(8.0)
     assert result.envelope["envelope_evaluations"] >= 6
+
+
+@pytest.mark.skipif(not _native_available(), reason="CaDiCaL development files absent")
+def test_native_rejects_eligible_key_absent_from_potential(tmp_path: Path) -> None:
+    executable = tmp_path / "pair-envelope-search"
+    build_native_pair_envelope_search(source=NATIVE_SOURCE, output=executable)
+    cnf = tmp_path / "tiny.cnf"
+    cnf.write_text("p cnf 257 0\n", encoding="ascii")
+    potential_path = tmp_path / "potential.txt"
+    write_pair_envelope_potential(
+        potential_path,
+        CriticalityPotentialField(
+            offset=0.0,
+            source_sha256="51" * 32,
+            factors=(CriticalityPotentialFactor((257,), (0.0, 1.0)),),
+        ),
+    )
+    decision_path = tmp_path / "decisions.txt"
+    write_pair_envelope_decision_variables(decision_path, (1, 2))
+
+    with pytest.raises(
+        O1RelationalSearchError,
+        match="decision variable is absent from pair-envelope potential",
+    ):
+        run_pair_envelope_search(
+            executable=executable,
+            cnf_path=cnf,
+            potential_path=potential_path,
+            decision_variables_path=decision_path,
+            conflict_limit=32,
+        )
