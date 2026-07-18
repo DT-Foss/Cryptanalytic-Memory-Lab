@@ -137,6 +137,39 @@ class ClauseRelationField:
             )
         return bytes(payload)
 
+    @classmethod
+    def from_bytes(cls, payload: bytes) -> ClauseRelationField:
+        if not isinstance(payload, bytes) or len(payload) < HEADER.size:
+            raise ProofClauseRelationError("serialized relation field differs")
+        magic, horizon, unit_scale, selected, edge_count, source = HEADER.unpack_from(
+            payload
+        )
+        if (
+            magic != FIELD_MAGIC
+            or unit_scale != UNIT_SCALE
+            or len(payload) != HEADER.size + edge_count * EDGE.size
+        ):
+            raise ProofClauseRelationError("serialized relation header differs")
+        edges: list[ClauseRelationEdge] = []
+        for index in range(edge_count):
+            key_variable, factor_variable, score_units, reserved = EDGE.unpack_from(
+                payload, HEADER.size + index * EDGE.size
+            )
+            if reserved:
+                raise ProofClauseRelationError("serialized relation edge differs")
+            edges.append(ClauseRelationEdge(key_variable, factor_variable, score_units))
+        return cls(
+            conflict_horizon=horizon,
+            selected_abs_units=selected,
+            capacity=max(1, edge_count),
+            source_sha256=source.hex(),
+            edges=tuple(edges),
+            metrics={
+                "edge_count": edge_count,
+                "deserialized": 1,
+            },
+        )
+
     @property
     def state_sha256(self) -> str:
         return hashlib.sha256(self.to_bytes()).hexdigest()

@@ -41,6 +41,9 @@ def test_relation_field_binary_state_and_controls() -> None:
     )
     assert field.serialized_bytes == 72
     assert len(field.to_bytes()) == 72
+    restored = ClauseRelationField.from_bytes(field.to_bytes())
+    assert restored.edges == field.edges
+    assert restored.state_sha256 == field.state_sha256
     assert field.factor_file_bytes() == b"1 900 3\n2 901 -3\n"
     scored = score_relation_field(
         field,
