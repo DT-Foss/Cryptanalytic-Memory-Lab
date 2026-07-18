@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import resource
+import shlex
 import sys
 import tempfile
 import time
@@ -81,6 +82,18 @@ SOURCE_NAMES = (
     "pair_native_source",
     "internal_native_source",
     "runner",
+)
+NON_PROTECTED_SOURCES = tuple(
+    name for name in SOURCE_NAMES if name not in PROTECTED_SOURCES
+)
+EXECUTION_SNAPSHOT_SOURCES = (
+    "template",
+    "semantic_map",
+    "primary_potential",
+    "key_rotated_potential",
+    "clause_rotated_potential",
+    "pair_native_source",
+    "internal_native_source",
 )
 
 _TOP_LEVEL_FIELDS = {
@@ -234,6 +247,108 @@ def load_config(path: str | Path) -> dict[str, object]:
         if name not in PROTECTED_SOURCES and sha256_file(resolved) != expected[name]:
             raise O1C48RunError(f"source hash differs for {name}")
     return config
+
+
+def _snapshot_consumed_config(
+    path: Path, config: Mapping[str, object]
+) -> bytes:
+    """Freeze the exact bytes corresponding to the config object just validated."""
+
+    try:
+        payload = path.read_bytes()
+        value = json.loads(payload.decode("utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        raise O1C48RunError("consumed config bytes differ") from exc
+    if dict(_mapping(value, "consumed config")) != dict(config):
+        raise O1C48RunError("consumed config changed during validation")
+    return payload
+
+
+def _verify_consumed_config_unchanged(path: Path, frozen: bytes) -> None:
+    try:
+        current = path.read_bytes()
+    except OSError as exc:
+        raise O1C48RunError("consumed config disappeared before publication") from exc
+    if current != frozen:
+        raise O1C48RunError("consumed config changed before publication")
+
+
+def _reproduction_command(config_file: Path) -> str:
+    return (
+        "PYTHONPATH=src python3 -m "
+        "o1_crypto_lab.o1c48_pair_envelope_search_run "
+        f"--config {shlex.quote(str(config_file))}\n"
+    )
+
+
+def _snapshot_nonprotected_sources(
+    paths: Mapping[str, Path], expected_sha256: Mapping[str, object]
+) -> tuple[dict[str, bytes], dict[str, str]]:
+    """Read each public source once into an expected-hash-bound run snapshot."""
+
+    if set(paths) != set(NON_PROTECTED_SOURCES):
+        raise O1C48RunError("non-protected source path set differs")
+    snapshots: dict[str, bytes] = {}
+    hashes: dict[str, str] = {}
+    for name in NON_PROTECTED_SOURCES:
+        try:
+            payload = paths[name].read_bytes()
+        except OSError as exc:
+            raise O1C48RunError(f"non-protected source read failed for {name}") from exc
+        digest = hashlib.sha256(payload).hexdigest()
+        if digest != expected_sha256.get(name):
+            raise O1C48RunError(f"non-protected source snapshot differs for {name}")
+        snapshots[name] = payload
+        hashes[name] = digest
+    return snapshots, hashes
+
+
+def _verify_nonprotected_sources_unchanged(
+    paths: Mapping[str, Path], snapshots: Mapping[str, bytes]
+) -> None:
+    if set(paths) != set(NON_PROTECTED_SOURCES) or set(snapshots) != set(
+        NON_PROTECTED_SOURCES
+    ):
+        raise O1C48RunError("non-protected source verification set differs")
+    for name in NON_PROTECTED_SOURCES:
+        try:
+            current = paths[name].read_bytes()
+        except OSError as exc:
+            raise O1C48RunError(
+                f"non-protected source disappeared during run for {name}"
+            ) from exc
+        if current != snapshots[name]:
+            raise O1C48RunError(f"non-protected source changed during run for {name}")
+
+
+def _materialize_execution_snapshots(
+    workspace: Path,
+    snapshots: Mapping[str, bytes],
+    original_paths: Mapping[str, Path],
+) -> dict[str, Path]:
+    """Create read-only temporary files for every byte-oriented execution input."""
+
+    destination_root = workspace / "source-snapshots"
+    destination_root.mkdir()
+    materialized: dict[str, Path] = {}
+    for name in EXECUTION_SNAPSHOT_SOURCES:
+        if name not in snapshots or name not in original_paths:
+            raise O1C48RunError(f"execution source snapshot is absent for {name}")
+        suffix = original_paths[name].suffix
+        destination = destination_root / f"{name}{suffix}"
+        destination.write_bytes(snapshots[name])
+        destination.chmod(0o444)
+        materialized[name] = destination
+    destination_root.chmod(0o555)
+    return materialized
+
+
+def _json_object_from_bytes(payload: bytes, field: str) -> dict[str, object]:
+    try:
+        value = json.loads(payload.decode("utf-8"))
+    except (UnicodeError, json.JSONDecodeError) as exc:
+        raise O1C48RunError(f"{field} snapshot JSON differs") from exc
+    return dict(_mapping(value, field))
 
 
 class _PostFreezeSourceGate:
@@ -411,13 +526,37 @@ def _run_public_search(
     return _public_search_row(name, result, public)
 
 
+def _model_honors_fixed_spins(model: bytes, fixed_spins: Mapping[int, int]) -> bool:
+    if (
+        not isinstance(model, bytes)
+        or len(model) != 32
+        or not fixed_spins
+        or any(variable not in range(1, 257) for variable in fixed_spins)
+        or any(spin not in (-1, 1) for spin in fixed_spins.values())
+    ):
+        raise O1C48RunError("residual model or fixed complement differs")
+    bits = key_bits(model)
+    return all(
+        (1 if bits[variable - 1] else -1) == spin
+        for variable, spin in fixed_spins.items()
+    )
+
+
+def _is_exact_residual_recovery(row: Mapping[str, object]) -> bool:
+    return bool(
+        row.get("model_publicly_verified") is True
+        and row.get("model_truth_exact") is True
+        and row.get("model_matches_truth_fixed_prefix") is True
+    )
+
+
 def _maximum_recovered_width(rows: Sequence[Mapping[str, object]], name: str) -> int:
     return max(
         (
             int(row["residual_bits"])
             for row in rows
             if row.get("name") == name
-            and row.get("model_publicly_verified") is True
+            and _is_exact_residual_recovery(row)
         ),
         default=0,
     )
@@ -456,13 +595,17 @@ def _evaluate_gate(
             any(
                 row.get("name") == name
                 and int(row.get("residual_bits", -1)) == int(width)
-                and row.get("model_publicly_verified") is True
+                and _is_exact_residual_recovery(row)
                 for row in residual_rows
             )
             for name in ARMS
         )
     ]
     shared_width = max(shared_widths, default=0)
+    frontier_tied_at_shared_width = bool(
+        shared_width
+        and all(maximum_by_arm[name] == shared_width for name in ARMS)
+    )
     conflicts_by_arm: dict[str, int] = {}
     if shared_width:
         conflicts_by_arm = {
@@ -483,6 +626,7 @@ def _evaluate_gate(
         not exact["primary"]
         and not control_exact
         and not strict_frontier
+        and frontier_tied_at_shared_width
         and conflicts_by_arm
         and conflicts_by_arm["primary"]
         < min(conflicts_by_arm[name] for name in ARMS if name != "primary")
@@ -496,6 +640,9 @@ def _evaluate_gate(
     elif strict_frontier:
         selected_tier = "strict-primary-residual-width"
         passed = True
+    elif not frontier_tied_at_shared_width:
+        selected_tier = "untied-residual-frontier-blocks-conflict-tier"
+        passed = False
     else:
         selected_tier = (
             "strict-primary-conflicts-at-largest-all-arm-recovered-width"
@@ -512,6 +659,9 @@ def _evaluate_gate(
         "maximum_recovered_residual_bits_by_arm": maximum_by_arm,
         "primary_strict_residual_frontier_gain": strict_frontier,
         "largest_width_recovered_by_every_arm": shared_width,
+        "residual_frontier_tied_at_largest_all_arm_recovered_width": (
+            frontier_tied_at_shared_width
+        ),
         "conflicts_by_arm_at_largest_all_arm_recovered_width": conflicts_by_arm,
         "primary_strict_residual_conflict_gain": strict_conflicts,
         "wall_time_can_satisfy_gate": False,
@@ -557,6 +707,7 @@ def run(config_path: str | Path) -> dict[str, object]:
     root = lab_root().resolve(strict=True)
     config_file = Path(config_path).resolve(strict=True)
     config = load_config(config_file)
+    config_bytes = _snapshot_consumed_config(config_file, config)
     source = _mapping(config["source"], "source")
     expected_hashes = _mapping(
         source["expected_sha256"], "source.expected_sha256"
@@ -568,6 +719,12 @@ def run(config_path: str | Path) -> dict[str, object]:
         name: _relative_path(root, source[name], f"source.{name}")
         for name in SOURCE_NAMES
     }
+    nonprotected_paths = {
+        name: paths[name] for name in NON_PROTECTED_SOURCES
+    }
+    source_snapshots, source_snapshot_hashes = _snapshot_nonprotected_sources(
+        nonprotected_paths, expected_hashes
+    )
     late_sources = _PostFreezeSourceGate(
         {name: paths[name] for name in PROTECTED_SOURCES}, expected_hashes
     )
@@ -577,7 +734,9 @@ def run(config_path: str | Path) -> dict[str, object]:
     children_started = resource.getrusage(resource.RUSAGE_CHILDREN)
     source_commit = _git_commit(root)
 
-    publication = _read_json(paths["publication"])
+    publication = _json_object_from_bytes(
+        source_snapshots["publication"], "publication"
+    )
     public = public_view_from_publication(publication)
     if (
         publication.get("schema") != "o1-256-sealed-publication-v1"
@@ -585,10 +744,10 @@ def run(config_path: str | Path) -> dict[str, object]:
         or publication.get("public_view_sha256") != public.digest()
     ):
         raise O1C48RunError("consumed public target identity differs")
-    natural = ParentCriticalityField.from_bytes(paths["field"].read_bytes())
+    natural = ParentCriticalityField.from_bytes(source_snapshots["field"])
     potentials = {
         name: CriticalityPotentialField.from_bytes(
-            paths[f"{name}_potential"].read_bytes()
+            source_snapshots[f"{name}_potential"]
         )
         for name in PAIR_ARMS
     }
@@ -627,25 +786,31 @@ def run(config_path: str | Path) -> dict[str, object]:
     pair_artifacts: dict[str, bytes] = {}
     with tempfile.TemporaryDirectory(prefix="o1c48-") as temporary:
         workspace = Path(temporary)
+        execution_paths = _materialize_execution_snapshots(
+            workspace, source_snapshots, nonprotected_paths
+        )
         pair_executable = workspace / "cadical-o1-pair-envelope-search"
         internal_executable = workspace / "cadical-o1-guided-search"
         pair_build = build_native_pair_envelope_search(
-            source=paths["pair_native_source"], output=pair_executable
+            source=execution_paths["pair_native_source"], output=pair_executable
         )
         internal_build = build_native_guided_search(
-            source=paths["internal_native_source"], output=internal_executable
+            source=execution_paths["internal_native_source"], output=internal_executable
         )
         cnf = workspace / "o1c44-public.cnf"
         instance = write_full256_instance(
-            paths["template"],
-            paths["semantic_map"],
+            execution_paths["template"],
+            execution_paths["semantic_map"],
             cnf,
             counter=public.counter_schedule[0],
             nonce=public.nonce,
             output=public.output_blocks[0],
         )
         verification = verify_full256_instance(
-            cnf, paths["template"], paths["semantic_map"], instance
+            cnf,
+            execution_paths["template"],
+            execution_paths["semantic_map"],
+            instance,
         )
         if (
             verification.get("ok") is not True
@@ -657,7 +822,7 @@ def run(config_path: str | Path) -> dict[str, object]:
             raise O1C48RunError("public Full-256 zero-unit instance differs")
 
         potential_paths = {
-            name: paths[f"{name}_potential"] for name in PAIR_ARMS
+            name: execution_paths[f"{name}_potential"] for name in PAIR_ARMS
         }
         decision_paths: dict[str, Path] = {}
         decision_hashes: dict[str, str] = {}
@@ -737,8 +902,10 @@ def run(config_path: str | Path) -> dict[str, object]:
             },
             "pair_plans": pair_plan_records,
             "potential_sha256": {
-                name: sha256_file(potential_paths[name]) for name in PAIR_ARMS
+                name: source_snapshot_hashes[f"{name}_potential"]
+                for name in PAIR_ARMS
             },
+            "nonprotected_source_snapshot_sha256": source_snapshot_hashes,
             "residual_key_order": list(key_order),
             "residual_variables": residual_variables,
             "public_instance": instance.describe(),
@@ -827,16 +994,30 @@ def run(config_path: str | Path) -> dict[str, object]:
                     potential_paths=potential_paths,
                     decision_paths=decision_paths,
                 )
+                model_truth_hamming = (
+                    None
+                    if model is None
+                    else model_hamming_distance(model, truth_key)
+                )
+                model_matches_truth_fixed_prefix = bool(
+                    model is not None and _model_honors_fixed_spins(model, fixed)
+                )
+                if model is not None and not model_matches_truth_fixed_prefix:
+                    raise O1C48RunError(
+                        f"SAT residual model violates truth-fixed prefix for {name}"
+                    )
                 row.update(
                     {
                         "residual_bits": width,
                         "residual_variables": sorted(residual),
                         "privileged_post_reveal_prefix": True,
                         "prefix": prefix,
-                        "model_truth_hamming": (
-                            None
-                            if model is None
-                            else model_hamming_distance(model, truth_key)
+                        "model_truth_hamming": model_truth_hamming,
+                        "model_truth_exact": bool(
+                            model is not None and model_truth_hamming == 0
+                        ),
+                        "model_matches_truth_fixed_prefix": (
+                            model_matches_truth_fixed_prefix
                         ),
                     }
                 )
@@ -909,6 +1090,7 @@ def run(config_path: str | Path) -> dict[str, object]:
             "primary_pair_plan": primary_description,
             "pair_plan_validation": plan_validation,
             "ordered_pair_file_sha256": decision_hashes,
+            "nonprotected_source_snapshot_sha256": source_snapshot_hashes,
             "residual_selector": search_config["residual_selector"],
             "pair_build": pair_build.describe(),
             "internal_build": internal_build.describe(),
@@ -951,6 +1133,10 @@ def run(config_path: str | Path) -> dict[str, object]:
         or peak_rss > int(budgets["maximum_peak_rss_bytes"])
     ):
         raise O1C48RunError("O1C-0048 resource gate differs")
+    _verify_consumed_config_unchanged(config_file, config_bytes)
+    _verify_nonprotected_sources_unchanged(
+        nonprotected_paths, source_snapshots
+    )
 
     stamp = datetime.now().astimezone().strftime("%Y%m%d_%H%M%S")
     capsule_relative = Path("runs") / f"{stamp}_{ATTEMPT_ID}_pair-envelope-search-v1"
@@ -961,12 +1147,8 @@ def run(config_path: str | Path) -> dict[str, object]:
     fixed_members: dict[str, bytes] = {
         "RUN.md": _markdown(result).encode("utf-8"),
         "attacker_freeze.json": attacker_freeze_bytes,
-        "command.txt": (
-            "PYTHONPATH=src python3 -m "
-            "o1_crypto_lab.o1c48_pair_envelope_search_run "
-            f"--config {config_file}\n"
-        ).encode("utf-8"),
-        "config.json": config_file.read_bytes(),
+        "command.txt": _reproduction_command(config_file).encode("utf-8"),
+        "config.json": config_bytes,
         **pair_artifacts,
     }
     members: dict[str, bytes] = {}
@@ -1027,7 +1209,13 @@ __all__ = [
     "_PostFreezeSourceGate",
     "_compile_pair_plans",
     "_evaluate_gate",
+    "_model_honors_fixed_spins",
+    "_reproduction_command",
+    "_snapshot_nonprotected_sources",
+    "_snapshot_consumed_config",
     "_validate_config_contract",
+    "_verify_nonprotected_sources_unchanged",
+    "_verify_consumed_config_unchanged",
     "load_config",
     "main",
     "run",

@@ -4,6 +4,7 @@ import copy
 import hashlib
 import inspect
 import json
+import shlex
 from pathlib import Path
 
 import pytest
@@ -18,7 +19,13 @@ from o1_crypto_lab.o1c48_pair_envelope_search_run import (
     _PostFreezeSourceGate,
     _compile_pair_plans,
     _evaluate_gate,
+    _model_honors_fixed_spins,
+    _reproduction_command,
+    _snapshot_nonprotected_sources,
+    _snapshot_consumed_config,
     _validate_config_contract,
+    _verify_nonprotected_sources_unchanged,
+    _verify_consumed_config_unchanged,
     load_config,
 )
 from o1_crypto_lab.proof_parent_criticality import (
@@ -157,6 +164,9 @@ def _search_row(
     }
     if residual_bits is not None:
         row["residual_bits"] = residual_bits
+        row["model_truth_hamming"] = 0 if recovered else None
+        row["model_truth_exact"] = recovered
+        row["model_matches_truth_fixed_prefix"] = recovered
     return row
 
 
@@ -183,6 +193,94 @@ def test_gate_is_lexicographic_and_requires_strict_primary_margin() -> None:
     gate = _evaluate_gate(full, residual, (8, 9))
     assert gate["passed"] is False
     assert gate["selected_tier"] == "strict-primary-full256"
+
+    full = [_search_row(name, recovered=False) for name in run_module.ARMS]
+    residual = [
+        _search_row(
+            name,
+            recovered=True,
+            residual_bits=8,
+            conflicts=1 if name == "primary" else 20,
+        )
+        for name in run_module.ARMS
+    ]
+    gate = _evaluate_gate(full, residual, (8, 9))
+    assert gate[
+        "residual_frontier_tied_at_largest_all_arm_recovered_width"
+    ] is True
+    assert gate["primary_strict_residual_conflict_gain"] is True
+    assert gate["passed"] is True
+
+    residual.append(
+        _search_row("key_rotated", recovered=True, residual_bits=9, conflicts=30)
+    )
+    gate = _evaluate_gate(full, residual, (8, 9))
+    assert gate["maximum_recovered_residual_bits_by_arm"] == {
+        "internal": 8,
+        "primary": 8,
+        "key_rotated": 9,
+        "clause_rotated": 8,
+    }
+    assert gate[
+        "residual_frontier_tied_at_largest_all_arm_recovered_width"
+    ] is False
+    assert gate["primary_strict_residual_conflict_gain"] is False
+    assert gate["passed"] is False
+    assert gate["selected_tier"] == "untied-residual-frontier-blocks-conflict-tier"
+
+    residual = [
+        _search_row(name, recovered=True, residual_bits=8)
+        for name in run_module.ARMS
+    ]
+    primary = next(row for row in residual if row["name"] == "primary")
+    primary["model_truth_hamming"] = 1
+    primary["model_truth_exact"] = False
+    gate = _evaluate_gate(full, residual, (8, 9))
+    assert gate["maximum_recovered_residual_bits_by_arm"]["primary"] == 0
+    assert gate["passed"] is False
+
+
+def test_residual_prefix_membership_checks_every_fixed_bit() -> None:
+    model = bytes([0b00000001]) + bytes(31)
+    assert _model_honors_fixed_spins(model, {1: 1, 2: -1, 256: -1}) is True
+    assert _model_honors_fixed_spins(model, {1: -1, 2: -1, 256: -1}) is False
+
+
+def test_consumed_config_bytes_and_reproduction_command_are_stable(
+    tmp_path: Path,
+) -> None:
+    config_path = tmp_path / "config with spaces.json"
+    config = {"schema": "test", "value": 1}
+    original = (json.dumps(config, sort_keys=True) + "\n").encode("ascii")
+    config_path.write_bytes(original)
+    frozen = _snapshot_consumed_config(config_path, config)
+    assert frozen == original
+    _verify_consumed_config_unchanged(config_path, frozen)
+
+    command = _reproduction_command(config_path)
+    assert shlex.split(command)[-2:] == ["--config", str(config_path)]
+
+    config_path.write_bytes(b'{"schema":"test","value":2}\n')
+    with pytest.raises(O1C48RunError, match="changed before publication"):
+        _verify_consumed_config_unchanged(config_path, frozen)
+
+
+def test_nonprotected_source_snapshots_reject_late_mutation(tmp_path: Path) -> None:
+    paths: dict[str, Path] = {}
+    expected: dict[str, str] = {}
+    for name in run_module.NON_PROTECTED_SOURCES:
+        path = tmp_path / name
+        payload = f"{name}\n".encode("ascii")
+        path.write_bytes(payload)
+        paths[name] = path
+        expected[name] = hashlib.sha256(payload).hexdigest()
+    snapshots, hashes = _snapshot_nonprotected_sources(paths, expected)
+    assert hashes == expected
+    _verify_nonprotected_sources_unchanged(paths, snapshots)
+
+    paths["primary_potential"].write_bytes(b"mutated\n")
+    with pytest.raises(O1C48RunError, match="changed during run for primary_potential"):
+        _verify_nonprotected_sources_unchanged(paths, snapshots)
 
 
 def test_protected_sources_cannot_be_opened_until_attacker_freeze(
