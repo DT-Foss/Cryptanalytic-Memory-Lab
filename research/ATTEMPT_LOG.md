@@ -1561,3 +1561,24 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   beam contains an exact completion.
 - **Artifact:**
   [`RESIDUAL_BACKEND_ENTRY_GATE_20260718.json`](RESIDUAL_BACKEND_ENTRY_GATE_20260718.json).
+
+## O1C-0031 / O1C-0032 — Exact A448 full256 byte-3 transfer
+
+- **Mechanism:** exact hash-frozen sibling A448 proof-antecedent top4 reader,
+  A442 Borda tie backbone and frozen equal hybrid over one H1/H2/H4/H8 pass.
+  Key bits 24..31 form the 256 candidates; all other 248 key bits remain free.
+- **O1C-0031:** consumed RFC8439 truth `0x03` ranked `47/256` in `55.290270`
+  measured seconds. This authorized exactly one unchanged consumed repeat.
+- **O1C-0032:** disjoint consumed DEVELOPMENT-0000 truth `0x0f` ranked
+  `239/256` in `48.297538` seconds. Its A442 baseline, proof-only reader and
+  final hybrid ranked the truth `242/236/239`.
+- **Decision:** `CLOSED_NOT_REPLICATED`. No fresh target, rescue fit, byte,
+  coefficient, sign, horizon or operator sweep. The two-target descriptive
+  ranking delta is `-0.149617` bit versus exact uniform mean log-rank.
+- **Artifacts:**
+  [`A448_FULL256_BYTE3_TRANSFER_20260718.json`](A448_FULL256_BYTE3_TRANSFER_20260718.json),
+  [O1C-0031 capsule](../runs/20260718_174416_O1C-0031_a448-proof-byte3-full256-transfer-v1/RUN.md),
+  [O1C-0032 capsule](../runs/20260718_175112_O1C-0032_a448-proof-byte3-development-repeat-v1/RUN.md).
+- **Next:** transfer the next exact sibling mechanism that accepts all 256 bits
+  unknown; do not rebuild A325/A526, and do not invoke them before their exact
+  complement gate is satisfied.

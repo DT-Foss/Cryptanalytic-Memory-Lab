@@ -21,10 +21,17 @@ with it.
 - `ROI` means attacker-valid entropy removal, rank/search reduction or exact
   recovery on standard full-round ChaCha20. Infrastructure, validation gates and
   polished claims have zero standalone ROI.
+- An iteration counts only when it executes the real public full-round relation
+  and changes a key metric: entropy, byte/block/full-key rank, verified candidate
+  count or exact recovery. Theory, adapters, tests and capsules are support work,
+  never substitutes for that run.
 - Reuse a mechanism with positive recovery evidence before inventing a replacement.
-  The first transfer targets are the A291/A296 eight-channel causal reader and
-  exact recovery/verifier path, then the A317/A321/A325 rank-space nearest-
-  prototype L-infinity order. A465/A469 remain downstream fusion channels.
+  Copy its exact feature, reader, ordering and verifier semantics first; alter
+  architecture only after that literal transfer fails its one cheap repeat.
+- Direct composition is the default: public target -> exact sibling evidence
+  reader -> O1 coordinate posterior/completion beam -> unchanged sibling residual
+  recovery -> independent ChaCha20 verification. Do not rebuild a working
+  downstream search engine.
 - Until a transferred reader gives positive cached DEVELOPMENT compression, the
   loop measures only natural-log-loss/compression, sign accuracy, runtime and
   memory. Byte/u16 ranks, top-K decoding, broad controls, formal capsules and
@@ -32,6 +39,9 @@ with it.
 - A negative result is a failed hypothesis, not a milestone. Record one concise
   do-not-repeat breadcrumb and pivot. Do not reward nulls with more ceremony or
   reinterpret them as progress.
+- Stop rule: one positive consumed target earns one unchanged consumed repeat;
+  only a repeat earns one fresh blind target. A failed repeat closes that reader
+  immediately—no rescue sweep, extended postmortem or fresh-target spend.
 - New architecture or orchestration is paused unless it executes an already-
   positive sibling mechanism or removes a measured runtime/memory bottleneck.
 - During cheap discovery retain only four boundaries: public-only target input,
