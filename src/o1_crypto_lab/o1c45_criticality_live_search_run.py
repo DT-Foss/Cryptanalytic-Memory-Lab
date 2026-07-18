@@ -74,6 +74,19 @@ def _canonical_bytes(value: object) -> bytes:
     )
 
 
+def _pretty_json_bytes(value: object) -> bytes:
+    return (
+        json.dumps(
+            value,
+            indent=2,
+            sort_keys=True,
+            ensure_ascii=True,
+            allow_nan=False,
+        )
+        + "\n"
+    ).encode("ascii")
+
+
 def _peak_rss_bytes() -> int:
     peak = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
     return int(peak if sys.platform == "darwin" else peak * 1024)
@@ -639,6 +652,12 @@ def run(config_path: str | Path) -> dict[str, object]:
     primary_frontier_gain = maximum_by_arm["primary"] > max(
         maximum_by_arm[name] for name in ARMS if name != "primary"
     )
+    primary_frontier_gain_vs_internal = (
+        maximum_by_arm["primary"] > maximum_by_arm["internal"]
+    )
+    potential_family_frontier_gain = max(
+        maximum_by_arm[name] for name in POTENTIAL_ARMS
+    ) > maximum_by_arm["internal"]
     shared_widths = [
         int(width)
         for width in search_config["residual_widths"]
@@ -689,6 +708,11 @@ def run(config_path: str | Path) -> dict[str, object]:
         classification = "CRITICALITY_EXPANDS_EXACT_RESIDUAL_FRONTIER"
     elif primary_conflict_gain:
         classification = "CRITICALITY_REDUCES_EXACT_RESIDUAL_CONFLICTS"
+    elif potential_family_frontier_gain and primary_frontier_gain_vs_internal:
+        classification = (
+            "CRITICALITY_POTENTIAL_FAMILY_EXPANDS_RESIDUAL_FRONTIER_"
+            "WITHOUT_PRIMARY_MARGIN"
+        )
     elif maximum_by_arm["primary"]:
         classification = "CRITICALITY_MATCHES_EXACT_RESIDUAL_FRONTIER"
     else:
@@ -741,10 +765,19 @@ def run(config_path: str | Path) -> dict[str, object]:
             ),
             "maximum_recovered_residual_bits_by_arm": maximum_by_arm,
             "primary_residual_frontier_gain": primary_frontier_gain,
+            "primary_residual_frontier_gain_vs_internal": (
+                primary_frontier_gain_vs_internal
+            ),
+            "potential_family_residual_frontier_gain": (
+                potential_family_frontier_gain
+            ),
             "shared_recovered_work_width": shared_work_width,
             "conflicts_by_arm_at_shared_width": conflict_by_arm_at_shared,
             "primary_residual_conflict_gain": primary_conflict_gain,
             "primary_matched_work_gain": matched_work_gain,
+            "potential_family_matched_work_gain_vs_internal": bool(
+                potential_family_frontier_gain
+            ),
             "compiled_primary_rank": int(
                 _mapping(truth_equivalence["primary"], "truth.primary")[
                     "compiled_rank"
@@ -802,7 +835,7 @@ def run(config_path: str | Path) -> dict[str, object]:
     members: dict[str, bytes] = {}
     manifest = b""
     for _ in range(4):
-        result_bytes = _canonical_bytes(result)
+        result_bytes = _pretty_json_bytes(result)
         members = {**fixed_members, "result.json": result_bytes}
         manifest = "".join(
             f"{hashlib.sha256(payload).hexdigest()}  {name}\n"
