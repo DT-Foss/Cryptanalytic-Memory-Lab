@@ -1,0 +1,63 @@
+{
+  "schema": "o1-256-relation-candidate-rank-config-v1",
+  "attempt_id": "O1C-0040",
+  "slug": "relation-candidate-rank-v1",
+  "claim_level": "POST_REVEAL_DIAGNOSTIC",
+  "hypothesis": "The O1C-0039 transferred H16 relation field ranks the true complete ChaCha forward execution above attacker-generated decoys, either raw or after one frozen structural-surprise log-odds correction.",
+  "prediction": "Primary truth rank fraction is at most 0.25 on both consumed DEVELOPMENT targets and its geometric rank fraction beats both endpoint rotations for at least one of the two predeclared scorers.",
+  "source": {
+    "semantic_map": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.map.json",
+    "labels": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/labels.bitpack",
+    "o1c39_result": "research/O1C0039_PROOF_CLAUSE_RELATION_RESULT_20260718.json"
+  },
+  "targets": [
+    {
+      "target_id": "development-0000",
+      "label_index": 0,
+      "sidecar": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/development-0000.json",
+      "field": "runs/20260718_220217_O1C-0039_proof-clause-relation-v1/fields/development-0000.bin",
+      "field_sha256": "7ec3d065d977a95af799eb74c4d29b0b7655f619e7384bdae727e97b0ade8638",
+      "expected_truth_correct": 238,
+      "expected_edge_count": 432
+    },
+    {
+      "target_id": "development-0001",
+      "label_index": 1,
+      "sidecar": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/development-0001.json",
+      "field": "runs/20260718_220217_O1C-0039_proof-clause-relation-v1/fields/development-0001.bin",
+      "field_sha256": "def9f8132eccce8173a717ca61510804cc1d4fd36eac3514735e358d2401385f",
+      "expected_truth_correct": 159,
+      "expected_edge_count": 279
+    }
+  ],
+  "candidate_panel": {
+    "count_per_target": 4096,
+    "generator": "sha256(o1c40-domain || public-view-digest || uint64le(index))",
+    "domain": "O1C40-decoy-v1",
+    "duplicate_policy": "reject",
+    "truth_collision_policy": "report_without_replacement"
+  },
+  "scorers": {
+    "arms": ["primary", "key_rotated", "factor_rotated"],
+    "methods": ["raw_abs_units", "surprise_log_odds_v1"],
+    "build_reliability_correct": 595,
+    "build_reliability_total": 1045,
+    "surprise_prior": 0.5,
+    "success_rank_fraction": 0.25,
+    "no_other_score_or_calibration_arm": true
+  },
+  "budgets": {
+    "maximum_wall_seconds": 30,
+    "maximum_peak_rss_bytes": 536870912,
+    "maximum_candidate_forward_evaluations": 8194,
+    "maximum_decoy_keys": 8192,
+    "maximum_fresh_targets": 0,
+    "maximum_solver_calls": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_persistent_artifact_bytes": 1048576
+  },
+  "next_action": "If candidate rank transfers, implement context-reversible live factor guidance. If it is null, close H16 clause-occurrence scoring without a sweep and move to signed branch-exclusive antecedent-chain factors."
+}
