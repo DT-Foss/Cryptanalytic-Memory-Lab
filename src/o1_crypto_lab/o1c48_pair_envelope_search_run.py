@@ -33,7 +33,6 @@ from .o1_relational_search import (
 from .o1c37_relational_guided_search_run import (
     _atomic_json,
     _git_commit,
-    _read_json,
     _relative_path,
     lab_root,
 )
@@ -232,12 +231,21 @@ def _validate_config_contract(config: Mapping[str, object]) -> None:
         raise O1C48RunError("frozen O1C-0048 matched-work ledger is inconsistent")
 
 
-def load_config(path: str | Path) -> dict[str, object]:
+def _load_config_with_bytes(
+    path: str | Path,
+) -> tuple[dict[str, object], bytes]:
+    """Load, validate, and hash-check one exact config byte snapshot."""
+
     root = lab_root().resolve(strict=True)
     config_path = Path(path).resolve(strict=True)
     if not config_path.is_relative_to(root):
         raise O1C48RunError("config escapes lab")
-    config = _read_json(config_path)
+    try:
+        payload = config_path.read_bytes()
+        value = json.loads(payload.decode("utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        raise O1C48RunError("config bytes differ") from exc
+    config = dict(_mapping(value, "config"))
     _validate_config_contract(config)
     source = _mapping(config["source"], "source")
     expected = _mapping(source["expected_sha256"], "source.expected_sha256")
@@ -246,22 +254,12 @@ def load_config(path: str | Path) -> dict[str, object]:
         # These bytes are sealed behind the attacker-freeze gate in ``run``.
         if name not in PROTECTED_SOURCES and sha256_file(resolved) != expected[name]:
             raise O1C48RunError(f"source hash differs for {name}")
+    return config, payload
+
+
+def load_config(path: str | Path) -> dict[str, object]:
+    config, _ = _load_config_with_bytes(path)
     return config
-
-
-def _snapshot_consumed_config(
-    path: Path, config: Mapping[str, object]
-) -> bytes:
-    """Freeze the exact bytes corresponding to the config object just validated."""
-
-    try:
-        payload = path.read_bytes()
-        value = json.loads(payload.decode("utf-8"))
-    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
-        raise O1C48RunError("consumed config bytes differ") from exc
-    if dict(_mapping(value, "consumed config")) != dict(config):
-        raise O1C48RunError("consumed config changed during validation")
-    return payload
 
 
 def _verify_consumed_config_unchanged(path: Path, frozen: bytes) -> None:
@@ -706,8 +704,7 @@ def _markdown(result: Mapping[str, object]) -> str:
 def run(config_path: str | Path) -> dict[str, object]:
     root = lab_root().resolve(strict=True)
     config_file = Path(config_path).resolve(strict=True)
-    config = load_config(config_file)
-    config_bytes = _snapshot_consumed_config(config_file, config)
+    config, config_bytes = _load_config_with_bytes(config_file)
     source = _mapping(config["source"], "source")
     expected_hashes = _mapping(
         source["expected_sha256"], "source.expected_sha256"
@@ -1209,10 +1206,10 @@ __all__ = [
     "_PostFreezeSourceGate",
     "_compile_pair_plans",
     "_evaluate_gate",
+    "_load_config_with_bytes",
     "_model_honors_fixed_spins",
     "_reproduction_command",
     "_snapshot_nonprotected_sources",
-    "_snapshot_consumed_config",
     "_validate_config_contract",
     "_verify_nonprotected_sources_unchanged",
     "_verify_consumed_config_unchanged",

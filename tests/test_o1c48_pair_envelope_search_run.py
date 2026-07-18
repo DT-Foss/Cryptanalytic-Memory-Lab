@@ -22,7 +22,6 @@ from o1_crypto_lab.o1c48_pair_envelope_search_run import (
     _model_honors_fixed_spins,
     _reproduction_command,
     _snapshot_nonprotected_sources,
-    _snapshot_consumed_config,
     _validate_config_contract,
     _verify_nonprotected_sources_unchanged,
     _verify_consumed_config_unchanged,
@@ -67,15 +66,25 @@ def test_frozen_config_has_exact_work_ledger_and_defers_protected_hashes(
         _validate_config_contract(invalid)
 
     hashed: list[Path] = []
+    config_reads = 0
     original_sha256_file = run_module.sha256_file
+    original_read_bytes = Path.read_bytes
 
     def recording_sha256(path: str | Path) -> str:
         hashed.append(Path(path).resolve())
         return original_sha256_file(path)
 
+    def recording_read_bytes(path: Path) -> bytes:
+        nonlocal config_reads
+        if path.resolve() == CONFIG.resolve():
+            config_reads += 1
+        return original_read_bytes(path)
+
     monkeypatch.setattr(run_module, "sha256_file", recording_sha256)
+    monkeypatch.setattr(Path, "read_bytes", recording_read_bytes)
     loaded = load_config(CONFIG)
     assert loaded["attempt_id"] == "O1C-0048"
+    assert config_reads == 1
     protected = {
         (ROOT / loaded["source"][name]).resolve()
         for name in run_module.PROTECTED_SOURCES
@@ -253,14 +262,14 @@ def test_consumed_config_bytes_and_reproduction_command_are_stable(
     config = {"schema": "test", "value": 1}
     original = (json.dumps(config, sort_keys=True) + "\n").encode("ascii")
     config_path.write_bytes(original)
-    frozen = _snapshot_consumed_config(config_path, config)
+    frozen = original
     assert frozen == original
     _verify_consumed_config_unchanged(config_path, frozen)
 
     command = _reproduction_command(config_path)
     assert shlex.split(command)[-2:] == ["--config", str(config_path)]
 
-    config_path.write_bytes(b'{"schema":"test","value":2}\n')
+    config_path.write_bytes(b'{"value": 1, "schema": "test"}\n')
     with pytest.raises(O1C48RunError, match="changed before publication"):
         _verify_consumed_config_unchanged(config_path, frozen)
 
