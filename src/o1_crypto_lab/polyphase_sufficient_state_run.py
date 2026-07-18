@@ -1091,6 +1091,8 @@ def run_capsule_from_config(path: str | Path) -> int:
         next_action=str(top["next_action"]),
         config=top,
         command=(
+            "/usr/bin/env",
+            f"PYTHONPATH={root / 'src'}",
             sys.executable,
             "-m",
             "o1_crypto_lab.polyphase_sufficient_state_run",
@@ -1101,6 +1103,7 @@ def run_capsule_from_config(path: str | Path) -> int:
             "experiment_boundary": "synthetic-full256-polyphase-mechanism",
             "accelerator": "none",
             "numpy_version": np.__version__,
+            "pythonpath": str(root / "src"),
             "scientific_python_worker_processes": 1,
             "explicit_parallel_scientific_workers": 0,
             "state_bytes": STATE_BYTES,
