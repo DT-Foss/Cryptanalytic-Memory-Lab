@@ -1,0 +1,91 @@
+{
+  "schema": "o1-256-pair-envelope-search-config-v1",
+  "attempt_id": "O1C-0048",
+  "slug": "pair-envelope-search-v1",
+  "claim_level": "CONSUMED_SEARCH_DIAGNOSTIC",
+  "hypothesis": "O1C-0047's rank-50 complete-state concentration is carried by coordinated key interactions that one-variable criticality schedules erase. Compiling one disjoint primary pair plan from the unchanged natural field and primary potential, then applying global max-envelope pair decisions before reveal, will preserve enough coordination to produce a strict matched-work primary advantage.",
+  "prediction": "At identical target, public CNF, seed, 512-conflict cap, residual widths, and solver-call ledger, the primary pair-envelope arm will uniquely recover Full-256, otherwise recover a strictly wider residual than internal and both rotations, otherwise use strictly fewer conflicts than all three at the largest residual width recovered by every arm.",
+  "source": {
+    "template": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.cnf",
+    "semantic_map": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.map.json",
+    "publication": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/publication.json",
+    "field": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/field.bin",
+    "reveal": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/reveal.json",
+    "o1c46_result": "research/O1C0046_KEY_ONLY_CRITICALITY_SEARCH_RESULT_20260719.json",
+    "o1c47_result": "research/O1C0047_GLOBAL_CRITICALITY_RESIDUAL_BEAM_RESULT_20260719.json",
+    "primary_potential": "runs/20260719_001005_O1C-0045_criticality-live-search-v1/potentials/primary.pot",
+    "key_rotated_potential": "runs/20260719_001005_O1C-0045_criticality-live-search-v1/potentials/key_rotated.pot",
+    "clause_rotated_potential": "runs/20260719_001005_O1C-0045_criticality-live-search-v1/potentials/clause_rotated.pot",
+    "pair_group_source": "src/o1_crypto_lab/criticality_pair_groups.py",
+    "search_adapter": "src/o1_crypto_lab/pair_envelope_search.py",
+    "pair_native_source": "native/cadical_o1_pair_envelope_search.cpp",
+    "internal_native_source": "native/cadical_o1_guided_search.cpp",
+    "runner": "src/o1_crypto_lab/o1c48_pair_envelope_search_run.py",
+    "expected_sha256": {
+      "template": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+      "semantic_map": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+      "publication": "b985dd4e38e764c250fb4b2e4f38fff02873361a0838399b54ae1acfd87a279a",
+      "field": "58c8e2eb07632b4b4e2a26b148283effc30cc2391c276ed294a0bb64335c747f",
+      "reveal": "7caf9b1f83465138be80b28677207bf4a5e274b809ec65d55845168d21da0707",
+      "o1c46_result": "0f2ffeb436114a35aabf2d4dea7f5fe3ab7bdc2c37665539b1df97ee14fd562b",
+      "o1c47_result": "91709eb6c7a0f378e8ef0046a81d4211a428d75fa6636553c218c023cab3380d",
+      "primary_potential": "307a0aeac84ee5efa4e6900f2105727bedbaa3a32b941102960a0257554cdf1e",
+      "key_rotated_potential": "c97aad4c6b57fc3284f54dfdd0660b40a67ebeb46ce344823898919c608a3a1c",
+      "clause_rotated_potential": "1bed47e6753e5f517d9f0227ab7a3643c452eef30e937dfea0f036b0260e6ea6",
+      "pair_group_source": "6e4978dcee0d9b915921cde66be05d294b5a6159593bfc3510a6e0238bde5ef1",
+      "search_adapter": "105d58b9cfde9ef94633b8cd5661610f74094f27d79f7e73e3ada19a218b05af",
+      "pair_native_source": "68dc9c668ba8b5d85240d5e7491f3b14b558cdba6eb3531328b4b626e5374864",
+      "internal_native_source": "384870ffa73bf8b5fa404742669218c7d93918018507595c042d73d54a08eca9",
+      "runner": "4f453b97f02cdb65c2c1985706f77bee22b6d32201c6c8accc478c58b70fc3cf"
+    }
+  },
+  "target": {
+    "target_id": "o1c-0044-fresh-0000",
+    "rounds": 20,
+    "unknown_key_bits": 256,
+    "fresh_targets": 0
+  },
+  "pair_plan": {
+    "compiler": "natural-field-plus-primary-potential-compiled-once",
+    "primary_compile_count": 1,
+    "group_width": 2,
+    "expected_joint_groups": 41,
+    "expected_filler_groups": 22,
+    "expected_group_count": 63,
+    "expected_eligible_variables": 126,
+    "expected_primary_ordered_variables_sha256": "51d13c06c6640efc6b0439efa7a85900d30aea79698d18ae58202a33d03fdbd1",
+    "control_transforms": {
+      "primary": null,
+      "key_rotated": "v->1+v%256",
+      "clause_rotated": "unchanged-primary-plan"
+    }
+  },
+  "search": {
+    "arms": ["internal", "primary", "key_rotated", "clause_rotated"],
+    "conflict_limit": 512,
+    "residual_widths": [8, 9],
+    "residual_selector": "descending-sum-abs-parent-score-units-then-count-then-coordinate",
+    "prefix_mode": "post-reveal-correct-key-unit-conditions",
+    "full256_mode": "pre-reveal-public-cnf-zero-key-and-assumption-units",
+    "gate_order": [
+      "strict-primary-full256",
+      "strict-primary-residual-width",
+      "strict-primary-conflicts-at-largest-all-arm-recovered-width"
+    ],
+    "seed": 0,
+    "scored_call_timeout_seconds": 120
+  },
+  "budgets": {
+    "maximum_wall_seconds": 150,
+    "maximum_peak_rss_bytes": 536870912,
+    "maximum_native_solver_calls": 12,
+    "maximum_requested_conflicts": 6144,
+    "maximum_fresh_targets": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_persistent_artifact_bytes": 2097152
+  },
+  "next_action": "If the primary arm strictly clears the lexicographic gate, preserve the frozen ordered-pair scheduler and validate it prospectively on a fresh target under the same matched-work ledger. Otherwise close pair-envelope branching on this target; do not refit, raise the conflict cap, use a sibling, or consume a fresh target first."
+}
