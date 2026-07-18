@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T20:35:00+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T21:22:00+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -29,10 +29,17 @@
   published known complements stripped from deployment input. Mean MAP is
   `102.5/204`, aggregate accuracy `50.2451%`, mean compression `-0.393341` bit,
   and exact top-65,536 complements `0/128`. Close this raw-output reader.
-- **Next paid experiment:** specify the minimal joint relational decoder using an
-  existing public O1 field plus exact ChaCha search geometry. Measure held-out
-  true-key rank/effective residual width; do not count equivalent basis rows as
-  new information.
+- **O1C-0037:** the first direct O1-to-exact-ChaCha adapter is operational. Exact
+  256-bit truth guidance recovers in `5,065 us` with zero conflicts, but the real
+  frozen O1 field (`117/256` MAP on the consumed target) gives no recovery and
+  key-only guidance cannot repair one wrong hint through 32,768 conflicts.
+- **O1C-0038:** the corrected post-reveal ceiling recovers and independently
+  verifies the full 256-bit key with `8` O1-ordered bits left unknown: `89`
+  conflicts and `135,441 us`. Residual width `9` remains unresolved through
+  `32,768` conflicts. This is a mechanism ceiling, not attacker-valid recovery.
+- **Next paid experiment:** replace key-phase guidance with attacker-valid
+  target-specific relation/proof factors and measure whether they reduce joint
+  rank or effective residual width toward the now-measured eight-bit exact zone.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -49,7 +56,7 @@
 - **Active local run:** none. Sibling repositories remain read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key.
 - **Latest result:**
-  [effect-first transfer screens](research/ALL256_EFFECT_FIRST_TRANSFER_SCREENS_20260718.md).
+  [O1C-0038 exact residual completion](research/O1C0038_EXACT_RESIDUAL_COMPLETION_RESULT_20260718.md).
 
 ## Headline
 
@@ -59,9 +66,12 @@ not the native W52 architecture. The complete O1C-0019/O1C-0022 all256 chain
 also ran and is negative. The best post-reveal O1C-0022 raw arm still misses at
 least 90 of 210 A325 complement bits and 86 of 204 A526 bits. O1C-0035 now freezes
 the exact 204-bit completion frontier feeding the unchanged W52 backend. That
-factorized branch remains active, while H-RELATIONAL-037 adds the missing joint
-completion question: can weak O1 evidence plus exact ChaCha search geometry lower
-the true-key rank or effective residual width before an exact complement exists?
+factorized branch remains active. O1C-0037 now closes simple key-phase-only CDCL
+guidance on the frozen unary field, while O1C-0038 proves that the unchanged exact
+relation can complete an O1-ordered residual width of eight in `135,441 us`. The
+active H-RELATIONAL-037 question is therefore sharper: can attacker-computable
+proof/relation factors drive effective residual width toward that exact zone
+without requiring 248 independently perfect unary decisions?
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does
@@ -630,23 +640,27 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Local scientific run | — | — | none | O1C-0019 and O1C-0022 finalized | — |
+| Local scientific run | — | — | none | O1C-0037/0038 finalized; relation-factor successor ready | — |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Introduce one genuinely new all256-unknown public evidence source and score
-   A325/A526 complement correctness or exact-containing beam rank immediately.
-2. Do not run O1C-0023/25/29, a scale sweep or another state/readout over the
-   closed O1C-0019/O1C-0022 unary packet field.
-3. At exact complement or a tractable exact-containing beam, reuse A325/A526's
-   candidate order, engine and public ChaCha verifier unchanged.
-4. Keep every sibling repository read-only.
+1. Move O1 decisions from key phases onto attacker-computable signed
+   clause/proof/relation factors inside the exact target relation.
+2. Score the first factor field by true-key joint rank, effective residual width
+   and equal-work time-to-hit; eight bits is the measured consumed-target exact
+   completion zone, not a required first-pass threshold.
+3. Keep the O1C-0037 adapter as the exact ceiling/verifier and do not spend more
+   conflicts on its closed one-wrong key-only field.
+4. Reuse A325/A526 unchanged only when their native complement gate is met, and
+   keep every sibling repository read-only.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0038` | 2026-07-18 21:20 | The unchanged exact ChaCha relation can close a nonzero O1-ordered residual once every supplied prefix bit is correct | Full key verified for residual widths `0/1/2/4/8` at 512 conflicts; residual `8` takes 89 conflicts / 135,441 us; residual `9` remains UNKNOWN through 32,768 conflicts | `POST_REVEAL_CEILING`; consumed target, no attacker-valid recovery claim | 11.494730 s; 139,575,296 B peak; 10 calls; zero sibling/MPS/GPU | Exact bridge has an eight-bit completion zone; next reduce effective width with attacker-valid relation/proof factors | [Capsule](runs/20260718_212009_O1C-0038_exact-residual-completion-v1/RUN.md) |
+| `O1C-0037` | 2026-07-18 21:10 | Frozen O1 scores improve exact full-round search when used as reversible first-encounter key decisions | Exact truth ceiling recovers in 5,065 us; real O1 and shuffled recover 0; one wrong hint is not repaired through 32,768 conflicts | `TEST` plus explicit post-reveal ceilings; consumed target | 14.513263 s; 139,853,824 B peak; 12 calls; zero sibling/MPS/GPU | Close key-phase-only guidance; retain exact adapter for relation factors and residual ceilings | [Capsule](runs/20260718_211056_O1C-0037_relational-guided-search-v1/RUN.md) |
 | `O1C-0022` | 2026-07-18 19:06 | Frozen O1C-0019 packet deltas compound in the exact 352-byte addressed vault | `CROSS_COORDINATE_DILUTION`: K256 int8 `-1.181837` bits; every fixed arm negative or nonportable; best post-reveal complement ceiling `120/210`, `118/204` | `RETROSPECTIVE`; consumed BUILD folds | 70.218 elapsed s; 284.1 MiB peak; zero solver/entropy/sibling/MPS/GPU | Close this unary packet/vault line; do not run derivative hot readers or residual backend | [Capsule](runs/20260718_190629_O1C-0022_o1c19-causal-vault-build-loo-v1/RUN.md) |
 | `O1C-0019` | 2026-07-18 18:18 | Learned O1 reader/picker extracts and routes portable fullround all256 proof evidence | `BUILD_LOO_NO_TRANSFER`: learned policy `-0.271090`; raw learned `+0.312764` but untrained `+0.371233` | `RETROSPECTIVE`; consumed BUILD folds | 2,467.325 elapsed s; 345.7 MiB peak; zero new solver/entropy/sibling/MPS/GPU | Learning and live routing add no effect; exact readers were consumed once by O1C-0022 | [Capsule](runs/20260718_181855_O1C-0019_full256-multiresolution-build-loo-v1/RUN.md) |
 | `O1C-0034` | 2026-07-18 18:10 | Frozen A469 bucket-local positive interaction rescues the retained all256 A465 fields | `NOT_REPLICATED`: A465 `47/239` becomes A469 `56/239` | `TEST`; retained consumed fields | 0.002521 scientific-path s; zero solver stages/targets | Close A448--A469 all256 transfer family | [Capsule](runs/20260718_181054_O1C-0034_a469-retained-two-target-full256-transfer-v1/RUN.md) |
@@ -689,6 +703,17 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0038` source freeze | `1596c3eb9467124e1ba7e6c218277d0a7a1abebe` |
+| `O1C-0038` canonical config | `b14b5948cbfd5530e05d737137e4befeb539de1f1b4a77a07a71b854a7dac0b5` |
+| `O1C-0038` runner source | `d5876cd3438092b31f451220ebb4e12e68368536d59281c500a57b64a155e314` |
+| `O1C-0038` formal result | `35199c4820bcd3c792d6bc902815a20eb93a7c23c5275056a39d881af506fcf1` |
+| `O1C-0038` capsule manifest | `78798e6d1f0c1078482c09a2cb48df041e14bf8238c4e54f0d6843315c3f538e` |
+| `O1C-0037` source freeze | `ae0bcd339f4cfef42bda10c7d345bc34b4750753` |
+| `O1C-0037` canonical config | `180aac72cf5e6130749052fb11259006e8da007e33d82092583f8f408c7e0c8c` |
+| `O1C-0037` runner source | `a4c74b7efb4f432b3f43b61d1ea7cb8976d728b95e9cb5be4b678f0ab5eb361c` |
+| `O1C-0037` native adapter | `384870ffa73bf8b5fa404742669218c7d93918018507595c042d73d54a08eca9` |
+| `O1C-0037` formal result | `4adcc63361e4d7376d3fa7413c7857a551627ff89dc9d3deb9f91b3a39c209b3` |
+| `O1C-0037` capsule manifest | `1f3532e68fa15c4b1ced1e6456409f69b7f791c8f1def45f048b76049af0343a` |
 | `O1C-0030` source freeze | `e7c1bf551f2abf3c00a82c46d48b021452dfd417` |
 | `O1C-0030` config freeze commit | `3b2813845f9015b457eec74bcb53cf62fa15ec2d` |
 | `O1C-0030` canonical config | `1ae60b05b12934fcd6d4e89aafc8b2f1bc0f2bbd940da1fe19f26d1a626768c0` |
@@ -819,13 +844,15 @@ O1C-0017 result boundary are documented in
 ## Resume here
 
 Resume from [the ranked actions](research/NEXT_ACTIONS.md) and the
-[O1C-0019/O1C-0022 result](research/O1C0019_O1C0022_FULL256_BRIDGE_RESULT_20260718.md).
-Both real runs are finished. Do not replay or tune their unary packet field, and
-do not invoke O1C-0023/25/29 on it.
+[O1C-0038 result](research/O1C0038_EXACT_RESIDUAL_COMPLETION_RESULT_20260718.md).
+O1C-0037/0038 leave a working exact Full-256 adapter and a measured post-reveal
+completion zone of eight bits. Do not raise the conflict budget on the closed
+key-phase field; attach attacker-computable signed proof/relation factors next.
 
-The A325/A526 bit codec, search backends and public verifier are ready. Invoke
-them only after a genuinely new all256-unknown source supplies `210/210` or
-`204/204` complement bits, or a bounded beam known to contain such a completion.
-The current observed ceiling is only `120/210` and `118/204`.
+The A325/A526 bit codec, search backends and public verifier remain ready for an
+exact complement or bounded exact-containing beam. The relational branch need
+not wait for that fixed-mask gate: score joint rank, effective residual width and
+time-to-hit directly, while keeping the eight-bit oracle zone labelled as a
+ceiling rather than recovered attacker information.
 
 All writes remain in this lab. Every sibling repository remains read-only.

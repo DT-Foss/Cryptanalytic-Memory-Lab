@@ -1,13 +1,13 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T20:35:00+02:00.
+Last ranked: 2026-07-18T21:22:00+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Define one minimal relational-completion baseline: frozen O1 soft scores coupled to target-specific exact ChaCha search/proof factors, decoded as joint configurations rather than 204 isolated decisions | State of the art | Extreme | High | Medium | Tests whether joint consistency reduces rank/domain before exact complement prediction without repeating A500/A503 |
-| 2 | Score it on held-out entropy, joint true-key rank, effective residual width, equal-work time-to-hit and exact beam/recovery | State of the art | Extreme | Extreme | Low | Preserves genuine sub-256 progress without confusing it with full recovery |
-| 3 | If a factorized complement later becomes tractable, pass it unchanged into A526/W52; if the relational domain becomes smaller first, use an exact general verifier without forcing A526's mask | State of the art | Extreme | Extreme | High | Lets the measured mechanism choose the terminal backend geometry |
-| 4 | Close O1C-0036's raw eight-output reader at `102.5/204`, `-0.393341` bit and `0/128` exact beams; do not scale its data, width or epochs | Operational | High | High | Zero | Prevents a clean public-output null from becoming another training sweep |
+| 1 | Bind attacker-computable signed clause/proof/relation factors—not key phases—to the working O1C-0037 exact adapter, preserving O1's bounded live state and confidence routing | State of the art | Extreme | Extreme | Medium | Tests the missing joint mechanism directly while reusing the exact Full-256 relation and verifier |
+| 2 | Measure true-key joint rank, effective residual width and equal-work time-to-hit against internal and factor-shuffled search; the O1C-0038 eight-bit zone is a ceiling target, not a binary promotion gate | State of the art | Extreme | Extreme | Low | Preserves genuine sub-256 progress and tells whether the factor source moves the real search frontier |
+| 3 | If relational width falls materially, hand its domain to the exact adapter; if a factorized complement becomes tractable first, pass it unchanged into A526/W52 | State of the art | Extreme | Extreme | High | Lets measured geometry choose the terminal backend without rebuilding either verifier |
+| 4 | Keep O1C-0037 key-phase guidance closed: real O1 is no better than shuffled and one wrong hint survives 32,768 conflicts | Operational | High | High | Zero | Prevents conflict-limit scaling on a field with measured zero practical error radius |
 | 5 | Keep O1C-0023/25/29 parked on the closed unary field and keep A296/A448/A465/A469 closed only at their exact tested projections | Operational | High | High | Zero | Prevents null-field tuning while retaining reusable components |
 
 ## Effect-first stop rules
@@ -25,6 +25,10 @@ Last ranked: 2026-07-18T20:35:00+02:00.
 - Do not require `204/204` before acknowledging progress. A reproducible entropy,
   joint-rank or real search-work reduction is valuable; raw Hamming accuracy
   without a corresponding search reduction is not.
+- O1C-0037 closes confidence-ordered key decisions over the current unary field:
+  do not raise its conflict budget. O1C-0038 retains an exact post-reveal
+  residual-width-8 ceiling; it is the target of a new factor source, not evidence
+  that the attacker already knows 248 bits.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not

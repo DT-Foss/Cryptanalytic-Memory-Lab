@@ -79,6 +79,22 @@ the same cutoffs. The open mechanism is therefore target-specific coupling of a
 soft O1 field to exact solver search/proof geometry, with real joint rank,
 residual width or time-to-hit as the outcome.
 
+O1C-0037 has now built that exact coupling seam. Frozen O1 scores enter the
+unchanged 188,010-clause public ChaCha relation as reversible confidence-ordered
+decisions, never key units. Exact truth guidance recovers in 5,065 us, but the
+real O1 K256 field has 117/256 correct signs, matches shuffled search telemetry
+and produces no recovery; one wrong key hint remains unresolved through 32,768
+conflicts. Key-phase-only guidance is closed.
+
+O1C-0038 corrects the tied-prefix control and measures real decoder capacity:
+oracle-correct O1-ordered prefixes recover the complete verified key with
+residual widths through eight at 512 conflicts. Width eight needs 89 conflicts
+and 135,441 us; width nine is still unresolved through 32,768 conflicts. This is
+a post-reveal ceiling, not attacker evidence. It sharpens the open relational
+milestone: learn attacker-computable signed proof/relation factors that reduce
+joint rank or effective width toward the exact zone, rather than attempting to
+manufacture 248 separately perfect unary bits.
+
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
 untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches

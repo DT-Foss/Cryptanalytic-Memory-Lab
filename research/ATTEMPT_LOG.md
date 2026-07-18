@@ -1671,3 +1671,42 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   entropy/rank/residual-width gain counts even before exact 256-bit recovery.
 - **Artifact:**
   [`O1C0036_EIGHT_BLOCK_A526_READER_RESULT_20260718.json`](O1C0036_EIGHT_BLOCK_A526_READER_RESULT_20260718.json).
+
+## O1C-0037 — Frozen O1 scores inside exact Full-256 CDCL
+
+- **Hypothesis:** reversible confidence-ordered O1 key decisions reduce work in
+  the unchanged exact public ChaCha20-R20 relation.
+- **Result:** exact post-reveal guidance recovers and verifies the key in
+  `5,065 us` with zero conflicts. The attacker-valid O1 K256 field has `117/256`
+  correct signs, produces zero recovery, takes `2.123064x` internal wall time and
+  matches the coordinate-shuffled K256 telemetry. One wrong hint remains UNKNOWN
+  through `32,768` conflicts / `8,908,928 us`.
+- **Correction:** the declared K255 residual row contains 254 correct guided bits,
+  one wrong guided bit and one unguided bit because of tied minimum confidence.
+  It is retained unchanged and does not answer the intended 255+1 ceiling.
+- **Decision:** close key-phase-only guidance over this frozen field. Keep the
+  exact adapter and move O1 decisions onto target-specific proof/relation factors.
+- **Resources:** `14.513263` elapsed s; `139,853,824` B peak; 12 native calls;
+  47,616 requested conflicts; zero sibling/MPS/GPU work.
+- **Artifacts:**
+  [`result`](O1C0037_RELATIONAL_GUIDED_SEARCH_RESULT_20260718.md) and
+  [`capsule`](../runs/20260718_211056_O1C-0037_relational-guided-search-v1/RUN.md).
+
+## O1C-0038 — Corrected exact residual completion frontier
+
+- **Hypothesis:** the unchanged exact relation can close a nonzero O1-ordered
+  residual once every supplied prefix decision is correct.
+- **Result:** at 512 conflicts the complete key is recovered and publicly
+  verified for residual widths `0/1/2/4/8`. Width eight takes `89` conflicts and
+  `135,441 us`. Width nine remains UNKNOWN at `512/2,048/8,192/32,768`
+  conflicts; width 16 is UNKNOWN at 512.
+- **Boundary:** every supplied prefix sign is built from post-reveal truth. This
+  is an exact decoder ceiling and contributes zero attacker-valid recovered bits.
+- **Decision:** retain the eight-bit completion zone as a concrete target. The
+  next run must reduce joint/effective width with attacker-computable signed
+  proof/relation factors, not another unary confidence or conflict-budget sweep.
+- **Resources:** `11.494730` elapsed s; `139,575,296` B peak; 10 native calls;
+  46,592 requested conflicts; zero sibling/MPS/GPU work.
+- **Artifacts:**
+  [`result`](O1C0038_EXACT_RESIDUAL_COMPLETION_RESULT_20260718.md) and
+  [`capsule`](../runs/20260718_212009_O1C-0038_exact-residual-completion-v1/RUN.md).

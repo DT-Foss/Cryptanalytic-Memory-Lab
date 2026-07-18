@@ -100,12 +100,21 @@ joint completion.
 A296, A448, A465 and A469 full256 projections are closed at their tested
 representations. O1C-0036 also closes raw eight-block output-only O1 at
 `102.5/204`, `-0.393341` bit and `0/128` exact top-65,536 complements. A513/A518B
-remain available as exact solver-compilation and joint-geometry mechanisms. The
-active frontier is now the smallest attacker-valid relational completion test.
-A500 already closes fixed joint-parity marginals and A503 closes its tested
-target-aligned Jacobian factor model, so the successor must use target-specific
-exact search/proof coupling and measure true-key rank, effective residual width
-or real search work.
+remain available as exact solver-compilation and joint-geometry mechanisms.
+O1C-0037 now supplies the direct exact Full-256 bridge and closes key-phase-only
+guidance on the frozen unary field: real O1 is no better than its coordinate-
+shuffled control, and one wrong hint is unresolved through 32,768 conflicts.
+O1C-0038 measures the corrected decoder ceiling: with 248 oracle-correct,
+O1-ordered prefix bits, the unchanged relation recovers the remaining eight bits
+and independently verifies the full key in 135,441 us; nine residual bits remain
+unresolved through 32,768 conflicts. This is post-reveal mechanism capacity, not
+attacker-valid recovery.
+
+The active frontier is therefore target-specific signed clause/proof/relation
+guidance inside the exact adapter. A500 already closes fixed joint-parity
+marginals and A503 closes its tested target-aligned Jacobian factor model, so the
+successor must measure true-key joint rank, effective residual width or real
+search work without requiring 248 independently perfect unary predictions.
 
 All writes stay inside this repository. Sibling projects remain read-only and no
 competing heavy job starts without a resource check.

@@ -857,3 +857,22 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   wrong coordinates.
 - **Artifact:**
   [`effect-first screen result`](ALL256_EFFECT_FIRST_TRANSFER_SCREENS_20260718.md).
+
+## B-0042 — Key-only CDCL hints have a sharp exact-prefix cliff
+
+- **Evidence:** O1C-0037 sends reversible first-encounter decisions directly into
+  the unchanged exact Full-256 relation. Exact truth guidance recovers in 5,065
+  us, but the real O1 field matches shuffled telemetry and one wrong hint is not
+  repaired through 32,768 conflicts.
+- **Corrected ceiling:** O1C-0038 supplies only oracle-correct prefixes in frozen
+  O1 confidence order. Eight unguided bits close in 89 conflicts / 135,441 us;
+  nine remain unresolved through 32,768 conflicts.
+- **Do not repeat:** raise the conflict limit on the same key-phase field, treat
+  the eight-bit oracle residual as attacker recovery, or optimize raw Hamming
+  accuracy without measuring joint search work.
+- **Breadcrumb:** the exact bridge is usable, but the branching coordinates must
+  move inside signed clause/proof/relation structure where learned evidence can
+  alter propagation and conflicts before 248 unary decisions are perfect.
+- **Artifacts:**
+  [`O1C-0037`](O1C0037_RELATIONAL_GUIDED_SEARCH_RESULT_20260718.md) and
+  [`O1C-0038`](O1C0038_EXACT_RESIDUAL_COMPLETION_RESULT_20260718.md).
