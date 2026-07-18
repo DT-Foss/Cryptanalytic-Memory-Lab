@@ -121,6 +121,7 @@ class A375ReaderDefinition:
 class FrozenA448Model:
     sibling_root: Path
     definitions: Mapping[str, A375ReaderDefinition]
+    complete_feature_order: tuple[int, ...]
     top4_feature_indices: tuple[int, ...]
     top4_feature_names: tuple[str, ...]
     model_sha256: str
@@ -290,6 +291,7 @@ def load_frozen_a448_model(
     return FrozenA448Model(
         sibling_root=root,
         definitions=definitions,
+        complete_feature_order=tuple(order),
         top4_feature_indices=A448_TOP4_FEATURE_INDICES,
         top4_feature_names=A448_TOP4_FEATURE_NAMES,
         model_sha256=A448_FROZEN_MODEL_SHA256,
