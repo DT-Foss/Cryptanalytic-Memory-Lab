@@ -1192,3 +1192,54 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   K or tune the decoder on this opened target. Improve portable evidence
   orientation through O1C-0019/O1C-0022, then stream any frozen positive posterior
   through the unchanged O1C-0024 decoder and exact public verifier.
+
+## 2026-07-18 — O1C-0025 logit-native frontier source freeze (non-attempt)
+
+- **Recorded:** 2026-07-18T04:15:00+02:00
+- **Status:** `INSTRUMENT` source freeze only. No O1C-0025 scientific attempt,
+  target, result, reveal, solver work, entropy, sibling access or accelerator work
+  was reserved or consumed. Source freeze:
+  `b008e219bfcfb16d72383f236f96db25700c9f57`.
+- **Mechanism:** the exact global 256-bit frontier ranks flip subsets in common-
+  power-of-two integer units of the absolute binary64 natural logits. Rounded
+  sigmoid probabilities and rounded division by `ln(2)` never determine rank;
+  `/ln(2)` is display-only.
+- **Fixed source slice:** the complete O1C-0022 prediction artifact is exactly
+  57,344 bytes with shape `float64[4,7,256]`. The handoff selects only K256 arm
+  `quantized_int8_vault`, an exact 2,048-byte `float64[256]` logit vector, and fixes
+  the candidate limit at 65,536.
+- **Lifecycle/provenance:** the supplied capsule manifest binds the artifact index,
+  which binds the O1C-0022 held-out prediction freeze, its upstream O1C-0019
+  prediction freeze and the public target. Foreign fold, target, action pool,
+  vector, arm, width, byte count or hash fails closed before certificate freeze.
+  This proves internal consistency; the future formal caller must resolve the
+  authoritative finalized O1C-0022 capsule through `RunCapsuleManager`.
+- **Verification:** 14 focused plus 18 neighboring tests pass, totaling 32 tests
+  and 80 subtests. A non-formal CPU smoke emitted 65,536 candidates in `0.937653`
+  wall seconds with `44,384,256` B peak RSS.
+- **Boundary/next:** this fixes only the lossless deployment handoff and makes no
+  signal or efficacy claim. Wait for the authoritative O1C-0022 outcome. Positive
+  frozen K256 logits enter this unchanged frontier; an all-float null goes to the
+  exact O1C-0023-selected operator. Never tune the decoder to create evidence.
+- **Artifact:**
+  [`O1C0025_LOGIT_FRONTIER_HANDOFF_DESIGN_20260718.md`](O1C0025_LOGIT_FRONTIER_HANDOFF_DESIGN_20260718.md).
+
+## 2026-07-18 — O1C-0026 proof-ancestry pair residual (conditional design, non-attempt)
+
+- **Recorded:** 2026-07-18T04:18:00+02:00
+- **Status:** `CONDITIONAL DESIGN` only. No O1C-0026 attempt, target, scientific
+  run or result is reserved.
+- **Activation:** O1C-0026 may proceed if and only if the authoritative finalized
+  O1C-0023 decision and operator graph both select
+  `proof_ancestry_pair_residual_v1` against the authoritative finalized O1C-0022
+  all-real-primary-null result. Any other selection or incomplete provenance exits
+  without reservation.
+- **Question:** on the four already-consumed BUILD FAPs, test whether projected
+  assumption-coordinate x ancestry-touch-coordinate interactions preserve
+  orientation that O1C-0022's unary scalar reader collapsed. No fresh target,
+  DEVELOPMENT FAP, solver branch, entropy, MPS or GPU work is authorized.
+- **Boundary/next:** this design does not alter O1C-0024/O1C-0025 and cannot be
+  launched manually to manufacture evidence. Preserve the active W52/O1C-0019
+  interlock and execute the O1C-0019 → O1C-0022 → O1C-0023 chain first.
+- **Artifact:**
+  [`O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md`](O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md).

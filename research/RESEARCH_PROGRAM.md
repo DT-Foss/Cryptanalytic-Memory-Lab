@@ -89,6 +89,20 @@ verification. This is a validated decoder and an honest burned null, not new cip
 signal. Keep it unchanged and route only future frozen positive posteriors through
 it.
 
+O1C-0025 now freezes the missing logit-native deployment handoff at `b008e21` as
+an `INSTRUMENT` only, with no scientific run, target, result or attempt reserved.
+It ranks directly in common-power-of-two integer units of the absolute binary64
+natural logits, so neither sigmoid saturation nor rounded `/ln2` penalties can
+change the frontier.
+The prospective input is fixed to the 2,048-byte K256 `quantized_int8_vault` slice
+of O1C-0022's complete 57,344-byte prediction tensor, with candidate limit 65,536
+and a verified manifest-to-index-to-O1C22-freeze-to-O1C19-freeze-to-public-target
+chain. Fourteen focused plus eighteen neighboring tests pass (32 tests / 80
+subtests); a non-formal full-frontier smoke takes 0.937653 seconds and 44,384,256 B
+peak RSS. The constructor proves internal consistency of supplied lifecycle bytes;
+the future formal caller must resolve the authoritative finalized O1C-0022 capsule
+through `RunCapsuleManager`. This closes numerical transport, not causal evidence.
+
 A new hash-bound sibling intake narrows the fallback before it costs a target.
 A539's training-frozen RACF-DES single-position clause reader concentrated its
 first prospective panel, but A541's fresh panel put every learned family reader
@@ -98,6 +112,13 @@ across 24 targets. The transferable representation is projected clause identity,
 proof ancestry and interaction-bearing pairs/antecedents/contradictions, not an
 additive marginal. O1C-0022 remains frozen; this fallback activates only if every
 real float arm is null.
+
+O1C-0026 records that fallback as a conditional design only. It is not reserved or
+run and may activate if and only if authoritative finalized O1C-0023 selects the
+exact operator `proof_ancestry_pair_residual_v1`. Any other composer decision
+leaves O1C-0026 inactive. The design uses already-consumed BUILD FAPs, preserves
+projected assumption-coordinate x ancestry-coordinate identity and cannot bypass
+the W52/O1C-0019/O1C-0022/O1C-0023 chain.
 
 ## Evidence ladder from here
 
@@ -112,8 +133,9 @@ real float arm is null.
 4. Immediately after O1C-0019 finalizes, run O1C-0022 once from `ce56ba4`. Require
    exact lifecycle/work/invariance gates, then use its K ladder and raw/normalized/
    int8/last/unit/shuffled matrix to localize signal, dilution, scale, quantization,
-   confidence, compounding or address binding. Route any frozen positive posterior
-   through unchanged O1C-0024 global decoding and public verification.
+   confidence, compounding or address binding. Route positive frozen K256 logits
+   through fixed O1C-0025 into unchanged O1C-0024 global decoding and public
+   verification.
 5. After O1C-0022 finalizes, run O1C-0023 once from `aa17eed`. Preserve its
    complete result-bound decision, native double-assembly receipt and immutable
    failure-memory context; execute the selected operator only under a new ID.
@@ -123,13 +145,12 @@ real float arm is null.
    synthetic causal-accumulation gate.
 7. If the real O1C-0022 reader/vault gate passes, freeze the combined architecture
    and attack one untouched full-256 DEVELOPMENT target under a new identity. If
-   every float arm is null, use consumed BUILD folds for one matched-work reader
-   over projected signed-variable pairs, proof antecedents or exact contradictions;
-   for every other failure, replace only the stage named by the frozen
-   classification.
+   every float arm is null, execute O1C-0026 on consumed BUILD folds only when
+   authoritative O1C-0023 selected `proof_ancestry_pair_residual_v1`; for every
+   other outcome, execute only the stage named by the frozen classification.
 8. After stable entropy reduction, add surprise-selected Causal Attic summaries
-   and use O1C-0024's exact global frontier plus public ChaCha20 verification toward
-   recovery.
+   and use O1C-0025's fixed logit handoff, O1C-0024's exact global frontier and
+   public ChaCha20 verification toward recovery.
 
 ## Operating contract
 
@@ -169,9 +190,10 @@ The full program is not complete:
 - **(b) OPEN — causal evidence:** require reproducible posterior/entropy or search
   reduction from attacker-valid evidence on unseen full-round 256-bit targets.
 - **(c) OPEN — recovery efficacy:** O1C-0024 supplies an exact full-256 posterior
-  frontier; require a material search/recovery gain and ultimately a full key
-  emitted by the bounded-state/frontier path and independently verified against
-  the public ChaCha20 relation.
+  frontier and O1C-0025 supplies the lossless native-logit handoff; require a
+  material search/recovery gain and ultimately a full key emitted by the bounded-
+  state/frontier path and independently verified against the public ChaCha20
+  relation.
 
 Synthetic retention, instrumentation or reduced-width recovery alone is not full
 completion.

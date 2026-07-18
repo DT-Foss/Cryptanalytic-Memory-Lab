@@ -1,15 +1,15 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T04:01:34+02:00.
+Last ranked: 2026-07-18T04:52:53+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
 | 1 | Keep the ACK-confirmed watcher PID `67247` alive and let it launch frozen O1C-0019 only after W52 terminal/process/RAM/load/hash gates clear | State of the art | Very high | Very high | Medium | Produces the first corrected full-round packet-reader and autonomous-picker gate without disturbing recovery workers |
-| 2 | When O1C-0019 finalizes, run source-frozen O1C-0022 `ce56ba4` exactly once; classify K12/52/128/256 raw/normalized/int8/last/unit/shuffled evidence, then send any frozen positive posterior through unchanged O1C-0024 global decoding | State of the art | Very high | Very high | Low/Medium | Separates no packet signal, cross-coordinate dilution, scale weighting, quantization, confidence, compounding, binding and actual search concentration before any new target |
+| 2 | When O1C-0019 finalizes, run source-frozen O1C-0022 `ce56ba4` exactly once; classify K12/52/128/256 raw/normalized/int8/last/unit/shuffled evidence, then send positive frozen K256 logits through fixed O1C-0025 and unchanged O1C-0024 global decoding | State of the art | Very high | Very high | Low/Medium | Separates no packet signal, cross-coordinate dilution, scale weighting, quantization, confidence, compounding, binding and actual search concentration before any new target |
 | 3 | Immediately after O1C-0022 finalizes, run source-frozen O1C-0023 `aa17eed` once and preserve its complete-result decision, failure-memory context and isolated native O1-O double assembly | State of the art | Very high | Extreme | Low | Converts the localized outcome into one non-repeating next operator with zero target spend and removes manual iteration latency |
 | 4 | Preserve O1C-0021 source freeze `4ba1cc6`; once the shared interlock is idle, run the committed two-seed broad DEV recheck and four never-used formal EVAL seeds exactly once | State of the art | Very high | Very high | Low/Medium | Decides terminal synthetic causal accumulation without racing the real packet gate |
-| 5 | If O1C-0022 passes, freeze one prospective combined architecture with O1C-0024 as its fixed terminal decoder and attack one untouched O1C-0018 DEVELOPMENT pool under a new identity; otherwise execute only the stage named by O1C-0023 under a new identity | State of the art | Extreme | Very high | Medium | Converts the BUILD-LOO mechanism into the first genuinely fresh full-round 256-bit entropy/rank/recovery test or the highest-information localized repair |
-| 6 | Only if O1C-0022 returns an all-float sensor/reader null, let O1C-0023 select the consumed-BUILD A539/A541-informed equal-work reader over projected signed-variable pairs, proof antecedents or exact contradictions | State of the art | Very high | High | Medium | Tests whether interaction-bearing causal identity survives where additive single-position clause marginals do not, without spending a fresh target |
+| 5 | If O1C-0022 passes, freeze one prospective combined architecture with O1C-0025 as the fixed logit handoff into O1C-0024 and attack one untouched O1C-0018 DEVELOPMENT pool under a new identity; otherwise execute only the stage named by O1C-0023 under a new identity | State of the art | Extreme | Very high | Medium | Converts the BUILD-LOO mechanism into the first genuinely fresh full-round 256-bit entropy/rank/recovery test or the highest-information localized repair |
+| 6 | Only if O1C-0022 returns an all-float sensor/reader null and authoritative O1C-0023 selects `proof_ancestry_pair_residual_v1`, reserve O1C-0026 and execute its consumed-BUILD projected ancestry-pair residual exactly as designed | State of the art | Very high | High | Medium | Tests whether interaction-bearing causal identity survives where additive single-position clause marginals do not, without spending a fresh target |
 
 ## Hard target contract
 
@@ -53,6 +53,17 @@ Last ranked: 2026-07-18T04:01:34+02:00.
   Its global decoder, 65,536-key burned null, selected-member read boundary and
   capsule are frozen. Reuse the decoder API only; the opened O1C-0016 target is
   ineligible for tuning, K scaling or efficacy selection.
+- O1C-0025 is source-frozen at `b008e21` as an `INSTRUMENT`, with no attempt,
+  target or result reserved. Exact common-power-of-two integer units of native
+  binary64 logits rank the fixed 65,536-candidate frontier; 14 focused plus 18
+  neighboring tests pass (32 tests / 80 subtests), and the performance smoke is
+  0.937653 s at 44,384,256 B peak. Preserve its fixed K256
+  `quantized_int8_vault` slice and complete O1C22 to O1C19 to public-target
+  provenance chain. The future formal caller must resolve the authoritative
+  finalized O1C-0022 capsule through `RunCapsuleManager`.
+- O1C-0026 is a conditional design only. It must remain unreserved unless the
+  authoritative finalized O1C-0023 operator is exactly
+  `proof_ancestry_pair_residual_v1`; another decision means do not run it.
 - Post-freeze hardening `2d8bf69` now sends a real immutable O1C-0018 `.fap`
   through the production Torch reader, quantizer and 352-byte bridge at K12 with
   zero labels and exact repeat/swap/duplicate/work assertions. A same-resource,
@@ -72,6 +83,12 @@ Last ranked: 2026-07-18T04:01:34+02:00.
 - enlarging O1C-0024 K, tuning its penalties or selecting prefixes on the opened
   O1C-0016 target; the exact decoder is solved and the posterior, not the beam, is
   the current bottleneck;
+- materializing O1C-0025 logits through sigmoid, ranking rounded `/ln2` penalties,
+  changing its fixed K256 arm/K limit after an outcome or treating its instrument
+  smoke as signal;
+- reserving O1C-0026 before an authoritative O1C-0023
+  `proof_ancestry_pair_residual_v1` selection, or manually substituting it for a
+  different selected operator;
 - polishing SOTA prose before a stable held-out bit exists;
 - rebuilding or weakening O1C-0011's already verified full-256 relation instead of
   reusing its paired solver events;

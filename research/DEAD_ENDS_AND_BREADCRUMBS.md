@@ -613,3 +613,51 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   posterior.
 - **Artifact:**
   [`O1C-0024 burned result`](../runs/20260718_035947_O1C-0024_exact-factorized-posterior-frontier-v1/artifacts/burned/result.json).
+
+## B-0033 — Probability materialization is not a lossless logit-to-frontier handoff
+
+- **Risk:** converting binary64 natural logits through sigmoid can round strong
+  evidence to exact zero or one, and ranking rounded `abs(logit)/ln(2)` values can
+  collapse distinctions that exist in the source field. That would make the
+  terminal frontier depend on an avoidable numerical representation change.
+- **Resolution:** O1C-0025 ranks flip penalties in exact common-power-of-two integer
+  units of the absolute binary64 natural logits. Division by `ln(2)` is display-
+  only. The fixed input is the K256 `quantized_int8_vault` slice: 2,048 bytes of
+  `float64[256]` selected from the complete 57,344-byte O1C-0022 tensor. Source is
+  frozen at `b008e21`.
+- **Provenance:** the certificate verifies the supplied capsule manifest through
+  artifact index, O1C-0022 prediction freeze, O1C-0019 prediction freeze and public
+  target before fixing the 65,536-candidate frontier. It cannot accept a free-
+  floating vector with dummy lifecycle labels. A future formal caller still owns
+  authoritative finalized-capsule resolution through `RunCapsuleManager`.
+- **Boundary:** 14 focused and 18 neighboring tests pass (32 tests / 80 subtests),
+  and a non-formal 65,536-candidate smoke takes `0.937653` seconds at
+  `44,384,256` B peak RSS. This is source validation and performance only: no
+  attempt, target, scientific result or signal exists.
+- **Do not repeat:** materialize sigmoid probabilities, tune `/ln2` rounding or
+  change K after seeing a result. Preserve O1C-0024's burned null and wait for a
+  frozen O1C-0022 posterior with portable entropy reduction.
+- **Breadcrumb:** the terminal numerical handoff is no longer a bottleneck. Any
+  future null belongs upstream in sensing/orientation, not in decoder precision.
+- **Artifact:**
+  [`O1C0025_LOGIT_FRONTIER_HANDOFF_DESIGN_20260718.md`](O1C0025_LOGIT_FRONTIER_HANDOFF_DESIGN_20260718.md).
+
+## B-0034 — A decoder cannot manufacture evidence after an all-float sensor null
+
+- **Risk:** after a null result, swapping quantizers, beams or decoder parameters
+  can turn numerical selection into apparent progress while leaving the missing
+  causal orientation untouched.
+- **Resolution:** positive frozen O1C-0022 K256 logits have one fixed route through
+  O1C-0025. If every real float arm is null, the next mechanism is whatever the
+  authoritative O1C-0023 result selects; O1C-0026 exists only for the exact
+  `proof_ancestry_pair_residual_v1` selection.
+- **Boundary:** O1C-0026 is a conditional design, not a reserved attempt or result.
+  It uses already-consumed BUILD artifacts and cannot bypass the active W52/
+  O1C-0019 interlock, O1C-0022 outcome or O1C-0023 decision.
+- **Do not repeat:** manually launch the fallback, relabel it as O1C-0026 before
+  selection, or tune O1C-0024/O1C-0025 to create evidence.
+- **Breadcrumb:** if selected, preserve assumption coordinate and projected proof-
+  ancestry identity so the run tests a genuinely distinct interaction residual;
+  otherwise execute the different exact operator selected by O1C-0023.
+- **Artifact:**
+  [`O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md`](O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md).

@@ -1,10 +1,15 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T04:01:34+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T04:52:53+02:00 (`Europe/Berlin`)
 - **Latest implementation freeze:** `O1C-0024` at
   `36133bc6e75349c2cd3999f60eee08f2cbeb903a` — exact global factorized
   all-256 top-K frontier, selected-member no-follow reveal lifecycle and
   budget-safe one-shot runner
+- **Latest source-only instrument freeze:** `O1C-0025` at
+  `b008e219bfcfb16d72383f236f96db25700c9f57` — logit-native exact global
+  256-bit frontier handoff; no scientific run, target, result or attempt is
+  reserved. `O1C-0026` is a conditional design only and may activate solely
+  if authoritative O1C-0023 selects `proof_ancestry_pair_residual_v1`
 - **Latest completed attempt:** `O1C-0024` —
   `EXACT_GLOBAL_FRONTIER_VALIDATED_BURNED_NULL`; synthetic full-round rank-4
   discriminator passes, burned O1C-0016 target has no exact hit in 65,536 global
@@ -34,9 +39,10 @@
   Product-of-Experts and A469 positive bucket-local correction; A539/A541 now
   close the tested additive single-position clause marginals and prioritize
   interaction-bearing pairs, proof antecedents or exact contradictions
-- **Active lab runs:** no local scientific run; O1C-0024 is finalized. The sibling W52 production
-  work remains active, so O1C-0019, O1C-0022 and the O1C-0021 broad/formal gate
-  have not started. O1C-0022 and O1C-0023 preflights are correctly
+- **Active lab runs:** no local scientific run; O1C-0024 is finalized and
+  O1C-0025/O1C-0026 have no reservations. The sibling W52 production work remains
+  active, so O1C-0019, O1C-0022 and the O1C-0021 broad/formal gate have not
+  started. O1C-0022 and O1C-0023 preflights are correctly
   `prerequisite-pending` and create no reservations. At the latest read-only host
   check, W52 had 8/8 running
   workers, `222,401/16,777,216` cells (`1.325613%`), 24 related live processes,
@@ -59,14 +65,39 @@
   learns its sensing policy rather than receiving a fixed scalar reader
 - **SOTA status:** retention terminal (a) is achieved at 256/256 through `2^20`
   distractors with exact bounded-state accounting. O1C-0024 now supplies an exact
-  global all-coordinate recovery frontier, but its burned posterior is too flat
-  for actionable recovery. There is still no cryptanalytic SOTA or recovery claim:
-  causal full-round evidence (b) and recovery frontier efficacy (c) remain open
+  global all-coordinate recovery frontier and O1C-0025 preserves native K256
+  logits into it without probability rounding, but neither instrument creates
+  evidence and the burned O1C-0024 posterior remains too flat. There is still no
+  cryptanalytic SOTA or recovery claim: causal full-round evidence (b) and
+  recovery frontier efficacy (c) remain open
 - **SOTA target:** a stream-length-bounded living inverse that reduces the 256-bit
   key code length on sealed uniform targets and ultimately emits an exactly verified
   full ChaCha20 key
 
 ## Headline
+
+`O1C-0025` is source-frozen at `b008e21` as an `INSTRUMENT` only. It is the exact
+logit-native global 256-bit frontier: ranking uses common-power-of-two integer
+units of the absolute binary64 natural logits themselves, never rounded sigmoid
+probabilities or rounded `/ln(2)` penalties. The fixed O1C-0022 handoff validates
+the complete 57,344-byte `float64[4,7,256]` prediction tensor and selects exactly
+the K256 `quantized_int8_vault` 2,048-byte `float64[256]` slice.
+
+The lifecycle chain is supplied capsule manifest to artifact index to O1C-0022
+prediction freeze to O1C-0019 prediction freeze to the public target. Candidate
+limit is fixed at 65,536. Fourteen focused plus eighteen neighboring tests pass
+(32 tests / 80 subtests). A non-formal 65,536-candidate CPU smoke completed in
+`0.937653` wall seconds at `44,384,256` B peak RSS. No scientific run, target,
+result or attempt was reserved, and no signal claim follows from this source
+freeze. The constructor proves internal consistency of the supplied chain; the
+future formal caller must still resolve the authoritative finalized O1C-0022
+capsule through `RunCapsuleManager`.
+
+`O1C-0026` is only the conditional design for
+`proof_ancestry_pair_residual_v1`. It is not reserved or run and may activate if
+and only if the authoritative finalized O1C-0023 decision selects that exact
+operator after an O1C-0022 all-real-primary-null outcome. It cannot be substituted
+manually or used to bypass the W52/O1C-0019/O1C-0022/O1C-0023 sequence.
 
 `O1C-0024` is finalized from source commit `36133bc` with capsule manifest
 `44d2f75b53c7f0d0f08a431a12ee6bc90d24b860ef6d7de9218b34b535250c3f`.
@@ -541,14 +572,20 @@ O1C-0017 result boundary are documented in
 4. When the interlock is idle, preserve O1C-0021 `4ba1cc6`, rerun its two-seed broad
    DEV check and execute four never-used formal EVAL seeds exactly once. A positive
    O1C-0022 gate then authorizes one untouched DEVELOPMENT target under a new ID.
-5. Preserve O1C-0024 `36133bc` and its global decoder unchanged. Feed future
-   frozen O1C-0019/O1C-0022 posteriors through it only after they show portable
-   entropy reduction; do not enlarge K on the opened O1C-0016 target.
+5. Preserve O1C-0024 `36133bc` and source-frozen O1C-0025 `b008e21` unchanged. If
+   O1C-0022 yields positive K256 logits, feed its fixed `quantized_int8_vault`
+   slice through O1C-0025 and the exact public verifier. If every float arm is
+   null, run only the exact O1C-0023-selected operator; never tune a decoder to
+   create evidence.
+6. Keep O1C-0026 conditional and unreserved. Activate it only if authoritative
+   O1C-0023 selects `proof_ancestry_pair_residual_v1`.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0025` source freeze | 2026-07-18 | Native full-256 natural logits can enter the exact global frontier without sigmoid saturation or rounded `/ln2` ranking | Source `b008e21`: exact binary64-logit integer ordering; fixed 57,344 B O1C-0022 tensor to 2,048 B K256 `quantized_int8_vault` slice; internally verified supplied manifest→index→O1C22 freeze→O1C19 freeze→public-target chain; K=65,536 | `INSTRUMENT`; no attempt, target, scientific run, result or signal claim | 32 tests / 80 subtests; smoke 0.937653 wall s and 44,384,256 B peak; 0 scientific work | The lossless deployment handoff is fixed; authoritative future capsule resolution remains with the formal caller | [Design](research/O1C0025_LOGIT_FRONTIER_HANDOFF_DESIGN_20260718.md) |
+| `O1C-0026` conditional design | 2026-07-18 | Projected assumption-coordinate x ancestry-coordinate interactions may retain orientation lost by the unary scalar reader | Conditional design only for `proof_ancestry_pair_residual_v1`; not reserved or run and activates iff authoritative O1C-0023 selects it | `RETROSPECTIVE` conditional design; no result | 0 fresh targets/solver branches/entropy/MPS/GPU | Preserve the decision boundary: an all-float null routes through O1C-0023, never through an ad hoc decoder or manually launched fallback | [Design](research/O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md) |
 | `O1C-0024` | 2026-07-18 | The least-uncertain-bit cube is not a global factorized beam; an exact all-coordinate frontier can recover excluded high-probability keys and honestly measure burned search concentration | `EXACT_GLOBAL_FRONTIER_VALIDATED_BURNED_NULL`: synthetic 20-round truth rank 4 while legacy excludes it; burned target 0/65,536 exact, MAP H117, best H110 at rank 15,405; 4,096 exact public checks null | `RETROSPECTIVE` decoder validation and burned diagnostic; no cipher signal | 2.438 CPU s; 2.454 wall s; 109.922 MiB peak; 2,890,445 artifact B; 0 solver/entropy/sibling/GPU | Global beam geometry is fixed; O1C-0016 posterior remains far too flat, so improve evidence orientation rather than K | [Run capsule](runs/20260718_035947_O1C-0024_exact-factorized-posterior-frontier-v1/RUN.md) |
 | `O1C-0022` pre-run | 2026-07-18 | Frozen incremental O1C-0019 packet evidence can compound in the exact 352-byte addressed vault and beat binding/confidence/horizon controls as active sensors expand 12→256 | Source frozen at `ce56ba4`; exact 32 replays / 17,664 slots / 1,130,496 work / 7,391,232 calibration evaluations; literal native O1-O path and 27 focused tests green; preflight pending with no reservation | `RETROSPECTIVE` pre-run instrument only | no scientific run, fresh entropy, solver branch, sibling write or accelerator call | Handcrafted 32-scalar collapse is negative; preserve the learned 330D fold reader and let the width/control matrix localize the next real bottleneck | [Design](research/O1C0022_ARTIFACT_CAUSAL_VAULT_DESIGN_20260718.md) |
 | `O1C-0021` pre-run | 2026-07-17 | A bounded O1 state can autonomously learn delayed reliability and exactly accumulate weak contradictory evidence over 256 coordinates | Source frozen at `4ba1cc6`; prior broad scratch DEV 256/256 on 2/2 seeds in 134.523 s; independent 273-byte FSM and exact work ledgers hardened; 31 focused tests and three audits clear; formal EVAL untouched | `INSTRUMENT` pre-run only | no formal compute/entropy; source work only while sibling production is active | Enumerable operator has a smaller O1-O-targetable FSM ceiling, so the formal result measures autonomous learning/streaming rather than O1 necessity | [Config](configs/causal_evidence_stream_256_v1.json) |
@@ -675,6 +712,13 @@ four EVAL seeds or tune the synthetic family cue. O1C-0021 is implementation-fro
 at `4ba1cc6`; its formal EVAL seeds remain unused. O1C-0022 is source-frozen at
 `ce56ba4`, but its preflight must remain `prerequisite-pending` and must not reserve
 an attempt until a verified finalized O1C-0019 capsule exists.
+
+O1C-0025 is source-frozen at `b008e21` as a logit-frontier instrument with no
+reserved attempt or scientific result. Preserve its fixed K256
+`quantized_int8_vault` slice and 65,536-candidate limit. O1C-0026 remains a
+conditional design with no reservation; it may proceed only if authoritative
+O1C-0023 selects
+`proof_ancestry_pair_residual_v1`. O1C-0024's burned null remains unchanged.
 
 The O1C-0019 science is frozen at `27cd5b1` and its deferred handoff at `4511a06`.
 Do not rebuild, tune or manually duplicate it. Watcher PID `67247` owns
