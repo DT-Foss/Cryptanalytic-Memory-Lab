@@ -1,0 +1,73 @@
+{
+    "schema": "o1-256-posterior-frontier-run-config-v1",
+    "attempt_id": "O1C-0024",
+    "slug": "exact-factorized-posterior-frontier-v1",
+    "claim_level": "RETROSPECTIVE",
+    "hypothesis": "The current least-uncertain-bit cube is not the global top-K of a 256-bit factorized posterior; an exact all-coordinate best-first frontier can recover a full-round ChaCha20 key that the restricted cube excludes, while honestly reporting whether a burned real posterior produces any actionable search concentration.",
+    "prediction": "The exact frontier will match exhaustive product-posterior ordering on deterministic low-width proofs, emit the synthetic full-round truth at rank four while the legacy two-bit cube cannot contain it, report the true best Hamming distance at each configured K, and find no exact O1C-0016 target-0000 key inside the first 65,536 global candidates. Candidate generation and its freeze must occur before the single selected burned reveal is opened.",
+    "controls": [
+        "the legacy least-uncertain-bit cube is evaluated unchanged as the matched restricted-frontier control",
+        "deterministic exhaustive low-width enumeration proves global score ordering and candidate uniqueness",
+        "a full-round twenty-round ChaCha20 target has a constructed rank-four truth outside the legacy two-coordinate cube",
+        "wrong-nonce and one-bit-output public controls receive the identical synthetic frontier and must produce zero exact matches",
+        "the O1C-0016 target-0000 posterior is consumed retrospectively without fitting, rescaling, reader selection or fresh entropy",
+        "all burned candidates and scores are persisted and hash-frozen before the revealed key is read",
+        "candidate generation receives probabilities and public target data only; truth is accepted only by the post-freeze evaluator",
+        "zero solver branches, sibling reads or writes, MPS calls and GPU calls"
+    ],
+    "budgets": {
+        "maximum_cpu_seconds": 30.0,
+        "maximum_wall_seconds": 30.0,
+        "maximum_resident_memory_mib": 256,
+        "maximum_persistent_artifact_bytes": 4194304,
+        "maximum_frontier_candidates": 65544,
+        "maximum_proof_candidate_evaluations": 2192,
+        "maximum_legacy_cube_assignments": 65540,
+        "maximum_burned_public_verifications": 4096,
+        "maximum_synthetic_public_verifications": 24,
+        "maximum_source_manifest_reads": 1,
+        "maximum_source_payload_reads": 5,
+        "maximum_source_reveal_payload_reads": 1,
+        "maximum_source_evaluation_payload_reads": 1,
+        "maximum_other_outcome_payload_reads": 0,
+        "maximum_full_source_capsule_scans": 0,
+        "maximum_scientific_entropy_calls": 0,
+        "maximum_burned_reveal_reads": 1,
+        "maximum_native_solver_branches": 0,
+        "maximum_sibling_reads": 0,
+        "maximum_sibling_writes": 0,
+        "maximum_mps_calls": 0,
+        "maximum_gpu_calls": 0
+    },
+    "next_action": "Use the exact global frontier, never the restricted uncertainty cube, for future beam/rank/time-to-hit claims. If O1C-0022 later yields stable entropy reduction, stream its frozen posterior through this decoder and exact ChaCha20 verification; if not, keep the decoder fixed and repair evidence orientation rather than tuning search.",
+    "experiment": {
+        "exhaustive_active_widths": [3, 6, 10],
+        "synthetic": {
+            "key_byte_affine_multiplier": 13,
+            "key_byte_affine_offset": 7,
+            "counter": 1,
+            "nonce_hex": "000102030405060708090a0b",
+            "flip_coordinates": [0, 1, 2],
+            "flip_penalties_bits": [0.10008, 0.20067, 0.24116],
+            "truth_flip_coordinate": 2,
+            "other_coordinate_penalty_bits": 20.0,
+            "top_k": 8,
+            "legacy_uncertain_bits": 2,
+            "expected_truth_rank": 4
+        },
+        "burned": {
+            "capsule": "runs/20260717_115325_O1C-0016_full256-polyphase-blind-replication-v2",
+            "capsule_manifest_sha256": "fd0469885ee436414f94d708006cc40d86fc730d25b618167c7d664b3fe195ea",
+            "target_id": "o1c0016-replication-0000",
+            "top_k": 65536,
+            "public_verification_limit": 4096,
+            "inputs": {
+                "publication.json": "577f10a7cf69d58eeb842fe9dba903f27499dfb6be4fa5a7366e2b22f3a44b81",
+                "probabilities.f64le": "0f9c3b9f99af49f7b2a03a3a2c89e5ac81ba1ebcdad3e9db8e9b83265f129c7d",
+                "prediction_freeze.json": "169252f77e0e66e1afab1c486692c27dc2217c40d566c1468241266141fecbdc",
+                "reveal.json": "19cf8b133bf217ec277966394ee9576c4ed16af878d0d970dbfe6cd23367efe9",
+                "evaluation.json": "bae26cec9275806870e46dbb1e9c55726230e123a44fc4eb3a7785287ecc2010"
+            }
+        }
+    }
+}
