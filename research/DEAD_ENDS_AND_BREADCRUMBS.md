@@ -806,3 +806,36 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   cryptanalytic signal exists.
 - **Artifact:**
   [`O1C-0029 design`](O1C0029_STACKED_HOT_CALIBRATION_DESIGN_20260718.md).
+
+## B-0040 — Local hard confidence does not turn diagonal self-ancestry into a portable lamp
+
+- **Evidence:** O1C-0030 replayed the four already-consumed real BUILD FAPs in
+  leave-one-key-out folds. Its primary same-coordinate arm attached the local
+  exact-conflict confidence bit to chronological H64/H65/H96 self-ancestry
+  innovations. Mean compression is `-0.680620` bit/key: three of four folds are
+  nominally positive, but primary trails cumulative replacement in all four and
+  its mean primary-minus-cumulative margin is `-0.582832` bit.
+- **Matched-control result:** fixed-point-free deranged confidence reaches
+  `+0.779642` mean compression. That is a control win, not evidence for the
+  factual attachment. None of the four primary exact global top-65,536
+  frontiers contains the key.
+- **Post-result breadcrumb:** cumulative replacement is correct on `312/574`
+  rows where the local confidence flag is active. This is descriptive only, and
+  one fold reverses the apparent direction, so it neither rescues the frozen
+  hypothesis nor authorizes a threshold, sign or coordinate resweep.
+- **Closed surface:** summarized diagonal self-ancestry combined with this local
+  binary hard-q attachment. The result does not close raw antecedent identity,
+  signed-variable interactions, the learned full-330D reader, or a live global
+  scout-to-focus policy that can condition attention on the evolving stream.
+- **Do not repeat:** tune q weights, pick the three positive folds, promote the
+  `312/574` opened-label slice, search alternate diagonal horizon sums or report
+  deranged control compression as key signal.
+- **Breadcrumb:** move signal discovery back to provenance-rich proof structure:
+  retain exact antecedent/signed-pair identity and let the full reader or a live
+  global scout propose where bounded O1 state should focus. A future success
+  must beat coordinate-destroying controls prospectively, not merely illuminate
+  an opened diagonal subset.
+- **Artifacts:**
+  [`O1C-0030 result`](O1C0030_INCREMENTAL_DIAGONAL_FRONTIER_RESULT_20260718.md)
+  and
+  [`immutable capsule`](../runs/20260718_134406_O1C-0030_incremental-diagonal-frontier-v1/RUN.md).

@@ -1,16 +1,17 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T12:56:42+02:00.
+Last ranked: 2026-07-18T13:50:28+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
 | 1 | Keep the ACK-confirmed watcher PID `67247` alive and let it launch frozen O1C-0019 only after W52 terminal/process/RAM/load/hash gates clear | State of the art | Very high | Very high | Medium | Produces the first corrected full-round packet-reader and autonomous-picker gate without disturbing recovery workers |
 | 2 | When O1C-0019 finalizes, run source-frozen O1C-0022 `ce56ba4` exactly once; classify K12/52/128/256 raw/normalized/int8/last/unit/shuffled evidence, then send positive frozen K256 logits through fixed O1C-0025 and unchanged O1C-0024 global decoding | State of the art | Very high | Very high | Low/Medium | Separates no packet signal, cross-coordinate dilution, scale weighting, quantization, confidence, compounding, binding and actual search concentration before any new target |
 | 3 | After authoritative O1C-0022 finalizes, run conditional source-frozen O1C-0029 `22d417ca73c73af59c8043c456c5475ed57f66a3` exactly once: persist all 16 real packet states before the calibration opening, then freeze four fixed reader fits and eight logits before the heldout scoring opening | State of the art | Extreme | Extreme | Low | Tests portable K256 orientation through hot readers without replaying cold evidence; O1C-0023 is optional context and is not a prerequisite |
-| 4 | After O1C-0022 finalizes, O1C-0023 `aa17eed` may run separately; preserve its complete-result decision, failure-memory context and isolated native O1-O double assembly without making it a gate for O1C-0029 | State of the art | Very high | Extreme | Low | Converts the localized outcome into one non-repeating next operator with zero target spend and removes manual iteration latency |
-| 5 | Preserve O1C-0021 source freeze `4ba1cc6`; once the shared interlock is idle, run the committed two-seed broad DEV recheck and four never-used formal EVAL seeds exactly once | State of the art | Very high | Very high | Low/Medium | Decides terminal synthetic causal accumulation without racing the real packet gate |
-| 6 | If O1C-0029 finds portable K256 orientation, freeze its positive posterior with O1C-0025 as the fixed logit handoff into O1C-0024 and attack one untouched O1C-0018 DEVELOPMENT pool under a new identity; otherwise preserve its byte/block/full-key ranks and advance only through a separately authorized successor | State of the art | Extreme | Very high | Medium | Converts the complete O1C-0019 to O1C-0022 to O1C-0029 chain into the first genuinely fresh full-round 256-bit entropy/rank/recovery test or a high-information localized repair |
-| 7 | Preserve O1C-0026 formal runner `7855492`, config `configs/proof_ancestry_pair_residual_run_v1.json` and proxy v2 `0af57fb`; only after authoritative O1C-0023 selects `proof_ancestry_pair_residual_v1`, reserve its consumed-BUILD four-fold residual exactly once | State of the art | Very high | High | Medium | The truth-safe one-shot lifecycle, 768D/8-KiB replay, matched controls and exact result authority are frozen; the remaining spend answers portable orientation without a fresh target, and a completed null closes only the exact proxy instance |
+| 4 | After authoritative packet deltas exist, source-freeze one artifact-only O1-O live scout-to-focus gate: scout H64 across all 256 coordinates, consume H65/H96 one packet at a time under strictly positive learned priority, update the bounded O1 state and re-rank after every consume | State of the art | Extreme | Extreme | Low | The matched-work live recurrent versus identical frozen one-shot comparison directly decides whether living state improves the next evidence choice; round-robin, hash, magnitude, shifted-credit and no-state controls localize failure without new solver or target work |
+| 5 | After O1C-0022 finalizes, O1C-0023 `aa17eed` may run separately; preserve its complete-result decision, failure-memory context and isolated native O1-O double assembly without making it a gate for O1C-0029 | State of the art | Very high | Extreme | Low | Converts the localized outcome into one non-repeating next operator with zero target spend and removes manual iteration latency |
+| 6 | Preserve O1C-0021 source freeze `4ba1cc6`; once the shared interlock is idle, run the committed two-seed broad DEV recheck and four never-used formal EVAL seeds exactly once | State of the art | Very high | Very high | Low/Medium | Decides terminal synthetic causal accumulation without racing the real packet gate |
+| 7 | If O1C-0029 finds portable K256 orientation, freeze its positive posterior with O1C-0025 as the fixed logit handoff into O1C-0024 and attack one untouched O1C-0018 DEVELOPMENT pool under a new identity; otherwise preserve its byte/block/full-key ranks and advance only through a separately authorized successor | State of the art | Extreme | Very high | Medium | Converts the complete O1C-0019 to O1C-0022 to O1C-0029 chain into the first genuinely fresh full-round 256-bit entropy/rank/recovery test or a high-information localized repair |
+| 8 | Preserve O1C-0026 formal runner `7855492`, config `configs/proof_ancestry_pair_residual_run_v1.json` and proxy v2 `0af57fb`; only after authoritative O1C-0023 selects `proof_ancestry_pair_residual_v1`, reserve its consumed-BUILD four-fold residual exactly once | State of the art | Very high | High | Medium | The truth-safe one-shot lifecycle, 768D/8-KiB replay, matched controls and exact result authority are frozen; the remaining spend answers portable orientation without a fresh target, and a completed null closes only the exact proxy instance |
 
 ## Hard target contract
 
@@ -100,6 +101,13 @@ Last ranked: 2026-07-18T12:56:42+02:00.
   `dd9675a9017ed9be240dee0d50f195cbd938cbb6044c29851e736cdeeb6ba3ec`.
   Tests and pending preflight are clean; no O1C-0029 attempt, scientific run,
   result or signal exists.
+- O1C-0030 is finalized and immutable at source `e7c1bf5`. Its complete
+  four-fold consumed-BUILD diagnostic took 7.455637 measured wall seconds at
+  65,748,992 B peak RSS, persisted 168,648 B, scored 262,144 exact frontier
+  candidates and consumed zero solver, entropy, sibling, MPS or GPU work. A
+  repeated invocation returned the verified capsule without replay. The result
+  closes only the exact same-coordinate q-to-diagonal lamp; it is not a reason to
+  reopen W52 resources or spend a fresh target.
 - Post-freeze hardening `2d8bf69` now sends a real immutable O1C-0018 `.fap`
   through the production Torch reader, quantizer and 352-byte bridge at K12 with
   zero labels and exact repeat/swap/duplicate/work assertions. A same-resource,
@@ -116,6 +124,10 @@ Last ranked: 2026-07-18T12:56:42+02:00.
 - storing W52's 64 MiB pair permutations;
 - global unconstrained copula corrections after A468's tail failure;
 - treating raw ciphertext Hamming distance as dense evidence;
+- resweeping O1C-0030's diagonal innovation transform, exact-cutoff multiplier,
+  scalar ridge or confidence clip: the primary loses cumulative replacement in
+  all four folds and the deranged control wins. Retain raw antecedent/signed-pair
+  identity and move confidence assignment global/live instead;
 - enlarging O1C-0024 K, tuning its penalties or selecting prefixes on the opened
   O1C-0016 target; the exact decoder is solved and the posterior, not the beam, is
   the current bottleneck;

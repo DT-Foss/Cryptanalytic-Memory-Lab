@@ -174,6 +174,23 @@ import closure plus a separately pinned verifier at
 Tests and conditional preflight are clean, but no scientific O1C-0029 run, result
 or signal exists.
 
+O1C-0030 is the completed cheap retrospective probe over the four already
+consumed O1C-0018 BUILD pools. From source
+`e7c1bf551f2abf3c00a82c46d48b021452dfd417`, it froze every label-free local
+self-ancestry feature before deriving deterministic BUILD labels, then froze all
+five leave-one-out logit fields before scoring and exact top-65,536 diagnostics.
+The result is `RETROSPECTIVE_BREADCRUMB_NO_STRONG_GATE`: primary averages
+`-0.680620` bit, cumulative replacement `-0.097788`, legacy reintegration
+`+0.035626`, deranged confidence `+0.779642` and even common mode `-0.262728`.
+Primary loses cumulative on all four folds and emits no exact key in any
+top-65,536 frontier. A label-opened post-result inspection finds 312/574 active
+rows and one reversing fold; it is diagnostic only and cannot rescue the frozen
+gate. The capsule is replay protected and completed in 7.455637 wall seconds at
+65,748,992 B peak RSS with 168,648 B persistent state and zero solver, entropy,
+sibling, MPS or GPU work. Close only the local incremental-diagonal lamp. Do not
+generalize this null to temporal packet accumulation or raw ancestry-pair
+evidence.
+
 ## Evidence ladder from here
 
 1. Preserve O1C-0020's code, four EVAL seeds, gate and capsule byte-exact. Reuse only
@@ -206,14 +223,18 @@ or signal exists.
    compression and matched control margins; exact 256/256 remains the terminal
    synthetic causal-accumulation gate.
 8. If O1C-0029 finds portable K256 orientation, freeze that combined architecture
-   and attack one untouched full-256 DEVELOPMENT target under a new identity. If
-   every O1C-0029 arm is null, preserve its byte, block and full-key ranks, then
-   execute O1C-0026 only through frozen one-shot runner `7855492` and its exact
-   config, on consumed BUILD folds, and only when a separately executed
-   authoritative O1C-0023 selected `proof_ancestry_pair_residual_v1`. A completed,
-   fully verified null may close only the exact proxy-instance fingerprint;
-   operational, stopped and publication failures close nothing and preserve R07.
-   For every other outcome, execute only a separately authorized frozen successor.
+   and attack one untouched full-256 DEVELOPMENT target under a new identity.
+   Once authoritative packet deltas exist, use O1C-0030's closed local-diagonal
+   result to avoid that resweep: compare an O1-O live scout-to-focus re-ranker
+   against an identical frozen one-shot policy at matched work. Preserve every
+   packet byte, block and full-key rank. If packet features are null, move to raw
+   antecedent/signed-pair evidence; execute O1C-0026 only through frozen one-shot
+   runner `7855492` and its exact config, on consumed BUILD folds, and only when a
+   separately executed authoritative O1C-0023 selected
+   `proof_ancestry_pair_residual_v1`. A completed, fully verified null may close
+   only its exact mechanism fingerprint; operational, stopped and publication
+   failures close nothing and preserve R07. For every other outcome, execute only
+   a separately authorized frozen successor.
 9. After stable entropy reduction, add surprise-selected Causal Attic summaries
    and use O1C-0025's fixed logit handoff, O1C-0024's exact global frontier and
    public ChaCha20 verification toward recovery.

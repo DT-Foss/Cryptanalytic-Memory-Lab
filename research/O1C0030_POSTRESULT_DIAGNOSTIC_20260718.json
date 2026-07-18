@@ -1,0 +1,107 @@
+{
+  "attempt_id": "O1C-0030",
+  "classification": "RETROSPECTIVE_BREADCRUMB_NO_STRONG_GATE",
+  "formal_result_sha256": "d1aa33be2852f83e923fb29dd4b13ebd3340e466b624bf4fc5efe17ea2f73715",
+  "generated_at": "2026-07-18T13:47:13+02:00",
+  "post_result_only": true,
+  "run_capsule_manifest_sha256": "ed6ef945e0e05ebf3199b3526c71d70da8402cc07bd8d7c4ec6c66bed483b04e",
+  "schema": "o1-256-o1c30-postresult-diagonal-frontier-diagnostic-v1",
+  "source_freezes": {
+    "feature_freeze_sha256": "b258643338b126666ce7b6b3c861ae56cc93166552a47f890a4e2aa39d9141b0",
+    "prediction_freeze_sha256": "b442962f32498b706c7f1e624eda120e54ae6c76bafcd59356533a2451ae1943",
+    "source_commit": "e7c1bf551f2abf3c00a82c46d48b021452dfd417"
+  },
+  "formal_arms": {
+    "cumulative_replace": {
+      "correct_bits_by_fold": [136, 135, 144, 134],
+      "mean_compression_bits": -0.09778822417340649,
+      "positive_folds": 3
+    },
+    "deranged_confidence": {
+      "correct_bits_by_fold": [135, 135, 144, 134],
+      "mean_compression_bits": 0.7796418297732188,
+      "positive_folds": 3
+    },
+    "legacy_reintegrated": {
+      "correct_bits_by_fold": [136, 135, 144, 134],
+      "mean_compression_bits": 0.03562596165131282,
+      "positive_folds": 3
+    },
+    "polarity_even_common_mode": {
+      "correct_bits_by_fold": [139, 137, 138, 132],
+      "mean_compression_bits": -0.26272753896097356,
+      "positive_folds": 3
+    },
+    "primary": {
+      "compression_bits_by_fold": [
+        -4.988681933846522,
+        0.8789218619870383,
+        0.8024131727870838,
+        0.5848659446384659
+      ],
+      "correct_bits_by_fold": [135, 135, 144, 134],
+      "mean_compression_bits": -0.6806202386084834,
+      "positive_folds": 3
+    }
+  },
+  "active_coordinate_diagnostic": {
+    "boundary": "POST_RESULT_DESCRIPTIVE_NOT_A_PRECOMMITTED_GATE",
+    "cumulative_replace": {
+      "active_coordinates_by_fold": [131, 135, 131, 177],
+      "active_correct_by_fold": [60, 76, 81, 95],
+      "aggregate_active_accuracy": 0.5435540069686411,
+      "aggregate_active_correct": 312,
+      "aggregate_active_coordinates": 574,
+      "descriptive_one_sided_binomial_p": 0.020369942849458058
+    },
+    "primary": {
+      "active_coordinates_by_fold": [131, 135, 131, 177],
+      "active_correct_by_fold": [59, 76, 81, 95],
+      "aggregate_active_accuracy": 0.5418118466898955,
+      "aggregate_active_correct": 311,
+      "aggregate_active_coordinates": 574,
+      "descriptive_one_sided_binomial_p": 0.024848961798779958
+    },
+    "warning": "Inactive zero rows contribute label-imbalance correctness to the formal all-bit count; only the active-row diagnostic describes orientation coverage, and its p-values are uncorrected post-result breadcrumbs rather than evidence claims."
+  },
+  "frontier_confidence_geometry": {
+    "exact_conflict_xor_counts_h64_h65_h96_by_fold": [
+      [21, 87, 22],
+      [10, 2, 9],
+      [93, 88, 14],
+      [5, 22, 20]
+    ],
+    "odd_innovation_nonzero_counts_h64_h65_h96_by_fold": [
+      [130, 91, 131],
+      [133, 132, 135],
+      [118, 71, 131],
+      [137, 130, 177]
+    ],
+    "primary_minus_cumulative_mean_compression_bits": -0.5828320144350769,
+    "primary_minus_deranged_mean_compression_bits": -1.4602620683817022
+  },
+  "global_frontier": {
+    "candidate_limit_per_fold": 65536,
+    "exact_key_hits": 0,
+    "best_hamming_distance_by_fold": [138, 112, 104, 114]
+  },
+  "resource_receipt": {
+    "cpu_seconds": 7.38176,
+    "peak_rss_bytes": 65748992,
+    "persistent_artifact_bytes": 168648,
+    "source_artifact_bytes_read": 8331098,
+    "wall_seconds": 7.455637166742235,
+    "zero_solver_entropy_sibling_mps_gpu_work": true
+  },
+  "interpretation": {
+    "closed_exactly": "same-coordinate exact-frontier amplification of summarized self-ancestry innovations",
+    "not_closed": [
+      "raw proof antecedent identity",
+      "signed interaction pairs",
+      "full 330D learned O1 reader",
+      "O1-O live scout-to-focus re-ranking"
+    ],
+    "strongest_breadcrumb": "The diagonal field has incomplete and unstable active-row orientation; attaching exact-cutoff confidence to its own coordinate worsens every primary-versus-cumulative fold. The positive deranged-control mean is a control win, not a signal win, and points away from coordinate-local hard amplification toward learned global or live confidence routing.",
+    "next_operator": "After authoritative O1C-0019 packet deltas exist, compare live recurrent scout-to-focus re-ranking with the identical frozen one-shot score at matched work. Preserve raw antecedent or signed-pair identity if packet evidence stays null; do not resweep this diagonal lamp."
+  }
+}

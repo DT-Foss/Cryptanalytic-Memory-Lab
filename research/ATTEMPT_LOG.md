@@ -1456,3 +1456,39 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [`design`](O1C0029_STACKED_HOT_CALIBRATION_DESIGN_20260718.md),
   [`config`](../configs/o1c29_stacked_hot_calibration_v1.json), and
   [`runner`](../src/o1_crypto_lab/o1c29_stacked_hot_calibration_run.py).
+
+## 2026-07-18 — O1C-0030 incremental-diagonal frontier
+
+- **Source/run identity:** source freeze
+  `e7c1bf551f2abf3c00a82c46d48b021452dfd417`; finalized capsule
+  `runs/20260718_134406_O1C-0030_incremental-diagonal-frontier-v1`; manifest
+  SHA-256 `ed6ef945e0e05ebf3199b3526c71d70da8402cc07bd8d7c4ec6c66bed483b04e`.
+- **Question:** can the cheapest label-free local lamp over the four already
+  consumed O1C-0018 BUILD pools expose a transferable incremental self-ancestry
+  diagonal before the authoritative packet-delta path becomes available?
+- **Result:** `RETROSPECTIVE_BREADCRUMB_NO_STRONG_GATE`. Mean compression is
+  `-0.680620` bit for primary, `-0.097788` for cumulative replacement,
+  `+0.035626` for legacy reintegration, `+0.779642` for the deranged-confidence
+  control and `-0.262728` for even common mode. Primary beats cumulative on
+  `0/4` folds, and no exact key appears in any primary exact top-65,536
+  frontier.
+- **Post-result diagnostic boundary:** a label-opened active-row inspection
+  finds `312/574` active rows and one fold reverses orientation. This was
+  computed only after the formal result and is a breadcrumb, not a frozen
+  pre-result selector or evidence that rescues the failed gate.
+- **Interpretation:** close only this local incremental-diagonal lamp. The
+  deranged control win and fold reversal argue against promoting the local
+  coordinate diagonal as causal orientation; they do not close packet-level,
+  temporal or ancestry-pair mechanisms.
+- **Resources/lifecycle:** 7.455637 s wall, 65,748,992 B peak RSS and 168,648 B
+  persistent artifacts. The run generated no pool and used zero solver branches,
+  scientific entropy, sibling reads/writes, MPS or GPU calls. The finalized
+  attempt is replay protected.
+- **Next action:** once authoritative packet deltas exist, compare an O1-O live
+  scout-to-focus re-ranker against an identical frozen one-shot policy at matched
+  work. If packet features are null, move to raw antecedent/signed-pair evidence
+  rather than resweeping this diagonal.
+- **Artifacts:**
+  [`capsule`](../runs/20260718_134406_O1C-0030_incremental-diagonal-frontier-v1/RUN.md),
+  [`result note`](O1C0030_INCREMENTAL_DIAGONAL_FRONTIER_RESULT_20260718.md), and
+  [`post-result diagnostic`](O1C0030_POSTRESULT_DIAGNOSTIC_20260718.json).

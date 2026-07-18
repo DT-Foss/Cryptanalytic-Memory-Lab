@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T13:04:33+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T13:50:28+02:00 (`Europe/Berlin`)
 - **Latest implementation freeze:** `O1C-0028` at
   `17c02dfdbf56de6a81ae34700b258815bf0b7f88` — byte-exact K256
   H64/H65/H96 packet transposition into a self-describing, allocation-invariant
@@ -10,10 +10,11 @@
   sixteen 25,128-byte V2 states once, then two fixed hot readers are calibrated
   and scored at exact top-K 65,536 under isolated manager authority. It remains
   unreserved and `prerequisite-pending`; no scientific result is claimed
-- **Latest completed attempt:** `O1C-0028` —
-  `HORIZON_MAJOR_HOT_ROUTING_PASS`; all 14 gates pass on a target-free complete
-  K256 packet ledger, with one canonical three-group V2 consume, two bound hot
-  readers, 13 cold replay probes and no ChaCha20/key/solver input
+- **Latest completed attempt:** `O1C-0030` —
+  `RETROSPECTIVE_BREADCRUMB_NO_STRONG_GATE`; the exact same-coordinate frontier
+  lamp is null on four consumed full-round BUILD artifacts. Primary compression
+  is `-0.680620` bit/key, loses to cumulative replacement in 4/4 folds, and finds
+  no exact key in four native-logit top-65,536 frontiers
 - **Latest source hardening:**
   `2d8bf69957fe689b75e61fea5cab8e9a693192ed` — a real immutable O1C-0018
   `.fap` now traverses the production Torch reader, label-free quantizer and
@@ -21,8 +22,9 @@
   checks
 - **Latest completed validation:** `O1C-0020` — exact learned-mask MQAR-256
   retention through `2^20` distractors in a 352-byte live state
-- **Latest execution commit:** `3aefaf7a88aaf425bd52bc1c56614348a024ba1c`
-  (`O1C-0020` clean learned-gate retention freeze)
+- **Latest execution freeze:** `O1C-0030` source
+  `e7c1bf551f2abf3c00a82c46d48b021452dfd417`, config-freeze commit
+  `3b2813845f9015b457eec74bcb53cf62fa15ec2d`
 - **Frozen next full-round gate:** `27cd5b1f1e3172218c9c993846f1dcc950bb909a`
   (`O1C-0019` artifact-only four-fold BUILD-LOO gate; no scientific run yet)
 - **Latest operational handoff:** `4511a06` (ACK-confirmed read-only W52 interlock;
@@ -39,33 +41,35 @@
   Product-of-Experts and A469 positive bucket-local correction; A539/A541 now
   close the tested additive single-position clause marginals and prioritize
   interaction-bearing pairs, proof antecedents or exact contradictions
-- **Active lab runs:** no local scientific run; O1C-0024, O1C-0027 and O1C-0028 are
-  finalized and O1C-0025/O1C-0026/O1C-0029 have no reservations. O1C-0026 completed a label-free BUILD
+- **Active lab runs:** no local scientific run; O1C-0024, O1C-0027, O1C-0028 and
+  O1C-0030 are finalized and O1C-0025/O1C-0026/O1C-0029 have no reservations. O1C-0026 completed a label-free BUILD
   structural replay and a synthetic formal-lifecycle fixture only. The sibling
   W52 production work remains
   active, so O1C-0019, O1C-0022 and the O1C-0021 broad/formal gate have not
   started. O1C-0022 and O1C-0023 preflights are correctly
   `prerequisite-pending` and create no reservations. O1C-0029's fresh-process
   preflight is also pending without a reservation. At the latest read-only host
-  check, W52 had 8/8 running workers, `380,870/16,777,216` cells
-  (`2.2701621056%`), no factual/control candidate and 32% free memory. Consumed
+  check, W52 had 8/8 running workers, `393,134/16,777,216` cells
+  (`2.3432612419%`), no factual/control candidate and 40% free memory. Consumed
   pools/seeds remain ineligible as fresh evidence
 - **Strongest completed mechanism attempt:** `O1C-0020` — independently reviewed
   `EXACT_256_LEARNED_GATE_RETENTION` on 4 unseen seeds x 3 stream lengths
 - **Strongest completed full-round online attempt:** `O1C-0018` — public-only
   paired-proof reader/picker on two disjoint DEVELOPMENT keys, classified
   `NO_RAW_SIGNAL_PICKER_UNINTERPRETABLE`
-- **Last operational attempt:** `O1C-0028` — 0.112165 CPU s, 0.123936 measured
-  wall s (0.143779 s complete capsule), 44,892,160 B peak RSS, 378,809 persistent
-  artifact bytes and every mechanism/resource gate passed
+- **Last operational attempt:** `O1C-0030` — 7.381760 CPU s, 7.455637 measured
+  wall s (7.473814 s complete capsule), 65,748,992 B peak RSS, 168,648 persistent
+  artifact bytes, 262,144 exact frontier candidates and zero solver, entropy,
+  sibling, MPS or GPU work; a second invocation performed no replay
 - **Next attempt:** the existing watcher executes frozen O1C-0019 after W52 clears;
   its finalized capsule unlocks source-frozen O1C-0022. That authoritative result
   directly unlocks O1C-0029's fixed V2 packet→state→hot-reader retrospective;
   O1C-0023 remains an independent optional composer and never selects an O1C-0029
   arm. Run O1C-0021 broad/formal only when the interlock is idle
-- **Primary uncertainty:** whether common-mode-rejected proof/carry innovations can
-  acquire portable key orientation when O1 learns its representation and O1-O
-  learns its sensing policy rather than receiving a fixed scalar reader
+- **Primary uncertainty:** whether the full learned 330D packet reader can acquire
+  portable key orientation and whether a recurrent O1-O scout-to-focus policy can
+  route its nonstationary confidence globally; O1C-0030 now closes the simpler
+  same-coordinate hard-confidence attachment
 - **SOTA status:** retention terminal (a) is achieved at 256/256 through `2^20`
   distractors with exact bounded-state accounting. O1C-0024 now supplies an exact
   global all-coordinate recovery frontier and O1C-0025 preserves native K256
@@ -73,7 +77,9 @@
   allocation-invariant one-pass packet adapter and a verified hot/cold routing
   boundary at 42.8125 MiB formal peak. O1C-0029 now supplies the first real-packet
   4x4 state barrier, two fixed hot calibration arms, exact byte/16-bit/full-key
-  ranks and a trusted two-stage label boundary. None of those
+  ranks and a trusted two-stage label boundary. O1C-0030 shows that a real
+  full-round artifact-only diagnostic can execute reproducibly in 7.46 seconds
+  at 62.70 MiB peak, but its local diagonal lamp is null. None of those
   mechanisms creates evidence and the burned O1C-0024 posterior remains too flat.
   There is still no cryptanalytic SOTA or recovery claim: causal full-round
   evidence (b) and recovery frontier efficacy (c) remain open
@@ -82,6 +88,17 @@
   full ChaCha20 key
 
 ## Headline
+
+`O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
+full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does
+not pass: primary mean compression is `-0.680620` bit/key, it trails cumulative
+replacement in every fold by `-0.582832` mean bit, and none of the four exact
+top-65,536 frontiers contains the key. The deranged-confidence control reaches
+`+0.779642`; that is a control win which contradicts local hard attachment, not
+cryptanalytic evidence. The complete frozen run took 7.455637 measured seconds
+at 62.70 MiB peak and repeated without replay. Preserve the narrow active-row
+breadcrumb only; move confidence routing global/live after authoritative packet
+deltas exist rather than sweeping this diagonal again.
 
 `O1C-0029` is source-frozen at `22d417c` as a conditional `RETROSPECTIVE`
 instrument only. One isolated trusted child performs exactly one complete
@@ -654,7 +671,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Sibling W52/A539 (external, read-only) | 24 live process identities / 8 workers | 2026-07-17 | A528/A526 W52 production observed read-only | 380,870/16,777,216 pair cells (2.270162%); latest host check free RAM 32%; no competing local science | unknown |
+| Sibling W52/A539 (external, read-only) | 24 live process identities / 8 workers | 2026-07-17 | A528/A526 W52 production observed read-only | 393,134/16,777,216 pair cells (2.343261%); latest host check free RAM 40%; no competing local science | unknown |
 | O1C-0019 interlock | 67247 | 2026-07-17 18:39 | read-only 60 s poll, three-stable-poll release | preflight/lock/log verified; zero sibling writes; heavy gate not started | automatic after W52 and local gates clear |
 
 ## Highest-ROI next actions
@@ -667,29 +684,28 @@ O1C-0017 result boundary are documented in
 3. Once O1C-0019 finalizes, run source-frozen O1C-0022 `ce56ba4` exactly once. Its
    K ladder and float/int8/last/unit/shuffled controls decide signal, dilution,
    scale, quantization, confidence and compounding without a new solver branch.
-4. When the interlock is idle, preserve O1C-0021 `4ba1cc6`, rerun its two-seed broad
-   DEV check and execute four never-used formal EVAL seeds exactly once. A positive
-   O1C-0022 gate then authorizes one untouched DEVELOPMENT target under a new ID.
-5. Preserve O1C-0024 `36133bc` and source-frozen O1C-0025 `b008e21` unchanged. If
-   O1C-0022 yields positive K256 logits, feed its fixed `quantized_int8_vault`
-   slice through O1C-0025 and the exact public verifier. If every float arm is
-   null, run only the exact O1C-0023-selected operator; never tune a decoder to
-   create evidence.
-6. Preserve formal O1C-0026 runner `7855492` and proxy v2 `0af57fb` conditional
-   and unreserved. Execute the pinned config only if authoritative O1C-0023
-   selects `proof_ancestry_pair_residual_v1`; a completed proxy null closes only
-   its exact proxy fingerprint and leaves parent R07 open.
-7. Preserve O1C-0028 `17c02df` as the packet/V2/hot-routing API and conditional
-   O1C-0029 `22d417c` as its real-packet calibration instrument. Authoritative
-   O1C-0022 completion is the only scientific prerequisite; O1C-0023 remains an
-   independent optional composer and does not select an O1C-0029 arm. Build the
+4. Preserve O1C-0028 `17c02df` as the packet/V2/hot-routing API and execute
+   conditional O1C-0029 `22d417c` only after authoritative O1C-0022. Build the
    sixteen fixed states once, then keep reader-weight and temperature iteration
-   hot; evidence, addressing, encoder, kernel or phase changes require cold replay.
+   hot; evidence, addressing, encoder, kernel or phase changes remain cold.
+5. From the same finalized packet deltas, source-freeze one artifact-only O1-O
+   scout-to-focus gate: H64 scouts every coordinate, then the bounded live state
+   repeatedly selects H65/H96 under a strictly positive priority. Compare live
+   re-ranking directly with the identical frozen one-shot score at matched work.
+6. Keep O1C-0023 `aa17eed` an independent optional composer. If O1C-0029 is
+   positive, hand its frozen K256 logits losslessly through O1C-0025/O1C-0024 and
+   attack one untouched DEVELOPMENT target under a new ID. If packet evidence is
+   null, preserve raw antecedent or signed-pair identity rather than reopening the
+   O1C-0030 diagonal lamp.
+7. When the interlock is idle, preserve O1C-0021 `4ba1cc6` and execute its formal
+   seeds once. Keep O1C-0026 `7855492`/`0af57fb` conditional and unreserved unless
+   authoritative O1C-0023 selects its exact proxy.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0030` | 2026-07-18 13:44 | Exact-cutoff conflict asymmetry should amplify the matching coordinate's odd self-ancestry innovation across incremental H64/H65/H96 frontiers | `RETROSPECTIVE_BREADCRUMB_NO_STRONG_GATE`: primary `-0.680620` bit/key, cumulative `-0.097788`, deranged control `+0.779642`; primary beats cumulative 0/4; 0/4 exact keys in top 65,536 | `RETROSPECTIVE`; consumed BUILD only, no fresh efficacy claim | 7.381760 CPU / 7.455637 measured wall s; 62.70 MiB peak; 168,648 persistent B; zero solver/entropy/sibling/MPS/GPU | Local hard q-to-same-coordinate attachment is contradicted. Preserve the unstable active diagonal only as a post-result breadcrumb and test learned global/live routing next | [Capsule](runs/20260718_134406_O1C-0030_incremental-diagonal-frontier-v1/RUN.md) |
 | `O1C-0029` source freeze | 2026-07-18 12:53 | Sixteen real owner-by-episode O1C-0022 packet states can be built once and support outcome-independent hot calibration of two fixed readers without label leakage or evidence replay | Source `22d417c`; one trusted manager verification, nonce-bound label-free corpus, factory-only input/manager/score authority, 16-state persistence barrier, 4 fits + 8 logits before scoring authority, exact byte/16-bit/global-K65,536 ranks, complete CPython/NumPy/module closure | `INSTRUMENT`; conditional, unreserved and prerequisite-pending; no scientific run/result/signal | 44 focused tests + 25 subtests; 45 neighboring tests + 12 subtests; live preflight creates zero reservation/target/solver/entropy/sibling/MPS/GPU work | Real evidence generation remains cold, but all reader weights and confidence temperatures are now a bounded hot operation over the same persisted state; execute only after authoritative O1C-0022 | [Design](research/O1C0029_STACKED_HOT_CALIBRATION_DESIGN_20260718.md) |
 | `O1C-0028` | 2026-07-18 10:35 | Complete K256 O1C-0022-shaped packets can be transposed once into an allocation-invariant V2 state and safely queried by O1-O-shaped hot readers | `HORIZON_MAJOR_HOT_ROUTING_PASS`; 14/14 gates, 64/64 allocation repeats byte-identical, two hot bindings, 13 cold replay probes, exact legacy wire ABI | `VALIDATION` synthetic mechanism only; no ChaCha20 signal/recovery or authoritative O1C-0023 claim | 0.112165 CPU / 0.123936 measured wall s; 42.8125 MiB peak RSS; 25,128 B/state; 378,809 persistent B | Horizon-major transposition removes artificial coordinate-order decay; V1→V2 is one cold migration, then reader iteration is sub-second and replay-free | [Capsule](runs/20260718_103518_O1C-0028_horizon-major-hot-routing-full256-v1/RUN.md) |
 | `O1C-0027` | 2026-07-18 09:02 | A fixed all-256 resonator bank is a T-independent sufficient statistic for late-bound slot/temperature readers after one-pass ingestion | `POLYPHASE_SUFFICIENT_STATE_PASS`; 12/12 gates, four distinct normalized readers from one state hash, exact rechunk/swap/serialization invariants and three hard replay boundaries | `VALIDATION` mechanism only; no cryptanalytic signal/recovery claim | 0.081856 CPU / 0.094719 measured wall s; 39.390625 MiB peak RSS; 25,096 B/state; 164,132 artifact B | O1 can run continuously while reader weights/temperature change instantly; encoder/kernel/phase changes still require replay. Feed real causal packets next instead of rerunning synthetic streams | [Capsule](runs/20260718_090248_O1C-0027_polyphase-sufficient-state-full256-v1/RUN.md) |
@@ -724,6 +740,16 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0030` source freeze | `e7c1bf551f2abf3c00a82c46d48b021452dfd417` |
+| `O1C-0030` config freeze commit | `3b2813845f9015b457eec74bcb53cf62fa15ec2d` |
+| `O1C-0030` canonical config | `1ae60b05b12934fcd6d4e89aafc8b2f1bc0f2bbd940da1fe19f26d1a626768c0` |
+| `O1C-0030` core source | `b13f509f00e52213deed5a55d74efe80d406f3771d6e40d82d4f8cb7db0920ef` |
+| `O1C-0030` runner source | `07261a930154805dca693090fbce9a6049a6b2670e4da1581a0c899decdc4b03` |
+| `O1C-0030` capsule manifest | `ed6ef945e0e05ebf3199b3526c71d70da8402cc07bd8d7c4ec6c66bed483b04e` |
+| `O1C-0030` formal result | `d1aa33be2852f83e923fb29dd4b13ebd3340e466b624bf4fc5efe17ea2f73715` |
+| `O1C-0030` feature freeze | `b258643338b126666ce7b6b3c861ae56cc93166552a47f890a4e2aa39d9141b0` |
+| `O1C-0030` prediction freeze | `b442962f32498b706c7f1e624eda120e54ae6c76bafcd59356533a2451ae1943` |
+| `O1C-0030` artifact index | `b0ed9e764544bb2856fc3e8a18b76ba39d4c1ea88c64f83da466d65f6bc98eca` |
 | `O1C-0029` source freeze | `22d417ca73c73af59c8043c456c5475ed57f66a3` |
 | `O1C-0029` canonical config | `86a34d70d714333adfd72ec9b6100ab475c872afffa7fcf707f401b7eac7d98f` |
 | `O1C-0029` runner source | `747431b7c2f7dfa1fcf81aecbf58cc6f519db72cf81dcec22dbc2192ba9b6f72` |
@@ -842,6 +868,16 @@ O1C-0017 result boundary are documented in
 | `O1C-0001` capsule manifest | `376e3b27f107d132421e29c2669f468a57c8417924928ce41badadf14d3dd05f` |
 
 ## Resume here
+
+O1C-0030 is complete and immutable at `e7c1bf5`; its capsule manifest is
+`ed6ef945e0e05ebf3199b3526c71d70da8402cc07bd8d7c4ec6c66bed483b04e`.
+Do not resweep its diagonal transform, ridge or exact-cutoff confidence: the
+primary loses cumulative replacement in 4/4 folds and the positive deranged arm
+is a control win. Its post-result 312/574 active-row breadcrumb does not authorize
+a claim or a fresh target. After packet deltas become authoritative, compare
+live recurrent scout-to-focus routing against the identical frozen one-shot
+priority at equal work; retain raw antecedent/signed-pair identity if that field
+is null.
 
 O1C-0029 is source-frozen at `22d417c`, conditional and unreserved. Its preflight
 must remain `prerequisite-pending` without creating a run directory until an
