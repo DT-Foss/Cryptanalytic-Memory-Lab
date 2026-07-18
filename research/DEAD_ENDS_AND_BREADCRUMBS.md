@@ -651,9 +651,10 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   O1C-0025. If every real float arm is null, the next mechanism is whatever the
   authoritative O1C-0023 result selects; O1C-0026 exists only for the exact
   `proof_ancestry_pair_residual_v1` selection.
-- **Boundary:** O1C-0026 is a conditional design, not a reserved attempt or result.
-  It uses already-consumed BUILD artifacts and cannot bypass the active W52/
-  O1C-0019 interlock, O1C-0022 outcome or O1C-0023 decision.
+- **Boundary:** O1C-0026 was a conditional design at this record; proxy v2 is now
+  source-frozen but remains unreserved and without a label-based result. It uses
+  already-consumed BUILD artifacts and cannot bypass the active W52/O1C-0019
+  interlock, O1C-0022 outcome or O1C-0023 decision.
 - **Do not repeat:** manually launch the fallback, relabel it as O1C-0026 before
   selection, or tune O1C-0024/O1C-0025 to create evidence.
 - **Breadcrumb:** if selected, preserve assumption coordinate and projected proof-
@@ -661,3 +662,32 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   otherwise execute the different exact operator selected by O1C-0023.
 - **Artifact:**
   [`O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md`](O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md).
+
+## B-0035 — Zeroing self-touch discards dense energy; leaving it raw destroys the matched control
+
+- **Risk:** the first O1C-0026 sketch excluded `key_touch[i]` to avoid a unary
+  shortcut. On the four real BUILD FAPs, that value is actually nonzero in
+  `52.408854%` of horizon-coordinate cells with RMS `0.005490716`, versus
+  `10.757889%` and RMS `0.000622317` for one off-diagonal cell. Dropping it loses
+  the densest public ancestry channel. Conversely, an unscaled dedicated lane
+  carries `98.22%` of feature energy and turns the pair proxy into a diagonal test.
+- **Resolution:** proxy v2 reserves touch bucket zero for self, hashes offdiagonal
+  sources into buckets 1..15, applies the same digest sign to every destination
+  and divides the complete touch sketch by `sqrt(256)`. The pair-shuffled arm is
+  a fixed-point-free cycle over all 256 values, including self.
+- **Real structural result:** source `0af57fb` projects four BUILD FAPs into
+  primary and shuffled `1024x768` fields in `1.609594` seconds. RMS ratio is
+  `1.008770`, cosine `0.027591`, and only the 85 truly branch-empty rows are
+  identical. The new lane preserves signal energy without granting the primary
+  a scale advantage.
+- **Second correction:** the old absolute ridge floor would dominate these small
+  balanced features. v2 divides by `sqrt(sum(X*X)/768)`, uses unit standardized
+  regularization and folds alpha back into 6,144 raw-space weight bytes.
+- **Do not repeat:** zero self for reviewer aesthetics, leave self unnormalized,
+  shuffle only 255 offdiagonal cells, or use an absolute floor whose meaning
+  changes with feature scale.
+- **Boundary:** this is label-free mechanism evidence. It neither proves portable
+  orientation nor closes all interactions in the 330D FAP. A future null closes
+  only `fap_ancestry_touch_bilinear_proxy_v2`, while parent R07 remains open.
+- **Artifact:**
+  [`O1C0026_BUILD_ONLY_STRUCTURAL_PROBE_V2_20260718.md`](O1C0026_BUILD_ONLY_STRUCTURAL_PROBE_V2_20260718.md).

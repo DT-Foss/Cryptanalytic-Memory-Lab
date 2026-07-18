@@ -1,12 +1,18 @@
 # O1C-0026 — Proof-Ancestry Pair Residual
 
 - **Recorded:** `2026-07-18T04:18:00+02:00`
-- **Status:** conditional source design; no attempt reserved
+- **Status:** conditional proxy v2 source-frozen at `0af57fb`; no attempt reserved
 - **Claim level:** `RETROSPECTIVE`
 - **Upstream decision:** authoritative finalized `O1C-0023` only
+- **Projection policy SHA-256:**
+  `2e2c1e56d4a9db94a575337a74e6523fe300f05bc5a2b21228ecfd151f808a7f`
 - **Scientific inputs:** the four already-consumed O1C-0018 BUILD FAPs and the
   authoritative finalized O1C-0022 BUILD-LOO artifacts
 - **Fresh targets, solver branches, entropy, MPS and GPU calls:** `0`
+
+The label-free structural probe is recorded separately in
+`O1C0026_BUILD_ONLY_STRUCTURAL_PROBE_V2_20260718.md`. It validates real-FAP ABI,
+control scaling and resources but is not an O1C-0026 scientific run or result.
 
 ## Decision boundary
 
@@ -135,9 +141,10 @@ dedicated self lane. Horizon indices are exactly `0,1,2` for horizons
 For each horizon, compute 16D touch sketches and 8D context sketches. After all
 256 signed touch values accumulate, divide the complete 16D touch sketch by
 `sqrt(256)=16`; divide the context sketch by `sqrt(67)`. This matched global
-normalization keeps the dedicated self lane at about `17.73%` of real BUILD
-feature energy rather than the `98.22%` it would occupy unscaled. The primary
-residual row is
+normalization participates in the matched v2 scheme, where the dedicated self
+lane carries `17.682865%` of real BUILD feature energy. The rejected asymmetric
+scheme that left self unscaled while normalizing off-diagonals assigned it
+`98.22%`. The primary residual row is
 
 ```text
 concat_h(
@@ -302,7 +309,8 @@ The formal config should freeze these ceilings:
 | retained primary deployment reader weights (`alpha*w` already folded) | exactly `6,144` bytes |
 | retained 256-logit posterior | exactly `2,048` bytes float64 |
 | O1C-0021 vault state, if replayed | exactly `352` bytes |
-| peak per-coordinate feature scratch | at most `16 KiB`, separately billed |
+| accounted simultaneous NumPy payload | exactly `12,672` bytes |
+| measured warmed process-local projection scratch | at most `14,529` bytes over all 256 primary coordinates, below the `16,384`-byte ceiling |
 
 Projection tables are frozen model data, not live target state. No FAP tensor,
 feature matrix, transcript or candidate dictionary may be retained as deployment

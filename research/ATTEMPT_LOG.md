@@ -1224,11 +1224,12 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifact:**
   [`O1C0025_LOGIT_FRONTIER_HANDOFF_DESIGN_20260718.md`](O1C0025_LOGIT_FRONTIER_HANDOFF_DESIGN_20260718.md).
 
-## 2026-07-18 — O1C-0026 proof-ancestry pair residual (conditional design, non-attempt)
+## 2026-07-18 — O1C-0026 initial conditional design (non-attempt)
 
 - **Recorded:** 2026-07-18T04:18:00+02:00
-- **Status:** `CONDITIONAL DESIGN` only. No O1C-0026 attempt, target, scientific
-  run or result is reserved.
+- **Status at record time:** `CONDITIONAL DESIGN` only; superseded by the proxy v2
+  source freeze below. No O1C-0026 attempt, target, scientific run or result is
+  reserved.
 - **Activation:** O1C-0026 may proceed if and only if the authoritative finalized
   O1C-0023 decision and operator graph both select
   `proof_ancestry_pair_residual_v1` against the authoritative finalized O1C-0022
@@ -1243,3 +1244,45 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   interlock and execute the O1C-0019 → O1C-0022 → O1C-0023 chain first.
 - **Artifact:**
   [`O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md`](O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md).
+
+## 2026-07-18 — O1C-0026 proxy v2 source freeze and BUILD structural probe (non-attempt)
+
+- **Recorded:** 2026-07-18T05:31:51+02:00
+- **Source freeze:**
+  `0af57fbeb6beaf69be66e64c3f0981227f829fd7`; policy SHA
+  `2e2c1e56d4a9db94a575337a74e6523fe300f05bc5a2b21228ecfd151f808a7f`.
+  No attempt or run capsule was reserved, and no label, target, solver branch,
+  entropy, sibling write, MPS or GPU call occurred.
+- **Mechanism:** v2 retains self-touch in dedicated bucket zero and hashes all
+  off-diagonal touches into buckets 1..15. The complete touch sketch is divided
+  by `sqrt(256)` before the two polarity-odd touch/context outer products. A
+  fixed-point-free 256-cycle breaks pair identity while preserving primitive
+  values; additive polarity-odd and even common-mode controls are energy matched.
+- **Bounded state:** the offset ridge standardizes by
+  `sqrt(sum(X*X)/768)`, uses unit regularization and folds nonnegative alpha into
+  one effective `float64[768]` vector. Effective weights plus 256 posterior logits
+  are exactly `6,144 + 2,048 = 8,192` bytes, with no retained FAP, feature matrix
+  or transcript. Accounted simultaneous NumPy payload is `12,672` bytes; the
+  warmed all-coordinate `tracemalloc` maximum is `14,529` bytes under the frozen
+  `16,384`-byte process-local ceiling.
+- **Label-free real replay:** all four hash-pinned BUILD FAPs produced primary and
+  shuffled `1024x768` matrices in `1.609594` wall seconds at `105,955,328` B
+  process peak RSS. RMS is `1.0497150e-5 / 1.0405888e-5` (ratio `1.008770`),
+  cosine is `0.027591`, and only the same 85 genuinely branch-empty rows are
+  identical.
+- **Breadcrumb:** raw psi-odd self-touch is nonzero in `1610/3072 = 52.408854%`
+  with RMS `0.005490716`; one off-diagonal cell is nonzero in
+  `84273/783360 = 10.757889%` with RMS `0.000622317`. Self is `4.87x` denser and
+  `8.82x` stronger, but global normalization prevents a diagonal-only proxy.
+- **Verification:** 13 focused plus 42 neighboring tests pass (55 total, one
+  optional native O1-O integration skip). Ruff, Mypy, JSON, pycompile and
+  `git diff --check` pass; three read-only mechanism/API/math audits were folded
+  into v2 before freeze.
+- **Boundary:** this is `RETROSPECTIVE_STRUCTURAL_ONLY`, not a learned compression
+  or key-recovery result. Formal O1C-0026 remains gated on authoritative O1C-0023
+  selection. A null closes only `fap_ancestry_touch_bilinear_proxy_v2`; parent
+  R07 and other 330D interactions remain open.
+- **Artifacts:**
+  [`structural report`](O1C0026_BUILD_ONLY_STRUCTURAL_PROBE_V2_20260718.md),
+  [`exact JSON`](O1C0026_BUILD_ONLY_STRUCTURAL_PROBE_V2_20260718.json), and
+  [`design`](O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md).
