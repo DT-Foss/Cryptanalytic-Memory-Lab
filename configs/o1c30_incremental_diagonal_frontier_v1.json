@@ -1,0 +1,125 @@
+{
+  "attempt_id": "O1C-0030",
+  "budgets": {
+    "expected_existing_build_pools": 4,
+    "maximum_cpu_seconds": 30.0,
+    "maximum_gpu_calls": 0,
+    "maximum_mps_calls": 0,
+    "maximum_native_solver_branches": 0,
+    "maximum_persistent_artifact_bytes": 4194304,
+    "maximum_physical_public_pools_generated": 0,
+    "maximum_resident_memory_mib": 192,
+    "maximum_scientific_entropy_calls": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_source_artifact_bytes_read": 33554432,
+    "maximum_wall_seconds": 45.0
+  },
+  "claim_level": "RETROSPECTIVE",
+  "controls": [
+    "Only the four already-consumed O1C-0018 BUILD FAPs are admissible; DEVELOPMENT pools, new targets, solvers and sibling repositories are forbidden.",
+    "All five public feature tensors and their commitments persist before the deterministic BUILD label oracle is first invoked.",
+    "Each no-intercept scalar reader learns its training RMS and coefficient from exactly the other three episodes; its own heldout feature and label never enter that fit.",
+    "Cumulative replacement tests the telescoping ungated observation, legacy reintegration tests repeated cumulative counting, a fixed derangement moves only the even confidence flags, and common mode is polarity even.",
+    "All twenty fit receipts and all 5120 heldout logits persist before NLL, local ranks or global top-65536 diagnostics are computed.",
+    "The strong gate is frozen before outcomes and requires four positive folds, four primary-over-cumulative fold wins, the two minimum mean margins and primary mean wins over all three remaining controls.",
+    "This consumed-BUILD result is RETROSPECTIVE_MECHANISM only; it cannot authorize a fresh target, mutate O1C-0019/O1C-0022 or bypass O1C-0023/O1C-0026/O1C-0029."
+  ],
+  "experiment": {
+    "candidate_limit": 65536,
+    "feature_arms": [
+      "primary",
+      "cumulative_replace",
+      "legacy_reintegrated",
+      "deranged_confidence",
+      "polarity_even_common_mode"
+    ],
+    "horizons_chronological": [
+      64,
+      65,
+      96
+    ],
+    "horizons_storage": [
+      64,
+      96,
+      65
+    ],
+    "ridge_l2": 0.0013020833333333333,
+    "strong_gate": {
+      "minimum_mean_compression_bits": 0.25,
+      "minimum_mean_primary_minus_cumulative_bits": 0.1,
+      "positive_folds": 4,
+      "primary_beats_cumulative_all_folds": true,
+      "required_mean_control_wins": [
+        "deranged_confidence",
+        "legacy_reintegrated",
+        "polarity_even_common_mode"
+      ]
+    }
+  },
+  "hypothesis": "Chronological innovations in the assumed coordinate's own proof-ancestry touch carry portable full-round key orientation, and polarity-even one-sided exact-cutoff conflict events amplify that orientation beyond cumulative replacement, legacy cumulative reintegration, deranged confidence and common-mode controls.",
+  "next_action": "If strong, preserve the diagonal innovation plus exact-frontier confidence sensor for a new O1C packet producer and later compare live O1/O1-O scout-to-focus re-ranking against a frozen one-shot policy after O1C-0019. If null, close only this summarized diagonal-frontier lamp and move to raw antecedent identity or signed interaction pairs without consuming a new target.",
+  "prediction": "Across four consumed BUILD leave-one-out folds, primary compression is positive in every fold, averages at least 0.25 bit per 256-bit key, beats cumulative replacement in every fold by at least 0.10 mean bit and exceeds every matched control mean under twenty fixed one-scalar fits.",
+  "schema": "o1-256-o1c30-incremental-diagonal-frontier-run-config-v1",
+  "slug": "incremental-diagonal-frontier-v1",
+  "source": {
+    "artifact_index_sha256": "e6b79631057d5a9fa75004ee0b62aea06fe9430c6a9d3cc9b7ae4b3954d8ed85",
+    "build": [
+      {
+        "fap": "artifacts/pools/build-0000.fap",
+        "fap_bytes": 2057802,
+        "fap_sha256": "0473112acf83efec096418c90e14aa394fc86ff286b4923dd6caa3c7cba79520",
+        "key_sha256": "73fd24bc18f0613b5525b63a6554c12b00c6cafab640cddc57469fc1e14a8093",
+        "ordinal": 0,
+        "public_view_sha256": "aac539310b1e6ee49a3a82a7e3757afd232f4d5c513a3562489ff98409990481",
+        "sidecar": "artifacts/pools/build-0000.json",
+        "sidecar_sha256": "c916798307b514f1dfb517f3edabb1b01f983a5afd2beb1294964bb48a432f79",
+        "target_id": "build-0000",
+        "target_index": 0
+      },
+      {
+        "fap": "artifacts/pools/build-0001.fap",
+        "fap_bytes": 2057802,
+        "fap_sha256": "47c184183f1211bd0a718cccf4ab202446574d9e21d5a969920280b8c0eb6df5",
+        "key_sha256": "65f5183baadc21598a435203963274ab01104d128d45466e55d63549810328cd",
+        "ordinal": 1,
+        "public_view_sha256": "b82e8a060db376cba821ba7143cc2facede4e38db9d785b450343c66e53dce8d",
+        "sidecar": "artifacts/pools/build-0001.json",
+        "sidecar_sha256": "1e6b1d30ca12dc506cf2b06352cd09d334f0719aa933d0da91bf75f3deeed8c1",
+        "target_id": "build-0001",
+        "target_index": 1
+      },
+      {
+        "fap": "artifacts/pools/build-0002.fap",
+        "fap_bytes": 2057802,
+        "fap_sha256": "fcee9c6c05e40c47023417acf7df34bbcf694398b650810b96d6640871ad7b06",
+        "key_sha256": "2f4df7b1e0555e0d6eafa9cb2b525c8fa92b9cd9fa8e1ee3762241e4e591da3d",
+        "ordinal": 2,
+        "public_view_sha256": "9cb6ad51b47ebf531855a78380e941f423b09f9ec600daa88bd4449ae832d611",
+        "sidecar": "artifacts/pools/build-0002.json",
+        "sidecar_sha256": "644dd2d5a0a9b4db928e50e0baa13e0b5f2c7a34fd7be923c27d8a2b5988f4f9",
+        "target_id": "build-0002",
+        "target_index": 2
+      },
+      {
+        "fap": "artifacts/pools/build-0003.fap",
+        "fap_bytes": 2057802,
+        "fap_sha256": "04a4b19797877fd7f6fc6dec9cd7af5b7608a5eab765090600be4567562bde0b",
+        "key_sha256": "a9b2b997f8fec8ffe6f599ea2fd9df0558c5e5209b3ab1b6a6120654bdf54e1d",
+        "ordinal": 3,
+        "public_view_sha256": "826c8915e2c4009865637e069d88cda7b1cd981295de45aac020a220c7c96a72",
+        "sidecar": "artifacts/pools/build-0003.json",
+        "sidecar_sha256": "7e6590c49473bef356a550134f9727beb69aa46808fc9fcdc505ec03e2261029",
+        "target_id": "build-0003",
+        "target_index": 3
+      }
+    ],
+    "capsule": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1",
+    "config_sha256": "a8e19525e62d60977a2c32b822ad169791f021b55633517b14ff831c56e81a7a",
+    "corpus_seed": 180018180018,
+    "manifest_sha256": "fcbf43c99994c0debe5b39bb3e734ea1d1e23ba58e89b10ff2bb7e23886493fb",
+    "metrics_sha256": "f6e31f64cbfefd9b8923a91efc3369dcd33c1df18970604ed55ad34a5d778dea",
+    "result_sha256": "a8e5940edc5887e404725c98631df89e1f91963abd47d1fa51263fc681e9df4d"
+  },
+  "source_freeze_commit": "4781fa6db6d1fce947504105ee5ecf6b2e4b5f86"
+}
