@@ -2,85 +2,110 @@
 
 Recover and independently verify a uniformly random 256-bit key from a standard
 20-round ChaCha20 public relation using only counter, nonce and output at attack
-time. `SOTA` here means a real reduction of the unknown-key search frontier and
-ultimately an exact verified key—not infrastructure, a reduced-width proxy or a
-synthetic mechanism pass.
+time. `SOTA` remains the target: a reproducible reduction of the best known
+full-round 256-bit attack frontier and ultimately an exact verified key.
+
+An exact key is the terminal result, not the only result worth keeping. A stable
+held-out bit advantage, joint-relation advantage, entropy reduction, true-key
+rank gain, smaller residual domain or lower time-to-hit is real progress when it
+transfers to unseen uniform keys under equal attacker work. Synthetic mechanism
+passes and BUILD-only gains remain useful engineering evidence but are labelled
+as such.
+
+## Attack architecture
+
+Keep the already-working public ChaCha evaluator and exact verifiers frozen. Use
+O1 as a bounded streaming evidence state and pursue two complementary decoders:
+
+1. **Factorized completion:** eight public ChaCha blocks enter O1; holographic
+   coordinate queries emit logits for key bits `52..255`; an exact top-K
+   completion frontier feeds the unchanged A525/A526/A528 W52 engine.
+2. **Relational completion:** O1 emits soft unary and joint scores; an exact
+   ChaCha/SAT or factor-graph adapter combines them with attacker-valid algebraic
+   relations and searches joint key configurations directly. This path may
+   reduce the residual domain without first predicting 204 independent bits.
+
+A526 is a retained terminal engine, not the definition of the entire problem.
+Its native contract remains coordinates `0..51` residual and `52..255` fixed,
+but a useful joint decoder may target another residual geometry or hand a
+smaller constrained domain to a general exact verifier.
+
+A513's zero-sum bases and A518B's K4,4 frame are exact equivalent compilations of
+the same public relation, not dozens of independent information bits. Their
+value is solver conditioning, proof-trajectory diversity and joint addressing.
+They may guide a relational decoder, but their rows must never be counted as new
+entropy removal merely because the equation is written in several bases.
+
+## Progress ladder
+
+Every real run uses standard full-round ChaCha20 with all 256 key bits unknown at
+deployment and reports the strongest level it actually reaches:
+
+1. held-out cross-entropy below the 256-bit random baseline or stable transferable
+   coordinate/parity advantage;
+2. higher probability or lower rank for the true joint configuration under an
+   attacker-computable constrained decoder;
+3. measured domain reduction, effective residual width or time-to-hit advantage
+   against equal-work search;
+4. the exact key enters a tractable beam or residual engine;
+5. exact key recovery followed by independent public ChaCha verification.
+
+Results below level five are not called full recovery, but they are not discarded
+when they provide a reproducible frontier gain. Conversely, `180/204` correct
+bits is not automatically useful: it counts only if confidence/joint structure
+turns it into less real search work than the baseline.
 
 ## Execution priority
 
-1. Freeze the already-working cheap full-round public path. Do not redesign its
-   evaluator, verifier, state format or scheduler unless a measured bottleneck
-   blocks an attack run.
-2. Reuse the strongest exact recovery path already demonstrated in the read-only
-   sibling project at its native interface. For A526 this means exactly key
-   coordinates `0..51` residual and coordinates `52..255` fixed; do not replace
-   it with an invented flexible-mask backend before this literal bridge is spent.
-3. Connect the two existing halves directly:
-   `8 public ChaCha blocks -> O1 logits for fixed bits 52..255 -> exact top-K
-   complement beam -> unchanged A525/A526/A528 W52 search -> public ChaCha
-   verification`.
-4. Every substantive iteration must execute or score that end-to-end attack
-   contract on already-consumed BUILD data. Theory, adapters, tests, capsules and
-   synthetic retention never count as progress by themselves.
-5. Score only complement Hamming error, exact-complement beam rank, induced W52
-   work, time-to-hit and exact verified key recovery. General NLL or mechanism
-   elegance is secondary unless it improves one of those quantities.
-6. Only after the native transfer path has consumed the available O1 posterior
-   should a new sensor be invented. New evidence must enter upstream of the same
-   frozen complement beam and W52 backend, so an improvement is immediately an
-   attack improvement rather than another disconnected model result.
+1. Build the smallest relational-completion test that consumes a frozen public
+   O1 field plus one exact ChaCha representation and measures true-key joint
+   rank, proven domain reduction or equal-work time-to-hit. Reuse A513/A518B as
+   compiler geometry; do not claim they supply independent constraints.
+2. Do not repeat A500's fixed parity-marginal decoder or A503's target-aligned
+   Jacobian remainder model: both already failed exact held-out transfer. The new
+   test must couple the soft field to target-specific exact solver search or
+   proof-derived joint factors, not merely rescore a static parity catalogue.
+3. Keep factorized completion available for a genuinely new positive evidence
+   source, but do not scale O1C-0036's raw-output reader. Promote whichever path
+   first produces transferable attacker-valid reduction.
+   Hybridize only after one component has a measured effect.
+4. Do not rebuild a working residual evaluator, verifier or ChaCha generator.
+   Change upstream evidence or the completion geometry only.
 
 ## Iteration rule
 
-- A positive consumed result earns exactly one unchanged consumed repeat.
-- A repeated positive earns exactly one fresh blinded target.
-- A failed repeat closes that exact reader immediately: record one do-not-repeat
-  line, spend no fresh target and perform no rescue sweep.
-- Do not celebrate negative results or optimize for balanced reporting. Their
-  only value is preventing the same paid mistake from recurring. A null is one
-  terse cache entry, not a milestone, report package or reason to build controls.
-- Do not rebuild A325/W46 or A526/W52. They are working terminal residual engines;
-  invoke them only when an upstream completion or tractable beam satisfies their
-  exact 210/210 or 204/204 complement contract.
-- Before a positive recovery effect, retain only four hard gates: all 256 target
-  bits really unknown, no target-label/key leakage, equal scored work and strict
-  sibling isolation. Replication, broad controls and publication hardening follow
-  an effect; they do not precede every exploratory run.
-- Bookkeeping is automatic and proportional: one timestamped machine-readable
-  result plus one resume line per paid run. Extra prose, independent replay,
-  broad ablations and reviewer-oriented hardening begin only after a positive
-  recovery effect.
+- A positive consumed result at any progress-ladder level earns one unchanged
+  consumed repeat. A repeated positive earns one fresh sealed uniform target.
+- A failed repeat closes that exact mechanism. Record one terse do-not-repeat
+  entry and pivot; a negative result is not a milestone or a reason for ceremony.
+- Do not use exact `204/204` as the only promotion gate. Also promote a stable
+  entropy, joint-rank, residual-width or time-to-hit gain that survives the same
+  equal-work boundary.
+- Before a positive effect, retain only four hard gates: all target key bits are
+  unknown, target labels never enter deployment, scored work is matched, and all
+  sibling projects remain strictly read-only.
+- Broad controls, independent replication and publication hardening follow a
+  real effect. They do not precede every exploratory run.
+- Bookkeeping is proportional: one machine-readable result and one resume line
+  per paid run. Tests and adapters support the run but never count as the result.
 
-## Scope and bookkeeping
+## Current boundary
 
-All writes stay inside this repository. Every real iteration receives a monotone
-O1C ID, wall-clock time, resource figures, frozen source/config hashes, raw result,
-decision and direct next action. Keep `STATUS.md`, `RESULTS_INDEX.md`,
-`research/ATTEMPT_LOG.md`, `research/HYPOTHESES.md` and
-`research/NEXT_ACTIONS.md` current, but spend hardening effort only in proportion
-to an observed recovery effect.
+O1C-0035 completed the literal native bridge. On the old O1C-0022 posterior,
+`0/20` top-65,536 complement beams contain the exact 204-bit complement; MAP
+reaches at most `118/204` and the post-reveal oracle beam at most `123/204`.
+That closes the old unary field, not factorized completion in general and not
+joint completion.
 
-Current state: A296 (`118/61/9/230`), A448/A465 (`47/239`) and A469 (`56/239`)
-all256 projection attempts are closed at those exact projections. They do not
-reject the native W52 pipeline; they show that projecting isolated ranking
-operators onto byte classes was the wrong interface. The reliable W20--W52
-recoveries assume 236--204 correct complement bits. The sole frontier task is
-the upstream A526-native complement reader. O1C-0035 has already made the bridge
-literal: it ranks complete assignments of bits `52..255` and hands them to
-A525/A526/A528 without changing their semantics.
+A296, A448, A465 and A469 full256 projections are closed at their tested
+representations. O1C-0036 also closes raw eight-block output-only O1 at
+`102.5/204`, `-0.393341` bit and `0/128` exact top-65,536 complements. A513/A518B
+remain available as exact solver-compilation and joint-geometry mechanisms. The
+active frontier is now the smallest attacker-valid relational completion test.
+A500 already closes fixed joint-parity marginals and A503 closes its tested
+target-aligned Jacobian factor model, so the successor must use target-specific
+exact search/proof coupling and measure true-key rank, effective residual width
+or real search work.
 
-The real O1C-0019 and O1C-0022 all256 chain has now also run and is closed:
-learned live compression is `-0.271090` bit, the learned raw reader loses its
-untrained twin by `0.058470` bit, and the 352-byte vault falls to `-1.181837`
-bits at K256. No precommitted arm exceeds `120/210` A325 or `118/204` A526
-complement bits. Do not run the derivative O1C-0023/25/29 composer, frontier or
-hot-readout stack on this null field. The next real experiment must introduce a
-new all256-unknown evidence source and score its complement/beam effect directly.
-
-Direct effect-first combinations with the sibling solver are also closed only at
-their exact tested surfaces: a signed-pair proof proxy, single-bit terminal
-assumptions, failed cores, inverse fixed points, one-bit neighbors and W8 cells.
-Do not rescue-sweep them. They are not a license to invent another architecture
-layer. O1C-0035 has exposed the real A526 cost of the current O1 logits: no
-top-65,536 beam contains the exact complement. Change only the upstream
-eight-block evidence source while keeping that attack loop frozen.
+All writes stay inside this repository. Sibling projects remain read-only and no
+competing heavy job starts without a resource check.

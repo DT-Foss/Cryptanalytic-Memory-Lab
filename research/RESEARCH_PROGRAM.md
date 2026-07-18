@@ -18,9 +18,10 @@ contamination risk. Green tests and document count are not research outcomes.
 This section controls the next research cycle where older process text conflicts
 with it.
 
-- `ROI` means attacker-valid entropy removal, rank/search reduction or exact
-  recovery on standard full-round ChaCha20. Infrastructure, validation gates and
-  polished claims have zero standalone ROI.
+- `ROI` means attacker-valid entropy removal, transferable unary or joint
+  advantage, rank/search reduction or exact recovery on standard full-round
+  ChaCha20. Infrastructure, validation gates and polished claims have zero
+  standalone ROI.
 - An iteration counts only when it executes the real public full-round relation
   and changes a key metric: entropy, byte/block/full-key rank, verified candidate
   count or exact recovery. Theory, adapters, tests and capsules are support work,
@@ -28,14 +29,16 @@ with it.
 - Reuse a mechanism with positive recovery evidence before inventing a replacement.
   Copy its exact feature, reader, ordering and verifier semantics first; alter
   architecture only after that literal transfer fails its one cheap repeat.
-- Direct composition is the default: public target -> exact sibling evidence
+- Direct composition remains one default: public target -> exact sibling evidence
   reader -> O1 coordinate posterior/completion beam -> unchanged sibling residual
-  recovery -> independent ChaCha20 verification. Do not rebuild a working
-  downstream search engine.
-- Until a transferred reader gives positive cached DEVELOPMENT compression, the
-  loop measures only natural-log-loss/compression, sign accuracy, runtime and
-  memory. Byte/u16 ranks, top-K decoding, broad controls, formal capsules and
-  publication hardening wait for an effect.
+  recovery -> independent ChaCha20 verification. A second valid path is public
+  target -> O1 unary/joint field -> exact relational completion -> exact verifier.
+  Do not force every useful field through A526's fixed-mask contract.
+- During discovery, measure natural-log-loss/compression, stable coordinate or
+  relation accuracy, true-joint rank, effective residual width, runtime and
+  memory. Broad controls, formal capsules and publication hardening wait for an
+  effect; cheap exact decoding is allowed whenever it directly converts a soft
+  field into a real search metric.
 - A negative result is a failed hypothesis, not a milestone. Record one concise
   do-not-repeat breadcrumb and pivot. Do not reward nulls with more ceremony or
   reinterpret them as progress.
@@ -57,9 +60,24 @@ all256 byte interventions; none replicated (`118/61/9/230`, `47/239`,
 `47/239`, `56/239`). The reliable sibling recoveries themselves are W20--W52
 terminal searches whose 236--204 complement bits are supplied inputs. Therefore
 the project does not rebuild their search engine and does not mine this ranking
-family again. The active milestone is exclusively the all256-to-exact-complement
-or exact-containing-beam bridge; A325/A526 execute unchanged once that gate is
-met.
+family again. The factorized active milestone is the all256-to-complement beam;
+the parallel relational milestone asks whether joint ChaCha constraints plus O1
+scores reduce the true-key domain before 204 independent bits are exact.
+A325/A526 execute unchanged when their native gate is met, but they are no longer
+the sole permitted terminal geometry.
+
+A513 and A518B do not add independent equations to the public ChaCha relation:
+their zero-sum rows span the same solution module and alter compiler/solver
+conditioning. They are retained for joint factorization, proof-trajectory
+diversity and search geometry. Any claimed entropy removal must come from a
+measured posterior/domain reduction, never from counting equivalent basis rows.
+
+The first relational successor is not a rerun of sibling A500 or A503. A500's
+fixed 1,024-mask parity spectrum transferred `0/32` targets at top-1, top-16 and
+top-256; A503's 17 target-aligned Jacobian remainder arms transferred `0/512` at
+the same cutoffs. The open mechanism is therefore target-specific coupling of a
+soft O1 field to exact solver search/proof geometry, with real joint rank,
+residual width or time-to-hit as the outcome.
 
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
@@ -86,6 +104,13 @@ untrained, cue-destroyed, all-open, CountSketch and holographic controls all fai
 every longest-stream exact-recall cell. This establishes learned selective
 retention, not evidence accumulation: accepted synthetic tokens still expose their
 address and value.
+
+O1C-0036 closes the simplest eight-block output-only realization at the native
+A526 interface. A 1,152-byte O1 fast state trained on 1,024 uniform keys scores
+128 unseen BUILD keys at `102.5/204`, `50.2451%` aggregate accuracy and
+`-0.393341` bit mean compression; none of 128 exact top-65,536 complement beams
+contains truth. Do not scale this raw-output reader. The next discriminating
+question is relational completion with attacker-computable joint constraints.
 
 There are now three non-conflicting active milestones. O1C-0021 is source-frozen at
 `4ba1cc6`: it preserves the O1C-0020 API but replaces explicit values with weak,

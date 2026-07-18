@@ -1656,3 +1656,18 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   a new attacker-valid error-bit source before invoking either backend.
 - **Artifact:**
   [`ALL256_EFFECT_FIRST_TRANSFER_SCREENS_20260718.md`](ALL256_EFFECT_FIRST_TRANSFER_SCREENS_20260718.md).
+
+## O1C-0036 — Eight-block public O1 at the native A526 frontier
+
+- **Input:** 1,024 generated uniform 256-bit training keys and 128 disjoint
+  read-only A448 BUILD targets. Deployment received only counter, nonce and eight
+  full-round outputs; the sibling's published 210-bit complement stayed teacher-
+  only.
+- **Result:** `102.5/204` mean MAP, `50.2451%` aggregate accuracy,
+  `-0.393341` bit mean held-out compression and `0/128` exact complements in the
+  exact top-65,536 frontier. Runtime `36.541987` s; peak RSS `339,542,016` B.
+- **Decision:** close this raw-output reader without width/data/epoch scaling.
+  Retain O1C-0035 and move to joint relational completion, where any held-out
+  entropy/rank/residual-width gain counts even before exact 256-bit recovery.
+- **Artifact:**
+  [`O1C0036_EIGHT_BLOCK_A526_READER_RESULT_20260718.json`](O1C0036_EIGHT_BLOCK_A526_READER_RESULT_20260718.json).

@@ -1,0 +1,127 @@
+{
+  "architecture": {
+    "backend_launched": false,
+    "fast_state_bytes_batch1": 1152,
+    "frontier": "exact_factorized_topK_over_A526_fixed_complement",
+    "frontier_limit": 65536,
+    "model_parameters": 13632,
+    "model_sha256": "42f6b263472ca7d2b5e8fb144ff75deac62abbee7e44c9dff2f8d0edf0c55bed",
+    "public_word_tokens": 132,
+    "queried_coordinates": [
+      52,
+      255
+    ],
+    "residual_backend": "unchanged_A526_W52",
+    "state": "existing_selective_holographic_O1_core"
+  },
+  "attempt_id": "O1C-0036",
+  "data": {
+    "evaluation_blocks": 8,
+    "evaluation_targets_per_block": 16,
+    "sibling_read_only_evaluation_targets": 128,
+    "sibling_writes": 0,
+    "synthetic_uniform_training_targets": 1024,
+    "training_evaluation_key_overlap": 0
+  },
+  "decision": "CLOSE_DIRECT_RAW_EIGHT_BLOCK_OUTPUT_READER",
+  "metrics": {
+    "aggregate_fixed_bit_accuracy": 0.5024509803921569,
+    "aggregate_fixed_bits_correct": 13120,
+    "aggregate_fixed_bits_scored": 26112,
+    "best_top65536_correct_fixed_bits_max": 132,
+    "best_top65536_correct_fixed_bits_mean": 107.578125,
+    "best_top65536_correct_fixed_bits_min": 77,
+    "coordinate_accuracy_max": 0.6171875,
+    "coordinate_accuracy_min": 0.375,
+    "coordinates_at_least_0_60_accuracy_posthoc": 1,
+    "exact_complement_ranks": [],
+    "exact_complements_in_top65536": 0,
+    "fixed_bit_random_baseline": 102.0,
+    "heldout_compression_bits_max": 5.712785028581038,
+    "heldout_compression_bits_mean": -0.3933406496325773,
+    "heldout_compression_bits_min": -5.693790542228442,
+    "heldout_loss_bits_mean": 204.3933406496326,
+    "map_correct_fixed_bits_max": 129,
+    "map_correct_fixed_bits_mean": 102.5,
+    "map_correct_fixed_bits_min": 73,
+    "minimum_induced_work_log2_when_absent": 68.00002201361136
+  },
+  "next_action": "Keep the A526 bridge, close raw output-only O1, and move to the minimal joint relational decoder using attacker-computable ChaCha constraints.",
+  "recorded_at": "2026-07-18T20:34:10+02:00",
+  "resources": {
+    "MPS_or_GPU": false,
+    "cpu_seconds": 46.514124,
+    "device": "CPU",
+    "elapsed_seconds": 36.541987333999714,
+    "peak_rss_bytes": 339542016
+  },
+  "schema": "o1-256-eight-block-a526-reader-result-v1",
+  "source_sha256": {
+    "corpus_adapter": "ca80fe38bc207809b0c9a22b114e5ee1d5b6b1c0925c9c3f1bc806b5a40cef5e",
+    "frontier": "f70e9441eda1417d21ae55e2346cd11a1ecf16804980aa6e5b2c145f5d977feb",
+    "reader": "ba533314509a0bcc71c628c30ce334fdfdf31028ba62d14bce92069e7c85074d",
+    "runner": "7e65194ebffbd8f2d099867a440b1fe4a357cc55f4daf3e1bbbd84f914d8f41a"
+  },
+  "target_contract": {
+    "cipher": "ChaCha20",
+    "public_input": "counter_nonce_eight_output_blocks_only",
+    "rounds": 20,
+    "sibling_known_210_bits_removed_from_model_input": true,
+    "training_labels_deployment_visible": false,
+    "unknown_key_bits_at_deployment": 256
+  },
+  "training": {
+    "config": {
+      "batch_size": 16,
+      "core": {
+        "address_dimension": 12,
+        "event_dimension": 36,
+        "fast_state_bytes_batch1": 1152,
+        "fast_state_float32": {
+          "gssm_z": [
+            "batch",
+            4,
+            8
+          ],
+          "holographic_imaginary": [
+            "batch",
+            4,
+            4,
+            8
+          ],
+          "holographic_real": [
+            "batch",
+            4,
+            4,
+            8
+          ]
+        },
+        "feedforward_dimension": 64,
+        "head_dimension": 8,
+        "heads": 4,
+        "holographic_slots": 4,
+        "model_dimension": 32,
+        "phase_scale": 3.141592653589793,
+        "schema": "o1-crypto-stateful-selective-holographic-v1",
+        "seed": 526204,
+        "source_o1_commit": "7280924231143ac8fc666ba7e282ad4054635b6c",
+        "stream_length_dependent_state": false
+      },
+      "corpus_seed": 526036,
+      "cpu_threads": 2,
+      "epochs": 6,
+      "learning_rate": 0.002,
+      "model_seed": 526204,
+      "training_targets": 1024,
+      "weight_decay": 0.0001
+    },
+    "epoch_losses": [
+      0.6944844396784902,
+      0.6932101342827082,
+      0.6930417362600565,
+      0.6929559744894505,
+      0.693052071146667,
+      0.692542283795774
+    ]
+  }
+}

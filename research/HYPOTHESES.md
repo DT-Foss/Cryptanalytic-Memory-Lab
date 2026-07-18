@@ -5,6 +5,8 @@ Hypotheses receive stable IDs. Status values are `OPEN`, `ACTIVE`, `SUPPORTED`,
 
 | ID | Status | Priority | Hypothesis | Cheapest discriminating test | Success signal | Failure pivot |
 |---|---|---:|---|---|---|---|
+| `H-EIGHTBLOCK-038` | `REFUTED` | 0 | A bounded O1 stream over eight raw public ChaCha blocks predicts A526 fixed bits better than the random baseline on unseen keys | O1C-0036 trained on 1,024 uniform keys and evaluated 128 disjoint sibling BUILD keys with all 210 published complement bits removed from deployment | Positive held-out compression or a true complement in the exact top-65,536 frontier | Mean `102.5/204`, accuracy `50.2451%`, compression `-0.393341` bit, exact beam `0/128`; close raw-output scaling and move to joint attacker-computable constraints |
+| `H-RELATIONAL-037` | `ACTIVE` | 0 | Weak O1 unary/joint scores become useful when coupled to target-specific exact ChaCha search as a joint configuration problem, before 204 coordinate decisions are individually exact | Combine one frozen public O1 field with one exact ChaCha CNF/operator representation and compare true-key joint rank/effective residual width at matched work; exclude the already-failed A500 fixed-parity and A503 Jacobian realizations | Transferable held-out entropy, joint-rank, residual-width or time-to-hit reduction; exact beam inclusion is the highest but not the only pass level | If no joint reduction, distinguish prior null from decoder geometry using the same exact relation; do not count A513/A518B equivalent basis rows as independent information |
 | `H-TRANSFER-036` | `REFUTED` | 1 | A448's frozen proof-antecedent top4 reader plus exact A442 Borda backbone retains better-than-median byte-3 ordering when the other 248 key bits are unknown | Completed O1C-0031 on consumed RFC8439, then O1C-0032 unchanged on disjoint consumed DEVELOPMENT-0000 | Rank `<=128/256` on both consumed targets, followed only then by one fresh blind target | RFC rank `47` did not repeat: DEVELOPMENT rank `239`; baseline/proof/hybrid were `242/236/239`. Close without spending a fresh target or resweeping any operator, byte, sign or coefficient |
 | `H-TRANSFER-034` | `REFUTED` | 1 | A291/A296's frozen shallow conflict/XOR reader retains some byte-value ordering when its exact H1/2/4/8 RawCell field is measured on an all-256 public target with the other 248 key bits unknown | Completed literal byte-2 transfer on RFC plus two consumed DEVELOPMENT targets, then one parameter-unchanged fresh EVALUATION target | Better-than-uniform byte ranks on the consumed panel followed by a positive fresh target | Consumed ranks `118/61/9` failed to generalize: fresh rank `230/256`, four-target rank-product `p=0.1766`. Close without byte/sign/coefficient resweeps; retain only the exact 46–56 s cube adapter |
 | `H-RESIDUAL-035` | `ACTIVE` | 0 | The sibling A526/W52 recovery engine can close a full256 O1 posterior once its native 204-bit complement is exact or appears in a tractably small beam | O1C-0035 now applies an exact top-K decoder only to coordinates 52..255 and emits the existing A526 handoff without changing the backend | A526 requires `204/204`, or an explicitly bounded completion beam containing an exact member; a backend hit must pass independent public ChaCha verification | Literal bridge is complete. Current O1C-0022 top-65,536 beams contain `0/20` exact complements; MAP max is `118/204`, post-reveal oracle max `123/204`. Keep decoder/backend frozen and change only upstream eight-block public evidence |
@@ -47,11 +49,13 @@ Hypotheses receive stable IDs. Status values are `OPEN`, `ACTIVE`, `SUPPORTED`,
 
 ## Leakage kill conditions
 
-`H-RESIDUAL-035` is the controlling recovery boundary. The exact A325/A526
-handoff is ready, but the engines are not authorized until the true key can
-mathematically exist in their residual domain. Older `ACTIVE` infrastructure,
-composer and packet-chain rows remain background assets; they do not turn a
-wrong fixed complement into recovery evidence.
+`H-RESIDUAL-035` controls only the native A325/A526 branch. The handoff is ready,
+but those engines are not authorized until the true key can mathematically exist
+in their residual domain. `H-RELATIONAL-037` may instead reduce a joint domain
+and use another exact verifier; it must report real entropy/rank/search reduction,
+not merely satisfaction of equations already equivalent to the public relation.
+Older `ACTIVE` infrastructure, composer and packet-chain rows remain background
+assets; they do not turn a wrong fixed complement into recovery evidence.
 
 Any feature is excluded from discovery if it depends on the recovered target key,
 post-result target rank, target-only internal state, outcome-conditioned file

@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T20:08:53+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T20:35:00+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -24,9 +24,23 @@
   complement candidates in 0.832396 s at 45,989,888 B peak. Across four consumed
   folds and five frozen arms, no top-65,536 beam contains the exact 204-bit
   complement. MAP max is `118/204`; post-reveal oracle beam max is `123/204`.
-- **Next paid experiment:** keep this decoder and A525/A526/A528 frozen. Change
-  only the upstream eight-block public-stream evidence for coordinates `52..255`
-  and score it through the same native complement beam before any W52 launch.
+- **O1C-0036:** the direct eight-block public O1 reader completed on 1,024
+  synthetic uniform training keys and 128 unseen sibling BUILD targets with the
+  published known complements stripped from deployment input. Mean MAP is
+  `102.5/204`, aggregate accuracy `50.2451%`, mean compression `-0.393341` bit,
+  and exact top-65,536 complements `0/128`. Close this raw-output reader.
+- **Next paid experiment:** specify the minimal joint relational decoder using an
+  existing public O1 field plus exact ChaCha search geometry. Measure held-out
+  true-key rank/effective residual width; do not count equivalent basis rows as
+  new information.
+- **Goal correction:** A526 is a retained terminal branch, not the whole research
+  objective. Transferable held-out entropy, joint true-key rank, effective
+  residual-width and time-to-hit gains now count as real sub-256 progress. A
+  relational completion branch may combine O1 scores with exact ChaCha relations
+  without first demanding 204 independently correct bits.
+- **Constraint boundary:** A513's six bases and A518B's K4,4 frame are equivalent
+  solver compilations of the same public relation. They can improve conditioning
+  and proof geometry but are not counted as extra independent key constraints.
 - **Latest effect-first screens:** direct second-order proof pairs, terminal
   single-bit UNSAT, failed cores, inverse fixed points, one-bit candidate
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
@@ -39,13 +53,15 @@
 
 ## Headline
 
-The program is now transfer-first and effect-first. A296/A448/A465/A469 were
+The program is now transfer-first, effect-first and joint-aware. A296/A448/A465/A469 were
 real but representation-level projections; their nulls close those projections,
 not the native W52 architecture. The complete O1C-0019/O1C-0022 all256 chain
 also ran and is negative. The best post-reveal O1C-0022 raw arm still misses at
 least 90 of 210 A325 complement bits and 86 of 204 A526 bits. O1C-0035 now freezes
-the exact 204-bit completion frontier feeding the unchanged W52 backend. The
-active object is only the upstream eight-block evidence entering that attack loop.
+the exact 204-bit completion frontier feeding the unchanged W52 backend. That
+factorized branch remains active, while H-RELATIONAL-037 adds the missing joint
+completion question: can weak O1 evidence plus exact ChaCha search geometry lower
+the true-key rank or effective residual width before an exact complement exists?
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does

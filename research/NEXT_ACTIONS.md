@@ -1,25 +1,35 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T20:08:53+02:00.
+Last ranked: 2026-07-18T20:35:00+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Feed an eight-block public-output stream into an A526-native O1 reader trained only to predict fixed coordinates `52..255`; reuse existing fullround generation and O1 state | State of the art | Extreme | Extreme | Medium | Attacks the sole missing object instead of rebuilding the residual engine |
-| 2 | Score every successor through O1C-0035's frozen top-65,536 complement frontier; demand fewer fixed-bit errors and eventually an exact-containing beam | State of the art | Extreme | Extreme | Low | Converts every upstream change directly into W52 eligibility or rejection |
-| 3 | Once a complement is exact or its beam is tractable, pass it unchanged into A526/W52 and reuse A525/A526/A528 plus independent ChaCha20 verification | State of the art | Extreme | Extreme | High | Produces an actual verified key without rebuilding the working recovery backend |
-| 4 | Keep O1C-0023/25/29 unrun and close O1C-0019/22's unary packet field; no scale, quantizer, hot-reader, frontier or composer sweep | Operational | High | High | Zero | Stops process work from masquerading as recovery progress |
-| 5 | Keep the A296/A448/A465/A469 projection code and results, but do not mistake their nulls for rejection of the native W52 chain | Operational | High | High | Zero | Preserves evidence without discarding the architecture at the wrong interface |
+| 1 | Define one minimal relational-completion baseline: frozen O1 soft scores coupled to target-specific exact ChaCha search/proof factors, decoded as joint configurations rather than 204 isolated decisions | State of the art | Extreme | High | Medium | Tests whether joint consistency reduces rank/domain before exact complement prediction without repeating A500/A503 |
+| 2 | Score it on held-out entropy, joint true-key rank, effective residual width, equal-work time-to-hit and exact beam/recovery | State of the art | Extreme | Extreme | Low | Preserves genuine sub-256 progress without confusing it with full recovery |
+| 3 | If a factorized complement later becomes tractable, pass it unchanged into A526/W52; if the relational domain becomes smaller first, use an exact general verifier without forcing A526's mask | State of the art | Extreme | Extreme | High | Lets the measured mechanism choose the terminal backend geometry |
+| 4 | Close O1C-0036's raw eight-output reader at `102.5/204`, `-0.393341` bit and `0/128` exact beams; do not scale its data, width or epochs | Operational | High | High | Zero | Prevents a clean public-output null from becoming another training sweep |
+| 5 | Keep O1C-0023/25/29 parked on the closed unary field and keep A296/A448/A465/A469 closed only at their exact tested projections | Operational | High | High | Zero | Prevents null-field tuning while retaining reusable components |
 
 ## Effect-first stop rules
 
-- Discovery loop: cached BUILD/DEVELOPMENT compression, sign accuracy, runtime and
-  memory only. A scratch null is allowed to be just a null.
-- Promotion order: positive cached effect -> cached repeat -> one fresh sealed
-  target -> matched controls/provenance -> byte/block/full-key frontier.
+- Discovery loop: attacker-valid held-out compression, stable bit/parity lift,
+  joint true-key rank, effective residual width, runtime and memory. A scratch
+  null is allowed to be just a null.
+- Promotion order: positive cached effect at any real frontier level -> unchanged
+  cached repeat -> one fresh sealed target -> matched controls/provenance -> exact
+  recovery attempt.
 - No new infrastructure unless it runs an already-positive recovery mechanism or
   removes a measured bottleneck.
 - No celebration language for a negative result. Preserve one useful sentence so
   the same exact test is not paid for twice, then pivot.
+- Do not require `204/204` before acknowledging progress. A reproducible entropy,
+  joint-rank or real search-work reduction is valuable; raw Hamming accuracy
+  without a corresponding search reduction is not.
+- A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
+  transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
+  target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not
+  relabel either as the missing relational decoder; require target-specific exact
+  search/proof coupling or another genuinely different joint factor source.
 - Closed now: the cached H96 A291-adjacent proxy, the A317/A321/A325 512-action
   transpose, the literal A296 byte-2 transfer and complete A448--A469 byte-3
   chain, the real O1C-0019/O1C-0022 unary packet/vault chain, and the exact
@@ -127,6 +137,8 @@ Last ranked: 2026-07-18T20:08:53+02:00.
 - storing W52's 64 MiB pair permutations;
 - global unconstrained copula corrections after A468's tail failure;
 - treating raw ciphertext Hamming distance as dense evidence;
+- rebuilding A500's fixed parity catalogue or A503's tested Jacobian remainder
+  arms under a new O1 wrapper;
 - resweeping O1C-0030's diagonal innovation transform, exact-cutoff multiplier,
   scalar ridge or confidence clip: the primary loses cumulative replacement in
   all four folds and the deranged control wins. Retain raw antecedent/signed-pair
