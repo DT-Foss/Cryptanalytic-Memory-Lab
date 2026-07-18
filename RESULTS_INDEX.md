@@ -161,6 +161,7 @@ attacker-valid cipher evidence.
 | `O1C-0016-RANKS` | The frozen posterior has no useful byte, block or million-decoy advantage | `VALIDATION` negative | byte top1/top4/top16 4/16/61 versus null 4/16/64; no 16-bit top16; best 1M-decoy rank 45,147 has 32-try null probability 0.772 | [Forensics](research/O1C0016_POST_REVEAL_FORENSICS_20260717.md) |
 | `O1C-0039-RELATION` | A BUILD-frozen target-specific signed proof-clause field transfers key-to-internal relation orientation to both DEVELOPMENT keys | `TEST` attacker-valid relation signal; no recovery claim | target accuracies 55.09%/56.99%; pooled 397/711 = 55.84%; key-rotated 52.88%; factor-rotated 49.51%; bounded fields 3,512/2,288 B; Full-256 recoveries 0 | [Result](research/O1C0039_PROOF_CLAUSE_RELATION_TRANSFER_RESULT_20260718.md) |
 | `O1C-0041-CHAIN-RANK` | Branch-exclusive proof-chain identity concentrates complete true-key executions after one BUILD-only global rank-product orientation | `RETROSPECTIVE` joint-rank signal with control margin; fresh replication pending | DEVELOPMENT ranks 80/4097 and 998/4097; geometric 6.90% versus key rotation 27.02% and factor rotation 16.26%; 31.552 s; 131,629,056 B peak | [Result](research/O1C0041_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md) |
+| `O1C-0042-FRESH-CHAIN` | Exact O1C-0041 unique-leaf chain objective on one sealed fresh Full-256 key | `TEST` not replicated; no recovery | primary 1371/4097 (33.46%), key rotation 1399/4097, factor rotation 3385/4097; best-quarter gate failed; 7.435 s; 131,579,904 B peak | [Result](research/O1C0042_FRESH_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md) |
 
 ## Frontier and state-of-the-art results
 
@@ -194,6 +195,9 @@ keys beat the best quartile and the geometric primary rank beats both endpoint
 rotations. Because the exact representation was discovered on consumed targets,
 it remains a retrospective frontier breadcrumb until one unchanged fresh target
 confirms it.
+O1C-0042 performs that sole fresh test and does not confirm the frozen threshold.
+Its small primary-over-rotation margin is retained as a representation breadcrumb,
+but the exact unique-leaf sum is not promoted to live solver guidance.
 Existing sibling-project recoveries are baselines, not results of this integration.
 
 ## Negative bounds
@@ -201,6 +205,7 @@ Existing sibling-project recoveries are baselines, not results of this integrati
 | ID | Boundary | Claim level | Evidence | Breadcrumb |
 |---|---|---|---|---|
 | `O1C-0040-N1` | H16 branch-difference clause occurrence transfers structural relation accuracy but does not rank the target key | `POST_REVEAL` consumed diagnostic | raw primary ranks 1905/4097 and 2292/4097; surprise 1078/4097 and 1461/4097; key-rotated surprise 107/4097 and 423/4097 | Close occurrence and its one structural-surprise correction; retain exact proof stream and extract branch-exclusive signed antecedent chains |
+| `O1C-0042-N1` | Unique signed leaf collapse does not reproduce its consumed-panel chain-rank concentration on one fresh key | `TEST` fresh negative | primary 1371/4097 versus frozen best-quarter gate; key/factor controls 1399/3385; exact freeze/reveal lifecycle | Close this leaf-sum reader; preserve ordered parent role and clause criticality next |
 | `O1C-0000-N1` | Equal-cell single-state holography is crosstalk-limited on MQAR-256 | `NEGATIVE_BOUND` | 83.5938% mean bit accuracy, 0/5 exact | Test structured slots/polyphase separation instead of more identical superposition |
 | `O1C-0000-N2` | Repeating correlated weak evidence does not create independent information | `NEGATIVE_BOUND` | 55.8594% mean bit accuracy after 1,024 repetitions | Estimate effective evidence independence before assigning confidence |
 | `O1C-0002-N1` | Selecting 1 of 119 readers on two validation targets is multiplicity-dominated | `NEGATIVE_BOUND` | Observed 3.348 validation bits; exact familywise null `p=0.6641`, null mean best 3.823 bits | Reduce the hypothesis class using independently frozen semantic groups and joint temporal/XOR geometry |

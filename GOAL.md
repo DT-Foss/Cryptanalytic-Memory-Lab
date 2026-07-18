@@ -151,5 +151,12 @@ first target-key joint-rank breadcrumb beyond terminal occurrence. It is
 retrospective, so the active frontier is exactly one unchanged fresh Full-256
 replication before any live solver integration.
 
+O1C-0042 executes that one fresh replication. Primary rank is `1371/4097`
+(`33.46%`), narrowly ahead of key rotation `1399/4097` and far ahead of factor
+rotation `3385/4097`, but outside the frozen best-quarter gate. The unique-leaf
+sum reader is closed without a retry. The next causal level preserves ordered
+direct-parent role and candidate-relative clause criticality before leaf collapse;
+it must earn consumed-panel joint rank before another fresh target.
+
 All writes stay inside this repository. Sibling projects remain read-only and no
 competing heavy job starts without a resource check.

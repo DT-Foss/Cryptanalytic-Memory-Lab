@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T22:57:34+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T23:04:37+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -52,9 +52,13 @@
   DEVELOPMENT truth ranks are `80/4097` and `998/4097`, geometric `6.8967%`,
   versus key-rotated `27.0187%` and factor-rotated `16.2556%`. Classification is
   `RETROSPECTIVE_CHAIN_RANK_SIGNAL_WITH_CONTROL_MARGIN`.
-- **Next paid experiment:** freeze O1C-0041's H16 chain extractor, unit weights,
-  orientation `-1` and controls unchanged for exactly one fresh O1C-0042
-  Full-256 target. No sign, horizon, weight or chain-leaf sweep is authorized.
+- **O1C-0042:** the only fresh replication ranks primary `1371/4097` (`33.46%`),
+  key rotation `1399/4097` and factor rotation `3385/4097`. The control margin
+  survives narrowly, but the frozen best-quarter gate fails; classification
+  `FRESH_CHAIN_RANK_NOT_REPLICATED`. No retry.
+- **Next paid experiment:** preserve ordered direct-parent role and exact
+  candidate-relative clause criticality before leaf collapse. First score only
+  consumed BUILD/DEVELOPMENT targets; do not spend another fresh key yet.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -74,7 +78,7 @@
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest result:**
-  [O1C-0041 antecedent-chain candidate rank](research/O1C0041_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md).
+  [O1C-0042 fresh antecedent-chain rank](research/O1C0042_FRESH_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md).
 
 ## Headline
 
@@ -95,7 +99,10 @@ is dominated by key rotation. The exact occurrence reader is now closed. The
 branch-exclusive O1C-0041 successor then ranks the two consumed true keys
 `80/4097` and `998/4097` with geometric fraction `6.90%`, beating both endpoint
 rotations. The active H-RELATIONAL-037 question is now prospective transfer of
-that exact frozen chain objective on one fresh Full-256 target.
+that exact frozen chain objective on one fresh Full-256 target. O1C-0042 answers
+no: rank `1371/4097` retains a small control margin but misses the frozen top
+quarter. The frontier moves from unordered unique leaves to ordered parent-role
+and clause-criticality factors without tuning the closed reader.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does

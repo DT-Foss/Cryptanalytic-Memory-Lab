@@ -135,6 +135,13 @@ per-target unanimity rule correctly remains unselected. Because discovery used
 consumed targets, the only authorized next efficacy spend is one unchanged fresh
 Full-256 replication. No H16, weight, sign or leaf-collapse sweep precedes it.
 
+O1C-0042 executes that single fresh replication and misses the frozen gate:
+primary `1371/4097` (`33.46%`) versus key rotation `1399/4097` and factor rotation
+`3385/4097`. The control margin survives, but the consumed-panel concentration
+does not. Close the unique-leaf sum without retry. The next cheapest causal
+discriminator preserves ordered direct-parent role and candidate-relative clause
+criticality, first on already consumed targets only.
+
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
 untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches
@@ -338,9 +345,9 @@ evidence.
 4. O1C-0039 supplies a `55.84%` held-out relation source, but O1C-0040 proves its
    terminal occurrence score is near-median at complete-candidate level and its
    fixed surprise arm loses to key rotation. Close this representation.
-5. O1C-0041 now supplies BUILD control separation and consumed-DEVELOPMENT joint
-   rank from branch-exclusive antecedent chains. Freeze the exact `-1` reader and
-   demand one fresh-target rank before live-search integration.
+5. O1C-0041 supplies consumed-DEVELOPMENT chain rank, but O1C-0042 fails its one
+   fresh top-quarter gate. Close unique-leaf summation and preserve ordered parent
+   role plus clause criticality before any further target or live-search spend.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.

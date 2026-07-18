@@ -1770,3 +1770,21 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:**
   [`result`](O1C0041_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md) and
   [`capsule`](../runs/20260718_225550_O1C-0041_antecedent-chain-rank-v1/RUN.md).
+
+## O1C-0042 — One-shot fresh antecedent-chain rank replication
+
+- **Recorded:** 2026-07-18T23:04:37+02:00.
+- **Hypothesis:** O1C-0041's exact H16 unique-leaf reader and global `-1`
+  orientation transfer to one newly sealed Full-256 key.
+- **Result:** not replicated. Primary ranks `1371/4097` (`33.46%`), narrowly
+  ahead of key rotation `1399/4097` and factor rotation `3385/4097`, but outside
+  the frozen best-quarter gate.
+- **Boundary:** exactly one `os.urandom` call; public relation and commitment only
+  until all candidate/score hashes froze and a reveal receipt opened the key.
+- **Resources:** `7.435433` elapsed s; `131,579,904` B peak; 512 H16 branches;
+  4,097 forward evaluations; zero sibling/MPS/GPU work.
+- **Decision:** no retry or tune. Close unique-leaf summation and retain ordered
+  direct-parent role plus candidate-relative clause criticality next.
+- **Artifacts:**
+  [`result`](O1C0042_FRESH_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md) and
+  [`capsule`](../runs/20260718_230437_O1C-0042_fresh-antecedent-chain-rank-v1/RUN.md).

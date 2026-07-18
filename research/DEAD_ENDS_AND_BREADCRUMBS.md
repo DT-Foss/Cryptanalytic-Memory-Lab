@@ -927,3 +927,16 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   it once on a fresh target.
 - **Artifact:**
   [`O1C-0041 result`](O1C0041_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md).
+
+## B-0046 — Unordered unique-leaf chain summation does not replicate freshly
+
+- **Evidence:** O1C-0042 freezes O1C-0041 unchanged and obtains fresh primary
+  rank `1371/4097`, outside the best-quarter gate. Key rotation is `1399/4097`
+  and factor rotation `3385/4097`.
+- **Do not repeat:** rerun a fresh key, tune H16/sign/capacity/weights, or lower
+  the threshold because primary narrowly beats key rotation.
+- **Breadcrumb:** exact chain identity still preserves some direction, but leaf
+  union discards which direct parent and which uniquely satisfying literal made
+  the proof step causal. Preserve those roles in the next joint factor.
+- **Artifact:**
+  [`O1C-0042 result`](O1C0042_FRESH_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md).
