@@ -56,6 +56,10 @@ class O1C19CausalVaultBridgeRunTests(unittest.TestCase):
 
     def test_exact_config_and_pending_preflight_do_not_reserve_o1c22(self) -> None:
         self.assertEqual(self.config.causal_config.live_state_bytes, 352)
+        self.assertEqual(
+            self.config.upstream_experiment.controller,
+            self.config.upstream_controller,
+        )
         self.assertEqual(self.config.budgets.maximum_o1c19_reader_replays, 32)
         self.assertEqual(self.config.budgets.maximum_packet_slot_observations, 17_664)
         self.assertEqual(

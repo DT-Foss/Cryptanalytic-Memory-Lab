@@ -33,6 +33,7 @@ from .full256_multiresolution_build_loo import (
     RAW_ARMS,
     ArtifactBuildCorpus,
     ArtifactBuildEpisode,
+    Full256BuildLooConfig,
 )
 from .full256_multiresolution_build_loo_run import (
     load_full256_build_loo_run_config,
@@ -377,6 +378,7 @@ class O1C22RunConfig:
     budgets: O1C22Budgets
     corpus: ArtifactBuildCorpus
     upstream_top: Mapping[str, object]
+    upstream_experiment: Full256BuildLooConfig
     upstream_controller: MultiResolutionControllerConfig
     causal_config: CausalEvidenceConfig
     o1c19_config_path: Path
@@ -654,6 +656,7 @@ def load_o1c19_causal_vault_bridge_run_config(
         budgets=budgets,
         corpus=corpus,
         upstream_top=upstream_top,
+        upstream_experiment=upstream_experiment,
         upstream_controller=upstream_experiment.controller,
         causal_config=causal_config,
         o1c19_config_path=o1c19_path,
@@ -839,7 +842,7 @@ def _load_verified_o1c19_prerequisite(
     result = _mapping(json.loads(result_bytes.decode("ascii")), "O1C-0019 result")
     if (
         result.get("schema") != BUILD_LOO_RESULT_SCHEMA
-        or result.get("config") != config.upstream_controller.describe()
+        or result.get("config") != config.upstream_experiment.describe()
         or _mapping(result.get("source"), "O1C-0019 result source").get(
             "artifact_corpus_sha256"
         )
