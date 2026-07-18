@@ -1627,3 +1627,20 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [`result`](O1C0019_O1C0022_FULL256_BRIDGE_RESULT_20260718.md),
   [O1C-0019 capsule](../runs/20260718_181855_O1C-0019_full256-multiresolution-build-loo-v1/RUN.md),
   [O1C-0022 capsule](../runs/20260718_190629_O1C-0022_o1c19-causal-vault-build-loo-v1/RUN.md).
+
+## 2026-07-18 — Effect-first direct recovery combinations (non-attempt)
+
+- **Question:** can the retained sibling solver convert an existing O1 all256
+  candidate directly into error-bit evidence before the A325/A526 residual gate?
+- **Executed:** exact signed-pair proxy; deeper single-bit assumptions; full and
+  one-output failed cores; inverse-round fixed-point and one-bit landscapes;
+  complete-candidate contradiction neighbors; deterministic W8 relaxation cells.
+- **Result:** no repeated error-bit effect. Cores are `255..256` bits, the wrong
+  bit remains UNKNOWN at `262,144` conflicts, inverse rankings are chance-like,
+  the frozen inverse rule loses `14` DEVELOPMENT bits, the frozen neighbor rule
+  splits `-4/+6`, and W8 correlation collapses from `-0.158165` to `-0.014003`.
+- **Decision:** close only these exact surfaces. Do not scale, reverse, regroup or
+  wrap them in more O1/O1-O infrastructure. Keep A325/A526 unchanged and require
+  a new attacker-valid error-bit source before invoking either backend.
+- **Artifact:**
+  [`ALL256_EFFECT_FIRST_TRANSFER_SCREENS_20260718.md`](ALL256_EFFECT_FIRST_TRANSFER_SCREENS_20260718.md).

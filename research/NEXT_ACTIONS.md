@@ -1,10 +1,10 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T19:09:38+02:00.
+Last ranked: 2026-07-18T19:50:13+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Run one genuinely new public all256 evidence source and score exact A325/A526 complement correctness or exact-containing beam rank directly; do not add another scheduler/state layer first | State of the art | Extreme | High | Medium | Determines whether any new mechanism actually moves the recovery boundary |
+| 1 | Run one genuinely new public all256 error-bit generator and demand a repeated reduction in complement Hamming error or exact-containing beam rank; do not add another scheduler/state layer first | State of the art | Extreme | High | Medium | Determines whether any mechanism actually creates the missing pre-W52 information |
 | 2 | Apply the exact residual handoff gate to every new completion; current post-reveal ceiling is only `120/210` A325 and `118/204` A526 | State of the art | Extreme | Extreme | Low | Prevents an expensive backend search whose domain excludes the true key |
 | 3 | Once a completion is exact or its beam is tractable, pass it unchanged into A325/W46 or A526/W52 and reuse the sibling evaluator plus independent ChaCha20 verifier | State of the art | Extreme | Extreme | Medium/High | Produces an actual verified key without rebuilding the working recovery backend |
 | 4 | Keep O1C-0023/25/29 unrun and close O1C-0019/22's unary packet field; no scale, quantizer, hot-reader, frontier or composer sweep | Operational | High | High | Zero | Stops process work from masquerading as recovery progress |
@@ -22,8 +22,10 @@ Last ranked: 2026-07-18T19:09:38+02:00.
   the same exact test is not paid for twice, then pivot.
 - Closed now: the cached H96 A291-adjacent proxy, the A317/A321/A325 512-action
   transpose, the literal A296 byte-2 transfer and complete A448--A469 byte-3
-  chain, plus the real O1C-0019/O1C-0022 unary packet/vault chain. Do not tune
-  their sign, views, scale, byte, horizon, interaction, operator or temperature.
+  chain, the real O1C-0019/O1C-0022 unary packet/vault chain, and the exact
+  second-order/terminal-core/inverse-neighbor/W8 screens recorded on 2026-07-18.
+  Do not tune their sign, views, scale, byte, horizon, interaction, operator,
+  temperature, core width, inverse direction or W8 grouping.
 - A325 and A526 remain retained terminal backends. Their positive sibling results
   assume 210 or 204 complementary key bits are already correct; those known bits
   are an input contract, not partial recovery produced by the engine.

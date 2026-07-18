@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T19:09:38+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T19:50:13+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -24,10 +24,15 @@
   source that directly improves exact complement correctness or exact-containing
   beam rank. Once the exact gate passes, reuse A325/A526 and public ChaCha
   verification unchanged.
+- **Latest effect-first screens:** direct second-order proof pairs, terminal
+  single-bit UNSAT, failed cores, inverse fixed points, one-bit candidate
+  neighbors and W8 cells are all negative at their tested surfaces. The final W8
+  correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
+  do not scale or reorient it.
 - **Active local run:** none. Sibling repositories remain read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key.
 - **Latest result:**
-  [O1C0019/O1C0022 full256 bridge](research/O1C0019_O1C0022_FULL256_BRIDGE_RESULT_20260718.md).
+  [effect-first transfer screens](research/ALL256_EFFECT_FIRST_TRANSFER_SCREENS_20260718.md).
 
 ## Headline
 

@@ -60,3 +60,11 @@ bits at K256. No precommitted arm exceeds `120/210` A325 or `118/204` A526
 complement bits. Do not run the derivative O1C-0023/25/29 composer, frontier or
 hot-readout stack on this null field. The next real experiment must introduce a
 new all256-unknown evidence source and score its complement/beam effect directly.
+
+Direct effect-first combinations with the sibling solver are also closed at their
+exact tested surfaces: a signed-pair proof proxy, single-bit terminal assumptions,
+full-candidate and single-output failed cores, inverse-round fixed-point updates,
+one-bit contradiction neighbors and W8 residual cells produced no repeated
+error-bit effect. Do not scale or reorient them. The active objective is now
+narrower: produce a repeated attacker-valid error-bit ranking or exact-containing
+completion beam; only then hand it unchanged to A325/A526.

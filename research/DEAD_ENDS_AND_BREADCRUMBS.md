@@ -839,3 +839,21 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [`O1C-0030 result`](O1C0030_INCREMENTAL_DIAGONAL_FRONTIER_RESULT_20260718.md)
   and
   [`immutable capsule`](../runs/20260718_134406_O1C-0030_incremental-diagonal-frontier-v1/RUN.md).
+
+## B-0041 — Direct local solver feedback around a wrong full key is not an error-bit oracle
+
+- **Evidence:** consumed all256 candidates were tested through terminal paired
+  assumptions, failed assumption cores, exact inverse-round fixed points,
+  one-bit contradiction neighbors and deterministic W8 residual cells.
+- **Result:** cores span `255..256` bits; inverse ranking AUC is `0.498/0.508`;
+  the frozen inverse correction loses `14` DEVELOPMENT bits; the neighbor repeat
+  splits `-4/+6`; W8 difficulty/error correlation falls from `-0.158` to `-0.014`.
+- **Do not repeat:** raise the same terminal horizon, minimize these dense cores,
+  reverse the neighbor ranking, change top-K, enlarge the W8 panel or decode its
+  vanished correlation.
+- **Breadcrumb:** sibling W46/W52 remains valuable only after an upstream source
+  has produced an exact or beam-contained complement. Solver rejection of a key
+  candidate is cheap, but these tested local rejection views do not identify its
+  wrong coordinates.
+- **Artifact:**
+  [`effect-first screen result`](ALL256_EFFECT_FIRST_TRANSFER_SCREENS_20260718.md).
