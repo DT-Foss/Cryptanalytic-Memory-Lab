@@ -167,5 +167,14 @@ clause rotation. This is a strong consumed joint-rank result, not recovery. The
 only authorized efficacy step is one sealed fresh target with the exact field,
 reader weights, panel and rotations unchanged.
 
+O1C-0044 confirms that prospective step. With the O1C-0043 reader loaded
+byte-for-byte, a sealed fresh Full-256 truth ranks `54/4097` (`1.318%`, z
+`+2.325`) versus key rotation `3567/4097` and clause rotation `2972/4097`.
+The key opens only after every score hash freezes and independently verifies the
+public output. This advances the joint-rank rung, not exact recovery: full
+candidate executions were still scored. The active task is now to reuse the same
+criticality field inside the existing exact solver and demonstrate less matched
+search work or a smaller effective residual domain.
+
 All writes stay inside this repository. Sibling projects remain read-only and no
 competing heavy job starts without a resource check.

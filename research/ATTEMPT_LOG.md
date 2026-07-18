@@ -1807,3 +1807,21 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:**
   [`result`](O1C0043_PARENT_CRITICALITY_RANK_RESULT_20260718.md) and
   [`capsule`](../runs/20260718_233458_O1C-0043_parent-criticality-rank-v1/RUN.md).
+
+## O1C-0044 — One-shot fresh parent-criticality transfer
+
+- **Recorded:** 2026-07-18T23:42:33+02:00.
+- **Hypothesis:** the exact O1C-0043 causal reader transfers joint rank to one
+  newly sealed uniform Full-256 key.
+- **Result:** passed. Primary `54/4097` (`1.318%`, z `+2.325`) versus key rotation
+  `3567/4097` and clause rotation `2972/4097`.
+- **Boundary:** reader weight hash `c4149a...` loaded without refit; exactly one
+  entropy call; all candidate/score hashes freeze before reveal; key independently
+  verifies; no exact recovery claim.
+- **Resources:** `11.095178` s; `142,262,272` B peak; 512 H16 branches; 4,097
+  forward evaluations; 284,774-byte capsule.
+- **Decision:** no second rank panel. Inject the unchanged factors into existing
+  exact search and measure matched work, time-to-hit and effective residual width.
+- **Artifacts:**
+  [`result`](O1C0044_FRESH_PARENT_CRITICALITY_RANK_RESULT_20260718.md) and
+  [`capsule`](../runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/RUN.md).

@@ -1,12 +1,12 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T23:34:58+02:00.
+Last ranked: 2026-07-18T23:42:33+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Replicate O1C-0043's exact H16 field, 15-channel reader weights, panel and rotations on one sealed fresh Full-256 target | State of the art | Extreme | Extreme | Low | Distinguishes transferable causal joint rank from consumed-panel fit in seconds |
-| 2 | Only after a fresh positive, inject the unchanged criticality field as context-reversible live guidance and compare equal-work Full-256 search plus effective residual width | State of the art | Extreme | Extreme | Medium | Converts prospectively measured joint rank into real search reduction |
-| 3 | If fresh rank is null, retain nested derived-parent path/break identity without changing H16 or the closed 15 channels | State of the art | High | Extreme | Medium | Moves one causal level deeper instead of rescuing the tested reader |
+| 1 | Inject O1C-0044's unchanged criticality factors as reversible live guidance into the existing exact Full-256 solver on consumed targets | State of the art | Extreme | Extreme | Medium | Tests whether prospective joint rank becomes less matched work, lower time-to-hit or smaller effective residual width |
+| 2 | Compare primary, key-rotated, clause-rotated and unguided under identical conflict/work budgets; retain the exact decoder and verifier | State of the art | Extreme | Extreme | Medium | Separates causal guidance from generic solver perturbation without another reader fit |
+| 3 | If direct first-decision injection is null, use the same frozen field as dynamic branch/polarity updates at proof-event boundaries | State of the art | High | Extreme | Medium | Changes adapter timing while preserving the prospectively supported evidence source |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 | 5 | Keep occurrence scoring, key-phase guidance and O1C-0023/25/29 over the closed unary field parked | Operational | High | High | Zero | Prevents scaling measured-null representations while retaining reusable adapters |
 
@@ -27,9 +27,9 @@ Last ranked: 2026-07-18T23:34:58+02:00.
 - **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.
-- **Next measurable advance:** the exact O1C-0043 reader ranks one sealed fresh
-  true key below `25%` and beats both rotations. Exact 256 remains the terminal
-  moonshot; a stable prospective joint-rank gain is the next SOTA rung.
+- **Next measurable advance:** the exact O1C-0044 factors reduce matched exact
+  search work, time-to-hit or effective residual width versus unguided and both
+  rotations. Exact 256 remains the terminal moonshot.
 
 ## Effect-first stop rules
 
@@ -66,6 +66,9 @@ Last ranked: 2026-07-18T23:34:58+02:00.
 - O1C-0043 passes consumed Development at `5/4097` and `91/4097`, then the
   unchanged consumed repeat at `141/4097`, all with control margin. Freeze the
   exact 15-channel reader for one fresh key; do not improve it first.
+- O1C-0044 passes that fresh gate at `54/4097` versus rotations `3567/2972`.
+  Stop rank-panel replication. Preserve the reader and test real exact-search
+  consequence under matched work.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not

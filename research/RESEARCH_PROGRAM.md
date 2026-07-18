@@ -150,6 +150,14 @@ The BUILD-fitted reader ranks consumed DEVELOPMENT truths `5/4097` and `91/4097`
 O1C-0042 key `141/4097` versus controls `3623/3475`. This earns one exact sealed
 fresh replication, not immediate live-search injection and not a recovery claim.
 
+O1C-0044 performs that exact fresh replication. A sealed uniform Full-256 truth
+ranks `54/4097` (`1.318%`, z `+2.325`) while key and clause rotations rank
+`3567/4097` and `2972/4097`. The byte-identical reader, one entropy call,
+pre-reveal score freeze and independent ChaCha verification establish prospective
+joint-rank transfer. Because every candidate still receives a full forward
+execution, the next scientific claim must be matched exact-search or residual
+reduction; another rank panel is not authorized.
+
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
 untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches
@@ -355,7 +363,8 @@ evidence.
    fixed surprise arm loses to key rotation. Close this representation.
 5. O1C-0041 supplies consumed chain rank and O1C-0042 closes unique-leaf summation.
    O1C-0043 restores strong consumed rank through ordered parent criticality and
-   now authorizes exactly one unchanged sealed fresh target before live search.
+   O1C-0044 confirms it freshly at rank 54/4097. Preserve the reader and test
+   equal-work live exact search before any new target or representation.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.

@@ -163,6 +163,7 @@ attacker-valid cipher evidence.
 | `O1C-0041-CHAIN-RANK` | Branch-exclusive proof-chain identity concentrates complete true-key executions after one BUILD-only global rank-product orientation | `RETROSPECTIVE` joint-rank signal with control margin; fresh replication pending | DEVELOPMENT ranks 80/4097 and 998/4097; geometric 6.90% versus key rotation 27.02% and factor rotation 16.26%; 31.552 s; 131,629,056 B peak | [Result](research/O1C0041_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md) |
 | `O1C-0042-FRESH-CHAIN` | Exact O1C-0041 unique-leaf chain objective on one sealed fresh Full-256 key | `TEST` not replicated; no recovery | primary 1371/4097 (33.46%), key rotation 1399/4097, factor rotation 3385/4097; best-quarter gate failed; 7.435 s; 131,579,904 B peak | [Result](research/O1C0042_FRESH_ANTECEDENT_CHAIN_RANK_RESULT_20260718.md) |
 | `O1C-0043-PARENT-CRITICALITY` | BUILD-fitted bounded reader over ordered RUP parent role and original functional-clause criticality | `CONSUMED_DIAGNOSTIC` joint-rank signal; fresh pending | DEVELOPMENT 5/4097 and 91/4097, geometric 0.52% versus best control 38.52%; unchanged consumed repeat 141/4097 versus controls 3623/3475; 63.609 s, 183,795,712 B peak | [Result](research/O1C0043_PARENT_CRITICALITY_RANK_RESULT_20260718.md) |
+| `O1C-0044-FRESH-CRITICALITY` | Exact O1C-0043 reader on one sealed uniform Full-256 key | `TEST` prospective joint-rank transfer; no recovery | primary 54/4097 (1.318%, z +2.325), key rotation 3567/4097, clause rotation 2972/4097; 11.095 s, 142,262,272 B peak | [Result](research/O1C0044_FRESH_PARENT_CRITICALITY_RANK_RESULT_20260718.md) |
 
 ## Frontier and state-of-the-art results
 
@@ -203,6 +204,10 @@ O1C-0043 preserves the ordered causal information that leaf union erased. Its
 BUILD-fitted 15-channel reader concentrates both consumed DEVELOPMENT keys and
 one unchanged consumed repeat with large endpoint-control margins. It is the
 current joint-rank frontier and now requires exactly one sealed fresh replication.
+O1C-0044 supplies that prospective replication at `54/4097` with large margins
+over both endpoint rotations. Because scoring still performs a complete forward
+execution for every candidate, promotion now requires equal-work exact-search or
+residual-domain reduction, not another rank panel.
 Existing sibling-project recoveries are baselines, not results of this integration.
 
 ## Negative bounds

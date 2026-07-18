@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T23:34:58+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T23:42:33+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -61,9 +61,14 @@
   versus best control `38.52%`. The unchanged consumed O1C-0042 repeat ranks
   `141/4097` versus key/clause rotations `3623/4097` and `3475/4097`.
   Classification `CONSUMED_PARENT_CRITICALITY_RANK_SIGNAL`.
-- **Next paid experiment:** freeze O1C-0043's exact 15-channel reader, weights,
-  H16 field, 4,096-decoy panel and rotations for one sealed fresh Full-256 key.
-  No feature, weight, sign or horizon change.
+- **O1C-0044:** exact unchanged fresh replication passes at primary `54/4097`
+  (`1.318%`, z `+2.325`) versus key rotation `3567/4097` and clause rotation
+  `2972/4097`. One entropy call, reveal after score freeze, independent ChaCha
+  verification; classification `FRESH_PARENT_CRITICALITY_RANK_TRANSFER`.
+- **Next paid experiment:** inject the unchanged O1C-0044 criticality factors as
+  reversible live guidance into the existing Full-256 exact solver. Compare
+  matched conflicts/work, time-to-hit and effective residual width on consumed
+  targets before spending another fresh key.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -83,7 +88,7 @@
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest result:**
-  [O1C-0043 parent-role criticality rank](research/O1C0043_PARENT_CRITICALITY_RANK_RESULT_20260718.md).
+  [O1C-0044 fresh parent-criticality rank](research/O1C0044_FRESH_PARENT_CRITICALITY_RANK_RESULT_20260718.md).
 
 ## Headline
 
@@ -110,7 +115,10 @@ quarter. The frontier moves from unordered unique leaves to ordered parent-role
 and clause-criticality factors without tuning the closed reader. O1C-0043 makes
 that move concrete: frozen Development ranks `5/4097` and `91/4097` beat both
 endpoint controls, and the unchanged consumed O1C-0042 repeat ranks `141/4097`.
-The active question is now exactly one prospective replication of this reader.
+That earned exactly one prospective replication. O1C-0044 answers yes at
+`54/4097` with both rotations in the bottom third. The
+frontier now moves from candidate ranking to equal-work exact-search reduction;
+another reader or fresh key is not the next action.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does
