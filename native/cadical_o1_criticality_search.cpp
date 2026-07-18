@@ -31,6 +31,7 @@ constexpr int kMaximumFactorVariables = 8;
 struct Arguments {
   std::string cnf_path;
   std::string potential_path;
+  std::string decision_variables_path;
   int conflict_limit = -1;
   int seed = 0;
 };
@@ -65,7 +66,8 @@ Arguments parse_arguments(int argc, char **argv) {
     const std::string argument = argv[index];
     if (argument == "--help") {
       std::cout << "usage: cadical_o1_criticality_search --cnf PATH "
-                   "--potential PATH --conflict-limit N [--seed N]\n";
+                   "--potential PATH --conflict-limit N [--seed N] "
+                   "[--decision-variables PATH]\n";
       std::exit(0);
     }
     if (index + 1 >= argc)
@@ -75,6 +77,8 @@ Arguments parse_arguments(int argc, char **argv) {
       result.cnf_path = value;
     else if (argument == "--potential")
       result.potential_path = value;
+    else if (argument == "--decision-variables")
+      result.decision_variables_path = value;
     else if (argument == "--conflict-limit")
       result.conflict_limit =
           parse_integer(value, "conflict-limit", 1, 1000000000);
@@ -86,6 +90,26 @@ Arguments parse_arguments(int argc, char **argv) {
   if (result.cnf_path.empty() || result.potential_path.empty() ||
       result.conflict_limit < 1)
     throw std::runtime_error("required arguments are missing");
+  return result;
+}
+
+std::vector<int> read_decision_variables(const std::string &path,
+                                         int variable_count) {
+  if (path.empty())
+    return {};
+  std::ifstream input(path);
+  if (!input)
+    throw std::runtime_error("cannot open decision-variable file");
+  std::vector<int> result;
+  int variable = 0;
+  while (input >> variable) {
+    if (variable < 1 || variable > kKeyBits || variable > variable_count ||
+        (!result.empty() && variable <= result.back()))
+      throw std::runtime_error("decision variables differ");
+    result.push_back(variable);
+  }
+  if (!input.eof() || result.empty())
+    throw std::runtime_error("decision variables are empty or malformed");
   return result;
 }
 
@@ -131,17 +155,33 @@ PotentialField read_potential(const std::string &path, int variable_count) {
 class CriticalityDecisionPropagator final
     : public CaDiCaL::ExternalPropagator {
 public:
-  CriticalityDecisionPropagator(PotentialField field, int variable_count)
+  CriticalityDecisionPropagator(PotentialField field, int variable_count,
+                                const std::vector<int> &decision_variables)
       : field_(std::move(field)), assigned_(variable_count + 1, 0),
         support_(variable_count + 1, 0.0),
         decision_counts_(variable_count + 1, 0),
-        touched_(variable_count + 1, false), levels_(1) {
+        touched_(variable_count + 1, false),
+        eligible_(variable_count + 1, false), levels_(1),
+        explicit_scope_(!decision_variables.empty()) {
     for (const PotentialFactor &factor : field_.factors)
       for (const int variable : factor.variables)
         touched_[variable] = true;
     for (int variable = 1; variable <= variable_count; ++variable)
       if (touched_[variable])
         observed_.push_back(variable);
+    if (decision_variables.empty()) {
+      for (const int variable : observed_) {
+        eligible_[variable] = true;
+        eligible_variables_.push_back(variable);
+      }
+    } else {
+      for (const int variable : decision_variables) {
+        if (!touched_[variable])
+          throw std::runtime_error("decision variable is absent from potential");
+        eligible_[variable] = true;
+        eligible_variables_.push_back(variable);
+      }
+    }
   }
 
   void notify_assignment(const std::vector<int> &literals) override {
@@ -192,7 +232,7 @@ public:
     for (const PotentialFactor &factor : field_.factors) {
       for (size_t target = 0; target < factor.variables.size(); ++target) {
         const int target_variable = factor.variables[target];
-        if (assigned_[target_variable])
+        if (assigned_[target_variable] || !eligible_[target_variable])
           continue;
         long double negative_sum = 0.0;
         long double positive_sum = 0.0;
@@ -229,7 +269,7 @@ public:
     }
     int best_variable = 0;
     double best_magnitude = 0.0;
-    for (const int variable : observed_) {
+    for (const int variable : eligible_variables_) {
       const double magnitude = std::abs(support_[variable]);
       if (!assigned_[variable] && magnitude > best_magnitude) {
         best_variable = variable;
@@ -264,6 +304,12 @@ public:
     return conditional_factor_evaluations_;
   }
   size_t observed_variables() const { return observed_.size(); }
+  size_t eligible_decision_variables() const {
+    return eligible_variables_.size();
+  }
+  const char *decision_scope() const {
+    return explicit_scope_ ? "explicit" : "all_observed";
+  }
   const std::vector<int> &observed() const { return observed_; }
 
 private:
@@ -272,7 +318,9 @@ private:
   std::vector<double> support_;
   std::vector<int64_t> decision_counts_;
   std::vector<bool> touched_;
+  std::vector<bool> eligible_;
   std::vector<int> observed_;
+  std::vector<int> eligible_variables_;
   std::vector<std::vector<int>> levels_;
   size_t current_level_ = 0;
   int64_t assigned_count_ = 0;
@@ -284,6 +332,7 @@ private:
   size_t maximum_level_ = 0;
   double maximum_support_ = 0.0;
   int64_t conditional_factor_evaluations_ = 0;
+  bool explicit_scope_ = false;
 };
 
 int64_t statistic(CaDiCaL::Solver &solver, const char *name) {
@@ -346,11 +395,13 @@ int main(int argc, char **argv) {
     if (variables < kKeyBits || variables > kMaximumVariables)
       throw std::runtime_error("DIMACS variable count differs");
     PotentialField field = read_potential(arguments.potential_path, variables);
+    const std::vector<int> decision_variables = read_decision_variables(
+        arguments.decision_variables_path, variables);
     const size_t factor_count = field.factors.size();
     const std::string source_sha256 = field.source_sha256;
     const double offset = field.offset;
     auto propagator = std::make_unique<CriticalityDecisionPropagator>(
-        std::move(field), variables);
+        std::move(field), variables, decision_variables);
     solver.connect_external_propagator(propagator.get());
     for (const int variable : propagator->observed())
       solver.add_observed_var(variable);
@@ -380,6 +431,9 @@ int main(int argc, char **argv) {
               << "\",\"offset\":" << offset
               << ",\"observed_variables\":"
               << propagator->observed_variables()
+              << ",\"decision_scope\":\"" << propagator->decision_scope()
+              << "\",\"eligible_decision_variables\":"
+              << propagator->eligible_decision_variables()
               << ",\"requested_decisions\":" << propagator->factor_decisions()
               << ",\"repeated_decisions\":" << propagator->repeated_decisions()
               << ",\"assignment_notifications\":"

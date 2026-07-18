@@ -1,0 +1,66 @@
+{
+  "schema": "o1-256-key-only-criticality-search-config-v1",
+  "attempt_id": "O1C-0046",
+  "slug": "key-only-criticality-search-v1",
+  "claim_level": "CONSUMED_SEARCH_DIAGNOSTIC",
+  "hypothesis": "The O1C-0044 primary rank margin was erased in O1C-0045 because the external scheduler spent its decisions on internal ChaCha variables. Keeping every factor variable observable while allowing external decisions only on the transformed field's designated key coordinates will preserve target-specific geometry and improve exact completion work.",
+  "prediction": "At identical target, potentials, residual widths, seed, and 512-conflict cap, the primary key-only arm will either recover Full-256, exceed every control's exact residual frontier, or use strictly fewer conflicts than internal, key-rotated, and clause-rotated arms at their largest shared recovered width.",
+  "source": {
+    "template": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.cnf",
+    "semantic_map": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.map.json",
+    "publication": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/publication.json",
+    "field": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/field.bin",
+    "reveal": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/reveal.json",
+    "o1c45_result": "research/O1C0045_CRITICALITY_LIVE_SEARCH_RESULT_20260718.json",
+    "primary_potential": "runs/20260719_001005_O1C-0045_criticality-live-search-v1/potentials/primary.pot",
+    "key_rotated_potential": "runs/20260719_001005_O1C-0045_criticality-live-search-v1/potentials/key_rotated.pot",
+    "clause_rotated_potential": "runs/20260719_001005_O1C-0045_criticality-live-search-v1/potentials/clause_rotated.pot",
+    "search_adapter": "src/o1_crypto_lab/criticality_factor_search.py",
+    "potential_native_source": "native/cadical_o1_criticality_search.cpp",
+    "internal_native_source": "native/cadical_o1_guided_search.cpp",
+    "runner": "src/o1_crypto_lab/o1c46_key_only_criticality_search_run.py",
+    "expected_sha256": {
+      "template": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+      "semantic_map": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+      "publication": "b985dd4e38e764c250fb4b2e4f38fff02873361a0838399b54ae1acfd87a279a",
+      "field": "58c8e2eb07632b4b4e2a26b148283effc30cc2391c276ed294a0bb64335c747f",
+      "reveal": "7caf9b1f83465138be80b28677207bf4a5e274b809ec65d55845168d21da0707",
+      "o1c45_result": "fb35fab89c293e229c3adaf1c63de4274b29d5f84e1892baf410cf715b71d779",
+      "primary_potential": "307a0aeac84ee5efa4e6900f2105727bedbaa3a32b941102960a0257554cdf1e",
+      "key_rotated_potential": "c97aad4c6b57fc3284f54dfdd0660b40a67ebeb46ce344823898919c608a3a1c",
+      "clause_rotated_potential": "1bed47e6753e5f517d9f0227ab7a3643c452eef30e937dfea0f036b0260e6ea6",
+      "search_adapter": "1973709a325c158d27f2c4be1db152e18fa3958770d0cc6d704561250bf3297d",
+      "potential_native_source": "16a44473ec4ad9ddf0c7f9b92857f9e063a632fa719212b7143f7a1af9ec2130",
+      "internal_native_source": "384870ffa73bf8b5fa404742669218c7d93918018507595c042d73d54a08eca9",
+      "runner": "c1dc705599f5c5544531caa24d4a69b6283c489f641625ad79bded819e46373a"
+    }
+  },
+  "target": {
+    "target_id": "o1c-0044-fresh-0000",
+    "rounds": 20,
+    "unknown_key_bits": 256,
+    "fresh_targets": 0
+  },
+  "search": {
+    "arms": ["internal", "primary", "key_rotated", "clause_rotated"],
+    "conflict_limit": 512,
+    "residual_widths": [8, 9],
+    "decision_scope": "transformed-field-key-variables-only",
+    "residual_selector": "descending-sum-abs-parent-score-units-then-count-then-coordinate",
+    "prefix_mode": "post-reveal-correct-key-unit-conditions",
+    "seed": 0
+  },
+  "budgets": {
+    "maximum_wall_seconds": 90,
+    "maximum_peak_rss_bytes": 536870912,
+    "maximum_native_solver_calls": 12,
+    "maximum_requested_conflicts": 6144,
+    "maximum_fresh_targets": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_persistent_artifact_bytes": 1048576
+  },
+  "next_action": "If the primary arm gains over both rotations, retain key-only branching and validate the frozen rule prospectively. If controls still match or beat primary, close greedy marginal branching and reuse the unchanged global O1C-0044 scores in a bounded best-first prefix or score-aware activation test; do not refit, raise the conflict cap, or consume a fresh target first."
+}

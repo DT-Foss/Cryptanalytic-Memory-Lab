@@ -1,13 +1,18 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
+from types import SimpleNamespace
 
 import numpy as np
+import pytest
 
+import o1_crypto_lab.criticality_factor_search as criticality_search_module
 from o1_crypto_lab.criticality_factor_search import (
     build_native_criticality_search,
     run_criticality_search,
     write_criticality_potential,
+    write_decision_variables,
 )
 from o1_crypto_lab.criticality_potential import (
     CriticalityPotentialFactor,
@@ -23,6 +28,7 @@ from o1_crypto_lab.proof_parent_criticality import (
     ParentCriticalityField,
     parent_criticality_features,
 )
+from o1_crypto_lab.o1_relational_search import O1RelationalSearchError
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -107,3 +113,100 @@ def test_native_criticality_adapter_makes_reversible_decisions(tmp_path: Path) -
     assert result.key_model is not None
     assert result.key_model[0] & 1
     assert int(result.potential["requested_decisions"]) >= 1
+    assert result.potential["decision_scope"] == "all_observed"
+
+
+def test_native_criticality_adapter_can_decide_explicit_key_set(tmp_path: Path) -> None:
+    executable = tmp_path / "criticality-search"
+    build_native_criticality_search(
+        source=ROOT / "native/cadical_o1_criticality_search.cpp",
+        output=executable,
+    )
+    cnf = tmp_path / "tiny.cnf"
+    cnf.write_text("p cnf 257 1\n1 257 0\n", encoding="ascii")
+    potential = CriticalityPotentialField(
+        offset=0.0,
+        source_sha256="44" * 32,
+        factors=(
+            CriticalityPotentialFactor((1,), (0.0, 2.0)),
+            CriticalityPotentialFactor((257,), (0.0, 100.0)),
+        ),
+    )
+    potential_path = tmp_path / "potential.txt"
+    decision_path = tmp_path / "decisions.txt"
+    write_criticality_potential(potential_path, potential)
+    write_decision_variables(decision_path, (1,))
+    result = run_criticality_search(
+        executable=executable,
+        cnf_path=cnf,
+        potential_path=potential_path,
+        decision_variables_path=decision_path,
+        conflict_limit=32,
+    )
+    assert result.status_name == "SAT"
+    assert result.key_model is not None
+    assert result.key_model[0] & 1
+    assert result.potential["decision_scope"] == "explicit"
+    assert result.potential["eligible_decision_variables"] == 1
+
+
+def test_explicit_adapter_rejects_wrong_native_eligible_count(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    executable = tmp_path / "fake-search"
+    executable.write_text("placeholder\n", encoding="ascii")
+    cnf = tmp_path / "tiny.cnf"
+    cnf.write_text("p cnf 256 0\n", encoding="ascii")
+    potential = tmp_path / "potential.txt"
+    potential.write_text("placeholder\n", encoding="ascii")
+    decisions = tmp_path / "decisions.txt"
+    write_decision_variables(decisions, (1,))
+    payload = {
+        "schema": "o1-256-cadical-criticality-search-result-v1",
+        "cadical_version": "3.0.0",
+        "variables": 256,
+        "conflict_limit": 32,
+        "seed": 0,
+        "status": 0,
+        "key_model_hex": None,
+        "stats": {"conflicts": 32, "decisions": 32, "propagations": 32},
+        "potential": {
+            "factor_count": 1,
+            "source_sha256": "55" * 32,
+            "offset": 0.0,
+            "observed_variables": 2,
+            "decision_scope": "explicit",
+            "eligible_decision_variables": 2,
+            "requested_decisions": 1,
+            "repeated_decisions": 0,
+            "assignment_notifications": 1,
+            "backtracks": 0,
+            "maximum_assigned_variables": 1,
+            "maximum_decision_level": 1,
+            "maximum_abs_support": 1.0,
+            "conditional_factor_evaluations": 1,
+        },
+        "resources": {
+            "wall_microseconds": 1,
+            "cpu_microseconds": 1,
+            "peak_rss_bytes": 1,
+        },
+    }
+    monkeypatch.setattr(
+        criticality_search_module.subprocess,
+        "run",
+        lambda *args, **kwargs: SimpleNamespace(
+            returncode=0, stdout=json.dumps(payload), stderr=""
+        ),
+    )
+    with pytest.raises(
+        O1RelationalSearchError,
+        match="eligible decision-variable count differs",
+    ):
+        run_criticality_search(
+            executable=executable,
+            cnf_path=cnf,
+            potential_path=potential,
+            decision_variables_path=decisions,
+            conflict_limit=32,
+        )

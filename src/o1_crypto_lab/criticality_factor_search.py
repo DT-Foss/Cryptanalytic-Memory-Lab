@@ -8,7 +8,7 @@ import math
 import subprocess
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Mapping
+from typing import Iterable, Mapping
 
 from .criticality_potential import CriticalityPotentialField
 from .o1_relational_search import (
@@ -50,6 +50,20 @@ def write_criticality_potential(
     return hashlib.sha256(payload).hexdigest()
 
 
+def write_decision_variables(path: str | Path, variables: Iterable[int]) -> str:
+    values = tuple(variables)
+    if (
+        not values
+        or any(isinstance(value, bool) or not isinstance(value, int) for value in values)
+        or tuple(sorted(set(values))) != values
+        or any(not 1 <= value <= 256 for value in values)
+    ):
+        raise O1RelationalSearchError("criticality decision variables differ")
+    payload = "".join(f"{variable}\n" for variable in values).encode("ascii")
+    Path(path).write_bytes(payload)
+    return hashlib.sha256(payload).hexdigest()
+
+
 def run_criticality_search(
     *,
     executable: str | Path,
@@ -57,6 +71,7 @@ def run_criticality_search(
     potential_path: str | Path,
     conflict_limit: int,
     seed: int = 0,
+    decision_variables_path: str | Path | None = None,
     timeout_seconds: float = 60.0,
 ) -> CriticalitySearchResult:
     if (
@@ -79,6 +94,37 @@ def run_criticality_search(
         "--seed",
         str(seed),
     ]
+    expected_scope = "all_observed"
+    expected_decision_variables: int | None = None
+    if decision_variables_path is not None:
+        try:
+            decision_values = tuple(
+                int(row)
+                for row in Path(decision_variables_path)
+                .resolve(strict=True)
+                .read_text(encoding="ascii")
+                .splitlines()
+            )
+        except (OSError, UnicodeError, ValueError) as exc:
+            raise O1RelationalSearchError(
+                "criticality decision-variable file differs"
+            ) from exc
+        if (
+            not decision_values
+            or tuple(sorted(set(decision_values))) != decision_values
+            or any(not 1 <= value <= 256 for value in decision_values)
+        ):
+            raise O1RelationalSearchError(
+                "criticality decision-variable file differs"
+            )
+        expected_decision_variables = len(decision_values)
+        command.extend(
+            [
+                "--decision-variables",
+                str(Path(decision_variables_path).resolve(strict=True)),
+            ]
+        )
+        expected_scope = "explicit"
     try:
         completed = subprocess.run(
             command,
@@ -137,6 +183,7 @@ def run_criticality_search(
     integer_fields = {
         "factor_count",
         "observed_variables",
+        "eligible_decision_variables",
         "requested_decisions",
         "repeated_decisions",
         "assignment_notifications",
@@ -145,6 +192,14 @@ def run_criticality_search(
         "maximum_decision_level",
         "conditional_factor_evaluations",
     }
+    required_fields = integer_fields | {
+        "offset",
+        "maximum_abs_support",
+        "source_sha256",
+        "decision_scope",
+    }
+    if set(potential) != required_fields:
+        raise O1RelationalSearchError("criticality potential fields differ")
     for field, value in potential.items():
         if field in integer_fields:
             if isinstance(value, bool) or not isinstance(value, int) or value < 0:
@@ -155,11 +210,23 @@ def run_criticality_search(
         elif field == "source_sha256":
             if not isinstance(value, str) or len(value) != 64:
                 raise O1RelationalSearchError("potential.source_sha256 differs")
+        elif field == "decision_scope":
+            if value != expected_scope:
+                raise O1RelationalSearchError("potential.decision_scope differs")
         else:
             raise O1RelationalSearchError("criticality potential fields differ")
         normalized_potential[str(field)] = value
     if int(normalized_potential.get("factor_count", 0)) < 1:
         raise O1RelationalSearchError("criticality search consumed no factors")
+    eligible = int(normalized_potential["eligible_decision_variables"])
+    observed = int(normalized_potential["observed_variables"])
+    if (
+        expected_decision_variables is not None
+        and eligible != expected_decision_variables
+    ) or (expected_decision_variables is None and eligible != observed):
+        raise O1RelationalSearchError(
+            "criticality eligible decision-variable count differs"
+        )
     return CriticalitySearchResult(
         status=status,
         conflict_limit=conflict_limit,
@@ -177,4 +244,5 @@ __all__ = [
     "build_native_criticality_search",
     "run_criticality_search",
     "write_criticality_potential",
+    "write_decision_variables",
 ]
