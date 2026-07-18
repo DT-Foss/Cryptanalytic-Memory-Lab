@@ -187,5 +187,14 @@ target-specific margin. The active task changes only scheduling: observe every
 factor variable, externally decide key variables only, and rerun the identical
 consumed boundary before any fresh key or reader change.
 
+O1C-0046 completes that scheduling test. Restricting external decisions to 126
+key coordinates cuts primary residual-8/9 work from 152/281 to 43/87 conflicts,
+while retaining every internal assignment for conditioning. The matched clause
+rotation still wins at 22/46, Full-256 remains unresolved and the exact frontier
+stays at nine residual bits. Greedy local marginals are therefore closed in both
+all-variable and key-only forms. The active relational task preserves the frozen
+global O1C-0044 score and changes only its search unit to bounded key prefixes or
+score-aware factor groups before any new reader, budget or fresh target.
+
 All writes stay inside this repository. Sibling projects remain read-only and no
 competing heavy job starts without a resource check.

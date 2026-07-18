@@ -1845,3 +1845,26 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:**
   [`result`](O1C0045_CRITICALITY_LIVE_SEARCH_RESULT_20260718.md) and
   [`capsule`](../runs/20260719_001005_O1C-0045_criticality-live-search-v1/RUN.md).
+
+## O1C-0046 — Key-only parent-criticality search
+
+- **Recorded:** 2026-07-19T00:24:50+02:00.
+- **Hypothesis:** observing the complete factor trail while externally deciding
+  only designated key coordinates preserves O1C-0044's primary orientation and
+  removes generic internal-variable competition.
+- **Result:** partial mechanism improvement without primary margin. Full-256 has
+  zero hits at 512 conflicts. Primary verifies residual 8/9 in 43/87 conflicts,
+  down from O1C-0045's 152/281, but the matched clause rotation verifies them in
+  22/46. Internal remains UNKNOWN at width 9.
+- **Boundary:** O1C-0045 potential bytes, target, residual sets, seed and work cap
+  unchanged; all potential variables observed; exactly 126 key variables
+  externally eligible; Full-256 rows precede reveal; residual rows are explicit
+  post-reveal ceilings; zero fresh targets.
+- **Resources:** `7.767220` s; `122,552,320` B peak; 12 native calls; 6,144
+  requested conflicts; 35,478 persistent bytes; zero sibling/MPS/GPU.
+- **Decision:** close greedy marginal branching in both all-variable and key-only
+  forms. Preserve the global O1C-0044 score for bounded best-first key prefixes or
+  score-aware factor activation; do not refit or raise the budget first.
+- **Artifacts:**
+  [`result`](O1C0046_KEY_ONLY_CRITICALITY_SEARCH_RESULT_20260719.md) and
+  [`capsule`](../runs/20260719_002450_O1C-0046_key-only-criticality-search-v1/RUN.md).

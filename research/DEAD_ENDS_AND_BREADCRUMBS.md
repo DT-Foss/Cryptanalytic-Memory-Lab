@@ -959,3 +959,22 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   bounded best-first key prefixes rather than another marginal reader.
 - **Artifact:**
   [`O1C-0045 result`](O1C0045_CRITICALITY_LIVE_SEARCH_RESULT_20260718.md).
+
+## B-0048 — Key-only greedy marginals reduce work but still erase specificity
+
+- **Evidence:** O1C-0046 reuses the O1C-0045 potential bytes and changes only
+  external decision eligibility. Primary residual-8/9 conflicts fall from
+  152/281 to 43/87, but clause rotation uses the identical 126 key-coordinate set
+  and remains better at 22/46. Full-256 remains unresolved in every arm and the
+  exact residual frontier stays at nine bits.
+- **Conclusion:** internal-variable competition was a real source of wasted
+  work, but it was not the sole cause of lost O1 orientation. A one-variable
+  uniform conditional marginal is not a faithful search realization of the
+  frozen global rank score.
+- **Do not repeat:** expand the eligible key set, raise conflicts, tune marginal
+  temperature, refit the reader, or spend a fresh target on this scheduler.
+- **Breadcrumb:** retain the global complete-assignment score and compare bounded
+  key prefixes or activated factor groups as units. Require a primary margin over
+  the clause rotation before prospective promotion.
+- **Artifact:**
+  [`O1C-0046 result`](O1C0046_KEY_ONLY_CRITICALITY_SEARCH_RESULT_20260719.md).

@@ -165,6 +165,7 @@ attacker-valid cipher evidence.
 | `O1C-0043-PARENT-CRITICALITY` | BUILD-fitted bounded reader over ordered RUP parent role and original functional-clause criticality | `CONSUMED_DIAGNOSTIC` joint-rank signal; fresh pending | DEVELOPMENT 5/4097 and 91/4097, geometric 0.52% versus best control 38.52%; unchanged consumed repeat 141/4097 versus controls 3623/3475; 63.609 s, 183,795,712 B peak | [Result](research/O1C0043_PARENT_CRITICALITY_RANK_RESULT_20260718.md) |
 | `O1C-0044-FRESH-CRITICALITY` | Exact O1C-0043 reader on one sealed uniform Full-256 key | `TEST` prospective joint-rank transfer; no recovery | primary 54/4097 (1.318%, z +2.325), key rotation 3567/4097, clause rotation 2972/4097; 11.095 s, 142,262,272 B peak | [Result](research/O1C0044_FRESH_PARENT_CRITICALITY_RANK_RESULT_20260718.md) |
 | `O1C-0045-LIVE-CRITICALITY` | Lossless local-factor compilation of O1C-0044 into reversible exact search | `CONSUMED_SEARCH_DIAGNOSTIC`; Full-256 attacker-valid, residual rows post-reveal | scores exact within 1.25e-14; Full-256 0/4; internal residual frontier 8, primary/key/clause 9; width-9 conflicts 281/69/129; no primary control margin | [Result](research/O1C0045_CRITICALITY_LIVE_SEARCH_RESULT_20260718.md) |
+| `O1C-0046-KEY-ONLY-CRITICALITY` | Same frozen local factors with all variables observed but external decisions restricted to 126 key coordinates | `CONSUMED_SEARCH_DIAGNOSTIC`; Full-256 attacker-valid, residual rows post-reveal | Full-256 0/4; residual frontier unchanged at 8/9/9/9; primary conflicts fall to 43/87 at widths 8/9, but matched clause rotation remains better at 22/46 | [Result](research/O1C0046_KEY_ONLY_CRITICALITY_SEARCH_RESULT_20260719.md) |
 
 ## Frontier and state-of-the-art results
 
@@ -211,10 +212,14 @@ execution for every candidate, promotion now requires equal-work exact-search or
 residual-domain reduction, not another rank panel.
 O1C-0045 supplies that conversion losslessly. Its potential family expands the
 consumed post-reveal completion frontier from residual width eight to nine, but
-both rotations outperform primary and Full-256 remains unresolved. This is real
+both rotations outperform primary and Full-256 remains unresolved. O1C-0046
+changes only the decision target to key variables. Primary width-8/9 work drops
+from 152/281 to 43/87 conflicts, proving that internal-variable branching was
+costly, but the matched clause rotation still wins at 22/46. This is real
 relational-completion mechanism progress below 256, not a primary-specific or
-attacker-valid recovery frontier. The next discriminator changes only the
-decision target from all observed variables to key variables.
+attacker-valid recovery frontier. Greedy local marginal scheduling is closed;
+the frozen global rank signal must next enter bounded prefixes or factor
+activation without refitting.
 Existing sibling-project recoveries are baselines, not results of this integration.
 
 ## Negative bounds

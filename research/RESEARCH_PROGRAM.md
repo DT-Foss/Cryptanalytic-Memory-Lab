@@ -168,6 +168,14 @@ while the greedy all-variable marginal scheduler fails to retain primary-specifi
 orientation. Reuse the identical consumed setup with key-only decisions before
 any new evidence source, reader fit or fresh target.
 
+O1C-0046 performs that exact discriminator. All factor variables remain observed,
+but only 126 designated key coordinates are externally decidable. Primary
+residual-8/9 conflicts fall from 152/281 to 43/87, confirming that external
+internal-variable decisions wasted work. The clause rotation uses the identical
+decision set and remains better at 22/46, so key-only greedy marginals still do
+not preserve the reader's global orientation. Close local marginal scheduling;
+reuse the unchanged global score in bounded prefix or factor-group search.
+
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
 untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches
@@ -374,8 +382,10 @@ evidence.
 5. O1C-0041 supplies consumed chain rank and O1C-0042 closes unique-leaf summation.
    O1C-0043 restores strong consumed rank through ordered parent criticality and
    O1C-0044 confirms it freshly at rank 54/4097. O1C-0045 converts it losslessly;
-   the potential family expands residual 8→9 but rotations beat primary. Preserve
-   all score bytes and change only all-variable scheduling to key-only decisions.
+   the potential family expands residual 8→9 but rotations beat primary. O1C-0046
+   removes internal variables from external decisions and cuts primary work, yet
+   matched clause rotation remains faster. Preserve all score bytes and move from
+   one-variable marginals to bounded prefixes or factor-group activation.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.

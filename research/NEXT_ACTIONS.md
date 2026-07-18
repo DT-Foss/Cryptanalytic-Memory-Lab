@@ -1,12 +1,12 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T00:10:05+02:00.
+Last ranked: 2026-07-19T00:24:50+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Reuse O1C-0045 unchanged but let the external policy decide key variables only while observing all internal assignments | State of the art | Extreme | Extreme | Low | Tests whether generic internal-factor branching caused rotations to erase the primary rank advantage |
-| 2 | Compare primary, key-rotated, clause-rotated and internal at the same Full-256/residual-8/9 512-conflict boundary | State of the art | Extreme | Extreme | Low | A primary-specific gain authorizes one unchanged consumed repeat; another control win closes this scheduler |
-| 3 | If key-only still loses, preserve the exact score tables and use bounded best-first key prefixes or score-aware clause activation | State of the art | High | Extreme | Medium | Converts the global joint objective without another reader, field or fresh key |
+| 1 | Preserve the O1C-0044 complete-assignment score and compare bounded key prefixes or score-aware factor groups rather than one-variable marginals | State of the art | Extreme | Extreme | Medium | Tests whether the prospectively transferred global rank can reduce exact search work without another reader or target |
+| 2 | Run the smallest consumed primary/internal/key-rotation/clause-rotation comparison at the unchanged 512-conflict boundary | State of the art | Extreme | Extreme | Low | A primary-specific conflict, width or time-to-hit gain authorizes prospective promotion; another matched control win closes this adapter |
+| 3 | Finish the isolated bias-free Apfel Full-256 microexperiment and import only a measured mechanism advantage | State of the art | High | Medium | Low | Tests a genuinely different problem geometry without derailing the exact O1 chain |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 | 5 | Keep occurrence scoring, key-phase guidance and O1C-0023/25/29 over the closed unary field parked | Operational | High | High | Zero | Prevents scaling measured-null representations while retaining reusable adapters |
 
@@ -28,12 +28,13 @@ Last ranked: 2026-07-19T00:10:05+02:00.
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.
 - **Live completion frontier:** O1C-0045 compiles O1C-0044 exactly and expands the
-  consumed factor-family residual ceiling 8→9. Primary beats internal but not
-  rotations, so this is relational mechanism progress rather than a
-  primary-specific frontier result.
-- **Next measurable advance:** key-only conditional scheduling preserves a
-  residual-width or conflict gain specifically for primary over internal and
-  both rotations. Exact 256 remains the terminal moonshot.
+  consumed factor-family residual ceiling 8→9. O1C-0046 cuts primary residual
+  work from 152/281 to 43/87 conflicts with key-only decisions, but matched
+  clause rotation is still better at 22/46. This is relational mechanism progress
+  rather than a primary-specific frontier result.
+- **Next measurable advance:** bounded prefix or factor-group scheduling preserves
+  a residual-width, conflict or time-to-hit gain specifically for primary over
+  internal and both rotations. Exact 256 remains the terminal moonshot.
 
 ## Effect-first stop rules
 
@@ -76,7 +77,10 @@ Last ranked: 2026-07-19T00:10:05+02:00.
 - O1C-0045 preserves all scores but its all-variable scheduler lets generic
   factor geometry dominate: primary/key/clause all close residual 9 while
   internal stops at 8; rotations are faster. Do not spend a fresh target or refit.
-  Change only decision targets to key variables.
+  O1C-0046 has now changed only decision targets to key variables: primary work
+  improves materially, yet matched clause rotation still wins. Close both greedy
+  marginal variants. Keep the global score bytes and change only the unit of
+  search to bounded prefixes or factor groups.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not

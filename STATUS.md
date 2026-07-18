@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T00:10:05+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T00:24:50+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -70,9 +70,14 @@
   conflicts. On the post-reveal ceiling, internal search closes residual 8 but
   not 9; primary closes 9 in 281 conflicts, while key/clause rotations also close
   9 in 69/129. The factor family expands 8→9, but primary has no control margin.
-- **Next paid experiment:** keep the reader, factor tables, target, residual sets
-  and budget fixed; observe internal variables but allow external decisions only
-  on key variables. This isolates O1 orientation from generic clause branching.
+- **O1C-0046:** key-only scheduling retains all internal observations while
+  restricting external choices to 126 key coordinates. Primary width-8/9 work
+  falls from `152/281` to `43/87` conflicts, but the matched clause rotation is
+  still better at `22/46`; Full-256 remains unresolved. The exact frontier stays
+  at 9 bits and greedy local marginal scheduling is closed.
+- **Next paid experiment:** preserve the frozen O1C-0044 global score but stop
+  converting it into one-variable greedy marginals. Test a bounded best-first key
+  prefix or score-aware factor-activation handoff on the consumed target first.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -86,13 +91,14 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** none. Sibling repositories remain read-only and untouched.
+- **Active local run:** isolated bias-free “Apfel” Full-256 microexperiment only;
+  the main O1C-0046 run is complete. Sibling repositories remain read-only.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
   the north star; the scored objective is the strongest reproducible
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest result:**
-  [O1C-0045 criticality live search](research/O1C0045_CRITICALITY_LIVE_SEARCH_RESULT_20260718.md).
+  [O1C-0046 key-only criticality search](research/O1C0046_KEY_ONLY_CRITICALITY_SEARCH_RESULT_20260719.md).
 
 ## Headline
 
@@ -123,9 +129,12 @@ That earned exactly one prospective replication. O1C-0044 answers yes at
 `54/4097` with both rotations in the bottom third. The
 O1C-0045 exact compiler then turns that score into local factors. The factor
 family expands the consumed residual ceiling from eight to nine bits, but both
-rotations beat primary, localizing the loss to the all-variable greedy scheduler.
-The next action is a key-only decision policy over the unchanged factors; another
-reader or fresh key is not authorized.
+rotations beat primary. O1C-0046 removes internal variables from external
+branching: primary work improves 3.5x/3.2x at residual 8/9, yet the clause
+rotation with the identical key-decision set remains faster. The loss is
+therefore not only internal-variable competition; local greedy marginals do not
+carry the global rank orientation into search. Preserve the global score and
+change the handoff geometry, not the reader, target or conflict cap.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does
@@ -694,17 +703,18 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Local scientific run | — | — | none | O1C-0037/0038 finalized; relation-factor successor ready | — |
+| Main scientific run | — | — | none | O1C-0046 finalized; global-prefix successor pending | — |
+| Bias-free parallel track | isolated worker | 2026-07-19 | Apple-view Full-256 microexperiment | active inside `research/apple_view/` only | short |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Reuse the exact O1C-0045 factors while observing every internal assignment but
-   returning external decisions only for key variables.
-2. Repeat the identical Full-256/residual-8/9 512-conflict comparison on the same
-   consumed target; promote only a primary margin over internal and both rotations.
-3. If controls still win, close greedy marginal branching and preserve the global
-   score for bounded best-first key prefixes or score-aware clause activation.
+1. Preserve the O1C-0044 global score and compile it into a bounded best-first key
+   prefix or score-aware factor-activation search, not another greedy marginal.
+2. Reuse the identical consumed target, score bytes and 512-conflict boundary;
+   demand a primary margin over the matched clause rotation before a fresh target.
+3. Evaluate the independent Apfel-spur mechanism on its own declared Full-256
+   metric, then merge only a measured advantage rather than its vocabulary.
 4. Reuse A325/A526 unchanged only when their native complement gate is met, and
    keep every sibling repository read-only.
 
@@ -712,6 +722,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0046` | 2026-07-19 00:24 | Key-only external decisions preserve O1C-0044's primary orientation while native CDCL owns internal variables | Full-256 0/4; residual 9 internal UNKNOWN, primary SAT/87, key rotation SAT/331, clause rotation SAT/46; primary has no matched control margin | `CONSUMED_SEARCH_DIAGNOSTIC`; residual rows are post-reveal ceilings | 7.767220 s; 122,552,320 B peak; 12 calls; zero fresh/sibling/MPS/GPU | Internal-variable competition was costly, but key-only greedy marginals still lose to matched clause rotation; move the unchanged global score to bounded prefixes/activation | [Capsule](runs/20260719_002450_O1C-0046_key-only-criticality-search-v1/RUN.md) |
 | `O1C-0045` | 2026-07-19 00:10 | The frozen rank-54 reader reduces exact search work after lossless local-factor compilation | Full-256 0/4; residual 9 internal UNKNOWN, primary SAT/281 conflicts, rotations SAT/69 and SAT/129 | `CONSUMED_SEARCH_DIAGNOSTIC`; residual rows are post-reveal ceilings | 17.290067 s; 130,269,184 B peak; 12 calls; zero fresh/sibling/MPS/GPU | Factor geometry expands 8→9, but all-variable scheduling erases primary specificity; decide keys only next | [Capsule](runs/20260719_001005_O1C-0045_criticality-live-search-v1/RUN.md) |
 | `O1C-0040` | 2026-07-18 22:22 | The transferred occurrence field ranks the true complete execution above attacker-generated decoys | Raw truth ranks 1905/4097 and 2292/4097; surprise 1078/4097 and 1461/4097, dominated by key rotation 107/4097 and 423/4097 | `POST_REVEAL_DIAGNOSTIC` negative; consumed targets | 3.981557 s; 101,466,112 B peak; 8,194 forward evaluations; zero solver/sibling/MPS/GPU | Close clause-occurrence scoring; move to branch-exclusive signed antecedent chains | [Capsule](runs/20260718_222255_O1C-0040_relation-candidate-rank-v1/RUN.md) |
 | `O1C-0039` | 2026-07-18 22:02 | A BUILD-frozen signed proof-clause contrast transfers target-specific key-to-internal relation orientation | Both DEVELOPMENT targets exceed chance: 55.09%/56.99%, pooled 397/711 = 55.84% versus key/factor rotations 52.88%/49.51%; Full-256 recovery 0 | `TEST` attacker-valid relation transfer; no entropy or recovery claim | 12.202150 s; 142,262,272 B peak; 18 exact calls; zero sibling/MPS/GPU | Freeze H16/`|J|=0.5`; test complete-candidate rank, then live reversible guidance only on a positive separation | [Capsule](runs/20260718_220217_O1C-0039_proof-clause-relation-v1/RUN.md) |
@@ -759,6 +770,12 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0046` source freeze | `b0f8bcbd38fd5eb93d25712c1fd92fbeea5d18ae` |
+| `O1C-0046` canonical config | `850693f456c146be6dfd10b4beca783acd46482c52047b21d331c4d62c87b2b9` |
+| `O1C-0046` runner source | `c1dc705599f5c5544531caa24d4a69b6283c489f641625ad79bded819e46373a` |
+| `O1C-0046` attacker freeze | `7dd7656728b70346d37796d1fc0cf8fc2d15f8760061fa5bd31187063bb9e308` |
+| `O1C-0046` formal result | `0f2ffeb436114a35aabf2d4dea7f5fe3ab7bdc2c37665539b1df97ee14fd562b` |
+| `O1C-0046` capsule manifest | `54ddd2f32ca76708a1530be3cbfd1ade8d420ee324cb2bd68114035d674620ec` |
 | `O1C-0045` source freeze | `d3b927b6f9ff65b9520aa4c2631d5106fa592b70` |
 | `O1C-0045` canonical config | `1cb62f0d746c86b1fa3c7ff1fb29546ad0222601af669e7745b72c69b8d67984` |
 | `O1C-0045` runner source | `a2212c716775ef4af933f8a9ccee6693578dd6d5bfb5920707cb8f88f01a14e2` |
