@@ -1,0 +1,117 @@
+{
+  "attempt_id": "O1C-0023",
+  "budgets": {
+    "expected_k256_heldout_folds": 4,
+    "maximum_cpu_seconds": 30.0,
+    "maximum_fresh_targets_consumed": 0,
+    "maximum_generated_source_bytes": 65536,
+    "maximum_gpu_calls": 0,
+    "maximum_mps_calls": 0,
+    "maximum_native_o1o_invocations": 2,
+    "maximum_native_solver_branches": 0,
+    "maximum_persistent_artifact_bytes": 2097152,
+    "maximum_resident_memory_mib": 512,
+    "maximum_scientific_entropy_calls": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_source_artifact_bytes_read": 67108864,
+    "maximum_wall_seconds": 60.0,
+    "required_primary_live_state_bytes": 352
+  },
+  "claim_level": "RETROSPECTIVE",
+  "controls": [
+    "O1C-0023 resolves only the verified finalized O1C-0022 attempt and checks its exact frozen config, artifact index, scored result, capsule metrics and four held-out K256 ledgers plus 352-byte states before reservation.",
+    "The decision policy consumes the complete hash-bound post-reveal O1C-0022 result surface with an empty immutable failure memory; it is a proposal for a successor attempt, never evidence on a fresh target.",
+    "O1-O receives exactly one opaque decision-token triplet, one data-only fragment and a byte-exact clone of the eight pinned core files in two independent disposable directories; the original sibling path is never disclosed to the child, assembly uses raw empty intent and generated code is neither compiled nor executed.",
+    "Both native O1-O runs must select one identical fragment and emit byte-identical generated source under Python -I -B -S with a sanitized environment and exact imported-module origin/hash attestation.",
+    "The exact O1-O KnowledgeEngine, CodeAssembler and imported assembler core source hashes are verified before and after both native runs, and the complete sibling tree metadata snapshot must remain unchanged.",
+    "No fresh target, solver branch, scientific entropy, MPS or GPU call is permitted; sibling writes are exactly zero."
+  ],
+  "experiment": {
+    "assembly_intent_raw": "",
+    "failure_memory": "EMPTY_FIRST_DECISION",
+    "generated_code_compiled": false,
+    "generated_code_executed": false,
+    "information_boundary": "POST_REVEAL_PROPOSAL_FOR_NEXT_ATTEMPT_ONLY",
+    "native_o1o_runs": 2,
+    "native_selection": "single-opaque-token-exact-route",
+    "required_fragment_count": 1,
+    "required_k256_fold_count": 4,
+    "required_triplet_count": 1,
+    "schema": "o1-256-o1c22-postresult-composer-config-v1"
+  },
+  "hypothesis": "The complete frozen O1C-0022 result surface and exact K256 quantization artifacts contain enough diagnostic information for a deterministic post-result policy to select one non-repeating next operator, and native O1-O can reproducibly route that opaque decision to the corresponding data-only fragment without executing generated code.",
+  "next_action": "Execute the selected operator only under a new source-frozen attempt. Preserve O1C-0023 as immutable failure memory input; if the selected successor produces no lift, record that exact operator fingerprint and deterministically advance to the next allowed mechanism without spending a fresh target unless the full prospective gate passed.",
+  "o1o": {
+    "core_source_sha256": {
+      "core/__init__.py": "b462176a0aef2fcd7f94d755332b628904cedb857d734f2acec54fe6e96eee77",
+      "core/c_renderer.py": "7cc8116573b97c601f7f43a3570756d8788ba510ac634e6a339b6e7383c36d4f",
+      "core/code_assembler.py": "e40c185fa540c6e65132ecfe2195d4812c6c2f577dbb6905d7ace7e82dabe9c0",
+      "core/color_assembler.py": "85a0e903699054e16111feb3801acbc6443ea77b4346a36e4b6a708810bd9421",
+      "core/color_checker.py": "ee8ee10d52df49c2eab35fc5c99de0771dfd407755790bad680dab46be3a617b",
+      "core/color_types.py": "87997ab6ef9f3827ab778131dd32f65c87989465c0ca4d050814e126679e44f0",
+      "core/fragment_registry.py": "8e36beff0f6340084b79e8c749e499ce59abf41964043c8b48db780c3bfda9cc",
+      "core/knowledge_engine.py": "818926d4a39d18990e761788b4cabba9ac8135a3c6b17a95eb7080464dbabc31"
+    },
+    "dependency_root": "sysconfig.purelib",
+    "dependency_source_sha256": {
+      "jellyfish/__init__.py": "6233554013e3c6f3da17d5430c573ec0e88489605bfec4385eccc49f409c3ad3",
+      "jellyfish/_jellyfish.py": "f1297fc252dafbad0966f9ab5d55e1b50ff70024749b18444235d1e1a1d39b60",
+      "jellyfish/_rustyfish.cpython-313-darwin.so": "d1fd84ceebfbc5515956f0ba7caab715244ecaeb8ac2cecda536bd6e12159fa3",
+      "msgpack/__init__.py": "440f2072a2b5ed8a64c419cdc172556b5a1ad8bca058381f1759c0d4d3f0de6a",
+      "msgpack/_cmsgpack.cpython-313-darwin.so": "ca5c771b2008238b15f01bf931cfd8a999754ff435aad3c2c8b513c4b9943775",
+      "msgpack/exceptions.py": "7424d67a2f1da64accb100dc8d093be004e5f47b08047d326edf3338f36a3187",
+      "msgpack/ext.py": "92d789bf4de7f6d633779a28df1628a554e8e2f45a031a27050409857a21659a"
+    },
+    "forge_relative_path": "forge",
+    "hash_determinism": "two-independent-byte-identical-native-runs",
+    "python_flags": [
+      "-I",
+      "-B",
+      "-S"
+    ],
+    "repository_path": "../O1-O"
+  },
+  "prediction": "Given any operationally or scientifically finalized O1C-0022 outcome, O1C-0023 emits one hash-bound decision and operator graph; two native O1-O invocations select exactly the expected one-triplet/one-fragment route and produce identical source bytes, with zero target, solver, accelerator, entropy or sibling-write work.",
+  "prerequisite": {
+    "artifact_index_schema": "o1-256-o1c19-causal-vault-artifact-index-v1",
+    "attempt_id": "O1C-0022",
+    "config_path": "configs/o1c19_causal_vault_bridge_v1.json",
+    "config_sha256": "ea313fd6bb80384e4ef73e4a72f3705c79b2a98ad5a69552d043657b56f1a10d",
+    "metrics_schema": "o1-256-o1c19-causal-vault-bridge-cli-result-v1",
+    "result_schema": "o1-256-o1c19-causal-vault-bridge-result-v1",
+    "source_freeze_commit": "ce56ba44ef9fe8583c0603ab145afa6133849954",
+    "source_selection": "reserved-finalized-attempt-only",
+    "source_sha256": {
+      "module_causal_evidence_stream": "f1f5c8df9a9481abdcae610d5020cd80b01f96725e5524cb32cac64a18c1fb07",
+      "module_causal_evidence_stream_run": "19bce0f4ee135557489c73252393d0720ed8c10f34f4f0cd2127bc414a3ff79c",
+      "module_full256_action_pool": "df0d6a0df60d811e7cf674aa1a91b22a80834fab3acee534f77f7e1c289c1883",
+      "module_full256_multiresolution_build_loo": "34654f54e66a91ee8ac517c9022d7f41e943b22ebb63304bb463f9730a20a740",
+      "module_full256_multiresolution_build_loo_run": "36f03de45a7841f02feb713e0188c52d5ef9259b8e4d6e40e398c8e804c2c30d",
+      "module_living_inverse": "16c22a9776b693c40e0d6c3a3196c73c7a4c15913bde0bdb14e8d9fc4dbe127e",
+      "module_o1_streaming_core": "c918789a668d2e4a47f927cfe44e7e0dd3825e84dfa46e29aa48dee14d737fd7",
+      "module_o1c19_causal_vault_bridge": "82b8f1724ce5c6e348aeb1e100340276bb84c842b9429203f0d2bef25e2cbb55",
+      "module_o1c19_causal_vault_bridge_run": "6fb6e639a1e17eedc0c974cd629c3cd55b788eb2fcfe73c543bc5b00cccde913",
+      "module_online_causal_controller": "e28cd7d43b71040d91ea850d1ff76b700feaa20996825ea35448221c9936f157",
+      "module_online_multiresolution_controller": "4833513502d18ad390b7e5e572f97608d7b31c94c1fa38ceed74b02a7fb79a58",
+      "module_run_capsule": "13681939e0a5cd09d4f32c6d92c9a56894cfe8af90f07d5d4190c96b90a1b664",
+      "pyproject": "0248ec0fe7d42390b62e358fdd52f63d64f7d4e699f0f41ef77c569699716bd0"
+    }
+  },
+  "schema": "o1-256-o1c22-postresult-composer-run-config-v1",
+  "slug": "o1c22-postresult-native-composer-v1",
+  "source": {
+    "composer_path": "src/o1_crypto_lab/o1c22_postresult_composer.py",
+    "composer_sha256": "ba241c00f1a3a501f426d89e514c2145d4d397559f52ff684704d803fd90939c",
+    "living_inverse_path": "src/o1_crypto_lab/living_inverse.py",
+    "living_inverse_sha256": "16c22a9776b693c40e0d6c3a3196c73c7a4c15913bde0bdb14e8d9fc4dbe127e",
+    "o1o_codec_path": "src/o1_crypto_lab/o1o_public_fsm_bridge.py",
+    "o1o_codec_sha256": "01df7ee111dc453b278ff968fe8f1d064bb078f35d4bd09389d17db749ddb6a1",
+    "policy_sha256": "96f49e703fce24d9e8675596caf202a22618ef7886be411b915fa8c943d2f9c8",
+    "pyproject_path": "pyproject.toml",
+    "pyproject_sha256": "0248ec0fe7d42390b62e358fdd52f63d64f7d4e699f0f41ef77c569699716bd0",
+    "run_capsule_path": "src/o1_crypto_lab/run_capsule.py",
+    "run_capsule_sha256": "13681939e0a5cd09d4f32c6d92c9a56894cfe8af90f07d5d4190c96b90a1b664",
+    "runner_path": "src/o1_crypto_lab/o1c22_postresult_composer_run.py",
+    "runner_sha256": "79a37541e77dccfa7097cdbcdc56551eab96ce11d28b048fd3fd0fe50608727f"
+  }
+}
