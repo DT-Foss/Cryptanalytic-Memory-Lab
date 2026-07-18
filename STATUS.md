@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T22:22:55+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T22:36:27+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -64,7 +64,10 @@
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
 - **Active local run:** none. Sibling repositories remain read-only and untouched.
-- **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key.
+- **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
+  the north star; the scored objective is the strongest reproducible
+  attacker-valid point reached on entropy, joint rank, effective residual width,
+  matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest result:**
   [O1C-0040 complete-candidate relation rank](research/O1C0040_RELATION_CANDIDATE_RANK_RESULT_20260718.md).
 

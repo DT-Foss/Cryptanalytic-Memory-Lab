@@ -5,12 +5,14 @@ Recover and independently verify a uniformly random 256-bit key from a standard
 time. `SOTA` remains the target: a reproducible reduction of the best known
 full-round 256-bit attack frontier and ultimately an exact verified key.
 
-An exact key is the terminal result, not the only result worth keeping. A stable
-held-out bit advantage, joint-relation advantage, entropy reduction, true-key
-rank gain, smaller residual domain or lower time-to-hit is real progress when it
-transfers to unseen uniform keys under equal attacker work. Synthetic mechanism
-passes and BUILD-only gains remain useful engineering evidence but are labelled
-as such.
+SOTA is a frontier, not a Boolean label reserved for the final key. Exact
+256-bit recovery is the uncompromised north star, but a stable held-out bit or
+joint-relation advantage, entropy reduction, true-key rank gain, smaller
+effective residual domain or lower time-to-hit is real progress when it
+transfers to unseen uniform keys under equal attacker work. A sub-256 result may
+itself be a frontier result if it improves the strongest comparable full-round
+attack; it is not renamed full recovery. Synthetic mechanism passes and
+BUILD-only gains remain useful engineering evidence but are labelled as such.
 
 ## Attack architecture
 
@@ -25,10 +27,18 @@ O1 as a bounded streaming evidence state and pursue two complementary decoders:
    relations and searches joint key configurations directly. This path may
    reduce the residual domain without first predicting 204 independent bits.
 
+O1's output contract is deliberately broader than 256 independent binary
+posteriors. The bounded state may expose unary confidence, sparse signed joint
+factors, proof-ancestry identity and live search-control state. Coordinate logits
+are one reader of that state, not the definition of the inverse architecture.
+
 A526 is a retained terminal engine, not the definition of the entire problem.
 Its native contract remains coordinates `0..51` residual and `52..255` fixed,
 but a useful joint decoder may target another residual geometry or hand a
-smaller constrained domain to a general exact verifier.
+smaller constrained domain to a general exact verifier. Requiring A526's 204
+fixed bits before acknowledging progress would force the upstream model to solve
+almost four fifths of the key exactly before the backend contributes; that
+contract is never the sole promotion gate again.
 
 A513's zero-sum bases and A518B's K4,4 frame are exact equivalent compilations of
 the same public relation, not dozens of independent information bits. Their
@@ -54,6 +64,13 @@ Results below level five are not called full recovery, but they are not discarde
 when they provide a reproducible frontier gain. Conversely, `180/204` correct
 bits is not automatically useful: it counts only if confidence/joint structure
 turns it into less real search work than the baseline.
+
+Every rung may earn the next iteration. A result qualifies as a cryptanalytic
+frontier advance when it beats the strongest comparable attacker-valid baseline
+on one of the declared metrics under equal work; exact recovery is the highest
+rung, not a prerequisite for measuring the lower ones. Representation transfer
+that has not yet improved rank or search work remains a useful mechanism result
+and breadcrumb, not a fake SOTA claim and not a worthless null.
 
 ## Execution priority
 

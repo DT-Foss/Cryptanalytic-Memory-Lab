@@ -1,6 +1,6 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T22:22:55+02:00.
+Last ranked: 2026-07-18T22:36:27+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
@@ -9,6 +9,24 @@ Last ranked: 2026-07-18T22:22:55+02:00.
 | 3 | Only after positive candidate rank, inject chain factors as context-reversible live guidance and compare equal-work Full-256 search plus effective residual width | State of the art | Extreme | Extreme | Medium | Converts a measured target-specific objective rather than repeating O1C-0039's premature one-shot injection |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 | 5 | Keep occurrence scoring, key-phase guidance and O1C-0023/25/29 over the closed unary field parked | Operational | High | High | Zero | Prevents scaling measured-null representations while retaining reusable adapters |
+
+## Frontier scoreboard
+
+- **North star:** exact, independently verified recovery of one unseen uniform
+  256-bit key from the standard public 20-round relation.
+- **Attacker-valid evidence frontier:** O1C-0039 transfers a bounded signed
+  relation field at `55.84%` pooled relation accuracy; this is a real mechanism
+  gain below recovery.
+- **Conversion frontier:** O1C-0040 shows that terminal clause occurrence does
+  not improve complete-candidate rank. This closes only that representation, not
+  relational completion.
+- **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
+  this is the zone future attacker-valid joint guidance must approach, not a
+  requirement that O1 first output 248 perfect independent bits.
+- **Next measurable advance:** branch-exclusive antecedent chains improve held-out
+  true-key joint rank, effective residual width, matched solver work or
+  time-to-hit. Any reproducible improvement counts even before exact recovery;
+  exact 256 remains the terminal moonshot.
 
 ## Effect-first stop rules
 

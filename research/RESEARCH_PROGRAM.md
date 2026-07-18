@@ -4,8 +4,11 @@
 
 Produce an end-to-end O1/O1-O living inverse for standard full-round ChaCha20 with
 all 256 key bits unknown and only the public counter, nonce and output visible at
-attack time.  The objective is measured entropy removal and ultimately exact key
-verification on sealed uniform targets, not a larger reduced-width scaffold.
+attack time. The objective is a reproducible attacker-valid improvement of the
+full-round attack frontier and ultimately exact key verification on sealed
+uniform targets, not a larger reduced-width scaffold. Exact 256-bit recovery is
+the north star; transferable entropy, joint-rank, effective-width and time-to-hit
+gains below it are first-class measured outcomes rather than failed recoveries.
 
 ## ROI definition
 
@@ -22,6 +25,11 @@ with it.
   advantage, rank/search reduction or exact recovery on standard full-round
   ChaCha20. Infrastructure, validation gates and polished claims have zero
   standalone ROI.
+- Optimize a continuous frontier vector rather than a `256-or-zero` score:
+  transferred evidence, true-key joint rank, effective residual width, matched
+  search work, time-to-hit and exact verification. A result earns `SOTA` only
+  where it beats the strongest comparable baseline, but it need not recover the
+  complete key to be valuable or frontier-moving.
 - An iteration counts only when it executes the real public full-round relation
   and changes a key metric: entropy, byte/block/full-key rank, verified candidate
   count or exact recovery. Theory, adapters, tests and capsules are support work,
@@ -34,6 +42,9 @@ with it.
   recovery -> independent ChaCha20 verification. A second valid path is public
   target -> O1 unary/joint field -> exact relational completion -> exact verifier.
   Do not force every useful field through A526's fixed-mask contract.
+- Treat unary coordinates as one possible readout, never as O1's mandatory
+  semantics. Proof ancestry, signed relations, sparse factors and live solver
+  policy are valid bounded-state outputs when they reduce joint search work.
 - During discovery, measure natural-log-loss/compression, stable coordinate or
   relation accuracy, true-joint rank, effective residual width, runtime and
   memory. Broad controls, formal capsules and publication hardening wait for an
