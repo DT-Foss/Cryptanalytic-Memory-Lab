@@ -35,7 +35,7 @@ from .run_capsule import ClaimLevel, RunCapsule, RunCapsuleManager
 
 
 ATTEMPT_ID = "O1C-0031"
-BYTE_INDEX = 2
+BYTE_INDEX = 3
 EXPECTED_PUBLIC_SHA256 = (
     "50ed1436504231b7c3a68558d1e3c27e4e197e83acf0aa02e53b32e4d9d41d00"
 )
@@ -142,7 +142,7 @@ def _start_capsule(
     semantic_map = template.with_name("full256_chacha20.map.json")
     return RunCapsuleManager(root).start(
         attempt_id=ATTEMPT_ID,
-        slug="a448-proof-byte2-full256-transfer-v1",
+        slug="a448-proof-byte3-full256-transfer-v1",
         commit=_git_commit(root),
         hypothesis=(
             "A448's unchanged proof-antecedent top4 plus exact A442 Borda tie "
@@ -150,7 +150,7 @@ def _start_capsule(
             "248 key bits are unknown."
         ),
         prediction=(
-            "On the consumed RFC8439 full-round public target, key byte 2 ranks "
+            "On the consumed RFC8439 full-round public target, key byte 3 ranks "
             f"at or above the median (rank <= {PASS_MAX_RANK}/256)."
         ),
         controls=(
