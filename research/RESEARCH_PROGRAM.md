@@ -113,19 +113,22 @@ proof ancestry and interaction-bearing pairs/antecedents/contradictions, not an
 additive marginal. O1C-0022 remains frozen; this fallback activates only if every
 real float arm is null.
 
-O1C-0026 now freezes the fallback's smallest honest proxy at `0af57fb`, still with
-no attempt or label-based result. The v2 projection binds a balanced 16D
-self-plus-offdiagonal ancestry-touch sketch to 8D proof context across the three
-raw FAP horizons, with an all-256 derangement, additive and common-mode controls.
-Its scale-invariant residual folds alpha into 6,144 weight bytes; with 256 logits,
-live state is exactly 8,192 bytes. A label-free replay of all four BUILD FAPs
-produced primary and shuffled `1024x768` fields in 1.609594 seconds. RMS differs
-by only 0.877%, cosine is 0.027591, and only 85 genuinely empty rows coincide.
-This validates a distinct, fair and cheap mechanism, not portable key orientation.
-It may activate if and only if authoritative finalized O1C-0023 selects
-`proof_ancestry_pair_residual_v1`; any other decision leaves it inactive. A null
-closes only `fap_ancestry_touch_bilinear_proxy_v2`, not all 330D interactions or
-parent R07, and it cannot bypass the W52/O1C-0019/O1C-0022/O1C-0023 chain.
+O1C-0026's conditional one-shot formal runner is source-frozen at `7855492` over
+proxy-v2 mechanism `0af57fb`, but remains an `INSTRUMENT`: authoritative O1C-0023
+is pending, preflight returns `prerequisite-pending` without reserving O1C-0026,
+and no scientific run, result or signal exists. If selected, it opens exactly 4
+BUILD/0 DEVELOPMENT FAPs, executes 64 ridge fits, 4,927,488 alpha-bit and 4,096
+diagnostic-bit evaluations, and loads four persisted 6,144-byte weight vectors
+into transient 8,192-byte streaming states over 1,024 coordinates. The four
+resulting 2,048-byte logit vectors are persisted/reloaded for scoring under a
+hard 16,384-byte scratch gate. Its synthetic lifecycle verifies 120 indexed artifacts (121 files
+including `artifact_index.json`), and 23 focused tests pass. Result JSON is
+candidate-only; only completed operational metrics after semantic graph
+verification, final source recheck and every budget gate may authorize closure of
+the exact proxy instance. Operational, stopped or publication failures close
+nothing; prepared-publication recovery never reruns science. Parent R07 remains
+open under every proxy outcome, and the runner cannot bypass the
+W52/O1C-0019/O1C-0022/O1C-0023 chain.
 
 ## Evidence ladder from here
 
@@ -152,11 +155,13 @@ parent R07, and it cannot bypass the W52/O1C-0019/O1C-0022/O1C-0023 chain.
    synthetic causal-accumulation gate.
 7. If the real O1C-0022 reader/vault gate passes, freeze the combined architecture
    and attack one untouched full-256 DEVELOPMENT target under a new identity. If
-   every float arm is null, execute source-frozen O1C-0026 proxy v2 on consumed
-   BUILD folds only when authoritative O1C-0023 selected
-   `proof_ancestry_pair_residual_v1`; preserve the exact policy and close only the
-   proxy on null. For every other outcome, execute only the stage named by the
-   frozen classification.
+   every float arm is null, execute O1C-0026 only through frozen one-shot runner
+   `7855492` and its exact config, on consumed BUILD folds, and only when
+   authoritative O1C-0023 selected `proof_ancestry_pair_residual_v1`. A completed,
+   fully verified null may close only the exact proxy-instance fingerprint;
+   operational, stopped and publication failures close nothing and preserve R07.
+   For every other outcome, execute only the stage named by the frozen
+   classification.
 8. After stable entropy reduction, add surprise-selected Causal Attic summaries
    and use O1C-0025's fixed logit handoff, O1C-0024's exact global frontier and
    public ChaCha20 verification toward recovery.

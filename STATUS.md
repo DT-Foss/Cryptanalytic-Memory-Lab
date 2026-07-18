@@ -1,15 +1,14 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-18T05:36:11+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-18T07:57:47+02:00 (`Europe/Berlin`)
 - **Latest implementation freeze:** `O1C-0024` at
   `36133bc6e75349c2cd3999f60eee08f2cbeb903a` — exact global factorized
   all-256 top-K frontier, selected-member no-follow reveal lifecycle and
   budget-safe one-shot runner
-- **Latest source-only instrument freeze:** `O1C-0026` proxy v2 at
-  `0af57fbeb6beaf69be66e64c3f0981227f829fd7` — deterministic 768D
-  ancestry-touch x proof-context projection, scale-invariant offset ridge,
-  O1C-0023 selection gate and exact 8,192-byte deployment state. It remains
-  conditional and unreserved; `O1C-0025` stays frozen unchanged at `b008e21`
+- **Latest source-only instrument freeze:** conditional `O1C-0026` formal runner
+  at `7855492ac754f156d5de9bbea65fd2b6cf1910f9`, over proxy-v2 mechanism
+  `0af57fbeb6beaf69be66e64c3f0981227f829fd7`. It remains unreserved and
+  `prerequisite-pending`; `O1C-0025` stays frozen unchanged at `b008e21`
 - **Latest completed attempt:** `O1C-0024` —
   `EXACT_GLOBAL_FRONTIER_VALIDATED_BURNED_NULL`; synthetic full-round rank-4
   discriminator passes, burned O1C-0016 target has no exact hit in 65,536 global
@@ -40,14 +39,15 @@
   close the tested additive single-position clause marginals and prioritize
   interaction-bearing pairs, proof antecedents or exact contradictions
 - **Active lab runs:** no local scientific run; O1C-0024 is finalized and
-  O1C-0025/O1C-0026 have no reservations. O1C-0026 completed only a label-free
-  BUILD structural replay. The sibling W52 production work remains
+  O1C-0025/O1C-0026 have no reservations. O1C-0026 completed a label-free BUILD
+  structural replay and a synthetic formal-lifecycle fixture only. The sibling
+  W52 production work remains
   active, so O1C-0019, O1C-0022 and the O1C-0021 broad/formal gate have not
   started. O1C-0022 and O1C-0023 preflights are correctly
   `prerequisite-pending` and create no reservations. At the latest read-only host
   check, W52 had 8/8 running
-  workers, `251,156/16,777,216` cells (`1.497006%`), 24 related live processes,
-  no stop marker, 32% free memory, load/core `0.348535`, exact frozen sources and
+  workers, `273,074/16,777,216` cells (`1.6276478767%`), 24 related live processes,
+  no stop marker, 35% free memory, load/core `0.3318`, exact frozen sources and
   a temporarily dirty lab tree only because this source/ledger freeze was being
   committed. Consumed pools/seeds remain ineligible as fresh evidence
 - **Strongest completed mechanism attempt:** `O1C-0020` — independently reviewed
@@ -118,6 +118,18 @@ finalized O1C-0023 selects `proof_ancestry_pair_residual_v1` after the O1C-0022
 all-real-primary-null branch. A future null closes only
 `fap_ancestry_touch_bilinear_proxy_v2`, never parent R07 or every interaction in
 the 330D FAP. It cannot bypass the W52/O1C-0019/O1C-0022/O1C-0023 sequence.
+
+Its conditional one-shot runner is now source-frozen at `7855492` with config
+`configs/proof_ancestry_pair_residual_run_v1.json`. If selected, it opens exactly
+4 BUILD and 0 DEVELOPMENT FAPs, executes 64 ridge fits, 4,927,488 alpha-bit and
+4,096 diagnostic-bit evaluations, and loads four persisted 6,144-byte primary
+weight vectors into transient 8,192-byte streaming states over 1,024 coordinates.
+Their four 2,048-byte logit vectors are then persisted and reloaded for scoring;
+projection scratch has a hard 16,384-byte ceiling. The synthetic lifecycle verifies 120 indexed
+artifacts (121 files including the index); 23 focused tests pass. Result JSON is
+candidate-only: only completed operational metrics after semantic graph, source
+and budget verification may close the exact proxy instance. Operational,
+stopped or publication failures close nothing and never replay science.
 
 `O1C-0024` is finalized from source commit `36133bc` with capsule manifest
 `44d2f75b53c7f0d0f08a431a12ee6bc90d24b860ef6d7de9218b34b535250c3f`.
@@ -597,14 +609,16 @@ O1C-0017 result boundary are documented in
    slice through O1C-0025 and the exact public verifier. If every float arm is
    null, run only the exact O1C-0023-selected operator; never tune a decoder to
    create evidence.
-6. Preserve O1C-0026 proxy v2 at `0af57fb` conditional and unreserved. Activate
-   its already-tested 768D/8-KiB source only if authoritative O1C-0023 selects
-   `proof_ancestry_pair_residual_v1`; a proxy null leaves parent R07 open.
+6. Preserve formal O1C-0026 runner `7855492` and proxy v2 `0af57fb` conditional
+   and unreserved. Execute the pinned config only if authoritative O1C-0023
+   selects `proof_ancestry_pair_residual_v1`; a completed proxy null closes only
+   its exact proxy fingerprint and leaves parent R07 open.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0026` formal runner source freeze | 2026-07-18 | The selected proxy can execute exactly once with truth-safe BUILD-LOO freezes, bounded state and result authority derived only from a complete semantic capsule | Source `7855492`; exact O1C-0023 gate, 4 BUILD/0 DEVELOPMENT, 64 fits, 4,927,488 alpha-bit and 4,096 diagnostic evaluations, four transient 8-KiB state replays over 1,024 coordinates from persisted weights to persisted/reloaded logits, 120 indexed artifacts | `INSTRUMENT`; conditional, unreserved, no scientific run/result/signal; activated capsule is `RETROSPECTIVE` | 23 focused tests; 33 pass/1 skip/61 subtests plus 12 pass/5 subtests in neighbors; 0 formal scientific work | Candidate result is not closure authority; only completed verified metrics can close the exact proxy fingerprint, while all operational failures close nothing | [Config](configs/proof_ancestry_pair_residual_run_v1.json) |
 | `O1C-0025` source freeze | 2026-07-18 | Native full-256 natural logits can enter the exact global frontier without sigmoid saturation or rounded `/ln2` ranking | Source `b008e21`: exact binary64-logit integer ordering; fixed 57,344 B O1C-0022 tensor to 2,048 B K256 `quantized_int8_vault` slice; internally verified supplied manifest→index→O1C22 freeze→O1C19 freeze→public-target chain; K=65,536 | `INSTRUMENT`; no attempt, target, scientific run, result or signal claim | 32 tests / 80 subtests; smoke 0.937653 wall s and 44,384,256 B peak; 0 scientific work | The lossless deployment handoff is fixed; authoritative future capsule resolution remains with the formal caller | [Design](research/O1C0025_LOGIT_FRONTIER_HANDOFF_DESIGN_20260718.md) |
 | `O1C-0026` proxy v2 source freeze | 2026-07-18 | A balanced self-plus-offdiagonal ancestry-touch x proof-context basis can expose interaction orientation collapsed by the frozen scalar output | Source `0af57fb`; 768D deterministic v2 projection, all-256 pair derangement, scale-invariant offset ridge and exact 8,192 B reader+posterior state; four real BUILD FAP primary/shuffle replay is equal-scale and distinct | `INSTRUMENT` / `RETROSPECTIVE_STRUCTURAL_ONLY`; conditional, unreserved, no label/key-signal result | 1.609594 wall s; 105,955,328 B process peak; 8,231,208 source B; 0 labels/targets/solver/entropy/MPS/GPU | Self-touch is 4.87x denser/8.82x stronger than one offdiagonal cell; global sqrt(256) scaling retains it without diagonal collapse; proxy null cannot close R07 | [Probe](research/O1C0026_BUILD_ONLY_STRUCTURAL_PROBE_V2_20260718.md) |
 | `O1C-0024` | 2026-07-18 | The least-uncertain-bit cube is not a global factorized beam; an exact all-coordinate frontier can recover excluded high-probability keys and honestly measure burned search concentration | `EXACT_GLOBAL_FRONTIER_VALIDATED_BURNED_NULL`: synthetic 20-round truth rank 4 while legacy excludes it; burned target 0/65,536 exact, MAP H117, best H110 at rank 15,405; 4,096 exact public checks null | `RETROSPECTIVE` decoder validation and burned diagnostic; no cipher signal | 2.438 CPU s; 2.454 wall s; 109.922 MiB peak; 2,890,445 artifact B; 0 solver/entropy/sibling/GPU | Global beam geometry is fixed; O1C-0016 posterior remains far too flat, so improve evidence orientation rather than K | [Run capsule](runs/20260718_035947_O1C-0024_exact-factorized-posterior-frontier-v1/RUN.md) |
@@ -635,7 +649,10 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
-| `O1C-0026` source freeze | `0af57fbeb6beaf69be66e64c3f0981227f829fd7` |
+| `O1C-0026` formal runner source freeze | `7855492ac754f156d5de9bbea65fd2b6cf1910f9` |
+| `O1C-0026` formal config | `17df7a8a1cc3100c13ef86d4d355783b97382700b6d68fcf045362183131efb4` |
+| `O1C-0026` formal runner source | `0e3ae438b9df8189a2042dc1a78db1a734350ebab64de2764e2ec4c773ff1ddf` |
+| `O1C-0026` proxy-v2 mechanism freeze | `0af57fbeb6beaf69be66e64c3f0981227f829fd7` |
 | `O1C-0026` projection policy | `2e2c1e56d4a9db94a575337a74e6523fe300f05bc5a2b21228ecfd151f808a7f` |
 | `O1C-0026` proxy source | `a9da57e829f1bb9e1eca326aa559931f717d71241c811e178b8bd233a83e6003` |
 | `O1C-0026` structural probe JSON | `8abb3f886c2b0464cf6ef95fba410a0e7b68c17f0dce153721003f716c21aa5a` |
@@ -741,8 +758,9 @@ an attempt until a verified finalized O1C-0019 capsule exists.
 O1C-0025 is source-frozen at `b008e21` as a logit-frontier instrument with no
 reserved attempt or scientific result. Preserve its fixed K256
 `quantized_int8_vault` slice and 65,536-candidate limit. O1C-0026 remains a
-conditional, source-frozen proxy instrument at `0af57fb` with no reservation or
-label-based result; preserve its v2 policy hash
+conditional, source-frozen instrument with formal runner `7855492`, proxy v2
+`0af57fb`, pinned config `configs/proof_ancestry_pair_residual_run_v1.json`, no
+reservation and no label-based result; preserve its v2 policy hash
 `2e2c1e56d4a9db94a575337a74e6523fe300f05bc5a2b21228ecfd151f808a7f`.
 It may proceed only if authoritative O1C-0023 selects
 `proof_ancestry_pair_residual_v1`. O1C-0024's burned null remains unchanged.

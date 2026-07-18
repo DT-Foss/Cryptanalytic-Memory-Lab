@@ -1286,3 +1286,49 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [`structural report`](O1C0026_BUILD_ONLY_STRUCTURAL_PROBE_V2_20260718.md),
   [`exact JSON`](O1C0026_BUILD_ONLY_STRUCTURAL_PROBE_V2_20260718.json), and
   [`design`](O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md).
+
+## 2026-07-18 — O1C-0026 conditional formal runner source freeze (non-attempt)
+
+- **Recorded:** 2026-07-18T07:47:03+02:00
+- **Source freeze:** formal runner commit
+  `7855492ac754f156d5de9bbea65fd2b6cf1910f9` over proxy-v2 mechanism
+  `0af57fbeb6beaf69be66e64c3f0981227f829fd7`; config SHA-256
+  `17df7a8a1cc3100c13ef86d4d355783b97382700b6d68fcf045362183131efb4`
+  and runner SHA-256
+  `0e3ae438b9df8189a2042dc1a78db1a734350ebab64de2764e2ec4c773ff1ddf`.
+- **Live preflight:** exits 2 with `prerequisite-pending` because authoritative
+  O1C-0023 is not finalized. It creates no O1C-0026 reservation and performs no
+  scientific work.
+- **Truth-safe lifecycle:** the runner persists and reloads 16 inner-OOF freezes.
+  The full label vector is parsed only after every projection freezes, then each
+  held-out label is excluded from its own fold fit. Every outer and aggregate
+  prediction freezes before that already-loaded own-fold label is scored.
+- **Exact conditional work:** if and only if O1C-0023 selects
+  `proof_ancestry_pair_residual_v1`, the runner opens exactly 4 BUILD and 0
+  DEVELOPMENT FAPs, performs 64 ridge fits, 4,927,488 alpha-bit evaluations and
+  4,096 diagnostic-bit evaluations.
+- **Living state:** four persisted/reloaded 6,144-B primary weight vectors each
+  create one transient `ProjectedResidualState`, covering 1,024 coordinates in
+  total. Its weights plus mutable posterior are exactly 8,192 live bytes. Each
+  resulting 2,048-B logit vector is persisted and reloaded for scoring, with a
+  hard process-local scratch gate of at most 16,384 B.
+- **Artifact graph:** 120 semantic artifacts are indexed; the complete prepared
+  directory has 121 files including `artifact_index.json`. The verifier
+  rehydrates provenance, predictions, labels, score classification, work and
+  every resource envelope from persisted bytes.
+- **Authority/recovery:** result JSON is candidate-only. Only completed
+  operational metrics after semantic verification, the final source recheck and
+  every budget gate may authorize closure of this exact proxy instance. An
+  operational, stopped or publication failure closes neither the proxy nor R07.
+  Recovery from a prepared-publication fault retries immutable publication and
+  never reruns the scientific computation.
+- **Verification:** 15 core plus 8 runner tests pass (23 focused total); scoped
+  Ruff, Mypy, pycompile and `git diff --check` are clean, and the adjacent
+  composer/frontier/capsule groups remain green.
+- **Boundary:** this is an `INSTRUMENT` source freeze and synthetic lifecycle
+  verification only; an activated capsule declares `RETROSPECTIVE`. No O1C-0026
+  attempt, scientific run, result or signal exists.
+- **Artifacts:**
+  [`config`](../configs/proof_ancestry_pair_residual_run_v1.json),
+  [`runner`](../src/o1_crypto_lab/proof_ancestry_pair_residual_run.py), and
+  [`design`](O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md).

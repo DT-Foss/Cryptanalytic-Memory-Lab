@@ -1,8 +1,11 @@
 # O1C-0026 — Proof-Ancestry Pair Residual
 
-- **Recorded:** `2026-07-18T04:18:00+02:00`
-- **Status:** conditional proxy v2 source-frozen at `0af57fb`; no attempt reserved
-- **Claim level:** `RETROSPECTIVE`
+- **Recorded:** `2026-07-18T07:47:03+02:00`
+- **Status:** conditional formal runner source-frozen at `7855492` over proxy-v2
+  mechanism `0af57fb`; no attempt reserved
+- **Current evidence:** `INSTRUMENT` source freeze; no scientific run, result or
+  signal
+- **Activated capsule claim level:** `RETROSPECTIVE`
 - **Upstream decision:** authoritative finalized `O1C-0023` only
 - **Projection policy SHA-256:**
   `2e2c1e56d4a9db94a575337a74e6523fe300f05bc5a2b21228ecfd151f808a7f`
@@ -13,6 +16,11 @@
 The label-free structural probe is recorded separately in
 `O1C0026_BUILD_ONLY_STRUCTURAL_PROBE_V2_20260718.md`. It validates real-FAP ABI,
 control scaling and resources but is not an O1C-0026 scientific run or result.
+The formal runner is pinned by
+`configs/proof_ancestry_pair_residual_run_v1.json`, SHA-256
+`17df7a8a1cc3100c13ef86d4d355783b97382700b6d68fcf045362183131efb4`;
+its source SHA-256 is
+`0e3ae438b9df8189a2042dc1a78db1a734350ebab64de2764e2ec4c773ff1ddf`.
 
 ## Decision boundary
 
@@ -171,12 +179,12 @@ O1C-0026 keeps the exact O1C-0022 outer folds. For held-out BUILD target `f`:
    the same-reader training offsets;
 3. the held-out offset is the K256 `normalized_float_delta_sum` slice of the
    frozen O1C-0022 calibrated prediction;
-4. that fold's held-out label is not supplied to its projection, residual model,
-   calibration predictions, residual scale or outer prediction before freeze;
-   historical use as a training target in another retrospective fold is
-   explicitly recorded rather than denied; and
-5. only after persistence of that fold's prediction freeze is the consumed BUILD
-   label opened for scoring.
+4. after the complete projection freezes, the global BUILD label vector is parsed
+   for cross-fold training. The fold's held-out ordinal is excluded from its own
+   residual fit, calibration and outer prediction, while that same label may be
+   training data in each of the other three retrospective folds; and
+5. only after persistence of that fold's prediction freeze is its already-loaded
+   consumed BUILD label used for own-fold scoring.
 
 For a feature matrix `X`, binary signs `y in {-1,+1}` and frozen offset logits
 `o`, fit one deterministic scale-invariant offset-aware ridge residual. Let
@@ -314,18 +322,19 @@ The formal config should freeze these ceilings:
 
 Projection tables are frozen model data, not live target state. No FAP tensor,
 feature matrix, transcript or candidate dictionary may be retained as deployment
-state. This attempt measures a reader representation on consumed BUILD data; it
-does not claim an 8 KiB end-to-end attacker state until the frozen residual is
-streamed into the vault under a later prospective design.
+state. The implemented runner reloads four persisted immutable
+`float64[768]` primary weight vectors with `alpha` already folded in. Each creates
+one transient `ProjectedResidualState` with a mutable `float64[256]` posterior:
+exactly `8,192` live bytes while streaming all 1,024 fold-coordinate pairs. It
+constructs one coordinate row at a time, updates the posterior and discards the
+row immediately. Each resulting 2,048-byte logit vector is persisted and reloaded
+for scoring; process-local projection scratch must remain at or below `16,384`
+bytes.
 
-The source-only implementation may expose a bounded streaming inference state
-containing exactly one immutable effective `float64[768]` weight vector with
-`alpha` already multiplied in and one mutable `float64[256]` posterior: exactly
-`8,192` live bytes total. It must construct one coordinate row at a time and
-discard it immediately. Projection tables and immutable metadata are model
-data, not live target state. That implementation is an instrument, not an
-O1C-0026 attempt or scientific result, until the authoritative O1C-0023
-selection gate and finalized-capsule checks above pass.
+This is an 8-KiB residual-reader/posterior stage, not an 8-KiB end-to-end solver
+or FAP generator. It remains an instrument, not an O1C-0026 attempt or scientific
+result, until the authoritative O1C-0023 selection gate and finalized-capsule
+checks above pass.
 
 ## Required artifacts
 
@@ -346,9 +355,28 @@ selection gate and finalized-capsule checks above pass.
 - `structural_work_ledger.json`
 - `artifact_index.json`
 
-Feature tensors are retrospective audit artifacts, not deployment state. All four
-outer predictions and their source/model commitments freeze before
-`post_freeze_labels.bitpack` is materialized inside the capsule.
+Feature tensors are retrospective audit artifacts, not deployment state. The
+source label payload is parsed after all projections freeze because labels from
+the other three folds are legitimate retrospective training data. Every own-fold
+label is excluded from its fit, and all four outer predictions plus their
+source/model commitments freeze before own-fold scoring. The later
+`post_freeze_labels.bitpack` artifact is an audit copy, not the label vector's
+first global materialization.
+
+The exact semantic inventory contains 24 global artifacts and 96 fold-local
+artifacts: 120 indexed artifacts total. The prepared directory therefore contains
+121 files including `artifact_index.json`. Verification rehydrates the inventory,
+canonical and self-digests, source/config/proxy/upstream provenance, all persisted
+predictions and score blobs, the 128-byte label payload, exact work ledger and
+every resource envelope from those bytes.
+
+`proof_ancestry_pair_residual_result.json` is a scientific candidate only. Result
+authority belongs exclusively to completed operational metrics after semantic
+graph verification, a final source-byte recheck and every budget gate. A failed,
+stopped or publication-failed capsule closes neither the proxy nor R07. If a
+prepared-publication fault occurs after immutable computation, recovery verifies
+and republishes the prepared bytes; it never reopens scientific inputs or reruns
+fitting, prediction or scoring.
 
 ## Failure-memory transition
 
@@ -366,6 +394,8 @@ not the raw signed-pair/exact-antecedent sensor named by R07 itself.
   R07 names.
 - Resource, launch, persistence or lifecycle failure becomes
   `outcome="OPERATIONAL_FAILURE"` and must not close R07.
+- A publication failure after a candidate result also closes nothing. Candidate
+  JSON never substitutes for completed verified operational metrics.
 
 Any parent failure-memory update cannot live inside O1C-0026 because it would
 both bind the finalized O1C-0026 manifest and over-close R07. After a clean
@@ -373,6 +403,15 @@ proxy null, a later composer may advance *within* R07 to
 `exact_contradiction_antecedent_reader_v1`, while retaining R07 as unclosed. A
 future exact raw-pair sensor, not this proxy, is responsible for closing that
 parent fingerprint.
+
+## Verification status
+
+The conditional runner has 15 passing core tests and 8 passing runner tests: 23
+focused tests total. Adjacent O1C-0022 composer, posterior-frontier and run-capsule
+regressions are also green. These tests include synthetic complete/failure/
+publication-recovery lifecycles and direct provenance, work-ledger, budget and
+authority countertests. They are lifecycle verification only; no O1C-0026
+scientific run, result or signal exists.
 
 ## Next transition
 

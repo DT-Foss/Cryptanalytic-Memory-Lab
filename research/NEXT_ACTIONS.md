@@ -1,6 +1,6 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-18T04:52:53+02:00.
+Last ranked: 2026-07-18T07:47:03+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
@@ -9,7 +9,7 @@ Last ranked: 2026-07-18T04:52:53+02:00.
 | 3 | Immediately after O1C-0022 finalizes, run source-frozen O1C-0023 `aa17eed` once and preserve its complete-result decision, failure-memory context and isolated native O1-O double assembly | State of the art | Very high | Extreme | Low | Converts the localized outcome into one non-repeating next operator with zero target spend and removes manual iteration latency |
 | 4 | Preserve O1C-0021 source freeze `4ba1cc6`; once the shared interlock is idle, run the committed two-seed broad DEV recheck and four never-used formal EVAL seeds exactly once | State of the art | Very high | Very high | Low/Medium | Decides terminal synthetic causal accumulation without racing the real packet gate |
 | 5 | If O1C-0022 passes, freeze one prospective combined architecture with O1C-0025 as the fixed logit handoff into O1C-0024 and attack one untouched O1C-0018 DEVELOPMENT pool under a new identity; otherwise execute only the stage named by O1C-0023 under a new identity | State of the art | Extreme | Very high | Medium | Converts the BUILD-LOO mechanism into the first genuinely fresh full-round 256-bit entropy/rank/recovery test or the highest-information localized repair |
-| 6 | Preserve source-frozen O1C-0026 proxy v2 `0af57fb`; only if O1C-0022 returns an all-float sensor/reader null and authoritative O1C-0023 selects `proof_ancestry_pair_residual_v1`, reserve its consumed-BUILD four-fold residual exactly once | State of the art | Very high | High | Medium | The 768D/8-KiB mechanism, matched controls and real-FAP resource path are already validated; the remaining spend answers portable orientation without a fresh target, and a null closes only the exact proxy |
+| 6 | Preserve O1C-0026 formal runner `7855492`, config `configs/proof_ancestry_pair_residual_run_v1.json` and proxy v2 `0af57fb`; only after authoritative O1C-0023 selects `proof_ancestry_pair_residual_v1`, reserve its consumed-BUILD four-fold residual exactly once | State of the art | Very high | High | Medium | The truth-safe one-shot lifecycle, 768D/8-KiB replay, matched controls and exact result authority are frozen; the remaining spend answers portable orientation without a fresh target, and a completed null closes only the exact proxy instance |
 
 ## Hard target contract
 
@@ -61,12 +61,17 @@ Last ranked: 2026-07-18T04:52:53+02:00.
   `quantized_int8_vault` slice and complete O1C22 to O1C19 to public-target
   provenance chain. The future formal caller must resolve the authoritative
   finalized O1C-0022 capsule through `RunCapsuleManager`.
-- O1C-0026 proxy v2 is source-frozen at `0af57fb` but remains unreserved. Its
-  label-free four-BUILD primary+shuffle replay takes 1.609594 s at 105,955,328 B
-  process peak; the effective reader plus posterior is exactly 8,192 B. Preserve
-  policy SHA `2e2c1e56...08a7f`. Activate only when authoritative finalized
-  O1C-0023 selects `proof_ancestry_pair_residual_v1`; another decision means do
-  not run it, and a proxy null must not close parent R07.
+- O1C-0026 formal runner `7855492` and proxy mechanism `0af57fb` remain
+  unreserved. Its preflight is `prerequisite-pending` and changes no ledger. If
+  selected, config `configs/proof_ancestry_pair_residual_run_v1.json` opens
+  exactly 4 BUILD/0 DEVELOPMENT FAPs, performs 64 fits, 4,927,488 alpha-bit plus
+  4,096 diagnostic-bit evaluations. Four persisted 6,144-B weight vectors feed
+  transient 8,192-B states over 1,024 coordinates; four resulting 2,048-B logit
+  vectors are persisted/reloaded under a 16,384-B scratch ceiling. The
+  synthetic lifecycle verifies 120 indexed artifacts (121 files with the index).
+  Only completed verified metrics can close the exact proxy; any operational,
+  stopped or publication failure closes nothing, and parent R07 always remains
+  open.
 - Post-freeze hardening `2d8bf69` now sends a real immutable O1C-0018 `.fap`
   through the production Torch reader, quantizer and 352-byte bridge at K12 with
   zero labels and exact repeat/swap/duplicate/work assertions. A same-resource,
@@ -92,7 +97,9 @@ Last ranked: 2026-07-18T04:52:53+02:00.
 - reserving O1C-0026 before an authoritative O1C-0023
   `proof_ancestry_pair_residual_v1` selection, changing its v2 self/global-scale/
   all-256-shuffle basis after labels, closing parent R07 from a proxy null, or
-  manually substituting it for a different selected operator;
+  manually substituting it for a different selected operator; also do not treat
+  its synthetic lifecycle fixture as scientific evidence, promote candidate
+  result JSON to authority, or rerun science during publication recovery;
 - polishing SOTA prose before a stable held-out bit exists;
 - rebuilding or weakening O1C-0011's already verified full-256 relation instead of
   reusing its paired solver events;

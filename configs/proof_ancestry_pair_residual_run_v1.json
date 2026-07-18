@@ -29,7 +29,7 @@
     "Three inner OOF predictions freeze before nonnegative alpha selection; alpha-folded weights and held-out logits freeze before the own-fold label is scored.",
     "BUILD-LOO is represented honestly: a target label is training data in three other folds, but its own label never enters its fit and no disjoint evaluation or fresh-target claim follows.",
     "Pair-identity-shuffled, additive-factorized and polarity-even common-mode arms receive identical dimensions, four-fold ridge work and alpha grids; four ablations reuse only the frozen primary weights.",
-    "A scientific null closes only fap_ancestry_touch_bilinear_proxy_v2, never parent R07 or the unobserved raw antecedent/signed-pair space.",
+    "After completed semantic and operational verification, a scientific null may close only the exact proxy_instance_fingerprint instantiated by this run, never the operator family, parent R07 or the unobserved raw antecedent/signed-pair space.",
     "No fresh target, solver branch, scientific entropy, sibling read/write, MPS or GPU work is permitted; the retained reader plus posterior is exactly 8192 bytes."
   ],
   "experiment": {
@@ -90,6 +90,6 @@
     },
     "source_config_path": "configs/proof_ancestry_pair_residual_v2.json",
     "source_config_sha256": "431a2bfd2a7a5a9c2e41f5bde5fc4e8c4cc9ec72d506473481e2c2a9ef5ab0ad",
-    "source_freeze_commit": "11258c0295e886b0f08dac5e494b37d11d20833f"
+    "source_freeze_commit": "7855492ac754f156d5de9bbea65fd2b6cf1910f9"
   }
 }

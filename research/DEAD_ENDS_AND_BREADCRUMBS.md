@@ -691,3 +691,25 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   only `fap_ancestry_touch_bilinear_proxy_v2`, while parent R07 remains open.
 - **Artifact:**
   [`O1C0026_BUILD_ONLY_STRUCTURAL_PROBE_V2_20260718.md`](O1C0026_BUILD_ONLY_STRUCTURAL_PROBE_V2_20260718.md).
+
+## B-0036 — A scientific result candidate is not operational closure authority
+
+- **Risk:** a result JSON can be written before publication, source recheck or a
+  final resource gate fails. Treating that candidate as authoritative would turn
+  an interrupted lifecycle into either evidence or a false scientific null.
+- **Resolution:** O1C-0026 derives authority only from completed operational
+  metrics after the full 120-member semantic artifact graph is verified, the
+  final source bytes still match and every frozen work/resource budget passes.
+  Only that completed state may close the exact
+  `fap_ancestry_touch_bilinear_proxy_v2` instance; it can never close parent R07.
+- **Recovery:** if computation is complete and immutable prepared artifacts exist,
+  publication recovery verifies and republishes those bytes. It never refits,
+  reopens scientific inputs or reruns scoring.
+- **Do not repeat:** interpret candidate JSON as final, convert launch/resource/
+  persistence/publication failure into a null, close R07 from the collapsed proxy,
+  or rerun science after a prepared-publication fault.
+- **Boundary:** failed and stopped capsules may preserve a reverified partial index
+  only as inert evidence. They confer no result authority and close nothing.
+- **Artifacts:**
+  [`formal config`](../configs/proof_ancestry_pair_residual_run_v1.json) and
+  [`design`](O1C0026_PROOF_ANCESTRY_PAIR_RESIDUAL_DESIGN_20260718.md).
