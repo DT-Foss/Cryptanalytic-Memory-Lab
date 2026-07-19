@@ -1,0 +1,141 @@
+{
+  "MPS_or_GPU": false,
+  "analysis_only": true,
+  "attempt_id": "O1C-0071",
+  "classification": "O1C71_STATIC_RANK_CONTROLS_ORDER_BUT_CREATES_CALLBACK_VISIBLE_TAIL_COUNTER_PROPAGATION_FURNACE",
+  "fresh_reveal_calls": 0,
+  "fresh_targets": 0,
+  "matched_parent_comparison": {
+    "current": {
+      "decisions": 763,
+      "minimum_upper_bound": 19.297551436176224,
+      "native_cpu_microseconds": 15388436,
+      "native_wall_microseconds": 14818087,
+      "propagations": 91260183
+    },
+    "current_billed_conflicts": 513,
+    "delta": {
+      "decisions": -1534,
+      "minimum_upper_bound": 0.4509503201985865,
+      "native_cpu_microseconds": 14364834,
+      "native_wall_microseconds": 14501279,
+      "propagations": 90090357
+    },
+    "parent": {
+      "decisions": 2297,
+      "minimum_upper_bound": 18.846601115977638,
+      "native_cpu_microseconds": 1023602,
+      "native_wall_microseconds": 316808,
+      "propagations": 1169826
+    },
+    "parent_attempt": "O1C-0070",
+    "parent_billed_conflicts": 514,
+    "ratios": {
+      "decisions": 0.33217239878101873,
+      "native_cpu": 15.0336126736759,
+      "native_wall": 46.77308338173278,
+      "propagations": 78.01175815890568
+    },
+    "requested_conflicts": 512
+  },
+  "native_solver_calls": 0,
+  "next_mechanism": {
+    "attempt": "O1C-0072",
+    "bounded_state": "rank cursor plus at most 255 returned/released telemetry bits; independent of stream length",
+    "name": "backtrack-release-one-shot-ranked-reader",
+    "phase_calls": 0,
+    "prediction": "Preserve the initial evidence-ordered injection while eliminating all 244 reader-caused redecisions and the tail-counter propagation furnace.",
+    "rank_sweep": false,
+    "rule": "Consume the immutable rank monotonically; return each eligible ranked literal at most once; assigned rows are consumed; after a returned literal is backtracked it is never reasserted and all later handling delegates to CaDiCaL."
+  },
+  "ranked_callback": {
+    "call_256_is_zero": true,
+    "callback_visible_redecision_tail_ranks": [
+      249,
+      255
+    ],
+    "callback_visible_single_return_prefix_ranks": [
+      1,
+      248
+    ],
+    "calls": 763,
+    "first_fallback_call": 256,
+    "initial_rank_prefix_exact": true,
+    "initial_rank_prefix_length": 255,
+    "nonzero_returns": 499,
+    "redecisions": 244,
+    "returned_sequence_sha256": "97e54cdd043d610081c5edb0baae7268a5badde3e994b1e2b90feb7ec31f4171",
+    "solver_phase_calls": 0,
+    "tail": [
+      {
+        "literal": 201,
+        "rank": 249,
+        "redecision_returns": 1,
+        "total_returns": 2
+      },
+      {
+        "literal": 185,
+        "rank": 250,
+        "redecision_returns": 3,
+        "total_returns": 4
+      },
+      {
+        "literal": -1,
+        "rank": 251,
+        "redecision_returns": 7,
+        "total_returns": 8
+      },
+      {
+        "literal": -2,
+        "rank": 252,
+        "redecision_returns": 15,
+        "total_returns": 16
+      },
+      {
+        "literal": -115,
+        "rank": 253,
+        "redecision_returns": 31,
+        "total_returns": 32
+      },
+      {
+        "literal": 59,
+        "rank": 254,
+        "redecision_returns": 62,
+        "total_returns": 63
+      },
+      {
+        "literal": -60,
+        "rank": 255,
+        "redecision_returns": 125,
+        "total_returns": 126
+      }
+    ],
+    "tail_pattern": "truncated-binary-counter-powers-of-two-minus-horizon-edge",
+    "tail_redecision_sum": 244,
+    "unique_returned_variables": 255,
+    "zero_returns": 264
+  },
+  "recorded_at": "2026-07-19T19:32:28+02:00",
+  "refits": 0,
+  "schema": "o1-256-o1c71-ranked-decision-tail-cascade-analysis-v1",
+  "scientific_result": {
+    "conclusion": "The immutable rank strongly controls the solver, but same-sign reassertion after backtrack converts the seven weakest callback-visible ranks into a truncated binary counter, increasing propagation work without lowering the bound or producing recovery.",
+    "frontier_gain": false,
+    "novel_eligible_clauses": 0,
+    "public_model": false,
+    "static_rank_order_active": true
+  },
+  "source": {
+    "capsule": "runs/20260719_192742_O1C-0071_apple8-vault-ranked-decision-v1",
+    "capsule_artifacts_sha256": "c7bbbd9d7ad0d37b80b956a3ad8141254a460ddf763ae84109a067e0343294d9",
+    "decision_telemetry_sha256": "f582f8cfc6844321a04aee7c311220200bb465ad573876019c872454e1c4623a",
+    "native_result_sha256": "783611cf8819a5412c34de9aa8b827ccbfc9381bdd9785d586ae4baa1046798a",
+    "parent_native_result_sha256": "9955174a65e7c27d9d69074af01eddeeea8e3ced7b3fafa316e93e4e8f3580f0",
+    "parent_result": "research/O1C0070_APPLE8_VAULT_PHASE_READER_RESULT_20260719.json",
+    "parent_result_sha256": "778d2b91935ff2ae663ea706e5b7b66c8cfed2f02007ba8359e8c1cb7ff45cd7",
+    "result": "research/O1C0071_APPLE8_VAULT_RANKED_DECISION_RESULT_20260719.json",
+    "result_sha256": "84ffbe35ae83266dd4993ad70b6dc988f4a13a8595861c23f36f0d610334cb41"
+  },
+  "timezone": "Europe/Berlin",
+  "truth_key_bytes_read": false
+}

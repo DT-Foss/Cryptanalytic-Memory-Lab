@@ -1502,3 +1502,47 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [`interpretation`](O1C0070_APPLE8_VAULT_PHASE_READER_INTERPRETATION_20260719.md);
   capsule manifest
   `ca5e0dfc724dc541b5311e2fc1453fc017f4ccd562d510aad341a53188d194c2`.
+
+## B-0072 — Static confidence-ranked reassertion creates a propagation furnace
+
+- **Evidence:** O1C-0071 imports the unchanged 202-clause vault and applies one
+  frozen 255-variable `cb_decide` order with signed literals. Its sole
+  local-0/lineage-7 call requests `512`, observes/bills `513` conflicts, returns
+  native status `0`, makes no phase calls and emits no clause/model/key.
+- **Active order:** telemetry records `763` callback calls: `499` nonzero, `264`
+  zero/delegate, `255` unique variables, `244` redecisions and first fallback at
+  call `256`. Versus O1C-0070, decisions fall `2,297→763` (`-66.78%`) and
+  minimum UB rises `18.846601115977638→19.297551436176224` (`+0.45095`). This
+  proves strong order control.
+- **Failure mechanism:** ranks `1..248` form a callback-visible stable prefix
+  and are never returned twice. Only
+  tail ranks `249..255` are redecided, with `1/3/7/15/31/62/125` extra returns,
+  summing exactly to `244`. Repeated same-sign injection after backtrack forms a
+  truncated binary counter. Propagations rise from `1,169,826` to `91,260,183`
+  (`+90,090,357`, `78.01x`) and native wall from `0.316808` to `14.818087 s`
+  (`46.77x`) without frontier gain.
+- **Conclusion:** refute `H-CONFIDENCE-RANKED-DECIDE-075` for this static
+  same-sign reassertion rule. Classification is
+  `EPISODIC_VAULT_ACTIVE_RANKED_DECISION_NO_GAIN`: order is active, but `0`
+  novel clauses and no public model fail the gate. Lower decisions cannot be
+  relabeled as efficacy.
+- **Boundary:** the vault remains byte-identical at `202` clauses / `599,728`
+  literals / `2,399,911 B`. Threshold `14.606178797892962` and O1C-0066 episode
+  1 minimum UB `7.973483108047071` share metric/direction but not population or
+  statistic; `7.973...` is not an O1C-0068 result.
+- **Do not repeat:** rerun O1C-0071, replay lineage ordinal `7`, sweep rank
+  variants, add phase, change the horizon, cap the tail ad hoc or raise RAM.
+- **Breadcrumb:** precommit a new one-shot backtrack-release reader. Inject each
+  ranked bit at most once; after that bit is backtracked, permanently delegate
+  it to native CDCL. Prove the bounded state/sequence target-free under a new
+  attempt before one possible call.
+- **Artifacts:** authoritative
+  [`result`](O1C0071_APPLE8_VAULT_RANKED_DECISION_RESULT_20260719.json), SHA-256
+  `84ffbe35ae83266dd4993ad70b6dc988f4a13a8595861c23f36f0d610334cb41`;
+  [`interpretation`](O1C0071_APPLE8_VAULT_RANKED_DECISION_INTERPRETATION_20260719.md);
+  machine-readable
+  [`tail analysis`](O1C0071_RANKED_DECISION_TAIL_CASCADE_ANALYSIS_20260719.json),
+  SHA-256
+  `8172db9a9d8265f61a1b1191682db06f879939d99271b0f5ba96108f7ccb8259`;
+  capsule artifact manifest
+  `c7bbbd9d7ad0d37b80b956a3ad8141254a460ddf763ae84109a067e0343294d9`.

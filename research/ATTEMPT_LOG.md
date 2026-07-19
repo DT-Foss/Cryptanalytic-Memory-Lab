@@ -2714,3 +2714,68 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [`capsule`](../runs/20260719_181048_O1C-0070_apple8-vault-phase-reader-v1/RUN.md),
   manifest SHA-256
   `ca5e0dfc724dc541b5311e2fc1453fc017f4ccd562d510aad341a53188d194c2`.
+
+## O1C-0071 — APPLE8 vault-ranked decision
+
+- **Supersession:** this completed attempt consumes O1C-0070's sole forward
+  decision after the target-free rank, callback, public consequence, source and
+  capacity gates passed. It is a distinct lineage call, not a replay of ordinal
+  `6` or another phase call.
+- **Started:** 2026-07-19T19:27:38+02:00.
+- **Recorded:** 2026-07-19T19:28:15+02:00.
+- **Source commit:** `66400bc6cc76653fb0a4b2c5bd64af498f4a49d3`.
+- **Protocol:** exactly one fresh native subprocess imports the sealed 202-clause
+  vault, uses local ordinal `0`, lineage ordinal `7`, seed `0` and requested
+  512-conflict soft horizon. The reader orders the 255 nonzero-delta key
+  variables by descending absolute vault vote, descending singleton grouped-gap
+  and ascending variable, with frozen vote sign. Variable `241` is omitted.
+  Native uses `cb_decide`; phase calls and rank sweeps are both zero. No retry is
+  authorized.
+- **Result:** `EPISODIC_VAULT_ACTIVE_RANKED_DECISION_NO_GAIN`. Requested and
+  observed/billed conflicts are `512/513`; native status is `0`. The call emits
+  `0` eligible/novel/duplicate clauses and returns no model or key. Input/output
+  remain byte-identical at `202` clauses / `599,728` literals / `2,399,911 B`,
+  SHA-256
+  `cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858`.
+- **Active callback:** `763` `cb_decide` calls comprise `499` nonzero and `264`
+  zero/delegate returns, `255` unique variables and `244` redecisions. First
+  fallback is call `256`. Versus O1C-0070, decisions fall `2,297→763`
+  (`-1,534`, `-66.78%`), propagations rise
+  `1,169,826→91,260,183` (`+90,090,357`, `78.01x`), and minimum UB rises
+  `18.846601115977638→19.297551436176224` (`+0.45095`). Root UB remains
+  `262.68644197084643`.
+- **Tail-cascade diagnosis:** ranks `1..248` form a callback-visible stable
+  prefix and are never returned twice.
+  Ranks `249..255` incur `1/3/7/15/31/62/125` extra returns, summing to the
+  exact `244` redecisions. Static same-sign reassertion after backtrack builds a
+  truncated binary counter and a propagation furnace instead of opening a new
+  causal direction. Native wall rises `0.316808→14.818087 s` (`46.77x`) versus
+  O1C-0070; lower decisions are not gain.
+- **Threshold clarification:** `tau=14.606178797892962` and minimum UB use the
+  same compiled metric/direction but different populations/statistics. The
+  `7.973483108047071` comparison belongs to O1C-0066 episode 1, not O1C-0068;
+  strict `U(a)<tau` is only a safe local prune for the visited trail `a`.
+- **Resources and lineage:** runner elapsed `36.94019316699996 s`; native wall/
+  CPU `14.818087/15.388436 s`; native peak RSS `405,553,152 B`; runner peak RSS
+  `283,738,112 B`. Only ordinal `7` is consumed. Known completed lineage billing
+  becomes `3,592`; the full actual total remains `null` because failed ordinal
+  `2` is unbilled. One native call and zero key/truth/reveal/fresh-target/
+  entropy/refit/MPS/GPU work.
+- **Decision:** refute `H-CONFIDENCE-RANKED-DECIDE-075` for static same-sign
+  reassertion while retaining the strong-order-control evidence. Do not rerun
+  O1C-0071, replay ordinal `7`, sweep rank/phase/horizon or raise RAM. Next
+  precommit a backtrack-release/one-shot causal reader that injects every ranked
+  bit at most once and permanently delegates it after backtrack.
+- **Artifacts:** authoritative
+  [`result`](O1C0071_APPLE8_VAULT_RANKED_DECISION_RESULT_20260719.json), SHA-256
+  `84ffbe35ae83266dd4993ad70b6dc988f4a13a8595861c23f36f0d610334cb41`;
+  concise
+  [`interpretation`](O1C0071_APPLE8_VAULT_RANKED_DECISION_INTERPRETATION_20260719.md);
+  machine-readable
+  [`tail analysis`](O1C0071_RANKED_DECISION_TAIL_CASCADE_ANALYSIS_20260719.json),
+  SHA-256
+  `8172db9a9d8265f61a1b1191682db06f879939d99271b0f5ba96108f7ccb8259`;
+  sealed
+  [`capsule`](../runs/20260719_192742_O1C-0071_apple8-vault-ranked-decision-v1/RUN.md),
+  artifact-manifest SHA-256
+  `c7bbbd9d7ad0d37b80b956a3ad8141254a460ddf763ae84109a067e0343294d9`.

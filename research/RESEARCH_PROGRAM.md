@@ -324,12 +324,24 @@ emits zero clauses and no key and leaves the 202-clause vault byte-identical.
 Refute `H-VAULT-CONDITIONED-PHASE-074` specifically for phase-only gain; retain
 the active-not-inert trace.
 
-The direct successor must change the control surface, not the budget. Separately
-precommit a confidence-ranked `cb_decide`/variable-order operator using the
-sealed sign and magnitude field, prove its exact native consequence target-free,
-and give it a new attempt identity before any science call. No replay of ordinal
-`6`, second phase call, phase/confidence/horizon sweep, RAM scaling or broad
-vault infrastructure is authorized.
+O1C-0071 changes that control surface once. Its frozen 255-variable order makes
+`763` `cb_decide` calls (`499` nonzero / `264` zero), returns all 255 variables
+and then records `244` redecisions with no phase calls. Against O1C-0070,
+decisions fall `2,297→763` (`-66.78%`), but propagations rise
+`1,169,826→91,260,183` (`78.01x`), minimum UB rises to
+`19.297551436176224`, and native wall rises `0.316808→14.818087 s` (`46.77x`).
+No clause/model is produced. In the exact returned sequence, ranks `1..248`
+form a callback-visible stable prefix and are never returned twice; ranks
+`249..255` take `1/3/7/15/31/62/125` extras, a truncated
+binary-counter propagation furnace. Refute `H-CONFIDENCE-RANKED-DECIDE-075` for
+static same-sign reassertion while retaining strong order control.
+
+The direct successor must change callback causality, not the rank or budget.
+Separately precommit a backtrack-release/one-shot reader: inject each ranked bit
+at most once and permanently delegate it after backtrack. Prove its exact native
+sequence consequence target-free and give it a new attempt identity before any
+science call. No rerun of O1C-0071, replay of ordinal `7`, rank/phase/horizon
+sweep, RAM scaling or broad vault infrastructure is authorized.
 
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
@@ -657,9 +669,11 @@ evidence.
    phase-1 trajectory exactly equals O1C-0067 despite 190 extra imported
    clauses, so passive composition is closed. O1C-0070 applies the target-free
    active field once: it changes the trace and search telemetry but emits zero
-   clauses/key, closing phase-only gain. Build only a separately precommitted
-   confidence-ranked variable-order operator next; never replay ordinal `6`,
-   call phase again, sweep phase/confidence/horizon or blind-scale.
+   clauses/key, closing phase-only gain. O1C-0071 then applies ranked variable
+   order once: decisions fall to `763`, but 244 tail redecisions drive
+   `91,260,183` propagations and add no clause/key. Build only a separately
+   precommitted one-shot backtrack-release reader next; never rerun O1C-0071,
+   replay ordinal `7`, call phase, sweep rank/horizon or blind-scale.
    Any later role-credit test must precommit an attacker-visible outcome/utility
    condition rather than tune `-32`.
 6. Complementary phase has passed only its exact-exclusion mechanism gate. Once
@@ -741,10 +755,18 @@ evidence.
   decisions/propagations become `2,297/1,169,826`, and minimum UB becomes
   `18.846601115977638`, proving active steering. It emits zero clauses/key and
   preserves the 202-clause vault, so `H-VAULT-CONDITIONED-PHASE-074` is refuted
-  specifically for phase-only gain. The direct resume point is a separately
-  precommitted confidence-ranked `cb_decide` variable-order operator under a new
-  attempt. No replay, second phase call, phase/confidence/horizon sweep, naive
-  continuation, RAM scaling or broad compaction layer is authorized.
+  specifically for phase-only gain.
+- O1C-0071 applies the frozen 255-variable rank once at requested/billed
+  `512/513`, status `0`, with no phase calls. It records `763` callback calls,
+  `499` nonzero / `264` zero, `255` unique and `244` redecisions, but zero
+  clauses/model. Decisions fall `2,297→763`, while propagations rise to
+  `91,260,183` and native wall to `14.818087 s`. Tail ranks `249..255` account
+  for every redecision as `1/3/7/15/31/62/125`; ranks `1..248` are never
+  returned twice and form a callback-visible stable prefix. Static
+  same-sign ranked reinjection is closed. The direct resume point is a new
+  one-shot backtrack-release reader under a new attempt. No rerun, replay of
+  ordinal `7`, rank/phase/horizon sweep, naive continuation, RAM scaling or
+  broad compaction layer is authorized.
 
 ## Operating contract
 
