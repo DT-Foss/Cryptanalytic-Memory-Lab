@@ -2056,6 +2056,31 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [`result`](O1C0050_DELAYED_PAIR_CREDIT_SCREEN_RESULT_20260719.md) and
   [`capsule`](../runs/20260719_030657_O1C-0050_delayed-pair-credit-screen-v1/RUN.md).
 
+## O1C-0051 — Delayed pair-credit W11 promotion
+
+- **Recorded:** 2026-07-19T03:32:57+02:00.
+- **Hypothesis:** the unchanged O1C-0050 delayed owner rule expands exact
+  completion from W10 to W11 at the same 512-conflict cap.
+- **Protocol:** run delayed primary W11 first and require an exact publicly
+  verified truth key honoring the 245-bit prefix. Only a pass authorizes static
+  primary, both rotations and three Full256 calls.
+- **Result:** `DELAYED_PAIR_CREDIT_NO_EXACT_W11_CLOSE`. The sole call is
+  `UNKNOWN` at 512 conflicts, 513 decisions and 11,983,327 propagations. The
+  gate fails; all six follow-ups are skipped.
+- **Boundary:** consumed post-reveal ceiling, one call/512 requested conflicts;
+  telemetry and wall cannot pass; zero fresh/sibling/MPS/GPU work.
+- **Mechanism localization:** after bit 177 joins the residual, conflict-owner
+  undos flip from `(143,144)` `227→1` and `(59,60)` `55→382`. Scalar unary
+  group credit is context/action blind: all four pair masks share one credit and
+  502/513 decisions repeat. This does not validate a replacement.
+- **Resources:** 5.6889655 s wall, 128,335,872 B peak RSS.
+- **Decision:** close delayed unary credit on these fixed pairs. Test only a
+  bounded context/action-conditioned state at unchanged groups and cap, beginning
+  with `4×63` per-pattern credits; do not sweep weights or assume static edges.
+- **Artifacts:**
+  [`result`](O1C0051_DELAYED_PAIR_CREDIT_PROMOTION_RESULT_20260719.md) and
+  [`capsule`](../runs/20260719_033251_O1C-0051_delayed-pair-credit-promotion-v1/RUN.md).
+
 ## APPLE-VIEW-0006 — Held-out streaming proof-credit transfer
 
 - **Recorded:** 2026-07-19T03:11:06+02:00, isolated parallel track.

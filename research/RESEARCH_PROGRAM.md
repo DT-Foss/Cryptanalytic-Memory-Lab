@@ -210,6 +210,15 @@ reward. This is a real consumed exact-work gain below Full-256. One unchanged
 W11 primary call now decides frontier expansion; only success pays matched
 controls and Full-256 calls.
 
+O1C-0051 performs that sole W11 call and returns `UNKNOWN` at 512 conflicts / 513
+decisions, so the exact gate fails and all six follow-ups remain unrun. When bit
+177 joins the residual, conflict-owner concentration flips from `(143,144)`
+`227→1` to `(59,60)` `55→382`. Close scalar delayed group credit: its unary state
+is blind to residual context and action polarity. All four masks share one group
+credit and 502/513 decisions repeat. The only distinct successor keeps groups
+and cap fixed while bounding per-pattern context/action credit, beginning with
+`4×63` cells; no static-edge assumption or tuning sweep.
+
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
 targets. AUC 0.50572, -0.484 gained key bits and zero recoveries close that exact
@@ -475,8 +484,10 @@ evidence.
    into static reversible pairs: its global gate fails, but primary now beats both
    rotations at W8/W9. O1C-0049 adds decision-local credit, improves W8/W9 but
    loses W10 because its tickets expire before backtracks. Preserve all
-   score/group bytes and test one bounded delayed eligibility horizon; no weight
-   or group sweep precedes it.
+   score/group bytes. O1C-0050's delayed horizon improves W10, while O1C-0051
+   fails unchanged at W11 and reveals a sharp owner-group role reversal after
+   freeing bit 177. Close unary credit; test only bounded per-pattern
+   context/action credit with no weight, group or cap sweep.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.

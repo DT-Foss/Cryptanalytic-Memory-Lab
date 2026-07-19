@@ -98,6 +98,13 @@
   exactly 1,134 state bytes. All 302 backtracks carry conflict credit; seven
   groups differentiate and no assignment/propagation bonus remains. This earns
   one W11 primary call before any rotations or Full-256 promotion.
+- **O1C-0051:** the unchanged delayed-primary scheduler does not extend to W11.
+  Its sole call returns `UNKNOWN` at `512` conflicts / `513` decisions, so the
+  exact gate fails and all six static/rotation/Full256 follow-ups remain unrun.
+  Freeing bit 177 flips conflict-owner concentration from `(143,144)` at
+  `227→1` to `(59,60)` at `55→382`; close unary group credit as context/sequence
+  blind. All four pair masks share one credit while 502/513 decisions repeat;
+  test bounded context/action-conditioned per-pattern credit next.
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
@@ -116,9 +123,10 @@
   `248/248/251/250` versus the best fixed structural
   `251/252/257/255` (aggregate `997` versus `1,015`) and aggregate immediate
   public gain `1,013`. Proof relevance transfers; early scheduling does not yet.
-- **Next paid experiment:** run unchanged delayed primary at W11 once. Exact
-  completion earns matched static/rotation W11 and Full-256 calls; failure closes
-  delayed credit on disjoint pairs. No group, weight or cap change intervenes.
+- **Next paid experiment:** freeze bounded context/action-conditioned credit over
+  the same 63 groups and unchanged 512-conflict cap, beginning with one credit
+  per four pair patterns (`4×63`). Do not tune unary weights, pair membership or
+  the cap, and do not assume a static predecessor-edge model.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -132,8 +140,10 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** O1C-0050 is positive and frozen; its W11 promotion screen
-  is being built. APPLE-VIEW-0006 is complete. Its only warranted Apple
+- **Active local run:** O1C-0051 is negative and frozen; delayed unary owner
+  credit is closed beyond W10. Its only warranted successor conditions bounded
+  credit on context/action polarity. APPLE-VIEW-0006 is complete.
+  Its only warranted Apple
   successor changes unary identity counts to proof-edge/predecessor credit and
   must improve raw held-out first-conflict work, not merely certificate size.
   Sibling repositories remain read-only and untouched.
@@ -142,7 +152,7 @@
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
-  [O1C-0050 delayed credit gain](research/O1C0050_DELAYED_PAIR_CREDIT_SCREEN_RESULT_20260719.md)
+  [O1C-0051 delayed W11 close](research/O1C0051_DELAYED_PAIR_CREDIT_PROMOTION_RESULT_20260719.md)
   and [APPLE-VIEW-0006 held-out proof-credit transfer](research/apple_view_6/apple_view_6_report.md).
 
 ## Headline
@@ -195,6 +205,11 @@ loses at W10 and leaves Full-256 exactly unchanged. The state telemetry explains
 the failure without a sweep: action tickets expire at the next decision, while
 all Full-256 backtracks arrive later. The next adapter changes only this causal
 horizon by retaining a bounded eligibility trace across advances.
+O1C-0050 makes that repair and reduces exact W10 work from 310 to 302 conflicts,
+but O1C-0051 stops `UNKNOWN` at the unchanged W11 cap. The dominant conflict
+owner reverses from `(143,144)` to `(59,60)` when bit 177 joins the residual.
+Delayed unary credit is therefore closed; only bounded context/action-conditioned
+per-pattern credit is a distinct next operator.
 In parallel APPLE-VIEW-0005 finds the first exact sparse carry certificate:
 250 of 336 high-carry identities suffice to reject a complete wrong key on the
 fixed matrix, with independent proof replay. APPLE-VIEW-0006 then performs the

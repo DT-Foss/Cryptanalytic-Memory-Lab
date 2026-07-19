@@ -170,6 +170,7 @@ attacker-valid cipher evidence.
 | `O1C-0048-PAIR-ENVELOPE` | Soft reversible global max-envelope decisions over 63 frozen key pairs | `CONSUMED_SEARCH_DIAGNOSTIC`; Full-256 rows attacker-valid, residual rows post-reveal | Full-256 0/4; residual maxima 8/9/9/9; primary conflicts W8/W9 75/155 versus internal 217/UNKNOWN, key 195/331, clause 89/167; frozen all-arm gate fails | [Result](research/O1C0048_PAIR_ENVELOPE_SEARCH_RESULT_20260719.md) |
 | `O1C-0049-ONLINE-PAIR-CREDIT` | 630-byte live credit over the same 63 frozen pair groups | `CONSUMED_EFFECT_SCREEN`; Full-256 pre-reveal, residual rows post-reveal | Full-256 unchanged at 513 conflicts/10,802 decisions; W8/W9 improve 75/155→65/128, W10 regresses 310→320; absolute gate fails because short tickets receive zero delayed Full-256 backtrack credit | [Result](research/O1C0049_ONLINE_PAIR_CREDIT_SCREEN_RESULT_20260719.md) |
 | `O1C-0050-DELAYED-PAIR-CREDIT` | Trail-resident delayed credit over the same 63 pair groups | `POST_REVEAL_MECHANISM_SCREEN`; exact W10 | exact W10 conflicts 310→302 (-2.58%), decisions 315→307; 302 conflict-owner undos, seven differentiated groups, 1,134 B bounded state; prospective gate passed | [Result](research/O1C0050_DELAYED_PAIR_CREDIT_SCREEN_RESULT_20260719.md) |
+| `O1C-0051-DELAYED-W11-PROMOTION` | Unchanged delayed owner credit at the next residual frontier | `CONSUMED_POST_REVEAL_PROMOTION_SCREEN`; W11 | `UNKNOWN` at 512 conflicts/513 decisions/11,983,327 propagations; exact gate fails after one call, so no static/rotation/Full256 work runs; dominant owner flips `(143,144)` 227→1 and `(59,60)` 55→382 after freeing bit 177 | [Result](research/O1C0051_DELAYED_PAIR_CREDIT_PROMOTION_RESULT_20260719.md) |
 | `APPLE-VIEW-0005-SPARSE-CARRY` | Sparse exact c31-identity certificates for complete wrong Full-256 candidates | `CONSUMED_FULL256_CANDIDATE_FILTER`; no key-generation/entropy claim | 20/20 exact wrong-candidate conflicts; every reason-DAG slice independently replays with 250–265/336 identities, best 250 (86 omitted); 5/5 truth controls complete | [Result](research/apple_view_5/apple_view_5_report.md) |
 | `APPLE-VIEW-0006-PROOF-CREDIT-TRANSFER` | One-pass 1,346-byte proof-frequency/recency state frozen before disjoint Full20/Full256 candidate filters | `HELDOUT_CERTIFICATE_TRANSFER_WITH_SCHEDULER_LOSS`; no key-generation/entropy claim | raw learned order loses 1,268 vs best structural 1,031 total first-conflict switches; independently replayed learned certificates win 4/4 at 248/248/251/250 vs best structural 251/252/257/255, aggregate 997 vs 1,015 and immediate-public 1,013; zero held-out updates, all truth controls complete | [Result](research/apple_view_6/apple_view_6_report.md) |
 
@@ -251,6 +252,11 @@ O1C-0050 makes that one change and passes: exact W10 work falls from 310 to 302
 conflicts with a 1,134-byte state. This is an absolute consumed residual-search
 gain, not public-only key recovery. One unchanged W11 call now decides whether
 the effect expands the exact frontier before controls and Full-256 are paid.
+O1C-0051 answers no: delayed primary is `UNKNOWN` at the unchanged 512-conflict
+W11 cap, and the frozen branch correctly skips all six follow-ups. Freeing bit
+177 reverses the dominant conflict-owner group from `(143,144)` to `(59,60)`.
+Close scalar unary group credit; the only distinct successor conditions bounded
+credit on context/action polarity without changing groups or cap.
 APPLE-VIEW-0005 supplies a separate exact candidate-filter frontier. Its depth-30
 base plus a proof-replayed subset of only 250 high-carry identities rejects a
 complete wrong 256-bit key while omitting 86 of the 336 missing equations. This

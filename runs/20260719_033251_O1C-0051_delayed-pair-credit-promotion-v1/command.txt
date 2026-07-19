@@ -1,0 +1,1 @@
+PYTHONPATH=src python3 -m o1_crypto_lab.o1c51_delayed_pair_credit_promotion

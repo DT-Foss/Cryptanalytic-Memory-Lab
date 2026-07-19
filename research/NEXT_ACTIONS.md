@@ -1,12 +1,12 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T03:15:43+02:00.
+Last ranked: 2026-07-19T03:32:57+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Run the unchanged O1C-0050 delayed primary once at W11 under the same 512-conflict cap | State of the art | Extreme | Extreme | Low | Exact W11 proves frontier expansion and unlocks matched rotations/static plus Full-256; failure closes this scheduler |
+| 1 | Replace delayed unary group credit with bounded context/action-conditioned per-pattern credit at unchanged groups and 512-conflict cap | State of the art | Extreme | Extreme | Low | Tests whether distinguishing the four actions within each group repairs O1C-0051's repeated raw-top choices |
 | 2 | Replace APPLE-VIEW-0006 unary identity counts with bounded proof-edge/predecessor credit and require a raw held-out first-conflict win | State of the art | Extreme | Extreme | Medium | Tests whether transferred proof membership can become conflict-closing sequence rather than only post-conflict certificate compression |
-| 3 | If delayed credit passes the absolute primary gate, immediately run matched key/clause rotations; if it fails, close live credit on disjoint pairs | State of the art | High | Extreme | Low | Prevents another scheduler sweep and decides whether to retain groups or change the operator unit |
+| 3 | Keep O1C-0051 delayed unary credit closed; do not pay its skipped static/rotation/Full256 calls or resweep groups, weights or cap | Operational | High | Extreme | Zero | Preserves the exact one-call stop rule and forces the next operator to add relational context |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 | 5 | Keep static pair resweeps, independent-carry quotients, occurrence scoring and the closed unary field parked | Operational | High | High | Zero | Preserves measured boundaries while compute moves to live credit and globally consistent carry structure |
 
@@ -45,8 +45,10 @@ Last ranked: 2026-07-19T03:15:43+02:00.
   W8/W9 work by 13.3%/17.4% but loses W10 by 3.2% and leaves Full-256 exactly
   unchanged. Its group credit horizon ends before every Full-256 backtrack.
 - **Delayed credit effect:** O1C-0050 fixes only that horizon and recovers exact
-  W10 in 302 conflicts versus static 310 with 1,134 state bytes. W11 is the next
-  and only frontier discriminator before promotion.
+  W10 in 302 conflicts versus static 310 with 1,134 state bytes. O1C-0051 then
+  stops `UNKNOWN` at W11 after one 512-conflict call, so no promotion work runs.
+  Freeing bit 177 flips dominant conflict owners `(143,144)→(59,60)`; unary
+  credit is closed and bounded action/polarity context is the sole successor.
 - **Bias-free algebraic boundary:** APPLE-VIEW-0002 proves that independently
   lifted carries span all 512 output equations and leave exact key rank zero.
   APPLE-VIEW-0004 adds exact backward output propagation: depth 30 infers
@@ -58,8 +60,8 @@ Last ranked: 2026-07-19T03:15:43+02:00.
   `997` versus `1,015` and immediate public gain `1,013`. Its raw order loses
   `1,268` versus `1,031` first-conflict switches, so certificate transfer and
   scheduling remain separate frontiers.
-- **Next measurable advance:** delayed group eligibility strictly improves the
-  shared W10 frontier or bounded proof-edge credit beats the best structural
+- **Next measurable advance:** bounded context/action-conditioned group credit
+  closes W11 at the same cap, or bounded proof-edge credit beats the best structural
   carry order on raw held-out first-conflict work. Exact 256 remains the moonshot.
 
 ## Effect-first stop rules
@@ -121,6 +123,10 @@ Last ranked: 2026-07-19T03:15:43+02:00.
   Full-256 is unchanged because decision-local tickets close before feedback.
   Do not sweep credit weights. Permit exactly one causal-horizon repair: a
   bounded trace of decisions later removed by backtrack.
+- O1C-0050's horizon repair passes W10, but O1C-0051 fails its sole W11 gate and
+  correctly skips controls/Full256. Close scalar delayed owner credit. The
+  `(143,144)`/`(59,60)` role reversal plus 502/513 repeated choices permits one
+  bounded `4×63` per-pattern credit test only; no group, unary-weight or cap sweep.
 - APPLE-VIEW-0001 closes fixed-point/output-distance descent. APPLE-VIEW-0002
   closes the quotient in which all carries are independent. APPLE-VIEW-0003
   closes uniform carry-depth plus forward ternary propagation: even depth 30
