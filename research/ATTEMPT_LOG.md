@@ -2254,3 +2254,71 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   H-CONTEXT-ACTION-CREDIT-061 rather than another Apple reader.
 - **Artifact:** [`isolated result`](apple_view_7/apple_view_7_report.md), commit
   `87ead9e`.
+
+## O1C-0056 — Exact learned-clause one-role credit screen
+
+- **Recorded:** 2026-07-19T06:17:16+02:00.
+- **Protocol:** one post-reveal primary W11 call at seed 0/512 conflicts. Each
+  exact learned clause selects one opposite-sign live external-decision owner:
+  greatest owner level, then group/member order. The selected action receives
+  exactly one fixed `-32` update in the unchanged 2,662-byte state.
+- **Result:** `CLAUSE_ROLE_CREDIT_MEMBERSHIP_NO_EXACT_W11_CLOSE`; `UNKNOWN` at
+  512 conflicts/513 decisions/12,013,641 propagations. All 512 clauses have
+  membership and select one current-level role. Of 2,662 matched members, 2,150
+  are discarded; 508 clauses are multi-member, with zero below-current
+  selections and zero deepest-level ties. The 512 updates total 16,384 units;
+  18 persistent cells/seven groups differentiate, 142 actions reorder and
+  502/513 decisions repeat.
+- **Comparison:** versus O1C-0055 all-member credit, conflicts and decisions are
+  unchanged, propagations fall by 69,836, reorderings by 25 and selected credit
+  updates from 2,057 to 512. Native wall rises from 1.590827 s to 1.928103 s.
+  Neither difference closes the exact gate.
+- **Resources:** 5.687863334 s total wall, 1.928103 s native wall,
+  127,057,920 B peak and exactly 2,662 B state; no tuning, promotion, rotation,
+  sweep, fresh-target, sibling, MPS or GPU work.
+- **Decision:** refute fixed negative deepest/current-owner `-32` only. Owner
+  localization is exact and should not be revisited. A later causal successor
+  must condition the retained role on outcome/utility because conflicts can be
+  productive; immediate ROI moves to Apple joint-score and O1C-0057.
+- **Artifacts:**
+  [`result`](O1C0056_CLAUSE_ROLE_CREDIT_SCREEN_RESULT_20260719.md) and
+  [`capsule`](../runs/20260719_061710_O1C-0056_clause-role-credit-screen-v1/RUN.md);
+  authoritative JSON SHA-256
+  `f2dda492e7c6af7d0cea12a9aeb33ae5da7b08d8e4e352c18b695f9683a48740`,
+  manifest `ba7f92ebd96cc7879b2d3321be905ffb5b0ec52563fa0dcda08c821066f1dfac`,
+  source freeze `9de519a973595b76f8a2ef512a5edc518499901a`.
+
+## O1C-0057 — Multi-block parent-criticality rank transfer
+
+- **Started:** 2026-07-19T06:27:56+02:00.
+- **Recorded:** 2026-07-19T06:29:32+02:00.
+- **Hypothesis:** the unchanged transferred O1C-0043 parent-criticality reader
+  compounds rather than dilutes its complete-key signal when additional
+  attacker-visible blocks from the same fresh key and nonce enter the stream.
+- **Protocol:** one fresh uniform Full-256 target; eight contiguous public blocks;
+  one shared panel of 4,096 decoys plus hidden truth; primary, key-rotated and
+  clause-rotated scores at prefixes 1/2/4/8. Reader state, decoy calibration and
+  all rank inputs freeze before one reveal; no refit, reweighting or sign choice.
+- **Result:** `MULTIBLOCK_PARENT_CRITICALITY_COMPOUNDING_TRANSFER`. Primary truth
+  ranks are `8/7/1/1` of 4,097. At prefix 8, key and clause rotations rank
+  `3581/4037`; truth z is `+5.57888245`, and both the threshold and strict
+  control-margin gates pass. Mean primary cross-block decoy correlation is
+  `0.11818565`.
+- **Boundary:** prefix-8 rank 1 is `12.000352` bits of discrimination inside the
+  supplied panel. Candidate generation happened upstream. This is a transferred
+  full-key scorer/orderer, not free key generation, `2^256` enumeration or exact
+  recovery.
+- **Resources:** 95.894570834 s elapsed, 193,544,192 B peak RSS, 32,776 candidate
+  forward evaluations, 4,096 native probe branches, one fresh target/entropy/
+  reveal; zero solver calls, sibling reads/writes, MPS or GPU work.
+- **Decision:** support H-MULTIBLOCK-PARENT-CRITICALITY-067. Freeze the prefix-8
+  scorer and integrate it into attacker-generated partial-assignment or bounded
+  exact-search ordering. Do not treat a larger supplied decoy panel as the next
+  scientific advance.
+- **Artifacts:**
+  [`result`](O1C0057_MULTIBLOCK_PARENT_CRITICALITY_RANK_RESULT_20260719.md) and
+  [`capsule`](../runs/20260719_062932_O1C-0057_multiblock-parent-criticality-rank-v1/RUN.md);
+  authoritative JSON SHA-256
+  `bae7899503ec0d349dd7da51ebaca3cef2982c4e53d1ca560adcffe7bff47971`,
+  manifest `008b985868b18160711be70cc9fa2a7697d5888c5515702caef72228ea2a742e`,
+  source freeze `ba44cbd064499b68e665aade71d15dca0c672b71`.

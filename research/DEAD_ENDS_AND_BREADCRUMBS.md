@@ -1188,3 +1188,47 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   The consumed truth view penalizes true masks in 6/8 groups and is not success.
 - **Artifact:** authoritative
   [`O1C-0055 result`](O1C0055_LEARNED_CLAUSE_CREDIT_SCREEN_RESULT_20260719.md).
+
+## B-0061 — Exact owner localization does not make fixed negative conflict credit useful
+
+- **Evidence:** O1C-0056 replaces O1C-0055's all-member fan-out with one frozen
+  deepest/current-level owner per exact learned clause. All 512 clauses select
+  exactly one role; 508 are multi-member, 2,150/2,662 matched members are
+  discarded, all selections are current-level and no tie occurs.
+- **Result:** W11 remains `UNKNOWN` at 512 conflicts/513 decisions/12,013,641
+  propagations. The 512 `-32` updates still occupy 18 cells/seven groups, reorder
+  142 actions and leave 502/513 repeated decisions. Relative to O1C-0055,
+  propagations fall 69,836 but native wall rises 0.337276 s.
+- **Conclusion:** owner localization works exactly and removes diffuse fan-out;
+  localization was not the remaining bottleneck. A conflict is not necessarily
+  evidence that its unique deepest owner has negative utility, because productive
+  conflicts can advance the proof.
+- **Do not repeat:** tune the negative sign, scale, groups, cap or tie rule, or
+  revisit all-member versus one-owner localization on this consumed target.
+- **Breadcrumb:** retain the exact unique current-level role as an address. If
+  the causal branch resumes after the higher-ROI O1C-0057 search conversion and
+  Apple joint-score tracks, condition role credit on measured outcome/utility rather
+  than applying fixed negative blame. This is a successor hypothesis, not an
+  observed effect.
+- **Artifact:** authoritative
+  [`O1C-0056 result`](O1C0056_CLAUSE_ROLE_CREDIT_SCREEN_RESULT_20260719.md).
+
+## B-0062 — Multi-block rank transfer is a scorer, not a candidate generator
+
+- **Evidence:** O1C-0057 applies the unchanged parent-criticality reader to one
+  fresh uniform Full-256 target across 1/2/4/8 contiguous public blocks. Primary
+  truth ranks improve `8→7→1→1` of 4,097; prefix-8 key/clause rotations rank
+  `3581/4037`, and the frozen prediction passes at z `+5.57888245`.
+- **Conclusion:** public blocks compound a transferable complete-candidate
+  ordering signal. This is a strong positive breadcrumb and the present
+  full-key scoring frontier. Its `12.000352` rank bits are measured only inside
+  a panel whose 4,096 decoys and truth were already supplied.
+- **Do not repeat:** spend the next run only increasing the number of supplied
+  decoys, reinterpret panel rank as recovered key entropy, or claim that the
+  scorer generates candidates from the full `2^256` domain.
+- **Breadcrumb:** preserve the frozen prefix-8 score and attach it to
+  attacker-generated partial assignments or live exact-search branches. A
+  predeclared matched-work, effective-width or verified beam-rank gain is the
+  next conversion test.
+- **Artifact:** authoritative
+  [`O1C-0057 result`](O1C0057_MULTIBLOCK_PARENT_CRITICALITY_RANK_RESULT_20260719.md).

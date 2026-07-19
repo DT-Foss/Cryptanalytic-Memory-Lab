@@ -175,6 +175,8 @@ attacker-valid cipher evidence.
 | `O1C-0053-DEEPEST-SURVIVOR-SUPPORT` | One positive `+32` update to the deepest exact pair action surviving each conflict backjump | `CONSUMED_POST_REVEAL_SURVIVOR_SUPPORT_SCREEN`; W11 negative | `UNKNOWN` at 512 conflicts/513 decisions/12,068,568 propagations; 512 support updates and 16,384 units reorder 111 actions but differentiate only two groups; 2,646 B state | [Result](research/O1C0053_DEEPEST_SURVIVOR_SUPPORT_SCREEN_RESULT_20260719.md) |
 | `O1C-0054-GLOBAL-FACTOR-BOUND` | Admissible independent factor maxima over all partial key prefixes with an unconditional width-256 public Full256 beam | `CONSUMED_POST_REVEAL_GLOBAL_BOUND_SCREEN`; Full256/W11 negative | Full256 0/256, truth first lost at pair stage 5, final top/min Hamming 120/116; W11 1,024 pops/14 forwards/zero certified leaves; 24,624 B logical Full256 state | [Result](research/O1C0054_GLOBAL_FACTOR_BOUND_SCREEN_RESULT_20260719.md) |
 | `O1C-0055-LEARNED-CLAUSE-CREDIT` | Exact minimized learned-clause membership with `-32` on every represented live-owner action | `CONSUMED_POST_REVEAL_EXACT_LEARNED_CLAUSE_SCREEN`; W11 negative | `UNKNOWN` at 512 conflicts/513 decisions/12,083,477 propagations; all 512 clauses match, but only 18 unique cells/seven groups differentiate; 2,662 B state | [Result](research/O1C0055_LEARNED_CLAUSE_CREDIT_SCREEN_RESULT_20260719.md) |
+| `O1C-0056-CLAUSE-ROLE-CREDIT` | One fixed `-32` update to the deepest exact live-owner role in each matched learned clause | `CONSUMED_POST_REVEAL_EXACT_CLAUSE_ROLE_CREDIT_SCREEN`; W11 negative | `UNKNOWN` at 512 conflicts/513 decisions/12,013,641 propagations; all 512 clauses select exactly one current-level role, discarding 2,150/2,662 matched members; 508 multi-member clauses, zero ties, 18 cells/seven groups, 2,662 B state | [Result](research/O1C0056_CLAUSE_ROLE_CREDIT_SCREEN_RESULT_20260719.md) |
+| `O1C-0057-MULTIBLOCK-CRITICALITY` | Unchanged O1C-0043 parent-criticality reader compounded across 1/2/4/8 public blocks from one fresh uniform Full-256 target | `MULTIBLOCK_PARENT_CRITICALITY_COMPOUNDING_TRANSFER`; prospective scorer/orderer, no key generation or recovery | primary truth ranks 8/7/1/1 of 4,097; prefix-8 key/clause rotations 3581/4037; truth z +5.57888245; ~12.000352 rank bits inside supplied panel; 95.8946 s, 193,544,192 B peak | [Result](research/O1C0057_MULTIBLOCK_PARENT_CRITICALITY_RANK_RESULT_20260719.md) |
 | `APPLE-VIEW-0005-SPARSE-CARRY` | Sparse exact c31-identity certificates for complete wrong Full-256 candidates | `CONSUMED_FULL256_CANDIDATE_FILTER`; no key-generation/entropy claim | 20/20 exact wrong-candidate conflicts; every reason-DAG slice independently replays with 250–265/336 identities, best 250 (86 omitted); 5/5 truth controls complete | [Result](research/apple_view_5/apple_view_5_report.md) |
 | `APPLE-VIEW-0006-PROOF-CREDIT-TRANSFER` | One-pass 1,346-byte proof-frequency/recency state frozen before disjoint Full20/Full256 candidate filters | `HELDOUT_CERTIFICATE_TRANSFER_WITH_SCHEDULER_LOSS`; no key-generation/entropy claim | raw learned order loses 1,268 vs best structural 1,031 total first-conflict switches; independently replayed learned certificates win 4/4 at 248/248/251/250 vs best structural 251/252/257/255, aggregate 997 vs 1,015 and immediate-public 1,013; zero held-out updates, all truth controls complete | [Result](research/apple_view_6/apple_view_6_report.md) |
 | `APPLE-VIEW-0007-PROOF-EDGE-TRANSFER` | One-pass 113,570-byte proof-DAG edge/root/terminal state with one frozen static strongest-predecessor reader | `HELDOUT_STATIC_EDGE_SCHEDULER_NEGATIVE`; no key-generation/entropy claim | raw edge order loses 1,340 vs exact APPLE6 unary 1,268 and best structural 1,031; certificate 1,003 beats fixed 1,015 but loses unary 997 and cannot pass; all 28 wrong passes, proof replays, freeze checks and truth controls exact | [Result](research/apple_view_7/apple_view_7_report.md) |
@@ -217,11 +219,12 @@ but the exact unique-leaf sum is not promoted to live solver guidance.
 O1C-0043 preserves the ordered causal information that leaf union erased. Its
 BUILD-fitted 15-channel reader concentrates both consumed DEVELOPMENT keys and
 one unchanged consumed repeat with large endpoint-control margins. It is the
-current joint-rank frontier and now requires exactly one sealed fresh replication.
+then-current joint-rank frontier and requires exactly one sealed fresh replication.
 O1C-0044 supplies that prospective replication at `54/4097` with large margins
 over both endpoint rotations. Because scoring still performs a complete forward
 execution for every candidate, promotion now requires equal-work exact-search or
-residual-domain reduction, not another rank panel.
+residual-domain reduction. O1C-0057 separately tests the predeclared multi-block
+compounding question before the score enters that conversion.
 O1C-0045 supplies that conversion losslessly. Its potential family expands the
 consumed post-reveal completion frontier from residual width eight to nine, but
 both rotations outperform primary and Full-256 remains unresolved. O1C-0046
@@ -276,6 +279,18 @@ O1C-0055 then makes contradiction membership exact. All 512 learned clauses
 match live owners, but indiscriminate `-32` reproduces O1C-0052's 18-cell,
 seven-group diffusion and still fails W11. Retain the hook and select one exact
 member by current-level/deepest clause role; do not tune sign or scale.
+O1C-0056 performs that localization exactly, selects one unique current-level
+owner in all 512 conflicts and still leaves W11 unresolved. This closes fixed
+negative conflict credit, not the address. O1C-0057 then returns to the stronger
+public-evidence frontier: on one fresh target, the unchanged parent-criticality
+reader ranks truth `8/7/1/1` of 4,097 across 1/2/4/8 public blocks, while the
+prefix-8 rotations rank `3581/4037`. The frozen prediction passes at truth z
+`+5.57888245`, establishing prospective multi-block compounding and roughly 12
+bits of discrimination inside the supplied panel. Candidates were supplied, so
+this is the current complete-key scoring/order frontier—not key generation,
+domain enumeration or exact recovery. The next conversion must order
+attacker-generated partial assignments or bounded exact-search branches under a
+matched-work/width/beam gate; a larger decoy panel alone is not progress.
 APPLE-VIEW-0005 supplies a separate exact candidate-filter frontier. Its depth-30
 base plus a proof-replayed subset of only 250 high-carry identities rejects a
 complete wrong 256-bit key while omitting 86 of the 336 missing equations. This
@@ -310,6 +325,7 @@ Existing sibling-project recoveries are baselines, not results of this integrati
 | `O1C-0053-N1` | Deepest surviving trail action as a proxy for retained conflict causality | `CONSUMED_POST_REVEAL_SURVIVOR_SUPPORT_SCREEN` negative | W11 `UNKNOWN` at 512 conflicts; 512 support updates/16,384 units, 111 reorders and only two differentiated groups; post-result truth view puts the true mask supported/top in 4/8 active groups and 9,472/16,384 units on true masks | Close survival despite nonzero truth alignment: the diagnostic is consumed, did not close W11 and authorizes exact antecedent membership, not `+32` tuning | [Result](research/O1C0053_DEEPEST_SURVIVOR_SUPPORT_SCREEN_RESULT_20260719.md) |
 | `O1C-0054-N1` | Sum of independent per-factor maxima as an admissible global prefix bound | `CONSUMED_POST_REVEAL_GLOBAL_BOUND_SCREEN` negative | Public Full256 recovers 0/256 and loses truth at stage 5; post-reveal W11 reaches 1,024 unscored pops with 14 forwards and zero certified leaves | Exact W12 truth rank 5 requires coordinated factor assignments that the separable envelope discards; close without width/order/cap tuning and retain exact learned-clause membership as the active path | [Result](research/O1C0054_GLOBAL_FACTOR_BOUND_SCREEN_RESULT_20260719.md) |
 | `O1C-0055-N1` | Negative credit to every exact live-owner member of each learned clause | `CONSUMED_POST_REVEAL_EXACT_LEARNED_CLAUSE_SCREEN` negative | 512/512 clauses match; average 5.24 owners/4.02 cells per conflict, yet W11 is `UNKNOWN`, 18 unique cells/seven groups match O1C-0052 and 502/513 decisions repeat | Exact membership is real but all-member blame is diffuse; close sign/scale tuning and select one exact role-conditioned member | [Result](research/O1C0055_LEARNED_CLAUSE_CREDIT_SCREEN_RESULT_20260719.md) |
+| `O1C-0056-N1` | Fixed negative credit to one deepest/current-level exact owner role per learned clause | `CONSUMED_POST_REVEAL_EXACT_CLAUSE_ROLE_CREDIT_SCREEN` negative | 512/512 clauses select one unique current-level role and discard 2,150 matched members, but W11 remains `UNKNOWN`; propagations fall 69,836 while native wall rises 0.337276 s, and 18 cells/seven groups persist | Owner localization is complete; close fixed negative credit without sign/scale/cap tuning. Park any utility-conditioned successor behind O1C-0057 search conversion and Apple joint-score | [Result](research/O1C0056_CLAUSE_ROLE_CREDIT_SCREEN_RESULT_20260719.md) |
 | `O1C-0040-N1` | H16 branch-difference clause occurrence transfers structural relation accuracy but does not rank the target key | `POST_REVEAL` consumed diagnostic | raw primary ranks 1905/4097 and 2292/4097; surprise 1078/4097 and 1461/4097; key-rotated surprise 107/4097 and 423/4097 | Close occurrence and its one structural-surprise correction; retain exact proof stream and extract branch-exclusive signed antecedent chains |
 | `O1C-0042-N1` | Unique signed leaf collapse does not reproduce its consumed-panel chain-rank concentration on one fresh key | `TEST` fresh negative | primary 1371/4097 versus frozen best-quarter gate; key/factor controls 1399/3385; exact freeze/reveal lifecycle | Close this leaf-sum reader; preserve ordered parent role and clause criticality next |
 | `O1C-0000-N1` | Equal-cell single-state holography is crosstalk-limited on MQAR-256 | `NEGATIVE_BOUND` | 83.5938% mean bit accuracy, 0/5 exact | Test structured slots/polyphase separation instead of more identical superposition |

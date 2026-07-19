@@ -1,14 +1,14 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T05:37:08+02:00.
+Last ranked: 2026-07-19T06:29:32+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Freeze one deepest/current-level exact learned-clause member selector and run one matched W11 efficacy call | State of the art | Extreme | Extreme | Medium | Converts O1C-0055's real hook from average 4.02-cell collective blame into one role-conditioned update |
-| 2 | Keep O1C-0054's global separable factor-bound beam closed; do not widen it, reorder pairs, raise the pop cap or tune the bound | Operational | High | Extreme | Zero | Prevents a loose admissible envelope from consuming more compute after losing truth at stage 5 |
-| 3 | Keep O1C-0053 deepest-survivor support closed; do not tune `+32`, mix undo penalties, regroup pairs, raise the cap or spend rotations/fresh targets | Operational | High | Extreme | Zero | Preserves the one-call negative and forces the causal branch onto exact membership |
-| 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
-| 5 | Keep static pair/proof-edge resweeps, independent-carry quotients, occurrence scoring and the closed unary field parked | Operational | High | High | Zero | Preserves measured boundaries while compute moves to exact antecedent attribution or the separately frozen global design |
+| 1 | Integrate the frozen O1C-0057 prefix-8 scorer into attacker-generated partial-assignment or bounded exact-search ordering | State of the art | Extreme | Extreme | Medium | Tests whether fresh rank-1 complete-candidate discrimination converts into matched search work, effective width or verified beam rank |
+| 2 | Advance the Apple joint-score sieve on exact proof-utility evidence | State of the art | Extreme | Extreme | Medium | Tests whether multiple exact proof signals jointly identify useful work after static unary/edge readers failed |
+| 3 | Park one outcome/utility-conditioned exact clause-role successor until ranks 1–2 resolve | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without pretending fixed conflict occurrence supplies the correct sign |
+| 4 | Keep O1C-0054 global bounds and O1C-0056 fixed negative role credit closed; no width/order/cap/sign/scale sweep | Operational | High | Extreme | Zero | Prevents paid repetition of two now-localized negative mechanisms |
+| 5 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 
 ## Frontier scoreboard
 
@@ -20,10 +20,12 @@ Last ranked: 2026-07-19T05:37:08+02:00.
 - **Conversion frontier:** O1C-0040 shows that terminal clause occurrence does
   not improve complete-candidate rank. This closes only that representation, not
   relational completion.
-- **Joint-rank frontier:** O1C-0041's BUILD-selected chain objective ranks the two
-  consumed true keys `80/4097` and `998/4097`, geometric `6.90%`, and beats both
-  endpoint rotations. O1C-0042 misses fresh top-quarter rank at `1371/4097`, so
-  the exact unique-leaf sum is closed.
+- **Joint-rank frontier:** O1C-0057 applies the unchanged transferred
+  parent-criticality reader to one fresh Full-256 target and compounds primary
+  truth ranks `8/7/1/1` of 4,097 across 1/2/4/8 public blocks. Prefix-8 key and
+  clause rotations rank `3581/4037`; truth z is `+5.57888245`. This is roughly
+  12 bits of discrimination inside the supplied panel and the current
+  complete-key scorer frontier, not candidate generation or recovery.
 - **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.
@@ -63,8 +65,11 @@ Last ranked: 2026-07-19T05:37:08+02:00.
 - **Exact clause-credit boundary:** O1C-0055 matches live owners in all 512
   learned clauses, but all-member `-32` still returns `UNKNOWN`. Its 2,057
   per-clause penalties collapse onto the same 18 unique cells/seven groups as
-  O1C-0052. Average fan-out is 5.24 owners/4.02 cells per conflict. Retain the
-  hook, close collective blame and select one exact member by role.
+  O1C-0052. O1C-0056 then selects exactly one deepest/current-level owner in all
+  512 clauses, discarding 2,150/2,662 matched members with zero ties. W11 remains
+  `UNKNOWN`; 18 cells/seven groups and 502 repeats persist. Localization is
+  exact, so close fixed negative credit without tuning. Retain only a parked
+  outcome/utility-conditioned successor.
 - **Bias-free algebraic boundary:** APPLE-VIEW-0002 proves that independently
   lifted carries span all 512 output equations and leave exact key rank zero.
   APPLE-VIEW-0004 adds exact backward output propagation: depth 30 infers
@@ -80,12 +85,12 @@ Last ranked: 2026-07-19T05:37:08+02:00.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** one deepest/current-level exact clause member
-  closes W11 under the frozen gate. O1C-0055 has closed all-member credit and
-  O1C-0054 has already closed the
-  separate global-prefix factor-bound path. Exact 256 remains the moonshot; a
+- **Next measurable advance:** the frozen O1C-0057 prefix-8 scorer produces a
+  predeclared matched-work, effective-width or verified beam-rank gain while
+  ordering attacker-generated partial assignments/search branches; Apple
+  joint-score is the parallel route. Exact 256 remains the moonshot, while a
   reproducible entropy, rank, residual-width or matched-work gain below recovery
-  still counts as real progress.
+  remains real progress.
 
 ## Effect-first stop rules
 
@@ -123,8 +128,8 @@ Last ranked: 2026-07-19T05:37:08+02:00.
   unchanged consumed repeat at `141/4097`, all with control margin. Freeze the
   exact 15-channel reader for one fresh key; do not improve it first.
 - O1C-0044 passes that fresh gate at `54/4097` versus rotations `3567/2972`.
-  Stop rank-panel replication. Preserve the reader and test real exact-search
-  consequence under matched work.
+  Preserve the reader. O1C-0057 has now completed the distinct frozen
+  multi-block compounding test; no further supplied-panel replication is needed.
 - O1C-0045 preserves all scores but its all-variable scheduler lets generic
   factor geometry dominate: primary/key/clause all close residual 9 while
   internal stops at 8; rotations are faster. Do not spend a fresh target or refit.
@@ -146,6 +151,10 @@ Last ranked: 2026-07-19T05:37:08+02:00.
   Full-256 is unchanged because decision-local tickets close before feedback.
   Do not sweep credit weights. Permit exactly one causal-horizon repair: a
   bounded trace of decisions later removed by backtrack.
+- O1C-0057 passes prospectively at primary ranks `8/7/1/1` across 1/2/4/8
+  public blocks with prefix-8 rotations `3581/4037`. Freeze the prefix-8 scorer.
+  Do not enlarge the supplied panel or call its 12 rank bits recovered key
+  entropy; require partial-assignment/search conversion under matched work.
 - O1C-0050's horizon repair passes W10, but O1C-0051 fails its sole W11 gate and
   correctly skips controls/Full256. O1C-0052 performs the sole bounded `4×63`
   per-pattern test and also fails despite 162 action reorderings. Close negative
@@ -271,9 +280,9 @@ Last ranked: 2026-07-19T05:37:08+02:00.
 
 ## Do not spend the next cycle on
 
-- another static scheduler, pair regrouping, credit-weight sweep, conflict-cap
-  increase or fresh target before the one delayed-credit repair either beats
-  O1C-0048 absolutely or closes;
+- another supplied complete-key decoy panel, static pair regrouping,
+  credit-weight sweep or conflict-cap increase before the frozen O1C-0057
+  prefix-8 scorer is tested on attacker-generated partial assignments/search;
 - another independent-carry linear quotient, output-Hamming descent or
   feed-forward fixed-point projection;
 - another uniform forward/backward carry-depth ladder; depth 0..30 already

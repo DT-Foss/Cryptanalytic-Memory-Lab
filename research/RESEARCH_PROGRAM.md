@@ -248,7 +248,7 @@ top/minimum Hamming is `120/116`. The W11 queue reaches 1,024 unscored pops and
 H-GLOBAL-FACTOR-BOUND-064: independently maximizing 836 factors creates mutually
 incompatible local optima and erases the exact complete-state geometry that
 ranks truth fifth on W12. Close beam width, pair order, cap and scale without a
-sweep. O1C-0055 exact learned-clause membership is the active causal path.
+sweep. O1C-0055 exact learned-clause membership is the next causal path.
 
 O1C-0055 executes that path once. Every one of 512 minimized learned clauses
 contains matched live-owner membership, yielding 2,684 members and 2,057
@@ -259,6 +259,29 @@ cells across seven groups receive credit—the same support size as O1C-0052—a
 all-member `-32`, not for the exact hook. Average fan-out 5.24 owners/4.02 cells
 per conflict motivates H-CLAUSE-ROLE-CREDIT-065: select one deepest/current-level
 exact member under the unchanged gate, without a sign, scale, group or cap sweep.
+
+O1C-0056 executes that exact selector once. All 512 clauses select one unique
+current-level role; 2,150/2,662 matched members are discarded, 508 clauses are
+multi-member and no deepest-level tie occurs. W11 still returns `UNKNOWN` at 512
+conflicts/513 decisions/12,013,641 propagations. The state remains concentrated
+on 18 cells/seven groups, 142 actions reorder and 502 decisions repeat. Relative
+to O1C-0055, propagations fall 69,836 but native wall rises from 1.590827 s to
+1.928103 s. Refute H-CLAUSE-ROLE-CREDIT-065 only for fixed negative `-32`:
+localization works exactly, but conflict occurrence alone does not define owner
+utility. Close sign/scale/group/cap tuning. Park H-UTILITY-CLAUSE-ROLE-066 until
+after the higher-ROI O1C-0057 search conversion and Apple joint-score track.
+
+O1C-0057 executes the multi-block public-evidence path on one fresh uniform
+Full-256 target. The unchanged O1C-0043 reader scores one shared 4,096-decoy
+panel plus hidden truth after 1/2/4/8 contiguous blocks from the same key and
+nonce; all score state freezes before the single reveal. Primary truth ranks
+`8/7/1/1`, while prefix-8 key/clause rotations rank `3581/4037`; truth z is
+`+5.57888245` and the frozen prediction passes. Support
+H-MULTIBLOCK-PARENT-CRITICALITY-067: public blocks compound a transferred
+complete-key scorer. The approximately 12 rank bits exist inside the supplied
+panel, so they are not key generation or recovery. Freeze prefix 8 and convert
+it into attacker-generated partial-assignment or bounded exact-search ordering;
+do not merely enlarge the decoy panel.
 
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
@@ -326,8 +349,11 @@ reader; do not rescue-weight roots, threshold edges or change traversal after
 EVAL. Together with O1C-0051's owner-role reversal and O1C-0052's four-mask
 cycling, the result says a static global relation and negative anti-repetition
 are insufficient. O1C-0053 now also closes positive trail survival after nonzero
-updates. The active causal convergence is exact learned-clause/first-UIP
-antecedent membership, not an Apple or credit-weight rescue sweep.
+updates. O1C-0055/O1C-0056 now further prove exact antecedent membership and
+unique owner localization while closing fixed negative credit. Immediate causal
+ROI is now O1C-0057 partial-assignment/search integration, with the Apple
+joint-score sieve as the parallel proof-utility track. Outcome/utility-conditioned
+role credit remains parked, not established.
 
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
@@ -546,13 +572,19 @@ evidence.
    unchanged at W11, and O1C-0052 changes 162 exact-mask choices without solving
    W11. O1C-0053 then emits 512 positive survivor updates but still fails W11 and
    differentiates only two groups. Close unary, negative exact-mask and positive
-   trail-survival credit. Instrument exact learned-clause/first-UIP antecedent
-   membership with no proxy, group or cap sweep. O1C-0054 has independently
+   trail-survival credit. O1C-0054 has independently
    executed and closed the parallel global-prefix factor-bound design: Full256
    loses truth at stage 5 and W11 certifies zero leaves under the frozen cap.
    O1C-0055 then confirms exact learned-clause membership on all 512 conflicts
    but all-member `-32` reproduces O1C-0052's 18-cell/seven-group diffusion and
-   fails W11. Keep the hook; select one deepest/current-level exact member next.
+   fails W11. O1C-0056 selects one deepest/current-level exact member in every
+   clause, removes fan-out and still fails W11 with the same 18 cells/seven
+   groups. Keep localization and close fixed negative credit. O1C-0057 then
+   passes the fresh multi-block rank gate at `8/7/1/1` of 4,097 with prefix-8
+   rotations `3581/4037`. Preserve its frozen prefix-8 scorer and prioritize
+   partial-assignment/search integration, with Apple joint-score parallel. Any
+   later role-credit test must precommit an attacker-visible outcome/utility
+   condition rather than tune `-32`.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.
