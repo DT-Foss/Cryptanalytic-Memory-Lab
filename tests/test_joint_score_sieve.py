@@ -7,6 +7,7 @@ import json
 import math
 import shutil
 import struct
+import subprocess
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -453,4 +454,158 @@ def test_adapter_rejects_malformed_json(
             potential_path=potential,
             threshold=9.0,
             conflict_limit=128,
+        )
+
+
+def test_adapter_enforces_exact_child_address_space_limit(
+    tmp_path: Path, native_build, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    cnf = tmp_path / "memory-limit.cnf"
+    cnf.write_text("p cnf 257 1\n257 0\n", encoding="ascii")
+    potential = tmp_path / "memory-limit.potential"
+    write_joint_score_sieve_potential(potential, _joint_field())
+    valid = run_joint_score_sieve(
+        executable=native_build.executable,
+        cnf_path=cnf,
+        potential_path=potential,
+        threshold=9.0,
+        conflict_limit=128,
+    ).raw
+    limits: list[tuple[int, tuple[int, int]]] = []
+
+    def fake_setrlimit(kind: int, value: tuple[int, int]) -> None:
+        limits.append((kind, value))
+
+    def fake_run(*args: object, **kwargs: object) -> SimpleNamespace:
+        preexec = kwargs.get("preexec_fn")
+        assert callable(preexec)
+        preexec()
+        return SimpleNamespace(returncode=0, stdout=json.dumps(valid), stderr="")
+
+    monkeypatch.setattr(sieve_module.resource, "setrlimit", fake_setrlimit)
+    monkeypatch.setattr(sieve_module.subprocess, "run", fake_run)
+    monkeypatch.setattr(sieve_module.sys, "platform", "linux")
+    ceiling = 805_306_368
+    result = run_joint_score_sieve(
+        executable=native_build.executable,
+        cnf_path=cnf,
+        potential_path=potential,
+        threshold=9.0,
+        conflict_limit=128,
+        memory_limit_bytes=ceiling,
+    )
+    assert result.status_name == "SAT"
+    assert limits == [(sieve_module.resource.RLIMIT_AS, (ceiling, ceiling))]
+
+
+def test_native_executes_under_child_address_space_limit(
+    tmp_path: Path, native_build
+) -> None:
+    cnf = tmp_path / "memory-limit-integration.cnf"
+    cnf.write_text("p cnf 257 1\n257 0\n", encoding="ascii")
+    potential = tmp_path / "memory-limit-integration.potential"
+    write_joint_score_sieve_potential(potential, _joint_field())
+    result = run_joint_score_sieve(
+        executable=native_build.executable,
+        cnf_path=cnf,
+        potential_path=potential,
+        threshold=9.0,
+        conflict_limit=128,
+        memory_limit_bytes=805_306_368,
+    )
+    assert result.status_name == "SAT"
+    assert result.resources["peak_rss_bytes"] < 805_306_368
+
+
+def test_darwin_watchdog_kills_process_group_before_formal_ceiling(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    class FakeProcess:
+        pid = 4242
+        returncode = -9
+
+        def __init__(self) -> None:
+            self.running = True
+            self.communicated = 0
+
+        def poll(self) -> int | None:
+            return None if self.running else self.returncode
+
+        def communicate(self, timeout: float | None = None) -> tuple[str, str]:
+            self.communicated += 1
+            if self.running and timeout is not None:
+                raise subprocess.TimeoutExpired(["native"], timeout)
+            return "", ""
+
+    process = FakeProcess()
+    killed: list[tuple[int, int]] = []
+
+    def fake_killpg(pid: int, sig: int) -> None:
+        killed.append((pid, sig))
+        process.running = False
+
+    monkeypatch.setattr(sieve_module.subprocess, "Popen", lambda *a, **k: process)
+    monkeypatch.setattr(
+        sieve_module,
+        "_darwin_physical_footprint_bytes",
+        lambda pid: 800_000_000,
+    )
+    monkeypatch.setattr(sieve_module.os, "killpg", fake_killpg)
+    with pytest.raises(RuntimeError, match="guarded ceiling"):
+        sieve_module._run_with_darwin_memory_watchdog(
+            ["native"],
+            timeout_seconds=180.0,
+            memory_limit_bytes=805_306_368,
+        )
+    assert killed == [(4242, sieve_module.signal.SIGKILL)]
+    assert process.communicated == 2
+
+
+def test_darwin_watchdog_treats_query_exit_race_as_normal_completion(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    class ExitRaceProcess:
+        pid = 5252
+        returncode = 0
+
+        def __init__(self) -> None:
+            self.running = True
+
+        def poll(self) -> int | None:
+            return None if self.running else 0
+
+        def communicate(self, timeout: float | None = None) -> tuple[str, str]:
+            if self.running and timeout is not None:
+                self.running = False
+                raise subprocess.TimeoutExpired(["native"], timeout)
+            return "finished", ""
+
+    process = ExitRaceProcess()
+    monkeypatch.setattr(sieve_module.subprocess, "Popen", lambda *a, **k: process)
+    monkeypatch.setattr(
+        sieve_module,
+        "_darwin_physical_footprint_bytes",
+        lambda pid: (_ for _ in ()).throw(
+            O1RelationalSearchError("synthetic ESRCH")
+        ),
+    )
+    completed = sieve_module._run_with_darwin_memory_watchdog(
+        ["native"],
+        timeout_seconds=180.0,
+        memory_limit_bytes=805_306_368,
+    )
+    assert completed.returncode == 0
+    assert completed.stdout == "finished"
+
+
+@pytest.mark.parametrize("value", [True, 0, -1, 1.5])
+def test_adapter_rejects_invalid_child_memory_limit(value: object) -> None:
+    with pytest.raises(O1RelationalSearchError, match="memory limit"):
+        run_joint_score_sieve(
+            executable="not-read",
+            cnf_path="not-read",
+            potential_path="not-read",
+            threshold=0.0,
+            conflict_limit=1,
+            memory_limit_bytes=value,  # type: ignore[arg-type]
         )

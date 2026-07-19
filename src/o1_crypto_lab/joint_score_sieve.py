@@ -5,11 +5,18 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import os
+import resource
+import signal
 import struct
 import subprocess
+import sys
+import time
+from ctypes import CDLL, POINTER, Structure, byref, c_int, c_uint8, c_uint64
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
-from typing import Mapping, cast
+from typing import Callable, Mapping, cast
 
 from .criticality_potential import (
     CriticalityPotentialError,
@@ -38,6 +45,8 @@ JOINT_SCORE_SIEVE_PERSISTENT_STATE_SCOPE = (
     "solver-functional-persistent-logical-state;excludes-immutable-potential-"
     "index,telemetry,allocator-capacity,transient-callback-scratch"
 )
+JOINT_SCORE_SIEVE_DARWIN_WATCHDOG_GUARD_BYTES = 32 * 1024 * 1024
+JOINT_SCORE_SIEVE_DARWIN_WATCHDOG_INTERVAL_SECONDS = 0.01
 
 _TOP_LEVEL_FIELDS = {
     "schema",
@@ -219,6 +228,133 @@ class JointScoreSieveResult:
     def state_sha256(self) -> str:
         state = _mapping(self.sieve["state"], "sieve.state")
         return str(state["sha256"])
+
+
+class _DarwinRUsageInfoV2(Structure):
+    _fields_ = [
+        ("ri_uuid", c_uint8 * 16),
+        ("ri_user_time", c_uint64),
+        ("ri_system_time", c_uint64),
+        ("ri_pkg_idle_wkups", c_uint64),
+        ("ri_interrupt_wkups", c_uint64),
+        ("ri_pageins", c_uint64),
+        ("ri_wired_size", c_uint64),
+        ("ri_resident_size", c_uint64),
+        ("ri_phys_footprint", c_uint64),
+        ("ri_proc_start_abstime", c_uint64),
+        ("ri_proc_exit_abstime", c_uint64),
+        ("ri_child_user_time", c_uint64),
+        ("ri_child_system_time", c_uint64),
+        ("ri_child_pkg_idle_wkups", c_uint64),
+        ("ri_child_interrupt_wkups", c_uint64),
+        ("ri_child_pageins", c_uint64),
+        ("ri_child_elapsed_abstime", c_uint64),
+        ("ri_diskio_bytesread", c_uint64),
+        ("ri_diskio_byteswritten", c_uint64),
+    ]
+
+
+class _JointScoreSieveMemoryLimitExceeded(RuntimeError):
+    pass
+
+
+@lru_cache(maxsize=1)
+def _darwin_proc_pid_rusage() -> Callable[[int, int, object], int]:
+    try:
+        library = CDLL("/usr/lib/libproc.dylib")
+        function = library.proc_pid_rusage
+        function.argtypes = (c_int, c_int, POINTER(_DarwinRUsageInfoV2))
+        function.restype = c_int
+    except (OSError, AttributeError) as exc:
+        raise O1RelationalSearchError(
+            "joint-score-sieve Darwin memory watchdog is unavailable"
+        ) from exc
+    return cast(Callable[[int, int, object], int], function)
+
+
+def _darwin_physical_footprint_bytes(pid: int) -> int:
+    usage = _DarwinRUsageInfoV2()
+    status = _darwin_proc_pid_rusage()(pid, 2, byref(usage))
+    if status:
+        raise O1RelationalSearchError(
+            "joint-score-sieve Darwin memory watchdog query failed"
+        )
+    return max(int(usage.ri_resident_size), int(usage.ri_phys_footprint))
+
+
+def _run_with_darwin_memory_watchdog(
+    command: list[str],
+    *,
+    timeout_seconds: float,
+    memory_limit_bytes: int,
+) -> subprocess.CompletedProcess[str]:
+    guard = min(
+        JOINT_SCORE_SIEVE_DARWIN_WATCHDOG_GUARD_BYTES,
+        max(0, memory_limit_bytes // 8),
+    )
+    kill_threshold = memory_limit_bytes - guard
+    if kill_threshold <= 0:
+        raise O1RelationalSearchError(
+            "joint-score-sieve Darwin memory limit is too small"
+        )
+    process = subprocess.Popen(
+        command,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+        start_new_session=True,
+    )
+    deadline = time.monotonic() + timeout_seconds
+    maximum_observed = 0
+
+    def kill_process_group() -> None:
+        try:
+            os.killpg(process.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+
+    try:
+        while True:
+            remaining = deadline - time.monotonic()
+            if remaining <= 0.0:
+                kill_process_group()
+                process.communicate()
+                raise subprocess.TimeoutExpired(command, timeout_seconds)
+            try:
+                stdout, stderr = process.communicate(
+                    timeout=min(
+                        JOINT_SCORE_SIEVE_DARWIN_WATCHDOG_INTERVAL_SECONDS,
+                        remaining,
+                    )
+                )
+                break
+            except subprocess.TimeoutExpired:
+                pass
+            try:
+                footprint = _darwin_physical_footprint_bytes(process.pid)
+            except O1RelationalSearchError:
+                if process.poll() is not None:
+                    stdout, stderr = process.communicate()
+                    break
+                raise
+            maximum_observed = max(maximum_observed, footprint)
+            if footprint >= kill_threshold:
+                kill_process_group()
+                process.communicate()
+                raise _JointScoreSieveMemoryLimitExceeded(
+                    "Darwin physical-footprint watchdog reached its guarded ceiling "
+                    f"({maximum_observed} >= {kill_threshold} < {memory_limit_bytes})"
+                )
+            if time.monotonic() >= deadline:
+                kill_process_group()
+                process.communicate()
+                raise subprocess.TimeoutExpired(command, timeout_seconds)
+    except Exception:
+        if process.poll() is None:
+            kill_process_group()
+            process.communicate()
+        raise
+    return subprocess.CompletedProcess(command, process.returncode, stdout, stderr)
 
 
 def _mapping(value: object, field: str) -> Mapping[str, object]:
@@ -553,6 +689,7 @@ def run_joint_score_sieve(
     conflict_limit: int,
     seed: int = 0,
     timeout_seconds: float = 60.0,
+    memory_limit_bytes: int | None = None,
 ) -> JointScoreSieveResult:
     if (
         isinstance(threshold, bool)
@@ -568,9 +705,17 @@ def run_joint_score_sieve(
         or not isinstance(timeout_seconds, (int, float))
         or not math.isfinite(timeout_seconds)
         or timeout_seconds <= 0
+        or (
+            memory_limit_bytes is not None
+            and (
+                isinstance(memory_limit_bytes, bool)
+                or not isinstance(memory_limit_bytes, int)
+                or memory_limit_bytes <= 0
+            )
+        )
     ):
         raise O1RelationalSearchError(
-            "joint-score-sieve threshold, limit, seed, or timeout differs"
+            "joint-score-sieve threshold, limit, seed, timeout, or memory limit differs"
         )
     requested_threshold = float(threshold)
     executable_file, executable_bytes, _ = _read_input(executable, "executable")
@@ -592,17 +737,36 @@ def run_joint_score_sieve(
         "--seed",
         str(seed),
     ]
-    execution_error: OSError | subprocess.TimeoutExpired | None = None
+    execution_error: OSError | RuntimeError | subprocess.SubprocessError | None = None
     completed: subprocess.CompletedProcess[str] | None
-    try:
-        completed = subprocess.run(
-            command,
-            capture_output=True,
-            text=True,
-            timeout=float(timeout_seconds),
-            check=False,
+
+    def apply_memory_limit() -> None:
+        if memory_limit_bytes is None:
+            return
+        resource.setrlimit(
+            resource.RLIMIT_AS,
+            (memory_limit_bytes, memory_limit_bytes),
         )
-    except (OSError, subprocess.TimeoutExpired) as exc:
+
+    try:
+        if memory_limit_bytes is not None and sys.platform == "darwin":
+            completed = _run_with_darwin_memory_watchdog(
+                command,
+                timeout_seconds=float(timeout_seconds),
+                memory_limit_bytes=memory_limit_bytes,
+            )
+        else:
+            completed = subprocess.run(
+                command,
+                capture_output=True,
+                text=True,
+                timeout=float(timeout_seconds),
+                check=False,
+                preexec_fn=(
+                    apply_memory_limit if memory_limit_bytes is not None else None
+                ),
+            )
+    except (OSError, RuntimeError, subprocess.SubprocessError) as exc:
         execution_error = exc
         completed = None
     _verify_stable_input(
@@ -671,6 +835,13 @@ def run_joint_score_sieve(
     resources = _nonnegative_integers(
         payload["resources"], field="resources", names=_RESOURCE_FIELDS
     )
+    if (
+        memory_limit_bytes is not None
+        and resources["peak_rss_bytes"] > memory_limit_bytes
+    ):
+        raise O1RelationalSearchError(
+            "joint-score-sieve child exceeded its memory limit"
+        )
     sieve = _mapping(payload["sieve"], "sieve")
     if set(sieve) != _SIEVE_FIELDS:
         raise O1RelationalSearchError("joint-score-sieve telemetry fields differ")
@@ -813,6 +984,8 @@ def run_joint_score_sieve(
 __all__ = [
     "JOINT_SCORE_SIEVE_BOUND_RULE",
     "JOINT_SCORE_SIEVE_COMPLETE_THRESHOLD_RULE",
+    "JOINT_SCORE_SIEVE_DARWIN_WATCHDOG_GUARD_BYTES",
+    "JOINT_SCORE_SIEVE_DARWIN_WATCHDOG_INTERVAL_SECONDS",
     "JOINT_SCORE_SIEVE_DECISION_RULE",
     "JOINT_SCORE_SIEVE_PERSISTENT_STATE_SCOPE",
     "JOINT_SCORE_SIEVE_RESULT_SCHEMA",
