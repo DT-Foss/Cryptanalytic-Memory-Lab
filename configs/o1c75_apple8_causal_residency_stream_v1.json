@@ -1,0 +1,88 @@
+{
+  "schema": "o1-256-apple8-causal-residency-stream-config-v1",
+  "attempt_id": "O1C-0075",
+  "parent": {
+    "result": "research/O1C0074_APPLE8_CAUSAL_ATTIC_STREAM_RESULT_20260719.json",
+    "capsule": "runs/20260719_231823_O1C-0074_apple8-causal-attic-stream-v1",
+    "result_sha256": "b6bc2895459e3256fa4c857b67bd786b36d80ab5018a9c73709a2096cd169127",
+    "manifest_sha256": "7a3f272268296005c5c6e532d377eb100244f38e941a102876abbfd732a8049b",
+    "source_commit": "a5f2ad130e2e13c39a5e888f927d86d5fdd68d78",
+    "last_lineage_ordinal": 13
+  },
+  "preparation": {
+    "directory": "research/o1c75_causal_residency_seed_20260719",
+    "manifest_sha256": "342e31fbf3112c5469e460ceb0c0d549428ad498c20a3ff063401bab95b2ce33"
+  },
+  "inputs": {
+    "cnf": "runs/20260719_095509_APPLE-VIEW-0008-MATCHED_crossblock-consequence-sieve-v1/artifacts/cnf/full256-eight-block-apple-view-0008.cnf",
+    "cnf_sha256": "e1fc0ac93724004291c960ea06e5584c598853b9ea8370552be09f29e73e2432",
+    "potential": "runs/20260719_095509_APPLE-VIEW-0008-MATCHED_crossblock-consequence-sieve-v1/artifacts/potential/primary-eight-block.potential",
+    "potential_sha256": "8c6101b49c7050caf895bd9c496c05bcea9f43a2b27f378d7306be38b00d5390",
+    "grouping": "runs/20260719_215617_O1C-0073_apple8-vault-release-contrast-v1/apple8-width6.grouping",
+    "grouping_sha256": "3da85bae132d829252a68f0e3fd99220ea7d1ef365042806af810ff02f75f636",
+    "o1c73_config": "configs/o1c73_apple8_vault_release_contrast_v1.json",
+    "o1c73_config_sha256": "be3898a8e857fff3f6683effbe1cb51cf1a30d70f73084905a5ce1d36f806df7"
+  },
+  "native": {
+    "source": "native/cadical_o1_joint_score_sieve_v13.cpp",
+    "executable": "build/o1c75/native-joint-score-sieve",
+    "expected_source_sha256": "bfac8629f7a346042bb4513759ece118fa8c7c5b635f2909a6133db5e22a8621",
+    "expected_executable_sha256": "58be5089730798ad83a0a3e1cb705ced208c7dc10e710e69b0e3c2d92771dbcb",
+    "adapter_schema": "o1-256-joint-score-sieve-v16-adapter-v1",
+    "result_schema": "o1-256-cadical-joint-score-sieve-result-v13",
+    "rank_source_sha256": "cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858"
+  },
+  "source": {
+    "paths": {
+      "runner": "src/o1_crypto_lab/o1c75_apple8_causal_residency_stream_run.py",
+      "causal_attic_v1": "src/o1_crypto_lab/causal_attic_v1.py",
+      "causal_residency_v1": "src/o1_crypto_lab/causal_residency_v1.py",
+      "preparation": "src/o1_crypto_lab/o1c75_apple8_causal_residency_prepare.py",
+      "threshold_no_good_vault_v1": "src/o1_crypto_lab/threshold_no_good_vault_v1.py",
+      "adapter_v16": "src/o1_crypto_lab/joint_score_sieve_v16.py",
+      "native_v13": "native/cadical_o1_joint_score_sieve_v13.cpp"
+    },
+    "expected_sha256": {
+      "runner": "033464f9c5e0b0d108d5058c34574b48ac67f5667fd3127e237b2b00bbb71cc3",
+      "causal_attic_v1": "39da3833f7bba7fd012313ff176e9ebd82adc7e088bdfa8d37880fbbcf3a438f",
+      "causal_residency_v1": "c769f8cf06331eb3aba83b14d86e450abaff502dfef06386511194b949df1895",
+      "preparation": "980c64f4627d80ddf78e43af7bcc1dca4962076ae9d498ff2d8fa82356183889",
+      "threshold_no_good_vault_v1": "622ede78c389ef9e6181e8ebf173c4cbc05197ea2c4795f352b433d2e87cbf5a",
+      "adapter_v16": "8dba3c47cc707221d417eb0ca99147c72c7fae2a3b923017019a8f6c87e86da9",
+      "native_v13": "bfac8629f7a346042bb4513759ece118fa8c7c5b635f2909a6133db5e22a8621"
+    },
+    "expected_commit": "2b431047f08b5b6704f7d14ed7a1d12c97d3a82c"
+  },
+  "target_free_preflight": {
+    "path": "research/O1C0075_TARGET_FREE_CAUSAL_RESIDENCY_STREAM_PREFLIGHT_20260720.json",
+    "sha256": "a0f12a46652d181989f720a63c3158765db4997086a1b2782e69cd79e2ef9e71",
+    "schema": "o1-256-o1c75-target-free-causal-residency-stream-preflight-v1",
+    "classification": "O1C75_TARGET_FREE_CAUSAL_RESIDENCY_STREAM_PREFLIGHT_PASS"
+  },
+  "budgets": {
+    "active_clause_limit": 256,
+    "local_episode_ordinals": [
+      0,
+      1
+    ],
+    "lineage_call_ordinals": [
+      14,
+      15
+    ],
+    "requested_conflicts_per_episode": 128,
+    "maximum_native_solver_calls": 2,
+    "maximum_total_requested_conflicts": 256,
+    "timeout_seconds": 45.0,
+    "memory_limit_bytes": 536870912,
+    "maximum_persistent_artifact_bytes": 134217728,
+    "minimum_disk_free_bytes": 1073741824,
+    "maximum_fresh_targets": 0,
+    "maximum_scientific_entropy_calls": 0,
+    "maximum_fresh_reveal_calls": 0,
+    "maximum_refits": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0
+  },
+  "next_action": "Commit this frozen config and zero-call target-free gate as a descendant of the O1C-0075 source freeze, run the clean commit-bound preflight, then consume only local episodes 0..1 / lineage ordinals 14..15 exactly once with 128 requested conflicts each and deterministic K=256 causal-residency reprojection between calls."
+}
+
