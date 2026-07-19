@@ -1,0 +1,136 @@
+{
+  "schema": "o1-256-o1c68-target-free-reader-preflight-v1",
+  "attempt_id": "O1C-0068",
+  "recorded_at": "2026-07-19T16:15:54+02:00",
+  "timezone": "Europe/Berlin",
+  "classification": "O1C68_TARGET_FREE_READER_PREFLIGHT_PASS",
+  "target_free": true,
+  "all_gates_passed": true,
+  "full256_native_solver_calls": 0,
+  "recorded_phase_divergence_fixture_calls": 3,
+  "truth_key_bytes_read": false,
+  "fresh_targets": 0,
+  "scientific_entropy_calls": 0,
+  "fresh_reveal_calls": 0,
+  "refits": 0,
+  "mps_calls": 0,
+  "gpu_calls": 0,
+  "source_identity": {
+    "base_commit_before_o1c68": "725e4880c9763cb3cccb9cd401364e9be7d48264",
+    "config_sha256": "c52786b2b464b925234b02a40149453f5a5bbcee01a4f164f5b3bf0f16389171",
+    "runner_sha256": "b59e32b6fa3e4e16d79b41326949a0c99ee3bd06ac10b0cd133c59faa3832b7f",
+    "joint_score_sieve_v10_sha256": "d5d0afbe2485bcc98403e7fff5a3a8f309401ec6baffe798757707b3f72ae909",
+    "native_v7_source_sha256": "9feeae3f0086f17133412776276a8d7d4dbae49e1e1a8152cf0b60491effe6e7",
+    "native_v6_parent_source_sha256": "f0c936c6bee54842911af34627c406d1ae7d836d5132769d02a33e8ba3d376af",
+    "adapter_test_sha256": "859d3e40343e4a5bbabc668ac657c40de4f02bdbb91fb9c1573839817cba21cc",
+    "runner_test_sha256": "4c43726276422e6decb6c2f585febe10d16930b08416a1e12651b98b7690704c",
+    "design_sha256": "53b4f8a7ca2991d97ac419c6e5b112344f24d897f97e17c681e889b6066e3f23"
+  },
+  "reader_binding": {
+    "schema": "o1-256-cadical-forced-initial-phase-reader-v1",
+    "operator": "forced-initial-phase",
+    "cadical_configuration": "plain",
+    "phase_before_override": 1,
+    "seed": 0,
+    "quiet": 1,
+    "factor": 0,
+    "phase": 0,
+    "forcephase": true,
+    "rephase": 0,
+    "lucky": false,
+    "walk": false,
+    "complement_pair_id": "forced-initial-phase-v1",
+    "reader_spec_sha256": "a68b3c3b1721b756314dac11ce725adf0709e9f358125cb1f8d388737d1ddddc",
+    "reader_spec_serialized_bytes": 146,
+    "phase_cli_surface_exposed": false,
+    "seed_must_equal_zero": true
+  },
+  "target_free_phase_divergence": {
+    "fixture": {
+      "cnf_sha256": "8f38d1cfa614306f0cee3190f50d8b396be8924ecf39dabb5f8334b61c4140c9",
+      "potential_sha256": "9734a3d3a6c2ffbcfd80f3d0f521c9bf449caad16a86765d757c0c1b8bf51bc1",
+      "grouping_sha256": "d1081b8a9c9925c13d0a96a98d190416489c943ccae84d1d79ae36409cb6b86c",
+      "vault_sha256": "379a19bde806c7b6ae4bfe7d7edfd2236a6cc4bd38b788f9eb2501e0beb1e35e",
+      "cnf": "empty-256-variable-public-synthetic",
+      "factor": "variable-1 energies false=0,true=10",
+      "threshold": 5.0,
+      "conflict_limit": 64,
+      "seed": 0
+    },
+    "native_v6_default_phase": {
+      "status": 10,
+      "minimum_upper_bound": 10.0,
+      "fully_emitted_clauses": [],
+      "trace_sha256": "374496cb7f320da894f6c72c7e15b395fd37be462ce37f24f3b80fea952eeb43",
+      "model_hex": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    "native_v7_forced_phase_zero": {
+      "status": 10,
+      "minimum_upper_bound": 0.0,
+      "fully_emitted_clauses": [
+        [
+          1
+        ]
+      ],
+      "trace_sha256": "6c5597bc54382c56231345c1bf64e77e15e73c98ac16c6b3a4e3aa25a8a6b9fd",
+      "model_hex": "0100000000000000000000000000000000000000000000000000000000000000"
+    },
+    "v7_repeat_identical_excluding_resources": true,
+    "stable_v7_payload_sha256": "e8ce0f3e05b2b34518c8f7c3161cfe672078f7139f58d2bde734e9b5644b826c",
+    "mechanism_gate": "same synthetic CNF/potential/grouping/vault/threshold/seed; phase-zero changes the visited branch and exact emitted exclusion"
+  },
+  "native_build_reproducibility": {
+    "compiler": "/usr/bin/c++ Apple clang 21.0.0",
+    "production_basename": "native-joint-score-sieve",
+    "production_executable_sha256": "9c76e3e5a3fbbb625522303e0c57a16718bf9f1198621b6f703e2a84bd768a20",
+    "production_uuid": "EFDBA2FA-72BE-3AC3-AF3E-19348FF12E68",
+    "independent_rebuilds": 3,
+    "independent_rebuilds_identical": true,
+    "test_basename_executable_sha256": "040bff9014266fe6a434d6f8943d89a6224737543771b4494b5e951dbb4751b2",
+    "basename_difference_explained": "Darwin ad-hoc CodeDirectory embeds the output basename and changes the linked UUID; the runner binds the production basename only"
+  },
+  "sealed_parent": {
+    "result_sha256": "c01ffe69198e997c6d3798e0b9f3190065bd7b58ec3ab1ba67a66a7ccd799f1f",
+    "manifest_sha256": "2562db062186fb5168e66c69943af83ba19a151bdc17489111a15dbb114f9341",
+    "retained_vault_sha256": "371dd8454e46eb6c53549efa53e6412f5798b22a06e6f96c927ab74df2ba687a",
+    "retained_vault_clauses": 12,
+    "retained_vault_literals": 35061,
+    "retained_vault_serialized_bytes": 140483,
+    "dual_parser_roundtrip_exact": true
+  },
+  "one_call_protocol": {
+    "invocation_id": "O1C-0068-apple8-complementary-phase-v1-call-0004",
+    "local_episode_ordinal": 0,
+    "lineage_call_ordinal": 4,
+    "parent_ordinal_3_replayed": false,
+    "intent_persisted_before_invocation": true,
+    "exactly_one_invocation_observed": true,
+    "exception_terminal_without_retry": true,
+    "invalid_reader_terminal_without_retry": true,
+    "completed_sidecar_publication_recovery_native_calls": 0,
+    "completed_sidecars_revalidated_before_recovery": true,
+    "requested_conflicts": 512,
+    "actual_solve_conflicts_billed": true,
+    "numeric_overshoot_ceiling_asserted": false
+  },
+  "verification": {
+    "focused_adapter_and_o1c68_tests": 37,
+    "focused_inherited_regression_tests": 49,
+    "focused_total_tests": 86,
+    "pytest_passed": true,
+    "ruff_check_passed": true,
+    "ruff_format_check_passed": true,
+    "pyright_errors": 0,
+    "pyright_warnings": 0,
+    "git_diff_check_passed": true,
+    "python_version": "3.13.1",
+    "platform": "macOS 26.5 arm64"
+  },
+  "authorization_boundary": {
+    "science_call_executed": false,
+    "public_full256_target_cnf_executed": false,
+    "fresh_target_generated": false,
+    "truth_or_reveal_read": false,
+    "next_authorized_action": "Commit-bind the frozen implementation and config, pass the final runtime resource preflight, then execute exactly one local-0/lineage-4 Full-256 complementary-phase call."
+  }
+}
