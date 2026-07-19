@@ -71,9 +71,10 @@ all256 byte interventions; none replicated (`118/61/9/230`, `47/239`,
 `47/239`, `56/239`). The reliable sibling recoveries themselves are W20--W52
 terminal searches whose 236--204 complement bits are supplied inputs. Therefore
 the project does not rebuild their search engine and does not mine this ranking
-family again. The factorized active milestone is the all256-to-complement beam;
-the parallel relational milestone asks whether joint ChaCha constraints plus O1
-scores reduce the true-key domain before 204 independent bits are exact.
+family again. The factorized all256-to-complement branch is frozen behind its
+null posterior; the active relational milestone asks whether joint ChaCha
+constraints plus O1 scores reduce the true-key domain before 204 independent
+bits are exact.
 A325/A526 execute unchanged when their native gate is met, but they are no longer
 the sole permitted terminal geometry.
 
@@ -282,6 +283,42 @@ complete-key scorer. The approximately 12 rank bits exist inside the supplied
 panel, so they are not key generation or recovery. Freeze prefix 8 and convert
 it into attacker-generated partial-assignment or bounded exact-search ordering;
 do not merely enlarge the decoy panel.
+
+That conversion now reaches a bounded exact Full-256 exclusion stream. O1C-0061
+establishes the joint-score sieve; APPLE-VIEW-0008 adds exact public cross-block
+consequences and produces six safe trail cuts at matched work. O1C-0065 retains
+those cuts under the tighter width-6 bound. O1C-0066 then persists only canonical
+threshold no-goods across fresh processes and grows a sealed vault `0→6→12`
+clauses before an operational ledger terminal. O1C-0067 repairs the billing path
+and proves the unchanged reader/seed/horizon duplicate-only at the 12-clause
+state. None of these steps reads truth or returns a key.
+
+O1C-0068 changes exactly one science variable: the initial reader is forced to
+phase 0. Its one matched 512-conflict call fully emits `195` clauses (`190`
+novel / `5` duplicate / `0` pending) and grows the vault `12→202` clauses /
+`35,061→599,728` literals / `140,483→2,399,911 B`. It takes `1,330` decisions,
+`31,944,523` propagations, reaches minimum UB `12.8607806294803`, and uses
+`5.331635 s` native wall at `397,099,008 B` peak RSS. This supports
+`H-COMPLEMENTARY-PHASE-072`: the fixed point was reader-specific. The result is
+strong sub-recovery progress—190 new exact exclusions in the frozen threshold
+region—not key recovery, UNSAT or global exhaustion.
+
+Vault capacity now controls the next design. One matched O1C-0068 all-emission
+reservation would end at `397` clauses / `1,179,254` literals /
+`4,718,795 B`, below the hard `512` / `1,600,000` / `8,388,608 B` caps; two
+such yields would cross the clause and literal caps. O1C-0069 therefore performs
+one composition call only: import all 202 sealed clauses, switch explicitly to
+`forcephase=true`, `phase=1`, and preserve seed 0 and the 512-conflict soft
+horizon. A target-free synthetic alternation fixture, exact identity/dual-parse
+bindings and the matched emission-envelope reservation must pass before science;
+native capacity checks remain fail-closed because that reservation is not a
+formal emission bound. Novel exact output establishes composition gain, a
+verified candidate is terminal recovery, and duplicate-only closes one-step
+alternation. Native status 20 is instead an
+exceptional exact `CNF ∧ score≥τ` UNSAT consistency terminal: the prior sealed
+compiled truth score is above `τ`, so seal it without retry and never claim
+global ChaCha or key-space UNSAT. No continuation, phase sweep, horizon scaling, second
+alternation or broad vault infrastructure is authorized.
 
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
@@ -598,14 +635,23 @@ evidence.
    lowers decisions/propagations by `149/38,039`, but its only fully emitted
    `2,951`-literal clause is the already stored ordinal `7`; the vault remains
    `12` clauses / `35,061` literals / `140,483 B`. Classification is
-   `EPISODIC_VAULT_SATURATED_NO_GAIN`: close this exact reader/seed/horizon and
-   test a complementary phase reader (`forcephase=true`, `phase=false`) or one
-   other explicit reader operator, never same-call replay or blind scaling.
+   `EPISODIC_VAULT_SATURATED_NO_GAIN`: close this exact reader/seed/horizon.
+   O1C-0068 then tests the complementary forced-phase-0 reader exactly once.
+   It emits 195 clauses (`190` novel / `5` duplicate / `0` pending) at exact
+   `512/512/512` billing and grows the vault to `202` clauses / `599,728`
+   literals / `2,399,911 B`. Support `H-COMPLEMENTARY-PHASE-072` as a mechanism
+   hit, not recovery. O1C-0069 is one target-free-gated forced-phase-1
+   composition call from those sealed bytes. Its matched O1C-0068 emission
+   reservation reaches `397` clauses / `1,179,254` literals / `4,718,795 B`;
+   native capacity enforcement remains fail-closed. Never replay, continue
+   phase 0, sweep phase/horizon, authorize a second alternation or blind-scale.
    Any later role-credit test must precommit an attacker-visible outcome/utility
    condition rather than tune `-32`.
-6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
-   and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
-   do not rebuild another search engine.
+6. Complementary phase has passed only its exact-exclusion mechanism gate. Once
+   the relational path emits an exact-containing candidate beam or model, reuse
+   the sibling candidate order/evaluator and independent ChaCha20 verifier
+   unchanged. That is the terminal hybrid path; do not rebuild another search
+   engine.
 7. Preserve O1C-0023/25/29 as code only; do not execute them on the closed unary
    field. After stable attacker-valid entropy reduction, the existing logit
    handoff and exact global decoder may be reused unchanged.
@@ -661,8 +707,27 @@ evidence.
   leaving the vault unchanged at `12` clauses / `35,061` literals / `140,483 B`.
   Minimum UB is `9.111031965569408`, `+1.1375488575223374` versus the parent;
   no key, truth or reveal occurs. This closes only the exact reader/seed/horizon.
-  Continue with a complementary phase reader or another explicit operator, not
-  replay or blind horizon/RAM scaling.
+- O1C-0068 forces phase 0 once at exact `512/512/512` billing and emits
+  `195` exact clauses: `190` novel, five duplicate and zero pending. The vault
+  grows `12→202` clauses / `35,061→599,728` literals /
+  `140,483→2,399,911 B`; decisions are `1,330`, propagations `31,944,523`,
+  minimum UB `12.8607806294803`, native wall `5.331635 s` and peak RSS
+  `397,099,008 B`. `H-COMPLEMENTARY-PHASE-072` is supported. This is strong
+  sub-recovery progress, not key recovery, UNSAT or global exhaustion.
+- O1C-0069 is the sole immediate paid successor: one explicitly forced-phase-1
+  call from the sealed 202-clause mixed-reader vault, with target, CNF,
+  potential, grouping, threshold, seed and 512-conflict soft horizon unchanged.
+  Before science, a target-free synthetic alternation fixture must demonstrate
+  imported phase-0-clause consequence under forced phase 1, identities and vault
+  bytes must bind exactly, and the matched O1C-0068 all-emission reservation must
+  fit at `397` clauses / `1,179,254` literals / `4,718,795 B`. This reservation
+  is not an emission upper bound; hard capacity terminals remain fail-closed.
+  One novel exact clause establishes composition gain, a verified candidate is
+  terminal recovery, and duplicate-only closes one-step alternation. Status 20
+  is a separate exceptional exact `CNF ∧ score≥τ` UNSAT terminal requiring a
+  no-retry consistency audit because the prior sealed compiled truth score
+  exceeds `τ`; it is never global key-space UNSAT. No replay, second alternation, phase/horizon
+  sweep, naive continuation, RAM scaling or broad compaction layer is authorized.
 
 ## Operating contract
 

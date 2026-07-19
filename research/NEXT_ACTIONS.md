@@ -1,13 +1,53 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T15:26:04+02:00.
+Last ranked: 2026-07-19T16:18:58+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Run one bounded complementary phase-reader call from O1C-0067's sealed 12-clause vault with `forcephase=true`, `phase=false` and otherwise matched identities/accounting | State of the art | Extreme | Extreme | Medium | Tests whether saturation is specific to the current reader rather than the vault state |
-| 2 | If rank 1 is duplicate-only, precommit one other explicit reader operator at the same bounded work; do not replay a consumed call or blind-scale the horizon | Research | High | Extreme | Medium | Separates reader diversity from same-trajectory repetition |
-| 3 | Keep the outcome/utility-conditioned exact clause-role successor parked behind the reader-diversity test | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without distracting from the measured episodic frontier |
+| 1 | Precommit and run O1C-0069 as exactly one alternating-reader composition call: import O1C-0068's sealed 202-clause vault, switch explicitly to `forcephase=true`, `phase=1`, retain seed 0 and the 512-conflict soft horizon, and require target-free alternation plus matched-emission-envelope capacity gates before science | State of the art | Extreme | Extreme | Medium | Tests whether phase-0 exact exclusions unlock a new phase-1 trajectory without replay, sweep or unbounded vault growth |
+| 2 | If either O1C-0069 preflight gate fails, stop before a Full-256 call; if native status 20 appears, seal an exceptional no-retry frozen-region consistency terminal. Preserve the vault and do not substitute continuation, sweep, scaling or improvised eviction | Operational | High | Extreme | Zero additional | Prevents the measured capacity cliff or an anomalous `CNF ∧ score≥τ` UNSAT from becoming blind accumulation |
+| 3 | Keep the outcome/utility-conditioned exact clause-role successor parked behind O1C-0069 | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without distracting from the stronger mixed-reader vault frontier |
 | 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
+
+## Current resume
+
+Resume from O1C-0068's sealed `EPISODIC_VAULT_COMPLEMENTARY_PHASE_GAIN`, not
+from O1C-0067's 12-clause fixed point. The forced-phase-0 call requested,
+observed and billed `512/512/512` conflicts, fully emitted `195` exact clauses
+(`190` novel / `5` duplicate / `0` pending), and grew the vault
+`12→202` clauses / `35,061→599,728` literals / `140,483→2,399,911 B`. It used
+`1,330` decisions, `31,944,523` propagations, minimum UB
+`12.8607806294803`, `5.331635 s` native wall and `397,099,008 B` peak RSS. It
+returned no model or key and read no truth: this is strong sub-recovery progress,
+not key recovery, UNSAT or global threshold-region exhaustion.
+
+O1C-0069 is one explicit forced-phase-1 handoff from those exact mixed-reader
+bytes. Before authorization, a target-free synthetic fixture must show that an
+exact phase-0 no-good imported into forced phase 1 changes the deterministic
+emitted-clause sequence, and the production preflight must bind the reader,
+CNF, potential, grouping, threshold, seed, vault bytes and actual-conflict
+ledger. The matched O1C-0068 emission-envelope reservation treats all `195`
+prior emissions as novel:
+`202+195=397` clauses, `599,728+579,526=1,179,254` literals and
+`2,399,911+(4×195)+(4×579,526)=4,718,795 B`, all below the frozen
+`512`-clause / `1,600,000`-literal / `8,388,608 B` caps. This is a matched
+reservation, not a proof that phase 1 cannot emit more; native capacity checks
+remain hard fail-closed terminals. Exactly one scientific call is authorized.
+At least one novel exact no-good establishes composition gain, a publicly
+verified candidate is terminal recovery, and duplicate-only closes one-step
+alternation. Native status 20 is a separate exceptional exact
+`CNF ∧ score≥τ` UNSAT terminal: because the prior sealed compiled truth score is
+above `τ`, seal it for a no-retry consistency audit and never report global
+ChaCha or key-space UNSAT.
+
+Resume authority is the
+[`O1C-0068 result`](O1C0068_APPLE8_COMPLEMENTARY_PHASE_RESULT_20260719.json),
+SHA-256
+`d494887d2be96516211acf09ff8852a88a44576044723223b9057942fd7aea80`,
+and capsule artifact manifest
+`dd0236774c1352238cce86458a8f01380aa32dc538dbe80a3c1744b0f126a745`;
+the sealed output-vault SHA-256 is
+`cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858`.
 
 ## Frontier scoreboard
 
@@ -61,8 +101,9 @@ Last ranked: 2026-07-19T15:26:04+02:00.
   `13.197930778790159→12.934208247009447`, and the derived cache falls
   `60456→23080 B`, but cuts remain `6→6` with exactly identical decisions and
   propagations. Standalone width-6 efficacy is retained, not improved.
-- **Episodic-vault frontier:** O1C-0066 records positive bounded efficacy before
-  an operational terminal. Episode 0 grows the vault `0→6` clauses / `17,804`
+- **Episodic-vault and reader-diversity frontier:** O1C-0066 records positive
+  bounded efficacy before an operational terminal. Episode 0 grows the vault
+  `0→6` clauses / `17,804`
   literals / `71,431 B`; episode 1 grows it `6→12` with six novel clauses,
   `17,257` novel literals and one duplicate, ending at `140,483 B`. At the same
   requested 512 conflicts, decisions change `4471→4666`, propagations
@@ -80,6 +121,18 @@ Last ranked: 2026-07-19T15:26:04+02:00.
   The vault stays `12` clauses / `35,061` literals / `140,483 B`, minimum UB is
   `9.111031965569408` (`+1.1375488575223374`), and no recovery occurs. This is
   an exact reader/seed/horizon fixed point, not global vault exhaustion.
+  O1C-0068 then changes only the initial reader phase and, at exact
+  `512/512/512` billing, emits `195` clauses (`190` novel / `5` duplicate /
+  `0` pending). The vault grows `12→202` clauses / `35,061→599,728` literals /
+  `140,483→2,399,911 B`; decisions are `1,330`, propagations `31,944,523`,
+  minimum UB `12.8607806294803`, native wall `5.331635 s` and peak RSS
+  `397,099,008 B`. `H-COMPLEMENTARY-PHASE-072` is supported: the fixed point is
+  reader-specific. This large exact-exclusion population is strong sub-recovery
+  progress, not key recovery, UNSAT or global exhaustion. A matched O1C-0068
+  all-emission reservation leaves one more call within all vault caps at
+  `397` clauses / `1,179,254` literals / `4,718,795 B`; it is not a formal
+  emission bound, so native capacity terminals remain fail-closed. Two such
+  yields would already cross the clause and literal caps.
 - **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.
@@ -139,12 +192,17 @@ Last ranked: 2026-07-19T15:26:04+02:00.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** preserve O1C-0067's sealed vault and repaired
-  ledger, but change the reader operator at matched bounded work. Prefer
-  `forcephase=true`, `phase=false`; report novel/duplicate clauses, search work,
-  minimum UB, peak RSS and any exact public candidate. Do not replay the same
-  call or treat a larger horizon as mechanism novelty. Exact 256 remains the
-  north star.
+- **Next measurable advance:** O1C-0069 makes one explicit forced-phase-1 call
+  from O1C-0068's sealed 202-clause mixed-reader vault, after the target-free
+  alternation fixture and matched-emission-envelope capacity reservation pass.
+  Hold target, CNF, potential, grouping, threshold, seed and the 512-conflict
+  soft horizon fixed; report novel/duplicate/pending clauses, search work,
+  minimum UB, capacity telemetry, peak RSS and any exact public candidate.
+  Novel output is composition gain, a verified candidate is recovery, and
+  duplicate-only closes one-step alternation. Status 20 is an exceptional exact
+  frozen-region UNSAT consistency terminal, not global key-space UNSAT; seal it
+  without retry. Do not replay, run a second alternation, sweep phases or scale
+  horizon/RAM. Exact 256 remains the north star.
 
 ## Effect-first stop rules
 
@@ -252,8 +310,11 @@ Last ranked: 2026-07-19T15:26:04+02:00.
   episodes before episode 2 stops on an adapter soft-conflict-ledger mismatch.
   O1C-0067 repairs the ledger and completes one distinct call, but emits only a
   duplicate of vault ordinal `7`; the unchanged reader/seed/horizon is now
-  closed. Do not replay, blind-scale or jump to 4K. Preserve the sealed vault and
-  change one explicit reader operator, preferably complementary phase selection.
+  closed. O1C-0068 changes only to forced phase 0 and adds 190 novel exact
+  exclusions, supporting the complementary-phase mechanism without recovery.
+  Freeze that one-call result. O1C-0069 may hand the resulting 202-clause vault
+  once to explicitly forced phase 1 after target-free alternation and capacity
+  gates; no second alternation, continuation, sweep, blind scaling or 4K jump.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not
@@ -353,6 +414,10 @@ Last ranked: 2026-07-19T15:26:04+02:00.
 
 ## Do not spend the next cycle on
 
+- replaying O1C-0068 lineage ordinal `4`, continuing forced phase 0, sweeping
+  phases, raising the 512-conflict horizon, authorizing multiple reader
+  alternations, or adding an eviction/compaction service before the one gated
+  forced-phase-1 composition call discriminates the mechanism;
 - another supplied complete-key decoy panel, static pair regrouping,
   credit-weight sweep or conflict-cap increase before the frozen O1C-0057
   prefix-8 scorer is tested on attacker-generated partial assignments/search;

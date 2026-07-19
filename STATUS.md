@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T15:26:04+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T16:18:58+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -225,6 +225,20 @@
   `7.973483108047071→9.111031965569408`. This is an exact reader/seed/horizon
   fixed point with useful retained-work reduction but no novelty, recovery,
   truth or reveal. Source is `865634458ef3f5b01a5881208eb028404b96f135`.
+- **O1C-0068:** the one-call forced complementary phase reader completes as
+  `EPISODIC_VAULT_COMPLEMENTARY_PHASE_GAIN`. Its sole local-0/lineage-4 phase-0
+  call requests, observes and bills `512/512/512` conflicts with zero overshoot.
+  It fully emits `195` clauses: `190` are novel, `5` are duplicates and none is
+  pending. The vault grows `12→202` clauses, `35,061→599,728` literals and
+  `140,483→2,399,911 B`, with SHA-256 `cd523334672dd75c…`. Search records `1,330`
+  decisions, `31,944,523` propagations, minimum UB `12.8607806294803` and root UB
+  `262.68644197084643`; native wall/CPU are `5.331635/5.925889 s` with
+  `397,099,008 B` peak RSS. The complementary reader unlocks a large distinct
+  exact-exclusion population and therefore advances the mechanism frontier; it
+  is not recovery, UNSAT or global threshold-region exhaustion. Native status is
+  `UNKNOWN`; no model, key, truth, reveal, MPS or GPU is used. The formal
+  threshold/minimum-UB audit is in the O1C-0068 interpretation note. Source is
+  `8446414d73e871de829c182ca4cd5b500e4d9d14`.
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
@@ -248,10 +262,14 @@
   fails raw at `1,340 > 1,268 > 1,031` for edge, exact unary and final→early.
   Certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass.
   All 28 wrong passes, proof replays, freeze checks and truth controls are exact.
-- **Next paid experiment:** one bounded complementary phase-reader call from the
-  sealed 12-clause vault, preferably `forcephase=true`, `phase=false`, with all
-  target, relation, threshold and accounting identities otherwise fixed. Do not
-  replay O1C-0067 or treat blind horizon/RAM scaling as a new mechanism.
+- **Next paid experiment:** after a target-free gate, O1C-0069 is exactly one
+  forced-phase-1 alternating-reader composition call from O1C-0068's sealed
+  202-clause vault at seed `0` and requested `512` conflicts. This is one
+  explicit composition operator, not a replay or phase sweep. Repeating the
+  observed O1C-0068 195-clause/579,526-literal envelope with all clauses novel
+  would yield `397` clauses / `1,179,254` literals / `4,718,795 B`, below the
+  frozen caps; this is a planning scenario, not a formal 512-conflict maximum,
+  and the hard native capacity guard remains fail-closed.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -265,18 +283,21 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** no scientific process is active. O1C-0067 is sealed as
-  the exact unchanged-reader fixed point after one correctly billed call. The
-  vault retains a measured work reduction but adds zero novelty. Immediate ROI
-  is one complementary phase reader or another explicit reader operator at
-  matched bounded work; same-call replay and blind horizon scaling are closed.
-  O1C-0053..0056 and the exact O1C-0058 rule remain negative and closed.
-  Sibling repositories remain read-only and untouched.
+- **Active local run:** no scientific process is active. O1C-0068 is sealed as
+  a one-call complementary-reader gain: 190 novel exact exclusions expand the
+  vault to 202 clauses, but produce no model, key or UNSAT result. Immediate ROI
+  is the interpretation-bound O1C-0069 target-free gate followed by exactly one
+  forced-phase-1 alternating-reader composition call at seed 0/requested 512;
+  replay, phase sweep and blind horizon/RAM scaling are closed. O1C-0053..0056
+  and the exact O1C-0058 rule remain negative and closed. Sibling repositories
+  remain read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
   the north star; the scored objective is the strongest reproducible
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
+  [O1C-0068 complementary-phase gain](research/O1C0068_APPLE8_COMPLEMENTARY_PHASE_RESULT_20260719.json),
+  [O1C-0068 interpretation](research/O1C0068_APPLE8_COMPLEMENTARY_PHASE_INTERPRETATION_20260719.md),
   [O1C-0067 sealed-vault fixed-point result](research/O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_RESULT_20260719.json),
   [O1C-0067 interpretation](research/O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_INTERPRETATION_20260719.md),
   [O1C-0066 episodic-vault terminal result](research/O1C0066_APPLE8_EPISODIC_VAULT_RESULT_20260719.json),
@@ -408,6 +429,14 @@ the already stored ordinal-7 clause. The 12-clause vault still reduces decisions
 and propagations versus the parent, but adds no novelty and raises minimum UB.
 Close this exact reader/seed/horizon; change to complementary phase selection or
 another explicit reader operator rather than replaying or blind-scaling it.
+O1C-0068 performs that one complementary call at exact `512/512/512` billing and
+unlocks a sharply distinct population: 190 novel fully emitted exclusions plus
+five duplicates grow the vault from 12 to 202 clauses and from 140,483 to
+2,399,911 bytes. This is a meaningful exact-exclusion mechanism frontier, not a
+model, recovery, UNSAT or global-exhaustion result. Preserve the sealed vault and
+use the interpretation audit to gate exactly one O1C-0069 forced-phase-1
+alternating-reader composition call at the same seed and 512 horizon. This is a
+distinct composed reader, not a replay or phase sweep; do not blind-scale it.
 In parallel APPLE-VIEW-0005 finds the first exact sparse carry certificate:
 250 of 336 high-carry identities suffice to reject a complete wrong key on the
 fixed matrix, with independent proof replay. APPLE-VIEW-0006 then performs the
@@ -997,15 +1026,18 @@ O1C-0017 result boundary are documented in
 | Matched grouped native | — | 2026-07-19 12:36 | O1C-0065 exact width-6 Full-256 sieve | terminal: tighter bounds/smaller logical cache, but 6→6 cuts and identical decisions/propagations; no recovery | complete |
 | Episodic vault | — | 2026-07-19 13:58 | O1C-0066 APPLE8 score-threshold no-good vault | terminal: two completed episodes grow 0→6→12 clauses and change bounded search; episode 2 stops in adapter validation, no truth/key/retry | complete |
 | Sealed-vault continuation | — | 2026-07-19 15:26 | O1C-0067 APPLE8 one-call continuation | terminal: one ordinal-7 duplicate, vault unchanged at 12 clauses; lower decisions/propagations, no novelty/truth/key | complete |
+| Complementary phase reader | — | 2026-07-19 16:18 | O1C-0068 APPLE8 one-call phase-0 reader | terminal: 190 novel plus five duplicate exact exclusions grow vault 12→202 clauses; no model/key/truth/UNSAT | complete |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Run one bounded complementary phase reader from O1C-0067's sealed 12-clause
-   vault, preferably `forcephase=true`, `phase=false`, with all other identities
-   and accounting matched.
-2. If it is duplicate-only, precommit one other explicit reader operator. Do not
-   replay either call or blind-scale the horizon/RAM envelope.
+1. Complete the O1C-0069 target-free gate, then run exactly one forced-phase-1
+   alternating-reader composition call from O1C-0068's sealed 202-clause vault
+   at seed `0` and requested `512` conflicts.
+2. Capacity-plan for the observed O1C-0068 emission envelope repeating with all
+   clauses novel: `397` clauses, `1,179,254` literals and `4,718,795 B`. This is
+   not a formal maximum; retain the fail-closed native capacity guard. Do not
+   replay lineage ordinal 4, phase-sweep or blind-scale the horizon/RAM envelope.
 3. Keep O1C-0056 fixed negative clause-role credit closed. If the causal branch
    resumes later, condition the unique exact role on outcome/utility; do not tune
    sign, scale, groups or cap.
@@ -1025,6 +1057,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0068` | 2026-07-19 16:18 | O1C-0067's duplicate-only fixed point is reader-phase-specific, so one forced complementary phase may expose distinct exact score-threshold exclusions at matched bounded work | Local 0/lineage 4 phase-0 call requests/actual/bills `512/512/512`, zero overshoot; 195 fully emitted, 190 novel, 5 duplicates, pending 0; vault `12→202` clauses, `35,061→599,728` literals, `140,483→2,399,911 B`, SHA `cd523334…`. Decisions `1,330`, propagations `31,944,523`, minimum/root UB `12.8607806294803/262.68644197084643`; no model/key/truth | `EPISODIC_VAULT_COMPLEMENTARY_PHASE_GAIN`; large distinct exact-exclusion population and meaningful mechanism frontier, not recovery, UNSAT or global exhaustion | one call; 21.9159 s elapsed; 5.331635 s native wall; 5.925889 s native CPU; 397,099,008 B native peak; zero reveal/MPS/GPU | After a target-free gate, run one O1C-0069 forced-phase-1 alternating-reader composition from the 202-clause vault; no replay/sweep | [Result](research/O1C0068_APPLE8_COMPLEMENTARY_PHASE_RESULT_20260719.json) |
 | `O1C-0067` | 2026-07-19 15:26 | One correctly billed fresh process from the sealed 12-clause vault adds another exact exclusion or reaches a fixed point | Requested/actual/billed `512/514/514`; one `2,951`-literal input duplicate matching first-emission ordinal 7; vault remains 12 clauses/35,061 literals/140,483 B. Decisions `4,517` (-149), propagations `1,192,529` (-38,039), minimum UB `9.111031965569408` (+1.1375488575223374); no key/truth | `EPISODIC_VAULT_SATURATED_NO_GAIN`; exact reader/seed/horizon fixed point, not global vault exhaustion | one call; 4.553662 s elapsed; 0.333463 s native wall; 0.921060 s native CPU; 392,609,792 B native peak | Preserve the work-reducing vault, but change to complementary phase selection or another explicit reader; no replay/blind scaling | [Result](research/O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_RESULT_20260719.json) |
 | `O1C-0066` | 2026-07-19 13:58 | Canonical threshold-certified no-goods can persist across fresh bounded APPLE8 solver episodes and compound exact pruning without solver-local replay | Episodes grow vault `0→6→12` clauses: ep0 `17,804` literals / `71,431 B`; ep1 adds 6 novel / 17,257 literals with one duplicate, ending `140,483 B`. At requested 512, decisions `4471→4666`, propagations `1178185→1230568`, minimum UB `12.934208247009447→7.973483108047071`; ep2 stops adapter validation on `joint-score-sieve-v5 soft conflict ledger differs`; no key/truth | `EPISODIC_VAULT_OPERATIONAL_TERMINAL`; positive bounded efficacy before operational stop, neither scientific negative nor recovery | 3 calls/intents, 2 completed; requested 1,536/billed 1,025; 0.716103 s native wall; 8.157195 s elapsed; peak RSS `388,907,008→389,234,688 B` | O1C-0067 later repairs billing and finds unchanged-reader saturation; preserve the vault and change reader operator | [Result](research/O1C0066_APPLE8_EPISODIC_VAULT_RESULT_20260719.json) |
 | `O1C-0065` | 2026-07-19 12:36 | Exact width-6 compatibility groups turn their tighter public bound into more native Full-256 pruning at matched work | Root UB `292.3061134451→262.6864419708`, minimum UB `13.1979307788→12.9342082470`, cache `60,456→23,080 B`; cuts remain `6→6`, decisions `4471→4471`, propagations `1178185→1178185`; no key/truth read | `O1C65_GROUPED_WIDTH6_EFFICACY_RETAINED`; no strict efficacy gain or recovery | 3.328 s elapsed; 1.985 child CPU; 0.346 s native; 386,547,712 B native peak; one call | O1C-0066 later persists its cuts and O1C-0067 closes unchanged-reader novelty; preserve grouping and change reader operator | [Result](research/O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json) |
@@ -1096,7 +1129,10 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
-| `O1C-0067` capsule manifest | `2562db062186fb5168e66c69943af83ba19a151bdc17489111a15dbb114f9341f` |
+| `O1C-0068` capsule manifest | `dd0236774c1352238cce86458a8f01380aa32dc538dbe80a3c1744b0f126a745` |
+| `O1C-0068` authoritative result | `d494887d2be96516211acf09ff8852a88a44576044723223b9057942fd7aea80` |
+| `O1C-0068` source freeze | `8446414d73e871de829c182ca4cd5b500e4d9d14` |
+| `O1C-0067` capsule manifest | `2562db062186fb5168e66c69943af83ba19a151bdc17489111a15dbb114f9341` |
 | `O1C-0067` authoritative result | `c01ffe69198e997c6d3798e0b9f3190065bd7b58ec3ab1ba67a66a7ccd799f1f` |
 | `O1C-0067` source freeze | `865634458ef3f5b01a5881208eb028404b96f135` |
 | `O1C-0058` capsule manifest | `9367abdae4b8514eec3c9518c8cfc54f9b8a34ce45ec4ebc5c009280507b3b06` |
@@ -1305,7 +1341,11 @@ O1C-0017 result boundary are documented in
 
 ## Resume here
 
-Resume from [the ranked actions](research/NEXT_ACTIONS.md), the exact
+Resume from the
+[O1C-0068 interpretation and formal threshold/minimum-UB audit](research/O1C0068_APPLE8_COMPLEMENTARY_PHASE_INTERPRETATION_20260719.md),
+the authoritative
+[O1C-0068 complementary-phase result](research/O1C0068_APPLE8_COMPLEMENTARY_PHASE_RESULT_20260719.json),
+[the ranked actions](research/NEXT_ACTIONS.md), the exact
 [O1C-0067 sealed-vault result](research/O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_RESULT_20260719.json),
 [O1C-0066 episodic-vault result](research/O1C0066_APPLE8_EPISODIC_VAULT_RESULT_20260719.json),
 [O1C-0065 matched width-6 result](research/O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json),
@@ -1326,13 +1366,23 @@ grow the canonical vault `0→6→12` clauses, episode 1 adds six novel clauses 
 17,257 literals and lowers minimum UB to `7.973483108047071`, with bounded peak
 RSS effectively flat. Episode 2 stops at `adapter_validation` because
 `joint-score-sieve-v5 soft conflict ledger differs`; it is not a scientific
-negative or recovery, consumed its ordinal and must not be replayed. Resume with
-O1C-0067's completed repaired-ledger continuation: it bills 514 conflicts,
+negative or recovery, consumed its ordinal and must not be replayed. O1C-0067's
+completed repaired-ledger continuation bills 514 conflicts,
 emits only the already stored ordinal-7 clause and leaves the vault unchanged at
 12 clauses. Decisions/propagations fall by `149/38,039`, but minimum UB is
-`1.1375488575223374` higher and there is no novelty or recovery. Continue with
-one complementary phase reader (`forcephase=true`, `phase=false`) or another
-explicit reader operator; do not replay or blind-scale the same horizon.
+`1.1375488575223374` higher and there is no novelty or recovery. O1C-0068 then
+changes only the initial phase reader and, at exact `512/512/512` billing,
+produces 190 novel fully emitted clauses plus five duplicates. The vault grows
+`12→202` clauses and `140,483→2,399,911 B`; this large distinct exact-exclusion
+population is a meaningful mechanism frontier, not recovery, UNSAT or a global
+exhaustion certificate. Resume from its interpretation: first pass the O1C-0069
+target-free gate, then run exactly one forced-phase-1 alternating-reader
+composition call from the sealed 202-clause vault at seed `0` and requested
+`512`. If the observed O1C-0068 emission envelope repeats and every clause is
+novel, the vault would reach `397` clauses / `1,179,254` literals /
+`4,718,795 B`, below caps; this is a planning scenario, not a formal maximum,
+and the hard native capacity guard remains fail-closed. This is not a replay or
+phase sweep; do not blind-scale the same horizon/RAM envelope.
 Do not enlarge the decoy panel or repeat O1C-0058's attended-base positive-delta
 rule.
 

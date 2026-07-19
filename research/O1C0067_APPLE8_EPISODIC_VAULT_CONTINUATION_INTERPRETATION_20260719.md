@@ -8,7 +8,7 @@
 - **Seals:** authoritative result SHA-256
   `c01ffe69198e997c6d3798e0b9f3190065bd7b58ec3ab1ba67a66a7ccd799f1f`;
   capsule manifest SHA-256
-  `2562db062186fb5168e66c69943af83ba19a151bdc17489111a15dbb114f9341f`.
+  `2562db062186fb5168e66c69943af83ba19a151bdc17489111a15dbb114f9341`.
 
 ## Result
 

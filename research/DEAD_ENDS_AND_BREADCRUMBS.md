@@ -1294,7 +1294,8 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Breadcrumb:** O1C-0065 later tests frozen grouping hash
   `3da85bae132d829252a68f0e3fd99220ea7d1ef365042806af810ff02f75f636`
   once on the unchanged APPLE-VIEW-0008 relation, and O1C-0066 later persists
-  its cuts. Preserve the grouping through the current adapter-ledger audit.
+  its cuts. O1C-0068 preserves the same grouping while forced phase 0 adds 190
+  novel exact exclusions; keep it fixed through the one-call reader composition.
 - **Artifact:** authoritative
   [`APPLE-VIEW-0009 result`](APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json).
 
@@ -1318,8 +1319,10 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   remains only `CNF ∧ score_potential >= threshold`, never CNF-only; carry only
   canonical emitted clauses, not solver-local trail, assignments or group cache.
   O1C-0067 later repairs billing and finds the unchanged reader/seed/horizon at a
-  duplicate-only fixed point. The remaining question is explicit reader
-  diversity, not vault construction or budget scaling.
+  duplicate-only fixed point. O1C-0068 then confirms explicit reader diversity
+  with 190 forced-phase-0 novel clauses. The remaining question is one-step
+  cross-reader composition under the existing capacity caps, not vault
+  construction or budget scaling.
 - **Artifact:** authoritative
   [`O1C-0065 result`](O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json).
 
@@ -1347,7 +1350,9 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   discard algebraic consistency, or keep the unsupported `+1` soft-limit cap.
 - **Breadcrumb:** O1C-0067 later preserves the repaired actual-observed ledger
   and completes the distinct continuation. It emits only a stored duplicate;
-  preserve the 12-clause vault and change the reader operator next.
+  O1C-0068 then changes the reader once and grows the vault to 202 clauses with
+  190 novel exclusions. Preserve those exact bytes for the gated forced-phase-1
+  composition call.
 - **Artifact:** authoritative
   [`O1C-0066 result`](O1C0066_APPLE8_EPISODIC_VAULT_RESULT_20260719.json), SHA-256
   `b8b61d0f2feaa9c544c1fef30cba4c7cead90c390a577a444405d45ad85000e3`;
@@ -1369,12 +1374,63 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   key, truth or reveal is involved.
 - **Do not repeat:** replay lineage ordinal `3`, rerun the same reader/seed/call,
   or treat blind horizon scaling as a new mechanism.
-- **Breadcrumb:** keep the sealed vault and exact accounting, but change the
-  reader operator. Prefer complementary phase selection with
-  `forcephase=true`, `phase=false`, or precommit another explicit reader.
+- **Breadcrumb:** O1C-0068 later changes exactly to `forcephase=true`, `phase=0`
+  and supports the reader-specific mechanism with 190 novel clauses. Preserve
+  its sealed 202-clause output and continue only with B-0069's one-call
+  forced-phase-1 composition; do not reopen this fixed point.
 - **Artifacts:** authoritative
   [`result`](O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_RESULT_20260719.json),
   SHA-256
   `c01ffe69198e997c6d3798e0b9f3190065bd7b58ec3ab1ba67a66a7ccd799f1f`;
   capsule manifest
-  `2562db062186fb5168e66c69943af83ba19a151bdc17489111a15dbb114f9341f`.
+  `2562db062186fb5168e66c69943af83ba19a151bdc17489111a15dbb114f9341`.
+
+## B-0069 — Complementary phase breaks the fixed point but exposes a vault-capacity cliff
+
+- **Evidence:** O1C-0068 changes only the deterministic initial reader phase from
+  the sealed O1C-0067 boundary. Its single forced-phase-0 local-0/lineage-4 call
+  requests, observes and bills `512/512/512` conflicts with zero overshoot. It
+  fully emits `195` exact score-threshold clauses: `190` are novel, five are
+  duplicates and zero remain pending. The vault grows `12→202` clauses /
+  `35,061→599,728` literals / `140,483→2,399,911 B`. Search records `1,330`
+  decisions, `31,944,523` propagations and minimum UB `12.8607806294803`;
+  native wall is `5.331635 s` and peak RSS is `397,099,008 B`.
+- **Conclusion:** `H-COMPLEMENTARY-PHASE-072` is supported. O1C-0067's
+  duplicate-only terminal was reader-specific: forced phase 0 reaches a large
+  distinct exact-exclusion population at matched bounded work. Classification
+  is `EPISODIC_VAULT_COMPLEMENTARY_PHASE_GAIN`. This is strong sub-recovery
+  progress, not key recovery, UNSAT or exhaustion of the globally feasible
+  region; no model or key is returned and no truth or reveal is read.
+- **Capacity boundary:** the vault caps remain `512` clauses / `1,600,000`
+  literals / `8,388,608 B`. Reserving one more call against the matched O1C-0068
+  all-emission envelope, with all 195 emissions treated as novel, gives
+  `202+195=397` clauses, `599,728+579,526=1,179,254` literals and
+  `2,399,911+(4×195)+(4×579,526)=4,718,795 B`; that fits. Two such yields would
+  reach `592` clauses / `1,758,780` literals / `7,037,679 B` and violate the
+  first two caps. The one-call arithmetic is a matched reservation, not a formal
+  bound on forced-phase-1 emission; native capacity terminals remain fail-closed.
+- **Do not repeat:** replay lineage ordinal `4`, continue forced phase 0, sweep
+  phase settings, enlarge the 512-conflict horizon, authorize two alternating
+  calls, evict clauses after observing an outcome or build a general vault
+  compaction service before a measured need.
+- **Breadcrumb:** O1C-0069 is exactly one alternating-reader composition call
+  from the sealed 202-clause vault. Freeze a new explicit reader identity with
+  `forcephase=true`, `phase=1`, seed `0`; hold target, CNF, potential, grouping,
+  threshold, 512-conflict soft horizon and actual-conflict accounting fixed.
+  Before science, a target-free synthetic fixture must prove that importing an
+  exact phase-0 no-good changes forced phase 1's deterministic emitted-clause
+  sequence, repeated outputs must match, the production vault must dual-parse
+  exactly, and the matched emission-envelope reservation must pass. Authorize
+  one native call only. At least one novel exact clause establishes composition
+  gain, a publicly verified candidate is terminal recovery, and duplicate-only
+  closes one-step alternation. Native status 20 is a separate exceptional exact
+  `CNF ∧ score_potential >= threshold` UNSAT terminal: the prior sealed compiled
+  truth score is above threshold, so seal a no-retry consistency audit and
+  never claim global ChaCha or key-space UNSAT.
+- **Artifacts:** authoritative
+  [`result`](O1C0068_APPLE8_COMPLEMENTARY_PHASE_RESULT_20260719.json), SHA-256
+  `d494887d2be96516211acf09ff8852a88a44576044723223b9057942fd7aea80`;
+  output vault SHA-256
+  `cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858`;
+  capsule artifact manifest
+  `dd0236774c1352238cce86458a8f01380aa32dc538dbe80a3c1744b0f126a745`.

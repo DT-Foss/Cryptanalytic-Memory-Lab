@@ -2554,4 +2554,57 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   sealed
   [`capsule`](../runs/20260719_152601_O1C-0067_apple8-vault-continuation-v1/RUN.md),
   manifest SHA-256
-  `2562db062186fb5168e66c69943af83ba19a151bdc17489111a15dbb114f9341f`.
+  `2562db062186fb5168e66c69943af83ba19a151bdc17489111a15dbb114f9341`.
+
+## O1C-0068 — APPLE8 complementary phase reader
+
+- **Supersession:** this completed attempt consumes O1C-0067's forward decision
+  after the target-free complementary-reader gates passed. It is a distinct
+  lineage call, not a replay of lineage ordinal `3`.
+- **Started:** 2026-07-19T16:18:37+02:00.
+- **Recorded:** 2026-07-19T16:18:58+02:00.
+- **Source commit:** `8446414d73e871de829c182ca4cd5b500e4d9d14`.
+- **Protocol:** exactly one fresh native subprocess from the sealed 12-clause
+  vault, using local ordinal `0`, lineage ordinal `4`, forced initial phase `0`
+  (`forcephase=true`, `phase=false`), seed `0` and requested 512-conflict soft
+  horizon. Target, Full-256 CNF, potential, width-6 grouping, threshold and
+  accounting are otherwise unchanged. Actual solve conflicts are billed without
+  a numeric overshoot ceiling; process/time/RSS limits remain hard.
+- **Result:** `EPISODIC_VAULT_COMPLEMENTARY_PHASE_GAIN`. Requested, actual and
+  billed conflicts are exactly `512/512/512`, with zero overshoot. The call fully
+  emits `195` clauses / `579,526` literals: `190` clauses / `564,667` literals
+  are novel, `5` clauses are duplicates and `0` clauses remain pending. The
+  vault grows `12→202` clauses, `35,061→599,728` literals and
+  `140,483→2,399,911 B`; its final SHA-256 is
+  `cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858`.
+- **Search and resources:** decisions are `1,330`, propagations `31,944,523`,
+  minimum UB `12.8607806294803` and root UB `262.68644197084643`. Runner elapsed
+  time is `21.9159 s`; native wall/CPU are `5.331635/5.925889 s`, and native
+  peak RSS is `397,099,008 B`. Native status is `UNKNOWN`; one native call; no
+  model or key, no truth read, and zero reveal/entropy/fresh-target/refit/MPS/GPU
+  work.
+- **Claim boundary:** the complementary reader unlocks a large distinct exact
+  score-threshold exclusion population, which is a meaningful mechanism
+  frontier. It is not key recovery, a SAT model, UNSAT, global threshold-region
+  exhaustion or authorization to replay/sweep. The concise interpretation
+  formally audits the frozen threshold and explains why O1C-0066 episode 1's
+  minimum UB is a visited-partial-trail statistic, not a population score,
+  global maximum or exhaustion certificate.
+- **Decision:** preserve the sealed 202-clause vault. After a target-free gate,
+  O1C-0069 is exactly one explicit forced-phase-1 alternating-reader composition
+  call from that vault at the same seed `0` and requested `512` conflicts. This
+  is a distinct composition operator, not a replay or phase sweep. If the
+  observed O1C-0068 195-clause/579,526-literal envelope repeats and every clause
+  is novel, the vault would reach `397` clauses, `1,179,254` literals and
+  `4,718,795 B`, below the frozen caps. This is a capacity-planning scenario,
+  not a formal maximum for a 512-conflict call; the hard native capacity guard
+  remains fail-closed.
+- **Artifacts:** authoritative
+  [`result`](O1C0068_APPLE8_COMPLEMENTARY_PHASE_RESULT_20260719.json), SHA-256
+  `d494887d2be96516211acf09ff8852a88a44576044723223b9057942fd7aea80`;
+  concise
+  [`interpretation`](O1C0068_APPLE8_COMPLEMENTARY_PHASE_INTERPRETATION_20260719.md);
+  sealed
+  [`capsule`](../runs/20260719_161838_O1C-0068_apple8-complementary-phase-v1/RUN.md),
+  manifest SHA-256
+  `dd0236774c1352238cce86458a8f01380aa32dc538dbe80a3c1744b0f126a745`.
