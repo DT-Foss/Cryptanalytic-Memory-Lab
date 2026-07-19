@@ -1206,8 +1206,8 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Do not repeat:** tune the negative sign, scale, groups, cap or tie rule, or
   revisit all-member versus one-owner localization on this consumed target.
 - **Breadcrumb:** retain the exact unique current-level role as an address. If
-  the causal branch resumes after the higher-ROI O1C-0057 search conversion and
-  Apple joint-score tracks, condition role credit on measured outcome/utility rather
+  the causal branch resumes after O1C-0059 exact joint scoring and APPLE8
+  cross-block factorization, condition role credit on measured outcome/utility rather
   than applying fixed negative blame. This is a successor hypothesis, not an
   observed effect.
 - **Artifact:** authoritative
@@ -1232,3 +1232,29 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   next conversion test.
 - **Artifact:** authoritative
   [`O1C-0057 result`](O1C0057_MULTIBLOCK_PARENT_CRITICALITY_RANK_RESULT_20260719.md).
+
+## B-0063 — A strong complete-key scorer can have no one-bit direction
+
+- **Evidence:** O1C-0058 selects the strongest primary eight-block decoy from
+  4,096 candidates, evaluates its 256 one-bit neighbors per block and streams
+  their signed differences into a 256-cell vault. On one fresh Full-256 target,
+  the base and primary prefix-8 synthesis both have `127/256` correct bits; gain
+  is zero and the longest correct confidence prefix is zero. Key/clause controls
+  have `127/128`; all 13 public checks match `0/8` blocks.
+- **Conclusion:** O1C-0057's scalar multi-block rank signal is real at complete-
+  candidate level, but the supplied-panel optimum has no useful truth-aligned
+  coordinate direction under this rule. Two locally score-improving primary
+  flips exist and produce no truth-bit gain. Complete-key discrimination does
+  not automatically decompose into independent key-bit direction.
+- **Do not repeat:** another attended-best-decoy positive one-bit-delta vault,
+  sign flip or threshold on this exact local rule. O1C-0058 does not formally
+  close crowd/elite consensus; a separate cheap consensus scratch was
+  control-negative and remains outside this attempt.
+- **Breadcrumb:** retain the frozen eight-block score and evaluate it jointly on
+  exact CNF partial assignments, where internal propagation enforces compatible
+  factor assignments. APPLE8 is the matched augmentation at unchanged
+  potential/threshold/budget: make the logically redundant public P20 units plus
+  exact key-lane `P_b = P_0 + (Z_b - Z_0)` consequences explicit and require a
+  strict propagation/pruning gain without changing the solution set.
+- **Artifact:** authoritative
+  [`O1C-0058 result`](O1C0058_MULTIBLOCK_BIT_VAULT_GRADIENT_RESULT_20260719.md).

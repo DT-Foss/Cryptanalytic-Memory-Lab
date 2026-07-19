@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T06:29:32+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T07:39:33+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -148,6 +148,14 @@
   prediction and establishes approximately 12 bits of complete-candidate
   discrimination inside the supplied panel. It is a transferred scorer/orderer,
   not key generation or exact recovery.
+- **O1C-0058:** the direct complete-decoy-to-bit conversion is closed on one
+  fresh uniform Full-256/eight-block target. The attended base and primary
+  prefix-8 synthesis both have `127/256` correct bits; gain is `0`, longest
+  correct confidence prefix is `0`, controls have `127/128`, and all 13 public
+  candidates match `0/8` blocks. No partial or exact gate passes. Preserve
+  O1C-0057's complete-key score; close only attended-best-decoy plus positive
+  one-bit-delta vault. A separate crowd-consensus scratch was control-negative
+  but is not part of O1C-0058 and does not create a formal consensus closure.
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
@@ -171,9 +179,12 @@
   fails raw at `1,340 > 1,268 > 1,031` for edge, exact unary and final→early.
   Certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass.
   All 28 wrong passes, proof replays, freeze checks and truth controls are exact.
-- **Next paid experiments:** integrate the frozen O1C-0057 prefix-8 scorer into
-  attacker-generated partial-assignment or bounded exact-search ordering, with
-  Apple joint-score as the parallel proof-utility track. Retain exact clause-role
+- **Next paid experiments:** O1C-0059 integrates the frozen O1C-0057 prefix-8
+  scorer into an exact partial-assignment joint-score CNF sieve. APPLE8 is its
+  matched feed-forward-cancelled Cross-Block-CNF augmentation: make redundant
+  public P20 units and `P_b = P_0 + (Z_b - Z_0)` key-lane consequences explicit
+  at the same potential, threshold and budget. This changes neither information
+  nor solutions; it tests propagation/pruning. Retain exact clause-role
   localization only as a breadcrumb; any later causal successor must condition
   credit on outcome or utility, not retune the closed negative rule.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
@@ -189,17 +200,18 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** O1C-0057 is positive and frozen: four public blocks move
-  fresh complete-key truth to rank 1/4,097 and eight blocks retain rank 1 with
-  strict rotation margins. Immediate ROI is conversion of that scorer into
-  attacker-generated partial-assignment/search ordering; Apple joint-score runs
-  in parallel. O1C-0053..0056 remain negative and closed.
+- **Active local run:** O1C-0057 remains positive and frozen; O1C-0058 closes
+  attended-decoy one-bit direction at `127→127`. Immediate ROI is O1C-0059 exact
+  partial-assignment joint scoring, with APPLE8 as the matched feed-forward-
+  cancelled Cross-Block-CNF augmentation. O1C-0053..0056 and this exact O1C-0058 rule remain
+  negative and closed.
   Sibling repositories remain read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
   the north star; the scored objective is the strongest reproducible
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
+  [O1C-0058 multi-block bit-vault close](research/O1C0058_MULTIBLOCK_BIT_VAULT_GRADIENT_RESULT_20260719.md),
   [O1C-0057 multi-block rank transfer](research/O1C0057_MULTIBLOCK_PARENT_CRITICALITY_RANK_RESULT_20260719.md),
   [O1C-0056 clause-role close](research/O1C0056_CLAUSE_ROLE_CREDIT_SCREEN_RESULT_20260719.md),
   [O1C-0055 learned-clause all-member close](research/O1C0055_LEARNED_CLAUSE_CREDIT_SCREEN_RESULT_20260719.md),
@@ -288,7 +300,19 @@ first prospective multi-block compounding of the complete-candidate score and
 approximately 12 bits of discrimination inside the supplied panel. It does not
 generate that panel or recover the key. The direct next step is therefore to
 apply the frozen prefix-8 scorer to attacker-generated partial assignments or
-bounded exact-search branches, not to enlarge another decoy panel.
+bounded exact-search branches, not to enlarge another decoy panel. O1C-0058
+tests the simplest local conversion first: one-bit finite differences around the
+best eight-block decoy. It leaves primary at the base's `127/256` correct bits,
+with gain `0`, confidence prefix `0` and `0/8` public-block matches for every
+candidate. The complete-key scorer remains valid. The supplied-panel optimum
+has two locally score-improving primary directions, but those flips do not align
+with truth. Close only this attended-base positive-delta rule; crowd/elite
+consensus is outside the formal O1C-0058 run. O1C-0059 now carries the score into
+exact joint CNF partial assignments. Its matched APPLE8 augmentation retains
+the existing eight-block shared-key CNF and makes redundant public P20 units and
+`P_b = P_0 + (Z_b - Z_0)` key-lane consequences explicit at the same potential,
+threshold and budget. It adds no logical information; only propagation/pruning
+may improve.
 In parallel APPLE-VIEW-0005 finds the first exact sparse carry certificate:
 250 of 336 high-carry identities suffice to reject a complete wrong key on the
 fixed matrix, with independent proof replay. APPLE-VIEW-0006 then performs the
@@ -871,34 +895,41 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Main scientific run | — | 2026-07-19 | O1C-0057 frozen result | fresh multi-block truth ranks 8/7/1/1; scorer transfer passed, search conversion next | — |
-| Bias-free parallel track | — | 2026-07-19 | Apple joint-score sieve | exact proof-utility ordering in progress | — |
+| Main scientific run | — | 2026-07-19 | O1C-0059 exact joint-score sieve | O1C-0058 closed local direction; exact eight-block partial-assignment conversion next | — |
+| Matched augmentation | — | 2026-07-19 | APPLE8 feed-forward-cancelled Cross-Block CNF | redundant public-P20/key-lane consequences made explicit at O1C-0059 settings | — |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Integrate the frozen O1C-0057 prefix-8 parent-criticality scorer into bounded
-   attacker-generated partial-assignment or exact-search ordering. Require a
-   predeclared matched-work, effective-width or verified beam-rank gain; do not
-   merely enlarge the supplied decoy panel.
-2. Advance the Apple joint-score sieve as the parallel proof-utility track.
+1. Run O1C-0059: integrate the frozen O1C-0057 prefix-8 score into one bounded
+   exact partial-assignment joint-score CNF sieve. Require exact pruning, matched
+   work, effective width or a verified candidate; do not merely enlarge decoys.
+2. Run APPLE8 against O1C-0059 with potential, threshold and budget unchanged:
+   make redundant public P20 units and exact key-lane
+   `P_b = P_0 + (Z_b - Z_0)` consequences explicit. Require better
+   propagation/pruning with the same logical solution set.
 3. Keep O1C-0056 fixed negative clause-role credit closed. If the causal branch
    resumes later, condition the unique exact role on outcome/utility; do not tune
    sign, scale, groups or cap.
 4. Keep O1C-0054's global separable factor-bound beam closed; do not widen its
    beam, reorder pairs, raise the queue cap or tune the bound.
-5. Keep APPLE-VIEW-0007's static strongest-predecessor reader closed; do not
+5. Keep O1C-0058's attended-decoy positive one-bit-delta vault closed; do not
+   flip signs, tune thresholds or rerun that exact local rule. Do not extend its
+   formal closure to crowd/elite consensus; the separate cheap scratch was only
+   control-negative.
+6. Keep APPLE-VIEW-0007's static strongest-predecessor reader closed; do not
    root-weight, threshold, retraverse or rescore its held-out panel. Its only
    retained breadcrumb converges on the active live context/action branch.
-6. Reuse A325/A526 unchanged only when their native complement gate is met, and
+7. Reuse A325/A526 unchanged only when their native complement gate is met, and
    keep every sibling repository read-only.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0058` | 2026-07-19 07:08 | Signed one-bit finite differences around the supplied-panel-best eight-block decoy expose key-bit correction direction | Base and primary prefix 8 are both `127/256`, improvement `0`, longest correct confidence prefix `0`; key/clause controls `127/128`; all 13 candidates match `0/8` public blocks; no partial/exact gate | `MULTIBLOCK_BIT_VAULT_NO_DIRECTIONAL_TRANSFER`; fresh Full-256 negative conversion test | 99.07695375 s; 211,124,224 B peak; 34,824 forwards; 112 direct blocks; 2,048 B primary/6,144 B all-arm state; one entropy/reveal; zero solver/sibling/MPS/GPU | Two locally score-improving primary flips do not improve truth alignment; run O1C-0059 plus its matched APPLE8 redundant-consequence propagation/pruning augmentation | [Capsule](runs/20260719_070833_O1C-0058_multiblock-bit-vault-gradient-v1/RUN.md) |
 | `O1C-0057` | 2026-07-19 06:29 | Additional same-key public blocks compound the unchanged transferred parent-criticality score into stronger complete-key rank | Primary truth ranks `8/7/1/1` of 4,097 across prefixes 1/2/4/8; prefix-8 rotations rank `3581/4037`; truth z `+5.57888245`; frozen prediction passes | `MULTIBLOCK_PARENT_CRITICALITY_COMPOUNDING_TRANSFER`; prospective scorer/orderer, no recovery | 95.8946 s; 193,544,192 B peak; 32,776 forwards; 4,096 native branches; one fresh target/entropy/reveal; zero solver/sibling/MPS/GPU | Roughly 12 bits of discrimination transfer inside the supplied panel; convert the prefix-8 score into partial-assignment/search ordering rather than scaling decoys | [Capsule](runs/20260719_062932_O1C-0057_multiblock-parent-criticality-rank-v1/RUN.md) |
-| `O1C-0056` | 2026-07-19 06:17 | One deepest/current-level exact clause owner concentrates causal negative credit enough to close W11 | `UNKNOWN` at 512 conflicts/513 decisions/12,013,641 propagations; 512/512 clauses select exactly one current-level owner, discard 2,150/2,662 matched members, and still touch 18 cells/seven groups; 142 reorders, 502 repeats | `CONSUMED_POST_REVEAL_EXACT_CLAUSE_ROLE_CREDIT_SCREEN`; negative | 5.687863334 s total wall; 1.928103 s native wall; 127,057,920 B peak; one call; 2,662 B state; zero tuning/fresh/sibling/MPS/GPU | Localization is exact and removes fan-out, but fixed negative conflict credit still fails; utility-conditioned work is parked behind O1C-0057 search conversion and Apple joint-score | [Capsule](runs/20260719_061710_O1C-0056_clause-role-credit-screen-v1/RUN.md) |
+| `O1C-0056` | 2026-07-19 06:17 | One deepest/current-level exact clause owner concentrates causal negative credit enough to close W11 | `UNKNOWN` at 512 conflicts/513 decisions/12,013,641 propagations; 512/512 clauses select exactly one current-level owner, discard 2,150/2,662 matched members, and still touch 18 cells/seven groups; 142 reorders, 502 repeats | `CONSUMED_POST_REVEAL_EXACT_CLAUSE_ROLE_CREDIT_SCREEN`; negative | 5.687863334 s total wall; 1.928103 s native wall; 127,057,920 B peak; one call; 2,662 B state; zero tuning/fresh/sibling/MPS/GPU | Localization is exact and removes fan-out, but fixed negative conflict credit still fails; utility-conditioned work is parked behind O1C-0059 and its matched APPLE8 augmentation | [Capsule](runs/20260719_061710_O1C-0056_clause-role-credit-screen-v1/RUN.md) |
 | `O1C-0055` | 2026-07-19 05:37 | Exact learned-clause membership localizes causal negative credit at W11 | `UNKNOWN` at 512 conflicts/513 decisions/12,083,477 propagations; 512/512 clauses match, 2,684 members and 2,057 penalties, but only 18 unique cells/seven groups; 167 reorders, 502 repeats | `CONSUMED_POST_REVEAL_EXACT_LEARNED_CLAUSE_SCREEN`; negative | 4.951483 s wall; 127,057,920 B peak; one call; 2,662 B state; zero fresh/sibling/MPS/GPU | Exact hook works, but all-member blame reproduces O1C-0052 diffusion; choose one member by exact clause role | [Capsule](runs/20260719_053703_O1C-0055_learned-clause-credit-screen-v1/RUN.md) |
 | `O1C-0054` | 2026-07-19 05:23 | Independent admissible factor maxima can preserve O1C-0047's complete-state joint score through a bounded Full256 beam | Public Full256 0/256, truth prefix first lost at stage 5 `(9,10)`, top/min Hamming 120/116; post-reveal W11 reaches 1,024 pops/14 forwards with zero certified leaves | `CONSUMED_POST_REVEAL_GLOBAL_BOUND_SCREEN`; negative | 2.732337 s wall; 2.704926 s CPU; 88,031,232 B peak; 270 forward evaluations; 24,624 B logical Full256 state; zero solver/fresh/sibling/MPS/GPU | Exact W12 score rank 5 does not survive independent factorwise maxima; close the separable relaxation/beam and move to exact learned-clause membership | [Capsule](runs/20260719_052346_O1C-0054_global-factor-bound-screen-v1/RUN.md) |
 | `O1C-0053` | 2026-07-19 04:38 | One positive `+32` update to the deepest surviving exact action identifies the retained causal frontier at W11 | `UNKNOWN` at 512 conflicts/513 decisions/12,068,568 propagations; 512 support updates (`16,384` units), 111 action reorderings, only two differentiated groups | `CONSUMED_POST_REVEAL_SURVIVOR_SUPPORT_SCREEN`; negative | 5.326337 s wall; 127,893,504 B peak; one call; 2,646 B state; zero fresh/sibling/MPS/GPU | Survival is too coarse: close it and credit exact learned-clause/first-UIP antecedent membership; the post-result truth diagnostic is not fresh evidence | [Result](research/O1C0053_DEEPEST_SURVIVOR_SUPPORT_SCREEN_RESULT_20260719.md) |
@@ -959,6 +990,11 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0058` capsule manifest | `9367abdae4b8514eec3c9518c8cfc54f9b8a34ce45ec4ebc5c009280507b3b06` |
+| `O1C-0058` authoritative result | `1ff36f9479b397f50c9421a7c0ba406df308ab8c9989d2e039e0874a1acbcb64` |
+| `O1C-0058` original RUN.md | `05eadbcaef8db7003be3bd5a7144969a659cc2be52ffbc1c32e90d7dc1ed97f0` |
+| `O1C-0058` science source | `09cc48b9d61b4cccbeaa7cf038404ac4f2a3b15a` |
+| `O1C-0058` terminal recovery source | `d9d1a851f873ecd0afc33236adac52b8866ccb1f` |
 | `O1C-0057` capsule manifest | `008b985868b18160711be70cc9fa2a7697d5888c5515702caef72228ea2a742e` |
 | `O1C-0057` authoritative result | `bae7899503ec0d349dd7da51ebaca3cef2982c4e53d1ca560adcffe7bff47971` |
 | `O1C-0057` source freeze | `ba44cbd064499b68e665aade71d15dca0c672b71` |
@@ -1160,15 +1196,21 @@ O1C-0017 result boundary are documented in
 
 ## Resume here
 
-Resume from [the ranked actions](research/NEXT_ACTIONS.md) and the
-[O1C-0057 result](research/O1C0057_MULTIBLOCK_PARENT_CRITICALITY_RANK_RESULT_20260719.md).
-The unchanged reader now ranks fresh truth `8/7/1/1` across 1/2/4/8 public
-blocks with strict prefix-8 rotation margins. Preserve its frozen score bytes
-and claim boundary: this is approximately 12 bits of discrimination inside a
-supplied 4,097-candidate panel, not key generation or exact recovery. Resume by
-using the prefix-8 scorer to order attacker-generated partial assignments or a
-bounded exact search under a predeclared work/width/beam gate. Keep Apple
-joint-score parallel. Do not spend the next run only enlarging the decoy panel.
+Resume from [the ranked actions](research/NEXT_ACTIONS.md), the
+[O1C-0058 result](research/O1C0058_MULTIBLOCK_BIT_VAULT_GRADIENT_RESULT_20260719.md)
+and the retained
+[O1C-0057 scorer](research/O1C0057_MULTIBLOCK_PARENT_CRITICALITY_RANK_RESULT_20260719.md).
+O1C-0057 ranks fresh truth `8/7/1/1` across 1/2/4/8 public blocks with strict
+prefix-8 rotation margins. O1C-0058 then closes the exact attended-best-decoy
+one-bit delta rule at base/primary `127→127`, confidence prefix `0` and no public
+candidate block match. Preserve the O1C-0057 score bytes and move to O1C-0059's
+exact partial-assignment joint CNF sieve. Test APPLE8 as its matched augmentation
+with the same potential, threshold and budget: retain public P20 units and add
+`P_b = P_0 + (Z_b - Z_0)` on key lanes as explicit logically redundant
+consequences. Require propagation/pruning improvement without changing the
+solution set. Do not enlarge the decoy panel or
+repeat O1C-0058's attended-base positive-delta rule. Crowd/elite consensus is
+outside O1C-0058; its separate cheap scratch was control-negative only.
 
 O1C-0055/0056 remain closed: exact clause membership and unique owner
 localization do not rescue fixed negative conflict credit. A later causal

@@ -2322,3 +2322,42 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `bae7899503ec0d349dd7da51ebaca3cef2982c4e53d1ca560adcffe7bff47971`,
   manifest `008b985868b18160711be70cc9fa2a7697d5888c5515702caef72228ea2a742e`,
   source freeze `ba44cbd064499b68e665aade71d15dca0c672b71`.
+
+## O1C-0058 — Multi-block bit-vault gradient
+
+- **Started:** 2026-07-19T07:06:54+02:00.
+- **Recorded:** 2026-07-19T07:08:33+02:00; terminal serialization recovered at
+  2026-07-19T07:39:33+02:00 without added science.
+- **Protocol:** one fresh uniform Full-256 target and eight contiguous public
+  blocks. The unchanged primary scorer selects one attended base from 4,096
+  decoys; the same base plus all 256 one-bit neighbors is scored per block in
+  primary/key-rotated/clause-rotated arms. Signed finite differences stream into
+  three 256-cell `float64` vaults; all prefix-1/2/4/8 outputs and 13 public
+  candidate checks freeze before one reveal.
+- **Result:** `MULTIBLOCK_BIT_VAULT_NO_DIRECTIONAL_TRANSFER`. The attended base
+  and primary prefix-8 candidate both have `127/256` correct bits: improvement
+  `0`, longest correct confidence prefix `0`. Prefix-8 controls have `127` and
+  `128` correct bits. Every candidate matches `0/8` public blocks; all exact and
+  partial gates fail.
+- **Resources:** 99.07695375000185 s elapsed, 211,124,224 B peak, 34,824
+  candidate forwards, 112 direct ChaCha block evaluations, 2,048 B primary and
+  6,144 B all-arm live state. Original parent/child CPU seconds are unavailable
+  and remain `null`.
+- **Decision:** close attended-best-decoy plus positive one-bit delta vault.
+  Preserve O1C-0057 as a complete-key scorer; move directly to O1C-0059 exact
+  partial-assignment joint scoring. Test APPLE8 as the matched augmentation at
+  identical potential/threshold/budget by making the logically redundant public
+  P20 units plus `P_b = P_0 + (Z_b - Z_0)` key-lane consequences explicit.
+  APPLE8 adds no information or solutions; it must improve propagation/pruning.
+  Crowd/elite consensus was not part of O1C-0058; a separate cheap scratch was
+  control-negative only.
+- **Recovery:** terminal JSON serialization failed on a NumPy `int64` only.
+  Recovery source `d9d1a851f873ecd0afc33236adac52b8866ccb1f` validated the
+  already-frozen science from source `09cc48b9d61b4cccbeaa7cf038404ac4f2a3b15a`
+  with zero added entropy, reveal or scoring.
+- **Artifacts:**
+  [`result`](O1C0058_MULTIBLOCK_BIT_VAULT_GRADIENT_RESULT_20260719.md) and
+  [`capsule`](../runs/20260719_070833_O1C-0058_multiblock-bit-vault-gradient-v1/RUN.md);
+  authoritative JSON SHA-256
+  `1ff36f9479b397f50c9421a7c0ba406df308ab8c9989d2e039e0874a1acbcb64`,
+  manifest `9367abdae4b8514eec3c9518c8cfc54f9b8a34ce45ec4ebc5c009280507b3b06`.

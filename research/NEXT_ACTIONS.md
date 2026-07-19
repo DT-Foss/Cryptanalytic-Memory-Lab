@@ -1,13 +1,13 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T06:29:32+02:00.
+Last ranked: 2026-07-19T07:39:33+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Integrate the frozen O1C-0057 prefix-8 scorer into attacker-generated partial-assignment or bounded exact-search ordering | State of the art | Extreme | Extreme | Medium | Tests whether fresh rank-1 complete-candidate discrimination converts into matched search work, effective width or verified beam rank |
-| 2 | Advance the Apple joint-score sieve on exact proof-utility evidence | State of the art | Extreme | Extreme | Medium | Tests whether multiple exact proof signals jointly identify useful work after static unary/edge readers failed |
+| 1 | Run O1C-0059: attach the frozen O1C-0057 eight-block score to exact CNF partial assignments in one bounded joint-score sieve | State of the art | Extreme | Extreme | Medium | Tests whether fresh rank-1 complete-key discrimination converts into exact pruning, matched search work, effective width or a verified candidate |
+| 2 | Run APPLE8 as the matched feed-forward-cancelled Cross-Block-CNF augmentation to O1C-0059 | State of the art | Extreme | Extreme | Medium | At identical potential/threshold/budget, tests whether making redundant public-P20/key-lane consequences explicit improves propagation/pruning without changing information or solutions |
 | 3 | Park one outcome/utility-conditioned exact clause-role successor until ranks 1–2 resolve | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without pretending fixed conflict occurrence supplies the correct sign |
-| 4 | Keep O1C-0054 global bounds and O1C-0056 fixed negative role credit closed; no width/order/cap/sign/scale sweep | Operational | High | Extreme | Zero | Prevents paid repetition of two now-localized negative mechanisms |
+| 4 | Keep O1C-0054 global bounds, O1C-0056 fixed negative role credit and O1C-0058 local bit gradients closed | Operational | High | Extreme | Zero | Prevents paid repetition of three localized negative mechanisms |
 | 5 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 
 ## Frontier scoreboard
@@ -26,6 +26,12 @@ Last ranked: 2026-07-19T06:29:32+02:00.
   clause rotations rank `3581/4037`; truth z is `+5.57888245`. This is roughly
   12 bits of discrimination inside the supplied panel and the current
   complete-key scorer frontier, not candidate generation or recovery.
+- **Local conversion boundary:** O1C-0058 tests the shortest possible conversion
+  on a fresh Full-256 target. The attended base and primary prefix-8 synthesis
+  both have `127/256` correct bits, improvement is `0`, longest correct
+  confidence prefix is `0`, controls have `127/128` and all 13 public candidates
+  match `0/8` blocks. Close complete-decoy one-bit gradients; this does not close
+  the O1C-0057 scorer or exact joint partial-assignment use.
 - **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.
@@ -85,12 +91,15 @@ Last ranked: 2026-07-19T06:29:32+02:00.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** the frozen O1C-0057 prefix-8 scorer produces a
-  predeclared matched-work, effective-width or verified beam-rank gain while
-  ordering attacker-generated partial assignments/search branches; Apple
-  joint-score is the parallel route. Exact 256 remains the moonshot, while a
-  reproducible entropy, rank, residual-width or matched-work gain below recovery
-  remains real progress.
+- **Next measurable advance:** O1C-0059 produces a predeclared exact-pruning,
+  matched-work, effective-width or verified-candidate gain while the frozen
+  O1C-0057 score evaluates live exact partial assignments. APPLE8 then measures
+  the propagation/pruning effect of making public P20 units and
+  `P_b = P_0 + (Z_b - Z_0)` on key lanes at the exact same potential, threshold
+  and budget explicit. These consequences are logically redundant inside the
+  existing eight-block shared-key CNF. Exact 256 remains the
+  moonshot, while a reproducible entropy, rank, residual-width or matched-work
+  gain below recovery remains real progress.
 
 ## Effect-first stop rules
 
@@ -154,7 +163,13 @@ Last ranked: 2026-07-19T06:29:32+02:00.
 - O1C-0057 passes prospectively at primary ranks `8/7/1/1` across 1/2/4/8
   public blocks with prefix-8 rotations `3581/4037`. Freeze the prefix-8 scorer.
   Do not enlarge the supplied panel or call its 12 rank bits recovered key
-  entropy; require partial-assignment/search conversion under matched work.
+  entropy. O1C-0058 has now tested and closed attended-best-decoy plus positive
+  one-bit-delta conversion at base/primary `127→127`, confidence prefix `0`;
+  its two locally score-improving primary flips did not improve truth alignment.
+  Require O1C-0059 exact joint partial-assignment conversion under matched work;
+  do not sign-flip, threshold or rerun that exact local vault. O1C-0058 does not
+  formally close crowd/elite consensus. A separate cheap consensus scratch was
+  control-negative and remains a non-promoted scratch result.
 - O1C-0050's horizon repair passes W10, but O1C-0051 fails its sole W11 gate and
   correctly skips controls/Full256. O1C-0052 performs the sole bounded `4×63`
   per-pattern test and also fails despite 162 action reorderings. Close negative
