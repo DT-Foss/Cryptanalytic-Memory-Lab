@@ -250,6 +250,18 @@ ties or performs poorly—but eventual participation in an exact conflict proof.
 The next Apple stage streams that participation across BUILD targets into a
 bounded addressed state and freezes its order before disjoint evaluation.
 
+APPLE-VIEW-0006 executes that transfer with no held-out feedback. Eighteen BUILD
+proof batches emit 4,603 exact identity events into a fixed 1,346-byte
+frequency/recency state; two disjoint EVAL targets are generated only after
+state/order freeze. Unary membership transfers: independently replayed held-out
+certificates are `248/248/251/250`, strictly smaller than the best fixed
+structural `251/252/257/255` on all four cases and aggregate `997` versus
+`1,015` (immediate-public `1,013`). Sequence does not: the learned order reaches
+first conflict at 317 switches per probe, total `1,268`, versus final→early
+`1,031`. Preserve this exact split. The next distinct Apple variable is bounded
+reason-DAG edge/predecessor credit; certificate-only improvement cannot pass its
+raw first-conflict gate.
+
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
 untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches
@@ -471,10 +483,12 @@ evidence.
 7. Preserve O1C-0023/25/29 as code only; do not execute them on the closed unary
    field. After stable attacker-valid entropy reduction, the existing logit
    handoff and exact global decoder may be reused unchanged.
-8. Keep the Apple track independent of O1 terminology. Free carries erase all
-   linear key information, and uniform forward carry depth has now shown a
-   depth-31 cliff. Before adding learning or a corpus, test a small two-ended or
-   correlation-preserving constraint view; do not repeat the same forward ladder.
+8. Keep the Apple track mechanically explicit. Free carries erase all linear key
+   information; uniform depth and two-ended local propagation are closed.
+   APPLE-VIEW-0005/0006 establish sparse exact certificates and held-out transfer
+   of unary proof membership, but not earlier conflict. Do not refit identity
+   counts. If promoted, preserve proof-DAG predecessor/edge sequence in bounded
+   state and require a raw held-out first-conflict win over fixed structure.
 
 ## Operating contract
 

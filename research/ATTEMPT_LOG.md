@@ -2055,3 +2055,31 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:**
   [`result`](O1C0050_DELAYED_PAIR_CREDIT_SCREEN_RESULT_20260719.md) and
   [`capsule`](../runs/20260719_030657_O1C-0050_delayed-pair-credit-screen-v1/RUN.md).
+
+## APPLE-VIEW-0006 — Held-out streaming proof-credit transfer
+
+- **Recorded:** 2026-07-19T03:11:06+02:00, isolated parallel track.
+- **Hypothesis:** exact `c31` identities that repeatedly participate in BUILD
+  conflict proofs transfer through a bounded target-independent addressed state
+  into a better held-out candidate-filter order.
+- **Protocol:** three BUILD targets × two wrong probes × three exact proof
+  collectors emit 4,603 identity events into one 1,346-byte saturating
+  frequency/recency state. State and order freeze before two disjoint held-out
+  targets × two probes. Learned order is always scored first with zero held-out
+  feedback; all truth controls run only after every wrong-candidate pass.
+- **Result:** split. Raw scheduling loses: learned needs 317 switches on every
+  probe, total `1,268`, versus final→early `1,031`. Exact reason-DAG certificates
+  nevertheless transfer smaller on all four held-out cases:
+  `248/248/251/250` versus best fixed structural `251/252/257/255`, aggregate
+  `997` versus `1,015`; immediate-public aggregate is `1,013`. Every certificate
+  replays exactly, all 24 strategy×probe runs reject and all truth controls
+  complete.
+- **Boundary:** this is held-out exact certificate compression, not an improved
+  first-conflict scheduler, key generation, recovered key bit or entropy claim.
+- **Resources:** 64.317798 s wall, 64.166830 s CPU, 62,226,432 B peak; one CPU
+  process, no CDCL branching, sibling, network, MPS or GPU work.
+- **Decision:** close unary frequency/recency scheduling. Preserve its proof-core
+  transfer and test proof-edge/predecessor credit only if the next gate requires
+  a raw held-out first-conflict win.
+- **Artifact:** [`isolated result`](apple_view_6/apple_view_6_report.md), commit
+  `6d12d6d`.

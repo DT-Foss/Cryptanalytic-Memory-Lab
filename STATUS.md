@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T03:00:20+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T03:15:43+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -108,8 +108,14 @@
   exactly, and independently replayed conflict certificates need only
   `250–265/336` high-carry identities. The best omits 86 identities; all five
   truth controls remain complete. This is an exact candidate filter, not key
-  generation or entropy reduction. APPLE-VIEW-0006 now tests held-out transfer
-  of proof-participation credit in a bounded 336-address state.
+  generation or entropy reduction. APPLE-VIEW-0006 then streams 4,603 exact
+  BUILD proof-participation events once into a frozen 1,346-byte state. On four
+  disjoint held-out wrong probes its raw order loses to final→early at
+  `1,268` versus `1,031` total first-conflict switches, but its independently
+  replayed exact certificates are smaller on all four cases:
+  `248/248/251/250` versus the best fixed structural
+  `251/252/257/255` (aggregate `997` versus `1,015`) and aggregate immediate
+  public gain `1,013`. Proof relevance transfers; early scheduling does not yet.
 - **Next paid experiment:** run unchanged delayed primary at W11 once. Exact
   completion earns matched static/rotation W11 and Full-256 calls; failure closes
   delayed credit on disjoint pairs. No group, weight or cap change intervenes.
@@ -127,15 +133,17 @@
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
 - **Active local run:** O1C-0050 is positive and frozen; its W11 promotion screen
-  is being built. APPLE-VIEW-0006 streams BUILD proof participation toward a
-  held-out switch order. Sibling repositories remain read-only and untouched.
+  is being built. APPLE-VIEW-0006 is complete. Its only warranted Apple
+  successor changes unary identity counts to proof-edge/predecessor credit and
+  must improve raw held-out first-conflict work, not merely certificate size.
+  Sibling repositories remain read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
   the north star; the scored objective is the strongest reproducible
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
   [O1C-0050 delayed credit gain](research/O1C0050_DELAYED_PAIR_CREDIT_SCREEN_RESULT_20260719.md)
-  and [APPLE-VIEW-0005 sparse exact carry certificates](research/apple_view_5/apple_view_5_report.md).
+  and [APPLE-VIEW-0006 held-out proof-credit transfer](research/apple_view_6/apple_view_6_report.md).
 
 ## Headline
 
@@ -189,8 +197,12 @@ all Full-256 backtracks arrive later. The next adapter changes only this causal
 horizon by retaining a bounded eligibility trace across advances.
 In parallel APPLE-VIEW-0005 finds the first exact sparse carry certificate:
 250 of 336 high-carry identities suffice to reject a complete wrong key on the
-fixed matrix, with independent proof replay. Held-out proof-credit transfer—not
-more same-target pruning—is now the Apple promotion gate.
+fixed matrix, with independent proof replay. APPLE-VIEW-0006 then performs the
+held-out transfer instead of more same-target pruning. Its 1,346-byte frozen
+frequency/recency state loses raw stopping position (`317` switches per probe),
+but yields smaller replayed proof cores on every held-out case and beats the best
+fixed structural certificate aggregate `997` versus `1,015`. The transferable
+object is proof membership; conflict-closing sequence remains open.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does
@@ -760,7 +772,7 @@ O1C-0017 result boundary are documented in
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
 | Main scientific run | — | 2026-07-19 | source implementation only | bounded live group-credit adapter in progress; no scientific call yet | — |
-| Bias-free parallel track | — | 2026-07-19 | Apple-view fixed-point/carry tests | APPLE-VIEW-0001..0003 complete; tested mechanisms negative | — |
+| Bias-free parallel track | — | 2026-07-19 | Apple-view proof-credit transfer | APPLE-VIEW-0006 complete; certificate transfer positive, raw scheduler negative | — |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
@@ -770,9 +782,9 @@ O1C-0017 result boundary are documented in
 2. Freeze a per-comparator lexicographic gate before the next run and require
    absolute improvement over O1C-0048, not merely the same ordering under a new
    name.
-3. Continue the Apple branch only with a two-ended or correlation-preserving
-   constraint lamp; do not repeat fixed-point fitness, free carries or the
-   forward-only depth ladder.
+3. If the Apple branch continues, change only unary proof membership to bounded
+   proof-edge/predecessor credit and require a raw held-out first-conflict win;
+   do not refit APPLE-VIEW-0006 frequency/recency counts.
 4. Reuse A325/A526 unchanged only when their native complement gate is met, and
    keep every sibling repository read-only.
 
@@ -780,6 +792,8 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `APPLE-VIEW-0006` | 2026-07-19 03:11 | BUILD proof participation in a bounded addressed state transfers a useful c31 switch order to disjoint Full20/Full256 candidate filters | Raw learned order loses `1,268` vs best structural `1,031` first-conflict switches; replayed certificates win 4/4 at `248/248/251/250` vs `251/252/257/255`, aggregate `997` vs `1,015`; all truth controls complete | `HELDOUT_CERTIFICATE_TRANSFER_WITH_SCHEDULER_LOSS`; no key-generation/entropy claim | 64.317798 s wall; 64.166830 s CPU; 62,226,432 B peak; 1,346 B frozen state; zero sibling/MPS/GPU | Unary proof membership transfers exact core relevance but not conflict-closing order; test proof-edge/predecessor credit only | [Result](research/apple_view_6/apple_view_6_report.md) |
+| `APPLE-VIEW-0005` | 2026-07-19 02:55 | Sparse joined c31 identities reject complete wrong Full256 candidates exactly | 20/20 exact conflicts; independently replayed slices use `250–265/336`, best 250; all truth controls complete | `CONSUMED_FULL256_CANDIDATE_FILTER`; no key-generation/entropy claim | 30.812515 s wall; 56,573,952 B peak | Eventual proof membership beats immediate gain on the consumed matrix; transfer it before any further same-target work | [Result](research/apple_view_5/apple_view_5_report.md) |
 | `APPLE-VIEW-0003` | 2026-07-19 02:15 | Uniform low-to-high carry recurrence exposes a cheap Full256 wrong-key filter | Depths 0..30 determine 0 final bits and reject 0/32 probes; depth 31 determines 512 and rejects 32/32; 0 recovery/entropy claim | `EXPLORATORY_FULL256_NEGATIVE`; deterministic unsealed target | 13.291865 s; 27,295,744 B peak; 1,056 abstract blocks; zero sibling/MPS/GPU | Forward-only carry truncation has a full-computation cliff; preserve correlations or propagate from both ends | [Result](research/apple_view_3/apple_view_3_report.md) |
 | `O1C-0048` | 2026-07-19 01:46 | Reversible global pair envelopes preserve O1C-0047's complete-state orientation in exact search | Full-256 0/4; residual maxima internal/primary/key/clause `8/9/9/9`; W8 conflicts `217/75/195/89`; W9 `UNKNOWN/155/331/167`; frozen global gate fails | `CONSUMED_SEARCH_DIAGNOSTIC`; residual rows post-reveal | 9.362067 s; 128,122,880 B peak; 12 calls; zero fresh/sibling/MPS/GPU | Static pairs restore primary-over-rotation specificity but not the all-arm gate; close this adapter and add attacker-visible online group credit | [Capsule](runs/20260719_014625_O1C-0048_pair-envelope-search-v1/RUN.md) |
 | `APPLE-VIEW-0002` | 2026-07-19 | Quotient independent lifted addition carries out of the full public relation | Carry rank `512`, exact key rank `0`, exact recoveries `0/8`; every double-round carry group spans all output dimensions | `EXPLORATORY_FULL256_NEGATIVE`; deterministic unsealed targets | 5.851181 s; 34,553,856 B peak; zero MPS/GPU | Independent carries erase every linear key parity; only global exact carry-depth substitution remains meaningful | [Result](research/apple_view_2/apple_view_2_report.md) |
@@ -833,6 +847,8 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `APPLE-VIEW-0006` scientific payload | `7144a093c05cb3f834450a93160d9419688bdd9c8d72543340eb3eb5c4f51665` |
+| `APPLE-VIEW-0006` result | `c44a6e2aecd6240c8789c1fca7975372ce8975d4554b247cb4d4ffd1cd0f677c` |
 | `APPLE-VIEW-0003` scientific payload | `db62ceaa6de7568abfbda2d3abcb8ca56e99ea72a91141a17594774d3ec080d5` |
 | `APPLE-VIEW-0003` result | `db8f803174f80df64639b343cf3e7906efd2cab8709e99a94c182c86d6ab8293` |
 | `O1C-0048` source freeze | `72d7a9b14cba31bc7033490994c8da1580d6a027` |
@@ -1020,9 +1036,11 @@ specificity reversal, and no frozen-gate or Full-256 pass. Do not tune its pair
 plan or raise its budget. Add bounded attacker-visible online group credit and
 freeze the pairwise comparator gate before executing the new mechanism.
 
-APPLE-VIEW-0003 is closed at the depth-31 cliff. Do not rerun its probe panel;
-the only new Apple question is whether cheap two-ended/correlation-preserving
-constraint propagation rejects wrong keys before complete evaluation.
+APPLE-VIEW-0001..0004 are closed at their measured algebraic/local boundaries.
+APPLE-VIEW-0005/0006 establish exact sparse certificates and held-out transfer
+of their membership, but not better first-conflict scheduling. Do not refit the
+1,346-byte unary state; the only new Apple question is whether bounded
+proof-edge/predecessor credit transfers conflict-closing sequence.
 
 The A325/A526 bit codec, search backends and public verifier remain ready for an
 exact complement or bounded exact-containing beam. The relational branch need

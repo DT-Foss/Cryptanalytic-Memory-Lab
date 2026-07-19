@@ -1,11 +1,11 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T03:00:20+02:00.
+Last ranked: 2026-07-19T03:15:43+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
 | 1 | Run the unchanged O1C-0050 delayed primary once at W11 under the same 512-conflict cap | State of the art | Extreme | Extreme | Low | Exact W11 proves frontier expansion and unlocks matched rotations/static plus Full-256; failure closes this scheduler |
-| 2 | Stream APPLE-VIEW-0005 proof participation into a bounded 336-address state, freeze it on BUILD, and test the switch order on disjoint targets | State of the art | Extreme | Extreme | Medium | Tests whether the new exact 250/336 candidate-filter certificate becomes transferable O1 attention rather than a consumed-target fact |
+| 2 | Replace APPLE-VIEW-0006 unary identity counts with bounded proof-edge/predecessor credit and require a raw held-out first-conflict win | State of the art | Extreme | Extreme | Medium | Tests whether transferred proof membership can become conflict-closing sequence rather than only post-conflict certificate compression |
 | 3 | If delayed credit passes the absolute primary gate, immediately run matched key/clause rotations; if it fails, close live credit on disjoint pairs | State of the art | High | Extreme | Low | Prevents another scheduler sweep and decides whether to retain groups or change the operator unit |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 | 5 | Keep static pair resweeps, independent-carry quotients, occurrence scoring and the closed unary field parked | Operational | High | High | Zero | Preserves measured boundaries while compute moves to live credit and globally consistent carry structure |
@@ -53,9 +53,14 @@ Last ranked: 2026-07-19T03:00:20+02:00.
   thousands of variables but one free high carry per addition prevents every
   wrong-key rejection. APPLE-VIEW-0005 then finds exact proof-replayed subsets of
   250–265/336 identities; best fixed certificate omits 86 equations.
+  APPLE-VIEW-0006 transfers smaller exact proof cores on all four held-out probes:
+  learned `248/248/251/250` versus best fixed `251/252/257/255`, aggregate
+  `997` versus `1,015` and immediate public gain `1,013`. Its raw order loses
+  `1,268` versus `1,031` first-conflict switches, so certificate transfer and
+  scheduling remain separate frontiers.
 - **Next measurable advance:** delayed group eligibility strictly improves the
-  shared W10 frontier or frozen proof-participation credit beats the best
-  structural carry order on held-out targets. Exact 256 remains the moonshot.
+  shared W10 frontier or bounded proof-edge credit beats the best structural
+  carry order on raw held-out first-conflict work. Exact 256 remains the moonshot.
 
 ## Effect-first stop rules
 
@@ -124,8 +129,11 @@ Last ranked: 2026-07-19T03:00:20+02:00.
   these panels; only sparse joined identities or a different correlated state is
   a new question.
 - APPLE-VIEW-0005 answers the sparse question positively with replayed 250–265
-  identity proofs. Do not optimize its consumed target. The one authorized
-  successor freezes BUILD participation counts before disjoint evaluation.
+  identity proofs. APPLE-VIEW-0006 completes its one authorized unary transfer:
+  exact held-out certificate size improves 4/4, but raw stopping position loses.
+  Do not refit frequency/recency, change its BUILD panel or count certificate
+  compression as an early scheduler win. One distinct successor may preserve
+  proof-DAG edge/predecessor sequence and must beat raw first-conflict work.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not

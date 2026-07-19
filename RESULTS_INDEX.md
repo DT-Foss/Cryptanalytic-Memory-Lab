@@ -171,6 +171,7 @@ attacker-valid cipher evidence.
 | `O1C-0049-ONLINE-PAIR-CREDIT` | 630-byte live credit over the same 63 frozen pair groups | `CONSUMED_EFFECT_SCREEN`; Full-256 pre-reveal, residual rows post-reveal | Full-256 unchanged at 513 conflicts/10,802 decisions; W8/W9 improve 75/155→65/128, W10 regresses 310→320; absolute gate fails because short tickets receive zero delayed Full-256 backtrack credit | [Result](research/O1C0049_ONLINE_PAIR_CREDIT_SCREEN_RESULT_20260719.md) |
 | `O1C-0050-DELAYED-PAIR-CREDIT` | Trail-resident delayed credit over the same 63 pair groups | `POST_REVEAL_MECHANISM_SCREEN`; exact W10 | exact W10 conflicts 310→302 (-2.58%), decisions 315→307; 302 conflict-owner undos, seven differentiated groups, 1,134 B bounded state; prospective gate passed | [Result](research/O1C0050_DELAYED_PAIR_CREDIT_SCREEN_RESULT_20260719.md) |
 | `APPLE-VIEW-0005-SPARSE-CARRY` | Sparse exact c31-identity certificates for complete wrong Full-256 candidates | `CONSUMED_FULL256_CANDIDATE_FILTER`; no key-generation/entropy claim | 20/20 exact wrong-candidate conflicts; every reason-DAG slice independently replays with 250–265/336 identities, best 250 (86 omitted); 5/5 truth controls complete | [Result](research/apple_view_5/apple_view_5_report.md) |
+| `APPLE-VIEW-0006-PROOF-CREDIT-TRANSFER` | One-pass 1,346-byte proof-frequency/recency state frozen before disjoint Full20/Full256 candidate filters | `HELDOUT_CERTIFICATE_TRANSFER_WITH_SCHEDULER_LOSS`; no key-generation/entropy claim | raw learned order loses 1,268 vs best structural 1,031 total first-conflict switches; independently replayed learned certificates win 4/4 at 248/248/251/250 vs best structural 251/252/257/255, aggregate 997 vs 1,015 and immediate-public 1,013; zero held-out updates, all truth controls complete | [Result](research/apple_view_6/apple_view_6_report.md) |
 
 ## Frontier and state-of-the-art results
 
@@ -255,7 +256,13 @@ base plus a proof-replayed subset of only 250 high-carry identities rejects a
 complete wrong 256-bit key while omitting 86 of the 336 missing equations. This
 does not generate candidates, but it proves that sparse global carry consistency
 exists and that eventual proof participation is a stronger scheduler signal than
-immediate propagation gain. Transfer of that switch relevance is now the gate.
+immediate propagation gain. APPLE-VIEW-0006 transfers that relevance through a
+fixed 1,346-byte state: its exact held-out proof cores are strictly smaller on
+all four cases and aggregate 997 identities versus 1,015 for the best fixed
+structural comparator and 1,013 for immediate public gain. The same frozen order
+still reaches first conflict much later, 1,268 total switches versus 1,031.
+This advances held-out exact certificate compression, not online stopping or key
+recovery; proof-edge/predecessor sequence is the remaining conversion problem.
 Existing sibling-project recoveries are baselines, not results of this integration.
 
 ## Negative bounds
