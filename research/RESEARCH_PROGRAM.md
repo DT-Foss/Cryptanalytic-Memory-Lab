@@ -345,11 +345,24 @@ model or key is produced. Support `H-BACKTRACK-RELEASE-076` at mechanism/work
 level: the reassertion furnace is removed, but no recovery or entropy has been
 created.
 
-The direct successor must now add useful evidence, not retest release. Derive
-the highest-ROI genuinely new O1C-0073 evidence/causal operator and freeze it
-only after its recovery, entropy/domain-reduction or novel-clause leverage is
-explicit target-free. No rerun/replay of O1C-0072 or ordinal `8`, release/rank/
-phase/horizon sweep, RAM scaling or broad vault infrastructure is authorized.
+O1C-0073 changes only the post-release action: after the original 255-rank stage
+is exhausted, each genuinely released coordinate's hard opposite may return
+once. The sole local-0/lineage-9 call completes all `255` original/opposite
+pairs, safely defers and retains two assigned contrasts, records zero
+same-signed redecisions and zero phase calls, and discovers `311` novel exact
+threshold exclusions in `179` billed conflicts. It then stops fail-closed because
+the imported `202` plus `311` novel clauses equal `513`, one beyond the
+operational `512`-clause archive cap. No next vault/model/key is archived. This
+is `EPISODIC_VAULT_CAPACITY_TERMINAL`: positive exact evidence inside a negative
+operational outcome, not a persisted gain, recovery, entropy reduction, UNSAT or
+threshold-region exhaustion.
+
+The direct successor is now the architectural O1 split that the evidence calls
+for: a complete immutable external causal attic and a deterministic bounded
+active solver reservoir with target-free utility, diversity and explicit
+headroom. Derive and freeze O1C-0074 offline before one new attempt. No
+rerun/replay of O1C-0073 or ordinal `9`, release/rank/phase/horizon sweep, blind
+RAM/cap scaling or loss of exact attic evidence is authorized.
 
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
@@ -682,10 +695,14 @@ evidence.
    `91,260,183` propagations and add no clause/key. O1C-0072 then applies the
    separately precommitted one-shot release exactly once: all 255 ranked
    literals return/release once, redecisions become zero, and propagations fall
-   to `5,763,035` (`15.8354x`) without a clause/model/key. Preserve the validated
-   release primitive and derive the highest-ROI new O1C-0073 evidence/causal
-   operator; never rerun O1C-0072, replay ordinal `8`, call phase, sweep release/
-   rank/horizon or blind-scale.
+   to `5,763,035` (`15.8354x`) without a clause/model/key. O1C-0073 then adds one
+   hard-opposite return after every genuine release. All 255 pairs complete and
+   expose 311 novel exact clauses, but `202+311=513` crosses the 512-clause
+   archive cap by one after only 179 conflicts, so the run terminates without a
+   next vault/model/key. Preserve all exact evidence in a complete causal attic
+   and derive O1C-0074's bounded active projection target-free; never rerun
+   O1C-0073, replay ordinal `9`, call phase, sweep release/rank/horizon or
+   blind-scale RAM/caps.
    Any later role-credit test must precommit an attacker-visible outcome/utility
    condition rather than tune `-32`.
 6. Complementary phase has passed only its exact-exclusion mechanism gate. Once
@@ -785,10 +802,18 @@ evidence.
   `91,260,183` to `5,763,035`, a `15.835437924635196x`
   (`93.685049919%`) reduction; decisions rise `763→1,155`, and minimum UB is
   `19.57599384995442`. Zero clauses/model/key leave recovery and entropy
-  unchanged. This supports the release mechanism/work gate only. Preserve it
-  and derive the highest-ROI genuinely new O1C-0073 evidence/causal operator;
-  no O1C-0072 retry, ordinal-8 replay, release/rank/phase/horizon/RAM sweep or
-  low-work-only promotion is authorized.
+  unchanged. This supports the release mechanism/work gate only.
+- O1C-0073 executes the separately frozen hard-opposite successor exactly once
+  at requested/actual/billed `512/179/179`. It completes all 255 original and
+  255 contrast returns with two assigned contrasts deferred and retained, zero
+  same-signed redecisions and zero phase calls. Its `313` eligible clauses
+  include `311` novel exact exclusions / `798,046` literals, but `202+311=513`
+  exceeds the operational 512-clause archive cap by one. Status `0`, root UB
+  `262.68644197084643`, no archived next vault/model/key and `333` unused
+  requested conflicts make this a capacity terminal, not recovery or formal
+  exhaustion. Preserve the complete exact set in an external causal attic and
+  derive a deterministic bounded active O1C-0074 projection with real headroom;
+  no O1C-0073 retry, ordinal-9 replay, reader sweep or blind cap increase.
 
 ## Operating contract
 

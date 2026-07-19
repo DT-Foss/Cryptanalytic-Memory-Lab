@@ -1,58 +1,69 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T20:44:41+02:00.
+Last ranked: 2026-07-19T22:08:30+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Derive the highest-ROI genuinely new O1C-0073 mechanism from O1C-0072's validated release breadcrumb; make the new evidence/causal operator, not lower work alone, responsible for recovery, entropy/domain reduction or novel exact exclusions | State of the art | Extreme | Extreme | Low | Converts the now-cheap one-shot control path into a mechanism capable of producing cryptanalytic information rather than merely avoiding the furnace |
-| 2 | Freeze O1C-0073 only after its target-free operator, expected leverage and exact gain gate are explicit; preserve O1C-0072 as an immutable parent with no retry/replay/sweep | State of the art | Extreme | Extreme | Low | Prevents another call whose only possible success is already-proven zero redecisions or low propagation work |
-| 3 | Keep the outcome/utility-conditioned exact clause-role successor parked until O1C-0073 selection shows it is the highest-ROI distinct operator | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without prematurely mixing active-credit mechanisms |
+| 1 | Complete a zero-call analysis of all O1C-0073 exact clauses: imported 202 plus 311 newly certified, including exact duplicates/subsumption, length and witness distributions, deterministic utility/diversity and explicit active-reservoir headroom | State of the art | Extreme | Extreme | Low | Determines whether the complete evidence can live in an external causal attic while only the highest-value bounded subset remains solver-resident |
+| 2 | Freeze O1C-0074 as a complete immutable causal attic plus deterministic target-free bounded active reservoir; make eviction/admission reproducible and preserve enough room for new online exclusions | State of the art | Extreme | Extreme | Low | Removes O1C-0073's only terminal cause without discarding its 311-clause evidence population or blind-scaling RAM |
+| 3 | Execute at most one new O1C-0074 attempt only after offline selection, capacity arithmetic, source hashes and exact gain/stop gates are sealed; preserve O1C-0073 and ordinal 9 without retry/replay | State of the art | Extreme | Extreme | Low | Tests whether long-lived exact evidence can compound through bounded live state rather than terminate at the first overflow |
 | 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
 ## Current resume
 
-Resume from O1C-0072's sealed
-`EPISODIC_VAULT_BACKTRACK_RELEASE_MECHANISM_WORK_GAIN_NO_RECOVERY`. Its sole
-local-0/lineage-8 call requests, observes and bills `512/512/512` conflicts with
-native status `0`. It makes no phase calls and emits `0`
-eligible/novel/duplicate clauses, no model and no key. The vault remains
-byte-identical at `202` clauses / `599,728` literals / `2,399,911 B`, SHA-256
+Resume from O1C-0073's sealed `EPISODIC_VAULT_CAPACITY_TERMINAL`. Its sole
+local-0/lineage-9 call requests `512`, reaches and bills `179` conflicts, then
+stops fail-closed on `capacity_clause_count`; `333` requested conflicts remain
+unused. All `255` original ranked literals and all `255` hard opposites return
+once. Every original is genuinely released before its contrast becomes eligible,
+two assigned contrasts are deferred and retained, same-signed redecisions and
+phase calls are zero, and the terminal queue is empty.
+
+The reader discovers `313` eligible fully emitted clauses / `803,144` literals:
+`311` are novel exact exclusions / `798,046` literals and two are duplicates.
+The imported `202` clauses plus `311` novel clauses equal `513`, exactly one over
+the operational `512`-clause archive cap. Literal and payload envelopes would
+still fit, so clause count alone causes the terminal. No next vault is archived;
+the authoritative final vault intentionally remains the parent at `202` clauses /
+`599,728` literals / `2,399,911 B`, SHA-256
 `cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858`.
+There is no model or key. This is neither a persisted novel-clause gain nor a
+recovery/entropy/UNSAT/exhaustion result; it is a capacity terminal with an
+actionable independently certified exclusion population.
 
-The one-shot mechanism passes exactly. Its `1,155` `cb_decide` calls comprise
-`255` nonzero once-returns and `900` zero/delegate fallbacks, with first fallback
-at call `256`. Every one of the `255` guided literals is later observed released;
-the cursor consumes all rank rows and redecisions are exactly `0`. Versus
-O1C-0071, propagations fall `91,260,183→5,763,035` (`-85,497,148`), an exact
-`15.835437924635196x` ratio or `93.685049919%` reduction. Decisions rise
-`763→1,155`; minimum UB rises
-`19.297551436176224→19.57599384995442`. This removes the exact reassertion
-furnace and supports `H-BACKTRACK-RELEASE-076` at mechanism/work level.
+The direct resume action is zero-call derivation of O1C-0074: keep the complete
+exact clause set in an immutable causal attic and select a deterministic,
+target-free bounded active reservoir with explicit utility, diversity and
+headroom. Do not retry O1C-0073, replay ordinal `9`, call phase, sweep the rank or
+horizon, or substitute a blind RAM/cap increase for the two-level memory design.
 
-The boundary is equally exact: zero clauses/model/key mean no recovery, entropy
-reduction, novel exclusion, UNSAT or threshold-region exhaustion. O1C-0072 has
-solved the computational pathology, not created new key evidence. The direct
-resume action is therefore to derive the highest-ROI genuinely new O1C-0073
-evidence/causal operator while preserving the bounded release primitive. Do not
-rerun O1C-0072, replay ordinal `8`, sweep rank/phase/horizon/RAM, or make low
-propagation work itself sufficient to pass another attempt.
+The threshold question is now formal. Let `S(x)` be the compiled candidate score,
+`tau=14.606178797892962`, and the retained region be
+`R_tau={x:S(x)>=tau}`. Let `U(a)` be the admissible upper bound for completions of
+a visited partial trail `a`, so `S(x)<=U(a)` for every `x` extending `a`.
+Threshold and UB therefore use the same score units and retained direction, but
+`tau` is a fixed membership cutoff while `min_{a in V}U(a)` is a statistic over
+the run-specific visited-trail population `V`; they are not the same metric
+object or population. The quoted `7.973483108047071` is O1C-0066 episode 1, not
+O1C-0068. O1C-0068's minimum is `12.8607806294803`; O1C-0073's is
+`13.16709627777236`.
 
-Threshold `14.606178797892962` and minimum UB share the compiled score metric and
-retained direction but not population/statistic. The value
-`7.973483108047071` is O1C-0066 **episode 1**, not O1C-0068. If
-`m=min_{a in V}U(a)=7.973...`, some visited `a*` attains `m`, and
-`S(x)<=U(a*)<tau` for every completion `x` of `a*`, so that trail is safely
-pruned. This does not imply every visited trail is below threshold; root UB
-remains `262.68644197084643>tau`, so no global prune or UNSAT follows.
+For any particular visited trail `a`, strict `U(a)<tau` proves
+`S(x)<tau` for every completion `x` of `a`, hence that entire local subtree is a
+safe prune from `R_tau`. A reported minimum below threshold proves at least one
+such visited subtree exists; it does not prove all visited trails or the root are
+below threshold. The root bound remains `262.68644197084643>tau`, and O1C-0073
+returns native status `0`, so no global prune, UNSAT or threshold-region
+exhaustion follows.
 
 Resume authority is the
-[`O1C-0072 result`](O1C0072_APPLE8_VAULT_BACKTRACK_RELEASE_RESULT_20260719.json),
+[`O1C-0073 result`](O1C0073_APPLE8_VAULT_RELEASE_CONTRAST_RESULT_20260719.json),
 SHA-256
-`e441a32de808ee33e2245ea69af4e6ad6f246311e5a410b0cbab4a63dbd165d8`,
+`43fb980b50fef20f9bc4bdcfd2ecd6e0f1f7df3bcee9297b0005bb55e4ea0cdc`,
 and capsule artifact manifest
-`83bbc2438fc33e3a61fdf5b23b589574c6a12cfaefd9fc2f0e7c4c4e84b521f8`.
-The source freeze is `bf1ffaad30ac276c2fcc3b332207c5933bf96443`.
-Known completed lineage billing is `4,104`; the full actual total remains `null`
+`ad2791ff4ae09e9426878be4ba2f3b55eb77c85f46308c7a506d0dc96111317d`.
+The source freeze is `a1a447f47b4e7bec833f1148330573fefa8e3119`.
+Known completed lineage billing is `4,283`; the full actual total remains `null`
 because failed ordinal `2` is unbilled.
 
 ## Frontier scoreboard
@@ -226,14 +237,13 @@ because failed ordinal `2` is unbilled.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0072 has validated the consume-once release
-  primitive and removed all reader-caused redecisions with `15.8354x` less
-  propagation work, but has produced no cryptanalytic information. Derive the
-  highest-ROI genuinely new O1C-0073 evidence/causal operator and require its
-  gate to target a public exact candidate, entropy/domain reduction or novel
-  exact exclusions. Freeze only after that operator and leverage are explicit
-  target-free. Do not replay ordinal `8`, rerun O1C-0072, or sweep release,
-  rank, phase, horizon or RAM. Exact 256 remains the north star.
+- **Next measurable advance:** O1C-0073 has generated `311` independently
+  certified novel exact exclusions, but its single-resident vault cannot archive
+  `513` total clauses. O1C-0074 must preserve the complete evidence in a causal
+  attic while a deterministic bounded active subset continues search with
+  explicit headroom. The pass gate remains a persisted exact frontier gain,
+  attacker-valid entropy/domain reduction, model/key or formal exhaustion—not
+  mere capacity avoidance. Exact 256 remains the north star.
 
 ## Effect-first stop rules
 
@@ -456,10 +466,10 @@ because failed ordinal `2` is unbilled.
 ## Do not spend the next cycle on
 
 - replaying O1C-0068 lineage ordinal `4`, O1C-0069 ordinal `5`, O1C-0070 ordinal
-  `6`, O1C-0071 ordinal `7` or O1C-0072 ordinal `8`; rerunning O1C-0072,
-  issuing a phase call, sweeping rank/release/horizon, increasing RAM or adding
-  an eviction/compaction service before a genuinely new O1C-0073 evidence/
-  causal operator and gain gate are frozen target-free;
+  `6`, O1C-0071 ordinal `7`, O1C-0072 ordinal `8` or O1C-0073 ordinal `9`;
+  rerunning O1C-0073, issuing a phase call, sweeping rank/release/horizon or
+  blindly increasing RAM/caps. O1C-0073's capacity terminal now specifically
+  authorizes a target-free complete-attic/bounded-reservoir design, not a replay;
 - another supplied complete-key decoy panel, static pair regrouping,
   credit-weight sweep or conflict-cap increase before the frozen O1C-0057
   prefix-8 scorer is tested on attacker-generated partial assignments/search;

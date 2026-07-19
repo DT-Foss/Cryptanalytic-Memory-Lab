@@ -1583,3 +1583,51 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [`capsule`](../runs/20260719_204421_O1C-0072_apple8-vault-backtrack-release-v1/RUN.md),
   artifact-manifest SHA-256
   `83bbc2438fc33e3a61fdf5b23b589574c6a12cfaefd9fc2f0e7c4c4e84b521f8`.
+
+## B-0074 — Release contrast finds exact evidence and hits only the clause cap
+
+- **Evidence:** O1C-0073 preserves O1C-0072's original-first consume-once reader,
+  then returns each released rank's currently unassigned hard opposite at most
+  once. Its sole local-0/lineage-9 call requests `512` conflicts and stops at
+  actual/billed `179/179` with `333` unused. All `255` originals and all `255`
+  opposites are returned and released; `6,250` callbacks contain `510` nonzero
+  returns, zero same-sign redecisions and a terminally empty bounded queue.
+- **Result boundary:** the formal classification is
+  `EPISODIC_VAULT_CAPACITY_TERMINAL`, not recovery, frontier gain or threshold-
+  region exhaustion. Native status is `0`, and no public model or key exists.
+  Search deltas versus O1C-0072 (`+5,095` decisions, `-2,484,094`
+  propagations, `-6.408897572182058` minimum UB) are diagnostic only.
+- **Exact-evidence breadcrumb:** the call fully emits `313` eligible clauses /
+  `803,144` literals. Exactly `311` clauses / `798,046` literals are
+  independently certified novel exact threshold no-goods and two clauses are
+  duplicates. This supports `H-RELEASE-CONTRAST-077` at its exact-emission
+  level even though the episode itself terminates on capacity.
+- **Capacity diagnosis:** the sealed input has `202` clauses / `599,728`
+  literals / `2,399,911 B`. Retaining the 311 novel emissions would give `513`
+  clauses, `1,397,774` literals and `5,593,339 B`: only the `512` clause cap is
+  exceeded; the `1,600,000` literal and `8,388,608 B` payload caps still fit.
+  The published vault remains fail-closed and byte-identical at 202 clauses.
+- **Formal threshold boundary:** `tau=14.606178797892962` and UB share the exact
+  compiled score metric and direction `S(k)>=tau`, but threshold and minimum UB
+  are different statistics over different populations. `7.973483108047071` is
+  O1C-0066 episode 1's visited-trail minimum, not O1C-0068's; the latter is
+  `12.8607806294803`. Because `U(a)` is admissible, `U(a)<tau` implies
+  `S(k)<tau` for every completion of that visited trail and is therefore a safe
+  local prune. O1C-0073's root UB `262.68644197084643>tau` prevents extending
+  that fact to the root, all trails, global UNSAT or region exhaustion.
+- **Do not repeat:** retry O1C-0073, replay lineage ordinal `9`, sweep contrast
+  order/phase/horizon, raise a cap after observing the result, discard the 311
+  exact exclusions, or relabel a capacity terminal as a recovered key.
+- **Breadcrumb:** the measured need for O1's external-index split is now exact:
+  keep the complete 513-clause certified corpus in a causal attic, select a
+  bounded target-free active solver reservoir with enough headroom for new
+  emissions, and make overflow archival rather than science termination. This
+  is `H-CAUSAL-ATTIC-078`; it requires a new frozen attempt identity and a
+  zero-call selection/subsumption audit before any O1C-0074 call.
+- **Artifacts:** authoritative
+  [`result`](O1C0073_APPLE8_VAULT_RELEASE_CONTRAST_RESULT_20260719.json), SHA-256
+  `43fb980b50fef20f9bc4bdcfd2ecd6e0f1f7df3bcee9297b0005bb55e4ea0cdc`;
+  sealed
+  [`capsule`](../runs/20260719_215617_O1C-0073_apple8-vault-release-contrast-v1/RUN.md),
+  artifact-manifest SHA-256
+  `ad2791ff4ae09e9426878be4ba2f3b55eb77c85f46308c7a506d0dc96111317d`.

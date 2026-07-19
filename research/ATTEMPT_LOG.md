@@ -2843,3 +2843,79 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [`capsule`](../runs/20260719_204421_O1C-0072_apple8-vault-backtrack-release-v1/RUN.md),
   artifact-manifest SHA-256
   `83bbc2438fc33e3a61fdf5b23b589574c6a12cfaefd9fc2f0e7c4c4e84b521f8`.
+
+## O1C-0073 — APPLE8 vault release contrast
+
+- **Supersession:** this completed attempt consumes O1C-0072's sole forward
+  decision after the original-first, release-gated hard-opposite reader, bounded
+  queue/state, target-free consequence, source and capacity gates passed. It is
+  a distinct mechanism and lineage call, not an O1C-0072 retry or ordinal-8
+  replay.
+- **Started:** 2026-07-19T21:56:14+02:00.
+- **Recorded:** 2026-07-19T21:56:54+02:00.
+- **Source commit:** `a1a447f47b4e7bec833f1148330573fefa8e3119`.
+- **Protocol:** exactly one fresh native subprocess imports the unchanged sealed
+  202-clause vault and immutable 255-variable signed rank, uses local ordinal
+  `0`, lineage ordinal `9`, seed `0` and requested 512-conflict soft horizon.
+  Native first preserves O1C-0072's monotone consume-once original reader. A
+  genuine original-literal release enqueues that rank, and only after original
+  rank exhaustion can the earliest released, currently unassigned hard opposite
+  be returned once. Assigned contrasts are deferred and retained. Phase calls,
+  retries, replays and sweeps are zero.
+- **Result:** `EPISODIC_VAULT_CAPACITY_TERMINAL`. Native status is `0`; requested,
+  actual and billed conflicts are `512/179/179`, leaving `333` requested
+  conflicts unused. The process fully emits `313` eligible exact threshold
+  no-goods / `803,144` literals: `311` independently certified novel clauses /
+  `798,046` novel literals and two exact duplicates. It returns no model or key
+  and does not prove threshold-region exhaustion. The fail-closed published
+  output vault therefore remains the byte-identical input at `202` clauses /
+  `599,728` literals / `2,399,911 B`, SHA-256
+  `cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858`.
+- **Capacity terminal:** retaining all 311 novel clauses would produce exactly
+  `202+311=513` clauses, one above the clause cap `512`. Their combined
+  `1,397,774` literals remain below the `1,600,000` literal cap and the computed
+  `5,593,339 B` serialization remains below the `8,388,608 B` payload cap.
+  Thus `capacity_clause_count`, and no other vault cap, terminates the episode;
+  capacity is the blocker rather than absence of newly certified evidence.
+- **Validated contrast mechanism:** all `255` originals are returned and later
+  released/enqueued; all `255` hard opposites are returned and later released.
+  The `6,250` callbacks comprise `510` nonzero and `5,740` zero/delegate
+  returns, with `255` paired variables, `255` second decisions, zero same-sign
+  redecisions, maximum/terminal queue `253/0`, and two unique deferred-assigned
+  ranks. Guidance is bounded at `706 B` live and telemetry at `33,490 B`.
+- **Search telemetry:** decisions are `6,250`, propagations `3,278,941`, minimum
+  UB `13.16709627777236` and root UB `262.68644197084643`. Versus O1C-0072,
+  decisions change by `+5,095`, propagations by `-2,484,094` and minimum UB by
+  `-6.408897572182058`. These are diagnostic deltas, not a gain, recovery or
+  entropy classification.
+- **Formal threshold clarification:** `tau=14.606178797892962` and every
+  reported UB use the same compiled score metric and retained direction
+  `S(k)>=tau`; minimum UB is instead the minimum of an admissible upper-bound
+  statistic over the visited partial trails. The value `7.973483108047071`
+  belongs to O1C-0066 episode 1, not O1C-0068; O1C-0068's minimum UB is
+  `12.8607806294803`. For any visited trail `a`, admissibility gives
+  `S(k)<=U(a)` for every completion `k` of `a`, so strict `U(a)<tau` safely
+  prunes exactly those descendants from the retained region. It does not prune
+  other trails: root `U(root)=262.68644197084643>tau`, so neither a global prune,
+  UNSAT nor threshold-region exhaustion follows.
+- **Resources and lineage:** runner elapsed `40.378152000004775 s`; native wall/
+  CPU `0.754070/1.479117 s`; native peak RSS `431,915,008 B`; runner peak RSS
+  `352,075,776 B`; persistent artifacts `31,718,876 B`. Only ordinal `9` is
+  consumed. Known completed lineage billing becomes `4,283`; the full actual
+  total remains `null` because failed ordinal `2` is unbilled. One native call
+  and zero key/truth/reveal/fresh-target/entropy/refit/MPS/GPU work.
+- **Decision:** support `H-RELEASE-CONTRAST-077` at the exact-emission mechanism
+  level, while retaining the formal capacity-terminal/no-recovery result. Do not
+  retry O1C-0073, replay ordinal `9`, or sweep rank, phase or horizon. Preserve
+  all 513 certified exact clauses in an external causal attic, derive a bounded
+  target-free active subset with deliberate headroom, and freeze that new
+  O1C-0074 mechanism before any further science call.
+- **Artifacts:** authoritative
+  [`result`](O1C0073_APPLE8_VAULT_RELEASE_CONTRAST_RESULT_20260719.json), SHA-256
+  `43fb980b50fef20f9bc4bdcfd2ecd6e0f1f7df3bcee9297b0005bb55e4ea0cdc`;
+  sealed
+  [`capsule`](../runs/20260719_215617_O1C-0073_apple8-vault-release-contrast-v1/RUN.md),
+  artifact-manifest SHA-256
+  `ad2791ff4ae09e9426878be4ba2f3b55eb77c85f46308c7a506d0dc96111317d`;
+  native-result SHA-256
+  `bf5f0ce2f72b9d86b5bb6a7fa08e44f777a0980c0bbbd2e0ed9aaa1bca20410a`.
