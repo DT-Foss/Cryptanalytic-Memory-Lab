@@ -202,6 +202,14 @@ All Full-256 action tickets close at the next decision before any of 590 later
 backtracks can reach them, so 62/63 credits become identical. Close the update
 equation and change only its causal horizon with a bounded eligibility trace.
 
+O1C-0050 changes exactly that horizon. Two owner levels per group survive
+decision advance and receive credit only when a later backtrack actually removes
+them. The 1,134-byte state recovers the exact W10 key in 302 conflicts versus the
+frozen static 310, passing its one-call gate without assignment/propagation
+reward. This is a real consumed exact-work gain below Full-256. One unchanged
+W11 primary call now decides frontier expansion; only success pays matched
+controls and Full-256 calls.
+
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
 targets. AUC 0.50572, -0.484 gained key bits and zero recoveries close that exact

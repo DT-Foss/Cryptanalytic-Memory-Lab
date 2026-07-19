@@ -93,6 +93,11 @@
   regresses from `310` to `320`, so the absolute gate fails. All 3,301 Full-256
   tickets closed before the solver's 590 later backtracks, leaving 62/63 group
   credits identical. Close the short-ticket formula, not delayed live credit.
+- **O1C-0050:** trail-resident owner eligibility passes its one-call gate. The
+  exact W10 key needs `302` conflicts versus frozen static `310` (`-2.58%`) with
+  exactly 1,134 state bytes. All 302 backtracks carry conflict credit; seven
+  groups differentiate and no assignment/propagation bonus remains. This earns
+  one W11 primary call before any rotations or Full-256 promotion.
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
@@ -105,9 +110,9 @@
   truth controls remain complete. This is an exact candidate filter, not key
   generation or entropy reduction. APPLE-VIEW-0006 now tests held-out transfer
   of proof-participation credit in a bounded 336-address state.
-- **Next paid experiment:** preserve a bounded eligibility trace across decision
-  advances so later backtracks reach the pair groups actually undone. Reuse the
-  exact O1C-0049 five-call screen; do not tune groups, weights or cap first.
+- **Next paid experiment:** run unchanged delayed primary at W11 once. Exact
+  completion earns matched static/rotation W11 and Full-256 calls; failure closes
+  delayed credit on disjoint pairs. No group, weight or cap change intervenes.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -121,15 +126,15 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** O1C-0050's delayed-credit native adapter is in smoke/test;
-  APPLE-VIEW-0006 streams BUILD proof participation toward a frozen held-out
-  switch order. Sibling repositories remain read-only and untouched.
+- **Active local run:** O1C-0050 is positive and frozen; its W11 promotion screen
+  is being built. APPLE-VIEW-0006 streams BUILD proof participation toward a
+  held-out switch order. Sibling repositories remain read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
   the north star; the scored objective is the strongest reproducible
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
-  [O1C-0049 online credit screen](research/O1C0049_ONLINE_PAIR_CREDIT_SCREEN_RESULT_20260719.md)
+  [O1C-0050 delayed credit gain](research/O1C0050_DELAYED_PAIR_CREDIT_SCREEN_RESULT_20260719.md)
   and [APPLE-VIEW-0005 sparse exact carry certificates](research/apple_view_5/apple_view_5_report.md).
 
 ## Headline

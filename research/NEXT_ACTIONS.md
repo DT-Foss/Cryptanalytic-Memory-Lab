@@ -4,7 +4,7 @@ Last ranked: 2026-07-19T03:00:20+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Keep O1C-0049 credit alive across `Advance` in one bounded decision-level eligibility trace, then repeat its exact five-call screen | State of the art | Extreme | Extreme | Low | Directly tests the measured failure cause: later backtracks currently reach none of the groups that produced them |
+| 1 | Run the unchanged O1C-0050 delayed primary once at W11 under the same 512-conflict cap | State of the art | Extreme | Extreme | Low | Exact W11 proves frontier expansion and unlocks matched rotations/static plus Full-256; failure closes this scheduler |
 | 2 | Stream APPLE-VIEW-0005 proof participation into a bounded 336-address state, freeze it on BUILD, and test the switch order on disjoint targets | State of the art | Extreme | Extreme | Medium | Tests whether the new exact 250/336 candidate-filter certificate becomes transferable O1 attention rather than a consumed-target fact |
 | 3 | If delayed credit passes the absolute primary gate, immediately run matched key/clause rotations; if it fails, close live credit on disjoint pairs | State of the art | High | Extreme | Low | Prevents another scheduler sweep and decides whether to retain groups or change the operator unit |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
@@ -44,6 +44,9 @@ Last ranked: 2026-07-19T03:00:20+02:00.
 - **Live group-credit screen:** O1C-0049 uses exactly 630 state bytes. It improves
   W8/W9 work by 13.3%/17.4% but loses W10 by 3.2% and leaves Full-256 exactly
   unchanged. Its group credit horizon ends before every Full-256 backtrack.
+- **Delayed credit effect:** O1C-0050 fixes only that horizon and recovers exact
+  W10 in 302 conflicts versus static 310 with 1,134 state bytes. W11 is the next
+  and only frontier discriminator before promotion.
 - **Bias-free algebraic boundary:** APPLE-VIEW-0002 proves that independently
   lifted carries span all 512 output equations and leave exact key rank zero.
   APPLE-VIEW-0004 adds exact backward output propagation: depth 30 infers

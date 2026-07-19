@@ -2035,3 +2035,23 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   freeze its order before held-out evaluation.
 - **Artifact:** [`isolated result`](apple_view_5/apple_view_5_report.md), commit
   `93d7fd7`.
+
+## O1C-0050 — Delayed trail-owner pair credit
+
+- **Recorded:** 2026-07-19T03:06:57+02:00.
+- **Hypothesis:** keeping pair-member eligibility until the solver actually
+  removes its decision level fixes O1C-0049's premature uniform credit.
+- **Protocol:** one post-reveal exact W10 primary call at 512 conflicts against
+  the frozen static value 310. Pass requires the exact key in fewer conflicts;
+  telemetry and wall cannot pass.
+- **Result:** `DELAYED_PAIR_CREDIT_STRICT_W10_GAIN`; exact key in 302 conflicts
+  and 307 decisions versus static 310/315. The 1,134-byte state records 302
+  conflict-owner undos, seven nonzero group credits and zero assignment or
+  propagation reward.
+- **Resources:** 4.558947 s, 64,356,352 B peak, one call/512 requested conflicts;
+  zero fresh/sibling/MPS/GPU.
+- **Decision:** run unchanged delayed primary once at W11. Exact completion earns
+  matched W11 controls and Full-256; failure closes this scheduler.
+- **Artifacts:**
+  [`result`](O1C0050_DELAYED_PAIR_CREDIT_SCREEN_RESULT_20260719.md) and
+  [`capsule`](../runs/20260719_030657_O1C-0050_delayed-pair-credit-screen-v1/RUN.md).
