@@ -4,7 +4,7 @@ Last ranked: 2026-07-19T11:45:27+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Compile APPLE-VIEW-0009's frozen exact width-6 grouping into a lifecycle-safe native joint-bound successor | State of the art | Extreme | Extreme | Medium | Replaces the 4K path's independent relaxation with a bound already 7.06083033312537 tighter and 799,232 B smaller than frozen pairs |
+| 1 | Compile APPLE-VIEW-0009's frozen exact width-6 grouping into a lifecycle-safe native joint-bound successor | State of the art | Extreme | Extreme | Medium | Replaces the independent relaxation with a root bound 29.619671474028735 tighter; the 799,232-B byte win is only versus legacy pairs, so efficacy must come from earlier pruning |
 | 2 | Run that grouped successor once on the frozen APPLE-VIEW-0008 Full-256 relation | State of the art | Extreme | Extreme | Medium | Tests whether tighter public geometry converts into more emitted safe trail cuts and avoids or delays O1C64's measured 992-MiB memory wall |
 | 3 | Park one outcome/utility-conditioned exact clause-role successor until ranks 1–2 resolve | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without pretending fixed conflict occurrence supplies the correct sign |
 | 4 | Keep O1C-0054 independent bounds, O1C-0056 fixed negative role credit and O1C-0058 local bit gradients closed | Operational | High | Extreme | Zero | Prevents paid repetition of three localized negative mechanisms |
@@ -52,7 +52,12 @@ Last ranked: 2026-07-19T11:45:27+02:00.
   the safe public root upper bound `269.7472723039718→262.68644197084643`
   relative to frozen pairs, while groups fall `3805→2885`, rows
   `265256→176912`, and estimated indexed bytes `2510008→1710776`. Public bound
-  safety is validated; search/pruning is not yet claimed.
+  safety is validated; search/pruning is not yet claimed. The indexed-byte
+  comparison is against legacy pairs. O1C-0064 uses independent factors, whose
+  modeled index is `1,199,632 B` smaller than the grouped successor under the
+  same partial accounting and whose bounded sieve state is tiny relative to the
+  992-MiB process wall; width-6 must earn its keep through earlier pruning, not
+  a static-memory claim.
 - **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.

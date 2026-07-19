@@ -316,8 +316,9 @@ O1C-0062 exposes the callback lifecycle failure, O1C-0063 repairs it, and
 O1C-0064 then localizes 4K scaling to a guarded-memory stop at 992 MiB. None is a
 science result or retry. APPLE-VIEW-0009 now supplies the positive next
 mechanism: an exact width-6 bound that is both tighter and smaller than the
-frozen pair relaxation. Native integration, not another pure RAM increase, is
-next.
+frozen pair relaxation. O1C-0064 uses independent factors, so that static byte
+win does not directly lower its RSS; native integration must test earlier
+pruning before another pure RAM increase.
 APPLE-VIEW-0005 supplies a separate exact candidate-filter frontier. Its depth-30
 base plus a proof-replayed subset of only 250 high-carry identities rejects a
 complete wrong 256-bit key while omitting 86 of the 336 missing equations. This

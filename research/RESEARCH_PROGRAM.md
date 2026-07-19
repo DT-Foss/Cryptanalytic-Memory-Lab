@@ -615,8 +615,10 @@ evidence.
   `992 MiB` boundary. These are operational failures, not science results.
 - APPLE-VIEW-0009 supplies the next distinct mechanism: exact score-aware
   width-6 groups are `7.06083033312537` tighter and `799,232 B` smaller than
-  frozen pairs. Native integration on the unchanged Full-256 relation is the
-  sole highest-ROI next paid experiment; another pure RAM increase is closed.
+  frozen pairs. O1C-0064 uses independent factors, so the byte win does not
+  directly lower its process RSS; native integration must demonstrate earlier
+  pruning on the unchanged Full-256 relation. That is the sole highest-ROI next
+  paid experiment; another pure RAM increase is closed.
 
 ## Operating contract
 

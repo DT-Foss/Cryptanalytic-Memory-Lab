@@ -1273,7 +1273,8 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Do not repeat:** another resource-only retry or blind RAM-cap increase with
   the same independent/pair relaxation.
 - **Breadcrumb:** preserve the exact boundary telemetry and change the bound
-  representation first. APPLE-VIEW-0009 is already tighter and smaller.
+  representation first. APPLE-VIEW-0009 is tighter; its smaller byte ledger is
+  only versus legacy pairs, so measure whether it changes the live search path.
 - **Artifact:** authoritative
   [`O1C-0064 result`](O1C0064_APPLE8_CROSSBLOCK_SIEVE_4K_RESOURCE_FIX_RESULT_20260719.json).
 
@@ -1283,9 +1284,11 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   deterministic score-aware blocks of at most six. Its exact-safe root upper
   bound is `262.68644197084643` versus `269.7472723039718` for frozen pairs,
   while indexed bytes fall by `799,232 B` and rows fall by `88,344`.
-- **Conclusion:** preserving more local compatibility can simultaneously tighten
-  the bound and shrink its representation; this is the first concrete way
-  around O1C-0064's measured memory wall, not merely a larger resource envelope.
+- **Conclusion:** preserving more local compatibility simultaneously tightens
+  the bound and shrinks the legacy pair representation. O1C-0064 itself uses an
+  independent-factor representation, so width-6 does not statically remove its
+  992-MiB process footprint; it can help only if the tighter bound changes
+  pruning early enough to reduce CaDiCaL/search growth.
 - **Boundary:** public bound construction and safety are established. No solver
   pruning, key rank or recovery gain is claimed until native integration runs.
 - **Breadcrumb:** freeze grouping hash

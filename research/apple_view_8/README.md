@@ -137,4 +137,6 @@ relaxation's `269.7472723039718` to `262.68644197084643`, while indexed state
 falls `2,510,008→1,710,776 B`. Compile grouping hash
 `3da85bae132d829252a68f0e3fd99220ea7d1ef365042806af810ff02f75f636`
 into a lifecycle-safe native successor and test emitted safe trail cuts, time,
-and memory once on these exact Apple clauses.
+and memory once on these exact Apple clauses. The indexed-state reduction is
+against the legacy pair comparator; O1C-0064 uses independent factors, so any
+RSS gain must come indirectly from earlier pruning.
