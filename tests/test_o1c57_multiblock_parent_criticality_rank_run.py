@@ -21,6 +21,7 @@ from o1_crypto_lab.living_inverse import PublicTargetView
 from o1_crypto_lab.o1c57_multiblock_parent_criticality_rank_run import (
     ARMS,
     BLOCK_COUNT,
+    COMMIT_BOUND_SOURCE_NAMES,
     DECOY_COUNT,
     PIPELINE,
     PREFIXES,
@@ -298,3 +299,17 @@ def test_real_config_forbids_refit_reweight_signs_and_subsets() -> None:
     assert str(controls["rotation"]).startswith("one-step cyclic derangement")
     assert budgets["maximum_candidate_forward_evaluations"] == 32776
     assert json.loads(CONFIG.read_text(encoding="utf-8"))["claim_level"] == "TEST"
+
+
+def test_commit_binding_separates_tracked_code_from_hashed_capsule_artifacts() -> None:
+    bound = set(COMMIT_BOUND_SOURCE_NAMES)
+    assert bound == {
+        "sensor_source",
+        "tracer_header",
+        "parent_criticality_source",
+        "o1c43_runner",
+        "broker_source",
+        "runner",
+        "o1c43_result",
+    }
+    assert bound.isdisjoint({"template", "semantic_map", "o1c43_manifest"})

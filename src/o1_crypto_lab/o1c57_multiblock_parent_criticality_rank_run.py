@@ -70,6 +70,15 @@ CADICAL_HEADER_SHA256 = (
 CADICAL_LIBRARY_SHA256 = (
     "44cae3728485b4fd5736ce7cb986021236652daeda9cca227a2c4ac17d3a8a7f"
 )
+COMMIT_BOUND_SOURCE_NAMES = (
+    "sensor_source",
+    "tracer_header",
+    "parent_criticality_source",
+    "o1c43_runner",
+    "broker_source",
+    "runner",
+    "o1c43_result",
+)
 
 
 class O1C57RunError(RuntimeError):
@@ -557,7 +566,11 @@ def run(config_path: str | Path) -> dict[str, object]:
     }
     source_paths["o1c43_manifest"] = (root / O1C43_MANIFEST).resolve(strict=True)
     source_commit = _git_commit(root)
-    for name, path in {"config": config_file, **source_paths}.items():
+    commit_bound_paths = {
+        "config": config_file,
+        **{name: source_paths[name] for name in COMMIT_BOUND_SOURCE_NAMES},
+    }
+    for name, path in commit_bound_paths.items():
         _commit_bound_bytes(root, source_commit, path, name)
 
     o1c43 = _read_json(source_paths["o1c43_result"])
