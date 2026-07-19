@@ -1,0 +1,111 @@
+{
+  "attempt_id": "O1C-0063",
+  "capsule": "runs/20260719_110348_O1C-0063_apple8-crossblock-consequence-sieve-4k-repair-v1",
+  "claim_boundary": {
+    "different_budget_work_is_matched": false,
+    "fresh_reveal_calls": 0,
+    "fresh_targets": 0,
+    "native_solver_calls": 1,
+    "new_attempt_not_o1c62_retry": true,
+    "o1c62_terminal_provenance_bound": true,
+    "o1c62_writes": 0,
+    "refits": 0,
+    "retry_authorized": false,
+    "scientific_entropy_calls": 0,
+    "truth_key_bytes_read_after_public_diagnostic": false,
+    "validated_science_result": false
+  },
+  "classification": "O1C63_OPERATIONAL_FAILURE_NO_SCIENCE_RESULT",
+  "metrics": {
+    "native_status": "OPERATIONAL_FAILURE"
+  },
+  "next_action": "Do not retry O1C-0062 or O1C-0063; diagnose this immutable O1C-0063 terminal capsule under a new attempt ID.",
+  "operational_failure": {
+    "classification": "O1C63_OPERATIONAL_NATIVE_FAILURE_NO_SCIENCE_RESULT",
+    "error_message": "joint-score-sieve execution failed",
+    "error_type": "O1RelationalSearchError",
+    "native_calls_consumed": 1,
+    "native_failure_telemetry": {
+      "returncode": null,
+      "schema": "o1-256-native-failure-telemetry-v1",
+      "signal_name": null,
+      "signal_number": null,
+      "stderr": {
+        "artifact": null,
+        "bytes": null,
+        "persisted_bytes": 0,
+        "persisted_sha256": null,
+        "present": false,
+        "sha256": null,
+        "truncated": false
+      },
+      "stdout": {
+        "artifact": null,
+        "bytes": null,
+        "persisted_bytes": 0,
+        "persisted_sha256": null,
+        "present": false,
+        "sha256": null,
+        "truncated": false
+      },
+      "structured": {}
+    },
+    "occurred_after_persisted_intent": true,
+    "retry_authorized": false,
+    "truth_key_bytes_read": false
+  },
+  "preflight": {
+    "apple8_capsule": "runs/20260719_095509_APPLE-VIEW-0008-MATCHED_crossblock-consequence-sieve-v1",
+    "apple8_manifest_sha256": "751b89019d1f65b8180b15eafbb4bdf45c6080b0894c50567ee63eff15405a69",
+    "apple8_result_sha256": "21c2170225a814bf715b6a4332bd88210fca7cbb4c6db21237becbfdd85795be",
+    "attempt_id": "O1C-0063",
+    "cnf_sha256": "e1fc0ac93724004291c960ea06e5584c598853b9ea8370552be09f29e73e2432",
+    "files_written": 0,
+    "fresh_reveal_calls": 0,
+    "fresh_targets": 0,
+    "maximum_billed_conflicts": 4097,
+    "maximum_conflict_limit_overshoot": 1,
+    "memory_pressure_free_percent": 61,
+    "native_result_schema": "o1-256-cadical-joint-score-sieve-result-v4",
+    "native_solver_calls": 0,
+    "new_attempt_not_o1c62_retry": true,
+    "o1c62_native_calls_consumed": 1,
+    "o1c62_retry_authorized": false,
+    "o1c62_terminal_manifest_sha256": "2f5acb7852a14c30854da4eed8512eec101a9e4871a6ef1834088b4fb1297f0a",
+    "o1c62_terminal_result_sha256": "918d585878e667e94f31f042366b5f2d779bf4689a6a024160a5cc5997a27726",
+    "o1c62_validated_science_result": false,
+    "o1c62_writes": 0,
+    "ok": true,
+    "pending_backtrack_rule": "retain-valid-pending-no-good;unwind-trail-and-refresh-factor-cache;defer-new-bound",
+    "potential_sha256": "8c6101b49c7050caf895bd9c496c05bcea9f43a2b27f378d7306be38b00d5390",
+    "ready_for_science": true,
+    "refits": 0,
+    "requested_conflicts": 4096,
+    "schema": "o1-256-apple8-crossblock-sieve-4k-repair-preflight-v1",
+    "scientific_entropy_calls": 0,
+    "soft_conflict_ledger_schema": "o1-256-cadical-joint-score-sieve-soft-conflict-ledger-4k-v2",
+    "source_commit": "45b03a90daeb2daac1c1cf74fdb2513a53876eaf",
+    "source_commit_bound": true,
+    "teardown_rule": "connected-solver-destroyed-before-external-propagator;no-explicit-disconnect",
+    "threshold": 14.606178797892962,
+    "truth_key_bytes_read": false
+  },
+  "recorded_at": "2026-07-19T11:04:06+02:00",
+  "repair_provenance": {
+    "new_attempt_not_retry": true,
+    "o1c62_native_calls_consumed": 1,
+    "o1c62_retry_authorized": false,
+    "source_attempt": "O1C-0062",
+    "terminal_manifest_sha256": "2f5acb7852a14c30854da4eed8512eec101a9e4871a6ef1834088b4fb1297f0a",
+    "terminal_result_sha256": "918d585878e667e94f31f042366b5f2d779bf4689a6a024160a5cc5997a27726"
+  },
+  "resources": {
+    "billed_conflicts": null,
+    "maximum_billed_conflicts": 4097,
+    "native_solver_calls": 1,
+    "persistent_artifact_bytes": 21847,
+    "requested_conflicts": 4096
+  },
+  "schema": "o1-256-apple8-crossblock-sieve-4k-repair-result-v1",
+  "source_commit": "45b03a90daeb2daac1c1cf74fdb2513a53876eaf"
+}
