@@ -194,6 +194,14 @@ pair regrouping and conflict-cap scaling; retain the exact groups as baselines
 while bounded attacker-visible propagation/conflict/backtrack outcomes assign
 online group credit.
 
+O1C-0049 executes the first such live rule in exactly 630 persistent bytes. The
+consumed primary residuals improve from `75/155` to `65/128` conflicts at W8/W9,
+but W10 regresses `310→320` and Full-256 remains exactly unchanged at
+513 conflicts / 10,802 decisions. The registered absolute gate therefore fails.
+All Full-256 action tickets close at the next decision before any of 590 later
+backtracks can reach them, so 62/63 credits become identical. Close the update
+equation and change only its causal horizon with a bounded eligibility trace.
+
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
 targets. AUC 0.50572, -0.484 gained key bits and zero recoveries close that exact
@@ -216,6 +224,13 @@ uniform bitwise carry-depth truncation as a cheap forward filter. It does not
 close carry structure: unresolved-carry correlations were intentionally
 discarded. Any next Apple test must retain those correlations or propagate the
 known public output backward as well as the candidate input forward.
+
+APPLE-VIEW-0004 supplies that two-ended test with exact Boolean generalized arc
+consistency. At depth 30 the public output drives 3,720–3,850 additional internal
+assignments per wrong probe, yet rejects `0/4`; restoring all 336 missing high
+carry identities at depth 31 rejects `4/4` and is the full relation. The next
+distinct experiment treats those identities as switches and measures whether a
+sparse subset forms an exact rejection certificate.
 
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
@@ -428,8 +443,10 @@ evidence.
    matched clause rotation remains faster. O1C-0047 then shows the global score
    ranks truth 50/65536 on a privileged W16 cube. O1C-0048 converts that geometry
    into static reversible pairs: its global gate fails, but primary now beats both
-   rotations at W8/W9. Preserve all score/group bytes and move from fixed pair
-   envelopes to bounded target-time credit driven by public solver outcomes.
+   rotations at W8/W9. O1C-0049 adds decision-local credit, improves W8/W9 but
+   loses W10 because its tickets expire before backtracks. Preserve all
+   score/group bytes and test one bounded delayed eligibility horizon; no weight
+   or group sweep precedes it.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.

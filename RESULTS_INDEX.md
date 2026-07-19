@@ -168,6 +168,7 @@ attacker-valid cipher evidence.
 | `O1C-0046-KEY-ONLY-CRITICALITY` | Same frozen local factors with all variables observed but external decisions restricted to 126 key coordinates | `CONSUMED_SEARCH_DIAGNOSTIC`; Full-256 attacker-valid, residual rows post-reveal | Full-256 0/4; residual frontier unchanged at 8/9/9/9; primary conflicts fall to 43/87 at widths 8/9, but matched clause rotation remains better at 22/46 | [Result](research/O1C0046_KEY_ONLY_CRITICALITY_SEARCH_RESULT_20260719.md) |
 | `O1C-0047-GLOBAL-RESIDUAL-BEAM` | Complete-state criticality ordering on nested exhaustive W8/W12/W16 cubes | `POST_REVEAL_CEILING`; 240 truth bits fixed | primary truth ranks 1/256, 5/4096, 50/65536 versus W16 rotations 60592/43059; primary top-256 contains unique verified key; 10.356 bits local search compression | [Result](research/O1C0047_GLOBAL_CRITICALITY_RESIDUAL_BEAM_RESULT_20260719.md) |
 | `O1C-0048-PAIR-ENVELOPE` | Soft reversible global max-envelope decisions over 63 frozen key pairs | `CONSUMED_SEARCH_DIAGNOSTIC`; Full-256 rows attacker-valid, residual rows post-reveal | Full-256 0/4; residual maxima 8/9/9/9; primary conflicts W8/W9 75/155 versus internal 217/UNKNOWN, key 195/331, clause 89/167; frozen all-arm gate fails | [Result](research/O1C0048_PAIR_ENVELOPE_SEARCH_RESULT_20260719.md) |
+| `O1C-0049-ONLINE-PAIR-CREDIT` | 630-byte live credit over the same 63 frozen pair groups | `CONSUMED_EFFECT_SCREEN`; Full-256 pre-reveal, residual rows post-reveal | Full-256 unchanged at 513 conflicts/10,802 decisions; W8/W9 improve 75/155→65/128, W10 regresses 310→320; absolute gate fails because short tickets receive zero delayed Full-256 backtrack credit | [Result](research/O1C0049_ONLINE_PAIR_CREDIT_SCREEN_RESULT_20260719.md) |
 
 ## Frontier and state-of-the-art results
 
@@ -237,6 +238,12 @@ successful arm at W9. This reverses O1C-0046's clause-control advantage and is a
 real consumed specificity breadcrumb below the promotion gate. Close the exact
 static disjoint-pair adapter; the next mechanism must learn bounded group credit
 from attacker-visible live solver outcomes and improve absolute work.
+O1C-0049 tests that literal mechanism with a fixed 630-byte state. It changes
+exact search work at W8/W9 but not Full-256 and is worse at the shared W10
+frontier, so it does not advance the recovery frontier. Its telemetry localizes
+the defect: all Full-256 tickets expire on the next decision and none survives
+to a later conflict/backtrack. Close this update equation and extend only the
+credit horizon with a bounded eligibility trace.
 Existing sibling-project recoveries are baselines, not results of this integration.
 
 ## Negative bounds
@@ -246,6 +253,7 @@ Existing sibling-project recoveries are baselines, not results of this integrati
 | `APPLE-VIEW-0001` | Public feed-forward fixed-point projection and output-Hamming local descent | `EXPLORATORY_FULL256_NEGATIVE` | 32 deterministic Full-256 targets; -0.484 holdout keybits, AUC 0.50572, direction accuracy 0.49854, 0 recoveries; 21,108 R20 core evaluations | Output score admits descent without key-distance descent; close this fixed-point/local-fitness path | [Result](research/apple_view/apple_view_result.md) |
 | `APPLE-VIEW-0002` | Exact GF(2) quotient after independently lifting all addition carries | `EXPLORATORY_FULL256_NEGATIVE` | 8 deterministic Full-256 targets; carry rank 512, exact key rank 0, exact recoveries 0; all 8,192 lifted equations validate | Independent carries span the entire public output and erase every linear key parity; only globally restoring carry recurrence by depth is a new test | [Result](research/apple_view_2/apple_view_2_report.md) |
 | `APPLE-VIEW-0003` | Uniform exact carry recurrence by bit depth with sound forward three-valued rejection | `EXPLORATORY_FULL256_NEGATIVE` | 32 output-independent Full-256 probes across depths 0..31; depths 0..30 determine 0 final bits and reject 0/32, depth 31 determines 512 and rejects 32/32; 0 recovery/entropy claim | Forward-only bitwise carry truncation has a depth-31 cliff; require correlation preservation or two-ended constraint propagation | [Result](research/apple_view_3/apple_view_3_report.md) |
+| `APPLE-VIEW-0004` | Exact bidirectional GAC through partial-carry Full20 constraints | `EXPLORATORY_FULL256_NEGATIVE` | depth 30 infers 3,720–3,850 variables beyond fixed input/output but rejects 0/4 wrong probes; depth 31 rejects 4/4 and retains truth; 18.12 s, 87.9 MB | One free c31 per each of 336 additions absorbs every local contradiction; test sparse joined carry identities rather than more local propagation | [Result](research/apple_view_4/apple_view_4_report.md) |
 | `O1C-0040-N1` | H16 branch-difference clause occurrence transfers structural relation accuracy but does not rank the target key | `POST_REVEAL` consumed diagnostic | raw primary ranks 1905/4097 and 2292/4097; surprise 1078/4097 and 1461/4097; key-rotated surprise 107/4097 and 423/4097 | Close occurrence and its one structural-surprise correction; retain exact proof stream and extract branch-exclusive signed antecedent chains |
 | `O1C-0042-N1` | Unique signed leaf collapse does not reproduce its consumed-panel chain-rank concentration on one fresh key | `TEST` fresh negative | primary 1371/4097 versus frozen best-quarter gate; key/factor controls 1399/3385; exact freeze/reveal lifecycle | Close this leaf-sum reader; preserve ordered parent role and clause criticality next |
 | `O1C-0000-N1` | Equal-cell single-state holography is crosstalk-limited on MQAR-256 | `NEGATIVE_BOUND` | 83.5938% mean bit accuracy, 0/5 exact | Test structured slots/polyphase separation instead of more identical superposition |

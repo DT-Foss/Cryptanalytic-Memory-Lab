@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T02:15:01+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T02:39:54+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -87,17 +87,23 @@
   because frontiers are untied, but primary is pairwise lexicographically better
   than every comparator. This is a consumed specificity breadcrumb, not a
   promoted recovery result.
+- **O1C-0049:** the first 630-byte live pair-credit state has run on the same
+  consumed target. Full-256 is byte-for-byte unchanged at 513 conflicts and
+  10,802 decisions. W8/W9 improve from `75/155` to `65/128` conflicts, but W10
+  regresses from `310` to `320`, so the absolute gate fails. All 3,301 Full-256
+  tickets closed before the solver's 590 later backtracks, leaving 62/63 group
+  credits identical. Close the short-ticket formula, not delayed live credit.
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
-  Full-256 targets. Uniform exact carry-depth forwarding is now closed too:
-  depths 0..30 determine zero final bits and reject 0/32 wrong probes; depth 31
-  is full exact evaluation. None of these nulls alters the positive relational
-  path.
-- **Next paid experiment:** use attacker-visible propagation/backtrack outcomes
-  as bounded online O1/O1-O group credit, with O1C-0048's static arms frozen as
-  baselines. Require preserved primary specificity plus absolute work/frontier
-  improvement; do not tune the closed disjoint-pair plan.
+  Full-256 targets. Two-ended exact local propagation at depth 30 now infers
+  3,720–3,850 internal variables per wrong probe but rejects 0/4 because one
+  free high carry per each of 336 additions absorbs the contradiction; depth 31
+  is again full exact evaluation. The active Apple successor tests sparse sets
+  of those 336 missing carry identities instead of another global depth ladder.
+- **Next paid experiment:** preserve a bounded eligibility trace across decision
+  advances so later backtracks reach the pair groups actually undone. Reuse the
+  exact O1C-0049 five-call screen; do not tune groups, weights or cap first.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -111,16 +117,16 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** no outcome-bearing run. The bounded online-pair adapter is
-  being built; APPLE-VIEW-0003 is complete. Sibling repositories remain read-only
-  and untouched.
+- **Active local run:** O1C-0049 is finalized; its delayed-credit successor is
+  being frozen while APPLE-VIEW-0005 runs in an isolated folder. Sibling
+  repositories remain read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
   the north star; the scored objective is the strongest reproducible
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
-  [O1C-0048 pair-envelope search](research/O1C0048_PAIR_ENVELOPE_SEARCH_RESULT_20260719.md)
-  and [APPLE-VIEW-0003 carry-depth filter](research/apple_view_3/apple_view_3_report.md).
+  [O1C-0049 online credit screen](research/O1C0049_ONLINE_PAIR_CREDIT_SCREEN_RESULT_20260719.md)
+  and [APPLE-VIEW-0004 bidirectional carry propagation](research/apple_view_4/apple_view_4_report.md).
 
 ## Headline
 
@@ -167,6 +173,11 @@ restores primary ordering over both rotations at W8 and W9 while expanding the
 internal W8 frontier to W9. This is the exact point to introduce live causal
 credit: preserve the ordering, remove the static pair scheduler's extra work,
 and keep the next comparison pairwise-lexicographic and frozen in advance.
+O1C-0049 performs that smallest live update. It cuts W8/W9 work by 13–17% but
+loses at W10 and leaves Full-256 exactly unchanged. The state telemetry explains
+the failure without a sweep: action tickets expire at the next decision, while
+all Full-256 backtracks arrive later. The next adapter changes only this causal
+horizon by retaining a bounded eligibility trace across advances.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does

@@ -1062,3 +1062,33 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   test must retain them or let the known public output propagate backward while
   the candidate key propagates forward.
 - **Artifact:** [`Apple carry-depth result`](apple_view_3/apple_view_3_report.md).
+
+## B-0054 — Two-ended local carry consistency still needs all 336 high carries
+
+- **Evidence:** APPLE-VIEW-0004 propagates exact XOR/majority truth tables from a
+  complete probe key and the public output. Depth 30 infers up to 3,850 new
+  variables but rejects `0/4` wrong probes; restoring every missing high-carry
+  identity at depth 31 rejects `4/4`.
+- **Conclusion:** public signal enters the circuit, but one independent `c31`
+  choice per addition absorbs every local contradiction.
+- **Do not repeat:** deeper GAC, more probes or another uniform depth ladder.
+- **Breadcrumb:** treat the 336 missing identities as switches and search for a
+  sparse joined rejection certificate; this tests global correlation without
+  paying unrestricted CDCL.
+- **Artifact:** [`Apple bidirectional result`](apple_view_4/apple_view_4_report.md).
+
+## B-0055 — Decision-local credit expires before Full-256 conflict feedback
+
+- **Evidence:** O1C-0049 improves W8/W9 conflicts from `75/155` to `65/128` but
+  regresses W10 `310→320` and leaves Full-256 exactly unchanged. In Full-256 all
+  3,301 tickets close on the next decision; none receives a conflict or
+  backtrack despite 590 later solver backtracks.
+- **Conclusion:** the bounded state is operational, but its temporal credit
+  horizon is shorter than the consequence horizon. The exact formula fails its
+  absolute gate.
+- **Do not repeat:** weight sweeps, pair regrouping, conflict-cap scaling or a
+  fresh target with this ticket lifecycle.
+- **Breadcrumb:** keep a bounded stack/ring eligibility trace across `Advance`
+  and penalize or reward groups when their decision levels are actually undone.
+- **Artifact:**
+  [`O1C-0049 result`](O1C0049_ONLINE_PAIR_CREDIT_SCREEN_RESULT_20260719.md).

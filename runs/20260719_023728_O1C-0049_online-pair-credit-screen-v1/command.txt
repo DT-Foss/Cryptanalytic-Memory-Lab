@@ -1,0 +1,1 @@
+PYTHONPATH=src python3 -m o1_crypto_lab.o1c49_online_pair_credit_screen

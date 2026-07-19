@@ -1,12 +1,12 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T02:15:01+02:00.
+Last ranked: 2026-07-19T02:39:54+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Feed attacker-visible propagation/conflict/backtrack outcomes into a bounded online credit state over O1C-0048's frozen pair groups | State of the art | Extreme | Extreme | Medium | Tests whether live adaptation preserves the primary reader's specificity while beating the static pair baseline in absolute exact work |
-| 2 | Freeze the smallest consumed primary/internal/key-rotation/clause-rotation Full-256 plus W8/W9 comparison before execution | State of the art | Extreme | Extreme | Low | Pairwise lexicographic dominance plus absolute improvement over O1C-0048 advances the mechanism; otherwise close the exact update rule |
-| 3 | In the independent Apple track, test the same carry-depth relaxations with public-output constraints propagating backward as well as candidate input forward | State of the art | Extreme | High | Low | Determines whether a cheap two-ended constraint lamp rejects wrong Full256 keys before the depth-31 cliff that closes forward-only ternary propagation |
+| 1 | Keep O1C-0049 credit alive across `Advance` in one bounded decision-level eligibility trace, then repeat its exact five-call screen | State of the art | Extreme | Extreme | Low | Directly tests the measured failure cause: later backtracks currently reach none of the groups that produced them |
+| 2 | In the independent Apple track, treat the 336 missing depth-30 high-carry identities as switches and find the first sparse exact rejection certificate | State of the art | Extreme | High | Low | Determines whether global carry consistency can reject wrong Full256 probes with far less than the full cipher relation |
+| 3 | If delayed credit passes the absolute primary gate, immediately run matched key/clause rotations; if it fails, close live credit on disjoint pairs | State of the art | High | Extreme | Low | Prevents another scheduler sweep and decides whether to retain groups or change the operator unit |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 | 5 | Keep static pair resweeps, independent-carry quotients, occurrence scoring and the closed unary field parked | Operational | High | High | Zero | Preserves measured boundaries while compute moves to live credit and globally consistent carry structure |
 
@@ -41,15 +41,17 @@ Last ranked: 2026-07-19T02:15:01+02:00.
   diagnostic, primary nevertheless beats key rotation at `75/155` versus
   `195/331` conflicts and clause rotation at `89/167`. This restores reader
   specificity but is neither an attacker-valid recovery nor an absolute win.
+- **Live group-credit screen:** O1C-0049 uses exactly 630 state bytes. It improves
+  W8/W9 work by 13.3%/17.4% but loses W10 by 3.2% and leaves Full-256 exactly
+  unchanged. Its group credit horizon ends before every Full-256 backtrack.
 - **Bias-free algebraic boundary:** APPLE-VIEW-0002 proves that independently
   lifted carries span all 512 output equations and leave exact key rank zero.
-  APPLE-VIEW-0003 restores real carries uniformly by depth, but forward-only
-  three-valued propagation determines zero final bits through depth 30; depth 31
-  is the complete cipher. A new test must preserve correlations or propagate
-  constraints from both public output and candidate input.
-- **Next measurable advance:** bounded target-time group credit preserves
-  pairwise primary-over-control ordering and strictly improves O1C-0048's own
-  width/conflict frontier. Exact 256 remains the terminal moonshot.
+  APPLE-VIEW-0004 adds exact backward output propagation: depth 30 infers
+  thousands of variables but one free high carry per addition prevents every
+  wrong-key rejection. The active test joins sparse subsets of those identities.
+- **Next measurable advance:** delayed group eligibility strictly improves the
+  shared W10 frontier or sparse carry identities reject a wrong Full-256 probe
+  far below 336 switches. Exact 256 remains the terminal moonshot.
 
 ## Effect-first stop rules
 
@@ -106,11 +108,17 @@ Last ranked: 2026-07-19T02:15:01+02:00.
   score bytes but do not tune pair membership, raise the conflict cap or call the
   consumed residual diagnostic attacker-valid. The only next scheduler change is
   bounded credit from live public solver outcomes, judged against the static run.
+- O1C-0049 completes that first live rule. W8/W9 get cheaper, W10 gets worse and
+  Full-256 is unchanged because decision-local tickets close before feedback.
+  Do not sweep credit weights. Permit exactly one causal-horizon repair: a
+  bounded trace of decisions later removed by backtrack.
 - APPLE-VIEW-0001 closes fixed-point/output-distance descent. APPLE-VIEW-0002
   closes the quotient in which all carries are independent. APPLE-VIEW-0003
   closes uniform carry-depth plus forward ternary propagation: even depth 30
-  yields zero final known bits. Do not enlarge any of these panels; only a
-  correlation-preserving or two-ended constraint view is a new question.
+  yields zero final known bits. APPLE-VIEW-0004 closes two-ended local
+  propagation: depth 30 carries public signal but rejects 0/4. Do not enlarge
+  these panels; only sparse joined identities or a different correlated state is
+  a new question.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not
@@ -210,12 +218,12 @@ Last ranked: 2026-07-19T02:15:01+02:00.
 
 ## Do not spend the next cycle on
 
-- another static O1/O1-O scheduler, pair regrouping, conflict-cap increase or
-  fresh target before the bounded live-credit rule either beats O1C-0048
-  absolutely or closes;
+- another static scheduler, pair regrouping, credit-weight sweep, conflict-cap
+  increase or fresh target before the one delayed-credit repair either beats
+  O1C-0048 absolutely or closes;
 - another independent-carry linear quotient, output-Hamming descent or
   feed-forward fixed-point projection;
-- another forward-only known/unknown carry-depth ladder; depth 0..30 already
+- another uniform forward/backward carry-depth ladder; depth 0..30 already
   collapses to zero public bits and depth 31 is ordinary exact evaluation;
 - byte/u16/top-K scoring during reader iteration; cheap NLL/sign screening already
   answers whether an effect exists and is orders of magnitude faster;

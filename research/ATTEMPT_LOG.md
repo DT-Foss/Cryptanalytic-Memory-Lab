@@ -1975,3 +1975,43 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   carry test must preserve correlations or propagate constraints from both the
   candidate input and public output.
 - **Artifact:** [`isolated result`](apple_view_3/apple_view_3_report.md).
+
+## APPLE-VIEW-0004 — Bidirectional partial-carry propagation
+
+- **Recorded:** 2026-07-19T02:30:48+02:00, isolated parallel track.
+- **Hypothesis:** exact generalized arc consistency from both a complete probe
+  key and the public output rejects wrong keys before every carry recurrence is
+  restored.
+- **Result:** negative at the frozen gate. Depths 24/28/29/30 reject `0/4`
+  probes; depth 31 rejects `4/4` and is the complete relation. At depth 30 the
+  output nevertheless infers 3,720–3,850 variables beyond the 770 fixed inputs.
+- **Boundary:** one unconstrained `c31` per each of 336 additions keeps every
+  wrong probe locally consistent. Truth never conflicts and completes at d31.
+- **Resources:** 18.124440 s wall, 18.020902 s CPU, 87,867,392 B peak; one CPU
+  process, no solver branching, sibling, network, MPS or GPU work.
+- **Decision:** close deeper local propagation. Test whether a sparse subset of
+  the 336 missing carry identities forms a much smaller rejection certificate.
+- **Artifact:** [`isolated result`](apple_view_4/apple_view_4_report.md), commit
+  `6afbe22`.
+
+## O1C-0049 — Bounded online pair-credit screen
+
+- **Recorded:** 2026-07-19T02:37:28+02:00.
+- **Hypothesis:** a 630-byte target-time state over O1C-0048's frozen 63 groups
+  reduces absolute exact-search work using only assignment, propagation,
+  conflict and backtrack events.
+- **Result:** `ONLINE_PAIR_CREDIT_NO_ABSOLUTE_PRIMARY_GAIN`. Full-256 remains
+  unresolved with the exact static telemetry `513` conflicts / `10,802`
+  decisions. Online W8/W9 improve `75/155 → 65/128`, but W10 regresses
+  `310 → 320`; both recover the exact key, so the registered gate fails.
+- **Mechanism boundary:** all 3,301 Full-256 tickets close on `Advance`, before
+  any of the solver's 590 later backtracks. Ticket conflict/backtrack deltas are
+  zero and 62/63 group credits collapse to 424.
+- **Resources:** 7.952809 s, 66,043,904 B peak, five calls, 2,560 requested
+  conflicts; zero fresh/sibling/MPS/GPU.
+- **Decision:** close this exact short-ticket equation. Change only the causal
+  horizon: retain a bounded eligibility trace until later backtracks can credit
+  the pair decisions they actually undo.
+- **Artifacts:**
+  [`result`](O1C0049_ONLINE_PAIR_CREDIT_SCREEN_RESULT_20260719.md) and
+  [`capsule`](../runs/20260719_023728_O1C-0049_online-pair-credit-screen-v1/RUN.md).
