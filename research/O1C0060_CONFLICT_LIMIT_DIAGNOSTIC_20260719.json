@@ -1,0 +1,67 @@
+{
+  "schema": "o1-256-cadical-conflict-limit-diagnostic-v1",
+  "recorded_at": "2026-07-19T09:06:10+02:00",
+  "classification": "OPERATIONAL_LEDGER_DIAGNOSTIC_NO_SCIENCE_CLAIM",
+  "trigger_attempt": "O1C-0060",
+  "purpose": "Localize the rejected incremental-conflict equation before assigning a new one-shot attempt ID.",
+  "claim_boundary": {
+    "public_consumed_target": "O1C-0057 eight-block Full256 target",
+    "diagnostic_native_calls": 2,
+    "fresh_targets": 0,
+    "fresh_entropy_calls": 0,
+    "truth_or_reveal_reads": 0,
+    "scientific_result": false,
+    "o1c59_or_o1c60_retry": false
+  },
+  "inputs": {
+    "cnf": "runs/20260719_090328_O1C-0060_multiblock-joint-score-sieve-conflict-ledger-v1/artifacts/cnf/full256-eight-block.cnf",
+    "cnf_sha256": "7d99d86b64fe1fdbf377f840260aeace79a35ef9ea703b2fb7fb36d4b5918a11",
+    "potential": "runs/20260719_090328_O1C-0060_multiblock-joint-score-sieve-conflict-ledger-v1/artifacts/potential/primary-eight-block.potential",
+    "potential_sha256": "8c6101b49c7050caf895bd9c496c05bcea9f43a2b27f378d7306be38b00d5390",
+    "native_source": "native/cadical_o1_joint_score_sieve_v2.cpp",
+    "native_source_sha256": "c9ddc07d8d5ae22852ad7302ba9f8888cc86d3c04cf5fabf8c79a9eb8b28e91b",
+    "diagnostic_executable_sha256": "e74c56f5ea746c378cd35974c5ab0bc869b8ba92021808752a19d677c0300ee5",
+    "threshold": 14.606178797892962,
+    "seed": 0
+  },
+  "observations": [
+    {
+      "requested_conflicts": 1,
+      "conflicts_before_solve_api": 0,
+      "cumulative_conflicts_after_solve": 1,
+      "observed_solve_delta": 1,
+      "observed_limit_overshoot": 0,
+      "status": 0,
+      "decisions": 64,
+      "propagations": 10463,
+      "root_upper_bound": 292.30611344510277,
+      "minimum_upper_bound": 288.3989179516089,
+      "wall_microseconds": 2206,
+      "cpu_microseconds": 552104,
+      "peak_rss_bytes": 292700160
+    },
+    {
+      "requested_conflicts": 512,
+      "conflicts_before_solve_api": 0,
+      "cumulative_conflicts_after_solve": 513,
+      "observed_solve_delta": 513,
+      "observed_limit_overshoot": 1,
+      "status": 0,
+      "decisions": 9166,
+      "propagations": 1227877,
+      "root_upper_bound": 292.30611344510277,
+      "minimum_upper_bound": 24.794446661138302,
+      "trail_threshold_prunes": 0,
+      "complete_model_score_checks": 0,
+      "wall_microseconds": 416150,
+      "cpu_microseconds": 957899,
+      "peak_rss_bytes": 325844992
+    }
+  ],
+  "diagnosis": {
+    "rejected_equation": "observed_solve_delta <= requested_conflicts",
+    "measured_behavior": "CaDiCaL 3.0.0 returns one conflict beyond the requested soft conflict stop on this deterministic 512-conflict path.",
+    "corrected_ledger": "Persist requested conflicts, observed solve delta, and observed overshoot separately; bill the actual 513 conflicts and accept only a frozen overshoot of zero or one.",
+    "next_attempt": "O1C-0061"
+  }
+}
