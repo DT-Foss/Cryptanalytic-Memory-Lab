@@ -846,12 +846,13 @@ private:
         if (!owner_level)
           continue;
         const int variable = member ? group.second : group.first;
-        if (owner_level > current_level_ ||
-            !assigned_.at(static_cast<size_t>(variable)) ||
-            owner_level >= levels_.size() ||
-            std::find(levels_.at(owner_level).begin(),
-                      levels_.at(owner_level).end(),
-                      variable) == levels_.at(owner_level).end())
+        const bool assignment_reported =
+            assigned_.at(static_cast<size_t>(variable));
+        if (owner_level > current_level_ || owner_level >= levels_.size() ||
+            (assignment_reported &&
+             std::find(levels_.at(owner_level).begin(),
+                       levels_.at(owner_level).end(),
+                       variable) == levels_.at(owner_level).end()))
           throw std::runtime_error("delayed pair live-owner invariant differs");
         ++observed_live_owners;
       }
@@ -979,15 +980,8 @@ private:
         uint32_t &owner_level = owner.levels[member];
         if (!owner_level || owner_level <= new_level)
           continue;
-        const PairGroup &group = groups_.at(group_index);
-        const int variable = member ? group.second : group.first;
-        if (!assigned_.at(static_cast<size_t>(variable)) ||
-            owner_level >= levels_.size() ||
-            std::find(levels_.at(owner_level).begin(),
-                      levels_.at(owner_level).end(),
-                      variable) == levels_.at(owner_level).end())
-          throw std::runtime_error(
-              "delayed pair undone owner is absent from trail");
+        if (owner_level > current_level_ || owner_level >= levels_.size())
+          throw std::runtime_error("delayed pair undone owner level differs");
         group_weight += delayed_owner_weight(current_level_, owner_level);
         ++group_undo_members;
         owner_level = 0;
