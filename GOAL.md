@@ -215,8 +215,11 @@ fixed-point/output-fitness view on 32 deterministic targets. Its AUC `0.50572`,
 it does not alter the positive complete-state criticality path. Its second,
 genuinely different carry-quotient view also closes cleanly: independently free
 non-LSB carries span all 512 output equations and leave exact key rank zero on
-8/8 Full-256 targets. Future carry work must restore the real carry recurrence
-globally by depth; it must not repeat independent-carry elimination.
+8/8 Full-256 targets. APPLE-VIEW-0003 then restores the real carry recurrence
+uniformly by bit depth. Depths 0..30 determine zero final output bits and reject
+0/32 wrong Full256 probes; depth 31 is the complete exact cipher. Future carry
+work must preserve correlations or propagate from both ends; it must not repeat
+independent-carry elimination or forward-only bit-depth truncation.
 
 The active conversion now uses O1/O1-O where it is architecturally justified:
 learn bounded group credit online from attacker-visible propagation, conflict and

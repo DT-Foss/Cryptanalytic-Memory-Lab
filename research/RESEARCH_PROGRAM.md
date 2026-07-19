@@ -208,6 +208,15 @@ explain the entire output and erase every key parity. The next Apple test restor
 the true majority/carry recurrence globally by depth and measures the first depth
 at which key rank or bounded search compression reappears.
 
+APPLE-VIEW-0003 performs that depth restoration with a sound forward
+three-valued evaluator. Across 32 output-independent wrong Full256 keys, every
+depth through 30 determines zero final bits and rejects zero probes; depth 31
+determines all 512 bits and is simply complete ChaCha evaluation. This closes
+uniform bitwise carry-depth truncation as a cheap forward filter. It does not
+close carry structure: unresolved-carry correlations were intentionally
+discarded. Any next Apple test must retain those correlations or propagate the
+known public output backward as well as the candidate input forward.
+
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
 untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches
@@ -427,9 +436,10 @@ evidence.
 7. Preserve O1C-0023/25/29 as code only; do not execute them on the closed unary
    field. After stable attacker-valid entropy reduction, the existing logit
    handoff and exact global decoder may be reused unchanged.
-8. Keep the Apple track independent of O1 terminology. Its current exact boundary
-   is that free carries erase all linear key information; restore true carry
-   recurrence by depth before adding learning, another reader or a larger corpus.
+8. Keep the Apple track independent of O1 terminology. Free carries erase all
+   linear key information, and uniform forward carry depth has now shown a
+   depth-31 cliff. Before adding learning or a corpus, test a small two-ended or
+   correlation-preserving constraint view; do not repeat the same forward ladder.
 
 ## Operating contract
 

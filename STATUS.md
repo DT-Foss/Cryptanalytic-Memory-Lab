@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T01:49:36+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T02:15:01+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -90,7 +90,10 @@
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
-  Full-256 targets. Neither null alters the positive relational path.
+  Full-256 targets. Uniform exact carry-depth forwarding is now closed too:
+  depths 0..30 determine zero final bits and reject 0/32 wrong probes; depth 31
+  is full exact evaluation. None of these nulls alters the positive relational
+  path.
 - **Next paid experiment:** use attacker-visible propagation/backtrack outcomes
   as bounded online O1/O1-O group credit, with O1C-0048's static arms frozen as
   baselines. Require preserved primary specificity plus absolute work/frontier
@@ -108,14 +111,16 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** none. O1C-0048 and both isolated Apple tracks are complete;
-  sibling repositories remain read-only and untouched.
+- **Active local run:** no outcome-bearing run. The bounded online-pair adapter is
+  being built; APPLE-VIEW-0003 is complete. Sibling repositories remain read-only
+  and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
   the north star; the scored objective is the strongest reproducible
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
-- **Latest result:**
-  [O1C-0048 pair-envelope search](research/O1C0048_PAIR_ENVELOPE_SEARCH_RESULT_20260719.md).
+- **Latest results:**
+  [O1C-0048 pair-envelope search](research/O1C0048_PAIR_ENVELOPE_SEARCH_RESULT_20260719.md)
+  and [APPLE-VIEW-0003 carry-depth filter](research/apple_view_3/apple_view_3_report.md).
 
 ## Headline
 
@@ -730,8 +735,8 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Main scientific run | — | — | none | O1C-0048 finalized; live causal group-credit successor pending | — |
-| Bias-free parallel track | — | 2026-07-19 | Apple-view fixed-point plus carry-quotient tests | both complete; exact tested mechanisms negative | — |
+| Main scientific run | — | 2026-07-19 | source implementation only | bounded live group-credit adapter in progress; no scientific call yet | — |
+| Bias-free parallel track | — | 2026-07-19 | Apple-view fixed-point/carry tests | APPLE-VIEW-0001..0003 complete; tested mechanisms negative | — |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
@@ -741,8 +746,9 @@ O1C-0017 result boundary are documented in
 2. Freeze a per-comparator lexicographic gate before the next run and require
    absolute improvement over O1C-0048, not merely the same ordering under a new
    name.
-3. If the Apple branch resumes, substitute the real carry recurrence globally by
-   depth; do not repeat fixed-point fitness or independently free carries.
+3. Continue the Apple branch only with a two-ended or correlation-preserving
+   constraint lamp; do not repeat fixed-point fitness, free carries or the
+   forward-only depth ladder.
 4. Reuse A325/A526 unchanged only when their native complement gate is met, and
    keep every sibling repository read-only.
 
@@ -750,6 +756,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `APPLE-VIEW-0003` | 2026-07-19 02:15 | Uniform low-to-high carry recurrence exposes a cheap Full256 wrong-key filter | Depths 0..30 determine 0 final bits and reject 0/32 probes; depth 31 determines 512 and rejects 32/32; 0 recovery/entropy claim | `EXPLORATORY_FULL256_NEGATIVE`; deterministic unsealed target | 13.291865 s; 27,295,744 B peak; 1,056 abstract blocks; zero sibling/MPS/GPU | Forward-only carry truncation has a full-computation cliff; preserve correlations or propagate from both ends | [Result](research/apple_view_3/apple_view_3_report.md) |
 | `O1C-0048` | 2026-07-19 01:46 | Reversible global pair envelopes preserve O1C-0047's complete-state orientation in exact search | Full-256 0/4; residual maxima internal/primary/key/clause `8/9/9/9`; W8 conflicts `217/75/195/89`; W9 `UNKNOWN/155/331/167`; frozen global gate fails | `CONSUMED_SEARCH_DIAGNOSTIC`; residual rows post-reveal | 9.362067 s; 128,122,880 B peak; 12 calls; zero fresh/sibling/MPS/GPU | Static pairs restore primary-over-rotation specificity but not the all-arm gate; close this adapter and add attacker-visible online group credit | [Capsule](runs/20260719_014625_O1C-0048_pair-envelope-search-v1/RUN.md) |
 | `APPLE-VIEW-0002` | 2026-07-19 | Quotient independent lifted addition carries out of the full public relation | Carry rank `512`, exact key rank `0`, exact recoveries `0/8`; every double-round carry group spans all output dimensions | `EXPLORATORY_FULL256_NEGATIVE`; deterministic unsealed targets | 5.851181 s; 34,553,856 B peak; zero MPS/GPU | Independent carries erase every linear key parity; only global exact carry-depth substitution remains meaningful | [Result](research/apple_view_2/apple_view_2_report.md) |
 | `O1C-0047` | 2026-07-19 00:40 | The transferred signal is global over complete assignments and survives nested residual-cube ranking | Truth ranks W8 `1/256`, W12 `5/4096`, W16 `50/65536`; rotations W16 `60592/43059`; primary top-256 contains uniquely verified key | `POST_REVEAL_CEILING`; 240 truth bits fixed, no Full-256 attack claim | 67.546893 s; 89,325,568 B peak; 65,536 forward evaluations; zero fresh/sibling/MPS/GPU | Global score yields 10.356 bits local search compression; build a pre-reveal joint-group/prefix scheduler, not another unary marginal | [Capsule](runs/20260719_004019_O1C-0047_global-criticality-residual-beam-v1/RUN.md) |
@@ -802,6 +809,8 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `APPLE-VIEW-0003` scientific payload | `db62ceaa6de7568abfbda2d3abcb8ca56e99ea72a91141a17594774d3ec080d5` |
+| `APPLE-VIEW-0003` result | `db8f803174f80df64639b343cf3e7906efd2cab8709e99a94c182c86d6ab8293` |
 | `O1C-0048` source freeze | `72d7a9b14cba31bc7033490994c8da1580d6a027` |
 | `O1C-0048` canonical config | `e5a9c1f5f6c68ee16f4f3313b6521763cab1f3f2ee6abca80e0b6b53815ff679` |
 | `O1C-0048` runner source | `c1d6f63a2cee8535cd79debd363d8c1c155387bf39b320ceee2e7ff27d69a85d` |
@@ -986,6 +995,10 @@ O1C-0048 leaves a working reversible global-pair adapter, a measured primary
 specificity reversal, and no frozen-gate or Full-256 pass. Do not tune its pair
 plan or raise its budget. Add bounded attacker-visible online group credit and
 freeze the pairwise comparator gate before executing the new mechanism.
+
+APPLE-VIEW-0003 is closed at the depth-31 cliff. Do not rerun its probe panel;
+the only new Apple question is whether cheap two-ended/correlation-preserving
+constraint propagation rejects wrong keys before complete evaluation.
 
 The A325/A526 bit codec, search backends and public verifier remain ready for an
 exact complement or bounded exact-containing beam. The relational branch need

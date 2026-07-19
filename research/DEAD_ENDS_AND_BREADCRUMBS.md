@@ -1045,3 +1045,20 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   recurrence globally by depth (`c1`, then `c2`, ...), measuring exact domain
   pruning before paying for nonlinear search.
 - **Artifact:** [`Apple carry result`](apple_view_2/apple_view_2_report.md).
+
+## B-0053 — Forward carry depth has a full-computation cliff
+
+- **Evidence:** APPLE-VIEW-0003 restores the exact majority recurrence for the
+  lowest `d` carry positions of all 336 additions. For `d=0..30`, the sound
+  three-valued forward evaluator determines zero final output bits and rejects
+  none of 32 fixed output-independent wrong keys. At `d=31`, all 512 output bits
+  are determined and every probe is rejected.
+- **Conclusion:** one unresolved high carry per addition is enough for rotations
+  and subsequent additions to contaminate the complete forward known-bit state.
+  Uniform bit-depth truncation provides no gradual Full256 filter.
+- **Do not repeat:** add probes, repeat depths, or call the depth-31 full cipher a
+  shortcut.
+- **Breadcrumb:** the abstraction loses symbolic correlations. A genuinely new
+  test must retain them or let the known public output propagate backward while
+  the candidate key propagates forward.
+- **Artifact:** [`Apple carry-depth result`](apple_view_3/apple_view_3_report.md).

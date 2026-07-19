@@ -1954,3 +1954,24 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:**
   [`result`](O1C0048_PAIR_ENVELOPE_SEARCH_RESULT_20260719.md) and
   [`capsule`](../runs/20260719_014625_O1C-0048_pair-envelope-search-v1/RUN.md).
+
+## APPLE-VIEW-0003 — Global carry-depth filter
+
+- **Recorded:** 2026-07-19, isolated parallel track.
+- **Hypothesis:** restoring the real carry-majority recurrence uniformly from
+  low to high bit positions across every ChaCha addition exposes a cheap
+  determined-output filter for complete wrong Full256 keys.
+- **Result:** negative. Across 32 output-independent wrong keys, depths `0..30`
+  determine zero final output bits and reject `0/32`; depth `31` determines all
+  512 bits and rejects `32/32`, which is ordinary complete evaluation. Exact
+  recovery and claimed entropy reduction are zero.
+- **Boundary:** the strong three-valued evaluator is sound for rejection but
+  deliberately discards correlations among unknown carries. The null closes
+  forward-only bitwise carry-depth truncation, not carry structure in general.
+- **Resources:** `13.291865` s wall, `13.232632` s CPU, `27,295,744` B peak;
+  1,056 abstract blocks and 5,499,648 exact carry recurrences; zero sibling,
+  network, MPS or GPU work.
+- **Decision:** do not enlarge the probe panel or repeat the depth ladder. A new
+  carry test must preserve correlations or propagate constraints from both the
+  candidate input and public output.
+- **Artifact:** [`isolated result`](apple_view_3/apple_view_3_report.md).

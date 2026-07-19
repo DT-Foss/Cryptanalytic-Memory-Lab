@@ -1,12 +1,12 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T01:55:57+02:00.
+Last ranked: 2026-07-19T02:15:01+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
 | 1 | Feed attacker-visible propagation/conflict/backtrack outcomes into a bounded online credit state over O1C-0048's frozen pair groups | State of the art | Extreme | Extreme | Medium | Tests whether live adaptation preserves the primary reader's specificity while beating the static pair baseline in absolute exact work |
 | 2 | Freeze the smallest consumed primary/internal/key-rotation/clause-rotation Full-256 plus W8/W9 comparison before execution | State of the art | Extreme | Extreme | Low | Pairwise lexicographic dominance plus absolute improvement over O1C-0048 advances the mechanism; otherwise close the exact update rule |
-| 3 | In the independent Apple track, restore exact addition-carry recurrence by depth and measure when key rank/parity first reappears | State of the art | Extreme | High | Low | Distinguishes a shallow algebraic obstruction from full nonlinear carry coupling without another learned wrapper |
+| 3 | In the independent Apple track, test the same carry-depth relaxations with public-output constraints propagating backward as well as candidate input forward | State of the art | Extreme | High | Low | Determines whether a cheap two-ended constraint lamp rejects wrong Full256 keys before the depth-31 cliff that closes forward-only ternary propagation |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 | 5 | Keep static pair resweeps, independent-carry quotients, occurrence scoring and the closed unary field parked | Operational | High | High | Zero | Preserves measured boundaries while compute moves to live credit and globally consistent carry structure |
 
@@ -43,7 +43,10 @@ Last ranked: 2026-07-19T01:55:57+02:00.
   specificity but is neither an attacker-valid recovery nor an absolute win.
 - **Bias-free algebraic boundary:** APPLE-VIEW-0002 proves that independently
   lifted carries span all 512 output equations and leave exact key rank zero.
-  The next algebraic test must restore the real carry recurrence by depth.
+  APPLE-VIEW-0003 restores real carries uniformly by depth, but forward-only
+  three-valued propagation determines zero final bits through depth 30; depth 31
+  is the complete cipher. A new test must preserve correlations or propagate
+  constraints from both public output and candidate input.
 - **Next measurable advance:** bounded target-time group credit preserves
   pairwise primary-over-control ordering and strictly improves O1C-0048's own
   width/conflict frontier. Exact 256 remains the terminal moonshot.
@@ -104,8 +107,10 @@ Last ranked: 2026-07-19T01:55:57+02:00.
   consumed residual diagnostic attacker-valid. The only next scheduler change is
   bounded credit from live public solver outcomes, judged against the static run.
 - APPLE-VIEW-0001 closes fixed-point/output-distance descent. APPLE-VIEW-0002
-  closes the quotient in which all carries are independent. Do not rerun either;
-  only exact global restoration of carry recurrence by depth is a new question.
+  closes the quotient in which all carries are independent. APPLE-VIEW-0003
+  closes uniform carry-depth plus forward ternary propagation: even depth 30
+  yields zero final known bits. Do not enlarge any of these panels; only a
+  correlation-preserving or two-ended constraint view is a new question.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not
@@ -209,7 +214,9 @@ Last ranked: 2026-07-19T01:55:57+02:00.
   fresh target before the bounded live-credit rule either beats O1C-0048
   absolutely or closes;
 - another independent-carry linear quotient, output-Hamming descent or
-  feed-forward fixed-point projection; restore true carry recurrence instead;
+  feed-forward fixed-point projection;
+- another forward-only known/unknown carry-depth ladder; depth 0..30 already
+  collapses to zero public bits and depth 31 is ordinary exact evaluation;
 - byte/u16/top-K scoring during reader iteration; cheap NLL/sign screening already
   answers whether an effect exists and is orders of magnitude faster;
 - treating O1C-0030 or any other null as progress beyond its one-line
