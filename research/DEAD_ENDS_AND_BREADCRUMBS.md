@@ -1677,3 +1677,45 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [`capsule`](../runs/20260719_231823_O1C-0074_apple8-causal-attic-stream-v1/RUN.md),
   artifact-manifest SHA-256
   `7a3f272268296005c5c6e532d377eb100244f38e941a102876abbfd732a8049b`.
+
+## B-0076 — Full residency coverage leaves the exact solver fixed point unchanged
+
+- **Evidence:** O1C-0075 applies two fresh, byte-distinct K256 pages
+  `82b1512a…` and `db3acd5e…` at lineage ordinals `14/15`. Together with the
+  inherited parent projection they cover every one of the `545` undominated
+  attic clauses and reduce never-resident debt to zero without changing the
+  immutable 550-clause / 558-occurrence attic.
+- **Null boundary:** both calls reproduce trace `f64441a2…`, 2,288 decisions,
+  2,890,144 propagations, minimum/root UB
+  `14.67138759145431/262.68644197084643`, zero threshold prunes, zero emissions
+  and zero model. That is also the exact behavior of O1C-0074 episodes 2/3.
+  Distinct page bytes and exhaustive undominated coverage are therefore
+  insufficient to change this reader's 128-conflict trajectory.
+- **Interpretation:** the pager is mechanically valid—K256 stays bounded, no
+  input SHA repeats, all undominated clauses become resident and the remaining
+  debt is zero. It is not a science gain because state churn does not expose a
+  new exact exclusion or attacker-valid frontier improvement.
+- **Threshold boundary:** threshold and UB share score units/direction but not
+  statistic/population. Both minima exceed `tau=14.606178797892962`, so no
+  local prune occurs. `7.973483108047071` remains O1C-0066 episode 1, not
+  O1C-0068; O1C-0068 is `12.8607806294803` and is untouched.
+- **Do not repeat:** lineages `14/15`, another pure rotation page, or a rescue
+  sweep over K, rank, phase, horizon, threshold, seed, RAM or caps. Do not call
+  the zero-debt pager a cryptanalytic gain, and do not discard its exact
+  coverage ledger.
+- **Breadcrumb:** activate the closest resident relation rather than another
+  subset of the same corpus. Under the sealed public terminal assignment,
+  unused Page 3 has 12 zero-true clauses; unique nearest union index 526
+  (`c4a9c471…`) has 2,409 false and only 29 unassigned literals. Freeze one
+  falsify-then-release-contrast reader over those residuals and one lineage-16 /
+  128-conflict call. The ten non-tautological exact pair resolvents remain valid
+  later compiler material, but each is 572 unassigned and at least 1,219 true
+  literals away here; derivation or preload alone is not gain.
+- **Artifacts:** authoritative
+  [`result`](O1C0075_APPLE8_CAUSAL_RESIDENCY_STREAM_RESULT_20260720.json), SHA-256
+  `1307be5e1c140f27ec76873a212785f7dae9b5dd986ca8f953e94809e31639c9`;
+  [`interpretation`](O1C0075_APPLE8_CAUSAL_RESIDENCY_STREAM_INTERPRETATION_20260720.md);
+  sealed
+  [`capsule`](../runs/20260720_002724_O1C-0075_apple8-causal-residency-stream-v1/RUN.md),
+  artifact-manifest SHA-256
+  `3a421ee236af5afe46011314d74c25b726a2e7f35e9963ae8d4a862e070327f9`.

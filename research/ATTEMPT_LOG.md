@@ -2997,3 +2997,51 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `54/54` manifest entries validate. `publication_source.json` is only the
   pre-finalization source (`persistent_artifact_bytes=0` versus final
   `30,567,197`) and is not an authoritative result citation.
+
+## O1C-0075 — APPLE8 causal-residency stream
+
+- **Started:** 2026-07-20T00:27:24+02:00.
+- **Recorded:** 2026-07-20T00:28:57+02:00.
+- **Source/execution:** `1b30cc06b3ab28d94df773cc854a7814af9fb210`.
+- **Protocol:** keep O1C-0074's 550-clause / 558-occurrence attic and immutable
+  202-clause rank source; rotate two fresh target-free K256 pages at local
+  ordinals `0..1` / lineage `14..15`, exactly 128 requested conflicts each;
+  reject used page hashes, preserve every occurrence and stop after call two.
+- **Result:** `CAUSAL_RESIDENCY_STREAM_NO_NOVEL_GAIN`. Both calls complete at
+  exact `128/128` requested/billed work, aggregate `256/256`, with zero prunes,
+  emitted occurrences, novel clauses or model. Input pages `82b1512a…` and
+  `db3acd5e…` are byte-distinct, but both reproduce trace `f64441a2…`, 2,288
+  decisions, 2,890,144 propagations, minimum/root UB
+  `14.67138759145431/262.68644197084643` and O1C-0074 episodes 2/3 exactly.
+- **Residency boundary:** inherited parent plus Page 1 and Page 2 cover all
+  `545/545` undominated clauses and leave zero residency debt. A deterministic
+  unused next page is produced at SHA `5b459ea4…`; the attic remains exactly
+  550 clauses / 558 occurrences / eight duplicate occurrences. Paging succeeds
+  operationally, while pure rotation is scientifically inert at this horizon.
+- **Threshold boundary:** `tau=14.606178797892962` and UB share score units and
+  retained direction but not statistic/population. Strict `U(a)<tau` safely
+  prunes only descendants of visited trail `a`; both O1C-0075 minima exceed
+  `tau`, so there are zero local prunes and no global-exhaustion implication.
+  The historical `7.973483108047071` is O1C-0066 episode 1, not O1C-0068;
+  O1C-0068 is `12.8607806294803` and remains untouched.
+- **Resources:** elapsed `93.29592229200352 s`; runner peak RSS `482,541,568 B`;
+  native peaks `411,435,008 B` / `408,993,792 B`; persistent artifacts
+  `20,788,748 B`. Zero truth/reveal/fresh-target/refit/MPS/GPU/publication-
+  recovery calls.
+- **Decision:** do not replay lineages `14/15` or rotate another page. Preserve
+  the exact coverage ledger. The next high-ROI mechanism is a target-free live
+  reader for Page 3's unique nearest zero-true no-good: union index 526, clause
+  SHA `c4a9c471…`, 2,409 false / 29 unassigned under the sealed public terminal
+  assignment. Use one lineage-16/128-conflict falsify-then-release-contrast
+  call. Preserve the ten exact pair resolvents as a later compiler breadcrumb;
+  their direct terminal distance is much larger.
+- **Artifacts:** authoritative
+  [`result`](O1C0075_APPLE8_CAUSAL_RESIDENCY_STREAM_RESULT_20260720.json), SHA-256
+  `1307be5e1c140f27ec76873a212785f7dae9b5dd986ca8f953e94809e31639c9`;
+  [`interpretation`](O1C0075_APPLE8_CAUSAL_RESIDENCY_STREAM_INTERPRETATION_20260720.md);
+  sealed
+  [`capsule`](../runs/20260720_002724_O1C-0075_apple8-causal-residency-stream-v1/RUN.md),
+  artifact-manifest SHA-256
+  `3a421ee236af5afe46011314d74c25b726a2e7f35e9963ae8d4a862e070327f9`.
+  Capsule `result.json` is byte-identical to the published result and all
+  `41/41` manifest entries validate.

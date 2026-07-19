@@ -1,39 +1,41 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T23:21:48+02:00.
+Last ranked: 2026-07-20T00:28:57+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Analyze the exact O1C-0074 transition with zero calls and select one nonrepeating bounded residency/attention rule over the immutable 550-clause / 558-occurrence attic | State of the art | Extreme | Extreme | Low | Converts the bit-identical static fixed point into one precise O1C-0075 mechanism instead of paying for replay or a sweep |
-| 2 | Freeze O1C-0075 with the complete attic, separate immutable 202-clause rank source, exact K256 live-state bound and deterministic no-immediate-repeat rule | State of the art | Extreme | Extreme | Low | Preserves the positive recurrence-to-attention mechanism while forcing a genuinely new live state after saturation |
-| 3 | Execute at most one distinct O1C-0075 attempt only after the exact rule, source hashes, capacity arithmetic and gain/stop gates are sealed; preserve O1C-0074 ordinals 10..13 without replay | State of the art | Extreme | Extreme | Low | Tests whether bounded nonrepeating attention extends the 37-clause gain into another exact frontier advance |
+| 1 | Freeze the target-free nearest resident frontier from unused Page 3: union index 526, clause SHA `c4a9c471…`, 2,409 false / 29 unassigned / 0 true under the sealed public O1C-0075 assignment | State of the art | Extreme | Extreme | Low | Converts the closest exact no-good boundary into an actionable live reader instead of another passive page |
+| 2 | Bind one falsify-then-release-contrast reader to those 29 residuals while retaining the immutable 550-clause attic, separate 202-clause rank source and K256 envelope | State of the art | Extreme | Extreme | Low | Changes actual callback decisions only when the existing reader delegates and directly tests causal activation |
+| 3 | Execute exactly one lineage-16/128-conflict successor after source hashes, selection replay and gain/stop gates are sealed; never replay O1C-0075 lineages 14/15 | State of the art | Extreme | Extreme | Low | Tests whether the live frontier escapes trace `f64441a2…` and exposes a new exclusion, safe prune, contraction or recovery |
 | 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
 ## Current resume
 
-Resume from O1C-0074's sealed `CAUSAL_ATTIC_STREAM_NOVEL_CLAUSE_GAIN`. All four
-predeclared local `0..3` / lineage `10..13` calls complete at exact `128/128`
-requested/billed conflicts, for `512/512` aggregate work and no operational
-failure. The immutable 202-clause reader/rank source remains separate from the
-deterministic K256 live projection.
+Resume from O1C-0075's sealed `CAUSAL_RESIDENCY_STREAM_NO_NOVEL_GAIN`. Both
+predeclared local `0..1` / lineage `14..15` calls complete at exact `128/128`
+requested/billed conflicts, for `256/256` aggregate work and no operational
+failure. Their input K256 pages `82b1512a…` and `db3acd5e…` are byte-distinct.
+Together with the inherited parent projection, they cover all `545/545`
+undominated attic clauses and leave zero residency debt while preserving the
+complete 550-clause / 558-occurrence attic and separate 202-clause rank source.
 
-Episode 0 emits six exact global duplicates at attic union indices `202..207`.
-Those recurrence events grow occurrences `515→521` and duplicate occurrences
-`2→8`, promote the six previously inactive clauses, and change live SHA
-`fb7528bf…→ccfad8b3…`. Episode 1 then emits 37 globally novel clauses at indices
-`513..549`, changing live SHA to `78696f2b…`. The complete attic ends at 550
-unique clauses / 1,488,224 literals / 558 occurrences while live state remains
-exactly 256 clauses. This is the useful chain: recurrence changes bounded
-attention, the changed attention exposes novelty one episode later, and the
-complete memory retains both.
+Coverage is operationally exact but scientifically inert. Both calls reproduce
+trace `f64441a2…`, 2,288 decisions, 2,890,144 propagations, minimum UB
+`14.67138759145431`, zero prunes/emissions/model and the exact behavior of
+O1C-0074 episodes 2/3. The deterministic unused next page is `5b459ea4…`.
+Do not call it or rotate another page: distinct clause residency alone does not
+escape this fixed point.
 
-Episodes 2 and 3 are bit-identical on active vault, reader, sieve and telemetry.
-Each makes 2,288 decisions / 2,890,144 propagations, reaches minimum UB
-`14.67138759145431` and emits nothing. Do not replay that static fixed point.
-The direct resume action is zero-call selection and freezing of one
-nonrepeating bounded O1C-0075 residency/attention mechanism. Keep the complete
-attic immutable and the K256 bound fixed; do not sweep K, rank, phase, horizon,
-seed, threshold, RAM or caps.
+The direct resume action is zero-call freezing of a live causal-frontier reader.
+Under the sealed public terminal assignment, 12 resident clauses have zero true
+literals; unique nearest union index 526 (`c4a9c471…`) has only 29 unassigned
+against 2,409 false. It is present in unused fresh Page 3 `5b459ea4…`. On parent
+fallback callbacks, return its residual falsifying literals once and each hard
+opposite once only after genuine release. Then consume exactly one lineage-16 /
+128-conflict call. The ten exact pair resolvents remain valid, but all sit 572
+unassigned and 1,219..1,257 true literals away under the same assignment, so
+they are a later compiler breadcrumb rather than the next paid input. Do not
+sweep K, rank, phase, horizon, seed, threshold, RAM or caps.
 
 The threshold question is now formal. Let `S(x)` be the compiled candidate score,
 `tau=14.606178797892962`, and the retained region be
@@ -43,32 +45,29 @@ Threshold and UB therefore use the same score units and retained direction, but
 `tau` is a fixed membership cutoff while `min_{a in V}U(a)` is a statistic over
 the run-specific visited-trail population `V`; they are not the same metric
 object or population. The quoted `7.973483108047071` is O1C-0066 episode 1, not
-O1C-0068. O1C-0068's minimum is `12.8607806294803`; O1C-0074's episode minima
-are `13.527469461337148`, `13.140486923093844`,
-`14.67138759145431`, `14.67138759145431`.
+O1C-0068. O1C-0068's minimum is `12.8607806294803`; both O1C-0075 minima are
+`14.67138759145431`.
 
 For any particular visited trail `a`, strict `U(a)<tau` proves
 `S(x)<tau` for every completion `x` of `a`, hence that entire local subtree is a
 safe prune from `R_tau`. A reported minimum below threshold proves at least one
 such visited subtree exists; it does not prove all visited trails or the root are
-below threshold. O1C-0074 therefore records `6/37/0/0` local prunes in the same
-order as its episode minima. The root bound remains
+below threshold. O1C-0075's minima are above threshold and it records `0/0`
+local prunes. The root bound remains
 `262.68644197084643>tau`, and every episode returns native status `0`, so no
 global prune, UNSAT or threshold-region exhaustion follows.
 
 Resume authority is the
-[`O1C-0074 result`](O1C0074_APPLE8_CAUSAL_ATTIC_STREAM_RESULT_20260719.json),
+[`O1C-0075 result`](O1C0075_APPLE8_CAUSAL_RESIDENCY_STREAM_RESULT_20260720.json),
 SHA-256
-`b6bc2895459e3256fa4c857b67bd786b36d80ab5018a9c73709a2096cd169127`,
+`1307be5e1c140f27ec76873a212785f7dae9b5dd986ca8f953e94809e31639c9`,
 and capsule artifact manifest
-`7a3f272268296005c5c6e532d377eb100244f38e941a102876abbfd732a8049b`.
-The source/execution commit is `a5f2ad130e2e13c39a5e888f927d86d5fdd68d78`.
-Known completed lineage billing is `4,795`; the full actual total remains `null`
+`3a421ee236af5afe46011314d74c25b726a2e7f35e9963ae8d4a862e070327f9`.
+The source/execution commit is `1b30cc06b3ab28d94df773cc854a7814af9fb210`.
+Known completed lineage billing is `5,051`; the full actual total remains `null`
 because failed ordinal `2` is unbilled.
-Capsule `result.json` is byte-identical to that published result and all `54/54`
-manifest entries validate. `publication_source.json` is pre-finalization only:
-its persistent-artifact count is `0`, versus authoritative final
-`30,567,197 B`; do not cite it as the result.
+Capsule `result.json` is byte-identical to that published result and all `41/41`
+manifest entries validate.
 
 ## Frontier scoreboard
 
@@ -243,14 +242,13 @@ its persistent-artifact count is `0`, versus authoritative final
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0074 preserves all 550 unique exclusions /
-  558 occurrences while live state remains K256, and its recurrence-driven
-  projection adds 37 novel clauses one episode later. The final projection then
-  repeats bit-for-bit twice with no emissions. O1C-0075 must freeze one
-  nonrepeating bounded attention/residency rule target-free and change the live
-  state without expanding K or discarding attic evidence. The pass gate remains
-  a persisted exact frontier gain, attacker-valid entropy/domain reduction,
-  model/key or formal exhaustion—not mere state churn. Exact 256 remains the
+- **Next measurable advance:** O1C-0075 preserves all 550 unique exclusions /
+  558 occurrences, covers all `545/545` undominated clauses through distinct
+  K256 pages and leaves zero residency debt, yet both calls exactly reproduce
+  the `f64441a2…` fixed point with no emissions. Pure residency rotation is
+  closed. The next attempt must activate the unique nearest 29-residual no-good
+  through a live causal reader and change native behavior plus a real frontier
+  metric; derivation or state churn alone cannot pass. Exact 256 remains the
   north star.
 
 ## Effect-first stop rules
@@ -373,9 +371,10 @@ its persistent-artifact count is `0`, versus authoritative final
   alternation, active phase-only gain, static ranked reassertion and repeated
   release testing are closed. O1C-0073 then discovers 311 novel exact clauses,
   and O1C-0074 converts that capacity terminal into a complete-attic/K256 stream
-  that adds 37 more before an exact static fixed point. Only a frozen
-  nonrepeating O1C-0075 bounded-attention mechanism may follow; no rerun,
-  replay, sweep, blind scaling or 4K jump.
+  that adds 37 more before an exact static fixed point. O1C-0075 then gives
+  every undominated clause live residency but reproduces the same fixed point.
+  Only the frozen nearest-clause causal-frontier activation may follow; no
+  rerun, replay, residency sweep, blind scaling or 4K jump.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not
@@ -476,11 +475,12 @@ its persistent-artifact count is `0`, versus authoritative final
 ## Do not spend the next cycle on
 
 - replaying O1C-0068 lineage ordinal `4`, O1C-0069 ordinal `5`, O1C-0070 ordinal
-  `6`, O1C-0071 ordinal `7`, O1C-0072 ordinal `8`, O1C-0073 ordinal `9`, or
-  any O1C-0074 ordinal `10..13`; issuing a fifth static causal-attic episode,
-  phase call, K/rank/release/horizon sweep or blind RAM/cap increase. O1C-0074's
-  exact ordinal-12/13 fixed point authorizes one target-free nonrepeating bounded
-  attention design for O1C-0075, not a replay;
+  `6`, O1C-0071 ordinal `7`, O1C-0072 ordinal `8`, O1C-0073 ordinal `9`, any
+  O1C-0074 ordinal `10..13` or O1C-0075 ordinal `14/15`; issuing another static
+  or rotating causal-attic episode, phase call, K/rank/release/horizon sweep or
+  blind RAM/cap increase. O1C-0075 already gives full undominated residency
+  coverage and the same exact fixed point, so the successor must transform the
+  relation rather than select another page;
 - another supplied complete-key decoy panel, static pair regrouping,
   credit-weight sweep or conflict-cap increase before the frozen O1C-0057
   prefix-8 scorer is tested on attacker-generated partial assignments/search;

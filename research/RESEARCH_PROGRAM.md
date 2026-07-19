@@ -369,11 +369,25 @@ occurrences while bounded residency remains 256. Support
 new exact evidence one episode later.
 
 Episodes 2 and 3 then reproduce the final `78696f2b…` active state, reader,
-sieve and telemetry bit-for-bit with zero emissions. The direct successor is
-therefore one target-free **nonrepeating bounded residency/attention** rule for
-O1C-0075, not another static episode. Preserve every attic clause/occurrence and
-the separate rank source. No replay of ordinals `10..13`, K/rank/phase/horizon
-sweep, blind RAM/cap scaling or loss of exact attic evidence is authorized.
+sieve and telemetry bit-for-bit with zero emissions. O1C-0075 tests the frozen
+target-free nonrepeating successor with two byte-distinct K256 pages. Together
+with the inherited projection they cover all `545/545` undominated clauses and
+leave zero residency debt, but both calls exactly reproduce trace `f64441a2…`,
+2,288 decisions, 2,890,144 propagations and zero prunes/emissions/model. Refute
+`H-NONREPEATING-ATTENTION-079` for pure rotation at this horizon. Preserve every
+attic clause/occurrence and the separate rank source; do not replay ordinals
+`10..15` or sweep K/rank/phase/horizon/RAM.
+
+The higher-leverage successor changes the live reader rather than the page.
+Under the sealed public assignment, unused Page 3 contains a unique nearest
+zero-true exact no-good at union index 526 (`c4a9c471…`) with 2,409 false and 29
+unassigned literals. Freeze one target-free reader that uses existing parent
+fallbacks to falsify those residuals once, then returns each opposite only after
+genuine release. Use exactly one lineage-16/128-conflict call. A trace change is
+the activation gate; only new exact evidence, a safe prune/contraction, formal
+exhaustion or public recovery passes `H-CAUSAL-FRONTIER-080`. The ten exact pair
+resolvents remain a later compiler breadcrumb because they are much farther
+from this live boundary under the same assignment.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -723,9 +737,11 @@ evidence.
    inactive clauses change K256 attention, the next episode adds 37 globally
    novel clauses, and the complete attic reaches 550 unique clauses / 558
    occurrences. The final projection then repeats bit-for-bit twice with zero
-   emissions. Preserve the positive stream and derive one nonrepeating bounded
-   O1C-0075 attention rule target-free; never rerun O1C-0073, replay ordinals
-   `9..13`, call phase, sweep K/release/rank/horizon or blind-scale RAM/caps.
+   emissions. O1C-0075 next covers every undominated clause through two fresh
+   K256 pages, but both reproduce that same trace and emit nothing. Close pure
+   residency rotation and freeze the nearest-clause live causal frontier; never
+   rerun O1C-0073, replay ordinals `9..15`, call phase, sweep
+   K/release/rank/horizon or blind-scale RAM/caps.
    Any later role-credit test must precommit an attacker-visible outcome/utility
    condition rather than tune `-32`.
 6. Complementary phase has passed only its exact-exclusion mechanism gate. Once
@@ -844,10 +860,20 @@ evidence.
   clauses at indices `513..549` and changes active SHA to `78696f2b…`. The attic
   grows `513→550` unique clauses / `515→558` occurrences while live state remains
   256. Episodes 2/3 are bit-identical with zero emissions, so the static
-  projection is closed. Support `H-CAUSAL-ATTIC-078`; derive and freeze one
-  nonrepeating bounded O1C-0075 residency/attention rule before any further
-  call. This is exact-exclusion gain, not key recovery, entropy, UNSAT or global
+  projection is closed. Support `H-CAUSAL-ATTIC-078`; this result authorizes the
+  single nonrepeating O1C-0075 residency test recorded below. This is
+  exact-exclusion gain, not key recovery, entropy, UNSAT or global
   threshold-region exhaustion.
+- O1C-0075 executes the target-free nonrepeating residency rule at lineage
+  ordinals `14/15`, exactly `128/128` billed conflicts each. The inherited
+  projection plus inputs `82b1512a…` / `db3acd5e…` cover all `545/545`
+  undominated clauses and leave zero debt, while K remains 256 and the attic
+  remains 550 clauses / 558 occurrences. Both byte-distinct inputs nevertheless
+  reproduce trace `f64441a2…`, 2,288 decisions, 2,890,144 propagations, minimum
+  UB `14.67138759145431` and zero prunes/emissions/model, exactly matching
+  O1C-0074 episodes 2/3. Refute `H-NONREPEATING-ATTENTION-079` for pure rotation;
+  preserve the exact coverage proof and activate the unique 29-residual
+  nearest-clause causal frontier next. No replay or residency sweep.
 
 ## Operating contract
 
