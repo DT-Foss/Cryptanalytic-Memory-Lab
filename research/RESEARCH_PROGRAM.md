@@ -357,12 +357,30 @@ is `EPISODIC_VAULT_CAPACITY_TERMINAL`: positive exact evidence inside a negative
 operational outcome, not a persisted gain, recovery, entropy reduction, UNSAT or
 threshold-region exhaustion.
 
-The direct successor is now the architectural O1 split that the evidence calls
-for: a complete immutable external causal attic and a deterministic bounded
-active solver reservoir with target-free utility, diversity and explicit
-headroom. Derive and freeze O1C-0074 offline before one new attempt. No
-rerun/replay of O1C-0073 or ordinal `9`, release/rank/phase/horizon sweep, blind
-RAM/cap scaling or loss of exact attic evidence is authorized.
+O1C-0074 completes that architectural O1 split. Its immutable causal attic begins
+with all 513 exact clauses / 515 witness occurrences, its reader rank remains
+bound to the separate 202-clause parent, and its live solver state remains
+exactly K256. Four frozen 128-conflict episodes complete without operational
+failure. Episode 0 rediscovers six inactive attic clauses and occurrence
+weighting promotes them into the next live state; episode 1 then retains 37
+globally novel exact exclusions. The attic reaches 550 unique clauses / 558
+occurrences while bounded residency remains 256. Support
+`H-CAUSAL-ATTIC-078`: repeated evidence can change bounded attention and unlock
+new exact evidence one episode later.
+
+Episodes 2 and 3 then reproduce the final `78696f2b…` active state, reader,
+sieve and telemetry bit-for-bit with zero emissions. The direct successor is
+therefore one target-free **nonrepeating bounded residency/attention** rule for
+O1C-0075, not another static episode. Preserve every attic clause/occurrence and
+the separate rank source. No replay of ordinals `10..13`, K/rank/phase/horizon
+sweep, blind RAM/cap scaling or loss of exact attic evidence is authorized.
+
+The score threshold `14.606178797892962` and every UB use the same score units
+and retained direction, but the threshold is a fixed cutoff while minimum UB is
+a statistic over one run's visited trails. The historical minimum
+`7.973483108047071` is O1C-0066 episode 1, not O1C-0068. Admissibility makes
+`U(a)<tau` a safe prune only for completions of that trail `a`; root UB remains
+`262.68644197084643>tau`, so no reported minimum implies global exhaustion.
 
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
@@ -700,9 +718,14 @@ evidence.
    expose 311 novel exact clauses, but `202+311=513` crosses the 512-clause
    archive cap by one after only 179 conflicts, so the run terminates without a
    next vault/model/key. Preserve all exact evidence in a complete causal attic
-   and derive O1C-0074's bounded active projection target-free; never rerun
-   O1C-0073, replay ordinal `9`, call phase, sweep release/rank/horizon or
-   blind-scale RAM/caps.
+   and derive O1C-0074's bounded active projection target-free. O1C-0074 now
+   completes four exact 128-conflict episodes with that split: six recurring
+   inactive clauses change K256 attention, the next episode adds 37 globally
+   novel clauses, and the complete attic reaches 550 unique clauses / 558
+   occurrences. The final projection then repeats bit-for-bit twice with zero
+   emissions. Preserve the positive stream and derive one nonrepeating bounded
+   O1C-0075 attention rule target-free; never rerun O1C-0073, replay ordinals
+   `9..13`, call phase, sweep K/release/rank/horizon or blind-scale RAM/caps.
    Any later role-credit test must precommit an attacker-visible outcome/utility
    condition rather than tune `-32`.
 6. Complementary phase has passed only its exact-exclusion mechanism gate. Once
@@ -814,6 +837,17 @@ evidence.
   exhaustion. Preserve the complete exact set in an external causal attic and
   derive a deterministic bounded active O1C-0074 projection with real headroom;
   no O1C-0073 retry, ordinal-9 replay, reader sweep or blind cap increase.
+- O1C-0074 executes that complete-attic/K256 split for four exact 128-conflict
+  episodes at lineage ordinals `10..13`. Episode 0's six globally duplicate
+  emissions at union indices `202..207` promote six inactive clauses and change
+  active SHA `fb7528bf…→ccfad8b3…`; episode 1 then retains 37 globally novel
+  clauses at indices `513..549` and changes active SHA to `78696f2b…`. The attic
+  grows `513→550` unique clauses / `515→558` occurrences while live state remains
+  256. Episodes 2/3 are bit-identical with zero emissions, so the static
+  projection is closed. Support `H-CAUSAL-ATTIC-078`; derive and freeze one
+  nonrepeating bounded O1C-0075 residency/attention rule before any further
+  call. This is exact-exclusion gain, not key recovery, entropy, UNSAT or global
+  threshold-region exhaustion.
 
 ## Operating contract
 

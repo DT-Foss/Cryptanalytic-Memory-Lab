@@ -1,41 +1,39 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T22:08:30+02:00.
+Last ranked: 2026-07-19T23:21:48+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Complete a zero-call analysis of all O1C-0073 exact clauses: imported 202 plus 311 newly certified, including exact duplicates/subsumption, length and witness distributions, deterministic utility/diversity and explicit active-reservoir headroom | State of the art | Extreme | Extreme | Low | Determines whether the complete evidence can live in an external causal attic while only the highest-value bounded subset remains solver-resident |
-| 2 | Freeze O1C-0074 as a complete immutable causal attic plus deterministic target-free bounded active reservoir; make eviction/admission reproducible and preserve enough room for new online exclusions | State of the art | Extreme | Extreme | Low | Removes O1C-0073's only terminal cause without discarding its 311-clause evidence population or blind-scaling RAM |
-| 3 | Execute at most one new O1C-0074 attempt only after offline selection, capacity arithmetic, source hashes and exact gain/stop gates are sealed; preserve O1C-0073 and ordinal 9 without retry/replay | State of the art | Extreme | Extreme | Low | Tests whether long-lived exact evidence can compound through bounded live state rather than terminate at the first overflow |
+| 1 | Analyze the exact O1C-0074 transition with zero calls and select one nonrepeating bounded residency/attention rule over the immutable 550-clause / 558-occurrence attic | State of the art | Extreme | Extreme | Low | Converts the bit-identical static fixed point into one precise O1C-0075 mechanism instead of paying for replay or a sweep |
+| 2 | Freeze O1C-0075 with the complete attic, separate immutable 202-clause rank source, exact K256 live-state bound and deterministic no-immediate-repeat rule | State of the art | Extreme | Extreme | Low | Preserves the positive recurrence-to-attention mechanism while forcing a genuinely new live state after saturation |
+| 3 | Execute at most one distinct O1C-0075 attempt only after the exact rule, source hashes, capacity arithmetic and gain/stop gates are sealed; preserve O1C-0074 ordinals 10..13 without replay | State of the art | Extreme | Extreme | Low | Tests whether bounded nonrepeating attention extends the 37-clause gain into another exact frontier advance |
 | 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
 ## Current resume
 
-Resume from O1C-0073's sealed `EPISODIC_VAULT_CAPACITY_TERMINAL`. Its sole
-local-0/lineage-9 call requests `512`, reaches and bills `179` conflicts, then
-stops fail-closed on `capacity_clause_count`; `333` requested conflicts remain
-unused. All `255` original ranked literals and all `255` hard opposites return
-once. Every original is genuinely released before its contrast becomes eligible,
-two assigned contrasts are deferred and retained, same-signed redecisions and
-phase calls are zero, and the terminal queue is empty.
+Resume from O1C-0074's sealed `CAUSAL_ATTIC_STREAM_NOVEL_CLAUSE_GAIN`. All four
+predeclared local `0..3` / lineage `10..13` calls complete at exact `128/128`
+requested/billed conflicts, for `512/512` aggregate work and no operational
+failure. The immutable 202-clause reader/rank source remains separate from the
+deterministic K256 live projection.
 
-The reader discovers `313` eligible fully emitted clauses / `803,144` literals:
-`311` are novel exact exclusions / `798,046` literals and two are duplicates.
-The imported `202` clauses plus `311` novel clauses equal `513`, exactly one over
-the operational `512`-clause archive cap. Literal and payload envelopes would
-still fit, so clause count alone causes the terminal. No next vault is archived;
-the authoritative final vault intentionally remains the parent at `202` clauses /
-`599,728` literals / `2,399,911 B`, SHA-256
-`cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858`.
-There is no model or key. This is neither a persisted novel-clause gain nor a
-recovery/entropy/UNSAT/exhaustion result; it is a capacity terminal with an
-actionable independently certified exclusion population.
+Episode 0 emits six exact global duplicates at attic union indices `202..207`.
+Those recurrence events grow occurrences `515→521` and duplicate occurrences
+`2→8`, promote the six previously inactive clauses, and change live SHA
+`fb7528bf…→ccfad8b3…`. Episode 1 then emits 37 globally novel clauses at indices
+`513..549`, changing live SHA to `78696f2b…`. The complete attic ends at 550
+unique clauses / 1,488,224 literals / 558 occurrences while live state remains
+exactly 256 clauses. This is the useful chain: recurrence changes bounded
+attention, the changed attention exposes novelty one episode later, and the
+complete memory retains both.
 
-The direct resume action is zero-call derivation of O1C-0074: keep the complete
-exact clause set in an immutable causal attic and select a deterministic,
-target-free bounded active reservoir with explicit utility, diversity and
-headroom. Do not retry O1C-0073, replay ordinal `9`, call phase, sweep the rank or
-horizon, or substitute a blind RAM/cap increase for the two-level memory design.
+Episodes 2 and 3 are bit-identical on active vault, reader, sieve and telemetry.
+Each makes 2,288 decisions / 2,890,144 propagations, reaches minimum UB
+`14.67138759145431` and emits nothing. Do not replay that static fixed point.
+The direct resume action is zero-call selection and freezing of one
+nonrepeating bounded O1C-0075 residency/attention mechanism. Keep the complete
+attic immutable and the K256 bound fixed; do not sweep K, rank, phase, horizon,
+seed, threshold, RAM or caps.
 
 The threshold question is now formal. Let `S(x)` be the compiled candidate score,
 `tau=14.606178797892962`, and the retained region be
@@ -45,26 +43,32 @@ Threshold and UB therefore use the same score units and retained direction, but
 `tau` is a fixed membership cutoff while `min_{a in V}U(a)` is a statistic over
 the run-specific visited-trail population `V`; they are not the same metric
 object or population. The quoted `7.973483108047071` is O1C-0066 episode 1, not
-O1C-0068. O1C-0068's minimum is `12.8607806294803`; O1C-0073's is
-`13.16709627777236`.
+O1C-0068. O1C-0068's minimum is `12.8607806294803`; O1C-0074's episode minima
+are `13.527469461337148`, `13.140486923093844`,
+`14.67138759145431`, `14.67138759145431`.
 
 For any particular visited trail `a`, strict `U(a)<tau` proves
 `S(x)<tau` for every completion `x` of `a`, hence that entire local subtree is a
 safe prune from `R_tau`. A reported minimum below threshold proves at least one
 such visited subtree exists; it does not prove all visited trails or the root are
-below threshold. The root bound remains `262.68644197084643>tau`, and O1C-0073
-returns native status `0`, so no global prune, UNSAT or threshold-region
-exhaustion follows.
+below threshold. O1C-0074 therefore records `6/37/0/0` local prunes in the same
+order as its episode minima. The root bound remains
+`262.68644197084643>tau`, and every episode returns native status `0`, so no
+global prune, UNSAT or threshold-region exhaustion follows.
 
 Resume authority is the
-[`O1C-0073 result`](O1C0073_APPLE8_VAULT_RELEASE_CONTRAST_RESULT_20260719.json),
+[`O1C-0074 result`](O1C0074_APPLE8_CAUSAL_ATTIC_STREAM_RESULT_20260719.json),
 SHA-256
-`43fb980b50fef20f9bc4bdcfd2ecd6e0f1f7df3bcee9297b0005bb55e4ea0cdc`,
+`b6bc2895459e3256fa4c857b67bd786b36d80ab5018a9c73709a2096cd169127`,
 and capsule artifact manifest
-`ad2791ff4ae09e9426878be4ba2f3b55eb77c85f46308c7a506d0dc96111317d`.
-The source freeze is `a1a447f47b4e7bec833f1148330573fefa8e3119`.
-Known completed lineage billing is `4,283`; the full actual total remains `null`
+`7a3f272268296005c5c6e532d377eb100244f38e941a102876abbfd732a8049b`.
+The source/execution commit is `a5f2ad130e2e13c39a5e888f927d86d5fdd68d78`.
+Known completed lineage billing is `4,795`; the full actual total remains `null`
 because failed ordinal `2` is unbilled.
+Capsule `result.json` is byte-identical to that published result and all `54/54`
+manifest entries validate. `publication_source.json` is pre-finalization only:
+its persistent-artifact count is `0`, versus authoritative final
+`30,567,197 B`; do not cite it as the result.
 
 ## Frontier scoreboard
 
@@ -176,8 +180,10 @@ because failed ordinal `2` is unbilled.
   `15.835437924635196x` (`93.685049919%`) reduction, while decisions rise
   `763→1,155` and minimum UB becomes `19.57599384995442`. This validates
   bounded furnace removal and one-shot causal intervention. Zero clauses/model/
-  key mean no recovery, entropy or novel-exclusion claim; O1C-0073 must add a
-  genuinely new evidence/causal operator, not retest release.
+  key mean no recovery, entropy or novel-exclusion claim. O1C-0073 later adds
+  311 novel exclusions; O1C-0074 preserves them and adds 37 more through
+  recurrence-weighted bounded attention. Preserve that chain; do not retest
+  release.
 - **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.
@@ -237,13 +243,15 @@ because failed ordinal `2` is unbilled.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0073 has generated `311` independently
-  certified novel exact exclusions, but its single-resident vault cannot archive
-  `513` total clauses. O1C-0074 must preserve the complete evidence in a causal
-  attic while a deterministic bounded active subset continues search with
-  explicit headroom. The pass gate remains a persisted exact frontier gain,
-  attacker-valid entropy/domain reduction, model/key or formal exhaustion—not
-  mere capacity avoidance. Exact 256 remains the north star.
+- **Next measurable advance:** O1C-0074 preserves all 550 unique exclusions /
+  558 occurrences while live state remains K256, and its recurrence-driven
+  projection adds 37 novel clauses one episode later. The final projection then
+  repeats bit-for-bit twice with no emissions. O1C-0075 must freeze one
+  nonrepeating bounded attention/residency rule target-free and change the live
+  state without expanding K or discarding attic evidence. The pass gate remains
+  a persisted exact frontier gain, attacker-valid entropy/domain reduction,
+  model/key or formal exhaustion—not mere state churn. Exact 256 remains the
+  north star.
 
 ## Effect-first stop rules
 
@@ -363,9 +371,11 @@ because failed ordinal `2` is unbilled.
   one-shot release once and removes all redecisions, reducing propagations to
   `5,763,035` (`15.8354x`) while still emitting no clause/model/key. Passive
   alternation, active phase-only gain, static ranked reassertion and repeated
-  release testing are closed. Only a genuinely new highest-ROI O1C-0073
-  evidence/causal operator may follow; no rerun, replay, sweep, blind scaling or
-  4K jump.
+  release testing are closed. O1C-0073 then discovers 311 novel exact clauses,
+  and O1C-0074 converts that capacity terminal into a complete-attic/K256 stream
+  that adds 37 more before an exact static fixed point. Only a frozen
+  nonrepeating O1C-0075 bounded-attention mechanism may follow; no rerun,
+  replay, sweep, blind scaling or 4K jump.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not
@@ -466,10 +476,11 @@ because failed ordinal `2` is unbilled.
 ## Do not spend the next cycle on
 
 - replaying O1C-0068 lineage ordinal `4`, O1C-0069 ordinal `5`, O1C-0070 ordinal
-  `6`, O1C-0071 ordinal `7`, O1C-0072 ordinal `8` or O1C-0073 ordinal `9`;
-  rerunning O1C-0073, issuing a phase call, sweeping rank/release/horizon or
-  blindly increasing RAM/caps. O1C-0073's capacity terminal now specifically
-  authorizes a target-free complete-attic/bounded-reservoir design, not a replay;
+  `6`, O1C-0071 ordinal `7`, O1C-0072 ordinal `8`, O1C-0073 ordinal `9`, or
+  any O1C-0074 ordinal `10..13`; issuing a fifth static causal-attic episode,
+  phase call, K/rank/release/horizon sweep or blind RAM/cap increase. O1C-0074's
+  exact ordinal-12/13 fixed point authorizes one target-free nonrepeating bounded
+  attention design for O1C-0075, not a replay;
 - another supplied complete-key decoy panel, static pair regrouping,
   credit-weight sweep or conflict-cap increase before the frozen O1C-0057
   prefix-8 scorer is tested on attacker-generated partial assignments/search;

@@ -1631,3 +1631,49 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [`capsule`](../runs/20260719_215617_O1C-0073_apple8-vault-release-contrast-v1/RUN.md),
   artifact-manifest SHA-256
   `ad2791ff4ae09e9426878be4ba2f3b55eb77c85f46308c7a506d0dc96111317d`.
+
+## B-0075 — Causal-attic recurrence unlocks novelty, then static attention fixes
+
+- **Evidence:** O1C-0074 separates the immutable 202-clause reader/rank source,
+  complete 513-clause starting attic and deterministic K256 active projection.
+  All four frozen local-0..3/lineage-10..13 calls complete at exactly 128 billed
+  conflicts each, with no operational failure or truth access.
+- **Positive mechanism:** episode 0 independently re-emits six attic clauses at
+  union indices `202..207`. They were absent from the initial active projection,
+  so their six recurrence events grow occurrences `515→521` and duplicate
+  occurrences `2→8`, promote them into live residency and change active SHA
+  `fb7528bf…→ccfad8b3…`. Episode 1 then emits 37 globally novel clauses at
+  indices `513..549`, changing active SHA to `78696f2b…`. The complete attic
+  reaches 550 unique clauses / 1,488,224 literals / 558 occurrences while live
+  residency remains exactly 256. This supports `H-CAUSAL-ATTIC-078` and proves
+  duplicate recurrence can be useful bounded-attention evidence rather than
+  discarded work.
+- **Fixed-point boundary:** episodes 2 and 3 have bit-identical active vault,
+  reader, sieve and telemetry hashes; both make 2,288 decisions and 2,890,144
+  propagations, reach minimum UB `14.67138759145431`, and emit zero clauses.
+  This closes another episode over the unchanged `78696f2b…` projection. It does
+  not close the complete attic or a different nonrepeating attention policy.
+- **Threshold boundary:** `tau=14.606178797892962` and UB share score units and
+  retained direction, not statistic/population. Strict `U(a)<tau` safely prunes
+  only descendants of the particular visited trail `a`; root UB remains
+  `262.68644197084643>tau`. The value `7.973483108047071` belongs to O1C-0066
+  episode 1, not O1C-0068. O1C-0074's `6/37/0/0` prunes align with minima
+  `13.527469461337148/13.140486923093844/14.67138759145431/14.67138759145431`.
+- **Do not repeat:** any O1C-0074 episode or ordinal `10..13`; especially do not
+  issue a fifth static episode after the exact ordinal-12/13 fixed point. Do not
+  sweep K, rank, phase, horizon, seed, threshold, RAM or caps, and do not discard
+  duplicate witness occurrences or inactive attic clauses.
+- **Breadcrumb:** derive O1C-0075 with zero calls as one deterministic
+  nonrepeating bounded residency/attention rule over the immutable
+  550-clause/558-occurrence attic. It must deliberately change live attention
+  after a fixed point while preserving the complete ledger and separate rank
+  source. The exact policy is not selected by this result and must freeze before
+  science.
+- **Artifacts:** authoritative
+  [`result`](O1C0074_APPLE8_CAUSAL_ATTIC_STREAM_RESULT_20260719.json), SHA-256
+  `b6bc2895459e3256fa4c857b67bd786b36d80ab5018a9c73709a2096cd169127`;
+  [`interpretation`](O1C0074_APPLE8_CAUSAL_ATTIC_STREAM_INTERPRETATION_20260719.md);
+  sealed
+  [`capsule`](../runs/20260719_231823_O1C-0074_apple8-causal-attic-stream-v1/RUN.md),
+  artifact-manifest SHA-256
+  `7a3f272268296005c5c6e532d377eb100244f38e941a102876abbfd732a8049b`.

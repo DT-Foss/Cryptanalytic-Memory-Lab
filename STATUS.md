@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T22:08:30+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T23:21:48+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -304,6 +304,22 @@
   This is actionable clause evidence but not a persisted gain, recovery, entropy
   reduction, UNSAT or threshold-region exhaustion. Source is
   `a1a447f47b4e7bec833f1148330573fefa8e3119`.
+- **O1C-0074:** the four-episode causal-attic stream completes as
+  `CAUSAL_ATTIC_STREAM_NOVEL_CLAUSE_GAIN`. All local `0..3` / lineage
+  `10..13` calls complete at exact `128/128` requested/billed conflicts, for
+  `4/4` calls and `512/512` aggregate billing with no operational failure. The
+  complete attic grows `513→550` unique clauses,
+  `1,397,774→1,488,224` literals and `515→558` witness occurrences; duplicate
+  occurrences grow `2→8`. The active state remains exactly 256 clauses. Episode
+  0 rediscovers six inactive attic clauses at indices `202..207`; recurrence
+  weighting promotes them and changes the active projection
+  `fb7528bf…→ccfad8b3…`. Episode 1 then adds 37 globally novel exact exclusions
+  at indices `513..549` and changes the projection to `78696f2b…`. Episodes 2
+  and 3 are bit-identical fixed points with minimum UB
+  `14.67138759145431`, zero emissions and the unchanged `78696f2b…` state.
+  This validates complete-attic/bounded-attention compounding without recovery,
+  entropy, UNSAT or global-exhaustion claims. Source/execution is
+  `a5f2ad130e2e13c39a5e888f927d86d5fdd68d78`.
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
@@ -327,13 +343,13 @@
   fails raw at `1,340 > 1,268 > 1,031` for edge, exact unary and final→early.
   Certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass.
   All 28 wrong passes, proof replays, freeze checks and truth controls are exact.
-- **Next mechanism:** derive O1C-0074 as O1's actual two-level memory: retain all
-  exact clauses in a complete causal attic while admitting only a deterministic,
-  target-free bounded active subset to the solver. O1C-0073 proved the paired
-  release operator can generate a large new population; the immediate bottleneck
-  is operational residency, not absence of exact evidence. Freeze utility,
-  diversity, eviction and headroom offline before one new attempt. Never retry
-  O1C-0073, replay ordinal `9`, or merely raise the archive/RAM cap.
+- **Next mechanism:** O1C-0074 has now validated O1's two-level memory split:
+  duplicate recurrence changes bounded attention and the next episode exposes 37
+  new exact clauses, while all evidence survives in the complete attic. The
+  final static projection then repeats bit-for-bit twice. Derive O1C-0075
+  target-free as one nonrepeating bounded residency/attention mechanism over the
+  immutable 550-clause/558-occurrence attic. Never replay ordinals `10..13`,
+  sweep K/rank/phase/horizon, or merely raise RAM/caps.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -347,12 +363,13 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** no scientific process is active. O1C-0073 is sealed as a
-  fail-closed capacity terminal after discovering `311` novel exact exclusions;
-  its final archived vault intentionally remains the unchanged 202-clause parent.
-  Immediate work is zero-call analysis and target-free freezing of O1C-0074's
-  complete causal attic plus bounded active reservoir. No O1C-0073 retry,
-  ordinal-9 replay, sweep or blind cap increase is authorized. O1C-0053..0056 and the exact
+- **Active local run:** no scientific process is active. O1C-0074 is sealed as a
+  positive causal-attic stream: `37` globally novel exact exclusions persist in
+  the complete 550-clause attic while live state stays fixed at 256 clauses.
+  Immediate work is zero-call selection and freezing of O1C-0075's nonrepeating
+  bounded residency/attention rule. No O1C-0074 episode replay, ordinal-10..13
+  reuse, K/rank/phase/horizon sweep or blind cap increase is authorized.
+  O1C-0053..0056 and the exact
   O1C-0058 rule remain negative and closed. Sibling repositories remain read-only
   and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
@@ -360,6 +377,9 @@
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
+  [O1C-0074 causal-attic stream result](research/O1C0074_APPLE8_CAUSAL_ATTIC_STREAM_RESULT_20260719.json),
+  [O1C-0074 interpretation](research/O1C0074_APPLE8_CAUSAL_ATTIC_STREAM_INTERPRETATION_20260719.md),
+  [O1C-0074 capsule](runs/20260719_231823_O1C-0074_apple8-causal-attic-stream-v1/RUN.md),
   [O1C-0073 release-contrast result](research/O1C0073_APPLE8_VAULT_RELEASE_CONTRAST_RESULT_20260719.json),
   [O1C-0073 capsule](runs/20260719_215617_O1C-0073_apple8-vault-release-contrast-v1/RUN.md),
   [O1C-0072 backtrack-release result](research/O1C0072_APPLE8_VAULT_BACKTRACK_RELEASE_RESULT_20260719.json),
@@ -534,6 +554,14 @@ exact exclusions in 179 conflicts. Only the 512-clause archive cap stops it:
 `202+311=513`, while literal and byte envelopes still fit. Preserve the complete
 evidence in O1C-0074's causal attic and project a deterministic bounded active
 reservoir with real headroom; do not retry/replay O1C-0073 or ordinal 9.
+O1C-0074 now executes four exact 128-conflict episodes with that split. Episode
+0's six global duplicates promote six previously inactive clauses; episode 1
+then adds 37 globally novel exact exclusions. The complete attic reaches 550
+unique clauses / 558 occurrences while live residency remains 256. Episodes 2
+and 3 are bit-identical at active SHA `78696f2b…`, minimum UB
+`14.67138759145431` and zero emissions, so replay is closed. Preserve this
+positive recurrence-to-attention-to-novelty chain and derive a nonrepeating
+bounded O1C-0075 residency rule target-free.
 In parallel APPLE-VIEW-0005 finds the first exact sparse carry certificate:
 250 of 336 high-carry identities suffice to reject a complete wrong key on the
 fixed matrix, with independent proof replay. APPLE-VIEW-0006 then performs the
@@ -1129,16 +1157,17 @@ O1C-0017 result boundary are documented in
 | Vault-ranked decision reader | — | 2026-07-19 19:27 | O1C-0071 one-call confidence-ranked `cb_decide` reader | terminal: strong order control and 66.78% fewer decisions, but exact seven-rank redecision cascade drives 91,260,183 propagations; 0 clauses/model/key | complete |
 | Vault backtrack-release reader | — | 2026-07-19 20:44 | O1C-0072 one-call monotone consume-once reader | terminal: 255 once-returns / 255 guided releases / 0 redecisions; propagations fall 15.8354x to 5,763,035, but 0 clauses/model/key | complete |
 | Vault release-contrast reader | — | 2026-07-19 21:56 | O1C-0073 one-call original-then-opposite reader | terminal: all 255 pairs complete and 311 novel exact exclusions discovered; fail-closed at 513 total clauses against the 512-clause archive cap, no next vault/model/key | complete |
+| Causal-attic stream | — | 2026-07-19 23:18 | O1C-0074 four-episode complete-attic/K256 stream | terminal: six recurring inactive clauses alter attention, the next episode adds 37 globally novel exclusions, then two bit-identical fixed-point episodes; complete attic 513→550 while live state remains 256 | complete |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Complete the zero-call O1C-0074 clause analysis over O1C-0073's `202+311`
-   exact clauses: exact/subsumption relations, length and witness distributions,
-   active-vault utility/diversity and explicit capacity headroom.
-2. Freeze O1C-0074 as a complete external causal attic plus deterministic bounded
-   active reservoir. Preserve O1C-0073 as a sealed capacity terminal; do not
-   retry it, replay ordinal `9`, sweep the reader or blind-raise RAM/caps.
+1. Analyze O1C-0074's exact recurrence-to-novelty transition with zero calls and
+   choose one deterministic nonrepeating bounded residency/attention rule over
+   the immutable 550-clause / 558-occurrence attic.
+2. Freeze that rule as O1C-0075 before science. Preserve the complete attic,
+   separate 202-clause rank source and K256 live-state bound; do not replay the
+   bit-identical O1C-0074 ordinals `12/13` or sweep K/rank/phase/horizon.
 3. Keep O1C-0056 fixed negative clause-role credit closed. If the causal branch
    resumes later, condition the unique exact role on outcome/utility; do not tune
    sign, scale, groups or cap.
@@ -1158,6 +1187,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0074` | 2026-07-19 23:18 | A complete immutable causal attic plus deterministic K256 live projection turns archive overflow and recurrence into bounded cross-episode evidence compounding | Four local `0..3` / lineage `10..13` calls each bill exactly 128 conflicts. Episode 0 emits six global duplicates at indices `202..207`, raises duplicate occurrences `2→8` and changes active SHA `fb7528bf…→ccfad8b3…`; episode 1 emits 37 globally novel clauses at indices `513..549` and changes active SHA to `78696f2b…`; episodes 2/3 are bit-identical with minimum UB `14.67138759145431`, zero emissions and unchanged active state. Complete attic `513→550` clauses / `1,397,774→1,488,224` literals / `515→558` occurrences; live state always 256; no model/key | `CAUSAL_ATTIC_STREAM_NOVEL_CLAUSE_GAIN`; exact recurrence changes bounded attention and precedes durable novel exclusions, not recovery/entropy/UNSAT/exhaustion | four calls; 512/512 conflicts; 204.957842 s elapsed; 504,233,984 B runner peak; 30,567,197 B persistent; zero truth/reveal/MPS/GPU | Static final projection saturates exactly; freeze a nonrepeating bounded O1C-0075 residency/attention rule target-free, with no replay or sweep | [Result](research/O1C0074_APPLE8_CAUSAL_ATTIC_STREAM_RESULT_20260719.json) · [Interpretation](research/O1C0074_APPLE8_CAUSAL_ATTIC_STREAM_INTERPRETATION_20260719.md) · [Capsule](runs/20260719_231823_O1C-0074_apple8-causal-attic-stream-v1/RUN.md) |
 | `O1C-0073` | 2026-07-19 21:56 | Once O1C-0072's original rank is exhausted, each genuinely released coordinate's hard opposite exposes a distinct exact threshold-exclusion population without same-sign reassertion | Local 0/lineage 9 requests/actual/bills `512/179/179`; all `255` originals and `255` contrasts returned, two assigned contrasts deferred then retained, `0` same-signed redecisions, `0` phase calls. `313` eligible clauses / `803,144` literals contain `311` novel / `798,046` literals and two duplicates. Imported `202` + novel `311` = `513`, one above the 512-clause archive cap; final archived vault remains 202 clauses. Decisions `6,250`, propagations `3,278,941`, minimum/root UB `13.16709627777236/262.68644197084643`; no model/key | `EPISODIC_VAULT_CAPACITY_TERMINAL`; fail-closed operational capacity stop after positive exact-clause evidence, not persisted gain/recovery/entropy/UNSAT/exhaustion | one call; 40.378152 s elapsed; 0.754070 s native wall; 431,915,008 B native peak; 352,075,776 B runner peak; zero reveal/MPS/GPU | Split complete long-lived causal attic from bounded active solver residency; derive utility/diversity/headroom target-free before O1C-0074 | [Result](research/O1C0073_APPLE8_VAULT_RELEASE_CONTRAST_RESULT_20260719.json) · [Capsule](runs/20260719_215617_O1C-0073_apple8-vault-release-contrast-v1/RUN.md) |
 | `O1C-0072` | 2026-07-19 20:44 | Frozen confidence order becomes computationally useful when each literal is consumed once and permanently delegated after backtrack | Local 0/lineage 8 requests/observes/bills `512/512/512`; callback `1,155` calls / `255` nonzero / `900` zero, `255` once-returns / `255` guided releases / `0` redecisions / first fallback 256; 0 clauses/model, unchanged 202-clause vault. Versus O1C-0071 decisions `763→1,155`, propagations `91,260,183→5,763,035` (`-85,497,148`, `15.8354379246x`, `-93.6850%`), minimum UB `19.297551436176224→19.57599384995442` | `EPISODIC_VAULT_BACKTRACK_RELEASE_MECHANISM_WORK_GAIN_NO_RECOVERY`; furnace removal and bounded causal release validated, not recovery/entropy | one call; 23.258629542 s elapsed; 1.193428 s native wall; 395,214,848 B native peak; 286,539,776 B runner peak; zero reveal/MPS/GPU | Preserve release primitive; derive the highest-ROI new O1C-0073 evidence/causal mechanism, with no O1C-0072 retry/replay/sweep | [Result](research/O1C0072_APPLE8_VAULT_BACKTRACK_RELEASE_RESULT_20260719.json) · [Capsule](runs/20260719_204421_O1C-0072_apple8-vault-backtrack-release-v1/RUN.md) |
 | `O1C-0071` | 2026-07-19 19:27 | Frozen vault vote strength and singleton grouped-gap become gainful when their rank controls `cb_decide` order and vote sign | Local 0/lineage 7 requests/bills `512/513`, status 0, no phase; callback `763` calls / `499` nonzero / `264` zero / `255` unique / `244` redecisions / first fallback 256; 0 clauses/model, unchanged 202-clause vault. Versus O1C-0070 decisions `2,297→763` (-66.78%), propagations `1,169,826→91,260,183` (78.01x), minimum UB `18.846601115977638→19.297551436176224`, wall `0.316808→14.818087 s`; tail ranks 249..255 add `1/3/7/15/31/62/125` redecisions while ranks 1..248 form a callback-visible stable prefix and are never returned twice | `EPISODIC_VAULT_ACTIVE_RANKED_DECISION_NO_GAIN`; strong order control, but static same-sign reassertion is a propagation furnace without frontier gain | one call; 36.940193167 s elapsed; 14.818087 s native wall; 405,553,152 B native peak; 283,738,112 B runner peak; zero reveal/MPS/GPU | Close O1C-0071 rerun/sweep; precommit one-shot backtrack release so every ranked bit is injected once then delegated after backtrack | [Result](research/O1C0071_APPLE8_VAULT_RANKED_DECISION_RESULT_20260719.json) · [Tail analysis](research/O1C0071_RANKED_DECISION_TAIL_CASCADE_ANALYSIS_20260719.json) |
@@ -1235,6 +1265,10 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0074` capsule artifact manifest | `7a3f272268296005c5c6e532d377eb100244f38e941a102876abbfd732a8049b` |
+| `O1C-0074` authoritative result | `b6bc2895459e3256fa4c857b67bd786b36d80ab5018a9c73709a2096cd169127` |
+| `O1C-0074` source/execution | `a5f2ad130e2e13c39a5e888f927d86d5fdd68d78` |
+| `O1C-0074` final active projection | `78696f2b662beda4b371aa547350cc66b2105bc4dcaf0b982af2d1279e3012ed` |
 | `O1C-0071` capsule artifact manifest | `c7bbbd9d7ad0d37b80b956a3ad8141254a460ddf763ae84109a067e0343294d9` |
 | `O1C-0071` authoritative result | `84ffbe35ae83266dd4993ad70b6dc988f4a13a8595861c23f36f0d610334cb41` |
 | `O1C-0071` source freeze | `66400bc6cc76653fb0a4b2c5bd64af498f4a49d3` |
@@ -1527,7 +1561,14 @@ conflicts, but `202+311=513` crosses the operational 512-clause archive cap by
 one, so it terminates fail-closed without persisting a next vault. The paired
 reader is therefore active and the capacity model is now the bottleneck. Derive
 O1C-0074 as a complete causal attic plus bounded active reservoir; do not retry
-O1C-0073, replay ordinal `9`, or blind-scale the cap.
+O1C-0073, replay ordinal `9`, or blind-scale the cap. O1C-0074 completes that
+split in four 128-conflict episodes: six rediscovered inactive clauses alter the
+K256 projection, the next episode contributes 37 globally novel exact clauses,
+and the complete attic reaches 550 unique clauses / 558 occurrences while live
+residency remains 256. The following two episodes reproduce active SHA
+`78696f2b…`, reader and sieve telemetry exactly with no emissions. Preserve the
+positive cross-episode compounding and close static replay; derive a
+nonrepeating bounded O1C-0075 attention/residency rule target-free.
 Do not enlarge the decoy panel or repeat O1C-0058's attended-base positive-delta
 rule.
 

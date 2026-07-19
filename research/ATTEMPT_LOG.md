@@ -2919,3 +2919,81 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `ad2791ff4ae09e9426878be4ba2f3b55eb77c85f46308c7a506d0dc96111317d`;
   native-result SHA-256
   `bf5f0ce2f72b9d86b5bb6a7fa08e44f777a0980c0bbbd2e0ed9aaa1bca20410a`.
+
+## O1C-0074 — APPLE8 causal-attic stream
+
+- **Started:** 2026-07-19T23:18:23+02:00.
+- **Recorded:** 2026-07-19T23:21:48+02:00.
+- **Source/execution:** `a5f2ad130e2e13c39a5e888f927d86d5fdd68d78`.
+- **Protocol:** retain the complete O1C-0073 corpus as immutable attic chunks and
+  all duplicate witness occurrences as separate ledger events; keep the
+  immutable 202-clause parent vault as the reader/rank source; project exactly
+  256 target-free clauses into each fresh solver; run local ordinals `0..3` /
+  lineage ordinals `10..13` for exactly 128 requested conflicts apiece; archive
+  and reproject durably after every completed call. No K/rank/phase/horizon
+  sweep, retry or replay is permitted.
+- **Aggregate result:** `CAUSAL_ATTIC_STREAM_NOVEL_CLAUSE_GAIN`. All `4/4`
+  calls complete with status `0`, exact aggregate `512/512` requested/billed
+  conflicts and no operational failure. The complete attic grows
+  `513→550` unique clauses, `1,397,774→1,488,224` literals and
+  `515→558` occurrences; duplicate occurrences grow `2→8`. Exactly 37
+  globally novel exact threshold-relative exclusions are retained. Live
+  residency stays at 256 clauses and the final active state is
+  `652,184` literals / `2,609,951 B`, SHA-256
+  `78696f2b662beda4b371aa547350cc66b2105bc4dcaf0b982af2d1279e3012ed`.
+- **Episode 0 / lineage 10:** `128/128`, 2,437 decisions, 2,956,417
+  propagations, minimum/root UB
+  `13.527469461337148/262.68644197084643`. Six safe threshold prunes emit six
+  exact global duplicates at union indices `202..207`; unique clauses remain
+  513 while occurrences grow `515→521` and duplicates `2→8`. Their recurrence
+  promotes all six previously inactive clauses, changing active SHA
+  `fb7528bf…→ccfad8b3…`.
+- **Episode 1 / lineage 11:** `128/128`, 3,536 decisions, 2,954,223
+  propagations, minimum/root UB
+  `13.140486923093844/262.68644197084643`. All 37 safe-prune emissions are
+  globally novel, becoming union indices `513..549`; attic occurrences and
+  unique clauses both grow by 37. Reprojection changes active SHA
+  `ccfad8b3…→78696f2b…`.
+- **Episodes 2/3 / lineages 12/13:** each is exactly `128/128`, 2,288
+  decisions, 2,890,144 propagations, minimum/root UB
+  `14.67138759145431/262.68644197084643`, zero prunes and zero emissions.
+  Active vault, reader evidence, sieve trace and vault telemetry are
+  bit-identical. The static projection is therefore an exact fixed point at
+  this reader/seed/horizon and must not be replayed.
+- **Mechanistic result:** episode-0 recurrence changes bounded attention, and
+  the changed live projection exposes 37 new exact clauses one episode later.
+  The complete attic retains both repetition and novelty while the active state
+  remains constant-size. Support `H-CAUSAL-ATTIC-078`; do not claim that the six
+  promoted clauses are uniquely necessary under every possible policy.
+- **Formal threshold clarification:** `tau=14.606178797892962` and UB use the
+  same compiled score units and retained direction `S(x)>=tau`, but not the same
+  population/statistic. For visited trail `a`, admissibility gives
+  `S(x)<=U(a)` for every completion, hence strict `U(a)<tau` safely prunes only
+  that trail's descendants. The historical `7.973483108047071` is O1C-0066
+  episode 1, not O1C-0068; O1C-0068 is `12.8607806294803`. O1C-0074 episodes
+  0/1 have below-threshold minima and `6/37` local prunes; episodes 2/3 have
+  minimum `14.67138759145431>tau` and zero prunes. Root UB remains
+  `262.68644197084643>tau`, so no global prune, UNSAT or exhaustion follows.
+- **Resources and lineage:** elapsed `204.95784179099428 s`; runner peak RSS
+  `504,233,984 B`; largest native episode peak `412,270,592 B`; persistent
+  artifacts `30,567,197 B`. Ordinals `10..13` are consumed and known completed
+  lineage billing becomes `4,795`; the full actual total remains `null` because
+  failed ordinal `2` is unbilled. Zero key/truth/fresh-target/entropy/reveal/
+  refit/MPS/GPU work.
+- **Decision:** preserve the complete 550-clause/558-occurrence attic, separate
+  rank source and final K256 projection. Do not replay O1C-0074 or sweep K,
+  rank, phase, horizon, seed, threshold, RAM or caps. Before O1C-0075, perform
+  zero-call analysis and freeze one nonrepeating bounded residency/attention
+  rule; the exact rule remains pending that analysis.
+- **Artifacts:** authoritative
+  [`result`](O1C0074_APPLE8_CAUSAL_ATTIC_STREAM_RESULT_20260719.json), SHA-256
+  `b6bc2895459e3256fa4c857b67bd786b36d80ab5018a9c73709a2096cd169127`;
+  [`interpretation`](O1C0074_APPLE8_CAUSAL_ATTIC_STREAM_INTERPRETATION_20260719.md);
+  sealed
+  [`capsule`](../runs/20260719_231823_O1C-0074_apple8-causal-attic-stream-v1/RUN.md),
+  artifact-manifest SHA-256
+  `7a3f272268296005c5c6e532d377eb100244f38e941a102876abbfd732a8049b`.
+  Capsule `result.json` is byte-identical to the published result and all
+  `54/54` manifest entries validate. `publication_source.json` is only the
+  pre-finalization source (`persistent_artifact_bytes=0` versus final
+  `30,567,197`) and is not an authoritative result citation.
