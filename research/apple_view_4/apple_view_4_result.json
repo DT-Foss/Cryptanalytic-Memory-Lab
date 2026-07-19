@@ -1,0 +1,522 @@
+{
+  "artifact_hashes": {
+    "apple_view_4_bidirectional_carry.py": {
+      "bytes": 33913,
+      "sha256": "5df8889dff469d3add31f70b83d12f4e96ebfa9dd9241b7affb351ed118878b4"
+    },
+    "apple_view_4_test_bidirectional_carry.py": {
+      "bytes": 5152,
+      "sha256": "a5062bf5de2909da63c4ce9c668ea9cd498ef94f9af04f2bdb62771be86ff01e"
+    }
+  },
+  "attacker_boundary": {
+    "complete_candidate_key_is_a_diagnostic_assumption": true,
+    "fresh_or_sealed_target": false,
+    "gpu_or_mps_used": false,
+    "network_used": false,
+    "primitive": "RFC 8439 ChaCha20 block, 20 rounds",
+    "probe_generation_uses_target_or_truth": false,
+    "public_input": "constants + counter + 96-bit nonce + one 512-bit output",
+    "search_decisions_used": false,
+    "truth_key_role": "post-propagation soundness check only",
+    "unbounded_cdcl_used": false,
+    "unknown_key_bits_in_base_problem": 256
+  },
+  "completed_at": "2026-07-19T02:30:48+02:00",
+  "config": {
+    "depths": [
+      24,
+      28,
+      29,
+      30,
+      31
+    ],
+    "probes": 4,
+    "seed": "apple-view-4-bidirectional-carry-v1-20260719"
+  },
+  "decision": "retain bidirectional carry propagation as a candidate filter only if the frozen sub-31 conflict gate passes; otherwise close this local truth-table mechanism without extrapolating probe fractions",
+  "depth_results": [
+    {
+      "carry_depth": 24,
+      "network": {
+        "additions": 336,
+        "constraints": 29056,
+        "free_carry_variables": 2352,
+        "majority_constraints": 8064,
+        "variables": 31666,
+        "xor2_constraints": 10240,
+        "xor3_constraints": 10752
+      },
+      "probe_rows": [
+        {
+          "assigned_variables": 2985,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 7960,
+          "inferred_variables": 2215,
+          "initial_assigned_variables": 770,
+          "probe_id": 0,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 56292
+        },
+        {
+          "assigned_variables": 2979,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 7992,
+          "inferred_variables": 2209,
+          "initial_assigned_variables": 770,
+          "probe_id": 1,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 56496
+        },
+        {
+          "assigned_variables": 2966,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 7882,
+          "inferred_variables": 2196,
+          "initial_assigned_variables": 770,
+          "probe_id": 2,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 55680
+        },
+        {
+          "assigned_variables": 2962,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 7949,
+          "inferred_variables": 2192,
+          "initial_assigned_variables": 770,
+          "probe_id": 3,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 56184
+        }
+      ],
+      "probe_summary": {
+        "assigned_variables_max": 2985,
+        "assigned_variables_mean": 2973.0,
+        "assigned_variables_min": 2962,
+        "consistent_complete": 0,
+        "exact_conflicts": 0,
+        "inferred_variables_max": 2215,
+        "inferred_variables_mean": 2203.0,
+        "inferred_variables_min": 2192,
+        "probes": 4,
+        "unknown_survivors": 4
+      },
+      "truth": {
+        "assigned_variables": 2977,
+        "conflict_constraint": null,
+        "conflict_kind": null,
+        "constraint_visits": 7971,
+        "inferred_variables": 2207,
+        "initial_assigned_variables": 770,
+        "status": "UNKNOWN",
+        "truth_table_rows_checked": 56368
+      }
+    },
+    {
+      "carry_depth": 28,
+      "network": {
+        "additions": 336,
+        "constraints": 30400,
+        "free_carry_variables": 1008,
+        "majority_constraints": 9408,
+        "variables": 31666,
+        "xor2_constraints": 10240,
+        "xor3_constraints": 10752
+      },
+      "probe_rows": [
+        {
+          "assigned_variables": 3893,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 10766,
+          "inferred_variables": 3123,
+          "initial_assigned_variables": 770,
+          "probe_id": 0,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 75200
+        },
+        {
+          "assigned_variables": 3887,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 10779,
+          "inferred_variables": 3117,
+          "initial_assigned_variables": 770,
+          "probe_id": 1,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 75292
+        },
+        {
+          "assigned_variables": 3885,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 10710,
+          "inferred_variables": 3115,
+          "initial_assigned_variables": 770,
+          "probe_id": 2,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 74744
+        },
+        {
+          "assigned_variables": 3848,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 10648,
+          "inferred_variables": 3078,
+          "initial_assigned_variables": 770,
+          "probe_id": 3,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 74336
+        }
+      ],
+      "probe_summary": {
+        "assigned_variables_max": 3893,
+        "assigned_variables_mean": 3878.25,
+        "assigned_variables_min": 3848,
+        "consistent_complete": 0,
+        "exact_conflicts": 0,
+        "inferred_variables_max": 3123,
+        "inferred_variables_mean": 3108.25,
+        "inferred_variables_min": 3078,
+        "probes": 4,
+        "unknown_survivors": 4
+      },
+      "truth": {
+        "assigned_variables": 3891,
+        "conflict_constraint": null,
+        "conflict_kind": null,
+        "constraint_visits": 10746,
+        "inferred_variables": 3121,
+        "initial_assigned_variables": 770,
+        "status": "UNKNOWN",
+        "truth_table_rows_checked": 75008
+      }
+    },
+    {
+      "carry_depth": 29,
+      "network": {
+        "additions": 336,
+        "constraints": 30736,
+        "free_carry_variables": 672,
+        "majority_constraints": 9744,
+        "variables": 31666,
+        "xor2_constraints": 10240,
+        "xor3_constraints": 10752
+      },
+      "probe_rows": [
+        {
+          "assigned_variables": 4173,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 11649,
+          "inferred_variables": 3403,
+          "initial_assigned_variables": 770,
+          "probe_id": 0,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 81144
+        },
+        {
+          "assigned_variables": 4158,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 11628,
+          "inferred_variables": 3388,
+          "initial_assigned_variables": 770,
+          "probe_id": 1,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 80976
+        },
+        {
+          "assigned_variables": 4205,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 11705,
+          "inferred_variables": 3435,
+          "initial_assigned_variables": 770,
+          "probe_id": 2,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 81472
+        },
+        {
+          "assigned_variables": 4131,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 11515,
+          "inferred_variables": 3361,
+          "initial_assigned_variables": 770,
+          "probe_id": 3,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 80196
+        }
+      ],
+      "probe_summary": {
+        "assigned_variables_max": 4205,
+        "assigned_variables_mean": 4166.75,
+        "assigned_variables_min": 4131,
+        "consistent_complete": 0,
+        "exact_conflicts": 0,
+        "inferred_variables_max": 3435,
+        "inferred_variables_mean": 3396.75,
+        "inferred_variables_min": 3361,
+        "probes": 4,
+        "unknown_survivors": 4
+      },
+      "truth": {
+        "assigned_variables": 4200,
+        "conflict_constraint": null,
+        "conflict_kind": null,
+        "constraint_visits": 11707,
+        "inferred_variables": 3430,
+        "initial_assigned_variables": 770,
+        "status": "UNKNOWN",
+        "truth_table_rows_checked": 81500
+      }
+    },
+    {
+      "carry_depth": 30,
+      "network": {
+        "additions": 336,
+        "constraints": 31072,
+        "free_carry_variables": 336,
+        "majority_constraints": 10080,
+        "variables": 31666,
+        "xor2_constraints": 10240,
+        "xor3_constraints": 10752
+      },
+      "probe_rows": [
+        {
+          "assigned_variables": 4540,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 12801,
+          "inferred_variables": 3770,
+          "initial_assigned_variables": 770,
+          "probe_id": 0,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 88920
+        },
+        {
+          "assigned_variables": 4490,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 12653,
+          "inferred_variables": 3720,
+          "initial_assigned_variables": 770,
+          "probe_id": 1,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 87840
+        },
+        {
+          "assigned_variables": 4620,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 13006,
+          "inferred_variables": 3850,
+          "initial_assigned_variables": 770,
+          "probe_id": 2,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 90200
+        },
+        {
+          "assigned_variables": 4528,
+          "conflict_constraint": null,
+          "conflict_kind": null,
+          "constraint_visits": 12754,
+          "inferred_variables": 3758,
+          "initial_assigned_variables": 770,
+          "probe_id": 3,
+          "status": "UNKNOWN",
+          "truth_table_rows_checked": 88560
+        }
+      ],
+      "probe_summary": {
+        "assigned_variables_max": 4620,
+        "assigned_variables_mean": 4544.5,
+        "assigned_variables_min": 4490,
+        "consistent_complete": 0,
+        "exact_conflicts": 0,
+        "inferred_variables_max": 3850,
+        "inferred_variables_mean": 3774.5,
+        "inferred_variables_min": 3720,
+        "probes": 4,
+        "unknown_survivors": 4
+      },
+      "truth": {
+        "assigned_variables": 4585,
+        "conflict_constraint": null,
+        "conflict_kind": null,
+        "constraint_visits": 12934,
+        "inferred_variables": 3815,
+        "initial_assigned_variables": 770,
+        "status": "UNKNOWN",
+        "truth_table_rows_checked": 89748
+      }
+    },
+    {
+      "carry_depth": 31,
+      "network": {
+        "additions": 336,
+        "constraints": 31408,
+        "free_carry_variables": 0,
+        "majority_constraints": 10416,
+        "variables": 31666,
+        "xor2_constraints": 10240,
+        "xor3_constraints": 10752
+      },
+      "probe_rows": [
+        {
+          "assigned_variables": 29620,
+          "conflict_constraint": 16055,
+          "conflict_kind": "xor3",
+          "constraint_visits": 88711,
+          "inferred_variables": 28850,
+          "initial_assigned_variables": 770,
+          "probe_id": 0,
+          "status": "CONFLICT",
+          "truth_table_rows_checked": 598296
+        },
+        {
+          "assigned_variables": 29852,
+          "conflict_constraint": 16340,
+          "conflict_kind": "xor3",
+          "constraint_visits": 89291,
+          "inferred_variables": 29082,
+          "initial_assigned_variables": 770,
+          "probe_id": 1,
+          "status": "CONFLICT",
+          "truth_table_rows_checked": 602164
+        },
+        {
+          "assigned_variables": 29438,
+          "conflict_constraint": 13759,
+          "conflict_kind": "xor2",
+          "constraint_visits": 87192,
+          "inferred_variables": 28668,
+          "initial_assigned_variables": 770,
+          "probe_id": 2,
+          "status": "CONFLICT",
+          "truth_table_rows_checked": 587324
+        },
+        {
+          "assigned_variables": 29672,
+          "conflict_constraint": 13959,
+          "conflict_kind": "xor2",
+          "constraint_visits": 88426,
+          "inferred_variables": 28902,
+          "initial_assigned_variables": 770,
+          "probe_id": 3,
+          "status": "CONFLICT",
+          "truth_table_rows_checked": 596144
+        }
+      ],
+      "probe_summary": {
+        "assigned_variables_max": 29852,
+        "assigned_variables_mean": 29645.5,
+        "assigned_variables_min": 29438,
+        "consistent_complete": 0,
+        "exact_conflicts": 4,
+        "inferred_variables_max": 29082,
+        "inferred_variables_mean": 28875.5,
+        "inferred_variables_min": 28668,
+        "probes": 4,
+        "unknown_survivors": 0
+      },
+      "truth": {
+        "assigned_variables": 31666,
+        "conflict_constraint": null,
+        "conflict_kind": null,
+        "constraint_visits": 94221,
+        "inferred_variables": 30896,
+        "initial_assigned_variables": 770,
+        "status": "CONSISTENT_COMPLETE",
+        "truth_table_rows_checked": 635372
+      }
+    }
+  ],
+  "hypothesis": "bidirectional local propagation between a complete candidate key and the public output exposes an exact conflict before all 31 carry layers are restored",
+  "mechanism": {
+    "carry_depth": "c1..c_d exact in every addition; c_(d+1)..c31 free Boolean variables",
+    "conflict_semantics": "a truth-table constraint has no row compatible with current assignments",
+    "constraints": "exact XOR2, XOR3, and carry-majority truth tables",
+    "propagation": "deterministic generalized arc consistency to a fixed point from fixed public output and complete candidate input",
+    "survivor_semantics": "UNKNOWN means local propagation found no contradiction; it is not SAT"
+  },
+  "reproducibility": {
+    "dynamic_resource_fields_excluded_from_scientific_hash": true,
+    "scientific_payload_sha256": "b6ea61515410088487ec90888a5127773280214935a4983dd45d3139aea48949",
+    "source_sha256": "5df8889dff469d3add31f70b83d12f4e96ebfa9dd9241b7affb351ed118878b4"
+  },
+  "resources": {
+    "budget_passed": true,
+    "concrete_block_evaluations": 2,
+    "constraint_visits": 663596,
+    "constraints_compiled": 152672,
+    "cpu_budget_seconds": 30.0,
+    "cpu_processes": 1,
+    "cpu_seconds": 18.020902000000003,
+    "exact_conflicts": 4,
+    "inferred_assignments": 208901,
+    "major_page_faults_delta": 0,
+    "memory_budget_bytes": 134217728,
+    "minor_page_faults_delta": 3670,
+    "networks_compiled": 5,
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "process_max_rss_bytes": 87867392,
+    "propagation_calls": 25,
+    "python": "3.13.1",
+    "python_tracemalloc_current_bytes": 9794835,
+    "python_tracemalloc_peak_bytes": 22156308,
+    "truth_table_rows_checked": 4525456,
+    "variables_compiled": 158330,
+    "wall_seconds": 18.1244404579993
+  },
+  "schema": "apple-view-4-full256-bidirectional-carry-v1",
+  "started_at": "2026-07-19T02:30:30+02:00",
+  "summary": {
+    "exact_full_key_recoveries": 0,
+    "exact_key_bits_recovered": 0,
+    "first_depth_with_any_exact_conflict_below_31": null,
+    "global_key_entropy_reduction_claimed_bits": 0,
+    "probe_first_conflict_histogram": {
+      "31": 4
+    },
+    "success_gate": "at least one exact false-probe conflict at depth < 31",
+    "success_gate_passed": false,
+    "total_exact_conflicts_below_31_across_depth_rows": 0
+  },
+  "target": {
+    "block_hex": "516d80781fd5c55fd1d23425abc2dbff2fe4028903df3623a01764606148a81322b931177bb66d6f9ac726abd0f1bc906e7d2e33b49b564b5caa15019c9e1ed6",
+    "counter": 2228517234,
+    "measurement_key_hex_unsealed": "532645a0d4b18b71c548f8bad488d30ffcf6488d482a35462e4efaba618a866a",
+    "nonce_hex": "3be7605d9a8efae7609c698d",
+    "public_target_sha256": "fa12050df20cc4c4d2f33a1b1d88e52f6194ee72bc01b928d00ca4d0d161c527",
+    "source": "fixed SHAKE-256 build target, committed unsealed"
+  },
+  "validation": {
+    "compile_network_parameters": [
+      "target",
+      "carry_depth",
+      "meter"
+    ],
+    "propagate_candidate_parameters": [
+      "network",
+      "target",
+      "candidate_key",
+      "meter"
+    ],
+    "rfc8439_block_vector": true,
+    "synthetic_bidirectional_sanity": {
+      "forced_right_is_zero": true,
+      "forced_right_values": [
+        0
+      ],
+      "setting_right_one_conflicts": true
+    },
+    "true_key_checked_at_every_depth": true,
+    "true_key_conflicts": 0
+  }
+}
