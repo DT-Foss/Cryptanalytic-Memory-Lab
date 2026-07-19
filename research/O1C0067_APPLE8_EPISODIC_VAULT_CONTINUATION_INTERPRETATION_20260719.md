@@ -17,7 +17,8 @@ The single authorized continuation used local ordinal `0` and lineage ordinal
 and output vaults are byte-identical at `12` clauses, `35,061` literals and
 `140,483 B`. Native code fully emitted one `2,951`-literal clause with SHA-256
 `b5da89ef9791d65487e214da71e4f36b0600ceea033cc1917c4ba9f392f89c84`;
-it is an input duplicate matching the vault's first-emission ordinal `7`, so no
+it is an input duplicate matching vault index `7` (zero-based; the eighth stored
+clause), so no
 novel clause or literal survived.
 
 The carried vault still reduces work relative to O1C-0066's last completed

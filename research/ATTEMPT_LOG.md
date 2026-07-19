@@ -2532,7 +2532,8 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Result:** `EPISODIC_VAULT_SATURATED_NO_GAIN`. The call observes and bills
   `514` conflicts (`+2`) and fully emits one `2,951`-literal clause, SHA-256
   `b5da89ef9791d65487e214da71e4f36b0600ceea033cc1917c4ba9f392f89c84`.
-  It is an input duplicate matching first-emission vault ordinal `7`. Novel
+  It is an input duplicate matching vault index `7` (zero-based; the eighth
+  stored clause). Novel
   clauses/literals are `0/0`; input and output remain `12` clauses, `35,061`
   literals and `140,483 B`.
 - **Search and resources:** decisions `4,517` and propagations `1,192,529` are
@@ -2590,15 +2591,17 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   formally audits the frozen threshold and explains why O1C-0066 episode 1's
   minimum UB is a visited-partial-trail statistic, not a population score,
   global maximum or exhaustion certificate.
-- **Decision:** preserve the sealed 202-clause vault. After a target-free gate,
-  O1C-0069 is exactly one explicit forced-phase-1 alternating-reader composition
-  call from that vault at the same seed `0` and requested `512` conflicts. This
-  is a distinct composition operator, not a replay or phase sweep. If the
+- **Decision:** preserve the sealed 202-clause vault. The precommitted successor
+  was exactly one explicit O1C-0069 forced-phase-1 composition call from that
+  vault at the same seed `0` and requested `512` conflicts, a distinct operator
+  rather than replay or phase sweep. If the
   observed O1C-0068 195-clause/579,526-literal envelope repeats and every clause
   is novel, the vault would reach `397` clauses, `1,179,254` literals and
   `4,718,795 B`, below the frozen caps. This is a capacity-planning scenario,
   not a formal maximum for a 512-conflict call; the hard native capacity guard
-  remains fail-closed.
+  remains fail-closed. O1C-0069 later executes this sole decision and returns
+  zero novelty with exact O1C-0067 phase-1 trace identity, closing passive
+  composition and selecting a vault-conditioned active phase field next.
 - **Artifacts:** authoritative
   [`result`](O1C0068_APPLE8_COMPLEMENTARY_PHASE_RESULT_20260719.json), SHA-256
   `d494887d2be96516211acf09ff8852a88a44576044723223b9057942fd7aea80`;
@@ -2608,3 +2611,52 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [`capsule`](../runs/20260719_161838_O1C-0068_apple8-complementary-phase-v1/RUN.md),
   manifest SHA-256
   `dd0236774c1352238cce86458a8f01380aa32dc538dbe80a3c1744b0f126a745`.
+
+## O1C-0069 — APPLE8 alternating-reader composition
+
+- **Supersession:** this completed attempt consumes the sole O1C-0068 forward
+  decision after all target-free reader, identity and capacity gates passed. It
+  is a distinct lineage call, not a replay of lineage ordinal `4`.
+- **Started:** 2026-07-19T17:08:24+02:00.
+- **Recorded:** 2026-07-19T17:08:40+02:00.
+- **Source commit:** `d6dfc06f3e7d6dfcc29d696829927b132bad23aa`.
+- **Protocol:** exactly one fresh native subprocess imports the sealed
+  202-clause O1C-0068 vault, uses local ordinal `0`, lineage ordinal `5`,
+  explicit forced phase `1`, seed `0` and requested 512-conflict soft horizon.
+  Target, Full-256 CNF, potential, width-6 grouping, threshold and actual-work
+  accounting remain unchanged. No retry is authorized.
+- **Result:** `EPISODIC_VAULT_ALTERNATING_READER_NO_GAIN`. Requested, actual
+  and billed conflicts are `512/514/514`. The call fully emits one
+  `2,951`-literal clause, SHA-256
+  `b5da89ef9791d65487e214da71e4f36b0600ceea033cc1917c4ba9f392f89c84`;
+  it is the input duplicate at zero-based vault index `7` (eighth clause), so
+  novel clauses/literals are `0/0`. Input and
+  output are byte-identical at `202` clauses / `599,728` literals /
+  `2,399,911 B`, SHA-256
+  `cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858`.
+- **Exact fixed point:** conflicts, decisions (`4,517`), propagations
+  (`1,192,529`), minimum/root upper bounds
+  (`9.111031965569408/262.68644197084643`), emitted clause, terminal assignment
+  hash and native trace SHA-256
+  `676386a030ce3dcfea0fccdaea60d482a2da8de4992102669585fff3fb896a91`
+  all exactly equal O1C-0067's phase-1 trajectory. The additional 190 phase-0
+  clauses do not perturb this bounded passive-reader path.
+- **Resources:** runner elapsed `16.869109082996147 s`; native wall/CPU
+  `0.367456/1.080018 s`; native peak RSS `398,032,896 B`; runner peak RSS
+  `323,895,296 B`; one native call and zero key/truth/reveal/fresh-target/
+  entropy/refit/MPS/GPU work. Known completed lineage billing is `2,565`; exact
+  total remains unavailable because O1C-0066 ordinal 2 is unbilled.
+- **Decision:** refute only one-step passive alternating-reader composition at
+  this exact reader/seed/horizon. Do not replay ordinal `5`, run a second
+  alternation, sweep phase/horizon or scale RAM. Derive a target-free bounded
+  vault-conditioned phase field and test whether stored evidence can actively
+  steer decisions before authorizing any O1C-0070 Full-256 call.
+- **Artifacts:** authoritative
+  [`result`](O1C0069_APPLE8_ALTERNATING_READER_RESULT_20260719.json), SHA-256
+  `43512370d7243d57bb3ffaed445ee9196315e350d3ee1169ee0c0d8ad94ba89b`;
+  concise
+  [`interpretation`](O1C0069_APPLE8_ALTERNATING_READER_INTERPRETATION_20260719.md);
+  sealed
+  [`capsule`](../runs/20260719_170824_O1C-0069_apple8-alternating-reader-v1/RUN.md),
+  manifest SHA-256
+  `2a78e568f0be7eafad4d117cd84aeadd0d495d19296d8ba85676496219377cb8`.

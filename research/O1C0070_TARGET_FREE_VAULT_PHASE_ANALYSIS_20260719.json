@@ -1,0 +1,145 @@
+{
+  "schema": "o1-256-o1c70-target-free-vault-phase-analysis-v1",
+  "attempt_id": "O1C-0070",
+  "recorded_at": "2026-07-19T17:28:46+02:00",
+  "source_attempts": {
+    "base_vault_attempt": "O1C-0067",
+    "phase_population_attempt": "O1C-0068",
+    "sealed_parent_attempt": "O1C-0069"
+  },
+  "vaults": {
+    "base": {
+      "clause_count": 12,
+      "literal_count": 35061,
+      "sha256": "371dd8454e46eb6c53549efa53e6412f5798b22a06e6f96c927ab74df2ba687a"
+    },
+    "current": {
+      "clause_count": 202,
+      "literal_count": 599728,
+      "serialized_bytes": 2399911,
+      "sha256": "cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858",
+      "o1c68_output_equals_o1c69_input_equals_o1c69_output": true
+    },
+    "exact_prefix_validated": true
+  },
+  "population": {
+    "definition": "current-vault clauses after exact base-vault clause prefix",
+    "start_index_zero_based": 12,
+    "clause_count": 190,
+    "literal_count": 564667,
+    "canonical_clause_record_bytes": 2259428,
+    "canonical_clause_records_sha256": "cbec487e215b70a22f91b0424f05809a06c0f6cdd5c3fa259bcab0b710e74521",
+    "all_literal_occurrences": {
+      "positive": 350572,
+      "negative": 214095
+    },
+    "key_literal_occurrences": {
+      "positive": 27060,
+      "negative": 21186,
+      "total": 48246
+    },
+    "key_literal_frequency_distribution": {
+      "0": 1,
+      "129": 1,
+      "130": 1,
+      "146": 1,
+      "153": 1,
+      "188": 1,
+      "190": 250
+    },
+    "absolute_vote_margin_distribution": {
+      "0": 1,
+      "4": 2,
+      "5": 1,
+      "8": 1,
+      "12": 2,
+      "16": 2,
+      "20": 6,
+      "27": 1,
+      "40": 1,
+      "46": 1,
+      "190": 238
+    }
+  },
+  "rule": {
+    "key_variables": "1..256",
+    "delta": "count(+v)-count(-v)",
+    "phase_literal": "+v if delta>0; -v if delta<0; 0 if delta=0",
+    "orientation": "satisfy-majority-cut-literal-and-oppose-majority-excluded-witness-spin",
+    "application": "call Solver::phase only for nonzero phase literals in ascending variable order",
+    "fallback": "skip zero vote and retain verified global forced phase 1",
+    "spec_ascii_bytes": 847,
+    "spec_ascii_lines": 15,
+    "spec_final_lf": true,
+    "spec_sha256": "3dba50d3a376c2c025e2edbcc47215f19610547ad5bd6260221c82a1641df075",
+    "spec_ascii": "o1-vault-conditioned-key-phase-v1\ninput-vault-sha256=371dd8454e46eb6c53549efa53e6412f5798b22a06e6f96c927ab74df2ba687a\noutput-vault-sha256=cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858\npopulation=output-clauses-after-exact-input-clause-prefix\npopulation-clause-count=190\npopulation-literal-count=564667\npopulation-clause-records-sha256=cbec487e215b70a22f91b0424f05809a06c0f6cdd5c3fa259bcab0b710e74521\nkey-variables=1..256\ndelta(v)=count(+v)-count(-v)\nphase-literal(v)=+v if delta(v)>0;-v if delta(v)<0;0 if delta(v)=0\norientation=satisfy-majority-cut-literal-and-oppose-majority-excluded-witness-spin\nfield-encoding=256-signed-i32le-phase-literals-in-variable-order;zero-means-no-vote\napply=Solver::phase(phase-literal(v)) only when nonzero\neffective-default-phase=1\nbitpack=effective-true-at-little-endian-bit-(v-1)-of-32-bytes\n"
+  },
+  "field": {
+    "encoding": "256-signed-i32le-phase-literals-in-variable-order;zero-means-no-vote",
+    "serialized_bytes": 1024,
+    "sha256": "5d7fd1cfca56c1ab29f9e1490d28e16d3f5def611dad2f52c4ea4015678605fe",
+    "positive_phase_count": 139,
+    "negative_phase_count": 116,
+    "zero_vote_count": 1,
+    "zero_vote_variables": [241],
+    "applied_phase_calls": 255,
+    "effective_true_count": 140,
+    "effective_false_count": 116,
+    "effective_bitpack_encoding": "effective-true-at-little-endian-bit-(v-1)-of-32-bytes",
+    "effective_bitpack_hex": "ec6d45759effd185e9a6c163d47659ea2557df6f22bb9a017361f3f6d20c3955",
+    "effective_bitpack_sha256": "6381f90ee279a8075d4279ecfec5a3560e910afc12c891cb0bd86dac0ad511ec",
+    "majority_satisfied_key_literal_occurrences": 46888,
+    "minority_key_literal_occurrences": 1358,
+    "majority_satisfied_fraction": 0.971852588815653
+  },
+  "array_sha256": {
+    "positive_counts_u32le": "d0033606d3ad0225dd9f14fc1bfcea3f4aed4b66609f297d0e3f93e0f12b32a9",
+    "negative_counts_u32le": "1413cdb98c129fae286c6eb38879f93cc3e29f550f1641f642fa65a03291dd5e",
+    "frequency_counts_u32le": "93ffb947f8824864fd77b6743cd6eb656ff9130c56a1c801a458d330aac3903a",
+    "delta_i32le": "77c6758e034bcd3c4d2aff0e6006e6f569bec98fad4d973b05066cc5d2359715"
+  },
+  "stability": {
+    "supported_ties": 0,
+    "raw_vs_inverse_clause_length_hamming_distance": 0,
+    "single_clause_jackknife_count": 190,
+    "single_clause_jackknife_phase_flips": 0,
+    "unsupported_variable_241_absent_from_public_potential_observed_set": true
+  },
+  "all_202_sensitivity": {
+    "effective_bitpack_hex": "ec6d45759effd189e9a6c163d4765dea2557df6f22bb9a017361f3f6d20c3955",
+    "effective_bitpack_sha256": "456df96bbe8bee4d3912aa20c344a9ec3bad42dd59b7b5a68e7ed0f8026c349d",
+    "signed_field_sha256": "9f915aa3e52cd1f6677187b2b4b90897d2f92253aea86202ea1515bea6539735",
+    "differs_from_suffix_190_at_variables": [59, 60, 115],
+    "decision": "use suffix 190 to avoid reader-mixture ambiguity"
+  },
+  "cadical_api": {
+    "version": "3.0.0",
+    "header_sha256": "b7111690c61935b9c096d3701be59b3c3d26c555eab8e070f19eb2a97dc5d38c",
+    "static_library_sha256": "44cae3728485b4fd5736ce7cb986021236652daeda9cca227a2c4ac17d3a8a7f",
+    "api": "Solver::phase(int literal)",
+    "semantics": "persistent per-variable polarity preference; no variable-order or confidence-magnitude effect",
+    "application_time": "after DIMACS/vault/observed-variable setup and before limit/solve",
+    "fresh_solver_required": true
+  },
+  "truth_boundary": {
+    "target_specific_public_vault_evidence": true,
+    "truth_key_bytes_read": false,
+    "fresh_targets": 0,
+    "fresh_reveal_calls": 0,
+    "scientific_solver_calls": 0,
+    "refits": 0,
+    "MPS_or_GPU": false,
+    "candidate_key_claim": false,
+    "entropy_claim": false
+  },
+  "authorization": {
+    "ready_for_native_implementation": true,
+    "ready_for_full256_science": false,
+    "remaining_gates": [
+      "independent-native-and-adapter-field-binding",
+      "public-synthetic-phase-consequence-with-deterministic-repeats",
+      "source-and-executable-freeze",
+      "parent-vault-capacity-and-resource-preflight"
+    ]
+  }
+}
