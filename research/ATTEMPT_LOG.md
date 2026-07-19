@@ -1909,3 +1909,48 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   scale target count, descent depth or restart count.
 - **Artifact:** [`isolated result`](apple_view/apple_view_result.md), commit
   `dba4143c73aa84559e6b0466ca6cc232500c5fe9`.
+
+## APPLE-VIEW-0002 — Independent-carry quotient
+
+- **Recorded:** 2026-07-19, isolated parallel track.
+- **Hypothesis:** lifting every modular addition into XOR plus nuisance carries
+  and quotienting the carry columns leaves exact public linear key parities.
+- **Result:** negative on eight deterministic Full-256 targets. Primary carry
+  rank is `512`, exact key-information rank is `0`, and exact recoveries are
+  `0/8`. Every individual double-round carry group already spans all 512 output
+  dimensions; all `8,192/8,192` exact lifted equations validate.
+- **Resources:** `5.851181` s wall, `5.788550` s CPU, `34,553,856` B peak RSS;
+  zero network, sibling, MPS or GPU work.
+- **Decision:** close independently free carries. If resumed, substitute the real
+  majority recurrence globally by carry depth and measure exact domain pruning.
+- **Artifact:** [`isolated result`](apple_view_2/apple_view_2_report.md), commit
+  `b3c0400999c86d2ce078aa3c06e517e6ff536916`.
+
+## O1C-0048 — Soft pair-envelope search
+
+- **Recorded:** 2026-07-19T01:46:25+02:00.
+- **Hypothesis:** coordinated global max-envelope decisions over frozen key pairs
+  preserve O1C-0047's complete-state orientation better than greedy unary
+  marginals.
+- **Protocol:** primary plan compiled once before reveal; 63 disjoint pairs over
+  126 key coordinates, with transformed matched controls. Four public Full-256
+  calls precede attacker freeze and reveal; four arms then run on residual widths
+  8 and 9. Fixed work is 12 calls and 6,144 requested conflicts.
+- **Result:** `PAIR_ENVELOPE_NO_STRICT_PRIMARY_GAIN`. Full-256 is unresolved in
+  all arms. Exact maxima internal/primary/key/clause are `8/9/9/9`. Conflicts are
+  W8 `217/75/195/89` and W9 `UNKNOWN/155/331/167`. Every SAT row is the exact
+  publicly verified truth key and honors its truth-fixed prefix.
+- **Gate:** failed as frozen. The largest width recovered by every arm is 8, but
+  the arm frontiers are untied, so the all-arm conflict tier cannot pass.
+- **Breadcrumb:** primary nevertheless beats every comparator pairwise: internal
+  by width, and both rotations by conflicts at W9. This is a post-result
+  diagnostic, not a retroactive gate pass. Static pair envelopes restore
+  specificity but cost more absolute work than O1C-0046's unary primary.
+- **Resources:** `9.362067` s, `128,122,880` B peak, 12 calls, 6,144 requested
+  conflicts, `50,256` persistent B; zero fresh/sibling/MPS/GPU.
+- **Decision:** close this exact disjoint-pair adapter. Next use bounded live
+  propagation/backtrack credit to select group operators, with O1C-0048 frozen as
+  baseline and a prospectively defined per-comparator lexicographic gate.
+- **Artifacts:**
+  [`result`](O1C0048_PAIR_ENVELOPE_SEARCH_RESULT_20260719.md) and
+  [`capsule`](../runs/20260719_014625_O1C-0048_pair-envelope-search-v1/RUN.md).

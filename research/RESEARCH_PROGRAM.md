@@ -183,11 +183,30 @@ the independently verified key. The 10.356-bit compression is privileged because
 240 truth bits define the cube. It authorizes soft pairwise group/max-envelope
 branching, not a hard prefix or a Full-256 recovery claim.
 
+O1C-0048 performs that soft conversion with 63 frozen disjoint key pairs and a
+reversible pairwise max-envelope decision rule. Full-256 remains unresolved in
+all four arms and the frozen all-arm gate is negative: residual maxima are
+internal/primary/key/clause `8/9/9/9`. The consumed diagnostic nevertheless
+isolates a useful conversion property: primary needs `75/155` conflicts at W8/W9
+versus key rotation `195/331` and clause rotation `89/167`. Static pairing thus
+restores reader specificity but does not improve the absolute frontier. Close
+pair regrouping and conflict-cap scaling; retain the exact groups as baselines
+while bounded attacker-visible propagation/conflict/backtrack outcomes assign
+online group credit.
+
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
 targets. AUC 0.50572, -0.484 gained key bits and zero recoveries close that exact
 local-fitness direction. Output-distance reduction without key-distance reduction
 is preserved as its single breadcrumb.
+
+APPLE-VIEW-0002 then removes independently lifted addition carries from the exact
+GF(2) relation. The carry block has rank 512, the exact key block has rank zero,
+all 8,192 lifted equations validate and none of eight Full-256 targets recovers.
+The result closes only the independent-carry quotient: free carry variables can
+explain the entire output and erase every key parity. The next Apple test restores
+the true majority/carry recurrence globally by depth and measures the first depth
+at which key rank or bounded search compression reappears.
 
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
@@ -398,14 +417,19 @@ evidence.
    the potential family expands residual 8→9 but rotations beat primary. O1C-0046
    removes internal variables from external decisions and cuts primary work, yet
    matched clause rotation remains faster. O1C-0047 then shows the global score
-   ranks truth 50/65536 on a privileged W16 cube. Preserve all score bytes and
-   move from one-variable marginals to soft pairwise group/max-envelope activation.
+   ranks truth 50/65536 on a privileged W16 cube. O1C-0048 converts that geometry
+   into static reversible pairs: its global gate fails, but primary now beats both
+   rotations at W8/W9. Preserve all score/group bytes and move from fixed pair
+   envelopes to bounded target-time credit driven by public solver outcomes.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.
 7. Preserve O1C-0023/25/29 as code only; do not execute them on the closed unary
    field. After stable attacker-valid entropy reduction, the existing logit
    handoff and exact global decoder may be reused unchanged.
+8. Keep the Apple track independent of O1 terminology. Its current exact boundary
+   is that free carries erase all linear key information; restore true carry
+   recurrence by depth before adding learning, another reader or a larger corpus.
 
 ## Operating contract
 

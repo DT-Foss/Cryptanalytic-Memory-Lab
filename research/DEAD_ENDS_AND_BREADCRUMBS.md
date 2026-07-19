@@ -1011,3 +1011,37 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   complete-state criticality; never use raw final-output distance as a proxy for
   key proximity.
 - **Artifact:** [`Apple result`](apple_view/apple_view_result.md).
+
+## B-0051 — Static disjoint pair envelopes restore specificity but miss the gate
+
+- **Evidence:** O1C-0048 leaves Full-256 unresolved and reaches exact residual
+  maxima internal/primary/key/clause `8/9/9/9`. W8 conflicts are
+  `217/75/195/89`; W9 is `UNKNOWN/155/331/167`.
+- **Conclusion:** coordinated pairs reverse O1C-0046's clause-control advantage,
+  but the registered all-arm gate cannot compare W9 conflicts because internal
+  search does not recover W9. The formal result is negative.
+- **Do not repeat:** tune pair membership, remove controls, raise the conflict cap,
+  or spend a fresh target on this exact static max-envelope scheduler.
+- **Breadcrumb:** primary is pairwise lexicographically better than every
+  comparator—internal by width and both rotations by W9 conflicts. Preserve that
+  specificity while replacing static envelopes with bounded attacker-visible
+  propagation/backtrack credit. Freeze that future comparator rule in advance;
+  do not retroactively promote O1C-0048.
+- **Artifact:**
+  [`O1C-0048 result`](O1C0048_PAIR_ENVELOPE_SEARCH_RESULT_20260719.md).
+
+## B-0052 — Independently free carries erase the entire linear quotient
+
+- **Evidence:** APPLE-VIEW-0002 obtains carry-column rank `512` and exact key rank
+  `0` on all eight standard Full-256 targets. Every individual double-round carry
+  group also spans all 512 output dimensions, while all exact lifted equations
+  validate.
+- **Conclusion:** treating `c1..c31` as independent nuisance bits relaxes away all
+  public linear key information; the quotient is empty by construction at 20
+  rounds.
+- **Do not repeat:** add targets, free more carry bits, split only a suffix, or
+  reinterpret the inconsistent no-carry rank as key information.
+- **Breadcrumb:** a genuinely new carry test must substitute the real majority
+  recurrence globally by depth (`c1`, then `c2`, ...), measuring exact domain
+  pruning before paying for nonlinear search.
+- **Artifact:** [`Apple carry result`](apple_view_2/apple_view_2_report.md).

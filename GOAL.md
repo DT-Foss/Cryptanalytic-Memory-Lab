@@ -201,13 +201,29 @@ nested post-reveal cubes, truth ranks `1/256`, `5/4096` and `50/65536`; the W16
 rotations rank `60592/65536` and `43059/65536`, and only the primary top-256 beam
 contains the independently verified key. This is `10.356` bits of local search
 compression with 240 truth bits fixed, not attacker-valid Full-256 recovery. The
-active conversion is therefore a soft reversible pairwise key-group/max-envelope
-policy. It must not copy a hard prefix from truth or from O1C-0044's decoy bank.
+first soft reversible pairwise key-group/max-envelope conversion is now complete
+as O1C-0048. Full-256 remains unresolved, and the frozen global all-arm gate
+fails because internal search stops at width 8 while primary and both rotations
+reach width 9. Nevertheless primary is fastest at both measured widths: 75
+conflicts at W8 versus 217/195/89 and 155 at W9 versus internal UNKNOWN/331/167.
+This is a consumed specificity breadcrumb, not a promoted recovery result. Close
+the exact disjoint-pair adapter rather than tuning it.
 
 The isolated bias-free Apple track independently tested a public Full-256
 fixed-point/output-fitness view on 32 deterministic targets. Its AUC `0.50572`,
 `-0.484` gained key bits and zero recoveries close that local-fitness direction;
-it does not alter the positive complete-state criticality path.
+it does not alter the positive complete-state criticality path. Its second,
+genuinely different carry-quotient view also closes cleanly: independently free
+non-LSB carries span all 512 output equations and leave exact key rank zero on
+8/8 Full-256 targets. Future carry work must restore the real carry recurrence
+globally by depth; it must not repeat independent-carry elimination.
+
+The active conversion now uses O1/O1-O where it is architecturally justified:
+learn bounded group credit online from attacker-visible propagation, conflict and
+backtrack outcomes while retaining O1C-0048's static arms as frozen baselines.
+The next mechanism must preserve the primary-over-rotation specificity seen at
+W8/W9 and improve absolute work or frontier. Its pairwise comparator gate is
+frozen prospectively; O1C-0048 is not retroactively promoted.
 
 All writes stay inside this repository. Sibling projects remain read-only and no
 competing heavy job starts without a resource check.

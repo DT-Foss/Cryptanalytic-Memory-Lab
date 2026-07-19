@@ -167,6 +167,7 @@ attacker-valid cipher evidence.
 | `O1C-0045-LIVE-CRITICALITY` | Lossless local-factor compilation of O1C-0044 into reversible exact search | `CONSUMED_SEARCH_DIAGNOSTIC`; Full-256 attacker-valid, residual rows post-reveal | scores exact within 1.25e-14; Full-256 0/4; internal residual frontier 8, primary/key/clause 9; width-9 conflicts 281/69/129; no primary control margin | [Result](research/O1C0045_CRITICALITY_LIVE_SEARCH_RESULT_20260718.md) |
 | `O1C-0046-KEY-ONLY-CRITICALITY` | Same frozen local factors with all variables observed but external decisions restricted to 126 key coordinates | `CONSUMED_SEARCH_DIAGNOSTIC`; Full-256 attacker-valid, residual rows post-reveal | Full-256 0/4; residual frontier unchanged at 8/9/9/9; primary conflicts fall to 43/87 at widths 8/9, but matched clause rotation remains better at 22/46 | [Result](research/O1C0046_KEY_ONLY_CRITICALITY_SEARCH_RESULT_20260719.md) |
 | `O1C-0047-GLOBAL-RESIDUAL-BEAM` | Complete-state criticality ordering on nested exhaustive W8/W12/W16 cubes | `POST_REVEAL_CEILING`; 240 truth bits fixed | primary truth ranks 1/256, 5/4096, 50/65536 versus W16 rotations 60592/43059; primary top-256 contains unique verified key; 10.356 bits local search compression | [Result](research/O1C0047_GLOBAL_CRITICALITY_RESIDUAL_BEAM_RESULT_20260719.md) |
+| `O1C-0048-PAIR-ENVELOPE` | Soft reversible global max-envelope decisions over 63 frozen key pairs | `CONSUMED_SEARCH_DIAGNOSTIC`; Full-256 rows attacker-valid, residual rows post-reveal | Full-256 0/4; residual maxima 8/9/9/9; primary conflicts W8/W9 75/155 versus internal 217/UNKNOWN, key 195/331, clause 89/167; frozen all-arm gate fails | [Result](research/O1C0048_PAIR_ENVELOPE_SEARCH_RESULT_20260719.md) |
 
 ## Frontier and state-of-the-art results
 
@@ -228,6 +229,14 @@ verified public match. The measured 10.356-bit compression is a strong decoder
 ceiling, but 240 truth bits define the cube. It authorizes a soft reversible
 pairwise group/max-envelope adapter, not a claim of Full-256 recovery and not a
 hard prefix copied from the opened truth or the decoy panel.
+O1C-0048 performs that soft conversion. The exact frozen gate remains negative
+because internal search reaches only W8 while all potential arms reach W9, so
+the all-arm conflict tier is unavailable and Full-256 remains unresolved.
+Nevertheless the primary arm is fastest among all arms at W8 and among every
+successful arm at W9. This reverses O1C-0046's clause-control advantage and is a
+real consumed specificity breadcrumb below the promotion gate. Close the exact
+static disjoint-pair adapter; the next mechanism must learn bounded group credit
+from attacker-visible live solver outcomes and improve absolute work.
 Existing sibling-project recoveries are baselines, not results of this integration.
 
 ## Negative bounds
@@ -235,6 +244,7 @@ Existing sibling-project recoveries are baselines, not results of this integrati
 | ID | Boundary | Claim level | Evidence | Breadcrumb |
 |---|---|---|---|---|
 | `APPLE-VIEW-0001` | Public feed-forward fixed-point projection and output-Hamming local descent | `EXPLORATORY_FULL256_NEGATIVE` | 32 deterministic Full-256 targets; -0.484 holdout keybits, AUC 0.50572, direction accuracy 0.49854, 0 recoveries; 21,108 R20 core evaluations | Output score admits descent without key-distance descent; close this fixed-point/local-fitness path | [Result](research/apple_view/apple_view_result.md) |
+| `APPLE-VIEW-0002` | Exact GF(2) quotient after independently lifting all addition carries | `EXPLORATORY_FULL256_NEGATIVE` | 8 deterministic Full-256 targets; carry rank 512, exact key rank 0, exact recoveries 0; all 8,192 lifted equations validate | Independent carries span the entire public output and erase every linear key parity; only globally restoring carry recurrence by depth is a new test | [Result](research/apple_view_2/apple_view_2_report.md) |
 | `O1C-0040-N1` | H16 branch-difference clause occurrence transfers structural relation accuracy but does not rank the target key | `POST_REVEAL` consumed diagnostic | raw primary ranks 1905/4097 and 2292/4097; surprise 1078/4097 and 1461/4097; key-rotated surprise 107/4097 and 423/4097 | Close occurrence and its one structural-surprise correction; retain exact proof stream and extract branch-exclusive signed antecedent chains |
 | `O1C-0042-N1` | Unique signed leaf collapse does not reproduce its consumed-panel chain-rank concentration on one fresh key | `TEST` fresh negative | primary 1371/4097 versus frozen best-quarter gate; key/factor controls 1399/3385; exact freeze/reveal lifecycle | Close this leaf-sum reader; preserve ordered parent role and clause criticality next |
 | `O1C-0000-N1` | Equal-cell single-state holography is crosstalk-limited on MQAR-256 | `NEGATIVE_BOUND` | 83.5938% mean bit accuracy, 0/5 exact | Test structured slots/polyphase separation instead of more identical superposition |

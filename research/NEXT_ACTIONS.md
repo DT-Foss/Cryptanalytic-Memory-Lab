@@ -1,14 +1,14 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T00:40:19+02:00.
+Last ranked: 2026-07-19T01:55:57+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Compile O1C-0047's complete-state geometry into a soft reversible pairwise key-group/max-envelope scheduler | State of the art | Extreme | Extreme | Medium | Tests whether 10.356 bits of privileged local compression can become attacker-valid matched search work without a hard prefix |
-| 2 | Run the smallest consumed primary/internal/key-rotation/clause-rotation Full-256 plus residual-8/9 comparison at 512 conflicts | State of the art | Extreme | Extreme | Low | A primary-specific conflict, width or time-to-hit gain authorizes prospective promotion; another matched control win closes this adapter |
-| 3 | Keep the completed Apple fixed-point/output-fitness path closed | Operational | High | High | Zero | Prevents spending on a measured chance surface while retaining its output-distance trap |
+| 1 | Feed attacker-visible propagation/conflict/backtrack outcomes into a bounded online credit state over O1C-0048's frozen pair groups | State of the art | Extreme | Extreme | Medium | Tests whether live adaptation preserves the primary reader's specificity while beating the static pair baseline in absolute exact work |
+| 2 | Freeze the smallest consumed primary/internal/key-rotation/clause-rotation Full-256 plus W8/W9 comparison before execution | State of the art | Extreme | Extreme | Low | Pairwise lexicographic dominance plus absolute improvement over O1C-0048 advances the mechanism; otherwise close the exact update rule |
+| 3 | In the independent Apple track, restore exact addition-carry recurrence by depth and measure when key rank/parity first reappears | State of the art | Extreme | High | Low | Distinguishes a shallow algebraic obstruction from full nonlinear carry coupling without another learned wrapper |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
-| 5 | Keep occurrence scoring, key-phase guidance and O1C-0023/25/29 over the closed unary field parked | Operational | High | High | Zero | Prevents scaling measured-null representations while retaining reusable adapters |
+| 5 | Keep static pair resweeps, independent-carry quotients, occurrence scoring and the closed unary field parked | Operational | High | High | Zero | Preserves measured boundaries while compute moves to live credit and globally consistent carry structure |
 
 ## Frontier scoreboard
 
@@ -36,9 +36,17 @@ Last ranked: 2026-07-19T00:40:19+02:00.
   W16 cube versus rotations `60592/43059`; the primary top-256 uniquely verifies
   the key. This is 10.356 bits of post-reveal local compression with 240 truth
   bits fixed, not attacker-valid recovery.
-- **Next measurable advance:** soft pairwise factor-group scheduling preserves
-  a residual-width, conflict or time-to-hit gain specifically for primary over
-  internal and both rotations. Exact 256 remains the terminal moonshot.
+- **Static group-conversion frontier:** O1C-0048 leaves Full-256 unresolved and
+  fails its frozen all-arm gate with maxima `8/9/9/9`. On the consumed residual
+  diagnostic, primary nevertheless beats key rotation at `75/155` versus
+  `195/331` conflicts and clause rotation at `89/167`. This restores reader
+  specificity but is neither an attacker-valid recovery nor an absolute win.
+- **Bias-free algebraic boundary:** APPLE-VIEW-0002 proves that independently
+  lifted carries span all 512 output equations and leave exact key rank zero.
+  The next algebraic test must restore the real carry recurrence by depth.
+- **Next measurable advance:** bounded target-time group credit preserves
+  pairwise primary-over-control ordering and strictly improves O1C-0048's own
+  width/conflict frontier. Exact 256 remains the terminal moonshot.
 
 ## Effect-first stop rules
 
@@ -89,6 +97,15 @@ Last ranked: 2026-07-19T00:40:19+02:00.
   Do not enlarge the truth-centered cube: translate it. A decoy-bank maximum is
   not an attacker-valid prefix and has collapsed to truth-prefix rank `463/511`
   by depth 9. The next adapter must remain soft and reversible.
+- O1C-0048 completes that smallest static adapter. Its frozen all-arm gate is
+  negative: Full-256 is `0/4`, internal stops at W8 and every pair arm reaches W9.
+  Primary does beat both rotations at W8/W9, so preserve the exact groups and
+  score bytes but do not tune pair membership, raise the conflict cap or call the
+  consumed residual diagnostic attacker-valid. The only next scheduler change is
+  bounded credit from live public solver outcomes, judged against the static run.
+- APPLE-VIEW-0001 closes fixed-point/output-distance descent. APPLE-VIEW-0002
+  closes the quotient in which all carries are independent. Do not rerun either;
+  only exact global restoration of carry recurrence by depth is a new question.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not
@@ -188,8 +205,11 @@ Last ranked: 2026-07-19T00:40:19+02:00.
 
 ## Do not spend the next cycle on
 
-- another new O1/O1-O scheduler, state representation, control matrix or formal
-  capsule before the A291/A296 and A317/A321/A325 direct-transfer screens finish;
+- another static O1/O1-O scheduler, pair regrouping, conflict-cap increase or
+  fresh target before the bounded live-credit rule either beats O1C-0048
+  absolutely or closes;
+- another independent-carry linear quotient, output-Hamming descent or
+  feed-forward fixed-point projection; restore true carry recurrence instead;
 - byte/u16/top-K scoring during reader iteration; cheap NLL/sign screening already
   answers whether an effect exists and is orders of magnitude faster;
 - treating O1C-0030 or any other null as progress beyond its one-line
