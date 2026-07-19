@@ -1296,7 +1296,9 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   once on the unchanged APPLE-VIEW-0008 relation, and O1C-0066 later persists
   its cuts. O1C-0068 preserves the same grouping while forced phase 0 adds 190
   novel exact exclusions; O1C-0069 keeps it fixed through the completed one-call
-  composition, and O1C-0070 must preserve it through active-reader gating.
+  composition. O1C-0070 preserves it again and proves the cut-majority phase
+  reader active but zero-gain; the next operator may change only confidence-
+  ranked variable order, not this grouping.
 - **Artifact:** authoritative
   [`APPLE-VIEW-0009 result`](APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json).
 
@@ -1323,8 +1325,10 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   duplicate-only fixed point. O1C-0068 then confirms explicit reader diversity
   with 190 forced-phase-0 novel clauses. O1C-0069 subsequently closes passive
   one-step cross-reader composition by reproducing O1C-0067's phase-1 trace
-  exactly; the remaining question is active vault-conditioned reading, not vault
-  construction or budget scaling.
+  exactly. O1C-0070 then changes that trace through a vault-conditioned phase
+  field but emits no clause or key. Active phase reading is closed; preserve the
+  active-not-inert breadcrumb and test variable order, not vault construction or
+  budget scaling.
 - **Artifact:** authoritative
   [`O1C-0065 result`](O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json).
 
@@ -1353,8 +1357,9 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Breadcrumb:** O1C-0067 later preserves the repaired actual-observed ledger
   and completes the distinct continuation. It emits only a stored duplicate;
   O1C-0068 then changes the reader once and grows the vault to 202 clauses with
-  190 novel exclusions. Preserve those exact bytes for the gated forced-phase-1
-  composition call.
+  190 novel exclusions. O1C-0069 closes passive composition and O1C-0070 closes
+  phase-only active gain while preserving those exact bytes. Resume only from a
+  separately precommitted confidence-ranked variable-order operator.
 - **Artifact:** authoritative
   [`O1C-0066 result`](O1C0066_APPLE8_EPISODIC_VAULT_RESULT_20260719.json), SHA-256
   `b8b61d0f2feaa9c544c1fef30cba4c7cead90c390a577a444405d45ad85000e3`;
@@ -1380,8 +1385,9 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Breadcrumb:** O1C-0068 later changes exactly to `forcephase=true`, `phase=0`
   and supports the reader-specific mechanism with 190 novel clauses. Preserve
   its sealed 202-clause output. O1C-0069 later closes the one-call forced-phase-1
-  composition with exact trace identity; continue only with B-0070's active
-  vault-conditioned reader and do not reopen either fixed point.
+  composition with exact trace identity. O1C-0070 actively changes the trace but
+  yields zero novelty/key; do not reopen any phase fixed point, and continue only
+  with confidence-ranked variable order.
 - **Artifacts:** authoritative
   [`result`](O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_RESULT_20260719.json),
   SHA-256
@@ -1420,7 +1426,8 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Breadcrumb:** O1C-0069 later performs exactly that one call and lands on the
   B-0070 fixed point: zero novelty and exact O1C-0067 phase-1 trace identity.
   Preserve the 202-clause bytes and turn only the 190 appended phase-0 clauses
-  into the frozen O1C-0070 per-variable field; no passive continuation remains.
+  into the frozen O1C-0070 per-variable field. O1C-0070 later proves that field
+  active but zero-gain; no passive or phase-only continuation remains.
 - **Artifacts:** authoritative
   [`result`](O1C0068_APPLE8_COMPLEMENTARY_PHASE_RESULT_20260719.json), SHA-256
   `d494887d2be96516211acf09ff8852a88a44576044723223b9057942fd7aea80`;
@@ -1450,13 +1457,48 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   remains above threshold.
 - **Do not repeat:** replay lineage ordinal `5`, authorize another passive
   alternation, phase/horizon sweep, continue the same reader or increase RAM.
-- **Breadcrumb:** convert the 190 stored phase-0 exclusions into a deterministic
-  target-free bounded phase field and use it as an active decision prior. First
-  require a nontrivial public field, exact native phase binding and a synthetic
-  steering fixture; only then may a one-call O1C-0070 be frozen.
+- **Breadcrumb:** O1C-0070 later converts the 190 stored exclusions into the
+  deterministic `139/116/1` phase field and executes exactly once. Its trace is
+  distinct but its novelty/key gate fails; continue to B-0071's confidence-
+  ranked variable-order pivot, not another phase call.
 - **Artifacts:** authoritative
   [`result`](O1C0069_APPLE8_ALTERNATING_READER_RESULT_20260719.json), SHA-256
   `43512370d7243d57bb3ffaed445ee9196315e350d3ee1169ee0c0d8ad94ba89b`;
   [`interpretation`](O1C0069_APPLE8_ALTERNATING_READER_INTERPRETATION_20260719.md);
   capsule manifest
   `2a78e568f0be7eafad4d117cd84aeadd0d495d19296d8ba85676496219377cb8`.
+
+## B-0071 — Vault-conditioned polarity is active but produces no gain
+
+- **Evidence:** O1C-0070 imports the unchanged `202`-clause vault and binds the
+  exact suffix-cut majority field as `255` per-variable phase calls (`139`
+  positive / `116` negative / one phase-1 fallback). Its sole local-0/lineage-6
+  process requests `512` and observes/bills `514` conflicts.
+- **Result:** the trace changes from O1C-0069's `676386a030ce3dcf…` to
+  `5c5fb773ac889d46…`; decisions fall `4,517→2,297`, propagations fall
+  `1,192,529→1,169,826`, and minimum UB rises
+  `9.111031965569408→18.846601115977638`. Thus the operator actively steers into
+  higher-UB territory rather than remaining inert.
+- **Conclusion:** the precommitted gain gate nevertheless fails: `0` eligible,
+  `0` novel and `0` duplicate clauses, no model/key, and an unchanged vault at
+  `202` clauses / `599,728` literals / `2,399,911 B`, SHA-256
+  `cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858`.
+  Refute `H-VAULT-CONDITIONED-PHASE-074` only for phase-only gain at this sealed
+  seed/horizon. The distinct trace remains a positive mechanism breadcrumb.
+- **Boundary:** the field changes polarity but cannot control variable order or
+  encode confidence magnitude. The minimum-UB increase is descriptive, not
+  efficacy or global pruning. Threshold `14.606178797892962` and O1C-0066
+  episode 1's `7.973483108047071` use the same metric/direction but different
+  populations/statistics; the latter is not an O1C-0068 result.
+- **Do not repeat:** a second O1C-0070 call, lineage ordinal `6`, phase sweep,
+  horizon change, RAM increase or reinterpretation of lower decisions as gain.
+- **Breadcrumb:** separately precommit one deterministic confidence-ranked
+  `cb_decide`/variable-order operator using the sealed sign/magnitude evidence.
+  Bind and prove that new control surface target-free under a new attempt before
+  any science call; do not combine it with a phase or budget sweep.
+- **Artifacts:** authoritative
+  [`result`](O1C0070_APPLE8_VAULT_PHASE_READER_RESULT_20260719.json), SHA-256
+  `778d2b91935ff2ae663ea706e5b7b66c8cfed2f02007ba8359e8c1cb7ff45cd7`;
+  [`interpretation`](O1C0070_APPLE8_VAULT_PHASE_READER_INTERPRETATION_20260719.md);
+  capsule manifest
+  `ca5e0dfc724dc541b5311e2fc1453fc017f4ccd562d510aad341a53188d194c2`.

@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T17:28:46+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T18:11:03+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -251,20 +251,19 @@
   190 extra phase-0 clauses. Passive one-step composition is closed; no model,
   key, truth, reveal, MPS or GPU is used. Source is
   `d6dfc06f3e7d6dfcc29d696829927b132bad23aa`.
-- **O1C-0070 truth-free public field:** the exact target-specific 190-clause
-  O1C-0068 suffix yields a
-  nontrivial bounded key-phase reader before any new science call: `139`
-  positive, `116` negative and one unsupported coordinate (`v241`, retained at
-  verified phase-1 fallback). Its canonical 1,024-byte signed field SHA-256 is
-  `5d7fd1cfca56c1ab…`; the effective 32-byte 256-bit vector is
-  `ec6d45759effd185e9a6c163d47659ea2557df6f22bb9a017361f3f6d20c3955`.
-  `238/256` coordinates have unanimous margin `190`, and the field satisfies
-  `46,888/48,246` (`97.1852589%`) key cut-literal occurrences. Raw and
-  inverse-clause-length signs agree on all 256 coordinates and none of 190
-  single-clause jackknifes flips a phase. CaDiCaL 3.0.0 exposes the exact
-  persistent per-variable polarity API needed; it changes polarity only, not
-  variable order or confidence magnitude. Native/adapter/synthetic/freeze gates
-  are now being built; Full-256 calls remain `0` and unauthorized.
+- **O1C-0070:** the one-call vault-conditioned phase reader completes as
+  `EPISODIC_VAULT_ACTIVE_PHASE_READER_NO_GAIN`. Its frozen `139/116/1` field
+  applies `255` polarity calls in sole local-0/lineage-6 work
+  `512/514/514`. It emits `0` eligible/novel/duplicate clauses and leaves the
+  vault byte-identical at `202` clauses / `599,728` literals / `2,399,911 B`,
+  SHA-256 `cd523334672dd75c…`. Versus O1C-0069, decisions fall
+  `4,517→2,297`, propagations `1,192,529→1,169,826`, minimum UB rises
+  `9.111031965569408→18.846601115977638`, and trace SHA changes from
+  `676386a030ce3dcf…` to `5c5fb773ac889d46…`. The field is active, but the
+  precommitted key-or-novel-clause gate fails; refute
+  `H-VAULT-CONDITIONED-PHASE-074` specifically for phase-only gain. No model,
+  key, truth, reveal, MPS or GPU is used. Source is
+  `c5ad5c40f0ac84f65d281cf2366d2ca6b6c49a52`.
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
@@ -288,13 +287,12 @@
   fails raw at `1,340 > 1,268 > 1,031` for edge, exact unary and final→early.
   Certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass.
   All 28 wrong passes, proof replays, freeze checks and truth controls are exact.
-- **Next mechanism:** derive the sealed phase-0 exclusion population into a
-  deterministic bounded per-variable phase field and prove target-free that it
-  actively steers intended decisions. O1C-0070 receives no Full-256 call until
-  the field is nontrivial, truth-free, repeatable, exactly bound by the native
-  API and effective on a synthetic fixture. This tests active reading of the
-  stored evidence; a second passive alternation, replay, phase/horizon sweep and
-  RAM scaling are closed.
+- **Next mechanism:** separately precommit a deterministic confidence-ranked
+  `cb_decide`/variable-order operator over the sealed field's sign and magnitude,
+  then prove its binding and consequence target-free under a new attempt. This
+  changes the control surface O1C-0070 lacked—order and confidence. A second
+  phase call, replay of ordinal `6`, phase/horizon sweep and RAM scaling are
+  closed.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -308,12 +306,11 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** no scientific process is active. O1C-0069 is sealed as
-  an exact passive phase-1 fixed point: zero novelty and exact O1C-0067 trace
-  identity despite the 202-clause state. The target-free 256-coordinate field is
-  now frozen and nontrivial; immediate work is native/adapter integration plus
-  the public synthetic consequence and source-freeze gates. No O1C-0070 science
-  call is authorized yet. O1C-0053..0056 and the exact
+- **Active local run:** no scientific process is active. O1C-0070 is sealed as
+  an active-but-zero-gain phase reader: its trace differs from O1C-0069 but it
+  emits no clause or key. Immediate work is only the separately precommitted
+  confidence-ranked variable-order design and its target-free gates; no second
+  phase call is authorized. O1C-0053..0056 and the exact
   O1C-0058 rule remain negative and closed. Sibling repositories remain
   read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
@@ -321,6 +318,8 @@
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
+  [O1C-0070 vault-phase reader result](research/O1C0070_APPLE8_VAULT_PHASE_READER_RESULT_20260719.json),
+  [O1C-0070 interpretation](research/O1C0070_APPLE8_VAULT_PHASE_READER_INTERPRETATION_20260719.md),
   [O1C-0070 truth-free target-specific vault-phase analysis](research/O1C0070_TARGET_FREE_VAULT_PHASE_ANALYSIS_20260719.json),
   [O1C-0069 alternating-reader fixed point](research/O1C0069_APPLE8_ALTERNATING_READER_RESULT_20260719.json),
   [O1C-0069 interpretation](research/O1C0069_APPLE8_ALTERNATING_READER_INTERPRETATION_20260719.md),
@@ -467,9 +466,12 @@ sole gated forced-phase-1 composition call and adds no novelty. Its whole native
 phase-1 trace exactly returns to O1C-0067—same 514 conflicts, 4,517 decisions,
 1,192,529 propagations, bounds, emitted duplicate, terminal assignment and trace
 hash—despite 190 extra imported clauses. Passive storage is not active reading.
-Close this one-step composition and derive the next reader directly from the
-vault's public signed exclusion field before any O1C-0070 science call; do not
-replay, alternate again, sweep phases/horizon or blind-scale RAM.
+O1C-0070 then applies the derived `139/116/1` field exactly once. It changes the
+native trace and reaches `2,297` decisions, `1,169,826` propagations and minimum
+UB `18.846601115977638`, but emits no clause or key. This proves active steering
+without gain. Close phase-only reading and separately precommit confidence-
+ranked `cb_decide` variable order; do not replay ordinal 6, call phase again,
+sweep horizon/phase or blind-scale RAM.
 In parallel APPLE-VIEW-0005 finds the first exact sparse carry certificate:
 250 of 336 high-carry identities suffice to reject a complete wrong key on the
 fixed matrix, with independent proof replay. APPLE-VIEW-0006 then performs the
@@ -1061,17 +1063,18 @@ O1C-0017 result boundary are documented in
 | Sealed-vault continuation | — | 2026-07-19 15:26 | O1C-0067 APPLE8 one-call continuation | terminal: one vault-index-7 (zero-based; eighth-clause) duplicate, vault unchanged at 12 clauses; lower decisions/propagations, no novelty/truth/key | complete |
 | Complementary phase reader | — | 2026-07-19 16:18 | O1C-0068 APPLE8 one-call phase-0 reader | terminal: 190 novel plus five duplicate exact exclusions grow vault 12→202 clauses; no model/key/truth/UNSAT | complete |
 | Alternating phase-1 reader | — | 2026-07-19 17:08 | O1C-0069 APPLE8 one-call composition | terminal: one zero-based vault-index-7/eighth-clause input duplicate, 0 novel; vault unchanged at 202 clauses and native trace exactly equals O1C-0067; no model/key/truth/UNSAT | complete |
-| Vault-conditioned phase preflight | — | 2026-07-19 17:28 | O1C-0070 target-free field/native integration | 190-clause field frozen at 139/116/1 with no weighting or jackknife flips; native/adapter/synthetic gates in progress; zero science calls | active |
+| Vault-conditioned phase reader | — | 2026-07-19 18:10 | O1C-0070 one-call cut-majority polarity reader | terminal: active distinct trace and higher minimum UB, but 0 emitted/novel clauses, unchanged 202-clause vault and no model/key/truth | complete |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Integrate the frozen 190-clause/256-coordinate signed field independently in
-   native and adapter code; retain its exact population, rule and field hashes.
-2. Bind that vector through CaDiCaL's per-variable phase API and require a public
-   synthetic fixture to prove exact intended decision steering. Only after all
-   source/vault/capacity/one-call gates pass may O1C-0070 receive one Full-256
-   call. Do not replay ordinal 5, alternate again, sweep or blind-scale.
+1. Separately precommit one deterministic confidence-ranked `cb_decide`/
+   variable-order operator from the sealed 190-clause field. Freeze exact
+   confidence, sign, tie, callback and source identities before any science.
+2. Prove the new variable-order consequence on a public target-free fixture and
+   bind it to a new attempt/ordinal. Only then consider one Full-256 call with
+   every non-operator condition unchanged. Do not replay ordinal `6`, issue a
+   second phase call, sweep horizon/phase or blind-scale RAM.
 3. Keep O1C-0056 fixed negative clause-role credit closed. If the causal branch
    resumes later, condition the unique exact role on outcome/utility; do not tune
    sign, scale, groups or cap.
@@ -1091,8 +1094,9 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
-| `O1C-0069` | 2026-07-19 17:08 | The 190 phase-0 exclusions perturb a forced-phase-1 trajectory enough to expose another exact population when both readers share the sealed vault | Local 0/lineage 5 requests/actual/bills `512/514/514`; one 2,951-literal input duplicate, 0 novel; vault remains 202 clauses/599,728 literals/2,399,911 B. Decisions `4,517`, propagations `1,192,529`, minimum/root UB `9.111031965569408/262.68644197084643`, terminal assignment and trace SHA `676386a0…` exactly equal O1C-0067; no model/key/truth | `EPISODIC_VAULT_ALTERNATING_READER_NO_GAIN`; exact passive phase-1 fixed point, not vault-global exhaustion | one call; 16.869109 s elapsed; 0.367456 s native wall; 1.080018 s native CPU; 398,032,896 B native peak; zero reveal/MPS/GPU | Passive storage is trace-inert here; derive a bounded vault-conditioned active phase field target-free before any O1C-0070 call | [Result](research/O1C0069_APPLE8_ALTERNATING_READER_RESULT_20260719.json) |
-| `O1C-0068` | 2026-07-19 16:18 | O1C-0067's duplicate-only fixed point is reader-phase-specific, so one forced complementary phase may expose distinct exact score-threshold exclusions at matched bounded work | Local 0/lineage 4 phase-0 call requests/actual/bills `512/512/512`, zero overshoot; 195 fully emitted, 190 novel, 5 duplicates, pending 0; vault `12→202` clauses, `35,061→599,728` literals, `140,483→2,399,911 B`, SHA `cd523334…`. Decisions `1,330`, propagations `31,944,523`, minimum/root UB `12.8607806294803/262.68644197084643`; no model/key/truth | `EPISODIC_VAULT_COMPLEMENTARY_PHASE_GAIN`; large distinct exact-exclusion population and meaningful mechanism frontier, not recovery, UNSAT or global exhaustion | one call; 21.9159 s elapsed; 5.331635 s native wall; 5.925889 s native CPU; 397,099,008 B native peak; zero reveal/MPS/GPU | O1C-0069 later proves passive phase-1 import trace-inert; preserve these clauses for an active vault-conditioned reader | [Result](research/O1C0068_APPLE8_COMPLEMENTARY_PHASE_RESULT_20260719.json) |
+| `O1C-0070` | 2026-07-19 18:10 | The exact 190-clause cut-majority field makes stored vault evidence gainful when applied as per-variable decision polarity | Local 0/lineage 6 requests/actual/bills `512/514/514`; `139/116/1` field with 255 phase calls; 0 emitted/novel/duplicate; unchanged 202 clauses/599,728 literals/2,399,911 B. Decisions `2,297`, propagations `1,169,826`, minimum/root UB `18.846601115977638/262.68644197084643`; trace `5c5fb773…` differs from O1C-0069; no model/key/truth | `EPISODIC_VAULT_ACTIVE_PHASE_READER_NO_GAIN`; active-not-inert, but phase-only gain gate fails | one call; 16.315104458 s elapsed; 0.316808 s native wall; 406,568,960 B native peak; 326,664,192 B runner peak; zero reveal/MPS/GPU | Close phase-only; separately precommit confidence-ranked `cb_decide` variable order, with no second phase call/sweep/horizon/RAM change | [Result](research/O1C0070_APPLE8_VAULT_PHASE_READER_RESULT_20260719.json) |
+| `O1C-0069` | 2026-07-19 17:08 | The 190 phase-0 exclusions perturb a forced-phase-1 trajectory enough to expose another exact population when both readers share the sealed vault | Local 0/lineage 5 requests/actual/bills `512/514/514`; one 2,951-literal input duplicate, 0 novel; vault remains 202 clauses/599,728 literals/2,399,911 B. Decisions `4,517`, propagations `1,192,529`, minimum/root UB `9.111031965569408/262.68644197084643`, terminal assignment and trace SHA `676386a0…` exactly equal O1C-0067; no model/key/truth | `EPISODIC_VAULT_ALTERNATING_READER_NO_GAIN`; exact passive phase-1 fixed point, not vault-global exhaustion | one call; 16.869109 s elapsed; 0.367456 s native wall; 1.080018 s native CPU; 398,032,896 B native peak; zero reveal/MPS/GPU | O1C-0070 later proves a vault phase field active but zero-gain; close phase and move to separately precommitted confidence-ranked variable order | [Result](research/O1C0069_APPLE8_ALTERNATING_READER_RESULT_20260719.json) |
+| `O1C-0068` | 2026-07-19 16:18 | O1C-0067's duplicate-only fixed point is reader-phase-specific, so one forced complementary phase may expose distinct exact score-threshold exclusions at matched bounded work | Local 0/lineage 4 phase-0 call requests/actual/bills `512/512/512`, zero overshoot; 195 fully emitted, 190 novel, 5 duplicates, pending 0; vault `12→202` clauses, `35,061→599,728` literals, `140,483→2,399,911 B`, SHA `cd523334…`. Decisions `1,330`, propagations `31,944,523`, minimum/root UB `12.8607806294803/262.68644197084643`; no model/key/truth | `EPISODIC_VAULT_COMPLEMENTARY_PHASE_GAIN`; large distinct exact-exclusion population and meaningful mechanism frontier, not recovery, UNSAT or global exhaustion | one call; 21.9159 s elapsed; 5.331635 s native wall; 5.925889 s native CPU; 397,099,008 B native peak; zero reveal/MPS/GPU | O1C-0069 closes passive composition and O1C-0070 closes active phase-only gain; preserve the clauses for separately frozen confidence-ranked variable order | [Result](research/O1C0068_APPLE8_COMPLEMENTARY_PHASE_RESULT_20260719.json) |
 | `O1C-0067` | 2026-07-19 15:26 | One correctly billed fresh process from the sealed 12-clause vault adds another exact exclusion or reaches a fixed point | Requested/actual/billed `512/514/514`; one `2,951`-literal input duplicate matching zero-based vault index 7 (eighth clause); vault remains 12 clauses/35,061 literals/140,483 B. Decisions `4,517` (-149), propagations `1,192,529` (-38,039), minimum UB `9.111031965569408` (+1.1375488575223374); no key/truth | `EPISODIC_VAULT_SATURATED_NO_GAIN`; exact reader/seed/horizon fixed point, not global vault exhaustion | one call; 4.553662 s elapsed; 0.333463 s native wall; 0.921060 s native CPU; 392,609,792 B native peak | Preserve the work-reducing vault, but change to complementary phase selection or another explicit reader; no replay/blind scaling | [Result](research/O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_RESULT_20260719.json) |
 | `O1C-0066` | 2026-07-19 13:58 | Canonical threshold-certified no-goods can persist across fresh bounded APPLE8 solver episodes and compound exact pruning without solver-local replay | Episodes grow vault `0→6→12` clauses: ep0 `17,804` literals / `71,431 B`; ep1 adds 6 novel / 17,257 literals with one duplicate, ending `140,483 B`. At requested 512, decisions `4471→4666`, propagations `1178185→1230568`, minimum UB `12.934208247009447→7.973483108047071`; ep2 stops adapter validation on `joint-score-sieve-v5 soft conflict ledger differs`; no key/truth | `EPISODIC_VAULT_OPERATIONAL_TERMINAL`; positive bounded efficacy before operational stop, neither scientific negative nor recovery | 3 calls/intents, 2 completed; requested 1,536/billed 1,025; 0.716103 s native wall; 8.157195 s elapsed; peak RSS `388,907,008→389,234,688 B` | O1C-0067 later repairs billing and finds unchanged-reader saturation; preserve the vault and change reader operator | [Result](research/O1C0066_APPLE8_EPISODIC_VAULT_RESULT_20260719.json) |
 | `O1C-0065` | 2026-07-19 12:36 | Exact width-6 compatibility groups turn their tighter public bound into more native Full-256 pruning at matched work | Root UB `292.3061134451→262.6864419708`, minimum UB `13.1979307788→12.9342082470`, cache `60,456→23,080 B`; cuts remain `6→6`, decisions `4471→4471`, propagations `1178185→1178185`; no key/truth read | `O1C65_GROUPED_WIDTH6_EFFICACY_RETAINED`; no strict efficacy gain or recovery | 3.328 s elapsed; 1.985 child CPU; 0.346 s native; 386,547,712 B native peak; one call | O1C-0066 later persists its cuts and O1C-0067 closes unchanged-reader novelty; preserve grouping and change reader operator | [Result](research/O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json) |
@@ -1164,6 +1168,9 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0070` capsule manifest | `ca5e0dfc724dc541b5311e2fc1453fc017f4ccd562d510aad341a53188d194c2` |
+| `O1C-0070` authoritative result | `778d2b91935ff2ae663ea706e5b7b66c8cfed2f02007ba8359e8c1cb7ff45cd7` |
+| `O1C-0070` source freeze | `c5ad5c40f0ac84f65d281cf2366d2ca6b6c49a52` |
 | `O1C-0070` truth-free target-specific vault-phase analysis | `af28f9639b4dec9e861fc250d9cf43cd81c10ddfe19e88256dbebeb72135c53d` |
 | `O1C-0070` signed 256-coordinate phase field | `5d7fd1cfca56c1ab29f9e1490d28e16d3f5def611dad2f52c4ea4015678605fe` |
 | `O1C-0070` phase rule/spec | `3dba50d3a376c2c025e2edbcc47215f19610547ad5bd6260221c82a1641df075` |
@@ -1424,10 +1431,11 @@ call from that state. It adds zero novelty and exactly reproduces O1C-0067's
 phase-1 trajectory despite 190 additional clauses: the same 514 conflicts,
 4,517 decisions, 1,192,529 propagations, bounds, emitted duplicate, terminal
 assignment and trace SHA. This closes passive one-step composition, not the
-vault. Resume by deriving a target-free bounded per-variable phase field from
-the sealed phase-0 exclusions and proving exact native decision consequence.
-No O1C-0070 Full-256 call is authorized before those gates pass; do not replay,
-alternate again, sweep phase/horizon or blind-scale RAM.
+vault. O1C-0070 then derives, binds and calls the `139/116/1` per-variable phase
+field exactly once. Its distinct trace proves active steering, but zero emitted
+clauses/key close phase-only gain. Resume only by separately precommitting a
+confidence-ranked `cb_decide` variable-order operator under a new attempt; do
+not replay ordinal `6`, call phase again, sweep phase/horizon or blind-scale RAM.
 Do not enlarge the decoy panel or repeat O1C-0058's attended-base positive-delta
 rule.
 

@@ -189,6 +189,7 @@ attacker-valid cipher evidence.
 | `O1C-0067-APPLE8-VAULT-CONTINUATION` | One correctly billed sealed continuation from O1C-0066's retained 12-clause vault | `EPISODIC_VAULT_SATURATED_NO_GAIN`; exact reader/seed/horizon fixed point, not global vault exhaustion or recovery | lineage ordinal 3/local 0; requested/actual/billed 512/514/514; one 2,951-literal input duplicate, SHA `b5da89ef…`, matching vault index 7 (zero-based; eighth clause); vault unchanged at 12 clauses/35,061 literals/140,483 B; decisions 4,517 (-149), propagations 1,192,529 (-38,039), minimum UB 9.111031965569408 (+1.1375488575223374); 0.333463 s native wall, 392,609,792 B peak; no key/truth/reveal/MPS/GPU | [Result](research/O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_RESULT_20260719.json) · [Interpretation](research/O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_INTERPRETATION_20260719.md) · [Capsule](runs/20260719_152601_O1C-0067_apple8-vault-continuation-v1/RUN.md) |
 | `O1C-0068-APPLE8-COMPLEMENTARY-PHASE` | One fresh phase-0 complementary reader from O1C-0067's sealed 12-clause vault at matched bounded work | `EPISODIC_VAULT_COMPLEMENTARY_PHASE_GAIN`; large distinct exact-exclusion population and meaningful mechanism frontier, not recovery, UNSAT or global exhaustion | local 0/lineage 4; requested/actual/billed 512/512/512, zero overshoot; 195 fully emitted, 190 novel, 5 duplicates, pending 0; vault 12→202 clauses, 35,061→599,728 literals, 140,483→2,399,911 B, SHA `cd523334…`; decisions 1,330, propagations 31,944,523, minimum/root UB 12.8607806294803/262.68644197084643; 5.331635 s native wall, 5.925889 s CPU, 397,099,008 B peak; status `UNKNOWN`, no model/key/truth/reveal/MPS/GPU | [Result](research/O1C0068_APPLE8_COMPLEMENTARY_PHASE_RESULT_20260719.json) · [Interpretation](research/O1C0068_APPLE8_COMPLEMENTARY_PHASE_INTERPRETATION_20260719.md) · [Capsule](runs/20260719_161838_O1C-0068_apple8-complementary-phase-v1/RUN.md) |
 | `O1C-0069-APPLE8-ALTERNATING-READER` | One explicit forced-phase-1 read from O1C-0068's sealed 202-clause mixed-reader vault | `EPISODIC_VAULT_ALTERNATING_READER_NO_GAIN`; exact passive phase-1 fixed point, not vault-global exhaustion or recovery | local 0/lineage 5; requested/actual/billed 512/514/514; one 2,951-literal input duplicate at zero-based vault index 7/eighth clause, 0 novel; vault unchanged at 202 clauses/599,728 literals/2,399,911 B, SHA `cd523334…`; decisions 4,517, propagations 1,192,529, minimum/root UB 9.111031965569408/262.68644197084643; native trace SHA `676386a0…` exactly equals O1C-0067 despite 190 extra clauses; 0.367456 s native wall, 1.080018 s CPU, 398,032,896 B peak; no key/truth/reveal/MPS/GPU | [Result](research/O1C0069_APPLE8_ALTERNATING_READER_RESULT_20260719.json) · [Interpretation](research/O1C0069_APPLE8_ALTERNATING_READER_INTERPRETATION_20260719.md) · [Capsule](runs/20260719_170824_O1C-0069_apple8-alternating-reader-v1/RUN.md) |
+| `O1C-0070-APPLE8-VAULT-PHASE-READER` | One target-free-derived suffix-cut majority field applied as per-variable polarity over O1C-0069's sealed 202-clause vault | `EPISODIC_VAULT_ACTIVE_PHASE_READER_NO_GAIN`; active-not-inert steering but failed key/novel-clause gate, not recovery or global exhaustion | local 0/lineage 6; requested/actual/billed 512/514/514; reader `139/116/1`, 255 phase calls, polarity only; 0 emitted/novel/duplicate; vault unchanged at 202 clauses/599,728 literals/2,399,911 B, SHA `cd523334…`; decisions 2,297, propagations 1,169,826, minimum/root UB 18.846601115977638/262.68644197084643; trace `5c5fb773…` differs from O1C-0069 `676386a0…`; 0.316808 s native wall, 406,568,960 B native peak; 16.315104458 s runner, 326,664,192 B runner peak; no key/truth/reveal/MPS/GPU | [Result](research/O1C0070_APPLE8_VAULT_PHASE_READER_RESULT_20260719.json) · [Interpretation](research/O1C0070_APPLE8_VAULT_PHASE_READER_INTERPRETATION_20260719.md) · [Capsule](runs/20260719_181048_O1C-0070_apple8-vault-phase-reader-v1/RUN.md) |
 | `APPLE-VIEW-0005-SPARSE-CARRY` | Sparse exact c31-identity certificates for complete wrong Full-256 candidates | `CONSUMED_FULL256_CANDIDATE_FILTER`; no key-generation/entropy claim | 20/20 exact wrong-candidate conflicts; every reason-DAG slice independently replays with 250–265/336 identities, best 250 (86 omitted); 5/5 truth controls complete | [Result](research/apple_view_5/apple_view_5_report.md) |
 | `APPLE-VIEW-0006-PROOF-CREDIT-TRANSFER` | One-pass 1,346-byte proof-frequency/recency state frozen before disjoint Full20/Full256 candidate filters | `HELDOUT_CERTIFICATE_TRANSFER_WITH_SCHEDULER_LOSS`; no key-generation/entropy claim | raw learned order loses 1,268 vs best structural 1,031 total first-conflict switches; independently replayed learned certificates win 4/4 at 248/248/251/250 vs best structural 251/252/257/255, aggregate 997 vs 1,015 and immediate-public 1,013; zero held-out updates, all truth controls complete | [Result](research/apple_view_6/apple_view_6_report.md) |
 | `APPLE-VIEW-0007-PROOF-EDGE-TRANSFER` | One-pass 113,570-byte proof-DAG edge/root/terminal state with one frozen static strongest-predecessor reader | `HELDOUT_STATIC_EDGE_SCHEDULER_NEGATIVE`; no key-generation/entropy claim | raw edge order loses 1,340 vs exact APPLE6 unary 1,268 and best structural 1,031; certificate 1,003 beats fixed 1,015 but loses unary 997 and cannot pass; all 28 wrong passes, proof replays, freeze checks and truth controls exact | [Result](research/apple_view_7/apple_view_7_report.md) |
@@ -213,6 +214,11 @@ O1C-0069 is source-bound to
 `43512370d7243d57bb3ffaed445ee9196315e350d3ee1169ee0c0d8ad94ba89b` and
 capsule manifest SHA-256 is
 `2a78e568f0be7eafad4d117cd84aeadd0d495d19296d8ba85676496219377cb8`.
+O1C-0070 is source-bound to
+`c5ad5c40f0ac84f65d281cf2366d2ca6b6c49a52`; authoritative result SHA-256 is
+`778d2b91935ff2ae663ea706e5b7b66c8cfed2f02007ba8359e8c1cb7ff45cd7` and
+capsule manifest SHA-256 is
+`ca5e0dfc724dc541b5311e2fc1453fc017f4ccd562d510aad341a53188d194c2`.
 
 ## Frontier and state-of-the-art results
 
@@ -378,9 +384,13 @@ call from those 202 clauses. It adds zero novelty and reproduces O1C-0067's
 phase-1 trace exactly—514 conflicts, 4,517 decisions, 1,192,529 propagations,
 the same bounds, emitted clause, terminal assignment and trace SHA—despite the
 190 extra phase-0 clauses. This refutes passive one-step composition, not the
-vault or active reading. Preserve the sealed bytes, close replay/second
-alternation/phase-horizon/RAM scaling, and derive the next bounded reader from
-the vault's own signed exclusion field target-free before any O1C-0070 call.
+vault or active reading. O1C-0070 then binds the target-free `139/116/1` field
+as per-variable polarity exactly once. It changes the trace, cuts decisions and
+propagations to `2,297/1,169,826`, and raises minimum UB to
+`18.846601115977638`, proving active steering; nevertheless it emits no clause
+or key, so phase-only gain fails. Preserve the sealed bytes, close replay/second
+phase/phase-horizon/RAM scaling, and separately precommit a confidence-ranked
+`cb_decide` variable-order operator.
 APPLE-VIEW-0005 supplies a separate exact candidate-filter frontier. Its depth-30
 base plus a proof-replayed subset of only 250 high-carry identities rejects a
 complete wrong 256-bit key while omitting 86 of the 336 missing equations. This

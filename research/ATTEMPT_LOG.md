@@ -2660,3 +2660,57 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [`capsule`](../runs/20260719_170824_O1C-0069_apple8-alternating-reader-v1/RUN.md),
   manifest SHA-256
   `2a78e568f0be7eafad4d117cd84aeadd0d495d19296d8ba85676496219377cb8`.
+
+## O1C-0070 — APPLE8 vault-conditioned phase reader
+
+- **Supersession:** this completed attempt consumes O1C-0069's sole forward
+  decision after the target-free field, native, adapter, public consequence,
+  source and capacity gates passed. It is a distinct lineage call, not a replay
+  of ordinal `5`.
+- **Started:** 2026-07-19T18:10:48+02:00.
+- **Recorded:** 2026-07-19T18:11:03+02:00.
+- **Source commit:** `c5ad5c40f0ac84f65d281cf2366d2ca6b6c49a52`.
+- **Protocol:** exactly one fresh native subprocess imports the sealed 202-clause
+  vault, uses local ordinal `0`, lineage ordinal `6`, seed `0` and the requested
+  512-conflict soft horizon. The exact O1C-0068 190-clause suffix supplies a
+  `139` positive / `116` negative / one fallback phase field; native applies
+  `255` per-variable phase calls. Target, CNF, potential, grouping, threshold
+  and actual-work billing are unchanged. The reader changes polarity only, not
+  variable order or confidence magnitude. No retry is authorized.
+- **Result:** `EPISODIC_VAULT_ACTIVE_PHASE_READER_NO_GAIN`. Requested, actual
+  and billed conflicts are `512/514/514`. The call emits `0` eligible clauses:
+  `0` novel, `0` duplicate and `0` pending. No model or key is returned. Input
+  and output remain byte-identical at `202` clauses / `599,728` literals /
+  `2,399,911 B`, SHA-256
+  `cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858`.
+- **Active-not-gainful comparison:** versus O1C-0069, decisions fall
+  `4,517→2,297`, propagations `1,192,529→1,169,826`, and minimum UB rises
+  `9.111031965569408→18.846601115977638`; root UB remains
+  `262.68644197084643`. Native trace changes from `676386a030ce3dcf…` to
+  `5c5fb773ac889d46bc26c2742dccfe4ca6559f7dd5f02d5dd0f83b1760aa712f`.
+  This proves active steering into a higher-minimum-UB visited population, but
+  the precommitted key-or-novel-clause gate fails exactly.
+- **Threshold clarification:** `tau=14.606178797892962` and minimum UB use the
+  same compiled metric/direction but different populations/statistics. The
+  `7.973483108047071` comparison belongs to O1C-0066 episode 1, not O1C-0068;
+  strict `U(a)<tau` is only a safe local prune for the visited trail `a`.
+- **Resources and lineage:** runner elapsed `16.31510445800086 s`; native wall/
+  CPU `0.316808/1.023602 s`; native peak RSS `406,568,960 B`; runner peak RSS
+  `326,664,192 B`. Only ordinal `6` is consumed. Known completed lineage billing
+  becomes `3,079`; the full actual total remains `null` because failed ordinal
+  `2` is unbilled. One native call and zero key/truth/reveal/fresh-target/
+  entropy/refit/MPS/GPU work.
+- **Decision:** refute `H-VAULT-CONDITIONED-PHASE-074` specifically for
+  phase-only gain while retaining the active-not-inert trace. Do not replay
+  ordinal `6`, issue a second phase call, sweep phase/horizon or raise RAM.
+  Separately precommit a confidence-ranked `cb_decide`/variable-order operator
+  with a new target-free specification and attempt identity.
+- **Artifacts:** authoritative
+  [`result`](O1C0070_APPLE8_VAULT_PHASE_READER_RESULT_20260719.json), SHA-256
+  `778d2b91935ff2ae663ea706e5b7b66c8cfed2f02007ba8359e8c1cb7ff45cd7`;
+  concise
+  [`interpretation`](O1C0070_APPLE8_VAULT_PHASE_READER_INTERPRETATION_20260719.md);
+  sealed
+  [`capsule`](../runs/20260719_181048_O1C-0070_apple8-vault-phase-reader-v1/RUN.md),
+  manifest SHA-256
+  `ca5e0dfc724dc541b5311e2fc1453fc017f4ccd562d510aad341a53188d194c2`.

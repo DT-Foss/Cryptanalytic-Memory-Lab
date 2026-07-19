@@ -313,17 +313,23 @@ of 12 clauses. Refute `H-ALTERNATING-READER-COMPOSITION-073` only for passive
 one-step composition: the 190 phase-0 clauses are stored but not read by this
 bounded phase-1 path.
 
-The next design makes that missing operation explicit. Truth-free derivation
-over exactly the target-specific 190 appended public phase-0 clauses is already
-nontrivial and stable:
-the bounded 256-coordinate signed field has `139` positive, `116` negative and
-one unsupported coordinate, with field SHA-256 `5d7fd1cfca56c1ab…`. Raw and
-inverse-clause-length phase signs agree on all coordinates; removing any one of
-the 190 clauses flips none. CaDiCaL 3.0.0 supports the required per-variable
-polarity preference while leaving variable order unchanged. Independent native
-and adapter bindings plus a deterministic public consequence fixture must still
-pass before any O1C-0070 Full-256 call. No replay, second alternation,
-phase/horizon sweep, RAM scaling or broad vault infrastructure is authorized.
+O1C-0070 makes that missing operation explicit once. Truth-free derivation over
+the exact 190 appended clauses supplies the stable `139/116/1` signed field;
+native applies `255` per-variable polarity calls in sole local-0/lineage-6 work
+`512/514/514`. The trace changes from O1C-0069's `676386a030ce3dcf…` to
+`5c5fb773ac889d46…`, decisions fall `4,517→2,297`, propagations fall
+`1,192,529→1,169,826`, and minimum UB rises
+`9.111031965569408→18.846601115977638`. The reader is therefore active, but it
+emits zero clauses and no key and leaves the 202-clause vault byte-identical.
+Refute `H-VAULT-CONDITIONED-PHASE-074` specifically for phase-only gain; retain
+the active-not-inert trace.
+
+The direct successor must change the control surface, not the budget. Separately
+precommit a confidence-ranked `cb_decide`/variable-order operator using the
+sealed sign and magnitude field, prove its exact native consequence target-free,
+and give it a new attempt identity before any science call. No replay of ordinal
+`6`, second phase call, phase/confidence/horizon sweep, RAM scaling or broad
+vault infrastructure is authorized.
 
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
@@ -649,9 +655,11 @@ evidence.
    hit, not recovery. O1C-0069 then executes the sole target-free-gated
    forced-phase-1 composition call and adds zero novelty. Its entire recorded
    phase-1 trajectory exactly equals O1C-0067 despite 190 extra imported
-   clauses, so passive composition is closed. Build only a target-free active
-   vault-conditioned phase field next; never replay, continue either phase,
-   sweep phase/horizon, authorize another alternation or blind-scale.
+   clauses, so passive composition is closed. O1C-0070 applies the target-free
+   active field once: it changes the trace and search telemetry but emits zero
+   clauses/key, closing phase-only gain. Build only a separately precommitted
+   confidence-ranked variable-order operator next; never replay ordinal `6`,
+   call phase again, sweep phase/confidence/horizon or blind-scale.
    Any later role-credit test must precommit an attacker-visible outcome/utility
    condition rather than tune `-32`.
 6. Complementary phase has passed only its exact-exclusion mechanism gate. Once
@@ -728,14 +736,15 @@ evidence.
   `1,192,529`, bounds, emission, terminal assignment and trace SHA exactly equal
   O1C-0067. `H-ALTERNATING-READER-COMPOSITION-073` is refuted for this passive
   one-step operator; no key, truth or reveal occurs.
-- The O1C-0070 target-free field is now frozen at `139/116/1` over the exact
-  190-clause suffix, with signed-field SHA `5d7fd1cf…`, weighting identity and
-  zero single-clause jackknife flips. Complete native/adapter identity and prove
-  it actively changes intended decisions on a synthetic fixture. No Full-256
-  call exists or is authorized until API, capacity and one-call/no-retry gates
-  freeze. No replay, second
-  alternation, phase/horizon sweep, naive continuation, RAM scaling or broad
-  compaction layer is authorized.
+- O1C-0070 applies the frozen `139/116/1` target-free field once at
+  requested/actual/billed `512/514/514`. Trace SHA becomes `5c5fb773…`,
+  decisions/propagations become `2,297/1,169,826`, and minimum UB becomes
+  `18.846601115977638`, proving active steering. It emits zero clauses/key and
+  preserves the 202-clause vault, so `H-VAULT-CONDITIONED-PHASE-074` is refuted
+  specifically for phase-only gain. The direct resume point is a separately
+  precommitted confidence-ranked `cb_decide` variable-order operator under a new
+  attempt. No replay, second phase call, phase/confidence/horizon sweep, naive
+  continuation, RAM scaling or broad compaction layer is authorized.
 
 ## Operating contract
 
