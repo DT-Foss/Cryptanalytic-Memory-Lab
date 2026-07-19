@@ -128,6 +128,12 @@
   evaluations with zero certified leaves. Exact W12 score rank 5 survives only
   as the breadcrumb: independent factor maxima destroy the required joint
   geometry. Do not tune width, pair order, cap or bound scale.
+- **O1C-0055:** exact minimized learned-clause membership is operational but
+  all-member `-32` still fails W11: `UNKNOWN` at 512 conflicts/513 decisions/
+  12,083,477 propagations. All 512 clauses match live owners, producing 2,684
+  members and 2,057 per-clause cell penalties, yet the state again touches only
+  18 unique cells/seven groups like O1C-0052. Close indiscriminate negative
+  credit; select one exact member by clause role next.
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
@@ -151,11 +157,9 @@
   fails raw at `1,340 > 1,268 > 1,031` for edge, exact unary and final→early.
   Certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass.
   All 28 wrong passes, proof replays, freeze checks and truth controls are exact.
-- **Next paid experiment:** replace trail-survival credit with exact learned-
-  clause/first-UIP antecedent membership at the conflict boundary. Preserve the
-  frozen groups, cap and one-call discipline; do not tune the closed `+32`
-  proxy. The parallel global-prefix/factor-bound design has now failed O1C-0054
-  and is closed without a tuning sweep.
+- **Next paid experiment:** retain O1C-0055's exact clause-membership hook but
+  select one deepest/current-level represented owner per conflict. Do not tune
+  the closed all-member sign, scale, groups or cap.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -169,15 +173,16 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** O1C-0053 and O1C-0054 are negative and frozen. Both
-  trail-survival credit and the global separable factor-bound beam are closed.
-  The causal branch moves to exact learned-clause/first-UIP antecedent membership.
+- **Active local run:** O1C-0053..0055 are negative and frozen. Trail survival,
+  the global separable bound and learned-clause all-member `-32` are closed.
+  The causal branch moves to one exact role-conditioned clause member.
   Sibling repositories remain read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
   the north star; the scored objective is the strongest reproducible
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
+  [O1C-0055 learned-clause all-member close](research/O1C0055_LEARNED_CLAUSE_CREDIT_SCREEN_RESULT_20260719.md),
   [O1C-0054 global factor-bound close](research/O1C0054_GLOBAL_FACTOR_BOUND_SCREEN_RESULT_20260719.md),
   [O1C-0053 deepest-survivor W11 close](research/O1C0053_DEEPEST_SURVIVOR_SUPPORT_SCREEN_RESULT_20260719.md)
   and [APPLE-VIEW-0007 static proof-edge close](research/apple_view_7/apple_view_7_report.md).
@@ -246,6 +251,10 @@ antecedent membership is the next causal discriminator. O1C-0054 executes the
 parallel global-prefix path independently: the unconditional public Full256 beam
 loses truth at pair stage 5 and the post-reveal W11 queue certifies zero leaves
 under its frozen cap. The separable factor-max envelope is therefore closed too.
+O1C-0055 then installs exact learned-clause membership. Every conflict supplies
+matched live owners, but penalizing all of them again reaches only the same 18
+cells/seven groups as O1C-0052 and remains `UNKNOWN`. Exact membership is kept;
+collective negative blame is closed. Select one current-level/deepest member.
 In parallel APPLE-VIEW-0005 finds the first exact sparse carry certificate:
 250 of 336 high-carry identities suffice to reject a complete wrong key on the
 fixed matrix, with independent proof replay. APPLE-VIEW-0006 then performs the
@@ -828,15 +837,14 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Main scientific run | — | 2026-07-19 | O1C-0054 frozen result | global factor-bound proxy closed; exact conflict-antecedent attribution next | — |
+| Main scientific run | — | 2026-07-19 | O1C-0055 frozen result | all-member clause credit closed; exact role selector next | — |
 | Bias-free parallel track | — | 2026-07-19 | O1C-0054 global-prefix screen complete | Full256 no recovery; W11 zero certified leaves; closed without tuning | — |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Attach exact learned-clause/first-UIP antecedent membership to the conflict
-   boundary and test it under the frozen W11 work gate; do not tune the closed
-   survivor proxy.
+1. Select one deepest/current-level exact learned-clause owner and test it under
+   the frozen W11 gate; do not tune all-member credit.
 2. Keep O1C-0054's global separable factor-bound beam closed; do not widen its
    beam, reorder pairs, raise the queue cap or tune the bound.
 3. Keep APPLE-VIEW-0007's static strongest-predecessor reader closed; do not
@@ -849,6 +857,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0055` | 2026-07-19 05:37 | Exact learned-clause membership localizes causal negative credit at W11 | `UNKNOWN` at 512 conflicts/513 decisions/12,083,477 propagations; 512/512 clauses match, 2,684 members and 2,057 penalties, but only 18 unique cells/seven groups; 167 reorders, 502 repeats | `CONSUMED_POST_REVEAL_EXACT_LEARNED_CLAUSE_SCREEN`; negative | 4.951483 s wall; 127,057,920 B peak; one call; 2,662 B state; zero fresh/sibling/MPS/GPU | Exact hook works, but all-member blame reproduces O1C-0052 diffusion; choose one member by exact clause role | [Capsule](runs/20260719_053703_O1C-0055_learned-clause-credit-screen-v1/RUN.md) |
 | `O1C-0054` | 2026-07-19 05:23 | Independent admissible factor maxima can preserve O1C-0047's complete-state joint score through a bounded Full256 beam | Public Full256 0/256, truth prefix first lost at stage 5 `(9,10)`, top/min Hamming 120/116; post-reveal W11 reaches 1,024 pops/14 forwards with zero certified leaves | `CONSUMED_POST_REVEAL_GLOBAL_BOUND_SCREEN`; negative | 2.732337 s wall; 2.704926 s CPU; 88,031,232 B peak; 270 forward evaluations; 24,624 B logical Full256 state; zero solver/fresh/sibling/MPS/GPU | Exact W12 score rank 5 does not survive independent factorwise maxima; close the separable relaxation/beam and move to exact learned-clause membership | [Capsule](runs/20260719_052346_O1C-0054_global-factor-bound-screen-v1/RUN.md) |
 | `O1C-0053` | 2026-07-19 04:38 | One positive `+32` update to the deepest surviving exact action identifies the retained causal frontier at W11 | `UNKNOWN` at 512 conflicts/513 decisions/12,068,568 propagations; 512 support updates (`16,384` units), 111 action reorderings, only two differentiated groups | `CONSUMED_POST_REVEAL_SURVIVOR_SUPPORT_SCREEN`; negative | 5.326337 s wall; 127,893,504 B peak; one call; 2,646 B state; zero fresh/sibling/MPS/GPU | Survival is too coarse: close it and credit exact learned-clause/first-UIP antecedent membership; the post-result truth diagnostic is not fresh evidence | [Result](research/O1C0053_DEEPEST_SURVIVOR_SUPPORT_SCREEN_RESULT_20260719.md) |
 | `O1C-0052` | 2026-07-19 04:02 | Four addressed action cells per pair repair O1C-0051's polarity aliasing at W11 | `UNKNOWN` at 512 conflicts/513 decisions; 162/448 selections reordered, 18 cells differentiated, but 502/513 decisions still repeat and every visited cell is penalized | `CONSUMED_POST_REVEAL_PATTERN_ACTION_CREDIT_SCREEN`; negative | 5.098156 s wall; 128,303,104 B peak; one call; 2,646 B state; zero fresh/sibling/MPS/GPU | Conflict undo cannot identify the guilty action; reward the deepest surviving trail action once before exact proof attribution | [Capsule](runs/20260719_040242_O1C-0052_pattern-action-credit-screen-v1/RUN.md) |
@@ -908,6 +917,9 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0055` capsule manifest | `7559c3fbf4a327356c6c04d9cf266b366bf8760092218dbcfa5cb2f5254c9729` |
+| `O1C-0055` authoritative result | `569b9770a690357b64dcfc44bce79b1a7eedb1f9688e5c03ad6f185b50adc9b8` |
+| `O1C-0055` source freeze | `8d7aa3d6053356ab7c5b95661df6548697505959` |
 | `O1C-0054` capsule manifest | `442d6659e93d67c86d118373313bd624a37ace49089b1765f01a874aa7e808fc` |
 | `O1C-0054` authoritative result | `91aa42c2b036a5709f0f093e091c017c568aea459098dd238800cea87d9c32d5` |
 | `O1C-0054` source freeze | `2a63a749b5d0f92280a750ca79218ab841f2037a` |
@@ -1101,13 +1113,16 @@ O1C-0017 result boundary are documented in
 ## Resume here
 
 Resume from [the ranked actions](research/NEXT_ACTIONS.md) and the
-[O1C-0054 result](research/O1C0054_GLOBAL_FACTOR_BOUND_SCREEN_RESULT_20260719.md).
+[O1C-0055 result](research/O1C0055_LEARNED_CLAUSE_CREDIT_SCREEN_RESULT_20260719.md).
 O1C-0053 proves that one deepest-survivor update fires on every conflict
 backjump, yet W11 remains `UNKNOWN` and only two groups differentiate. Close
 trail survival as the proxy. Resume with exact learned-clause/first-UIP
 antecedent membership at the conflict boundary, not a parameter sweep. O1C-0054
 has now also closed the parallel global separable factor-bound path: its public
 Full256 beam lost truth at stage 5 and its W11 queue certified zero leaves.
+O1C-0055 proves exact learned-clause membership fires on every conflict, but
+all-member `-32` still fails W11 and reproduces O1C-0052's 18-cell/seven-group
+diffusion. Resume with one frozen deepest/current-level exact member selector.
 
 APPLE-VIEW-0001..0004 are closed at their measured algebraic/local boundaries.
 APPLE-VIEW-0005/0006 establish exact sparse certificates and held-out transfer

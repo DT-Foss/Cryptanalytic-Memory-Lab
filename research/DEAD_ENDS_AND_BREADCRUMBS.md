@@ -1171,3 +1171,20 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   contradiction rather than an independent global envelope.
 - **Artifact:** authoritative
   [`O1C-0054 result`](O1C0054_GLOBAL_FACTOR_BOUND_SCREEN_RESULT_20260719.md).
+
+## B-0060 — Exact learned-clause membership still needs role selection
+
+- **Evidence:** O1C-0055 matches opposite-sign live decision owners in every one
+  of 512 minimized learned clauses and penalizes all distinct represented cells.
+- **Result:** W11 remains `UNKNOWN`; 2,684 owner members and 2,057 per-clause
+  penalties collapse onto only 18 unique cells/seven groups, exactly O1C-0052's
+  support size. Reorders are 167 versus 162 and propagations increase by 16,598.
+- **Conclusion:** exact contradiction membership is a valid event hook, but
+  membership alone does not assign guilt. `-32` to all members is diffuse blame.
+- **Do not repeat:** sign/scale sweeps, mixed positive credit, group changes, cap
+  growth or rotations/fresh targets under the all-member rule.
+- **Breadcrumb:** each conflict exposes 5.24 matched owners and 4.02 cells on
+  average. Choose one exact deepest/current-level clause member by a frozen rule.
+  The consumed truth view penalizes true masks in 6/8 groups and is not success.
+- **Artifact:** authoritative
+  [`O1C-0055 result`](O1C0055_LEARNED_CLAUSE_CREDIT_SCREEN_RESULT_20260719.md).

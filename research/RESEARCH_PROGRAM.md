@@ -250,6 +250,16 @@ incompatible local optima and erases the exact complete-state geometry that
 ranks truth fifth on W12. Close beam width, pair order, cap and scale without a
 sweep. O1C-0055 exact learned-clause membership is the active causal path.
 
+O1C-0055 executes that path once. Every one of 512 minimized learned clauses
+contains matched live-owner membership, yielding 2,684 members and 2,057
+distinct per-clause cell penalties in a 2,662-byte state. W11 nevertheless stays
+`UNKNOWN` at 512 conflicts/513 decisions/12,083,477 propagations. Only 18 unique
+cells across seven groups receive credit—the same support size as O1C-0052—and
+502 decisions repeat. Refute H-EXACT-CONFLICT-ANTECEDENT-063 for indiscriminate
+all-member `-32`, not for the exact hook. Average fan-out 5.24 owners/4.02 cells
+per conflict motivates H-CLAUSE-ROLE-CREDIT-065: select one deepest/current-level
+exact member under the unchanged gate, without a sign, scale, group or cap sweep.
+
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
 targets. AUC 0.50572, -0.484 gained key bits and zero recoveries close that exact
@@ -540,6 +550,9 @@ evidence.
    membership with no proxy, group or cap sweep. O1C-0054 has independently
    executed and closed the parallel global-prefix factor-bound design: Full256
    loses truth at stage 5 and W11 certifies zero leaves under the frozen cap.
+   O1C-0055 then confirms exact learned-clause membership on all 512 conflicts
+   but all-member `-32` reproduces O1C-0052's 18-cell/seven-group diffusion and
+   fails W11. Keep the hook; select one deepest/current-level exact member next.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.

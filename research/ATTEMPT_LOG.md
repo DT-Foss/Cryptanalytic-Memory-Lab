@@ -2167,6 +2167,33 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `91aa42c2b036a5709f0f093e091c017c568aea459098dd238800cea87d9c32d5`, source
   freeze `2a63a749b5d0f92280a750ca79218ab841f2037a`.
 
+## O1C-0055 — Exact learned-clause all-member credit screen
+
+- **Recorded:** 2026-07-19T05:37:08+02:00.
+- **Protocol:** one post-reveal primary W11 call at seed 0/512 conflicts. Exact
+  minimized clause literals match only opposite-sign live decision owners;
+  every distinct represented `(group,mask)` receives `-32`.
+- **Result:** `UNKNOWN` at 512 conflicts, 513 decisions and 12,083,477
+  propagations. All 512 clauses match; 43,483 literals yield 2,684 owner members,
+  2,057 per-clause cell penalties and 65,824 units. Only 18 unique cells/seven
+  groups differentiate, with 167 reorders and 502 repeated decisions.
+- **Comparison:** O1C-0052 also touches 18 cells/seven groups, reorders 162 and
+  uses 12,066,879 propagations. Exact membership is active, but all-member
+  negative blame reproduces the diffuse prior boundary.
+- **Consumed truth diagnostic:** true masks are penalized in 6/8 active groups,
+  total `-17,568`, top/tied-top in 2/8 with ranks `1:2,2:1,3:2,4:3`. This is
+  post-result localization, not fresh evidence.
+- **Resources:** 4.951483084 s wall, 2.024342 s parent CPU, 2.654086 s child CPU,
+  127,057,920 B peak and exactly 2,662 B state.
+- **Decision:** refute all-member `-32` exact membership without tuning. Average
+  fan-out is 5.24 owners/4.02 cells per conflict; select one deepest/current-
+  level exact clause member next.
+- **Artifacts:** [`result`](O1C0055_LEARNED_CLAUSE_CREDIT_SCREEN_RESULT_20260719.md)
+  and [`capsule`](../runs/20260719_053703_O1C-0055_learned-clause-credit-screen-v1/RUN.md);
+  authoritative JSON SHA-256
+  `569b9770a690357b64dcfc44bce79b1a7eedb1f9688e5c03ad6f185b50adc9b8`, source
+  freeze `8d7aa3d6053356ab7c5b95661df6548697505959`.
+
 ## APPLE-VIEW-0006 — Held-out streaming proof-credit transfer
 
 - **Recorded:** 2026-07-19T03:11:06+02:00, isolated parallel track.

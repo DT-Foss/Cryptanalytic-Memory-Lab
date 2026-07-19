@@ -1,0 +1,3155 @@
+{
+  "architecture": {
+    "ordered_pair_file_sha256": {
+      "clause_rotated": "bb0790782a7752ba5287494000a06ec8249edaad378782fdd6374a4c7a4de9a5",
+      "key_rotated": "5ca5ab5a5c159d979a9079763a3251fb1e07ebdbba0192f212e6da803ff2b454",
+      "primary": "bb0790782a7752ba5287494000a06ec8249edaad378782fdd6374a4c7a4de9a5"
+    },
+    "pair_plan_validation": {
+      "clause_rotated": {
+        "all_pair_variables_observed_by_potential": true,
+        "observed_potential_variable_count": 447,
+        "observed_potential_variables_sha256": "eeea94cd1ca5ebd17fddd804d00ac69e02f9e9fc59629e851dd40214d84a080a",
+        "partitions_transformed_field_keys_exactly": true,
+        "transformed_field_key_count": 126,
+        "transformed_field_keys_sha256": "b2717ff354862abc1ae01f8a6b0ccef493f35df1fb759a1a707c88cc01448bda"
+      },
+      "key_rotated": {
+        "all_pair_variables_observed_by_potential": true,
+        "observed_potential_variable_count": 500,
+        "observed_potential_variables_sha256": "9dd2ef7197d20238d36188e263bfe4bd71b242359c035dca95f083071acefc09",
+        "partitions_transformed_field_keys_exactly": true,
+        "transformed_field_key_count": 126,
+        "transformed_field_keys_sha256": "53bb0d153980b5f9874c3754acb1f1a8af7edfea5f0c053a1045366569d86924"
+      },
+      "primary": {
+        "all_pair_variables_observed_by_potential": true,
+        "observed_potential_variable_count": 447,
+        "observed_potential_variables_sha256": "8a76baab9eec9d390b3bbfcce8e62d5b0e59cfc0123a889a5580b74d6f749b89",
+        "partitions_transformed_field_keys_exactly": true,
+        "transformed_field_key_count": 126,
+        "transformed_field_keys_sha256": "b2717ff354862abc1ae01f8a6b0ccef493f35df1fb759a1a707c88cc01448bda"
+      }
+    },
+    "pair_plans": {
+      "clause_rotated": {
+        "eligible_variables": 126,
+        "filler_groups": 22,
+        "group_count": 63,
+        "joint_groups": 41,
+        "ordered_variables_sha256": "51d13c06c6640efc6b0439efa7a85900d30aea79698d18ae58202a33d03fdbd1"
+      },
+      "key_rotated": {
+        "eligible_variables": 126,
+        "filler_groups": 22,
+        "group_count": 63,
+        "joint_groups": 41,
+        "ordered_variables_sha256": "b04ca9b7c0311557b1d05b882e2ea6365a0c545c83553ea6a4a35153808434db"
+      },
+      "primary": {
+        "eligible_variables": 126,
+        "filler_groups": 22,
+        "group_count": 63,
+        "joint_groups": 41,
+        "ordered_variables_sha256": "51d13c06c6640efc6b0439efa7a85900d30aea79698d18ae58202a33d03fdbd1"
+      }
+    },
+    "pattern_adapter_sha256": "d88d1bf618a06f2fd06760e9a3b42e6a110a121b949834e0ff6bcbc27f341114",
+    "pattern_native_build": {
+      "cadical_header_sha256": "b7111690c61935b9c096d3701be59b3c3d26c555eab8e070f19eb2a97dc5d38c",
+      "cadical_library_sha256": "44cae3728485b4fd5736ce7cb986021236652daeda9cca227a2c4ac17d3a8a7f",
+      "command": [
+        "c++",
+        "-std=c++17",
+        "-O3",
+        "-DNDEBUG",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-I/opt/homebrew/Cellar/cadical/3.0.0/include",
+        "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/native/cadical_o1_pattern_credit_search.cpp",
+        "/opt/homebrew/Cellar/cadical/3.0.0/lib/libcadical.a",
+        "-o",
+        "<TEMP_OUTPUT>"
+      ],
+      "executable_sha256": "93ab384cf3f28ba04fa722493476c32453443a7ab1f3570362f5638b3acb357e",
+      "source_sha256": "c3d2b35b5a3409aa18af5338648393f3933e254d0488aac06533f9b20d406a67"
+    },
+    "pattern_source_sha256": "c3d2b35b5a3409aa18af5338648393f3933e254d0488aac06533f9b20d406a67",
+    "primary_pair_plan": {
+      "eligible_variables": 126,
+      "filler_groups": 22,
+      "group_count": 63,
+      "joint_groups": 41,
+      "ordered_variables_sha256": "51d13c06c6640efc6b0439efa7a85900d30aea79698d18ae58202a33d03fdbd1"
+    },
+    "public_instance": {
+      "assumption_unit_clause_count": 0,
+      "assumption_unit_clause_sha256": null,
+      "assumptions": [],
+      "clause_count": 188010,
+      "counter": 914980544,
+      "fixed_key_sha256": null,
+      "instance_bytes": 4343565,
+      "instance_sha256": "f4a02c0b47a2e0d44943ba6cd2b47050710178e4e53603ab17cc02fabfd186ca",
+      "key_fixed_for_self_test": false,
+      "key_unit_clause_count": 0,
+      "key_unit_clause_sha256": null,
+      "nonce_hex": "5e7861b809ebe273019b0fcc",
+      "output_sha256": "dc34c6d7769eecbd0f8654315cada285710dea0d879394bc5341bc70169ac82d",
+      "public_unit_clause_count": 640,
+      "public_unit_clause_sha256": "44c360965bf63cfd809cd794505ea7b7976409c8973a3c6c25c2f9ad8bae2ee7",
+      "schema": "o1-256-chacha20-cnf-instance-v1",
+      "template_map_sha256": "13c0dd32b1c0eec0b9b95e9c7c0f2a8390b8be6f98bd59e3b7d021c23762bfaf",
+      "template_sha256": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+      "unit_clause_sha256": "44c360965bf63cfd809cd794505ea7b7976409c8973a3c6c25c2f9ad8bae2ee7",
+      "variable_count": 32128
+    },
+    "residual_key_order": [
+      173,
+      174,
+      175,
+      184,
+      59,
+      143,
+      176,
+      9,
+      60,
+      144,
+      177,
+      201,
+      253,
+      179,
+      183,
+      10,
+      27,
+      55,
+      61,
+      82,
+      87,
+      101,
+      115,
+      126,
+      145,
+      178,
+      202,
+      214,
+      226,
+      227,
+      232,
+      254,
+      11,
+      20,
+      28,
+      35,
+      39,
+      56,
+      62,
+      71,
+      74,
+      83,
+      88,
+      97,
+      98,
+      102,
+      116,
+      122,
+      127,
+      136,
+      146,
+      150,
+      156,
+      168,
+      185,
+      186,
+      203,
+      215,
+      228,
+      233,
+      250,
+      255,
+      180,
+      2,
+      3,
+      12,
+      14,
+      16,
+      21,
+      23,
+      25,
+      29,
+      31,
+      36,
+      40,
+      46,
+      51,
+      53,
+      57,
+      63,
+      72,
+      75,
+      77,
+      79,
+      84,
+      89,
+      93,
+      99,
+      103,
+      108,
+      111,
+      117,
+      123,
+      128,
+      131,
+      132,
+      137,
+      139,
+      141,
+      147,
+      151,
+      154,
+      157,
+      160,
+      164,
+      169,
+      181,
+      187,
+      188,
+      192,
+      196,
+      204,
+      206,
+      216,
+      220,
+      229,
+      234,
+      236,
+      241,
+      243,
+      251,
+      256,
+      66,
+      130,
+      182,
+      189
+    ],
+    "runner_sha256": "f825b15c8d15c7b1524c40378dac14a7dc99cc32b11c235c8cc00e604085ded5",
+    "static_native_build": null,
+    "w11_residual_variables": [
+      9,
+      59,
+      60,
+      143,
+      144,
+      173,
+      174,
+      175,
+      176,
+      177,
+      184
+    ]
+  },
+  "attempt_id": "O1C-0052",
+  "baseline_sha256": {
+    "O1C-0050": "2f23214b98c4483344660b016c86f03a2a4285733d10b19b5acd8a6fc8767888",
+    "O1C-0051": "aa8fec70d1f97d7a127791699c5340db28168389beeeab32c70d2b1b3121c058"
+  },
+  "boundary": {
+    "MPS_or_GPU": false,
+    "cap_tuning": 0,
+    "consumed_target": true,
+    "first_native_call_is_pattern_primary_w11": true,
+    "followups_execute_without_intervening_tuning": true,
+    "followups_require_exact_pattern_primary_w11": true,
+    "four_action_cells_per_pair_group": true,
+    "fresh_targets": 0,
+    "frozen_o1c50_and_o1c51_boundaries": true,
+    "full256_calls_are_consumed_promotion_not_fresh_evidence": true,
+    "full256_solver_inputs_are_public_only": true,
+    "group_tuning": 0,
+    "parameter_tuning": 0,
+    "post_reveal_qualification": true,
+    "qualification_unknown_residual_bits": 11,
+    "same_conflict_cap_for_every_call": true,
+    "sibling_reads": 0,
+    "sibling_writes": 0,
+    "telemetry_or_wall_cannot_pass": true,
+    "truth_fixed_key_bits": 245
+  },
+  "call_ledger": {
+    "cap_tuning_calls": 0,
+    "executed_call_ordinals": [
+      1
+    ],
+    "executed_calls": [
+      {
+        "arm": "primary",
+        "authorization": "unconditional-first-call",
+        "conflict_limit": 512,
+        "mechanism": "pattern",
+        "ordinal": 1,
+        "residual_bits": 11,
+        "search_space": "post-reveal-w11",
+        "seed": 0,
+        "stage": "qualification",
+        "timeout_seconds": 120.0
+      }
+    ],
+    "group_tuning_calls": 0,
+    "maximum_native_solver_calls": 7,
+    "maximum_requested_conflicts": 3584,
+    "native_solver_calls": 1,
+    "parameter_tuning_calls": 0,
+    "planned_calls": [
+      {
+        "arm": "primary",
+        "authorization": "unconditional-first-call",
+        "conflict_limit": 512,
+        "mechanism": "pattern",
+        "ordinal": 1,
+        "residual_bits": 11,
+        "search_space": "post-reveal-w11",
+        "seed": 0,
+        "stage": "qualification",
+        "timeout_seconds": 120.0
+      },
+      {
+        "arm": "primary",
+        "authorization": "exact-pattern-primary-w11-only",
+        "conflict_limit": 512,
+        "mechanism": "static",
+        "ordinal": 2,
+        "residual_bits": 11,
+        "search_space": "post-reveal-w11",
+        "seed": 0,
+        "stage": "matched-w11",
+        "timeout_seconds": 120.0
+      },
+      {
+        "arm": "key_rotated",
+        "authorization": "exact-pattern-primary-w11-only",
+        "conflict_limit": 512,
+        "mechanism": "pattern",
+        "ordinal": 3,
+        "residual_bits": 11,
+        "search_space": "post-reveal-w11",
+        "seed": 0,
+        "stage": "matched-w11",
+        "timeout_seconds": 120.0
+      },
+      {
+        "arm": "clause_rotated",
+        "authorization": "exact-pattern-primary-w11-only",
+        "conflict_limit": 512,
+        "mechanism": "pattern",
+        "ordinal": 4,
+        "residual_bits": 11,
+        "search_space": "post-reveal-w11",
+        "seed": 0,
+        "stage": "matched-w11",
+        "timeout_seconds": 120.0
+      },
+      {
+        "arm": "primary",
+        "authorization": "exact-pattern-primary-w11-only",
+        "conflict_limit": 512,
+        "mechanism": "pattern",
+        "ordinal": 5,
+        "residual_bits": 256,
+        "search_space": "full256",
+        "seed": 0,
+        "stage": "full256-promotion",
+        "timeout_seconds": 120.0
+      },
+      {
+        "arm": "key_rotated",
+        "authorization": "exact-pattern-primary-w11-only",
+        "conflict_limit": 512,
+        "mechanism": "pattern",
+        "ordinal": 6,
+        "residual_bits": 256,
+        "search_space": "full256",
+        "seed": 0,
+        "stage": "full256-promotion",
+        "timeout_seconds": 120.0
+      },
+      {
+        "arm": "clause_rotated",
+        "authorization": "exact-pattern-primary-w11-only",
+        "conflict_limit": 512,
+        "mechanism": "pattern",
+        "ordinal": 7,
+        "residual_bits": 256,
+        "search_space": "full256",
+        "seed": 0,
+        "stage": "full256-promotion",
+        "timeout_seconds": 120.0
+      }
+    ],
+    "policy": "call-1-pattern-primary-w11;calls-2-through-7-only-after-exact-call-1",
+    "requested_conflicts": 512,
+    "skipped_call_ordinals": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "skipped_calls": [
+      {
+        "arm": "primary",
+        "authorization": "exact-pattern-primary-w11-only",
+        "conflict_limit": 512,
+        "mechanism": "static",
+        "ordinal": 2,
+        "residual_bits": 11,
+        "search_space": "post-reveal-w11",
+        "seed": 0,
+        "stage": "matched-w11",
+        "timeout_seconds": 120.0
+      },
+      {
+        "arm": "key_rotated",
+        "authorization": "exact-pattern-primary-w11-only",
+        "conflict_limit": 512,
+        "mechanism": "pattern",
+        "ordinal": 3,
+        "residual_bits": 11,
+        "search_space": "post-reveal-w11",
+        "seed": 0,
+        "stage": "matched-w11",
+        "timeout_seconds": 120.0
+      },
+      {
+        "arm": "clause_rotated",
+        "authorization": "exact-pattern-primary-w11-only",
+        "conflict_limit": 512,
+        "mechanism": "pattern",
+        "ordinal": 4,
+        "residual_bits": 11,
+        "search_space": "post-reveal-w11",
+        "seed": 0,
+        "stage": "matched-w11",
+        "timeout_seconds": 120.0
+      },
+      {
+        "arm": "primary",
+        "authorization": "exact-pattern-primary-w11-only",
+        "conflict_limit": 512,
+        "mechanism": "pattern",
+        "ordinal": 5,
+        "residual_bits": 256,
+        "search_space": "full256",
+        "seed": 0,
+        "stage": "full256-promotion",
+        "timeout_seconds": 120.0
+      },
+      {
+        "arm": "key_rotated",
+        "authorization": "exact-pattern-primary-w11-only",
+        "conflict_limit": 512,
+        "mechanism": "pattern",
+        "ordinal": 6,
+        "residual_bits": 256,
+        "search_space": "full256",
+        "seed": 0,
+        "stage": "full256-promotion",
+        "timeout_seconds": 120.0
+      },
+      {
+        "arm": "clause_rotated",
+        "authorization": "exact-pattern-primary-w11-only",
+        "conflict_limit": 512,
+        "mechanism": "pattern",
+        "ordinal": 7,
+        "residual_bits": 256,
+        "search_space": "full256",
+        "seed": 0,
+        "stage": "full256-promotion",
+        "timeout_seconds": 120.0
+      }
+    ]
+  },
+  "claim_level": "CONSUMED_POST_REVEAL_PATTERN_ACTION_CREDIT_SCREEN",
+  "classification": "PATTERN_ACTION_CREDIT_NO_EXACT_W11_CLOSE",
+  "gate": {
+    "exact_key_and_public_verification_required": true,
+    "expected_native_solver_calls": 1,
+    "expected_requested_conflicts": 512,
+    "followup_calls_authorized": false,
+    "model_matches_truth_fixed_prefix": false,
+    "model_publicly_verified": false,
+    "model_truth_exact": false,
+    "passed": false,
+    "pattern_primary_w11_exact": false,
+    "selected_tier": "no-exact-pattern-primary-w11",
+    "status": "UNKNOWN",
+    "telemetry_cannot_satisfy_gate": true,
+    "wall_time_cannot_satisfy_gate": true
+  },
+  "hypothesis": "bounded per-pattern action credit separates the four action and polarity cells that remained aliased by O1C-0051, expanding exact completion at W11 under the same 512-conflict cap",
+  "next_action": "close pattern action credit on the frozen disjoint pair groups after one W11 call",
+  "pattern_full256": [],
+  "promotion": null,
+  "recorded_at": "2026-07-19T04:02:47+02:00",
+  "resources": {
+    "MPS_or_GPU": false,
+    "child_cpu_seconds": 2.688864,
+    "elapsed_seconds": 5.098155667001265,
+    "fresh_targets": 0,
+    "maximum_native_solver_calls": 7,
+    "maximum_requested_conflicts": 3584,
+    "native_solver_calls": 1,
+    "parent_cpu_seconds": 2.095463,
+    "peak_rss_bytes": 128303104,
+    "requested_conflicts": 512,
+    "scored_call_timeout_seconds": 120.0,
+    "sibling_reads": 0,
+    "sibling_writes": 0
+  },
+  "schema": "o1-256-pattern-credit-screen-result-v1",
+  "source_commit": "b32608d5cebbd547582a6dc8c371482e191e08a5",
+  "source_sha256": {
+    "clause_rotated_potential": "1bed47e6753e5f517d9f0227ab7a3643c452eef30e937dfea0f036b0260e6ea6",
+    "field": "58c8e2eb07632b4b4e2a26b148283effc30cc2391c276ed294a0bb64335c747f",
+    "key_rotated_potential": "c97aad4c6b57fc3284f54dfdd0660b40a67ebeb46ce344823898919c608a3a1c",
+    "pair_group_source": "6e4978dcee0d9b915921cde66be05d294b5a6159593bfc3510a6e0238bde5ef1",
+    "pair_native_source": "68dc9c668ba8b5d85240d5e7491f3b14b558cdba6eb3531328b4b626e5374864",
+    "primary_potential": "307a0aeac84ee5efa4e6900f2105727bedbaa3a32b941102960a0257554cdf1e",
+    "publication": "b985dd4e38e764c250fb4b2e4f38fff02873361a0838399b54ae1acfd87a279a",
+    "reveal": "7caf9b1f83465138be80b28677207bf4a5e274b809ec65d55845168d21da0707",
+    "search_adapter": "105d58b9cfde9ef94633b8cd5661610f74094f27d79f7e73e3ada19a218b05af",
+    "semantic_map": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+    "template": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52"
+  },
+  "started_at": "2026-07-19T04:02:42+02:00",
+  "static_full256_baseline": [],
+  "static_full256_baseline_provenance": {},
+  "target": {
+    "public_view_sha256": "3f7841b5080200307564c9cb1956db6a48b2129afd21e85c3e76806735f464a0",
+    "target_id": "o1c-0044-fresh-0000",
+    "truth_key_sha256": "722380bf59f57c52b258aebbd423cb8b188ea89bcdb85df114828a9c7fd37246",
+    "truth_publicly_verified": true
+  },
+  "w11_search": {
+    "pattern_primary": {
+      "arm": "primary",
+      "conflict_limit": 512,
+      "mechanism": "pattern",
+      "model_matches_truth_fixed_prefix": false,
+      "model_publicly_verified": false,
+      "model_sha256": null,
+      "model_truth_exact": false,
+      "model_truth_hamming": null,
+      "name": "pattern_primary_w11",
+      "pattern": {
+        "backtrack_credit": {
+          "assignment_credit_units": 0,
+          "callbacks": 512,
+          "conflict_callbacks": 512,
+          "conflict_penalty_units": 32768,
+          "conflict_undo_members": 512,
+          "conflict_weighted_undo_units": 16384,
+          "credit_updates": 512,
+          "eligible_undo_action_cells": 512,
+          "eligible_undo_groups": 512,
+          "eligible_undo_members": 512,
+          "nonconflict_callbacks": 0,
+          "nonconflict_penalty_units": 0,
+          "nonconflict_undo_members": 0,
+          "nonconflict_weighted_undo_units": 0,
+          "propagation_credit_units": 0,
+          "weighted_undo_units": 16384
+        },
+        "cold_decision_rule": "pairwise_factorwise_max_envelope",
+        "decision_rule": "delayed_trail_owner_pair_pattern_credit",
+        "decision_scope": "explicit_ordered_key_pairs",
+        "decision_variables_sha256": "bb0790782a7752ba5287494000a06ec8249edaad378782fdd6374a4c7a4de9a5",
+        "eligible_decision_variables": 126,
+        "external_implications": 0,
+        "factor_count": 836,
+        "group_width": 2,
+        "hard_clauses_added": 0,
+        "observed_variables": 447,
+        "offset": 6.425430921119808,
+        "pair_count": 63,
+        "pending": {
+          "bound": 513,
+          "current_open": 0,
+          "first_owner_bindings": 347,
+          "marked": 513,
+          "maximum_open": 1,
+          "owner_assignment_hits": 257,
+          "second_owner_bindings": 166
+        },
+        "queue": {
+          "assignment_notifications": 6025,
+          "backtracks": 512,
+          "maximum_assigned_variables": 439,
+          "maximum_decision_level": 11,
+          "opposite_sign_queue_invalidations": 0,
+          "queued_decisions": 513,
+          "repeated_decisions": 502,
+          "requested_decisions": 513,
+          "same_sign_queue_skips": 0
+        },
+        "selection": {
+          "cold_group_selections": 1,
+          "credit_modulated_group_selections": 448,
+          "credit_reordered_actions": 162,
+          "differentiated_groups": 7,
+          "distinct_action_cells_selected": 18,
+          "envelope_evaluations": 448620,
+          "first_group_index": 24,
+          "first_pattern_mask": 0,
+          "maximum_adjusted_gap": 0.5927150594887669,
+          "maximum_raw_gap": 0.5302150594887673,
+          "penalized_action_cells": 18,
+          "trace_sha256": "3e73c612ef9652aeec45fb19158a7a69d12036cb5c1c7830a3034b6f3d9121a2",
+          "zero_gap_fallbacks": 0
+        },
+        "selection_formula": "cold:max-raw-top-vs-second-gap-then-group-order;active:pattern-adjusted=raw+action-credit[group,mask]/1024;sort-adjusted-desc-raw-desc-mask-asc;max-adjusted-top-vs-second-gap-then-group-order",
+        "solver_counter_deltas": {
+          "conflicts": 256,
+          "decisions": 513,
+          "propagations": 6031399
+        },
+        "source_sha256": "2222616d2a44e87fc0d5d9cdc9186be091388d7513d9136ef2e65cc1c3bc8b2a",
+        "state": {
+          "action_bytes_per_cell": 8,
+          "action_bytes_per_group": 32,
+          "action_cells_per_group": 4,
+          "action_encoding": "i16le-credit,u16le-visits,u16le-conflict-hits,u16le-backtrack-hits",
+          "action_sha256": "66d3e899d7dcc79709b44c68883fb41417ef0ad221bcb43b272046aa73422f24",
+          "bounded_action_state_bytes": 2016,
+          "bounded_owner_state_bytes": 630,
+          "bounded_state_bytes": 2646,
+          "bytes_per_group": 42,
+          "counter_max": 65535,
+          "counter_semantics": "visits=closed-exact-pattern-tickets;conflict-hits=conflict-bearing-exact-pattern-owner-undos;backtrack-hits=all-exact-pattern-owner-undos",
+          "credit_max": 32767,
+          "credit_min": -32768,
+          "encoding": "action-block[group,mask]:i16le-credit,u16le-visits,u16le-conflict-hits,u16le-backtrack-hits;owner-block[group,member]:u32le-level,u8-mask",
+          "groups": [
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 47,
+                  "conflict_hits": 47,
+                  "credit": -3008,
+                  "mask": 0,
+                  "visits": 47
+                },
+                {
+                  "backtrack_hits": 46,
+                  "conflict_hits": 46,
+                  "credit": -2944,
+                  "mask": 1,
+                  "visits": 46
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 177,
+              "index": 0,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 179
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 180,
+              "index": 1,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 183
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 19,
+                  "conflict_hits": 19,
+                  "credit": -1216,
+                  "mask": 2,
+                  "visits": 19
+                },
+                {
+                  "backtrack_hits": 17,
+                  "conflict_hits": 17,
+                  "credit": -1088,
+                  "mask": 3,
+                  "visits": 17
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 173,
+              "index": 2,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 186
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 2,
+              "index": 3,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 3
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 27,
+                  "conflict_hits": 27,
+                  "credit": -1728,
+                  "mask": 0,
+                  "visits": 27
+                },
+                {
+                  "backtrack_hits": 28,
+                  "conflict_hits": 28,
+                  "credit": -1792,
+                  "mask": 1,
+                  "visits": 28
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 9,
+              "index": 4,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 10
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 11,
+              "index": 5,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 12
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 20,
+              "index": 6,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 21
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 27,
+              "index": 7,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 28
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 35,
+              "index": 8,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 36
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 39,
+              "index": 9,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 40
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 55,
+              "index": 10,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 56
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 48,
+                  "conflict_hits": 48,
+                  "credit": -3072,
+                  "mask": 0,
+                  "visits": 29
+                },
+                {
+                  "backtrack_hits": 50,
+                  "conflict_hits": 50,
+                  "credit": -3200,
+                  "mask": 1,
+                  "visits": 37
+                },
+                {
+                  "backtrack_hits": 48,
+                  "conflict_hits": 48,
+                  "credit": -3072,
+                  "mask": 2,
+                  "visits": 35
+                },
+                {
+                  "backtrack_hits": 51,
+                  "conflict_hits": 51,
+                  "credit": -3264,
+                  "mask": 3,
+                  "visits": 34
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 59,
+              "index": 11,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 60
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 61,
+              "index": 12,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 62
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 71,
+              "index": 13,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 72
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 74,
+              "index": 14,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 75
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 82,
+              "index": 15,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 83
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 87,
+              "index": 16,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 88
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 97,
+              "index": 17,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 98
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 101,
+              "index": 18,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 102
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 115,
+              "index": 19,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 116
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 122,
+              "index": 20,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 123
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 126,
+              "index": 21,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 127
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 131,
+              "index": 22,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 132
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 136,
+              "index": 23,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 137
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 1,
+                  "conflict_hits": 1,
+                  "credit": -64,
+                  "mask": 0,
+                  "visits": 1
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 1,
+              "first_owner_mask": 0,
+              "first_variable": 143,
+              "index": 24,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 144
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 145,
+              "index": 25,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 146
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 150,
+              "index": 26,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 151
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 156,
+              "index": 27,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 157
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 168,
+              "index": 28,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 169
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 2,
+                  "conflict_hits": 2,
+                  "credit": -128,
+                  "mask": 0,
+                  "visits": 1
+                },
+                {
+                  "backtrack_hits": 15,
+                  "conflict_hits": 15,
+                  "credit": -960,
+                  "mask": 1,
+                  "visits": 15
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 14,
+                  "conflict_hits": 14,
+                  "credit": -896,
+                  "mask": 3,
+                  "visits": 14
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 174,
+              "index": 29,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 175
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 27,
+                  "conflict_hits": 27,
+                  "credit": -1728,
+                  "mask": 0,
+                  "visits": 27
+                },
+                {
+                  "backtrack_hits": 27,
+                  "conflict_hits": 27,
+                  "credit": -1728,
+                  "mask": 1,
+                  "visits": 27
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 176,
+              "index": 30,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 178
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 201,
+              "index": 31,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 202
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 203,
+              "index": 32,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 204
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 214,
+              "index": 33,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 215
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 226,
+              "index": 34,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 227
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 228,
+              "index": 35,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 229
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 232,
+              "index": 36,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 233
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 250,
+              "index": 37,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 251
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 253,
+              "index": 38,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 254
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 255,
+              "index": 39,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 256
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 181,
+              "index": 40,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 182
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 22,
+                  "conflict_hits": 22,
+                  "credit": -1408,
+                  "mask": 2,
+                  "visits": 22
+                },
+                {
+                  "backtrack_hits": 23,
+                  "conflict_hits": 23,
+                  "credit": -1472,
+                  "mask": 3,
+                  "visits": 23
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 184,
+              "index": 41,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 185
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 14,
+              "index": 42,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 16
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 23,
+              "index": 43,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 25
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 29,
+              "index": 44,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 31
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 46,
+              "index": 45,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 51
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 53,
+              "index": 46,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 57
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 63,
+              "index": 47,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 77
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 79,
+              "index": 48,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 84
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 89,
+              "index": 49,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 93
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 99,
+              "index": 50,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 103
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 108,
+              "index": 51,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 111
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 117,
+              "index": 52,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 128
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 139,
+              "index": 53,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 141
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 147,
+              "index": 54,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 154
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 160,
+              "index": 55,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 164
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 187,
+              "index": 56,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 188
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 192,
+              "index": 57,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 196
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 206,
+              "index": 58,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 216
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 220,
+              "index": 59,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 234
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 236,
+              "index": 60,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 241
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 243,
+              "index": 61,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 66
+            },
+            {
+              "actions": [
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 0,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 1,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 2,
+                  "visits": 0
+                },
+                {
+                  "backtrack_hits": 0,
+                  "conflict_hits": 0,
+                  "credit": 0,
+                  "mask": 3,
+                  "visits": 0
+                }
+              ],
+              "first_owner_level": 0,
+              "first_owner_mask": 0,
+              "first_variable": 130,
+              "index": 62,
+              "second_owner_level": 0,
+              "second_owner_mask": 0,
+              "second_variable": 189
+            }
+          ],
+          "live_owners": 1,
+          "maximum_live_owners": 11,
+          "owner_bytes_per_group": 10,
+          "owner_bytes_per_member": 5,
+          "owner_encoding": "u32le-first-owner-level,u8-first-owner-mask,u32le-second-owner-level,u8-second-owner-mask",
+          "owner_level_max": 4294967295,
+          "owner_mask_max": 3,
+          "owner_members_per_group": 2,
+          "owner_sha256": "094a98e86b5355a52b2675cdbc03fafbbc3c106777826ed9da1e7a83240e0173",
+          "saturated_counter_updates": 0,
+          "saturated_credit_updates": 0,
+          "sha256": "688a229b882772f25c6b80a012e7da5d995a9626f08fd31a8d5d351865479604"
+        },
+        "tickets": {
+          "assignment_hits": 257,
+          "closed": 449,
+          "closed_on_advance": 193,
+          "closed_on_backtrack": 256,
+          "closed_on_invalidation": 0,
+          "closed_on_solve_end": 0,
+          "current_open": 0,
+          "maximum_open": 1,
+          "opened": 449
+        },
+        "update_formula": "on-backtrack:c=I(conflicts>previous-backtrack-conflicts);for-owner-level>new-level:w=32>>min(current-level-owner-level,4);action-credit[group,owner-mask]=sat_i16(action-credit-(1+c)*w);clear-undone-owner"
+      },
+      "prefix": {
+        "clause_count": 188255,
+        "fixed_key_bits": 245,
+        "residual_key_bits": 11,
+        "sha256": "2a6a52f8b599dfd5381d933fc380f502339dd12fe924f142f2860114a22a29bd"
+      },
+      "privileged_post_reveal_prefix": true,
+      "residual_bits": 11,
+      "residual_variables": [
+        9,
+        59,
+        60,
+        143,
+        144,
+        173,
+        174,
+        175,
+        176,
+        177,
+        184
+      ],
+      "resources": {
+        "cpu_microseconds": 1709754,
+        "peak_rss_bytes": 67338240,
+        "wall_microseconds": 1648417
+      },
+      "stats": {
+        "conflicts": 512,
+        "decisions": 513,
+        "propagations": 12066879
+      },
+      "status": "UNKNOWN"
+    },
+    "pattern_rotations": [],
+    "static_primary": null
+  }
+}
