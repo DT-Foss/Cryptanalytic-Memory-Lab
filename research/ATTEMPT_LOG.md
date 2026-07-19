@@ -2130,12 +2130,42 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   requested conflicts; zero fresh/sibling/MPS/GPU.
 - **Decision:** refute H-DEEPEST-SURVIVOR-SUPPORT-062 and close trail survival as
   a causal proxy. Next instrument exact learned-clause/first-UIP antecedent
-  membership at the conflict boundary. Freeze the parallel global-prefix
-  best-first design separately before execution; it has no result yet.
+  membership at the conflict boundary. The parallel global-prefix path is
+  measured separately by O1C-0054 below.
 - **Artifact:** [`result`](O1C0053_DEEPEST_SURVIVOR_SUPPORT_SCREEN_RESULT_20260719.md);
   authoritative JSON SHA-256
   `ab616087ec4aaf5862dbda0b0139146ea845b9a1cbe3cff0881e9a596e00f16a`, source
   freeze `0b89887f961f50fced087a987a6a2c4fb2122b18`.
+
+## O1C-0054 — Global factor-bound screen
+
+- **Recorded:** 2026-07-19T05:23:48+02:00.
+- **Hypothesis:** an admissible sum of independent conditional factor maxima can
+  retain O1C-0047's coordinated complete-state signal while a width-256 beam
+  assigns all 128 key pairs from public data alone.
+- **Protocol:** unconditional public-only Full256 first, before any reveal read;
+  one consumed post-reveal W11 best-first diagnostic second. Frozen primary
+  field, O1C-0048 pair order plus ascending completion pairs, no rotations,
+  sweeps, tuning, native solver, fresh target, sibling, GPU or MPS work.
+- **Result:** `GLOBAL_FACTOR_BOUND_NO_FULL256_W11_BOUND_FAILURE`. Full256 expands
+  31,829 parents / 127,316 children, forward-scores and verifies 256 complete
+  keys in 1.497645500 s and recovers none. After reveal, truth first leaves the
+  beam at stage 5 on pair `(9,10)`; final top/minimum Hamming is `120/116`.
+- **W11 localization:** the queue stops at 1,024 unscored pops, 2,020 child-bound
+  evaluations and 14 forward evaluations with zero certified leaves. Exact W12
+  truth rank 5 is therefore not preserved by the factorwise envelope.
+- **State/resources:** 24,624 B logical mutable Full256 beam state; 1,026,688 B
+  prefix history recorded separately as telemetry. Total 2.732336917 s wall,
+  2.704926 s CPU, 88,031,232 B peak RSS and 270 forward/public verifications.
+- **Decision:** refute the global separable factor-bound hypothesis. Independent
+  local maxima are mutually incompatible and erase joint score geometry. Close
+  without width, pair-order, cap or bound-scale tuning; exact learned-clause
+  membership remains the active causal successor.
+- **Artifacts:** [`result`](O1C0054_GLOBAL_FACTOR_BOUND_SCREEN_RESULT_20260719.md)
+  and [`capsule`](../runs/20260719_052346_O1C-0054_global-factor-bound-screen-v1/RUN.md);
+  authoritative JSON SHA-256
+  `91aa42c2b036a5709f0f093e091c017c568aea459098dd238800cea87d9c32d5`, source
+  freeze `2a63a749b5d0f92280a750ca79218ab841f2037a`.
 
 ## APPLE-VIEW-0006 — Held-out streaming proof-credit transfer
 

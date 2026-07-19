@@ -1,11 +1,11 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T04:41:00+02:00.
+Last ranked: 2026-07-19T05:23:48+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Instrument exact learned-clause/first-UIP antecedent membership at the conflict boundary and freeze one matched W11 test before execution | State of the art | Extreme | Extreme | Medium | Replaces O1C-0052/O1C-0053's proxy credit with exact contradiction participation |
-| 2 | Freeze the parallel global-prefix best-first design completely before any execution; keep it separate from the causal-credit branch | State of the art | Extreme | Extreme | Low | Creates an independent global handoff test without treating an unrun design as evidence |
+| 1 | Complete O1C-0055 exact learned-clause membership and freeze one matched W11 efficacy call before execution | State of the art | Extreme | Extreme | Medium | Replaces O1C-0052/O1C-0053 proxy credit with observed contradiction participation |
+| 2 | Keep O1C-0054's global separable factor-bound beam closed; do not widen it, reorder pairs, raise the pop cap or tune the bound | Operational | High | Extreme | Zero | Prevents a loose admissible envelope from consuming more compute after losing truth at stage 5 |
 | 3 | Keep O1C-0053 deepest-survivor support closed; do not tune `+32`, mix undo penalties, regroup pairs, raise the cap or spend rotations/fresh targets | Operational | High | Extreme | Zero | Preserves the one-call negative and forces the causal branch onto exact membership |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 | 5 | Keep static pair/proof-edge resweeps, independent-carry quotients, occurrence scoring and the closed unary field parked | Operational | High | High | Zero | Preserves measured boundaries while compute moves to exact antecedent attribution or the separately frozen global design |
@@ -54,6 +54,12 @@ Last ranked: 2026-07-19T04:41:00+02:00.
   units, but remains `UNKNOWN`; 111 actions reorder and only two groups
   differentiate. Negative exact-mask and positive trail-survival credit are both
   closed.
+- **Global factor-bound boundary:** O1C-0054 executes its public-only Full256
+  beam before reveal and recovers no key. Truth first leaves at pair stage 5;
+  final top/minimum Hamming is `120/116`. The consumed W11 queue reaches 1,024
+  unscored pops after 14 forward evaluations with zero certified leaves. The
+  exact W12 rank-5 breadcrumb therefore depends on coordinated assignments that
+  independent factor maxima discard. Close the relaxation without tuning.
 - **Bias-free algebraic boundary:** APPLE-VIEW-0002 proves that independently
   lifted carries span all 512 output equations and leave exact key rank zero.
   APPLE-VIEW-0004 adds exact backward output propagation: depth 30 infers
@@ -69,10 +75,11 @@ Last ranked: 2026-07-19T04:41:00+02:00.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** exact learned-clause/first-UIP antecedent credit
-  closes W11 under the frozen gate, or the separately frozen global-prefix
-  best-first design produces its own measured result. Exact 256 remains the
-  moonshot; neither path earns credit before execution.
+- **Next measurable advance:** O1C-0055 exact learned-clause/first-UIP antecedent
+  credit closes W11 under the frozen gate. O1C-0054 has already closed the
+  separate global-prefix factor-bound path. Exact 256 remains the moonshot; a
+  reproducible entropy, rank, residual-width or matched-work gain below recovery
+  still counts as real progress.
 
 ## Effect-first stop rules
 

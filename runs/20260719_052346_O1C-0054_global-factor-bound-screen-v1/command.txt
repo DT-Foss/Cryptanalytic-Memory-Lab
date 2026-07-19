@@ -1,0 +1,1 @@
+PYTHONPATH=src python3 -c 'from o1_crypto_lab.o1c54_global_factor_bound_screen import run; run()'

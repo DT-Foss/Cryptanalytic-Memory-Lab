@@ -237,9 +237,18 @@ differentiate, 502/513 decisions repeat and W11 remains `UNKNOWN` at the same
 cap. Refute H-DEEPEST-SURVIVOR-SUPPORT-062 and close survival without tuning. A
 consumed post-result truth view places 9,472/16,384 units on true masks and the
 true mask supported/top in 4/8 active groups; this did not close W11 and is only
-a locator for exact learned-clause/first-UIP antecedent membership. In parallel,
-freeze the separate global-prefix best-first design before execution and do not
-treat the design itself as evidence.
+a locator for exact learned-clause/first-UIP antecedent membership.
+
+O1C-0054 executes the separate global-prefix path under its own frozen boundary.
+The unconditional public-only width-256 Full256 beam runs before reveal, expands
+31,829 parents and 127,316 child bounds, verifies 256 complete keys and recovers
+none. Post-reveal, truth first leaves at stage 5 on pair `(9,10)` and the final
+top/minimum Hamming is `120/116`. The W11 queue reaches 1,024 unscored pops and
+14 forward evaluations with zero certified leaves. Refute
+H-GLOBAL-FACTOR-BOUND-064: independently maximizing 836 factors creates mutually
+incompatible local optima and erases the exact complete-state geometry that
+ranks truth fifth on W12. Close beam width, pair order, cap and scale without a
+sweep. O1C-0055 exact learned-clause membership is the active causal path.
 
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
@@ -528,8 +537,9 @@ evidence.
    W11. O1C-0053 then emits 512 positive survivor updates but still fails W11 and
    differentiates only two groups. Close unary, negative exact-mask and positive
    trail-survival credit. Instrument exact learned-clause/first-UIP antecedent
-   membership with no proxy, group or cap sweep. Freeze the parallel global-
-   prefix best-first design separately before execution.
+   membership with no proxy, group or cap sweep. O1C-0054 has independently
+   executed and closed the parallel global-prefix factor-bound design: Full256
+   loses truth at stage 5 and W11 certifies zero leaves under the frozen cap.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.

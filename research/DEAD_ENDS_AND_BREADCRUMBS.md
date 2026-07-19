@@ -1150,3 +1150,24 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   independently before any execution.
 - **Artifact:** authoritative
   [`O1C-0053 result`](O1C0053_DEEPEST_SURVIVOR_SUPPORT_SCREEN_RESULT_20260719.md).
+
+## B-0059 — Independent factor maxima erase complete-state coordination
+
+- **Evidence:** O1C-0054 executes one unconditional public-only width-256
+  Full256 beam over all 128 key pairs, followed by one bounded post-reveal W11
+  best-first diagnostic. The exact source score previously ranks truth fifth on
+  W12.
+- **Result:** Full256 recovers no key, first loses the true prefix at stage 5 on
+  pair `(9,10)` and ends with top/minimum Hamming `120/116`. W11 reaches 1,024
+  unscored pops after 14 forward evaluations with zero certified leaves.
+- **Conclusion:** the bound is admissible but too loose: independently maximizing
+  836 factors combines mutually incompatible internal/key assignments and
+  destroys the joint geometry present in exact complete-state scoring.
+- **Do not repeat:** widen the beam, reorder pairs, raise the W11 pop cap, tune a
+  bound scale or rerun rotations/fresh targets under this separable relaxation.
+- **Breadcrumb:** preserve the exact W12 rank-5 result as evidence that joint
+  score geometry exists, not that factorwise prefix bounds recover it. Continue
+  with exact learned-clause membership so credit is attached to an observed
+  contradiction rather than an independent global envelope.
+- **Artifact:** authoritative
+  [`O1C-0054 result`](O1C0054_GLOBAL_FACTOR_BOUND_SCREEN_RESULT_20260719.md).
