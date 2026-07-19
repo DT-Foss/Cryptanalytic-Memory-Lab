@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T04:10:00+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T04:41:00+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -112,6 +112,15 @@
   visited cell is penalized; `(59,60)` cycles all four masks with
   `48/50/48/51` conflict-owner undos. Negative undo credit is anti-repetition,
   not localized key evidence. Close it without a scale/group/cap sweep.
+- **O1C-0053:** positive deepest-survivor support also fails W11: its only call
+  returns `UNKNOWN` at `512` conflicts / `513` decisions and 12,068,568
+  propagations. All 512 conflict backjumps apply one `+32` survivor update
+  (`16,384` support units), yet only two groups differentiate and just 111
+  actions reorder. The same 2,646-byte state is operational, but survival is too
+  coarse a causal proxy. A consumed post-result truth view puts 9,472 units on
+  true masks and the true mask supported/top in 4/8 active groups; it did not
+  close W11 and is not fresh evidence. Close H-DEEPEST-SURVIVOR-SUPPORT-062
+  without tuning.
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
@@ -135,12 +144,11 @@
   fails raw at `1,340 > 1,268 > 1,031` for edge, exact unary and final→early.
   Certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass.
   All 28 wrong passes, proof replays, freeze checks and truth controls are exact.
-- **Next paid experiment:** reuse the same 2,646-byte action/owner state but
-  reverse the feedback sign and address: after a conflict backjump, reward only
-  the deepest externally owned `(group,mask)` action that remains live with one
-  deterministic `+32` update. One
-  frozen W11 call at the same groups, seed and 512-conflict cap decides whether
-  trail survival is a useful causal proxy before exact antecedent plumbing.
+- **Next paid experiment:** replace trail-survival credit with exact learned-
+  clause/first-UIP antecedent membership at the conflict boundary. Preserve the
+  frozen groups, cap and one-call discipline; do not tune the closed `+32`
+  proxy. In parallel, freeze the separate global-prefix best-first design before
+  execution; no result is claimed for that design yet.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -154,17 +162,17 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** O1C-0052 is negative and frozen; exact-mask negative
-  credit is closed. O1C-0053 will test positive support for the deepest action
-  surviving each conflict backjump, using the same groups/cap/state size.
-  APPLE-VIEW-0007 remains closed; its proof-frontier lesson now converges on this
-  live survivor proxy. Sibling repositories remain read-only and untouched.
+- **Active local run:** O1C-0053 is negative and frozen; deepest-survivor support
+  is closed after one W11 call with nonzero updates. The causal branch moves to
+  exact learned-clause/first-UIP antecedent membership. A separate global-prefix
+  best-first design is being frozen in parallel and remains unexecuted.
+  Sibling repositories remain read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
   the north star; the scored objective is the strongest reproducible
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
-  [O1C-0052 pattern-action W11 close](research/O1C0052_PATTERN_CREDIT_SCREEN_RESULT_20260719.md)
+  [O1C-0053 deepest-survivor W11 close](research/O1C0053_DEEPEST_SURVIVOR_SUPPORT_SCREEN_RESULT_20260719.md)
   and [APPLE-VIEW-0007 static proof-edge close](research/apple_view_7/apple_view_7_report.md).
 
 ## Headline
@@ -224,6 +232,11 @@ O1C-0052 then separates every mask and changes 162 live choices, but remains
 `UNKNOWN`; all visited cells are penalized and repeats stay 502/513. Delayed
 unary and negative exact-mask credit are therefore closed. The distinct next
 operator rewards the deepest action that survives each conflict backjump.
+O1C-0053 executes that operator and still returns `UNKNOWN` after 512 conflicts.
+Its 512 positive updates reorder 111 actions but differentiate only two groups,
+so trail survival is closed as the causal proxy. Exact learned-clause/first-UIP
+antecedent membership is the next causal discriminator; a separate global-prefix
+best-first design is being frozen in parallel without an efficacy claim.
 In parallel APPLE-VIEW-0005 finds the first exact sparse carry certificate:
 250 of 336 high-carry identities suffice to reject a complete wrong key on the
 fixed matrix, with independent proof replay. APPLE-VIEW-0006 then performs the
@@ -235,9 +248,9 @@ object is proof membership. APPLE-VIEW-0007 then makes sequence explicit with a
 113,570-byte edge state and one frozen strongest-predecessor reader, but loses
 raw at `1,340` versus unary `1,268` and fixed `1,031`. Its certificate `1,003`
 beats fixed `1,015` yet loses unary `997` and cannot pass. A repeated zero-edge
-root lands at position 335: static/global path credit is insufficient. This now
-converges with O1C-0052 on positive live survivor support, not an Apple rescue
-sweep.
+root lands at position 335: static/global path credit is insufficient. O1C-0053
+now also closes the cheap live-survival proxy, so the convergence point is exact
+conflict-antecedent attribution, not an Apple or credit-weight rescue sweep.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does
@@ -806,17 +819,17 @@ O1C-0017 result boundary are documented in
 
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
-| Main scientific run | — | 2026-07-19 | O1C-0052 frozen result | exact-mask negative credit closed; O1C-0053 deepest-survivor implementation next | — |
-| Bias-free parallel track | — | 2026-07-19 | Apple8 physical-model analysis | deepest surviving trail action selected as the one-call O1C-0053 proxy | — |
+| Main scientific run | — | 2026-07-19 | O1C-0053 frozen result | deepest-survivor proxy closed; exact conflict-antecedent attribution next | — |
+| Bias-free parallel track | — | 2026-07-19 | global-prefix best-first design freeze | design only; no efficacy result yet | — |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Implement positive-only deepest-survivor action support in the frozen
-   O1C-0052 state layout; one unchanged W11 call, exact-key gate only.
-2. If survivor support changes the route but remains `UNKNOWN`, close the proxy
-   and attach exact conflict-antecedent/proof participation to the survivor
-   boundary; do not tune sign, scale, group plan or cap.
+1. Attach exact learned-clause/first-UIP antecedent membership to the conflict
+   boundary and test it under the frozen W11 work gate; do not tune the closed
+   survivor proxy.
+2. Freeze the parallel global-prefix best-first design completely before any
+   execution and keep its evidence claims separate from the causal branch.
 3. Keep APPLE-VIEW-0007's static strongest-predecessor reader closed; do not
    root-weight, threshold, retraverse or rescore its held-out panel. Its only
    retained breadcrumb converges on the active live context/action branch.
@@ -827,6 +840,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0053` | 2026-07-19 04:38 | One positive `+32` update to the deepest surviving exact action identifies the retained causal frontier at W11 | `UNKNOWN` at 512 conflicts/513 decisions/12,068,568 propagations; 512 support updates (`16,384` units), 111 action reorderings, only two differentiated groups | `CONSUMED_POST_REVEAL_SURVIVOR_SUPPORT_SCREEN`; negative | 5.326337 s wall; 127,893,504 B peak; one call; 2,646 B state; zero fresh/sibling/MPS/GPU | Survival is too coarse: close it and credit exact learned-clause/first-UIP antecedent membership; the post-result truth diagnostic is not fresh evidence | [Result](research/O1C0053_DEEPEST_SURVIVOR_SUPPORT_SCREEN_RESULT_20260719.md) |
 | `O1C-0052` | 2026-07-19 04:02 | Four addressed action cells per pair repair O1C-0051's polarity aliasing at W11 | `UNKNOWN` at 512 conflicts/513 decisions; 162/448 selections reordered, 18 cells differentiated, but 502/513 decisions still repeat and every visited cell is penalized | `CONSUMED_POST_REVEAL_PATTERN_ACTION_CREDIT_SCREEN`; negative | 5.098156 s wall; 128,303,104 B peak; one call; 2,646 B state; zero fresh/sibling/MPS/GPU | Conflict undo cannot identify the guilty action; reward the deepest surviving trail action once before exact proof attribution | [Capsule](runs/20260719_040242_O1C-0052_pattern-action-credit-screen-v1/RUN.md) |
 | `APPLE-VIEW-0007` | 2026-07-19 03:37 | Exact proof-DAG predecessor paths in a bounded static state transfer conflict-closing order beyond APPLE6 unary membership | Raw edge order loses `1,340` vs exact unary `1,268` vs best fixed `1,031`; certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass; all 28 wrong passes and truth controls exact | `HELDOUT_STATIC_EDGE_SCHEDULER_NEGATIVE`; no key-generation/entropy claim | 84.397724 s wall; 83.777569 s CPU; 68,321,280 B peak; 113,570 B frozen state; zero sibling/MPS/GPU | Root 11 occurs in 12 BUILD proofs with zero edge support and lands at position 335; close static/global reader and move to live action-conditioned context without rescue sweep | [Result](research/apple_view_7/apple_view_7_report.md) |
 | `APPLE-VIEW-0006` | 2026-07-19 03:11 | BUILD proof participation in a bounded addressed state transfers a useful c31 switch order to disjoint Full20/Full256 candidate filters | Raw learned order loses `1,268` vs best structural `1,031` first-conflict switches; replayed certificates win 4/4 at `248/248/251/250` vs `251/252/257/255`, aggregate `997` vs `1,015`; all truth controls complete | `HELDOUT_CERTIFICATE_TRANSFER_WITH_SCHEDULER_LOSS`; no key-generation/entropy claim | 64.317798 s wall; 64.166830 s CPU; 62,226,432 B peak; 1,346 B frozen state; zero sibling/MPS/GPU | Unary proof membership transfers exact core relevance but not conflict-closing order; APPLE7 has now tested and closed its static edge successor | [Result](research/apple_view_6/apple_view_6_report.md) |
@@ -884,6 +898,8 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0053` authoritative result | `ab616087ec4aaf5862dbda0b0139146ea845b9a1cbe3cff0881e9a596e00f16a` |
+| `O1C-0053` source freeze | `0b89887f961f50fced087a987a6a2c4fb2122b18` |
 | `O1C-0052` capsule manifest | `0a4113226727dd3caed1b5490a65003ead633d028cd15156fab6367aed719f32` |
 | `O1C-0052` authoritative result | `7ef0f0416ef9d884c2041d8e6396291f4b3991e9cc5e485d2a6aa3cd36bea8de` |
 | `O1C-0052` source freeze | `b32608d5cebbd547582a6dc8c371482e191e08a5` |
@@ -1072,11 +1088,12 @@ O1C-0017 result boundary are documented in
 ## Resume here
 
 Resume from [the ranked actions](research/NEXT_ACTIONS.md) and the
-[O1C-0052 result](research/O1C0052_PATTERN_CREDIT_SCREEN_RESULT_20260719.md).
-O1C-0052 proves that exact action addressing changes the live route but remains
-negative at W11. Close its negative-only update. Resume with one positive-only
-deepest-survivor support call at unchanged groups, state layout and cap; failure
-goes to exact conflict-antecedent attribution, not a parameter sweep.
+[O1C-0053 result](research/O1C0053_DEEPEST_SURVIVOR_SUPPORT_SCREEN_RESULT_20260719.md).
+O1C-0053 proves that one deepest-survivor update fires on every conflict
+backjump, yet W11 remains `UNKNOWN` and only two groups differentiate. Close
+trail survival as the proxy. Resume with exact learned-clause/first-UIP
+antecedent membership at the conflict boundary, not a parameter sweep. Freeze
+the parallel global-prefix best-first design separately before it runs.
 
 APPLE-VIEW-0001..0004 are closed at their measured algebraic/local boundaries.
 APPLE-VIEW-0005/0006 establish exact sparse certificates and held-out transfer
@@ -1084,7 +1101,8 @@ of their membership, but not better first-conflict scheduling. APPLE-VIEW-0007
 closes its single static proof-edge successor at raw
 `1,340 > 1,268 > 1,031`; certificate `1,003` cannot pass and loses unary `997`.
 Do not refit unary or rescue the edge reader. Static/global relation and
-negative-only action cycling are insufficient; resume at live survivor support.
+both negative action cycling and positive trail-survival credit are insufficient;
+resume at exact conflict-antecedent attribution.
 
 The A325/A526 bit codec, search backends and public verifier remain ready for an
 exact complement or bounded exact-containing beam. The relational branch need

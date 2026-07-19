@@ -1129,3 +1129,24 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   attach exact conflict-antecedent/proof membership instead of another proxy.
 - **Artifact:**
   [`O1C-0052 result`](O1C0052_PATTERN_CREDIT_SCREEN_RESULT_20260719.md).
+
+## B-0058 — Deepest trail survival is too coarse for causal credit
+
+- **Evidence:** O1C-0053 applies exactly one `+32` update on every one of 512
+  conflict backjumps, for 16,384 nonzero support units in the unchanged
+  2,646-byte state. It reorders 111 actions but differentiates only two groups;
+  W11 remains `UNKNOWN` at 512 conflicts / 513 decisions and 502 decisions
+  repeat.
+- **Conclusion:** remaining below a backjump is not specific enough to identify
+  which decision participated in the learned contradiction. Positive survival
+  avoids O1C-0052's blame error but collapses onto a few persistent trail owners.
+- **Do not repeat:** tune `+32`, mix survival with undo penalties, regroup pairs,
+  raise the cap or spend rotations/fresh targets on this proxy.
+- **Breadcrumb:** credit exact learned-clause/first-UIP antecedent membership at
+  the conflict boundary. A read-only post-result truth view puts the true mask
+  supported/top in 4/8 active groups and 9,472/16,384 units on true masks; that
+  consumed alignment did not close W11 and is a locator, not fresh evidence or a
+  reason to tune survival. Freeze the parallel global-prefix best-first design
+  independently before any execution.
+- **Artifact:** authoritative
+  [`O1C-0053 result`](O1C0053_DEEPEST_SURVIVOR_SUPPORT_SCREEN_RESULT_20260719.md).

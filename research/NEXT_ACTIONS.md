@@ -1,14 +1,14 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T04:10:00+02:00.
+Last ranked: 2026-07-19T04:41:00+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Replace O1C-0052 negative undo credit with exactly one `+32` update to the deepest exact action surviving each conflict backjump; same 2,646-byte layout, groups, seed and 512 cap | State of the art | Extreme | Extreme | Low | Tests the simplest live proxy for the retained causal/proof frontier after exact action addressing alone failed |
-| 2 | Keep APPLE-VIEW-0007's static strongest-predecessor reader closed; do not reweight roots, threshold edges, change traversal or rescore EVAL | Operational | High | Extreme | Zero | Preserves the failed raw gate and the root-without-edge breadcrumb without creating a rescue sweep |
-| 3 | Keep O1C-0052 negative exact-mask credit closed; if survivor support fails, instrument exact conflict-antecedent membership rather than tuning the proxy | Operational | High | Extreme | Zero | Prevents anti-repetition telemetry from being mistaken for causal evidence |
+| 1 | Instrument exact learned-clause/first-UIP antecedent membership at the conflict boundary and freeze one matched W11 test before execution | State of the art | Extreme | Extreme | Medium | Replaces O1C-0052/O1C-0053's proxy credit with exact contradiction participation |
+| 2 | Freeze the parallel global-prefix best-first design completely before any execution; keep it separate from the causal-credit branch | State of the art | Extreme | Extreme | Low | Creates an independent global handoff test without treating an unrun design as evidence |
+| 3 | Keep O1C-0053 deepest-survivor support closed; do not tune `+32`, mix undo penalties, regroup pairs, raise the cap or spend rotations/fresh targets | Operational | High | Extreme | Zero | Preserves the one-call negative and forces the causal branch onto exact membership |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
-| 5 | Keep static pair/proof-edge resweeps, independent-carry quotients, occurrence scoring and the closed unary field parked | Operational | High | High | Zero | Preserves measured boundaries while compute moves to live deepest-survivor support |
+| 5 | Keep static pair/proof-edge resweeps, independent-carry quotients, occurrence scoring and the closed unary field parked | Operational | High | High | Zero | Preserves measured boundaries while compute moves to exact antecedent attribution or the separately frozen global design |
 
 ## Frontier scoreboard
 
@@ -50,7 +50,10 @@ Last ranked: 2026-07-19T04:10:00+02:00.
   Freeing bit 177 flips dominant conflict owners `(143,144)→(59,60)`; unary
   credit is closed. O1C-0052 separates all four actions and reorders 162 choices,
   but remains `UNKNOWN`; all 18 visited cells are penalized and 502/513 decisions
-  repeat. Negative exact-mask credit is now closed.
+  repeat. O1C-0053 then applies 512 positive deepest-survivor updates / 16,384
+  units, but remains `UNKNOWN`; 111 actions reorder and only two groups
+  differentiate. Negative exact-mask and positive trail-survival credit are both
+  closed.
 - **Bias-free algebraic boundary:** APPLE-VIEW-0002 proves that independently
   lifted carries span all 512 output equations and leave exact key rank zero.
   APPLE-VIEW-0004 adds exact backward output propagation: depth 30 infers
@@ -66,9 +69,10 @@ Last ranked: 2026-07-19T04:10:00+02:00.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** positive deepest-survivor support closes W11 at
-  the same cap. Exact 256 remains the moonshot; failure moves to exact live proof
-  attribution, not another static reader or credit sweep.
+- **Next measurable advance:** exact learned-clause/first-UIP antecedent credit
+  closes W11 under the frozen gate, or the separately frozen global-prefix
+  best-first design produces its own measured result. Exact 256 remains the
+  moonshot; neither path earns credit before execution.
 
 ## Effect-first stop rules
 
@@ -132,9 +136,10 @@ Last ranked: 2026-07-19T04:10:00+02:00.
 - O1C-0050's horizon repair passes W10, but O1C-0051 fails its sole W11 gate and
   correctly skips controls/Full256. O1C-0052 performs the sole bounded `4×63`
   per-pattern test and also fails despite 162 action reorderings. Close negative
-  undo credit. Permit one distinct positive-only deepest-survivor rule; if it
-  changes the route but remains `UNKNOWN`, require exact conflict-antecedent
-  attribution. No sign mixture, group, scale or cap sweep.
+  undo credit. O1C-0053 performs the one distinct positive-only survivor test and
+  also fails despite 512 nonzero updates; only two groups differentiate. Close
+  trail survival and require exact conflict-antecedent attribution. No sign
+  mixture, group, scale or cap sweep.
 - APPLE-VIEW-0001 closes fixed-point/output-distance descent. APPLE-VIEW-0002
   closes the quotient in which all carries are independent. APPLE-VIEW-0003
   closes uniform carry-depth plus forward ternary propagation: even depth 30
@@ -152,7 +157,8 @@ Last ranked: 2026-07-19T04:10:00+02:00.
   this reader by root weighting, edge thresholds, traversal changes or EVAL
   reuse. Preserve only the convergence that global relation needs live
   action-conditioned context; O1C-0052 closes its negative-only form and
-  H-DEEPEST-SURVIVOR-SUPPORT-062 owns the one cheap live proxy.
+  O1C-0053 closes the cheap survival proxy. Exact antecedent membership is the
+  causal successor.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not

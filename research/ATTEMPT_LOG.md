@@ -2106,6 +2106,37 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [`result`](O1C0052_PATTERN_CREDIT_SCREEN_RESULT_20260719.md) and
   [`capsule`](../runs/20260719_040242_O1C-0052_pattern-action-credit-screen-v1/RUN.md).
 
+## O1C-0053 — Deepest-survivor support screen
+
+- **Recorded:** 2026-07-19T04:38:53+02:00.
+- **Hypothesis:** one positive `+32` update to the deepest externally owned
+  `(group,mask)` action surviving each conflict backjump identifies the retained
+  causal frontier and closes W11 at the unchanged cap.
+- **Protocol:** one survivor-primary W11 call first, same 63 groups, seed 0,
+  512-conflict cap and 2,646-byte action/owner layout. Exact public/truth/prefix
+  verification alone authorizes the six static/rotation/Full256 follow-ups.
+- **Result:** `SURVIVOR_SUPPORT_NO_EXACT_W11_CLOSE`; `UNKNOWN` at 512 conflicts,
+  513 decisions and 12,068,568 propagations. The exact gate fails after one call,
+  so all six follow-ups are skipped.
+- **Mechanism localization:** every conflict backjump finds a survivor and emits
+  exactly one support update: 512 updates / 16,384 units. The update reorders 111
+  actions but differentiates only two groups; 502/513 decisions still repeat.
+  The proxy is active but too coarse to expand the frontier.
+- **Post-result truth diagnostic:** the true mask is supported/top in 4/8 active
+  groups and receives 9,472/16,384 support units. This consumed-target view did
+  not close W11 and is not fresh evidence; it points to exact antecedent credit,
+  not a `+32` or group/cap tuning sweep.
+- **Resources:** 5.326337459 s wall, 127,893,504 B peak RSS, one call/512
+  requested conflicts; zero fresh/sibling/MPS/GPU.
+- **Decision:** refute H-DEEPEST-SURVIVOR-SUPPORT-062 and close trail survival as
+  a causal proxy. Next instrument exact learned-clause/first-UIP antecedent
+  membership at the conflict boundary. Freeze the parallel global-prefix
+  best-first design separately before execution; it has no result yet.
+- **Artifact:** [`result`](O1C0053_DEEPEST_SURVIVOR_SUPPORT_SCREEN_RESULT_20260719.md);
+  authoritative JSON SHA-256
+  `ab616087ec4aaf5862dbda0b0139146ea845b9a1cbe3cff0881e9a596e00f16a`, source
+  freeze `0b89887f961f50fced087a987a6a2c4fb2122b18`.
+
 ## APPLE-VIEW-0006 — Held-out streaming proof-credit transfer
 
 - **Recorded:** 2026-07-19T03:11:06+02:00, isolated parallel track.

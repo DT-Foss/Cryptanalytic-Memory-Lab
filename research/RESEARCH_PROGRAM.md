@@ -230,6 +230,17 @@ distinct test gives positive support only to the deepest externally owned action
 surviving a conflict backjump. Failure after nonzero support moves directly to
 exact conflict-antecedent/proof participation at that boundary.
 
+O1C-0053 executes that distinct test once. Every one of 512 conflict backjumps
+emits exactly one `+32` survivor update, for 16,384 support units in the unchanged
+2,646-byte state. The route changes—111 actions reorder—but only two groups
+differentiate, 502/513 decisions repeat and W11 remains `UNKNOWN` at the same
+cap. Refute H-DEEPEST-SURVIVOR-SUPPORT-062 and close survival without tuning. A
+consumed post-result truth view places 9,472/16,384 units on true masks and the
+true mask supported/top in 4/8 active groups; this did not close W11 and is only
+a locator for exact learned-clause/first-UIP antecedent membership. In parallel,
+freeze the separate global-prefix best-first design before execution and do not
+treat the design itself as evidence.
+
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
 targets. AUC 0.50572, -0.484 gained key bits and zero recoveries close that exact
@@ -295,9 +306,9 @@ passes only at position 335. Refute H-APPLE-PROOF-EDGE-060 for this static
 reader; do not rescue-weight roots, threshold edges or change traversal after
 EVAL. Together with O1C-0051's owner-role reversal and O1C-0052's four-mask
 cycling, the result says a static global relation and negative anti-repetition
-are insufficient. The active Apple/O1 convergence is positive support for the
-deepest surviving live action under H-DEEPEST-SURVIVOR-SUPPORT-062, followed by
-exact proof membership if that proxy fails.
+are insufficient. O1C-0053 now also closes positive trail survival after nonzero
+updates. The active causal convergence is exact learned-clause/first-UIP
+antecedent membership, not an Apple or credit-weight rescue sweep.
 
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
@@ -514,9 +525,11 @@ evidence.
    loses W10 because its tickets expire before backtracks. Preserve all
    score/group bytes. O1C-0050's delayed horizon improves W10, O1C-0051 fails
    unchanged at W11, and O1C-0052 changes 162 exact-mask choices without solving
-   W11. Close unary and negative exact-mask credit. Test one positive-only
-   deepest-survivor proxy with no weight, group or cap sweep; failure requires
-   exact conflict-antecedent attribution.
+   W11. O1C-0053 then emits 512 positive survivor updates but still fails W11 and
+   differentiates only two groups. Close unary, negative exact-mask and positive
+   trail-survival credit. Instrument exact learned-clause/first-UIP antecedent
+   membership with no proxy, group or cap sweep. Freeze the parallel global-
+   prefix best-first design separately before execution.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.
@@ -530,8 +543,8 @@ evidence.
    tests bounded proof-DAG sequence and fails raw at `1,340 > 1,268 > 1,031`;
    its certificate `1,003` cannot pass and loses unary `997`. Close the static
    strongest-predecessor reader without root/threshold/traversal rescue. Preserve
-   only its convergence toward the live deepest-survivor proxy already owned by
-   H-DEEPEST-SURVIVOR-SUPPORT-062.
+   only its convergence with O1C-0053's closed survival proxy: exact conflict-
+   antecedent membership is the remaining causal successor.
 
 ## Operating contract
 
