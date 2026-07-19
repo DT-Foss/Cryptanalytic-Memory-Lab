@@ -15,6 +15,8 @@ from o1_crypto_lab.criticality_factor_search import (
     write_decision_variables,
 )
 from o1_crypto_lab.criticality_potential import (
+    POTENTIAL_VARIABLE_LIMIT,
+    CriticalityPotentialError,
     CriticalityPotentialFactor,
     CriticalityPotentialField,
     add_unary_hints,
@@ -32,6 +34,18 @@ from o1_crypto_lab.o1_relational_search import O1RelationalSearchError
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_potential_coordinate_limit_matches_native_multiblock_contract() -> None:
+    maximum = CriticalityPotentialFactor((POTENTIAL_VARIABLE_LIMIT,), (0.0, 1.0))
+    assert maximum.variables == (1_000_000,)
+    assert unary_hint_potential([(255_232, -1, 2.0)]).observed_variables == (255_232,)
+    with pytest.raises(CriticalityPotentialError):
+        CriticalityPotentialFactor((POTENTIAL_VARIABLE_LIMIT + 1,), (0.0, 1.0))
+    with pytest.raises(CriticalityPotentialError):
+        unary_hint_potential([(POTENTIAL_VARIABLE_LIMIT + 1, 1, 2.0)])
+    with pytest.raises(CriticalityPotentialError):
+        CriticalityPotentialFactor(tuple(range(1, 10)), (0.0,) * (1 << 9))
 
 
 def test_compiled_potential_is_exact_reader_score_for_every_assignment() -> None:

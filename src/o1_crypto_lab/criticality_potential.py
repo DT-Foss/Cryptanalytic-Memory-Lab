@@ -9,7 +9,6 @@ from typing import Iterable, Mapping, Sequence
 
 import numpy as np
 
-from .proof_clause_relations import VARIABLE_LIMIT
 from .proof_parent_criticality import (
     FEATURE_NAMES,
     ROLE_LABELS,
@@ -19,6 +18,10 @@ from .proof_parent_criticality import (
 
 POTENTIAL_SCHEMA = "O1CRIT-POT-V1"
 MAXIMUM_FACTOR_VARIABLES = 8
+# This matches both native potential readers.  Parent-criticality extraction is
+# still deliberately confined to the 32,128-variable one-block proof schema;
+# only the compiled potential coordinate space is wider for multiblock remaps.
+POTENTIAL_VARIABLE_LIMIT = 1_000_000
 
 
 class CriticalityPotentialError(ValueError):
@@ -34,7 +37,10 @@ class CriticalityPotentialFactor:
         if (
             not 1 <= len(self.variables) <= MAXIMUM_FACTOR_VARIABLES
             or tuple(sorted(set(self.variables))) != self.variables
-            or any(not 1 <= variable <= VARIABLE_LIMIT for variable in self.variables)
+            or any(
+                not 1 <= variable <= POTENTIAL_VARIABLE_LIMIT
+                for variable in self.variables
+            )
             or len(self.energies) != 1 << len(self.variables)
             or any(not math.isfinite(energy) for energy in self.energies)
         ):
@@ -289,7 +295,7 @@ def _canonical_hints(
         if (
             isinstance(variable, bool)
             or not isinstance(variable, int)
-            or not 1 <= variable <= VARIABLE_LIMIT
+            or not 1 <= variable <= POTENTIAL_VARIABLE_LIMIT
             or spin not in (-1, 1)
             or not math.isfinite(strength)
             or strength <= 0.0
@@ -352,6 +358,7 @@ __all__ = [
     "CriticalityPotentialFactor",
     "CriticalityPotentialField",
     "POTENTIAL_SCHEMA",
+    "POTENTIAL_VARIABLE_LIMIT",
     "add_unary_hints",
     "compile_criticality_potential",
     "score_potential_assignment",
