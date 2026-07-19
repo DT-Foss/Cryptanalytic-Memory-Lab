@@ -1317,8 +1317,9 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   bounded episodes and validates their positive bounded effect. Their scope
   remains only `CNF ∧ score_potential >= threshold`, never CNF-only; carry only
   canonical emitted clauses, not solver-local trail, assignments or group cache.
-  The remaining issue is preserving raw stdout and replacing the false `+1`
-  soft-limit cap with actual-observed billing and hard process/time/RSS caps, not vault construction.
+  O1C-0067 later repairs billing and finds the unchanged reader/seed/horizon at a
+  duplicate-only fixed point. The remaining question is explicit reader
+  diversity, not vault construction or budget scaling.
 - **Artifact:** authoritative
   [`O1C-0065 result`](O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json).
 
@@ -1344,12 +1345,36 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   `+1`/513 cap. Exact episode-2 work is lost because raw stdout was not retained.
 - **Do not repeat:** replay any consumed O1C-0066 ordinal, retry episode 2,
   discard algebraic consistency, or keep the unsupported `+1` soft-limit cap.
-- **Breadcrumb:** preserve raw native stdout and replace the false cap with an
-  honest actual-observed soft-limit ledger plus hard process/time/RSS caps using target-free empty/nonempty
-  vault fixtures. Freeze those algebraic-consistency gates, then continue only
-  under a distinct non-replay O1C-0067 attempt from the retained 12-clause vault.
+- **Breadcrumb:** O1C-0067 later preserves the repaired actual-observed ledger
+  and completes the distinct continuation. It emits only a stored duplicate;
+  preserve the 12-clause vault and change the reader operator next.
 - **Artifact:** authoritative
   [`O1C-0066 result`](O1C0066_APPLE8_EPISODIC_VAULT_RESULT_20260719.json), SHA-256
   `b8b61d0f2feaa9c544c1fef30cba4c7cead90c390a577a444405d45ad85000e3`;
   capsule manifest
   `b0022997a1c316e71131268b3e3e5524aee4de8167013463f845646c8982d562`.
+
+## B-0068 — The unchanged vault reader reaches an exact one-call fixed point
+
+- **Evidence:** O1C-0067 continues from the sealed 12-clause vault under the
+  repaired actual-observed ledger. Its one lineage-ordinal-3 call requests 512
+  and bills 514 conflicts. It emits one `2,951`-literal clause, SHA-256
+  `b5da89ef9791d65487e214da71e4f36b0600ceea033cc1917c4ba9f392f89c84`,
+  exactly duplicating first-emission vault ordinal `7`. The vault remains
+  `12` clauses / `35,061` literals / `140,483 B`.
+- **Conclusion:** `EPISODIC_VAULT_SATURATED_NO_GAIN` closes only this exact
+  reader, seed and 512-conflict soft horizon. The carried vault demonstrably
+  reduces work versus the parent (`-149` decisions, `-38,039` propagations),
+  but adds no novelty; minimum UB is instead `+1.1375488575223374` higher. No
+  key, truth or reveal is involved.
+- **Do not repeat:** replay lineage ordinal `3`, rerun the same reader/seed/call,
+  or treat blind horizon scaling as a new mechanism.
+- **Breadcrumb:** keep the sealed vault and exact accounting, but change the
+  reader operator. Prefer complementary phase selection with
+  `forcephase=true`, `phase=false`, or precommit another explicit reader.
+- **Artifacts:** authoritative
+  [`result`](O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_RESULT_20260719.json),
+  SHA-256
+  `c01ffe69198e997c6d3798e0b9f3190065bd7b58ec3ab1ba67a66a7ccd799f1f`;
+  capsule manifest
+  `2562db062186fb5168e66c69943af83ba19a151bdc17489111a15dbb114f9341f`.

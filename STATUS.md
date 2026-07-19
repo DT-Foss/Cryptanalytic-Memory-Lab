@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T13:59:02+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T15:26:04+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -215,6 +215,16 @@
   unsupported frozen `+1`/513 cap. Exact episode-2 work is unavailable because
   the failure path retained null stdout. Source is
   `881c461c79dc1fd9aa51aed89d3f2a8b298c2284`.
+- **O1C-0067:** the correctly billed sealed continuation completes as
+  `EPISODIC_VAULT_SATURATED_NO_GAIN`. Its sole lineage-ordinal-3/local-0 call
+  requests `512` and observes/bills `514` conflicts. The one fully emitted
+  `2,951`-literal clause, SHA-256 `b5da89ef9791d654…`, duplicates the vault's
+  first-emission ordinal `7`; input/output remain `12` clauses / `35,061`
+  literals / `140,483 B`. Decisions and propagations fall by `149/38,039`
+  versus O1C-0066's last completed episode, while minimum UB rises
+  `7.973483108047071→9.111031965569408`. This is an exact reader/seed/horizon
+  fixed point with useful retained-work reduction but no novelty, recovery,
+  truth or reveal. Source is `865634458ef3f5b01a5881208eb028404b96f135`.
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
@@ -238,12 +248,10 @@
   fails raw at `1,340 > 1,268 > 1,031` for edge, exact unary and final→early.
   Certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass.
   All 28 wrong passes, proof replays, freeze checks and truth controls are exact.
-- **Next paid experiment:** none until a target-free adapter fix preserves raw
-  native stdout and replaces the unsupported frozen `+1`/513 cap with an honest
-  actual-observed soft-limit ledger while retaining algebraic consistency and
-  hard process/time/RSS caps. Freeze those gates first; only then launch a distinct, non-replay
-  O1C-0067 continuation from the retained 12-clause vault. Never replay an
-  O1C-0066 ordinal or reinterpret its episode-2 adapter stop as science.
+- **Next paid experiment:** one bounded complementary phase-reader call from the
+  sealed 12-clause vault, preferably `forcephase=true`, `phase=false`, with all
+  target, relation, threshold and accounting identities otherwise fixed. Do not
+  replay O1C-0067 or treat blind horizon/RAM scaling as a new mechanism.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -257,19 +265,20 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** no scientific process is active. O1C-0066 is sealed with
-  two completed positive bounded-vault episodes and one non-retriable operational
-  adapter terminal. Immediate ROI is a target-free fix that preserves raw stdout
-  and replaces the false `+1` cap with an honest actual-observed soft-limit
-  ledger plus hard process/time/RSS caps, followed only after frozen algebraic-consistency gates by distinct
-  non-replay O1C-0067 work. O1C-0053..0056 and the exact O1C-0058 rule remain
-  negative and closed.
+- **Active local run:** no scientific process is active. O1C-0067 is sealed as
+  the exact unchanged-reader fixed point after one correctly billed call. The
+  vault retains a measured work reduction but adds zero novelty. Immediate ROI
+  is one complementary phase reader or another explicit reader operator at
+  matched bounded work; same-call replay and blind horizon scaling are closed.
+  O1C-0053..0056 and the exact O1C-0058 rule remain negative and closed.
   Sibling repositories remain read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
   the north star; the scored objective is the strongest reproducible
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
+  [O1C-0067 sealed-vault fixed-point result](research/O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_RESULT_20260719.json),
+  [O1C-0067 interpretation](research/O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_INTERPRETATION_20260719.md),
   [O1C-0066 episodic-vault terminal result](research/O1C0066_APPLE8_EPISODIC_VAULT_RESULT_20260719.json),
   [O1C-0065 exact width-6 native result](research/O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json),
   [O1C-0064 exact memory boundary](research/O1C0064_APPLE8_CROSSBLOCK_SIEVE_4K_RESOURCE_FIX_RESULT_20260719.json),
@@ -393,7 +402,12 @@ stops only because adapter validation rejects the raw soft-conflict ledger; it
 is neither a scientific negative nor recovery. Native identities are exact; the
 failure localizes to an unsupported `+1`/513 soft-limit cap, with exact work lost
 because stdout was not preserved. Fix stdout and adopt an honest actual-observed
-ledger with hard process/time/RSS caps target-free before any distinct non-replay O1C-0067 continuation.
+ledger with hard process/time/RSS caps target-free before any distinct non-replay
+O1C-0067 continuation. O1C-0067 now completes that continuation and emits only
+the already stored ordinal-7 clause. The 12-clause vault still reduces decisions
+and propagations versus the parent, but adds no novelty and raises minimum UB.
+Close this exact reader/seed/horizon; change to complementary phase selection or
+another explicit reader operator rather than replaying or blind-scaling it.
 In parallel APPLE-VIEW-0005 finds the first exact sparse carry certificate:
 250 of 336 high-carry identities suffice to reject a complete wrong key on the
 fixed matrix, with independent proof replay. APPLE-VIEW-0006 then performs the
@@ -982,39 +996,38 @@ O1C-0017 result boundary are documented in
 | Parallel bound build | — | 2026-07-19 11:23 | APPLE-VIEW-0009 exact width-6 grouping | terminal: strictly tighter and 799,232 B smaller than frozen pairs; current-native RSS benefit must come indirectly from pruning | complete |
 | Matched grouped native | — | 2026-07-19 12:36 | O1C-0065 exact width-6 Full-256 sieve | terminal: tighter bounds/smaller logical cache, but 6→6 cuts and identical decisions/propagations; no recovery | complete |
 | Episodic vault | — | 2026-07-19 13:58 | O1C-0066 APPLE8 score-threshold no-good vault | terminal: two completed episodes grow 0→6→12 clauses and change bounded search; episode 2 stops in adapter validation, no truth/key/retry | complete |
+| Sealed-vault continuation | — | 2026-07-19 15:26 | O1C-0067 APPLE8 one-call continuation | terminal: one ordinal-7 duplicate, vault unchanged at 12 clauses; lower decisions/propagations, no novelty/truth/key | complete |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Preserve raw native stdout on adapter failures and replace the unsupported
-   frozen `+1`/513 cap with an honest actual-observed soft-limit ledger and hard process/time/RSS caps using
-   target-free empty/nonempty-vault fixtures only.
-2. Freeze adapter gates that retain algebraic ledger consistency, preserve raw
-   failure telemetry, ordinal consumption and zero replay/truth access.
-3. Only after those gates pass, launch distinct O1C-0067 from the retained
-   12-clause vault; do not replay any O1C-0066 ordinal or call its adapter stop a
-   scientific negative.
-4. Keep O1C-0056 fixed negative clause-role credit closed. If the causal branch
+1. Run one bounded complementary phase reader from O1C-0067's sealed 12-clause
+   vault, preferably `forcephase=true`, `phase=false`, with all other identities
+   and accounting matched.
+2. If it is duplicate-only, precommit one other explicit reader operator. Do not
+   replay either call or blind-scale the horizon/RAM envelope.
+3. Keep O1C-0056 fixed negative clause-role credit closed. If the causal branch
    resumes later, condition the unique exact role on outcome/utility; do not tune
    sign, scale, groups or cap.
-5. Keep O1C-0054's global separable factor-bound beam closed; do not widen its
+4. Keep O1C-0054's global separable factor-bound beam closed; do not widen its
    beam, reorder pairs, raise the queue cap or tune the bound.
-6. Keep O1C-0058's attended-decoy positive one-bit-delta vault closed; do not
+5. Keep O1C-0058's attended-decoy positive one-bit-delta vault closed; do not
    flip signs, tune thresholds or rerun that exact local rule. Do not extend its
    formal closure to crowd/elite consensus; the separate cheap scratch was only
    control-negative.
-7. Keep APPLE-VIEW-0007's static strongest-predecessor reader closed; do not
+6. Keep APPLE-VIEW-0007's static strongest-predecessor reader closed; do not
    root-weight, threshold, retraverse or rescore its held-out panel. Its only
    retained breadcrumb converges on the active live context/action branch.
-8. Reuse A325/A526 unchanged only when their native complement gate is met, and
+7. Reuse A325/A526 unchanged only when their native complement gate is met, and
    keep every sibling repository read-only.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
-| `O1C-0066` | 2026-07-19 13:58 | Canonical threshold-certified no-goods can persist across fresh bounded APPLE8 solver episodes and compound exact pruning without solver-local replay | Episodes grow vault `0→6→12` clauses: ep0 `17,804` literals / `71,431 B`; ep1 adds 6 novel / 17,257 literals with one duplicate, ending `140,483 B`. At requested 512, decisions `4471→4666`, propagations `1178185→1230568`, minimum UB `12.934208247009447→7.973483108047071`; ep2 stops adapter validation on `joint-score-sieve-v5 soft conflict ledger differs`; no key/truth | `EPISODIC_VAULT_OPERATIONAL_TERMINAL`; positive bounded efficacy before operational stop, neither scientific negative nor recovery | 3 calls/intents, 2 completed; requested 1,536/billed 1,025; 0.716103 s native wall; 8.157195 s elapsed; peak RSS `388,907,008→389,234,688 B` | Preserve raw stdout; replace false `+1`/513 cap with actual-observed billing plus hard process/time/RSS caps, then distinct non-replay O1C-0067 | [Result](research/O1C0066_APPLE8_EPISODIC_VAULT_RESULT_20260719.json) |
-| `O1C-0065` | 2026-07-19 12:36 | Exact width-6 compatibility groups turn their tighter public bound into more native Full-256 pruning at matched work | Root UB `292.3061134451→262.6864419708`, minimum UB `13.1979307788→12.9342082470`, cache `60,456→23,080 B`; cuts remain `6→6`, decisions `4471→4471`, propagations `1178185→1178185`; no key/truth read | `O1C65_GROUPED_WIDTH6_EFFICACY_RETAINED`; no strict efficacy gain or recovery | 3.328 s elapsed; 1.985 child CPU; 0.346 s native; 386,547,712 B native peak; one call | O1C-0066 later persists its cuts; current work preserves raw stdout and replaces the false `+1` cap before O1C-0067 | [Result](research/O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json) |
+| `O1C-0067` | 2026-07-19 15:26 | One correctly billed fresh process from the sealed 12-clause vault adds another exact exclusion or reaches a fixed point | Requested/actual/billed `512/514/514`; one `2,951`-literal input duplicate matching first-emission ordinal 7; vault remains 12 clauses/35,061 literals/140,483 B. Decisions `4,517` (-149), propagations `1,192,529` (-38,039), minimum UB `9.111031965569408` (+1.1375488575223374); no key/truth | `EPISODIC_VAULT_SATURATED_NO_GAIN`; exact reader/seed/horizon fixed point, not global vault exhaustion | one call; 4.553662 s elapsed; 0.333463 s native wall; 0.921060 s native CPU; 392,609,792 B native peak | Preserve the work-reducing vault, but change to complementary phase selection or another explicit reader; no replay/blind scaling | [Result](research/O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_RESULT_20260719.json) |
+| `O1C-0066` | 2026-07-19 13:58 | Canonical threshold-certified no-goods can persist across fresh bounded APPLE8 solver episodes and compound exact pruning without solver-local replay | Episodes grow vault `0→6→12` clauses: ep0 `17,804` literals / `71,431 B`; ep1 adds 6 novel / 17,257 literals with one duplicate, ending `140,483 B`. At requested 512, decisions `4471→4666`, propagations `1178185→1230568`, minimum UB `12.934208247009447→7.973483108047071`; ep2 stops adapter validation on `joint-score-sieve-v5 soft conflict ledger differs`; no key/truth | `EPISODIC_VAULT_OPERATIONAL_TERMINAL`; positive bounded efficacy before operational stop, neither scientific negative nor recovery | 3 calls/intents, 2 completed; requested 1,536/billed 1,025; 0.716103 s native wall; 8.157195 s elapsed; peak RSS `388,907,008→389,234,688 B` | O1C-0067 later repairs billing and finds unchanged-reader saturation; preserve the vault and change reader operator | [Result](research/O1C0066_APPLE8_EPISODIC_VAULT_RESULT_20260719.json) |
+| `O1C-0065` | 2026-07-19 12:36 | Exact width-6 compatibility groups turn their tighter public bound into more native Full-256 pruning at matched work | Root UB `292.3061134451→262.6864419708`, minimum UB `13.1979307788→12.9342082470`, cache `60,456→23,080 B`; cuts remain `6→6`, decisions `4471→4471`, propagations `1178185→1178185`; no key/truth read | `O1C65_GROUPED_WIDTH6_EFFICACY_RETAINED`; no strict efficacy gain or recovery | 3.328 s elapsed; 1.985 child CPU; 0.346 s native; 386,547,712 B native peak; one call | O1C-0066 later persists its cuts and O1C-0067 closes unchanged-reader novelty; preserve grouping and change reader operator | [Result](research/O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json) |
 | `O1C-0064` | 2026-07-19 11:45 | Cause-preserving telemetry plus a 1-GiB envelope lets the repaired APPLE8 4K path reach a valid terminal result | Guarded memory stop after `29.804627625 s`: observed `1,040,285,696 B` at `1,040,187,392 B`; no native result/key/truth read | `O1C64_OPERATIONAL_FAILURE_NO_SCIENCE_RESULT`; exact resource boundary, negative operational result | 30.914 s elapsed; 30.314 child CPU; one call; no fresh/reveal/MPS/GPU | Do not retry or merely raise RAM; couple the already-positive exact width-6 bound to reduce the measured bottleneck | [Result](research/O1C0064_APPLE8_CROSSBLOCK_SIEVE_4K_RESOURCE_FIX_RESULT_20260719.json) |
 | `APPLE-VIEW-0009` | 2026-07-19 11:23 | Exact score-aware compatibility groups retain more public factor geometry with less state than frozen pairs | Safe root UB `269.7472723039718→262.68644197084643`; groups `3805→2885`; rows `265256→176912`; indexed bytes `2510008→1710776` | `PUBLIC_EXACT_GROUPED_BOUND_STRICTLY_DOMINATES_PAIR_RELAXATION_NO_SEARCH_CLAIM`; positive bound mechanism, no search/recovery claim | 0.705 s width-6 construction; zero solver/truth/fresh calls | O1C-0065 integrates it and O1C-0066 persists its cuts; preserve the grouping through stdout/soft-limit adapter repair | [Result](research/APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json) |
 | `O1C-0063` | 2026-07-19 11:04 | Lifecycle-safe teardown and pending no-good retention repair O1C62 | Repaired path runs `17.763142674 s`, then terminates opaquely under the old wrapper; high-confidence guarded `736 MiB` stop, no science result | `O1C63_OPERATIONAL_FAILURE_NO_SCIENCE_RESULT`; predecessor diagnosis only | one call; zero truth/fresh/reveal | O1C64 later confirms the same memory-growth class with exact telemetry | [Diagnosis](research/O1C0063_RESOURCE_WATCHDOG_DIAGNOSIS_20260719.md) |
@@ -1083,6 +1096,9 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0067` capsule manifest | `2562db062186fb5168e66c69943af83ba19a151bdc17489111a15dbb114f9341f` |
+| `O1C-0067` authoritative result | `c01ffe69198e997c6d3798e0b9f3190065bd7b58ec3ab1ba67a66a7ccd799f1f` |
+| `O1C-0067` source freeze | `865634458ef3f5b01a5881208eb028404b96f135` |
 | `O1C-0058` capsule manifest | `9367abdae4b8514eec3c9518c8cfc54f9b8a34ce45ec4ebc5c009280507b3b06` |
 | `O1C-0058` authoritative result | `1ff36f9479b397f50c9421a7c0ba406df308ab8c9989d2e039e0874a1acbcb64` |
 | `O1C-0058` original RUN.md | `05eadbcaef8db7003be3bd5a7144969a659cc2be52ffbc1c32e90d7dc1ed97f0` |
@@ -1290,6 +1306,7 @@ O1C-0017 result boundary are documented in
 ## Resume here
 
 Resume from [the ranked actions](research/NEXT_ACTIONS.md), the exact
+[O1C-0067 sealed-vault result](research/O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_RESULT_20260719.json),
 [O1C-0066 episodic-vault result](research/O1C0066_APPLE8_EPISODIC_VAULT_RESULT_20260719.json),
 [O1C-0065 matched width-6 result](research/O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json),
 [O1C-0064 resource boundary](research/O1C0064_APPLE8_CROSSBLOCK_SIEVE_4K_RESOURCE_FIX_RESULT_20260719.json)
@@ -1310,10 +1327,12 @@ grow the canonical vault `0→6→12` clauses, episode 1 adds six novel clauses 
 RSS effectively flat. Episode 2 stops at `adapter_validation` because
 `joint-score-sieve-v5 soft conflict ledger differs`; it is not a scientific
 negative or recovery, consumed its ordinal and must not be replayed. Resume with
-one target-free adapter repair that preserves raw stdout and replaces the
-unsupported `+1`/513 cap with an honest actual-observed soft-limit ledger plus hard process/time/RSS caps
-while retaining algebraic ledger consistency. Freeze those gates before a
-distinct non-replay O1C-0067 continuation from the retained 12-clause vault.
+O1C-0067's completed repaired-ledger continuation: it bills 514 conflicts,
+emits only the already stored ordinal-7 clause and leaves the vault unchanged at
+12 clauses. Decisions/propagations fall by `149/38,039`, but minimum UB is
+`1.1375488575223374` higher and there is no novelty or recovery. Continue with
+one complementary phase reader (`forcephase=true`, `phase=false`) or another
+explicit reader operator; do not replay or blind-scale the same horizon.
 Do not enlarge the decoy panel or repeat O1C-0058's attended-base positive-delta
 rule.
 

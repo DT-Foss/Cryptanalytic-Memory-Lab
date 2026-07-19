@@ -593,7 +593,14 @@ evidence.
    scientific negative or recovery. Native identities are exact; preserve raw
    stdout and replace the unsupported `+1`/513 cap with an honest actual-observed
    soft-limit ledger plus hard process/time/RSS caps target-free, then freeze algebraic-consistency
-   gates before distinct non-replay O1C-0067.
+   gates before distinct non-replay O1C-0067. O1C-0067 subsequently passes those
+   gates and executes one lineage-ordinal-3 continuation. The retained vault
+   lowers decisions/propagations by `149/38,039`, but its only fully emitted
+   `2,951`-literal clause is the already stored ordinal `7`; the vault remains
+   `12` clauses / `35,061` literals / `140,483 B`. Classification is
+   `EPISODIC_VAULT_SATURATED_NO_GAIN`: close this exact reader/seed/horizon and
+   test a complementary phase reader (`forcephase=true`, `phase=false`) or one
+   other explicit reader operator, never same-call replay or blind scaling.
    Any later role-credit test must precommit an attacker-visible outcome/utility
    condition rather than tune `-32`.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
@@ -646,7 +653,16 @@ evidence.
   replace the false cap with an actual-observed soft-limit ledger plus hard process/time/RSS caps on
   target-free fixtures while retaining algebraic ledger consistency. Freeze
   those gates before a distinct non-replay O1C-0067 continuation from the
-  retained 12-clause vault. Another pure RAM increase remains closed.
+  retained 12-clause vault.
+- O1C-0067 completes that continuation under actual-observed billing. Its one
+  call requests `512`, bills `514`, and reduces decisions/propagations by
+  `149/38,039` versus O1C-0066's last completed episode. The only emitted clause
+  has `2,951` literals and exactly duplicates first-emission vault ordinal `7`,
+  leaving the vault unchanged at `12` clauses / `35,061` literals / `140,483 B`.
+  Minimum UB is `9.111031965569408`, `+1.1375488575223374` versus the parent;
+  no key, truth or reveal occurs. This closes only the exact reader/seed/horizon.
+  Continue with a complementary phase reader or another explicit operator, not
+  replay or blind horizon/RAM scaling.
 
 ## Operating contract
 

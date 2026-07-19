@@ -2515,3 +2515,43 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   sealed capsule
   [`runs/20260719_135856_O1C-0066_apple8-episodic-vault-v1`](../runs/20260719_135856_O1C-0066_apple8-episodic-vault-v1/RUN.md), manifest
   `b0022997a1c316e71131268b3e3e5524aee4de8167013463f845646c8982d562`.
+
+## O1C-0067 — APPLE8 sealed-vault continuation
+
+- **Supersession:** this completed attempt consumes O1C-0066's forward decision
+  after the target-free adapter-v9 gates passed. It is a distinct lineage call,
+  not a replay of O1C-0066's consumed ordinal 2.
+- **Started:** 2026-07-19T15:25:59+02:00.
+- **Recorded:** 2026-07-19T15:26:04+02:00.
+- **Source commit:** `865634458ef3f5b01a5881208eb028404b96f135`.
+- **Protocol:** exactly one fresh native subprocess from the sealed 12-clause
+  vault, using local ordinal `0`, lineage ordinal `3`, the unchanged reader,
+  seed and requested 512-conflict soft horizon. Actual solve conflicts are
+  billed without a numeric overshoot ceiling; process/time/RSS limits remain
+  hard.
+- **Result:** `EPISODIC_VAULT_SATURATED_NO_GAIN`. The call observes and bills
+  `514` conflicts (`+2`) and fully emits one `2,951`-literal clause, SHA-256
+  `b5da89ef9791d65487e214da71e4f36b0600ceea033cc1917c4ba9f392f89c84`.
+  It is an input duplicate matching first-emission vault ordinal `7`. Novel
+  clauses/literals are `0/0`; input and output remain `12` clauses, `35,061`
+  literals and `140,483 B`.
+- **Search and resources:** decisions `4,517` and propagations `1,192,529` are
+  `-149/-38,039` versus O1C-0066's last completed episode. Minimum UB is
+  `9.111031965569408`, `+1.1375488575223374` versus the parent. Runner elapsed
+  time is `4.553662 s`; native wall/CPU are `0.333463/0.921060 s`, and native
+  peak RSS is `392,609,792 B`. One native call; zero key/truth/reveal/fresh
+  target/entropy/refit/MPS/GPU work.
+- **Decision:** the exact reader/seed/horizon is at a clause-generation fixed
+  point. The retained vault still lowers matched search work, but this call adds
+  no novelty, bound frontier or recovery. Do not replay it or blind-scale the
+  same horizon. Test a complementary phase reader (`forcephase=true`,
+  `phase=false`) or another explicitly precommitted reader operator next.
+- **Artifacts:** authoritative
+  [`result`](O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_RESULT_20260719.json),
+  SHA-256
+  `c01ffe69198e997c6d3798e0b9f3190065bd7b58ec3ab1ba67a66a7ccd799f1f`;
+  concise [`interpretation`](O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_INTERPRETATION_20260719.md);
+  sealed
+  [`capsule`](../runs/20260719_152601_O1C-0067_apple8-vault-continuation-v1/RUN.md),
+  manifest SHA-256
+  `2562db062186fb5168e66c69943af83ba19a151bdc17489111a15dbb114f9341f`.

@@ -1,14 +1,13 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T13:59:02+02:00.
+Last ranked: 2026-07-19T15:26:04+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Preserve raw native stdout on adapter failure and replace the unsupported frozen +1/513 cap with an actual-observed soft-limit ledger plus hard process/time/RSS caps on target-free empty/nonempty-vault fixtures | Operational prerequisite | Extreme | Extreme | Low | Resolves the known O1C-0066 wrapper defect without spending another scientific ordinal or losing exact overshoot telemetry |
-| 2 | Freeze adapter gates for algebraic ledger consistency, raw failure telemetry, ordinal consumption, zero replay and zero truth access | Operational prerequisite | Extreme | Extreme | Low | Makes any later episodic result authoritative without retaining the false +1 overshoot assumption |
-| 3 | Only after ranks 1–2 pass, launch a distinct non-replay O1C-0067 continuation from the retained 12-clause vault | State of the art | Extreme | Extreme | Medium | Tests whether the already-positive bounded archive effect continues toward lower search work or exact public recovery |
-| 4 | Keep the outcome/utility-conditioned exact clause-role successor parked behind O1C-0067 | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without distracting from the measured episodic frontier |
-| 5 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
+| 1 | Run one bounded complementary phase-reader call from O1C-0067's sealed 12-clause vault with `forcephase=true`, `phase=false` and otherwise matched identities/accounting | State of the art | Extreme | Extreme | Medium | Tests whether saturation is specific to the current reader rather than the vault state |
+| 2 | If rank 1 is duplicate-only, precommit one other explicit reader operator at the same bounded work; do not replay a consumed call or blind-scale the horizon | Research | High | Extreme | Medium | Separates reader diversity from same-trajectory repetition |
+| 3 | Keep the outcome/utility-conditioned exact clause-role successor parked behind the reader-diversity test | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without distracting from the measured episodic frontier |
+| 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
 ## Frontier scoreboard
 
@@ -74,7 +73,13 @@ Last ranked: 2026-07-19T13:59:02+02:00.
   scientific negative nor recovery and is not retriable. Native conflict
   identities are exact, so the failure implies `solve_conflicts >= 514` and
   overshoot `>= 2` against the unsupported `+1`/513 cap; the exact value was lost
-  because raw stdout was not preserved.
+  because raw stdout was not preserved. O1C-0067 then passes the repaired
+  actual-observed ledger in one lineage-ordinal-3 call: requested/actual/billed
+  work is `512/514/514`, decisions and propagations fall by `149/38,039` versus
+  the parent, but the sole `2,951`-literal emission duplicates vault ordinal `7`.
+  The vault stays `12` clauses / `35,061` literals / `140,483 B`, minimum UB is
+  `9.111031965569408` (`+1.1375488575223374`), and no recovery occurs. This is
+  an exact reader/seed/horizon fixed point, not global vault exhaustion.
 - **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.
@@ -134,13 +139,12 @@ Last ranked: 2026-07-19T13:59:02+02:00.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** preserve raw native stdout and replace the false
-  frozen `+1`/513 cap with an actual-observed soft-limit ledger plus hard process/time/RSS caps on
-  target-free empty/nonempty-vault fixtures, while retaining algebraic ledger
-  consistency. After those gates freeze, a distinct non-replay O1C-0067 may
-  continue from the retained 12-clause vault and must again report novel/
-  duplicate clauses, fixed-work search, peak per-episode RSS and any exact public
-  candidate. Exact 256 remains the north star.
+- **Next measurable advance:** preserve O1C-0067's sealed vault and repaired
+  ledger, but change the reader operator at matched bounded work. Prefer
+  `forcephase=true`, `phase=false`; report novel/duplicate clauses, search work,
+  minimum UB, peak RSS and any exact public candidate. Do not replay the same
+  call or treat a larger horizon as mechanism novelty. Exact 256 remains the
+  north star.
 
 ## Effect-first stop rules
 
@@ -246,9 +250,10 @@ Last ranked: 2026-07-19T13:59:02+02:00.
   exactly once at matched work and retains six cuts with identical search work.
   O1C-0066 persists them and establishes positive bounded efficacy in two fresh
   episodes before episode 2 stops on an adapter soft-conflict-ledger mismatch.
-  Do not replay an ordinal, call the stop scientific, or jump to 4K. Preserve raw
-  stdout and replace the false `+1` cap with actual-observed billing and hard process/time/RSS caps in target-free
-  validation while retaining algebraic consistency, then use distinct O1C-0067.
+  O1C-0067 repairs the ledger and completes one distinct call, but emits only a
+  duplicate of vault ordinal `7`; the unchanged reader/seed/horizon is now
+  closed. Do not replay, blind-scale or jump to 4K. Preserve the sealed vault and
+  change one explicit reader operator, preferably complementary phase selection.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not

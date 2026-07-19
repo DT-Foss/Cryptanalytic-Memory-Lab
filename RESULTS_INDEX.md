@@ -186,6 +186,7 @@ attacker-valid cipher evidence.
 | `APPLE-VIEW-0009-EXACT-GROUPED-BOUND` | Deterministic score-aware exact width-6 compatibility groups over the frozen public eight-block potential | `PUBLIC_EXACT_GROUPED_BOUND_STRICTLY_DOMINATES_PAIR_RELAXATION_NO_SEARCH_CLAIM`; positive bound mechanism | root UB 269.7472723039718→262.68644197084643; groups 3805→2885; rows 265256→176912; indexed bytes 2510008→1710776; zero solver/truth | [Result](research/APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json) |
 | `O1C-0065-APPLE8-WIDTH6-GROUPED` | Exact APPLE-VIEW-0009 width-6 bound integrated into the repaired native APPLE8 Full-256 sieve at matched 512/513 work | `O1C65_GROUPED_WIDTH6_EFFICACY_RETAINED`; tighter bound and smaller logical cache, no strict pruning/search gain or recovery | root UB 292.30611344510277→262.68644197084643; minimum UB 13.197930778790159→12.934208247009447; cuts 6→6; decisions 4471→4471; propagations 1178185→1178185; cache 60456→23080 B; peak RSS 388644864→386547712 B contextual; no key/truth read | [Result](research/O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json) |
 | `O1C-0066-APPLE8-EPISODIC-VAULT` | Canonical score-threshold no-goods persisted across fresh bounded APPLE8 solver episodes with no solver-local state replay | `EPISODIC_VAULT_OPERATIONAL_TERMINAL`; positive bounded efficacy before the operational stop, neither a scientific negative nor recovery | completed ep0 vault 0→6 clauses / 17,804 literals / 71,431 B; ep1 6→12 with +6 novel / +17,257 literals / 1 duplicate / 140,483 B; at requested 512 decisions 4471→4666, propagations 1178185→1230568, minimum UB 12.934208247009447→7.973483108047071, peak RSS 388907008→389234688 B; ep2 exceeds false +1/513 cap (`solve>=514`, overshoot `>=2`) and stdout is lost; 3 calls/intents, 2 completed, requested 1536/billed 1025, no key/truth | [Result](research/O1C0066_APPLE8_EPISODIC_VAULT_RESULT_20260719.json) · [Capsule](runs/20260719_135856_O1C-0066_apple8-episodic-vault-v1/RUN.md) |
+| `O1C-0067-APPLE8-VAULT-CONTINUATION` | One correctly billed sealed continuation from O1C-0066's retained 12-clause vault | `EPISODIC_VAULT_SATURATED_NO_GAIN`; exact reader/seed/horizon fixed point, not global vault exhaustion or recovery | lineage ordinal 3/local 0; requested/actual/billed 512/514/514; one 2,951-literal input duplicate, SHA `b5da89ef…`, matching first-emission vault ordinal 7; vault unchanged at 12 clauses/35,061 literals/140,483 B; decisions 4,517 (-149), propagations 1,192,529 (-38,039), minimum UB 9.111031965569408 (+1.1375488575223374); 0.333463 s native wall, 392,609,792 B peak; no key/truth/reveal/MPS/GPU | [Result](research/O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_RESULT_20260719.json) · [Interpretation](research/O1C0067_APPLE8_EPISODIC_VAULT_CONTINUATION_INTERPRETATION_20260719.md) · [Capsule](runs/20260719_152601_O1C-0067_apple8-vault-continuation-v1/RUN.md) |
 | `APPLE-VIEW-0005-SPARSE-CARRY` | Sparse exact c31-identity certificates for complete wrong Full-256 candidates | `CONSUMED_FULL256_CANDIDATE_FILTER`; no key-generation/entropy claim | 20/20 exact wrong-candidate conflicts; every reason-DAG slice independently replays with 250–265/336 identities, best 250 (86 omitted); 5/5 truth controls complete | [Result](research/apple_view_5/apple_view_5_report.md) |
 | `APPLE-VIEW-0006-PROOF-CREDIT-TRANSFER` | One-pass 1,346-byte proof-frequency/recency state frozen before disjoint Full20/Full256 candidate filters | `HELDOUT_CERTIFICATE_TRANSFER_WITH_SCHEDULER_LOSS`; no key-generation/entropy claim | raw learned order loses 1,268 vs best structural 1,031 total first-conflict switches; independently replayed learned certificates win 4/4 at 248/248/251/250 vs best structural 251/252/257/255, aggregate 997 vs 1,015 and immediate-public 1,013; zero held-out updates, all truth controls complete | [Result](research/apple_view_6/apple_view_6_report.md) |
 | `APPLE-VIEW-0007-PROOF-EDGE-TRANSFER` | One-pass 113,570-byte proof-DAG edge/root/terminal state with one frozen static strongest-predecessor reader | `HELDOUT_STATIC_EDGE_SCHEDULER_NEGATIVE`; no key-generation/entropy claim | raw edge order loses 1,340 vs exact APPLE6 unary 1,268 and best structural 1,031; certificate 1,003 beats fixed 1,015 but loses unary 997 and cannot pass; all 28 wrong passes, proof replays, freeze checks and truth controls exact | [Result](research/apple_view_7/apple_view_7_report.md) |
@@ -195,6 +196,11 @@ O1C-0066 is source-bound to
 `b8b61d0f2feaa9c544c1fef30cba4c7cead90c390a577a444405d45ad85000e3` and
 capsule manifest SHA-256 is
 `b0022997a1c316e71131268b3e3e5524aee4de8167013463f845646c8982d562`.
+O1C-0067 is source-bound to
+`865634458ef3f5b01a5881208eb028404b96f135`; authoritative result SHA-256 is
+`c01ffe69198e997c6d3798e0b9f3190065bd7b58ec3ab1ba67a66a7ccd799f1f` and
+capsule manifest SHA-256 is
+`2562db062186fb5168e66c69943af83ba19a151bdc17489111a15dbb114f9341f`.
 
 ## Frontier and state-of-the-art results
 
@@ -339,6 +345,13 @@ past an unsupported frozen `+1`/513 cap. Exact work was lost because raw stdout
 was not retained. Preserve stdout, replace the false cap with an honest actual-observed
 soft-limit ledger while retaining algebraic consistency and hard process/time/RSS caps, freeze those
 target-free gates, then use a distinct non-replay O1C-0067 continuation.
+O1C-0067 completes that call under actual-observed billing and reaches
+`EPISODIC_VAULT_SATURATED_NO_GAIN`: the sole `2,951`-literal emission is the
+already stored ordinal-7 clause, so the vault remains at 12 clauses even though
+decisions and propagations fall by `149/38,039` versus the parent. Minimum UB is
+`1.1375488575223374` higher and no key or truth is read. Close this exact
+reader/seed/horizon; use complementary phase selection (`forcephase=true`,
+`phase=false`) or another explicit reader operator, not replay or blind scaling.
 APPLE-VIEW-0005 supplies a separate exact candidate-filter frontier. Its depth-30
 base plus a proof-replayed subset of only 250 high-carry identities rejects a
 complete wrong 256-bit key while omitting 86 of the 336 missing equations. This
