@@ -581,10 +581,11 @@ evidence.
    clause, removes fan-out and still fails W11 with the same 18 cells/seven
    groups. Keep localization and close fixed negative credit. O1C-0057 then
    passes the fresh multi-block rank gate at `8/7/1/1` of 4,097 with prefix-8
-   rotations `3581/4037`. Preserve its frozen prefix-8 scorer and prioritize
-   partial-assignment/search integration, with Apple joint-score parallel. Any
-   later role-credit test must precommit an attacker-visible outcome/utility
-   condition rather than tune `-32`.
+   rotations `3581/4037`. O1C-0061 then validates exact joint partial-assignment
+   use, and APPLE-VIEW-0008 turns it into six safe Full-256 trail cuts at matched
+   work. Preserve that path and integrate APPLE-VIEW-0009's tighter/smaller
+   grouped bound next. Any later role-credit test must precommit an attacker-
+   visible outcome/utility condition rather than tune `-32`.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.
@@ -600,6 +601,22 @@ evidence.
    strongest-predecessor reader without root/threshold/traversal rescue. Preserve
    only its convergence with O1C-0053's closed survival proxy: exact conflict-
    antecedent membership is the remaining causal successor.
+
+## Current exact Full-256 frontier — 2026-07-19
+
+- O1C-0061 validates the first exact eight-block joint-score partial-assignment
+  bound. It makes material pre-model bound progress but emits no trail cut alone.
+- APPLE-VIEW-0008 changes no information or solutions and, at exactly matched
+  requested 512/billed 513 conflicts, turns that bound into six mathematically
+  safe Full-256 trail cuts. Decisions fall `9166→4471`; no key is returned and
+  no truth is read by the Apple arm.
+- O1C-0062..0064 finish the 4K lifecycle/resource audit. The repaired path is
+  stopped by native memory growth after `29.804627625 s` at the guarded
+  `992 MiB` boundary. These are operational failures, not science results.
+- APPLE-VIEW-0009 supplies the next distinct mechanism: exact score-aware
+  width-6 groups are `7.06083033312537` tighter and `799,232 B` smaller than
+  frozen pairs. Native integration on the unchanged Full-256 relation is the
+  sole highest-ROI next paid experiment; another pure RAM increase is closed.
 
 ## Operating contract
 

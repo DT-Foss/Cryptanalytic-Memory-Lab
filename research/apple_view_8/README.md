@@ -79,22 +79,62 @@ python3 -m ruff check research/apple_view_8
 The test suite writes only temporary files.  It never mutates the frozen O1C57
 capsule or the Full256 foundation capsule.
 
-## Prospective matched science
+## Matched science result
 
-The next experiment is deliberately paired, not adaptive:
+The paired experiment ran without adaptation:
 
-1. **Baseline arm:** canonical O1C59 shared-key multiblock CNF.
+1. **Baseline arm:** terminal O1C61 canonical shared-key multiblock CNF.
 2. **APPLE-VIEW-0008 arm:** the byte-identical baseline body plus only these
    direct P20 units and cross-block ripple consequences.
 
-Both arms must consume the same O1C57 public target, joint-score potential,
-threshold, conflict budget, wall/RSS limits, native build, and verification
-logic.  Each arm gets exactly one solver call.  There is no fresh target and no
-parameter tuning between arms.
+Both arms consumed the same O1C57 public target, joint-score potential,
+threshold, requested 512-conflict budget, native build, and verification logic.
+Both were billed 513 conflicts. The result is
+`APPLE_VIEW_0008_STRICT_INCREMENTAL_EFFECT_NO_RECOVERY`:
 
-Report SAT only after extracting the complete key and verifying all eight
-ChaCha20 blocks directly.  Otherwise compare early exact score-prune counts,
-first-prune conflict position, potential-bound drop, maximum assigned key bits,
-maximum assigned consequence/internal bits, and final assigned progress.  The
-matched run can establish whether these logically redundant public clauses
-actually shorten the live search path; this build alone makes no such claim.
+| quantity | O1C61 baseline | APPLE-VIEW-0008 | delta |
+|---|---:|---:|---:|
+| minimum safe upper bound | 24.7944466611 | 13.1979307788 | -11.5965158823 |
+| safe trail-threshold prunes | 0 | 6 | +6 |
+| decisions | 9,166 | 4,471 | -4,695 |
+| propagations | 1,227,877 | 1,178,185 | -49,692 |
+
+The augmented bound crossed below the frozen threshold `14.6061787979` while
+the matched baseline remained above it. This is the first certified Full-256
+trail pruning and actual search-branch removal in this line. It is not key
+recovery: both arms ended `UNKNOWN`, no complete key was returned, and the
+APPLE arm did not read the committed truth or reveal. The six emitted pruning
+clauses are deep (`2,964..2,974` literals), so this is genuine trail exclusion,
+not a complete-model-only rejection. Native context was 0.451725 s and
+388,644,864 B peak RSS.
+
+The immutable result is
+[`apple_view_8_matched_result.json`](apple_view_8_matched_result.json), with its
+capsule at
+[`runs/20260719_095509_APPLE-VIEW-0008-MATCHED_crossblock-consequence-sieve-v1`](../../runs/20260719_095509_APPLE-VIEW-0008-MATCHED_crossblock-consequence-sieve-v1/RUN.md).
+
+## 4K promotion boundary and next action
+
+The frozen 4,096-conflict promotion is complete as an operational chain, not a
+science result:
+
+- O1C-0062 exposed an external-propagator callback/lifecycle failure after the
+  single authorized native call.
+- O1C-0063 repaired teardown and pending no-good backtracking. It remained in the
+  real Full-256 path for `17.763142674 s`, then most likely reached its guarded
+  `736 MiB` ceiling; the old wrapper discarded the exact cause.
+- O1C-0064 kept the science unchanged, preserved the cause chain, and confirmed
+  `watchdog_memory` after `29.804627625 s`: observed `1,040,285,696 B` against
+  the guarded `1,040,187,392 B` threshold. It returned no native result/key and
+  read no truth.
+
+None is retried or interpreted as cryptanalytic evidence. A third pure RAM-cap
+increase is not the next action.
+
+APPLE-VIEW-0009 now supplies the distinct positive mechanism. Its exact
+score-aware width-6 groups lower the safe root upper bound from the frozen pair
+relaxation's `269.7472723039718` to `262.68644197084643`, while indexed state
+falls `2,510,008→1,710,776 B`. Compile grouping hash
+`3da85bae132d829252a68f0e3fd99220ea7d1ef365042806af810ff02f75f636`
+into a lifecycle-safe native successor and test emitted safe trail cuts, time,
+and memory once on these exact Apple clauses.

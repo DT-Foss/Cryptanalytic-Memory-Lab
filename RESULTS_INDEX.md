@@ -178,6 +178,12 @@ attacker-valid cipher evidence.
 | `O1C-0056-CLAUSE-ROLE-CREDIT` | One fixed `-32` update to the deepest exact live-owner role in each matched learned clause | `CONSUMED_POST_REVEAL_EXACT_CLAUSE_ROLE_CREDIT_SCREEN`; W11 negative | `UNKNOWN` at 512 conflicts/513 decisions/12,013,641 propagations; all 512 clauses select exactly one current-level role, discarding 2,150/2,662 matched members; 508 multi-member clauses, zero ties, 18 cells/seven groups, 2,662 B state | [Result](research/O1C0056_CLAUSE_ROLE_CREDIT_SCREEN_RESULT_20260719.md) |
 | `O1C-0057-MULTIBLOCK-CRITICALITY` | Unchanged O1C-0043 parent-criticality reader compounded across 1/2/4/8 public blocks from one fresh uniform Full-256 target | `MULTIBLOCK_PARENT_CRITICALITY_COMPOUNDING_TRANSFER`; prospective scorer/orderer, no key generation or recovery | primary truth ranks 8/7/1/1 of 4,097; prefix-8 key/clause rotations 3581/4037; truth z +5.57888245; ~12.000352 rank bits inside supplied panel; 95.8946 s, 193,544,192 B peak | [Result](research/O1C0057_MULTIBLOCK_PARENT_CRITICALITY_RANK_RESULT_20260719.md) |
 | `O1C-0058-MULTIBLOCK-BIT-VAULT` | Signed one-bit finite differences around the highest-scoring eight-block decoy streamed into a 256-cell vault | `MULTIBLOCK_BIT_VAULT_NO_DIRECTIONAL_TRANSFER`; fresh Full-256 negative conversion test | base/primary prefix-8 correct bits 127/127, gain 0, longest confidence prefix 0; controls 127/128; all 13 candidates match 0/8 blocks; 99.077 s, 211,124,224 B peak, 2,048 B primary state | [Result](research/O1C0058_MULTIBLOCK_BIT_VAULT_GRADIENT_RESULT_20260719.md) |
+| `O1C-0061-JOINT-SIEVE-BASELINE` | Exact eight-block shared-key CNF with the frozen O1C-0057 potential under a corrected soft-stop conflict ledger | `EXACT_JOINT_SCORE_SIEVE_ACTIVE_NO_RECOVERY`; active bound mechanism, not a search-space-gain claim | requested 512/billed 513 conflicts; material pre-model bound drop 267.511666784; zero trail prunes, no complete model/key; 0.419657 s native, 383,713,280 B native peak | [Result](research/O1C0061_MULTIBLOCK_JOINT_SCORE_SIEVE_SOFT_STOP_RESULT_20260719.json) |
+| `APPLE-VIEW-0008-MATCHED` | Exact public P20 and cross-block key-lane consequences added to the O1C61 body at matched target/potential/threshold/work | `APPLE_VIEW_0008_STRICT_INCREMENTAL_EFFECT_NO_RECOVERY`; first certified Full-256 trail-pruning/search-branch removal in this line | requested 512/billed 513 both arms; minimum UB 24.7944466611→13.1979307788 below threshold 14.6061787979; trail prunes 0→6; decisions 9166→4471; propagations 1227877→1178185; no key/truth read | [Result](research/apple_view_8/apple_view_8_matched_result.json) |
+| `O1C-0062-APPLE8-4K` | First frozen 4,096-conflict promotion of APPLE-VIEW-0008 | `O1C62_OPERATIONAL_FAILURE_NO_SCIENCE_RESULT`; callback/lifecycle defect, no retry | one native call; invalid disconnect masked an exception while solver was active; no native result/key/truth read | [Result](research/O1C0062_APPLE8_CROSSBLOCK_SIEVE_4K_RESULT_20260719.json) |
+| `O1C-0063-APPLE8-4K-REPAIR` | Lifecycle-safe teardown and pending no-good backtrack retention over unchanged O1C62 science | `O1C63_OPERATIONAL_FAILURE_NO_SCIENCE_RESULT`; high-confidence guarded-memory stop, no retry | repaired path survives 17.763142674 s versus O1C62's ~1 s; old wrapper loses cause; no native result/key/truth read | [Diagnosis](research/O1C0063_RESOURCE_WATCHDOG_DIAGNOSIS_20260719.md) |
+| `O1C-0064-APPLE8-4K-RESOURCE` | Cause-preserving telemetry with unchanged science under a 1-GiB/45-s envelope | `O1C64_OPERATIONAL_FAILURE_NO_SCIENCE_RESULT`; exact memory boundary, no retry | `watchdog_memory` after 29.804627625 s; observed 1,040,285,696 B at guarded 1,040,187,392 B; no native result/key/truth read | [Result](research/O1C0064_APPLE8_CROSSBLOCK_SIEVE_4K_RESOURCE_FIX_RESULT_20260719.json) |
+| `APPLE-VIEW-0009-EXACT-GROUPED-BOUND` | Deterministic score-aware exact width-6 compatibility groups over the frozen public eight-block potential | `PUBLIC_EXACT_GROUPED_BOUND_STRICTLY_DOMINATES_PAIR_RELAXATION_NO_SEARCH_CLAIM`; positive bound mechanism | root UB 269.7472723039718→262.68644197084643; groups 3805→2885; rows 265256→176912; indexed bytes 2510008→1710776; zero solver/truth | [Result](research/APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json) |
 | `APPLE-VIEW-0005-SPARSE-CARRY` | Sparse exact c31-identity certificates for complete wrong Full-256 candidates | `CONSUMED_FULL256_CANDIDATE_FILTER`; no key-generation/entropy claim | 20/20 exact wrong-candidate conflicts; every reason-DAG slice independently replays with 250–265/336 identities, best 250 (86 omitted); 5/5 truth controls complete | [Result](research/apple_view_5/apple_view_5_report.md) |
 | `APPLE-VIEW-0006-PROOF-CREDIT-TRANSFER` | One-pass 1,346-byte proof-frequency/recency state frozen before disjoint Full20/Full256 candidate filters | `HELDOUT_CERTIFICATE_TRANSFER_WITH_SCHEDULER_LOSS`; no key-generation/entropy claim | raw learned order loses 1,268 vs best structural 1,031 total first-conflict switches; independently replayed learned certificates win 4/4 at 248/248/251/250 vs best structural 251/252/257/255, aggregate 997 vs 1,015 and immediate-public 1,013; zero held-out updates, all truth controls complete | [Result](research/apple_view_6/apple_view_6_report.md) |
 | `APPLE-VIEW-0007-PROOF-EDGE-TRANSFER` | One-pass 113,570-byte proof-DAG edge/root/terminal state with one frozen static strongest-predecessor reader | `HELDOUT_STATIC_EDGE_SCHEDULER_NEGATIVE`; no key-generation/entropy claim | raw edge order loses 1,340 vs exact APPLE6 unary 1,268 and best structural 1,031; certificate 1,003 beats fixed 1,015 but loses unary 997 and cannot pass; all 28 wrong passes, proof replays, freeze checks and truth controls exact | [Result](research/apple_view_7/apple_view_7_report.md) |
@@ -298,12 +304,20 @@ leaves the primary prefix-8 candidate at the base's `127/256` correct bits with
 zero correct confidence prefix; controls reach `127/128`, and neither base nor
 any of 12 syntheses matches even one public block. This closes only attended-
 decoy positive-delta direction. The two locally score-improving primary flips do
-not improve truth alignment. The O1C-0057 complete-key scorer remains the
-frontier; O1C-0059 must preserve joint CNF compatibility while scoring partial
-assignments. Its matched APPLE8 augmentation makes logically redundant public
-P20 units and `P_b = P_0 + (Z_b - Z_0)` key-lane consequences explicit at
-unchanged potential/threshold/budget and must improve propagation/pruning without
-changing information or the solution set.
+not improve truth alignment. The O1C-0057 complete-key scorer remains valid.
+O1C-0061 then compiles it into an exact joint partial-assignment bound and
+records material pre-model bound progress, but zero trail prunes; do not call
+O1C-0061 alone a search-space gain. Its matched APPLE-VIEW-0008 augmentation
+makes logically redundant public P20 units and
+`P_b = P_0 + (Z_b - Z_0)` key-lane consequences explicit. At identical
+requested 512/billed 513 conflicts it produces six certified safe trail prunes,
+moves the minimum upper bound below threshold and roughly halves decisions.
+O1C-0062 exposes the callback lifecycle failure, O1C-0063 repairs it, and
+O1C-0064 then localizes 4K scaling to a guarded-memory stop at 992 MiB. None is a
+science result or retry. APPLE-VIEW-0009 now supplies the positive next
+mechanism: an exact width-6 bound that is both tighter and smaller than the
+frozen pair relaxation. Native integration, not another pure RAM increase, is
+next.
 APPLE-VIEW-0005 supplies a separate exact candidate-filter frontier. Its depth-30
 base plus a proof-replayed subset of only 250 high-carry identities rejects a
 complete wrong 256-bit key while omitting 86 of the 336 missing equations. This

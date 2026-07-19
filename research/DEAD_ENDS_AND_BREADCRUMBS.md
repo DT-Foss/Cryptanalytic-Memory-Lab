@@ -1258,3 +1258,39 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   strict propagation/pruning gain without changing the solution set.
 - **Artifact:** authoritative
   [`O1C-0058 result`](O1C0058_MULTIBLOCK_BIT_VAULT_GRADIENT_RESULT_20260719.md).
+
+## B-0064 — Pure 4K resource scaling reaches memory before science output
+
+- **Evidence:** after O1C-0062 exposed the callback lifecycle defect, O1C-0063
+  repaired teardown and pending no-good retention and remained in the native
+  Full-256 path for `17.763142674 s`. O1C-0064 adds cause-preserving telemetry
+  without changing the science and terminates as `watchdog_memory` after
+  `29.804627625 s`, at observed `1,040,285,696 B` versus a guarded
+  `1,040,187,392 B` threshold.
+- **Conclusion:** the repaired 4,096-conflict path is currently limited by
+  growing native memory before it can return a result. None of O1C-0062..0064 is
+  cryptanalytic evidence.
+- **Do not repeat:** another resource-only retry or blind RAM-cap increase with
+  the same independent/pair relaxation.
+- **Breadcrumb:** preserve the exact boundary telemetry and change the bound
+  representation first. APPLE-VIEW-0009 is already tighter and smaller.
+- **Artifact:** authoritative
+  [`O1C-0064 result`](O1C0064_APPLE8_CROSSBLOCK_SIEVE_4K_RESOURCE_FIX_RESULT_20260719.json).
+
+## B-0065 — Exact width-6 grouping dominates frozen pairs before native search
+
+- **Evidence:** APPLE-VIEW-0009 groups mutually compatible factors in
+  deterministic score-aware blocks of at most six. Its exact-safe root upper
+  bound is `262.68644197084643` versus `269.7472723039718` for frozen pairs,
+  while indexed bytes fall by `799,232 B` and rows fall by `88,344`.
+- **Conclusion:** preserving more local compatibility can simultaneously tighten
+  the bound and shrink its representation; this is the first concrete way
+  around O1C-0064's measured memory wall, not merely a larger resource envelope.
+- **Boundary:** public bound construction and safety are established. No solver
+  pruning, key rank or recovery gain is claimed until native integration runs.
+- **Breadcrumb:** freeze grouping hash
+  `3da85bae132d829252a68f0e3fd99220ea7d1ef365042806af810ff02f75f636`
+  and compare emitted safe trail cuts, time and memory once on the unchanged
+  APPLE-VIEW-0008 Full-256 relation.
+- **Artifact:** authoritative
+  [`APPLE-VIEW-0009 result`](APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json).

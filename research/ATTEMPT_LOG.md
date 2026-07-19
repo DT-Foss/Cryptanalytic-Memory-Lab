@@ -2361,3 +2361,78 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   authoritative JSON SHA-256
   `1ff36f9479b397f50c9421a7c0ba406df308ab8c9989d2e039e0874a1acbcb64`,
   manifest `9367abdae4b8514eec3c9518c8cfc54f9b8a34ce45ec4ebc5c009280507b3b06`.
+
+## O1C-0059 / O1C-0060 — Joint-sieve commissioning failures
+
+- **Recorded:** 2026-07-19T08:36:17+02:00 and
+  2026-07-19T09:03:30+02:00.
+- **Result:** both attempts are operational failures and carry no science claim.
+  O1C-0059 preserved a native result but failed its post-native resource-ledger
+  validation after truth access; O1C-0060 then failed the repaired incremental
+  conflict ledger before any truth read. Each consumed exactly one native call
+  and neither was retried.
+- **Decision:** keep the artifacts as immutable commissioning breadcrumbs only.
+  O1C-0061 is the first validated joint-sieve science result.
+- **Artifacts:**
+  [`O1C-0059`](O1C0059_MULTIBLOCK_JOINT_SCORE_SIEVE_RESULT_20260719.json) and
+  [`O1C-0060`](O1C0060_MULTIBLOCK_JOINT_SCORE_SIEVE_CONFLICT_LEDGER_RESULT_20260719.json).
+
+## O1C-0061 / APPLE-VIEW-0008 — Exact Full-256 joint pruning
+
+- **Recorded:** 2026-07-19T09:19:54+02:00 and
+  2026-07-19T09:55:09+02:00.
+- **Baseline:** O1C-0061 validates the exact eight-block shared-key joint bound.
+  It drops the admissible bound materially before any complete model, but emits
+  zero safe trail cuts at requested 512/billed 513 conflicts and returns no key.
+- **Matched result:** APPLE-VIEW-0008 adds only logically redundant public P20
+  and exact cross-block key-lane consequences at the same target, potential,
+  threshold and work. Minimum upper bound falls
+  `24.7944466611→13.1979307788`, below threshold `14.6061787979`; safe trail
+  cuts rise `0→6`, decisions fall `9166→4471`, and propagations fall
+  `1227877→1178185`.
+- **Classification:**
+  `APPLE_VIEW_0008_STRICT_INCREMENTAL_EFFECT_NO_RECOVERY`. This is certified
+  Full-256 search-branch removal, not key recovery; no complete key was returned
+  and the Apple arm did not read truth.
+- **Artifacts:**
+  [`baseline`](O1C0061_MULTIBLOCK_JOINT_SCORE_SIEVE_SOFT_STOP_RESULT_20260719.json)
+  and [`matched result`](apple_view_8/apple_view_8_matched_result.json).
+
+## O1C-0062 / O1C-0063 / O1C-0064 — Exact 4K scaling boundary
+
+- **Recorded:** 2026-07-19T10:25:19+02:00 through
+  2026-07-19T11:45:27+02:00.
+- **Result:** no member of this chain produced a science result and none was
+  retried. O1C-0062 exposed a callback/teardown defect. O1C-0063 repaired the
+  lifecycle and stayed in the real path for `17.763142674 s`, but its old
+  wrapper lost the terminating cause. O1C-0064 preserves that cause exactly:
+  `watchdog_memory` after `29.804627625 s`, with `1,040,285,696 B` observed at
+  the guarded `1,040,187,392 B` threshold.
+- **Boundary:** one native call per attempt; O1C-0064 returns no native result or
+  key and reads no truth. Pure resource enlargement is now closed as the next
+  move.
+- **Decision:** reduce or delay the measured memory growth using the distinct
+  APPLE-VIEW-0009 grouped bound before paying for another promotion.
+- **Artifacts:**
+  [`O1C-0062`](O1C0062_APPLE8_CROSSBLOCK_SIEVE_4K_RESULT_20260719.json),
+  [`O1C-0063 diagnosis`](O1C0063_RESOURCE_WATCHDOG_DIAGNOSIS_20260719.md), and
+  [`O1C-0064`](O1C0064_APPLE8_CROSSBLOCK_SIEVE_4K_RESOURCE_FIX_RESULT_20260719.json).
+
+## APPLE-VIEW-0009 — Exact score-aware width-6 grouping
+
+- **Recorded:** 2026-07-19T11:23:00+02:00.
+- **Result:** `PUBLIC_EXACT_GROUPED_BOUND_STRICTLY_DOMINATES_PAIR_RELAXATION_NO_SEARCH_CLAIM`.
+  The deterministic width-6 partition lowers the safe public root upper bound
+  `269.7472723039718→262.68644197084643`, while groups fall `3805→2885`, rows
+  `265256→176912`, and estimated indexed state
+  `2510008→1710776 B`.
+- **Validation:** exhaustive synthetic partial/completion safety, 10,000
+  deterministic exact outward-sum checks and all focused tests pass. The build
+  uses zero solver, truth or fresh-target calls.
+- **Boundary:** this is a positive exact bound mechanism, not yet measured
+  pruning or recovery.
+- **Decision:** compile frozen grouping hash
+  `3da85bae132d829252a68f0e3fd99220ea7d1ef365042806af810ff02f75f636`
+  into the native Full-256 sieve and test it once against the O1C-0064 boundary.
+- **Artifact:** authoritative
+  [`result`](APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json).

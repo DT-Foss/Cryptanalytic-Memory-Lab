@@ -1,13 +1,13 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T07:39:33+02:00.
+Last ranked: 2026-07-19T11:45:27+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Run O1C-0059: attach the frozen O1C-0057 eight-block score to exact CNF partial assignments in one bounded joint-score sieve | State of the art | Extreme | Extreme | Medium | Tests whether fresh rank-1 complete-key discrimination converts into exact pruning, matched search work, effective width or a verified candidate |
-| 2 | Run APPLE8 as the matched feed-forward-cancelled Cross-Block-CNF augmentation to O1C-0059 | State of the art | Extreme | Extreme | Medium | At identical potential/threshold/budget, tests whether making redundant public-P20/key-lane consequences explicit improves propagation/pruning without changing information or solutions |
+| 1 | Compile APPLE-VIEW-0009's frozen exact width-6 grouping into a lifecycle-safe native joint-bound successor | State of the art | Extreme | Extreme | Medium | Replaces the 4K path's independent relaxation with a bound already 7.06083033312537 tighter and 799,232 B smaller than frozen pairs |
+| 2 | Run that grouped successor once on the frozen APPLE-VIEW-0008 Full-256 relation | State of the art | Extreme | Extreme | Medium | Tests whether tighter public geometry converts into more emitted safe trail cuts and avoids or delays O1C64's measured 992-MiB memory wall |
 | 3 | Park one outcome/utility-conditioned exact clause-role successor until ranks 1–2 resolve | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without pretending fixed conflict occurrence supplies the correct sign |
-| 4 | Keep O1C-0054 global bounds, O1C-0056 fixed negative role credit and O1C-0058 local bit gradients closed | Operational | High | Extreme | Zero | Prevents paid repetition of three localized negative mechanisms |
+| 4 | Keep O1C-0054 independent bounds, O1C-0056 fixed negative role credit and O1C-0058 local bit gradients closed | Operational | High | Extreme | Zero | Prevents paid repetition of three localized negative mechanisms |
 | 5 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 
 ## Frontier scoreboard
@@ -32,6 +32,27 @@ Last ranked: 2026-07-19T07:39:33+02:00.
   confidence prefix is `0`, controls have `127/128` and all 13 public candidates
   match `0/8` blocks. Close complete-decoy one-bit gradients; this does not close
   the O1C-0057 scorer or exact joint partial-assignment use.
+- **Exact joint-sieve baseline:** terminal O1C-0061 proves a live material
+  potential-bound drop before any complete model, but produces zero safe trail
+  prunes and no key. This is an active bound mechanism, not a measured
+  search-space gain by itself.
+- **Full-256 pruning frontier:** at the same requested 512/billed 513 conflicts,
+  APPLE-VIEW-0008 lowers the minimum safe upper bound
+  `24.7944466611→13.1979307788`, crosses below threshold `14.6061787979`, and
+  raises safe trail prunes `0→6`; decisions fall `9166→4471` and propagations
+  `1227877→1178185`. This is certified branch removal, not recovery: status is
+  `UNKNOWN`, no key was returned, and truth was not read.
+- **4K resource boundary:** O1C-0062 is an operational callback/lifecycle
+  failure. O1C-0063 repairs it but the old adapter loses the next cause.
+  O1C-0064 preserves that cause and terminates as `watchdog_memory` after
+  `29.804627625 s`, observed `1,040,285,696 B` at a guarded
+  `1,040,187,392 B` threshold. These are negative operational results, not
+  cryptanalytic evidence and not retriable attempts.
+- **Exact grouped-bound frontier:** APPLE-VIEW-0009's width-6 partition lowers
+  the safe public root upper bound `269.7472723039718→262.68644197084643`
+  relative to frozen pairs, while groups fall `3805→2885`, rows
+  `265256→176912`, and estimated indexed bytes `2510008→1710776`. Public bound
+  safety is validated; search/pruning is not yet claimed.
 - **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.
@@ -91,15 +112,12 @@ Last ranked: 2026-07-19T07:39:33+02:00.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0059 produces a predeclared exact-pruning,
-  matched-work, effective-width or verified-candidate gain while the frozen
-  O1C-0057 score evaluates live exact partial assignments. APPLE8 then measures
-  the propagation/pruning effect of making public P20 units and
-  `P_b = P_0 + (Z_b - Z_0)` on key lanes at the exact same potential, threshold
-  and budget explicit. These consequences are logically redundant inside the
-  existing eight-block shared-key CNF. Exact 256 remains the
-  moonshot, while a reproducible entropy, rank, residual-width or matched-work
-  gain below recovery remains real progress.
+- **Next measurable advance:** compile the exact APPLE-VIEW-0009 width-6
+  partition and make one frozen Full-256 call. It must report emitted safe trail
+  cuts, elapsed work and memory against O1C64's exact boundary, or a publicly
+  verified candidate. Do not spend another pure RAM-cap promotion first. Exact
+  256 remains the moonshot while reproducible branch removal below recovery
+  remains real progress.
 
 ## Effect-first stop rules
 
@@ -166,10 +184,11 @@ Last ranked: 2026-07-19T07:39:33+02:00.
   entropy. O1C-0058 has now tested and closed attended-best-decoy plus positive
   one-bit-delta conversion at base/primary `127→127`, confidence prefix `0`;
   its two locally score-improving primary flips did not improve truth alignment.
-  Require O1C-0059 exact joint partial-assignment conversion under matched work;
-  do not sign-flip, threshold or rerun that exact local vault. O1C-0058 does not
-  formally close crowd/elite consensus. A separate cheap consensus scratch was
-  control-negative and remains a non-promoted scratch result.
+  O1C-0061 has now established the exact joint-bound baseline and APPLE-VIEW-0008
+  has supplied the first safe trail prunes. Do not sign-flip, threshold or rerun
+  that exact local vault. O1C-0058 does not formally close crowd/elite consensus.
+  A separate cheap consensus scratch was control-negative and remains a
+  non-promoted scratch result.
 - O1C-0050's horizon repair passes W10, but O1C-0051 fails its sole W11 gate and
   correctly skips controls/Full256. O1C-0052 performs the sole bounded `4×63`
   per-pattern test and also fails despite 162 action reorderings. Close negative
@@ -196,6 +215,12 @@ Last ranked: 2026-07-19T07:39:33+02:00.
   action-conditioned context; O1C-0052 closes its negative-only form and
   O1C-0053 closes the cheap survival proxy. Exact antecedent membership is the
   causal successor.
+- APPLE-VIEW-0008 passes its strict matched-work gate with six safe trail prunes
+  versus zero and a minimum safe upper bound below threshold, but recovers no
+  key. O1C-0062 through O1C-0064 complete its resource/lifecycle promotion and
+  end at an exact 992-MiB guarded memory boundary without science output. Do not
+  retry or sweep clause placement; APPLE-VIEW-0009 width-6 is the distinct next
+  mechanism.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not
