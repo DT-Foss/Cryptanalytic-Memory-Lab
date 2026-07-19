@@ -1,11 +1,11 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T02:39:54+02:00.
+Last ranked: 2026-07-19T03:00:20+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
 | 1 | Keep O1C-0049 credit alive across `Advance` in one bounded decision-level eligibility trace, then repeat its exact five-call screen | State of the art | Extreme | Extreme | Low | Directly tests the measured failure cause: later backtracks currently reach none of the groups that produced them |
-| 2 | In the independent Apple track, treat the 336 missing depth-30 high-carry identities as switches and find the first sparse exact rejection certificate | State of the art | Extreme | High | Low | Determines whether global carry consistency can reject wrong Full256 probes with far less than the full cipher relation |
+| 2 | Stream APPLE-VIEW-0005 proof participation into a bounded 336-address state, freeze it on BUILD, and test the switch order on disjoint targets | State of the art | Extreme | Extreme | Medium | Tests whether the new exact 250/336 candidate-filter certificate becomes transferable O1 attention rather than a consumed-target fact |
 | 3 | If delayed credit passes the absolute primary gate, immediately run matched key/clause rotations; if it fails, close live credit on disjoint pairs | State of the art | High | Extreme | Low | Prevents another scheduler sweep and decides whether to retain groups or change the operator unit |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
 | 5 | Keep static pair resweeps, independent-carry quotients, occurrence scoring and the closed unary field parked | Operational | High | High | Zero | Preserves measured boundaries while compute moves to live credit and globally consistent carry structure |
@@ -48,10 +48,11 @@ Last ranked: 2026-07-19T02:39:54+02:00.
   lifted carries span all 512 output equations and leave exact key rank zero.
   APPLE-VIEW-0004 adds exact backward output propagation: depth 30 infers
   thousands of variables but one free high carry per addition prevents every
-  wrong-key rejection. The active test joins sparse subsets of those identities.
+  wrong-key rejection. APPLE-VIEW-0005 then finds exact proof-replayed subsets of
+  250–265/336 identities; best fixed certificate omits 86 equations.
 - **Next measurable advance:** delayed group eligibility strictly improves the
-  shared W10 frontier or sparse carry identities reject a wrong Full-256 probe
-  far below 336 switches. Exact 256 remains the terminal moonshot.
+  shared W10 frontier or frozen proof-participation credit beats the best
+  structural carry order on held-out targets. Exact 256 remains the moonshot.
 
 ## Effect-first stop rules
 
@@ -119,6 +120,9 @@ Last ranked: 2026-07-19T02:39:54+02:00.
   propagation: depth 30 carries public signal but rejects 0/4. Do not enlarge
   these panels; only sparse joined identities or a different correlated state is
   a new question.
+- APPLE-VIEW-0005 answers the sparse question positively with replayed 250–265
+  identity proofs. Do not optimize its consumed target. The one authorized
+  successor freezes BUILD participation counts before disjoint evaluation.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not

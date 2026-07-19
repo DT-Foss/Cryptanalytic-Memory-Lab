@@ -2015,3 +2015,23 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:**
   [`result`](O1C0049_ONLINE_PAIR_CREDIT_SCREEN_RESULT_20260719.md) and
   [`capsule`](../runs/20260719_023728_O1C-0049_online-pair-credit-screen-v1/RUN.md).
+
+## APPLE-VIEW-0005 — Sparse high-carry conflict certificates
+
+- **Recorded:** 2026-07-19T02:55:37+02:00, isolated parallel track.
+- **Hypothesis:** the 336 missing depth-30 `c31` majority identities are not all
+  required simultaneously; a sparse joined subset can reject a complete wrong
+  Full-256 candidate exactly.
+- **Result:** positive on the fixed four-probe matrix. All 20 strategy×probe runs
+  conflict exactly. Reason-DAG slices independently replay conflict with
+  `250–265/336` identities; best is 250, omitting 86. Four slices use at most
+  252. All five true-key controls complete consistently with all identities.
+- **Boundary:** this filters supplied complete candidates; it generates no key,
+  recovers zero bits and claims no global entropy reduction.
+- **Resources:** 30.812515 s wall, 30.686913 s CPU, 56,573,952 B peak; no CDCL,
+  branching, sibling, network, MPS or GPU work.
+- **Decision:** immediate propagation gain is weak/tie-degenerate. Stream exact
+  proof participation across BUILD targets into a bounded identity state and
+  freeze its order before held-out evaluation.
+- **Artifact:** [`isolated result`](apple_view_5/apple_view_5_report.md), commit
+  `93d7fd7`.

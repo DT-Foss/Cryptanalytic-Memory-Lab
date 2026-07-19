@@ -232,6 +232,16 @@ carry identities at depth 31 rejects `4/4` and is the full relation. The next
 distinct experiment treats those identities as switches and measures whether a
 sparse subset forms an exact rejection certificate.
 
+APPLE-VIEW-0005 answers that question positively. Across five fixed switch
+orders and four complete wrong Full-256 probes, all 20 runs conflict exactly.
+Backward reason-DAG slices independently replay with only `250–265/336` high
+carry identities; the best exact certificate omits 86 identities, while every
+truth control remains complete. This is a supplied-candidate filter rather than
+key generation. The signal to transfer is not immediate propagation gain—which
+ties or performs poorly—but eventual participation in an exact conflict proof.
+The next Apple stage streams that participation across BUILD targets into a
+bounded addressed state and freezes its order before disjoint evaluation.
+
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
 untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches

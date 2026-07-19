@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T02:39:54+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T03:00:20+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -98,9 +98,13 @@
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
   Full-256 targets. Two-ended exact local propagation at depth 30 now infers
   3,720–3,850 internal variables per wrong probe but rejects 0/4 because one
-  free high carry per each of 336 additions absorbs the contradiction; depth 31
-  is again full exact evaluation. The active Apple successor tests sparse sets
-  of those 336 missing carry identities instead of another global depth ladder.
+  free high carry per each of 336 additions absorbs the contradiction. The
+  sparse-switch successor is positive: all 20 wrong candidate/order runs reject
+  exactly, and independently replayed conflict certificates need only
+  `250–265/336` high-carry identities. The best omits 86 identities; all five
+  truth controls remain complete. This is an exact candidate filter, not key
+  generation or entropy reduction. APPLE-VIEW-0006 now tests held-out transfer
+  of proof-participation credit in a bounded 336-address state.
 - **Next paid experiment:** preserve a bounded eligibility trace across decision
   advances so later backtracks reach the pair groups actually undone. Reuse the
   exact O1C-0049 five-call screen; do not tune groups, weights or cap first.
@@ -117,16 +121,16 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** O1C-0049 is finalized; its delayed-credit successor is
-  being frozen while APPLE-VIEW-0005 runs in an isolated folder. Sibling
-  repositories remain read-only and untouched.
+- **Active local run:** O1C-0050's delayed-credit native adapter is in smoke/test;
+  APPLE-VIEW-0006 streams BUILD proof participation toward a frozen held-out
+  switch order. Sibling repositories remain read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
   the north star; the scored objective is the strongest reproducible
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
   [O1C-0049 online credit screen](research/O1C0049_ONLINE_PAIR_CREDIT_SCREEN_RESULT_20260719.md)
-  and [APPLE-VIEW-0004 bidirectional carry propagation](research/apple_view_4/apple_view_4_report.md).
+  and [APPLE-VIEW-0005 sparse exact carry certificates](research/apple_view_5/apple_view_5_report.md).
 
 ## Headline
 
@@ -178,6 +182,10 @@ loses at W10 and leaves Full-256 exactly unchanged. The state telemetry explains
 the failure without a sweep: action tickets expire at the next decision, while
 all Full-256 backtracks arrive later. The next adapter changes only this causal
 horizon by retaining a bounded eligibility trace across advances.
+In parallel APPLE-VIEW-0005 finds the first exact sparse carry certificate:
+250 of 336 high-carry identities suffice to reject a complete wrong key on the
+fixed matrix, with independent proof replay. Held-out proof-credit transfer—not
+more same-target pruning—is now the Apple promotion gate.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does

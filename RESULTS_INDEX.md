@@ -169,6 +169,7 @@ attacker-valid cipher evidence.
 | `O1C-0047-GLOBAL-RESIDUAL-BEAM` | Complete-state criticality ordering on nested exhaustive W8/W12/W16 cubes | `POST_REVEAL_CEILING`; 240 truth bits fixed | primary truth ranks 1/256, 5/4096, 50/65536 versus W16 rotations 60592/43059; primary top-256 contains unique verified key; 10.356 bits local search compression | [Result](research/O1C0047_GLOBAL_CRITICALITY_RESIDUAL_BEAM_RESULT_20260719.md) |
 | `O1C-0048-PAIR-ENVELOPE` | Soft reversible global max-envelope decisions over 63 frozen key pairs | `CONSUMED_SEARCH_DIAGNOSTIC`; Full-256 rows attacker-valid, residual rows post-reveal | Full-256 0/4; residual maxima 8/9/9/9; primary conflicts W8/W9 75/155 versus internal 217/UNKNOWN, key 195/331, clause 89/167; frozen all-arm gate fails | [Result](research/O1C0048_PAIR_ENVELOPE_SEARCH_RESULT_20260719.md) |
 | `O1C-0049-ONLINE-PAIR-CREDIT` | 630-byte live credit over the same 63 frozen pair groups | `CONSUMED_EFFECT_SCREEN`; Full-256 pre-reveal, residual rows post-reveal | Full-256 unchanged at 513 conflicts/10,802 decisions; W8/W9 improve 75/155→65/128, W10 regresses 310→320; absolute gate fails because short tickets receive zero delayed Full-256 backtrack credit | [Result](research/O1C0049_ONLINE_PAIR_CREDIT_SCREEN_RESULT_20260719.md) |
+| `APPLE-VIEW-0005-SPARSE-CARRY` | Sparse exact c31-identity certificates for complete wrong Full-256 candidates | `CONSUMED_FULL256_CANDIDATE_FILTER`; no key-generation/entropy claim | 20/20 exact wrong-candidate conflicts; every reason-DAG slice independently replays with 250–265/336 identities, best 250 (86 omitted); 5/5 truth controls complete | [Result](research/apple_view_5/apple_view_5_report.md) |
 
 ## Frontier and state-of-the-art results
 
@@ -244,6 +245,12 @@ frontier, so it does not advance the recovery frontier. Its telemetry localizes
 the defect: all Full-256 tickets expire on the next decision and none survives
 to a later conflict/backtrack. Close this update equation and extend only the
 credit horizon with a bounded eligibility trace.
+APPLE-VIEW-0005 supplies a separate exact candidate-filter frontier. Its depth-30
+base plus a proof-replayed subset of only 250 high-carry identities rejects a
+complete wrong 256-bit key while omitting 86 of the 336 missing equations. This
+does not generate candidates, but it proves that sparse global carry consistency
+exists and that eventual proof participation is a stronger scheduler signal than
+immediate propagation gain. Transfer of that switch relevance is now the gate.
 Existing sibling-project recoveries are baselines, not results of this integration.
 
 ## Negative bounds

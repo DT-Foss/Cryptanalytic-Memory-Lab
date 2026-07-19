@@ -1092,3 +1092,19 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   and penalize or reward groups when their decision levels are actually undone.
 - **Artifact:**
   [`O1C-0049 result`](O1C0049_ONLINE_PAIR_CREDIT_SCREEN_RESULT_20260719.md).
+
+## B-0056 — Exact proof participation, not immediate gain, identifies sparse carries
+
+- **Evidence:** APPLE-VIEW-0005 independently replays 20/20 wrong-key conflicts
+  using only 250–265 of 336 high-carry identities. The best proof omits 86.
+  Chronological orders reach conflict near 260 switches; deterministic random
+  needs 334 before slicing, while its proof still collapses to 255–260.
+- **Conclusion:** global proof relevance is sparse even when one-step propagation
+  gain is flat or misleading. APPLE-VIEW-0004's “336 free switches” boundary was
+  a property of the relaxation, not a minimal exact certificate.
+- **Do not repeat:** optimize the four consumed probes or treat complete-candidate
+  rejection as key recovery.
+- **Breadcrumb:** bind addition identity to proof-slice participation in a
+  bounded stream, freeze on BUILD targets, and measure transfer of certificate
+  size/work on disjoint targets.
+- **Artifact:** [`Apple sparse result`](apple_view_5/apple_view_5_report.md).
