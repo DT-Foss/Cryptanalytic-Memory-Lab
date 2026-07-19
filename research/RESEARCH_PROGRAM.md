@@ -584,11 +584,18 @@ evidence.
    rotations `3581/4037`. O1C-0061 then validates exact joint partial-assignment
    use, and APPLE-VIEW-0008 turns it into six safe Full-256 trail cuts at matched
    work. O1C-0065 integrates APPLE-VIEW-0009's tighter/smaller grouped bound and
-   retains exactly six cuts with identical search work. Preserve that path and
-   move the threshold-certified cuts into a bounded cross-episode causal vault;
-   do not repeat the standalone grouping comparison. Any later role-credit test
-   must precommit an attacker-visible outcome/utility condition rather than tune
-   `-32`.
+   retains exactly six cuts with identical search work. O1C-0066 then moves those
+   cuts into a bounded cross-episode causal vault and establishes positive
+   bounded efficacy before an operational terminal: two completed episodes grow
+   `0→6→12` clauses, add six novel clauses in episode 1 and lower its minimum UB
+   to `7.973483108047071`, while peak RSS remains bounded. Episode 2 stops only
+   in adapter validation on a raw soft-conflict-ledger mismatch; it is not a
+   scientific negative or recovery. Native identities are exact; preserve raw
+   stdout and replace the unsupported `+1`/513 cap with an honest actual-observed
+   soft-limit ledger plus hard process/time/RSS caps target-free, then freeze algebraic-consistency
+   gates before distinct non-replay O1C-0067.
+   Any later role-credit test must precommit an attacker-visible outcome/utility
+   condition rather than tune `-32`.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.
@@ -621,13 +628,25 @@ evidence.
   integrates them on the unchanged Full-256 relation. Root/minimum bounds and
   logical cache improve, but emitted cuts remain `6→6` and decisions/
   propagations are identical. Standalone width-6 is terminal at 512 conflicts.
-- The next distinct mechanism is a bounded episodic causal no-good vault. Use a
-  fixed sequence of fresh 512-conflict solver processes, preload only canonical
-  clauses valid for the identically bound `CNF ∧ score_potential >= threshold`
-  problem, persist only newly emitted clauses plus bounded policy state, and
-  destroy solver-local assignments/trail/cache/RAM after every episode. Begin
-  with fixed policy; adaptive O1/O1-O episode control is promoted only if the
-  simple vault compounds novel pruning. Another pure RAM increase is closed.
+- O1C-0066 executes that bounded episodic vault. Episode 0 grows it from zero to
+  six clauses (`17,804` literals, `71,431 B`); episode 1 reaches 12 clauses with
+  six novel clauses, `17,257` novel literals and one duplicate (`140,483 B`). At
+  the same requested 512 conflicts, decisions change `4,471→4,666`, propagations
+  `1,178,185→1,230,568`, minimum UB falls
+  `12.934208247009447→7.973483108047071`, and peak RSS changes only
+  `388,907,008→389,234,688 B`. This is positive bounded archive efficacy with no
+  key and no truth read.
+- O1C-0066 is nevertheless operationally terminal because episode 2 fails
+  `adapter_validation` on `joint-score-sieve-v5 soft conflict ledger differs`.
+  Three intents/calls are consumed and two episodes completed. Do not call the
+  stop a scientific negative or recovery and do not retry an ordinal. Native
+  conflict identities are exact, so the failure implies only
+  `solve_conflicts >= 514` / overshoot `>= 2` beyond the unsupported frozen
+  `+1`/513 cap; exact work was lost with null stdout. Preserve raw stdout and
+  replace the false cap with an actual-observed soft-limit ledger plus hard process/time/RSS caps on
+  target-free fixtures while retaining algebraic ledger consistency. Freeze
+  those gates before a distinct non-replay O1C-0067 continuation from the
+  retained 12-clause vault. Another pure RAM increase remains closed.
 
 ## Operating contract
 

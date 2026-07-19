@@ -2468,3 +2468,50 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   ignored sealed capsule
   `runs/20260719_123602_O1C-0065_apple8-width6-grouped-sieve-v1`, manifest
   `0450c64d60ed84f10e76248367318e363131194cebe93d079bef4b8679e407f4`.
+
+## O1C-0066 — APPLE8 episodic score-threshold no-good vault
+
+- **Supersession:** this completed attempt consumes the earlier O1C-0064,
+  APPLE-VIEW-0009 and O1C-0065 forward decisions to build/run the episodic vault;
+  their timestamped text remains immutable and is no longer the current action.
+- **Started:** 2026-07-19T13:58:54+02:00.
+- **Recorded:** 2026-07-19T13:59:02+02:00.
+- **Source commit:** `881c461c79dc1fd9aa51aed89d3f2a8b298c2284`.
+- **Protocol:** a fixed bounded stream of fresh native APPLE8 subprocesses on
+  the unchanged Full-256 target, CNF, potential, width-6 grouping, threshold,
+  seed and requested 512 conflicts per episode. Only canonical fully emitted
+  clauses valid for `CNF ∧ score_potential >= threshold` persist; ordinary
+  solver learning, assignments, trail and group cache do not. A written intent
+  consumes its ordinal and no ordinal is retriable.
+- **Positive bounded efficacy:** episode 0 completes and grows the vault
+  `0→6` clauses, `17,804` literals and `71,431 B`. Episode 1 completes and grows
+  it `6→12` clauses with `+6` novel clauses, `+17,257` novel literals and one
+  duplicate, ending at `140,483 B`. At the same requested 512 conflicts, the
+  carried vault changes decisions `4,471→4,666`, propagations
+  `1,178,185→1,230,568`, and minimum UB
+  `12.934208247009447→7.973483108047071`; peak RSS changes only
+  `388,907,008→389,234,688 B`.
+- **Terminal:** episode 2 consumes its intent/call and stops in
+  `adapter_validation` on `joint-score-sieve-v5 soft conflict ledger differs`.
+  Classification is `EPISODIC_VAULT_OPERATIONAL_TERMINAL`. This is an adapter
+  contract stop after two positive bounded episodes, not a scientific negative,
+  recovery or authorization to retry/replay. Truth key bytes remain unread and
+  no key is returned. Native conflict identities are constructed exactly, so
+  the generic v8/v5 failure can only mean episode-2 `solve_conflicts >= 514` and
+  overshoot `>= 2`, beyond the arbitrary frozen `+1`/513 cap. The exact value is
+  lost because the adapter failure path retained null stdout.
+- **Resources:** three native call intents/calls, two completed episodes,
+  requested `1,536` and billed `1,025` conflicts, `0.716103 s` native wall,
+  `8.157195 s` elapsed and maximum episode peak RSS `389,234,688 B`; zero fresh
+  targets, entropy/reveal calls, refits, sibling writes, MPS or GPU work.
+- **Decision:** preserve the final 12-clause vault. Target-free fixtures must
+  preserve raw native stdout and replace the unsupported `+1`/513 cap with an
+  honest actual-observed soft-limit ledger plus hard process/time/RSS caps while retaining exact algebraic
+  ledger consistency. Freeze those adapter gates before a distinct non-replay
+  O1C-0067 continues; no consumed O1C-0066 ordinal is run again.
+- **Artifacts:** authoritative
+  [`result`](O1C0066_APPLE8_EPISODIC_VAULT_RESULT_20260719.json), SHA-256
+  `b8b61d0f2feaa9c544c1fef30cba4c7cead90c390a577a444405d45ad85000e3`;
+  sealed capsule
+  [`runs/20260719_135856_O1C-0066_apple8-episodic-vault-v1`](../runs/20260719_135856_O1C-0066_apple8-episodic-vault-v1/RUN.md), manifest
+  `b0022997a1c316e71131268b3e3e5524aee4de8167013463f845646c8982d562`.

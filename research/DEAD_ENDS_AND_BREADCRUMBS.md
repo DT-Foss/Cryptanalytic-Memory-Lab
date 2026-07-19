@@ -1291,10 +1291,10 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   pruning early enough to reduce CaDiCaL/search growth.
 - **Boundary:** public bound construction and safety are established. No solver
   pruning, key rank or recovery gain is claimed until native integration runs.
-- **Breadcrumb:** freeze grouping hash
+- **Breadcrumb:** O1C-0065 later tests frozen grouping hash
   `3da85bae132d829252a68f0e3fd99220ea7d1ef365042806af810ff02f75f636`
-  and compare emitted safe trail cuts, time and memory once on the unchanged
-  APPLE-VIEW-0008 Full-256 relation.
+  once on the unchanged APPLE-VIEW-0008 relation, and O1C-0066 later persists
+  its cuts. Preserve the grouping through the current adapter-ledger audit.
 - **Artifact:** authoritative
   [`APPLE-VIEW-0009 result`](APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json).
 
@@ -1313,12 +1313,43 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Do not repeat:** rerun the same matched 512-conflict comparison, tune the
   grouping against this target, or promote the unchanged monolithic process
   directly into O1C-0064's measured 992-MiB wall.
-- **Breadcrumb:** persist the emitted clauses across clean bounded episodes.
-  Each clause excludes an entire partial-assignment subcube only for the bound
-  augmented problem `CNF ∧ score_potential >= threshold`; it is not a CNF-only
-  consequence. A restart vault must therefore bind CNF/variable numbering,
-  potential, grouping, score semantics, threshold bits and native identity, and
-  reject a lower threshold. Carry only canonical emitted clauses, never the
-  solver-local trail, assignments or group cache.
+- **Breadcrumb:** O1C-0066 later persists the emitted clauses across clean
+  bounded episodes and validates their positive bounded effect. Their scope
+  remains only `CNF ∧ score_potential >= threshold`, never CNF-only; carry only
+  canonical emitted clauses, not solver-local trail, assignments or group cache.
+  The remaining issue is preserving raw stdout and replacing the false `+1`
+  soft-limit cap with actual-observed billing and hard process/time/RSS caps, not vault construction.
 - **Artifact:** authoritative
   [`O1C-0065 result`](O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json).
+
+## B-0067 — Episodic persistence works boundedly before an adapter-ledger terminal
+
+- **Evidence:** O1C-0066 starts every episode in a fresh native subprocess and
+  persists only canonical fully emitted no-goods valid for the identically bound
+  `CNF ∧ score_potential >= threshold` problem. Episode 0 grows the vault
+  `0→6` clauses / `17,804` literals / `71,431 B`; episode 1 grows it `6→12`
+  clauses with six novel clauses, `17,257` novel literals and one duplicate,
+  ending at `140,483 B`.
+- **Conclusion:** cross-episode clause persistence has positive bounded efficacy.
+  At the same requested 512 conflicts, episode 1 changes decisions
+  `4,471→4,666` and propagations `1,178,185→1,230,568`, lowers minimum UB
+  `12.934208247009447→7.973483108047071`, and keeps peak RSS effectively flat
+  at `388,907,008→389,234,688 B`. It returns no key and reads no truth.
+- **Operational terminal:** episode 2 stops during `adapter_validation` on
+  `joint-score-sieve-v5 soft conflict ledger differs`. Classification is
+  `EPISODIC_VAULT_OPERATIONAL_TERMINAL`; this does not negate the two completed
+  episodes, establish a scientific negative, or count as recovery. Native
+  conflict identities are exact; the generic v8/v5 failure implies only
+  `solve_conflicts >= 514` / overshoot `>= 2`, beyond the unsupported frozen
+  `+1`/513 cap. Exact episode-2 work is lost because raw stdout was not retained.
+- **Do not repeat:** replay any consumed O1C-0066 ordinal, retry episode 2,
+  discard algebraic consistency, or keep the unsupported `+1` soft-limit cap.
+- **Breadcrumb:** preserve raw native stdout and replace the false cap with an
+  honest actual-observed soft-limit ledger plus hard process/time/RSS caps using target-free empty/nonempty
+  vault fixtures. Freeze those algebraic-consistency gates, then continue only
+  under a distinct non-replay O1C-0067 attempt from the retained 12-clause vault.
+- **Artifact:** authoritative
+  [`O1C-0066 result`](O1C0066_APPLE8_EPISODIC_VAULT_RESULT_20260719.json), SHA-256
+  `b8b61d0f2feaa9c544c1fef30cba4c7cead90c390a577a444405d45ad85000e3`;
+  capsule manifest
+  `b0022997a1c316e71131268b3e3e5524aee4de8167013463f845646c8982d562`.

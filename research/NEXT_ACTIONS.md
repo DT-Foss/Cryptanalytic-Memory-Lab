@@ -1,13 +1,13 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T12:36:04+02:00.
+Last ranked: 2026-07-19T13:59:02+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Add a canonical bounded threshold-certified no-good archive and deterministic preload seam to the lifecycle-safe width-6 native path | State of the art | Extreme | Extreme | Medium | Converts APPLE8's exact score-feasibility cuts into persistent O1 causal memory while allowing each CaDiCaL instance to die before its RAM grows |
-| 2 | Prove archive clause soundness, identity binding, deduplication, episode isolation and solver-RSS reset without a scientific call | State of the art | Extreme | Extreme | Low | Unlocks a real multi-episode Full-256 stream without laundering local clauses into global facts or repeating the 4K memory failure |
-| 3 | Execute one frozen bounded Full-256 episode stream only after rank 2 passes | State of the art | Extreme | Extreme | Medium | Measures novel clauses per episode, cumulative exact pruning, matched total work, peak per-episode RSS and public exact recovery |
-| 4 | Park one outcome/utility-conditioned exact clause-role successor until the episodic vault resolves | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without pretending fixed conflict occurrence supplies the correct sign |
+| 1 | Preserve raw native stdout on adapter failure and replace the unsupported frozen +1/513 cap with an actual-observed soft-limit ledger plus hard process/time/RSS caps on target-free empty/nonempty-vault fixtures | Operational prerequisite | Extreme | Extreme | Low | Resolves the known O1C-0066 wrapper defect without spending another scientific ordinal or losing exact overshoot telemetry |
+| 2 | Freeze adapter gates for algebraic ledger consistency, raw failure telemetry, ordinal consumption, zero replay and zero truth access | Operational prerequisite | Extreme | Extreme | Low | Makes any later episodic result authoritative without retaining the false +1 overshoot assumption |
+| 3 | Only after ranks 1–2 pass, launch a distinct non-replay O1C-0067 continuation from the retained 12-clause vault | State of the art | Extreme | Extreme | Medium | Tests whether the already-positive bounded archive effect continues toward lower search work or exact public recovery |
+| 4 | Keep the outcome/utility-conditioned exact clause-role successor parked behind O1C-0067 | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without distracting from the measured episodic frontier |
 | 5 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
 ## Frontier scoreboard
@@ -62,6 +62,19 @@ Last ranked: 2026-07-19T12:36:04+02:00.
   `13.197930778790159→12.934208247009447`, and the derived cache falls
   `60456→23080 B`, but cuts remain `6→6` with exactly identical decisions and
   propagations. Standalone width-6 efficacy is retained, not improved.
+- **Episodic-vault frontier:** O1C-0066 records positive bounded efficacy before
+  an operational terminal. Episode 0 grows the vault `0→6` clauses / `17,804`
+  literals / `71,431 B`; episode 1 grows it `6→12` with six novel clauses,
+  `17,257` novel literals and one duplicate, ending at `140,483 B`. At the same
+  requested 512 conflicts, decisions change `4471→4666`, propagations
+  `1178185→1230568`, minimum UB falls
+  `12.934208247009447→7.973483108047071`, and peak RSS remains bounded at
+  `388,907,008→389,234,688 B`. Episode 2 stops in adapter validation on
+  `joint-score-sieve-v5 soft conflict ledger differs`; that is neither a
+  scientific negative nor recovery and is not retriable. Native conflict
+  identities are exact, so the failure implies `solve_conflicts >= 514` and
+  overshoot `>= 2` against the unsupported `+1`/513 cap; the exact value was lost
+  because raw stdout was not preserved.
 - **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.
@@ -121,13 +134,13 @@ Last ranked: 2026-07-19T12:36:04+02:00.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** make the six exact score-threshold no-goods live
-  beyond one solver instance. A bounded episode stream must report canonical
-  imported/new/duplicate clauses per episode, cumulative certified cuts,
-  decisions/propagations at fixed total work, peak RSS for every fresh solver,
-  and any publicly verified exact candidate. No truth is read. Exact 256 remains
-  the moonshot while reproducible cumulative branch removal below recovery
-  remains real progress.
+- **Next measurable advance:** preserve raw native stdout and replace the false
+  frozen `+1`/513 cap with an actual-observed soft-limit ledger plus hard process/time/RSS caps on
+  target-free empty/nonempty-vault fixtures, while retaining algebraic ledger
+  consistency. After those gates freeze, a distinct non-replay O1C-0067 may
+  continue from the retained 12-clause vault and must again report novel/
+  duplicate clauses, fixed-work search, peak per-episode RSS and any exact public
+  candidate. Exact 256 remains the north star.
 
 ## Effect-first stop rules
 
@@ -231,8 +244,11 @@ Last ranked: 2026-07-19T12:36:04+02:00.
   end at an exact 992-MiB guarded memory boundary without science output. Do not
   retry or sweep clause placement. O1C-0065 then tests APPLE-VIEW-0009 width-6
   exactly once at matched work and retains six cuts with identical search work.
-  Do not repeat or jump directly to 4K; persist threshold-certified cuts across
-  fresh identically bound episodes as the distinct next mechanism.
+  O1C-0066 persists them and establishes positive bounded efficacy in two fresh
+  episodes before episode 2 stops on an adapter soft-conflict-ledger mismatch.
+  Do not replay an ordinal, call the stop scientific, or jump to 4K. Preserve raw
+  stdout and replace the false `+1` cap with actual-observed billing and hard process/time/RSS caps in target-free
+  validation while retaining algebraic consistency, then use distinct O1C-0067.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not
