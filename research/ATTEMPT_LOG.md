@@ -2081,6 +2081,31 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [`result`](O1C0051_DELAYED_PAIR_CREDIT_PROMOTION_RESULT_20260719.md) and
   [`capsule`](../runs/20260719_033251_O1C-0051_delayed-pair-credit-promotion-v1/RUN.md).
 
+## O1C-0052 — Exact pattern-action credit screen
+
+- **Recorded:** 2026-07-19T04:02:47+02:00.
+- **Hypothesis:** separating the four masks within each frozen pair repairs
+  O1C-0051's action/polarity aliasing and closes W11 at the same cap.
+- **Protocol:** one pattern-primary W11 call first, same 63 groups, seed 0 and
+  512-conflict cap. Exact public/truth/prefix verification alone authorizes the
+  six static/rotation/Full256 follow-ups.
+- **Result:** `PATTERN_ACTION_CREDIT_NO_EXACT_W11_CLOSE`; `UNKNOWN` at 512
+  conflicts, 513 decisions and 12,066,879 propagations. All six follow-ups are
+  skipped. The state is exactly 2,646 bytes.
+- **Mechanism localization:** 162/448 credit-modulated selections are reordered
+  and 18 action cells across seven groups differentiate, but repeated decisions
+  remain `502/513`. Every visited cell is penalized. `(59,60)` cycles masks
+  `00/01/10/11` with 48/50/48/51 conflict-owner undos; six of eight active
+  groups also penalize their true mask in the post-result diagnostic.
+- **Resources:** 5.098155667 s wall, 128,303,104 B peak RSS, one call/512
+  requested conflicts; zero fresh/sibling/MPS/GPU.
+- **Decision:** close negative-only exact-mask credit without a rescue sweep.
+  Reuse the state once with positive support only for the deepest action that
+  survives a conflict backjump. Failure then moves to exact proof attribution.
+- **Artifacts:**
+  [`result`](O1C0052_PATTERN_CREDIT_SCREEN_RESULT_20260719.md) and
+  [`capsule`](../runs/20260719_040242_O1C-0052_pattern-action-credit-screen-v1/RUN.md).
+
 ## APPLE-VIEW-0006 — Held-out streaming proof-credit transfer
 
 - **Recorded:** 2026-07-19T03:11:06+02:00, isolated parallel track.

@@ -171,6 +171,7 @@ attacker-valid cipher evidence.
 | `O1C-0049-ONLINE-PAIR-CREDIT` | 630-byte live credit over the same 63 frozen pair groups | `CONSUMED_EFFECT_SCREEN`; Full-256 pre-reveal, residual rows post-reveal | Full-256 unchanged at 513 conflicts/10,802 decisions; W8/W9 improve 75/155→65/128, W10 regresses 310→320; absolute gate fails because short tickets receive zero delayed Full-256 backtrack credit | [Result](research/O1C0049_ONLINE_PAIR_CREDIT_SCREEN_RESULT_20260719.md) |
 | `O1C-0050-DELAYED-PAIR-CREDIT` | Trail-resident delayed credit over the same 63 pair groups | `POST_REVEAL_MECHANISM_SCREEN`; exact W10 | exact W10 conflicts 310→302 (-2.58%), decisions 315→307; 302 conflict-owner undos, seven differentiated groups, 1,134 B bounded state; prospective gate passed | [Result](research/O1C0050_DELAYED_PAIR_CREDIT_SCREEN_RESULT_20260719.md) |
 | `O1C-0051-DELAYED-W11-PROMOTION` | Unchanged delayed owner credit at the next residual frontier | `CONSUMED_POST_REVEAL_PROMOTION_SCREEN`; W11 | `UNKNOWN` at 512 conflicts/513 decisions/11,983,327 propagations; exact gate fails after one call, so no static/rotation/Full256 work runs; dominant owner flips `(143,144)` 227→1 and `(59,60)` 55→382 after freeing bit 177 | [Result](research/O1C0051_DELAYED_PAIR_CREDIT_PROMOTION_RESULT_20260719.md) |
+| `O1C-0052-PATTERN-ACTION-CREDIT` | Four exact mask cells per frozen pair with trail-owner undo attribution | `CONSUMED_POST_REVEAL_PATTERN_ACTION_CREDIT_SCREEN`; W11 negative | `UNKNOWN` at 512 conflicts/513 decisions/12,066,879 propagations; 162/448 later selections reordered and 18 cells differentiated, but 502/513 decisions repeat; all visited cells receive negative credit | [Result](research/O1C0052_PATTERN_CREDIT_SCREEN_RESULT_20260719.md) |
 | `APPLE-VIEW-0005-SPARSE-CARRY` | Sparse exact c31-identity certificates for complete wrong Full-256 candidates | `CONSUMED_FULL256_CANDIDATE_FILTER`; no key-generation/entropy claim | 20/20 exact wrong-candidate conflicts; every reason-DAG slice independently replays with 250–265/336 identities, best 250 (86 omitted); 5/5 truth controls complete | [Result](research/apple_view_5/apple_view_5_report.md) |
 | `APPLE-VIEW-0006-PROOF-CREDIT-TRANSFER` | One-pass 1,346-byte proof-frequency/recency state frozen before disjoint Full20/Full256 candidate filters | `HELDOUT_CERTIFICATE_TRANSFER_WITH_SCHEDULER_LOSS`; no key-generation/entropy claim | raw learned order loses 1,268 vs best structural 1,031 total first-conflict switches; independently replayed learned certificates win 4/4 at 248/248/251/250 vs best structural 251/252/257/255, aggregate 997 vs 1,015 and immediate-public 1,013; zero held-out updates, all truth controls complete | [Result](research/apple_view_6/apple_view_6_report.md) |
 | `APPLE-VIEW-0007-PROOF-EDGE-TRANSFER` | One-pass 113,570-byte proof-DAG edge/root/terminal state with one frozen static strongest-predecessor reader | `HELDOUT_STATIC_EDGE_SCHEDULER_NEGATIVE`; no key-generation/entropy claim | raw edge order loses 1,340 vs exact APPLE6 unary 1,268 and best structural 1,031; certificate 1,003 beats fixed 1,015 but loses unary 997 and cannot pass; all 28 wrong passes, proof replays, freeze checks and truth controls exact | [Result](research/apple_view_7/apple_view_7_report.md) |
@@ -256,8 +257,12 @@ the effect expands the exact frontier before controls and Full-256 are paid.
 O1C-0051 answers no: delayed primary is `UNKNOWN` at the unchanged 512-conflict
 W11 cap, and the frozen branch correctly skips all six follow-ups. Freeing bit
 177 reverses the dominant conflict-owner group from `(143,144)` to `(59,60)`.
-Close scalar unary group credit; the only distinct successor conditions bounded
-credit on context/action polarity without changing groups or cap.
+O1C-0052 then separates all four actions and genuinely changes 162 selections,
+but it also remains `UNKNOWN`; every visited action cell is penalized and
+`(59,60)` cycles its masks almost uniformly. Close negative-only undo credit.
+The next one-call discriminator rewards only the deepest action surviving a
+conflict backjump; failure moves to exact conflict-antecedent attribution rather
+than a sign, scale, group or cap sweep.
 APPLE-VIEW-0005 supplies a separate exact candidate-filter frontier. Its depth-30
 base plus a proof-replayed subset of only 250 high-carry identities rejects a
 complete wrong 256-bit key while omitting 86 of the 336 missing equations. This
@@ -274,8 +279,8 @@ answers no: raw `1,340 > 1,268 > 1,031`. Its exact certificate `1,003` remains
 below fixed `1,015` but above unary `997`, and certificate gain cannot pass.
 Identity 11 is a repeated proof root with zero incident edge support and reaches
 position 335. Close static/global strongest-predecessor scheduling; the
-convergent next mechanism is live action-conditioned context, not an Apple
-reader rescue sweep.
+convergent next mechanism is positive support for the deepest surviving live
+action, not an Apple reader rescue sweep or negative-credit tuning.
 Existing sibling-project recoveries are baselines, not results of this integration.
 
 ## Negative bounds
@@ -287,6 +292,7 @@ Existing sibling-project recoveries are baselines, not results of this integrati
 | `APPLE-VIEW-0003` | Uniform exact carry recurrence by bit depth with sound forward three-valued rejection | `EXPLORATORY_FULL256_NEGATIVE` | 32 output-independent Full-256 probes across depths 0..31; depths 0..30 determine 0 final bits and reject 0/32, depth 31 determines 512 and rejects 32/32; 0 recovery/entropy claim | Forward-only bitwise carry truncation has a depth-31 cliff; require correlation preservation or two-ended constraint propagation | [Result](research/apple_view_3/apple_view_3_report.md) |
 | `APPLE-VIEW-0004` | Exact bidirectional GAC through partial-carry Full20 constraints | `EXPLORATORY_FULL256_NEGATIVE` | depth 30 infers 3,720–3,850 variables beyond fixed input/output but rejects 0/4 wrong probes; depth 31 rejects 4/4 and retains truth; 18.12 s, 87.9 MB | One free c31 per each of 336 additions absorbs every local contradiction; test sparse joined carry identities rather than more local propagation | [Result](research/apple_view_4/apple_view_4_report.md) |
 | `APPLE-VIEW-0007` | Static target-independent strongest-predecessor traversal over exact BUILD proof-DAG paths | `HELDOUT_STATIC_EDGE_SCHEDULER_NEGATIVE` | 113,570 B state; raw 1,340 vs unary 1,268 vs fixed 1,031; certificate 1,003 vs fixed 1,015 and unary 997; all wrong/truth controls exact | Static/global path relation delays repeated zero-edge roots; close without root/threshold/traversal sweep and move to live action-conditioned context | [Result](research/apple_view_7/apple_view_7_report.md) |
+| `O1C-0052-N1` | Negative conflict-undo credit over 252 exact pair actions | `CONSUMED_POST_REVEAL_PATTERN_ACTION_CREDIT_SCREEN` negative | W11 `UNKNOWN` at 512 conflicts; 162 action reorderings, 18 differentiated cells, 502/513 repeated decisions; every visited cell penalized | Exact addressing creates tabu diversity but not causal blame; test positive deepest-survivor support once, then exact antecedent membership | [Result](research/O1C0052_PATTERN_CREDIT_SCREEN_RESULT_20260719.md) |
 | `O1C-0040-N1` | H16 branch-difference clause occurrence transfers structural relation accuracy but does not rank the target key | `POST_REVEAL` consumed diagnostic | raw primary ranks 1905/4097 and 2292/4097; surprise 1078/4097 and 1461/4097; key-rotated surprise 107/4097 and 423/4097 | Close occurrence and its one structural-surprise correction; retain exact proof stream and extract branch-exclusive signed antecedent chains |
 | `O1C-0042-N1` | Unique signed leaf collapse does not reproduce its consumed-panel chain-rank concentration on one fresh key | `TEST` fresh negative | primary 1371/4097 versus frozen best-quarter gate; key/factor controls 1399/3385; exact freeze/reveal lifecycle | Close this leaf-sum reader; preserve ordered parent role and clause criticality next |
 | `O1C-0000-N1` | Equal-cell single-state holography is crosstalk-limited on MQAR-256 | `NEGATIVE_BOUND` | 83.5938% mean bit accuracy, 0/5 exact | Test structured slots/polyphase separation instead of more identical superposition |

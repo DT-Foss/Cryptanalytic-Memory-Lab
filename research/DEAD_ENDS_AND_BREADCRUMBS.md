@@ -1108,3 +1108,24 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   bounded stream, freeze on BUILD targets, and measure transfer of certificate
   size/work on disjoint targets.
 - **Artifact:** [`Apple sparse result`](apple_view_5/apple_view_5_report.md).
+
+## B-0057 — Negative exact-mask credit is tabu, not causal blame
+
+- **Evidence:** O1C-0052 splits the frozen 63 pairs into 252 exact action cells
+  and reorders 162/448 later selections, yet W11 remains `UNKNOWN` at 512
+  conflicts/513 decisions and repeats 502 decisions. All 18 visited cells are
+  penalized. Group `(59,60)` cycles all masks with 48/50/48/51 conflict-owner
+  undos; a post-result diagnostic finds six of eight active true masks penalized.
+- **Conclusion:** a conflict-bearing backtrack says that the current conjunction
+  failed, not that the externally owned action being undone was the guilty
+  polarity. Exact addressing turns the rule into bounded anti-repetition but
+  does not create key evidence.
+- **Do not repeat:** tune the credit divisor, mix positive and negative signs,
+  regroup pairs, raise the cap or rerun rotations/fresh targets under this
+  negative-only update.
+- **Breadcrumb:** invert the observation once: reward only the deepest external
+  action that remains below a conflict backjump. Survival is a cheap proxy for
+  the retained proof frontier. If that distinct rule fails after nonzero support,
+  attach exact conflict-antecedent/proof membership instead of another proxy.
+- **Artifact:**
+  [`O1C-0052 result`](O1C0052_PATTERN_CREDIT_SCREEN_RESULT_20260719.md).
