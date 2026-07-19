@@ -1,0 +1,94 @@
+{
+  "schema": "o1-256-apple8-crossblock-sieve-4k-config-v1",
+  "attempt_id": "O1C-0062",
+  "slug": "apple8-crossblock-consequence-sieve-4k-v1",
+  "claim_level": "TEST",
+  "hypothesis": "The positive APPLE-VIEW-0008 cross-block consequence placement sustains useful exact safe-prune activity when one immutable native-v2 search is extended from 512 to 4096 requested conflicts.",
+  "prediction": "One frozen 4096-conflict call either publicly recovers a valid key, produces at least 24 safe trail prunes and therefore at least half the Apple512 prune density at the maximum 4097 billed conflicts, produces 1..23 active but sublinear prunes, or records zero as a scaling regression.",
+  "source": {
+    "runner": "src/o1_crypto_lab/o1c62_apple8_4k_run.py",
+    "adapter_4k": "src/o1_crypto_lab/joint_score_sieve_softstop_4k.py",
+    "joint_score_sieve_v3": "src/o1_crypto_lab/joint_score_sieve_v3.py",
+    "joint_score_sieve_v2": "src/o1_crypto_lab/joint_score_sieve_v2.py",
+    "joint_score_sieve_base": "src/o1_crypto_lab/joint_score_sieve.py",
+    "native_source": "native/cadical_o1_joint_score_sieve_v2.cpp",
+    "o1c59_lifecycle_helpers": "src/o1_crypto_lab/o1c59_multiblock_joint_score_sieve_run.py",
+    "chacha_trace": "src/o1_crypto_lab/chacha_trace.py",
+    "full256_broker": "src/o1_crypto_lab/full256_broker.py",
+    "expected_sha256": {
+      "runner": "e60acab8f1f67f4ad751e9df50abc2d9a45dc994609e10709380bfc75c70689e",
+      "adapter_4k": "b5b3429b7b77c38b1259da05713b896d1ac245ad7457259f208806830cc45654",
+      "joint_score_sieve_v3": "edf3e1d6d2571f4b8aa3c177f3beb68bf80cff5026a7f30a88d3a6bb05041d20",
+      "joint_score_sieve_v2": "fcb02f28d9a391855d7650e3db24ad3814296a14f0a4b22f0f4af8ab41939366",
+      "joint_score_sieve_base": "7d9428a99b1faa6bf83351c5e8a2e87a98accdb041d7861edcf0ec8a31c2fc7a",
+      "native_source": "c9ddc07d8d5ae22852ad7302ba9f8888cc86d3c04cf5fabf8c79a9eb8b28e91b",
+      "o1c59_lifecycle_helpers": "ae6d3c60ce1b1eaf3f49767afad63bed7a8f618b43b57d45ff5d0598d7106c88",
+      "chacha_trace": "58b8272f2cdd6665291158cecc2456258d3cb58f2ab3970d1c4c38e749473b01",
+      "full256_broker": "1929006561400bb4091b39955a4b15cc73e492ab5b0bd56788afd58e6a28ea7e"
+    }
+  },
+  "frozen_sha256": {
+    "authoritative_result": "21c2170225a814bf715b6a4332bd88210fca7cbb4c6db21237becbfdd85795be",
+    "manifest": "751b89019d1f65b8180b15eafbb4bdf45c6080b0894c50567ee63eff15405a69",
+    "capsule_result": "21c2170225a814bf715b6a4332bd88210fca7cbb4c6db21237becbfdd85795be",
+    "native_result": "2cbd354b2d39d7c80206c6f3fb06ed4583d4b7c8436334f76ccaa1feaac5ab20",
+    "preflight": "c0456e495d340fe8f08569ffc511608db976c0702988101ceaf946b668cc5880",
+    "native_build": "03eecfdb8fb61322db90b5fa80046e255b5c325ff5b9877d63e37b05a9bc0b3a",
+    "truth_reveal": "63706f65c9e355711621e2188494514d1c201306d2b6a5c6928833aedfd77efd"
+  },
+  "input": {
+    "apple8_result": "research/apple_view_8/apple_view_8_matched_result.json",
+    "apple8_capsule": "runs/20260719_095509_APPLE-VIEW-0008-MATCHED_crossblock-consequence-sieve-v1",
+    "cnf_relative": "artifacts/cnf/full256-eight-block-apple-view-0008.cnf",
+    "potential_relative": "artifacts/potential/primary-eight-block.potential",
+    "truth_reveal": "runs/20260719_062932_O1C-0057_multiblock-parent-criticality-rank-v1/reveal.json",
+    "cnf_sha256": "e1fc0ac93724004291c960ea06e5584c598853b9ea8370552be09f29e73e2432",
+    "potential_sha256": "8c6101b49c7050caf895bd9c496c05bcea9f43a2b27f378d7306be38b00d5390",
+    "threshold": 14.606178797892962,
+    "seed": 0,
+    "fresh_targets": 0,
+    "scientific_entropy_calls": 0,
+    "fresh_reveal_calls": 0,
+    "refits": 0
+  },
+  "native": {
+    "requested_conflicts": 4096,
+    "maximum_conflict_limit_overshoot": 1,
+    "maximum_billed_conflicts": 4097,
+    "soft_conflict_ledger_schema": "o1-256-cadical-joint-score-sieve-soft-conflict-ledger-4k-v1",
+    "timeout_seconds": 30.0,
+    "memory_limit_bytes": 805306368,
+    "calls": 1
+  },
+  "apple512": {
+    "trail_threshold_prunes": 6,
+    "billed_conflicts": 513,
+    "decisions": 4471,
+    "minimum_upper_bound": 13.197930778790159,
+    "prune_density_per_1000_billed": 11.695906432748538
+  },
+  "promotion": {
+    "sustained_scaling_minimum_safe_trail_prunes": 24,
+    "derivation": "ceil(0.5*(6/513)*4097)=24",
+    "sustained": ">=24 safe trail prunes or SAT/public recovery",
+    "active_sublinear": "1..23 safe trail prunes without recovery",
+    "regression": "0 safe trail prunes without recovery",
+    "different_budget_work_is_matched": false
+  },
+  "budgets": {
+    "maximum_native_solver_calls": 1,
+    "maximum_requested_conflicts": 4096,
+    "maximum_billed_conflicts": 4097,
+    "maximum_native_wall_seconds": 30.0,
+    "maximum_peak_rss_bytes": 805306368,
+    "minimum_memory_pressure_free_percent": 15,
+    "maximum_fresh_targets": 0,
+    "maximum_scientific_entropy_calls": 0,
+    "maximum_fresh_reveal_calls": 0,
+    "maximum_refits": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_persistent_artifact_bytes": 134217728
+  },
+  "next_action": "Run exactly once after all frozen sources and this config are committed. Promote only exact public recovery or sustained scaling; retain active-sublinear and regression outcomes as contextual breadcrumbs without calling unequal budgets matched."
+}
