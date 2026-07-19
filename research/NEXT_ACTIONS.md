@@ -1,14 +1,14 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T03:32:57+02:00.
+Last ranked: 2026-07-19T03:44:11+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
 | 1 | Replace delayed unary group credit with bounded context/action-conditioned per-pattern credit at unchanged groups and 512-conflict cap | State of the art | Extreme | Extreme | Low | Tests whether distinguishing the four actions within each group repairs O1C-0051's repeated raw-top choices |
-| 2 | Replace APPLE-VIEW-0006 unary identity counts with bounded proof-edge/predecessor credit and require a raw held-out first-conflict win | State of the art | Extreme | Extreme | Medium | Tests whether transferred proof membership can become conflict-closing sequence rather than only post-conflict certificate compression |
+| 2 | Keep APPLE-VIEW-0007's static strongest-predecessor reader closed; do not reweight roots, threshold edges, change traversal or rescore EVAL | Operational | High | Extreme | Zero | Preserves the failed raw gate and the root-without-edge breadcrumb without creating a rescue sweep |
 | 3 | Keep O1C-0051 delayed unary credit closed; do not pay its skipped static/rotation/Full256 calls or resweep groups, weights or cap | Operational | High | Extreme | Zero | Preserves the exact one-call stop rule and forces the next operator to add relational context |
 | 4 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
-| 5 | Keep static pair resweeps, independent-carry quotients, occurrence scoring and the closed unary field parked | Operational | High | High | Zero | Preserves measured boundaries while compute moves to live credit and globally consistent carry structure |
+| 5 | Keep static pair/proof-edge resweeps, independent-carry quotients, occurrence scoring and the closed unary field parked | Operational | High | High | Zero | Preserves measured boundaries while compute moves to live action-conditioned credit |
 
 ## Frontier scoreboard
 
@@ -59,10 +59,14 @@ Last ranked: 2026-07-19T03:32:57+02:00.
   learned `248/248/251/250` versus best fixed `251/252/257/255`, aggregate
   `997` versus `1,015` and immediate public gain `1,013`. Its raw order loses
   `1,268` versus `1,031` first-conflict switches, so certificate transfer and
-  scheduling remain separate frontiers.
+  scheduling remain separate frontiers. APPLE-VIEW-0007's 113,570-byte static
+  edge reader loses more sharply at raw `1,340` versus unary `1,268` and fixed
+  `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
+  cannot pass. Static/global relation is insufficient: root 11 occurs in 12
+  BUILD proofs with zero edge support and closes every EVAL pass only at 335.
 - **Next measurable advance:** bounded context/action-conditioned group credit
-  closes W11 at the same cap, or bounded proof-edge credit beats the best structural
-  carry order on raw held-out first-conflict work. Exact 256 remains the moonshot.
+  closes W11 at the same cap. Exact 256 remains the moonshot; APPLE7 does not
+  create a competing static-reader branch.
 
 ## Effect-first stop rules
 
@@ -138,8 +142,12 @@ Last ranked: 2026-07-19T03:32:57+02:00.
   identity proofs. APPLE-VIEW-0006 completes its one authorized unary transfer:
   exact held-out certificate size improves 4/4, but raw stopping position loses.
   Do not refit frequency/recency, change its BUILD panel or count certificate
-  compression as an early scheduler win. One distinct successor may preserve
-  proof-DAG edge/predecessor sequence and must beat raw first-conflict work.
+  compression as an early scheduler win. APPLE-VIEW-0007 completes the one
+  authorized static proof-DAG successor and fails raw at `1,340 > 1,268 > 1,031`;
+  its `1,003` certificate cannot pass and also loses unary `997`. Do not rescue
+  this reader by root weighting, edge thresholds, traversal changes or EVAL
+  reuse. Preserve only the convergence that global relation needs live
+  action-conditioned context, already owned by active H-CONTEXT-ACTION-CREDIT-061.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not

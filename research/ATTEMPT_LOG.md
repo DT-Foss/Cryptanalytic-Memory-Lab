@@ -2108,3 +2108,36 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   a raw held-out first-conflict win.
 - **Artifact:** [`isolated result`](apple_view_6/apple_view_6_report.md), commit
   `6d12d6d`.
+
+## APPLE-VIEW-0007 — Held-out proof-DAG predecessor transfer
+
+- **Recorded:** 2026-07-19T03:37:23+02:00, isolated parallel track.
+- **Hypothesis:** a bounded target-independent proof-DAG edge state plus one
+  static strongest-predecessor reader preserves conflict-closing sequence that
+  APPLE-VIEW-0006 unary membership discards.
+- **Protocol:** the exact APPLE6 split, Full20 circuit, probes, collectors and
+  fixed comparators are reused. Eighteen independently replayed BUILD proofs
+  stream 4,189 canonical predecessor-edge events, 414 roots and 18 terminals
+  into one 113,570-byte saturating state. State and order freeze before two
+  disjoint EVAL targets × two probes; edge order is always scored first, with
+  zero held-out updates or EVAL-visible design choice. The embedded APPLE6 unary
+  order reproduces its exact hash and result.
+- **Result:** hard raw gate fails: edge `1,340` > unary `1,268` > final→early
+  `1,031` total first-conflict switches. Edge needs 335 switches on every probe.
+  Its replayed certificate total `1,003` beats fixed `1,015` but loses unary
+  `997`; certificate-only gain was prospectively forbidden from passing. All 28
+  wrong strategy×probe passes reject exactly, every proof replays, every truth
+  control completes and frozen state is unchanged.
+- **Boundary:** refute H-APPLE-PROOF-EDGE-060 for this static/global
+  strongest-predecessor reader. Identity 11 is a root in 12 BUILD proofs but has
+  zero incident edge support and lands at position 335; a path without
+  first-class start/context credit schedules its closing requirement last.
+- **Resources:** 84.397724 s wall, 83.777569 s CPU, 68,321,280 B peak;
+  113,570 B frozen state, one CPU process, no CDCL branching, sibling, network,
+  MPS or GPU work.
+- **Decision:** close without root-weight, threshold, traversal or EVAL rescue
+  sweep. Preserve only the convergence with O1C-0051: static/global relations
+  are context-blind, so the active successor is live action-conditioned credit
+  H-CONTEXT-ACTION-CREDIT-061 rather than another Apple reader.
+- **Artifact:** [`isolated result`](apple_view_7/apple_view_7_report.md), commit
+  `87ead9e`.

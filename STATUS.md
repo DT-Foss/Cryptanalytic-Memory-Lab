@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T03:15:43+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T03:44:11+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -122,7 +122,12 @@
   replayed exact certificates are smaller on all four cases:
   `248/248/251/250` versus the best fixed structural
   `251/252/257/255` (aggregate `997` versus `1,015`) and aggregate immediate
-  public gain `1,013`. Proof relevance transfers; early scheduling does not yet.
+  public gain `1,013`. Proof relevance transfers; early scheduling does not.
+  APPLE-VIEW-0007 then replaces unary membership with one frozen 113,570-byte
+  proof-DAG edge/root/terminal state. Its static strongest-predecessor reader
+  fails raw at `1,340 > 1,268 > 1,031` for edge, exact unary and final→early.
+  Certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass.
+  All 28 wrong passes, proof replays, freeze checks and truth controls are exact.
 - **Next paid experiment:** freeze bounded context/action-conditioned credit over
   the same 63 groups and unchanged 512-conflict cap, beginning with one credit
   per four pair patterns (`4×63`). Do not tune unary weights, pair membership or
@@ -142,18 +147,17 @@
   do not scale or reorient it.
 - **Active local run:** O1C-0051 is negative and frozen; delayed unary owner
   credit is closed beyond W10. Its only warranted successor conditions bounded
-  credit on context/action polarity. APPLE-VIEW-0006 is complete.
-  Its only warranted Apple
-  successor changes unary identity counts to proof-edge/predecessor credit and
-  must improve raw held-out first-conflict work, not merely certificate size.
-  Sibling repositories remain read-only and untouched.
+  credit on context/action polarity. APPLE-VIEW-0007 is complete and refutes the
+  static/global strongest-predecessor reader; no Apple root/edge/traversal rescue
+  competes with active H-CONTEXT-ACTION-CREDIT-061. Sibling repositories remain
+  read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
   the north star; the scored objective is the strongest reproducible
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
   [O1C-0051 delayed W11 close](research/O1C0051_DELAYED_PAIR_CREDIT_PROMOTION_RESULT_20260719.md)
-  and [APPLE-VIEW-0006 held-out proof-credit transfer](research/apple_view_6/apple_view_6_report.md).
+  and [APPLE-VIEW-0007 static proof-edge close](research/apple_view_7/apple_view_7_report.md).
 
 ## Headline
 
@@ -217,7 +221,13 @@ held-out transfer instead of more same-target pruning. Its 1,346-byte frozen
 frequency/recency state loses raw stopping position (`317` switches per probe),
 but yields smaller replayed proof cores on every held-out case and beats the best
 fixed structural certificate aggregate `997` versus `1,015`. The transferable
-object is proof membership; conflict-closing sequence remains open.
+object is proof membership. APPLE-VIEW-0007 then makes sequence explicit with a
+113,570-byte edge state and one frozen strongest-predecessor reader, but loses
+raw at `1,340` versus unary `1,268` and fixed `1,031`. Its certificate `1,003`
+beats fixed `1,015` yet loses unary `997` and cannot pass. A repeated zero-edge
+root lands at position 335: static/global path credit is insufficient. This
+converges with O1C-0051 on live action-conditioned context; it does not authorize
+an Apple rescue sweep.
 
 `O1C-0030` finalized from source commit `e7c1bf5` on the four already-consumed
 full-round BUILD FAPs. Its precommitted same-coordinate exact-frontier lamp does
@@ -787,7 +797,7 @@ O1C-0017 result boundary are documented in
 | Attempt | PID | Started | Command | Progress | ETA |
 |---|---:|---|---|---|---|
 | Main scientific run | — | 2026-07-19 | source implementation only | bounded live group-credit adapter in progress; no scientific call yet | — |
-| Bias-free parallel track | — | 2026-07-19 | Apple-view proof-credit transfer | APPLE-VIEW-0006 complete; certificate transfer positive, raw scheduler negative | — |
+| Bias-free parallel track | — | 2026-07-19 | Apple-view proof-edge transfer | APPLE-VIEW-0007 complete; static edge reader raw-negative and closed | — |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
@@ -797,9 +807,9 @@ O1C-0017 result boundary are documented in
 2. Freeze a per-comparator lexicographic gate before the next run and require
    absolute improvement over O1C-0048, not merely the same ordering under a new
    name.
-3. If the Apple branch continues, change only unary proof membership to bounded
-   proof-edge/predecessor credit and require a raw held-out first-conflict win;
-   do not refit APPLE-VIEW-0006 frequency/recency counts.
+3. Keep APPLE-VIEW-0007's static strongest-predecessor reader closed; do not
+   root-weight, threshold, retraverse or rescore its held-out panel. Its only
+   retained breadcrumb converges on the active live context/action branch.
 4. Reuse A325/A526 unchanged only when their native complement gate is met, and
    keep every sibling repository read-only.
 
@@ -807,7 +817,8 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
-| `APPLE-VIEW-0006` | 2026-07-19 03:11 | BUILD proof participation in a bounded addressed state transfers a useful c31 switch order to disjoint Full20/Full256 candidate filters | Raw learned order loses `1,268` vs best structural `1,031` first-conflict switches; replayed certificates win 4/4 at `248/248/251/250` vs `251/252/257/255`, aggregate `997` vs `1,015`; all truth controls complete | `HELDOUT_CERTIFICATE_TRANSFER_WITH_SCHEDULER_LOSS`; no key-generation/entropy claim | 64.317798 s wall; 64.166830 s CPU; 62,226,432 B peak; 1,346 B frozen state; zero sibling/MPS/GPU | Unary proof membership transfers exact core relevance but not conflict-closing order; test proof-edge/predecessor credit only | [Result](research/apple_view_6/apple_view_6_report.md) |
+| `APPLE-VIEW-0007` | 2026-07-19 03:37 | Exact proof-DAG predecessor paths in a bounded static state transfer conflict-closing order beyond APPLE6 unary membership | Raw edge order loses `1,340` vs exact unary `1,268` vs best fixed `1,031`; certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass; all 28 wrong passes and truth controls exact | `HELDOUT_STATIC_EDGE_SCHEDULER_NEGATIVE`; no key-generation/entropy claim | 84.397724 s wall; 83.777569 s CPU; 68,321,280 B peak; 113,570 B frozen state; zero sibling/MPS/GPU | Root 11 occurs in 12 BUILD proofs with zero edge support and lands at position 335; close static/global reader and move to live action-conditioned context without rescue sweep | [Result](research/apple_view_7/apple_view_7_report.md) |
+| `APPLE-VIEW-0006` | 2026-07-19 03:11 | BUILD proof participation in a bounded addressed state transfers a useful c31 switch order to disjoint Full20/Full256 candidate filters | Raw learned order loses `1,268` vs best structural `1,031` first-conflict switches; replayed certificates win 4/4 at `248/248/251/250` vs `251/252/257/255`, aggregate `997` vs `1,015`; all truth controls complete | `HELDOUT_CERTIFICATE_TRANSFER_WITH_SCHEDULER_LOSS`; no key-generation/entropy claim | 64.317798 s wall; 64.166830 s CPU; 62,226,432 B peak; 1,346 B frozen state; zero sibling/MPS/GPU | Unary proof membership transfers exact core relevance but not conflict-closing order; APPLE7 has now tested and closed its static edge successor | [Result](research/apple_view_6/apple_view_6_report.md) |
 | `APPLE-VIEW-0005` | 2026-07-19 02:55 | Sparse joined c31 identities reject complete wrong Full256 candidates exactly | 20/20 exact conflicts; independently replayed slices use `250–265/336`, best 250; all truth controls complete | `CONSUMED_FULL256_CANDIDATE_FILTER`; no key-generation/entropy claim | 30.812515 s wall; 56,573,952 B peak | Eventual proof membership beats immediate gain on the consumed matrix; transfer it before any further same-target work | [Result](research/apple_view_5/apple_view_5_report.md) |
 | `APPLE-VIEW-0003` | 2026-07-19 02:15 | Uniform low-to-high carry recurrence exposes a cheap Full256 wrong-key filter | Depths 0..30 determine 0 final bits and reject 0/32 probes; depth 31 determines 512 and rejects 32/32; 0 recovery/entropy claim | `EXPLORATORY_FULL256_NEGATIVE`; deterministic unsealed target | 13.291865 s; 27,295,744 B peak; 1,056 abstract blocks; zero sibling/MPS/GPU | Forward-only carry truncation has a full-computation cliff; preserve correlations or propagate from both ends | [Result](research/apple_view_3/apple_view_3_report.md) |
 | `O1C-0048` | 2026-07-19 01:46 | Reversible global pair envelopes preserve O1C-0047's complete-state orientation in exact search | Full-256 0/4; residual maxima internal/primary/key/clause `8/9/9/9`; W8 conflicts `217/75/195/89`; W9 `UNKNOWN/155/331/167`; frozen global gate fails | `CONSUMED_SEARCH_DIAGNOSTIC`; residual rows post-reveal | 9.362067 s; 128,122,880 B peak; 12 calls; zero fresh/sibling/MPS/GPU | Static pairs restore primary-over-rotation specificity but not the all-arm gate; close this adapter and add attacker-visible online group credit | [Capsule](runs/20260719_014625_O1C-0048_pair-envelope-search-v1/RUN.md) |
@@ -862,6 +873,8 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `APPLE-VIEW-0007` scientific payload | `d6ae5f022ee5172a87660c9721839b0c880b83dc82a60e430ac052be05ba440a` |
+| `APPLE-VIEW-0007` result | `c7c4355097b4f8e334f2700eab169e60c8c95d505cb1b17d2d529f77cbb3f533` |
 | `APPLE-VIEW-0006` scientific payload | `7144a093c05cb3f834450a93160d9419688bdd9c8d72543340eb3eb5c4f51665` |
 | `APPLE-VIEW-0006` result | `c44a6e2aecd6240c8789c1fca7975372ce8975d4554b247cb4d4ffd1cd0f677c` |
 | `APPLE-VIEW-0003` scientific payload | `db62ceaa6de7568abfbda2d3abcb8ca56e99ea72a91141a17594774d3ec080d5` |
@@ -1045,17 +1058,18 @@ O1C-0017 result boundary are documented in
 ## Resume here
 
 Resume from [the ranked actions](research/NEXT_ACTIONS.md) and the
-[O1C-0048 result](research/O1C0048_PAIR_ENVELOPE_SEARCH_RESULT_20260719.md).
-O1C-0048 leaves a working reversible global-pair adapter, a measured primary
-specificity reversal, and no frozen-gate or Full-256 pass. Do not tune its pair
-plan or raise its budget. Add bounded attacker-visible online group credit and
-freeze the pairwise comparator gate before executing the new mechanism.
+[O1C-0051 result](research/O1C0051_DELAYED_PAIR_CREDIT_PROMOTION_RESULT_20260719.md).
+O1C-0051 closes scalar delayed group credit at W11 and authorizes only bounded
+per-pattern context/action credit at unchanged groups and cap. Do not tune its
+pair plan, unary weights or budget.
 
 APPLE-VIEW-0001..0004 are closed at their measured algebraic/local boundaries.
 APPLE-VIEW-0005/0006 establish exact sparse certificates and held-out transfer
-of their membership, but not better first-conflict scheduling. Do not refit the
-1,346-byte unary state; the only new Apple question is whether bounded
-proof-edge/predecessor credit transfers conflict-closing sequence.
+of their membership, but not better first-conflict scheduling. APPLE-VIEW-0007
+closes its single static proof-edge successor at raw
+`1,340 > 1,268 > 1,031`; certificate `1,003` cannot pass and loses unary `997`.
+Do not refit unary or rescue the edge reader. Static/global relation is
+insufficient; resume at the active live action-conditioned context experiment.
 
 The A325/A526 bit codec, search backends and public verifier remain ready for an
 exact complement or bounded exact-containing beam. The relational branch need

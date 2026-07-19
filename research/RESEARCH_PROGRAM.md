@@ -271,6 +271,22 @@ first conflict at 317 switches per probe, total `1,268`, versus final→early
 reason-DAG edge/predecessor credit; certificate-only improvement cannot pass its
 raw first-conflict gate.
 
+APPLE-VIEW-0007 executes that one distinct variable without a sweep. Eighteen
+replayed BUILD proofs emit 4,189 canonical predecessor edges, 414 roots and 18
+terminals into a fixed 113,570-byte state; one static strongest-predecessor order
+freezes before the same disjoint EVAL. Its hard raw result is
+`1,340 > 1,268 > 1,031` for edge, exact APPLE6 unary and final→early. The edge
+certificate total `1,003` beats fixed `1,015` but loses unary `997`, and the
+prospective gate forbids certificate-only passage. All wrong rejections, proof
+replays, truth controls and freeze checks remain exact. Root identity 11 appears
+in 12 BUILD proofs with zero incident edge support and closes all four EVAL
+passes only at position 335. Refute H-APPLE-PROOF-EDGE-060 for this static
+reader; do not rescue-weight roots, threshold edges or change traversal after
+EVAL. Together with O1C-0051's owner-role reversal, the result says a static
+global relation is insufficient. The active next mechanism is live
+action-conditioned context under H-CONTEXT-ACTION-CREDIT-061, not a competing
+Apple scheduler.
+
 The complete O1C-0019/O1C-0022 real unary bridge has now also run and is closed.
 The learned picker averages `-0.271090` bit, its raw learned reader loses the
 untrained reader by `0.058470` bit, and exact 352-byte accumulation reaches
@@ -497,9 +513,12 @@ evidence.
 8. Keep the Apple track mechanically explicit. Free carries erase all linear key
    information; uniform depth and two-ended local propagation are closed.
    APPLE-VIEW-0005/0006 establish sparse exact certificates and held-out transfer
-   of unary proof membership, but not earlier conflict. Do not refit identity
-   counts. If promoted, preserve proof-DAG predecessor/edge sequence in bounded
-   state and require a raw held-out first-conflict win over fixed structure.
+   of unary proof membership, but not earlier conflict. APPLE-VIEW-0007 then
+   tests bounded proof-DAG sequence and fails raw at `1,340 > 1,268 > 1,031`;
+   its certificate `1,003` cannot pass and loses unary `997`. Close the static
+   strongest-predecessor reader without root/threshold/traversal rescue. Preserve
+   only its convergence toward live action-conditioned context already owned by
+   H-CONTEXT-ACTION-CREDIT-061.
 
 ## Operating contract
 
