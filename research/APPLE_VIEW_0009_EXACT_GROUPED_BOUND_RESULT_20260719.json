@@ -1,0 +1,103 @@
+{
+  "schema": "o1-256-apple-view-0009-exact-grouped-bound-result-v1",
+  "attempt_id": "APPLE-VIEW-0009",
+  "recorded_at": "2026-07-19T11:23:20+02:00",
+  "classification": "PUBLIC_EXACT_GROUPED_BOUND_STRICTLY_DOMINATES_PAIR_RELAXATION_NO_SEARCH_CLAIM",
+  "hypothesis": "Score-aware exact compatibility groups can preserve cross-factor geometry more tightly than the frozen pair relaxation while using less indexed state.",
+  "input": {
+    "potential_relative": "runs/20260719_095509_APPLE-VIEW-0008-MATCHED_crossblock-consequence-sieve-v1/artifacts/potential/primary-eight-block.potential",
+    "potential_sha256": "8c6101b49c7050caf895bd9c496c05bcea9f43a2b27f378d7306be38b00d5390",
+    "factor_count": 7557,
+    "observed_variable_count": 2981,
+    "truth_bytes_read": false
+  },
+  "mechanism": {
+    "grouping_rule": "ascending-factor-score-aware-overlap-greedy;maximum-exact-root-gain;ties-smaller-union-width,larger-group,smaller-minimum-factor-index;groups-ascending-minimum-factor-index",
+    "bound_rule": "exact-binary64-lattice-factor-sum;round-once-positive-infinity;partial-group-maximum;exact-binary64-lattice-root-sum;round-once-positive-infinity",
+    "memory_rule": "8*table_rows+8*group_count+16*variable_group_incidences;excludes-immutable-potential,container-headers,allocator-slack"
+  },
+  "selected_width6": {
+    "width_cap": 6,
+    "grouping_sha256": "3da85bae132d829252a68f0e3fd99220ea7d1ef365042806af810ff02f75f636",
+    "group_count": 2885,
+    "singleton_group_count": 28,
+    "pair_group_count": 1641,
+    "higher_order_group_count": 1216,
+    "maximum_group_size": 8,
+    "table_rows": 176912,
+    "variable_group_incidences": 17025,
+    "serialized_bytes": 115700,
+    "raw_table_bytes": 1415296,
+    "estimated_indexed_bytes": 1710776,
+    "estimated_indexed_mib": 1.6315231323242188,
+    "independent_root_upper_bound": 292.30611344487517,
+    "grouped_root_upper_bound": 262.68644197084643,
+    "grouped_root_upper_bound_f64le_hex": "327693aafb6a7040",
+    "tightening": 29.619671474028735,
+    "tightening_per_mib": 18.154613248929817,
+    "construction_seconds": 0.7049576249992242,
+    "group_size_distribution": [[1, 28], [2, 1641], [3, 695], [4, 473], [5, 30], [6, 9], [7, 6], [8, 3]],
+    "group_width_distribution": [[3, 24], [4, 27], [5, 159], [6, 2675]]
+  },
+  "frozen_pair_comparator": {
+    "grouping_sha256": "c7cc0d745848e45b92239782429fed737cc06d3cafc7ad510d6738af721adaf6",
+    "group_count": 3805,
+    "pair_group_count": 3752,
+    "singleton_group_count": 53,
+    "table_rows": 265256,
+    "variable_group_incidences": 22345,
+    "estimated_indexed_bytes": 2510008,
+    "estimated_indexed_mib": 2.3937301635742188,
+    "root_upper_bound": 269.7472723039718
+  },
+  "strict_pair_deltas": {
+    "root_upper_bound_reduction": 7.06083033312537,
+    "group_reduction": 920,
+    "table_row_reduction": 88344,
+    "indexed_byte_reduction": 799232,
+    "indexed_mib_reduction": 0.76220703125
+  },
+  "secondary_width_diagnostics": [
+    {
+      "width_cap": 7,
+      "grouping_sha256": "d2609c2e7255f4d53e1a5ebbe0c1a291fedba984e54b5e9f38af808c31dca544",
+      "group_count": 2461,
+      "table_rows": 299752,
+      "estimated_indexed_bytes": 2688152,
+      "grouped_root_upper_bound": 258.78536416740315,
+      "tightening_per_mib": 13.07554527957292,
+      "construction_seconds": 0.9901463339920156
+    },
+    {
+      "width_cap": 8,
+      "grouping_sha256": "918c3d9159ffc8d51363509fe8806f970a66781dc7903bcd87b2c8727d8ba57c",
+      "group_count": 1938,
+      "table_rows": 474464,
+      "estimated_indexed_bytes": 4055248,
+      "grouped_root_upper_bound": 255.32723183287538,
+      "tightening_per_mib": 9.561725390206538,
+      "construction_seconds": 1.5641651670011925
+    }
+  ],
+  "verification": {
+    "focused_tests_passed": 9,
+    "focused_plus_potential_regressions_passed": 20,
+    "random_exact_outward_sum_checks_passed": 10000,
+    "synthetic_partial_assignment_completion_checks": "exhaustive",
+    "deterministic_public_replays": 2,
+    "solver_calls": 0,
+    "fresh_targets": 0,
+    "truth_reads": 0,
+    "module_sha256": "a458c3567aa2bad5c5571d189bf8bee7e204eefa54f4bbc95081c0f7f1fddbd1",
+    "tests_sha256": "9951687f384cc2bdaaa8a98ad19022673f0360931d68e415d34d2e05bdd28e01"
+  },
+  "claim_boundary": {
+    "public_bound_safety_validated": true,
+    "strictly_tighter_than_frozen_pairs": true,
+    "strictly_smaller_than_frozen_pairs": true,
+    "native_solver_integration_validated": false,
+    "search_pruning_claim": false,
+    "key_recovery_claim": false
+  },
+  "next_action": "Compile the selected width-6 grouping into a lifecycle-safe native bound successor, then compare emitted safe trail prunes at one frozen Full-256 budget."
+}
