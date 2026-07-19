@@ -3045,3 +3045,56 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `3a421ee236af5afe46011314d74c25b726a2e7f35e9963ae8d4a862e070327f9`.
   Capsule `result.json` is byte-identical to the published result and all
   `41/41` manifest entries validate.
+
+## O1C-0076 — APPLE8 live causal-frontier reader
+
+- **Started:** 2026-07-20T01:36:32+02:00.
+- **Recorded:** 2026-07-20T01:37:20+02:00.
+- **Source/execution:** `f78424e92b1035a07a70350f0ad5666f2c9459e4`.
+- **Protocol:** use fresh Page 3 `5b459ea4…`, the immutable 550-clause /
+  558-occurrence attic and separate 202-clause rank source; bind union clause
+  526's 29 public residuals; invoke the unchanged release-contrast parent first
+  on every callback and replace only a parent zero with one falsifying residual,
+  followed by its satisfying opposite only after genuine release. Consume local
+  ordinal 0 / lineage 16 once at exactly 128 requested conflicts with no retry.
+- **Result:** `CAUSAL_FRONTIER_NO_ACTIVATION_NO_GAIN`. The sole call requests
+  and bills `128/128` conflicts, returns status `0`, makes 2,288 decisions and
+  2,890,144 propagations, and records zero substitutions, trace change, safe
+  prunes, emitted occurrences, globally novel clauses or model. Native trace
+  remains `f64441a2…`; minimum/root UB is
+  `14.67138759145431/262.68644197084643`.
+- **Activation diagnosis:** the parent records 510 nonzero and 1,778 zero
+  returns; its first zero is callback 256. At that callback all 29 residual rows
+  are already assigned, so the frontier cursor consumes them all without a
+  return: 18 are preassigned in the falsifying sign and 11 in the rescue sign.
+  There are zero releases or contrasts. Only five residual variables occur in
+  the parent's 255 ranked rows; propagation assigned the other 24 before first
+  delegation. `prior_distance_reached=true`, but `unit_distance_reached=false`.
+- **Threshold boundary:** `tau=14.606178797892962` and UB share score units and
+  retained direction but not statistic/population. Minimum UB
+  `14.67138759145431>tau` yields zero prunes. The historical
+  `7.973483108047071` is O1C-0066 episode 1; O1C-0068 is
+  `12.8607806294803` and remains untouched.
+- **Resources:** runner elapsed `47.79094816700672 s`, runner peak RSS
+  `408,141,824 B`; native wall `0.566478 s`, native CPU `1.346263 s`, native
+  peak RSS `408,944,640 B`; persistent artifacts `15,055,265 B`. Zero
+  publication-recovery calls, truth/reveal/fresh-target/refit/MPS/GPU work.
+- **Decision:** close the parent-zero-only 29-row operator and never replay
+  lineage 16. The highest-ROI immediate successor is O1C-0077 residual-
+  polarity staging: preserve rank order, but change the two ranked rescue
+  originals `+131/-130` to falsifying `-131/+130` before constructing the
+  existing contrast reader, and use fresh Page 4
+  `b57e3091df7eca20137f4c63e3bc125aa8978c2ff183a7396de3a2a4a79acf33`
+  in one target-free call. The exact 11-row falsifying set is the next stronger
+  preemptor only if staging cannot redirect propagation. No K/rank/phase/
+  horizon/seed/threshold/RAM/cap sweep.
+- **Artifacts:** authoritative
+  [`result`](O1C0076_APPLE8_CAUSAL_FRONTIER_RESULT_20260720.json), SHA-256
+  `9459f80444b2dc196251623dfc1f59f014e6593b3b5cd7d8bbaaa5c62f0b671e`;
+  [`interpretation`](O1C0076_APPLE8_CAUSAL_FRONTIER_INTERPRETATION_20260720.md);
+  sealed
+  [`capsule`](../runs/20260720_013632_O1C-0076_apple8-causal-frontier-v1/RUN.md),
+  artifact-manifest SHA-256
+  `875655a95a30a4f0df01e130a074b0b6a82b98c683575818ad5110cc6a6f1366`.
+  Capsule `result.json` is byte-identical to the published result and all
+  `35/35` manifest entries validate.

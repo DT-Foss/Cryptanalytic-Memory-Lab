@@ -144,10 +144,11 @@ the archived protocol.
 
 ## Threshold and upper-bound semantics
 
-The frozen threshold `tau = 14.606178797892962` and O1C-0068's observed
-minimum upper bound `7.973483108047071` use the same compiled score function
-and the same retained direction, `score >= tau`. They are not the same
-population or statistic. `tau` was frozen from the maximum score among 4,096
+The frozen threshold `tau = 14.606178797892962` and O1C-0066 episode 1's
+observed minimum upper bound `7.973483108047071` use the same compiled score
+function and the same retained direction, `score >= tau`. They are not the same
+population or statistic; O1C-0068's actual minimum is `12.8607806294803`.
+`tau` was frozen from the maximum score among 4,096
 complete decoys with the precommitted margin/rounding rule. The minimum upper
 bound is `min U(a)` over partial trails actually visited in one bounded native
 episode.

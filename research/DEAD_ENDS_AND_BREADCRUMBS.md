@@ -1488,8 +1488,9 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Boundary:** the field changes polarity but cannot control variable order or
   encode confidence magnitude. The minimum-UB increase is descriptive, not
   efficacy or global pruning. Threshold `14.606178797892962` and O1C-0066
-  episode 1's `7.973483108047071` use the same metric/direction but different
-  populations/statistics; the latter is not an O1C-0068 result.
+  episode 1's `7.973483108047071` use the same score units and retained
+  direction but are different statistic/population objects; the latter is not
+  an O1C-0068 result.
 - **Do not repeat:** a second O1C-0070 call, lineage ordinal `6`, phase sweep,
   horizon change, RAM increase or reinterpretation of lower decisions as gain.
 - **Breadcrumb:** separately precommit one deterministic confidence-ranked
@@ -1528,8 +1529,8 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   relabeled as efficacy.
 - **Boundary:** the vault remains byte-identical at `202` clauses / `599,728`
   literals / `2,399,911 B`. Threshold `14.606178797892962` and O1C-0066 episode
-  1 minimum UB `7.973483108047071` share metric/direction but not population or
-  statistic; `7.973...` is not an O1C-0068 result.
+  1 minimum UB `7.973483108047071` share score units and retained direction but
+  are different statistic/population objects; `7.973...` is not an O1C-0068 result.
 - **Do not repeat:** rerun O1C-0071, replay lineage ordinal `7`, sweep rank
   variants, add phase, change the horizon, cap the tail ad hoc or raise RAM.
 - **Breadcrumb:** precommit a new one-shot backtrack-release reader. Inject each
@@ -1565,8 +1566,8 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   vault remains `202` clauses / `599,728` literals / `2,399,911 B`. This is not
   recovery, entropy reduction, novel exclusion, UNSAT or global exhaustion.
 - **Threshold boundary:** threshold `14.606178797892962` and O1C-0066 episode
-  1's minimum UB `7.973483108047071` share the score metric and retained
-  direction, not the population/statistic. Strict `U(a)<tau` certifies only the
+  1's minimum UB `7.973483108047071` share score units and retained direction,
+  but are different statistic/population objects. Strict `U(a)<tau` certifies only the
   visited trail's completions outside `S(k)>=tau`; the root bound remains above
   threshold. The value is not an O1C-0068 or O1C-0072 result.
 - **Do not repeat:** rerun O1C-0072, replay lineage ordinal `8`, sweep rank,
@@ -1719,3 +1720,45 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [`capsule`](../runs/20260720_002724_O1C-0075_apple8-causal-residency-stream-v1/RUN.md),
   artifact-manifest SHA-256
   `3a421ee236af5afe46011314d74c25b726a2e7f35e9963ae8d4a862e070327f9`.
+
+## B-0077 — Parent-zero frontier activation arrives after every residual is assigned
+
+- **Evidence:** O1C-0076 binds the public 29-residual boundary of union clause
+  526 to fresh Page 3 and makes the sole local-0/lineage-16 call at exact
+  `128/128` requested/billed conflicts. The parent-first reader records 510
+  nonzero and 1,778 zero returns; first parent zero is callback 256.
+- **Null boundary:** at that first zero, all 29 rows are already assigned. The
+  cursor consumes all of them as skips: 18 in the planned falsifying sign and 11
+  in the clause-satisfying rescue sign. It returns zero frontier literals and
+  records zero substitutions, releases, queued contrasts or contrast returns.
+  The native trace remains `f64441a2…`; work remains 2,288 decisions /
+  2,890,144 propagations with zero prunes, emissions, novelty or model.
+- **Root cause:** only five residual variables occur in the parent's 255 ranked
+  rows; propagation has already assigned the other 24 before callback 256.
+  Waiting for parent fallback therefore makes this exact intervention
+  unreachable. `prior_distance_reached=true` reaches at least the prior
+  29-unassigned/zero-true distance; `unit_distance_reached=false`.
+- **Threshold boundary:** minimum UB `14.67138759145431` exceeds
+  `tau=14.606178797892962`, so zero safe prune occurs. Threshold and UB share
+  units/direction, not statistic/population. `7.973483108047071` remains
+  O1C-0066 episode 1; O1C-0068 is `12.8607806294803` and is untouched.
+- **Do not repeat:** lineage 16, the parent-zero-only 29-row reader, or any
+  rescue sweep over Page 3, K, rank, phase, horizon, seed, threshold, RAM or
+  caps. Do not count distance telemetry or page rollover as activation.
+- **Breadcrumb:** O1C-0076's public rescue-skip bitset selects 11 residual
+  clause literals:
+  `-130, 131, -31874, -63746, -190565, -190566, -190569, -191212, -191213,
+  -191216, -191234`. The immediate O1C-0077 intervention is narrower: among the
+  five rank/residual intersections, stage only rescue originals `+131/-130` as
+  falsifying `-131/+130` before constructing the existing contrast reader.
+  Keep the full 11-row falsifying set as the exact next preemptor if those two
+  upstream changes cannot redirect propagation. Keep one target-free call and use fresh Page 4
+  `b57e3091df7eca20137f4c63e3bc125aa8978c2ff183a7396de3a2a4a79acf33`.
+- **Artifacts:** authoritative
+  [`result`](O1C0076_APPLE8_CAUSAL_FRONTIER_RESULT_20260720.json), SHA-256
+  `9459f80444b2dc196251623dfc1f59f014e6593b3b5cd7d8bbaaa5c62f0b671e`;
+  [`interpretation`](O1C0076_APPLE8_CAUSAL_FRONTIER_INTERPRETATION_20260720.md);
+  sealed
+  [`capsule`](../runs/20260720_013632_O1C-0076_apple8-causal-frontier-v1/RUN.md),
+  artifact-manifest SHA-256
+  `875655a95a30a4f0df01e130a074b0b6a82b98c683575818ad5110cc6a6f1366`.

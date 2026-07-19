@@ -1,41 +1,37 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-20T00:28:57+02:00.
+Last ranked: 2026-07-20T01:37:20+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Freeze the target-free nearest resident frontier from unused Page 3: union index 526, clause SHA `c4a9c471…`, 2,409 false / 29 unassigned / 0 true under the sealed public O1C-0075 assignment | State of the art | Extreme | Extreme | Low | Converts the closest exact no-good boundary into an actionable live reader instead of another passive page |
-| 2 | Bind one falsify-then-release-contrast reader to those 29 residuals while retaining the immutable 550-clause attic, separate 202-clause rank source and K256 envelope | State of the art | Extreme | Extreme | Low | Changes actual callback decisions only when the existing reader delegates and directly tests causal activation |
-| 3 | Execute exactly one lineage-16/128-conflict successor after source hashes, selection replay and gain/stop gates are sealed; never replay O1C-0075 lineages 14/15 | State of the art | Extreme | Extreme | Low | Tests whether the live frontier escapes trace `f64441a2…` and exposes a new exclusion, safe prune, contraction or recovery |
+| 1 | Freeze the five immutable rank/residual intersections and the two rescue-to-falsifying deltas `+131->-131`, `-130->+130` | State of the art | Extreme | Extreme | Low | Isolates the only public upstream rank decisions that can redirect the later 24-variable propagation burst |
+| 2 | Bind O1C-0077 residual-polarity staging before construction of the existing release-contrast reader, preserving rank order and later opposite exposure | State of the art | Extreme | Extreme | Low | Tests a two-sign causal intervention without corrupting nested reader bookkeeping |
+| 3 | Execute one target-free successor on fresh Page 4 `b57e3091…`; never replay lineage 16 or the parent-zero-only reader | State of the art | Extreme | Extreme | Low | Requires an actual staged return and trace change before any science-gain claim; the sealed 11-row preemptor is next only if needed |
 | 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
 ## Current resume
 
-Resume from O1C-0075's sealed `CAUSAL_RESIDENCY_STREAM_NO_NOVEL_GAIN`. Both
-predeclared local `0..1` / lineage `14..15` calls complete at exact `128/128`
-requested/billed conflicts, for `256/256` aggregate work and no operational
-failure. Their input K256 pages `82b1512a…` and `db3acd5e…` are byte-distinct.
-Together with the inherited parent projection, they cover all `545/545`
-undominated attic clauses and leave zero residency debt while preserving the
-complete 550-clause / 558-occurrence attic and separate 202-clause rank source.
+Resume from O1C-0076's sealed `CAUSAL_FRONTIER_NO_ACTIVATION_NO_GAIN`. Its sole
+local-0/lineage-16 call bills exactly 128 conflicts, makes 2,288 decisions and
+2,890,144 propagations, and leaves trace `f64441a2…` unchanged with zero
+substitutions, prunes, emissions, novelty or model.
 
-Coverage is operationally exact but scientifically inert. Both calls reproduce
-trace `f64441a2…`, 2,288 decisions, 2,890,144 propagations, minimum UB
-`14.67138759145431`, zero prunes/emissions/model and the exact behavior of
-O1C-0074 episodes 2/3. The deterministic unused next page is `5b459ea4…`.
-Do not call it or rotate another page: distinct clause residency alone does not
-escape this fixed point.
+The root cause is event order. The parent returns 510 nonzero decisions and
+1,778 zeros; its first zero is callback 256. By then all 29 residual rows are
+assigned, so the frontier cursor consumes them as 18 falsifying-sign skips and
+11 rescue-sign skips with zero releases or contrasts. Only five residual
+variables occur in the 255 parent ranked rows; propagation assigned the other
+24. `prior_distance_reached=true` and `unit_distance_reached=false` do not
+constitute activation.
 
-The direct resume action is zero-call freezing of a live causal-frontier reader.
-Under the sealed public terminal assignment, 12 resident clauses have zero true
-literals; unique nearest union index 526 (`c4a9c471…`) has only 29 unassigned
-against 2,409 false. It is present in unused fresh Page 3 `5b459ea4…`. On parent
-fallback callbacks, return its residual falsifying literals once and each hard
-opposite once only after genuine release. Then consume exactly one lineage-16 /
-128-conflict call. The ten exact pair resolvents remain valid, but all sit 572
-unassigned and 1,219..1,257 true literals away under the same assignment, so
-they are a later compiler breadcrumb rather than the next paid input. Do not
-sweep K, rank, phase, horizon, seed, threshold, RAM or caps.
+Freeze O1C-0077 residual-polarity staging from public telemetry. Preserve all
+255 rank positions, but change source originals `+131/-130` at indices 224/226
+to effective falsifying `-131/+130` before constructing the existing
+release-contrast reader; the later contrast still supplies each opposite. Use
+fresh Page 4 `b57e3091df7eca20137f4c63e3bc125aa8978c2ff183a7396de3a2a4a79acf33`
+in one target-free call. If this does not redirect the nine propagation-created
+rescues, advance once to the already sealed 11-row preemptor. Do not replay
+lineage 16 or sweep Page/K/rank/phase/horizon/seed/threshold/RAM/caps.
 
 The threshold question is now formal. Let `S(x)` be the compiled candidate score,
 `tau=14.606178797892962`, and the retained region be
@@ -45,28 +41,30 @@ Threshold and UB therefore use the same score units and retained direction, but
 `tau` is a fixed membership cutoff while `min_{a in V}U(a)` is a statistic over
 the run-specific visited-trail population `V`; they are not the same metric
 object or population. The quoted `7.973483108047071` is O1C-0066 episode 1, not
-O1C-0068. O1C-0068's minimum is `12.8607806294803`; both O1C-0075 minima are
-`14.67138759145431`.
+O1C-0068. O1C-0068's minimum is `12.8607806294803`; O1C-0076's minimum is
+`14.67138759145431`. O1C-0066 episode 1 separately records seven actual
+trail-threshold prunes; `7.973...` is the minimum witness UB, not a prune count
+or a global upper bound.
 
 For any particular visited trail `a`, strict `U(a)<tau` proves
 `S(x)<tau` for every completion `x` of `a`, hence that entire local subtree is a
 safe prune from `R_tau`. A reported minimum below threshold proves at least one
 such visited subtree exists; it does not prove all visited trails or the root are
-below threshold. O1C-0075's minima are above threshold and it records `0/0`
+below threshold. O1C-0076's minimum is above threshold and it records zero
 local prunes. The root bound remains
 `262.68644197084643>tau`, and every episode returns native status `0`, so no
 global prune, UNSAT or threshold-region exhaustion follows.
 
 Resume authority is the
-[`O1C-0075 result`](O1C0075_APPLE8_CAUSAL_RESIDENCY_STREAM_RESULT_20260720.json),
+[`O1C-0076 result`](O1C0076_APPLE8_CAUSAL_FRONTIER_RESULT_20260720.json),
 SHA-256
-`1307be5e1c140f27ec76873a212785f7dae9b5dd986ca8f953e94809e31639c9`,
+`9459f80444b2dc196251623dfc1f59f014e6593b3b5cd7d8bbaaa5c62f0b671e`,
 and capsule artifact manifest
-`3a421ee236af5afe46011314d74c25b726a2e7f35e9963ae8d4a862e070327f9`.
-The source/execution commit is `1b30cc06b3ab28d94df773cc854a7814af9fb210`.
-Known completed lineage billing is `5,051`; the full actual total remains `null`
+`875655a95a30a4f0df01e130a074b0b6a82b98c683575818ad5110cc6a6f1366`.
+The source/execution commit is `f78424e92b1035a07a70350f0ad5666f2c9459e4`.
+Known completed lineage billing is `5,179`; the full actual total remains `null`
 because failed ordinal `2` is unbilled.
-Capsule `result.json` is byte-identical to that published result and all `41/41`
+Capsule `result.json` is byte-identical to that published result and all `35/35`
 manifest entries validate.
 
 ## Frontier scoreboard
@@ -242,14 +240,11 @@ manifest entries validate.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0075 preserves all 550 unique exclusions /
-  558 occurrences, covers all `545/545` undominated clauses through distinct
-  K256 pages and leaves zero residency debt, yet both calls exactly reproduce
-  the `f64441a2…` fixed point with no emissions. Pure residency rotation is
-  closed. The next attempt must activate the unique nearest 29-residual no-good
-  through a live causal reader and change native behavior plus a real frontier
-  metric; derivation or state churn alone cannot pass. Exact 256 remains the
-  north star.
+- **Next measurable advance:** O1C-0076's 29-row parent-zero reader makes zero
+  substitutions because all rows are assigned by callback 256. O1C-0077 must
+  stage the two ranked rescue originals as falsifying before propagation, change the trace, and
+  then improve a real frontier metric; derivation or state churn cannot pass.
+  Exact 256 remains the north star.
 
 ## Effect-first stop rules
 
@@ -476,11 +471,13 @@ manifest entries validate.
 
 - replaying O1C-0068 lineage ordinal `4`, O1C-0069 ordinal `5`, O1C-0070 ordinal
   `6`, O1C-0071 ordinal `7`, O1C-0072 ordinal `8`, O1C-0073 ordinal `9`, any
-  O1C-0074 ordinal `10..13` or O1C-0075 ordinal `14/15`; issuing another static
+  O1C-0074 ordinal `10..13`, O1C-0075 ordinal `14/15` or O1C-0076 ordinal `16`;
+  retrying the parent-zero-only 29-row reader; issuing another static
   or rotating causal-attic episode, phase call, K/rank/release/horizon sweep or
-  blind RAM/cap increase. O1C-0075 already gives full undominated residency
-  coverage and the same exact fixed point, so the successor must transform the
-  relation rather than select another page;
+  blind RAM/cap increase. O1C-0076 already proves that waiting for parent zero
+  is too late, so the successor must move the two ranked rescue polarities
+  upstream rather than select another page; the 11-row preemptor remains the
+  bounded escalation rather than a sweep;
 - another supplied complete-key decoy panel, static pair regrouping,
   credit-weight sweep or conflict-cap increase before the frozen O1C-0057
   prefix-8 scorer is tested on attacker-generated partial assignments/search;

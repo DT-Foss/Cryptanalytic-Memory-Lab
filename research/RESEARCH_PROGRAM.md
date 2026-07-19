@@ -389,12 +389,26 @@ exhaustion or public recovery passes `H-CAUSAL-FRONTIER-080`. The ten exact pair
 resolvents remain a later compiler breadcrumb because they are much farther
 from this live boundary under the same assignment.
 
+O1C-0076 executes that lineage-16/128-conflict call and returns
+`CAUSAL_FRONTIER_NO_ACTIVATION_NO_GAIN`. The first parent zero is callback 256,
+after all 29 rows are assigned; the cursor consumes 18 falsifying-sign and 11
+rescue-sign skips with zero substitutions, releases or contrasts. Trace
+`f64441a2…`, 2,288 decisions, 2,890,144 propagations and zero prunes/emissions/
+model remain unchanged. Refute `H-CAUSAL-FRONTIER-080` for parent-zero-only
+activation. Next freeze one target-free O1C-0077 residual-polarity-staging call:
+among the five rank/residual intersections, move only rescue originals
+`+131/-130` to falsifying `-131/+130` before constructing the existing contrast
+reader, using fresh Page 4 `b57e3091…`. Retain the sealed 11-row preemptor as the
+next escalation if those upstream signs cannot redirect propagation.
+
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
 a statistic over one run's visited trails. The historical minimum
 `7.973483108047071` is O1C-0066 episode 1, not O1C-0068. Admissibility makes
 `U(a)<tau` a safe prune only for completions of that trail `a`; root UB remains
 `262.68644197084643>tau`, so no reported minimum implies global exhaustion.
+That O1C-0066 episode records seven actual trail-threshold prune events;
+`7.973...` is their run's minimum witness UB, not itself a prune count.
 
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
@@ -739,8 +753,12 @@ evidence.
    occurrences. The final projection then repeats bit-for-bit twice with zero
    emissions. O1C-0075 next covers every undominated clause through two fresh
    K256 pages, but both reproduce that same trace and emit nothing. Close pure
-   residency rotation and freeze the nearest-clause live causal frontier; never
-   rerun O1C-0073, replay ordinals `9..15`, call phase, sweep
+   residency rotation. O1C-0076 then tests the nearest-clause parent-zero reader
+   once; every row is already assigned at first fallback, so it makes zero
+   substitutions and leaves trace/science output unchanged. Close lineage 16
+   and freeze O1C-0077 two-row residual-polarity staging, with the exact 11-row
+   preemptor retained as the next escalation;
+   never rerun O1C-0073, replay ordinals `9..16`, call phase, sweep
    K/release/rank/horizon or blind-scale RAM/caps.
    Any later role-credit test must precommit an attacker-visible outcome/utility
    condition rather than tune `-32`.
@@ -874,6 +892,14 @@ evidence.
   O1C-0074 episodes 2/3. Refute `H-NONREPEATING-ATTENTION-079` for pure rotation;
   preserve the exact coverage proof and activate the unique 29-residual
   nearest-clause causal frontier next. No replay or residency sweep.
+- O1C-0076 executes that parent-zero-only frontier at lineage 16 / 128 conflicts.
+  First fallback is callback 256, when all 29 rows are assigned; 18 falsifying
+  and 11 rescue skips yield zero substitutions/releases/contrasts, unchanged
+  trace `f64441a2…`, minimum UB `14.67138759145431` and zero prunes/emissions/
+  model. Classification is `CAUSAL_FRONTIER_NO_ACTIVATION_NO_GAIN`. Close this
+  reader and stage the two ranked rescue originals as falsifying before
+  propagation on fresh Page 4 in one target-free O1C-0077 call. Retain the
+  sealed 11-row preemptor only if this minimal upstream intervention is inert.
 
 ## Operating contract
 
