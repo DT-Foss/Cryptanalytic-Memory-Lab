@@ -1297,3 +1297,28 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   APPLE-VIEW-0008 Full-256 relation.
 - **Artifact:** authoritative
   [`APPLE-VIEW-0009 result`](APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json).
+
+## B-0066 — Standalone width-6 tightening retains, but does not increase, native cuts
+
+- **Evidence:** O1C-0065 integrates the frozen width-6 grouping into the repaired
+  native APPLE8 sieve and holds target, CNF, potential, threshold, seed and
+  requested 512/billed 513 conflicts fixed. Root UB improves
+  `292.30611344510277→262.68644197084643`, minimum UB improves
+  `13.197930778790159→12.934208247009447`, and derived cache shrinks
+  `60,456→23,080 B`; emitted cuts remain `6→6`, decisions `4,471→4,471`, and
+  propagations `1,178,185→1,178,185`.
+- **Conclusion:** a tighter non-crossing upper bound does not change the first
+  512-conflict search path. The standalone width-6 mechanism has retained exact
+  efficacy but no strict search/pruning gain at this boundary.
+- **Do not repeat:** rerun the same matched 512-conflict comparison, tune the
+  grouping against this target, or promote the unchanged monolithic process
+  directly into O1C-0064's measured 992-MiB wall.
+- **Breadcrumb:** persist the emitted clauses across clean bounded episodes.
+  Each clause excludes an entire partial-assignment subcube only for the bound
+  augmented problem `CNF ∧ score_potential >= threshold`; it is not a CNF-only
+  consequence. A restart vault must therefore bind CNF/variable numbering,
+  potential, grouping, score semantics, threshold bits and native identity, and
+  reject a lower threshold. Carry only canonical emitted clauses, never the
+  solver-local trail, assignments or group cache.
+- **Artifact:** authoritative
+  [`O1C-0065 result`](O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json).

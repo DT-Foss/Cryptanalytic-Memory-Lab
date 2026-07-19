@@ -2436,3 +2436,35 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   into the native Full-256 sieve and test it once against the O1C-0064 boundary.
 - **Artifact:** authoritative
   [`result`](APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json).
+
+## O1C-0065 — Matched exact width-6 native efficacy
+
+- **Started:** 2026-07-19T12:36:01+02:00.
+- **Recorded:** 2026-07-19T12:36:04+02:00.
+- **Source commit:** `8f231003161c17608c3daba63da2a6ccf4d567da`.
+- **Protocol:** one frozen native call on the exact APPLE-VIEW-0008 Full-256
+  target with unchanged CNF, potential, threshold, seed and requested
+  512/billed 513 conflicts. The sole science change is grouping hash
+  `3da85bae132d829252a68f0e3fd99220ea7d1ef365042806af810ff02f75f636`.
+- **Result:** `O1C65_GROUPED_WIDTH6_EFFICACY_RETAINED`. Root UB improves
+  `292.30611344510277→262.68644197084643`, minimum observed UB improves
+  `13.197930778790159→12.934208247009447`, derived cache shrinks
+  `60,456→23,080 B`, and bounded persistent logical state shrinks
+  `99,227→61,851 B`. Emitted cuts remain `6→6`; decisions remain
+  `4,471→4,471`; propagations remain `1,178,185→1,178,185`. Status is
+  `UNKNOWN`; no key is returned and truth is not read.
+- **Resources:** `3.327685084 s` elapsed, `1.985387 s` child CPU,
+  `0.346329 s` native wall, `386,547,712 B` native peak RSS, one native call,
+  zero fresh targets/reveals/refits/MPS/GPU. Time and RSS are contextual.
+- **Decision:** standalone width-6 tightening is terminal at matched 512 work.
+  Do not retry it or promote it directly to the known 4K memory wall. The next
+  distinct mechanism is a fixed bounded episode stream that persists only
+  canonical threshold-certified emitted clauses for the identically bound
+  `CNF ∧ score_potential >= threshold` problem and destroys solver memory after
+  every episode.
+- **Artifact:** authoritative
+  [`result`](O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json), SHA-256
+  `04c2e0d32fff6e7a8f685880049579c90c4a399b14518ee3e650b15d01834bfb`;
+  ignored sealed capsule
+  `runs/20260719_123602_O1C-0065_apple8-width6-grouped-sieve-v1`, manifest
+  `0450c64d60ed84f10e76248367318e363131194cebe93d079bef4b8679e407f4`.

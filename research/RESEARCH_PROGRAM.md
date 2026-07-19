@@ -583,9 +583,12 @@ evidence.
    passes the fresh multi-block rank gate at `8/7/1/1` of 4,097 with prefix-8
    rotations `3581/4037`. O1C-0061 then validates exact joint partial-assignment
    use, and APPLE-VIEW-0008 turns it into six safe Full-256 trail cuts at matched
-   work. Preserve that path and integrate APPLE-VIEW-0009's tighter/smaller
-   grouped bound next. Any later role-credit test must precommit an attacker-
-   visible outcome/utility condition rather than tune `-32`.
+   work. O1C-0065 integrates APPLE-VIEW-0009's tighter/smaller grouped bound and
+   retains exactly six cuts with identical search work. Preserve that path and
+   move the threshold-certified cuts into a bounded cross-episode causal vault;
+   do not repeat the standalone grouping comparison. Any later role-credit test
+   must precommit an attacker-visible outcome/utility condition rather than tune
+   `-32`.
 6. Once the complement or relational gate passes, reuse the sibling candidate order/evaluator
    and independent ChaCha20 verifier unchanged. That is the terminal hybrid path;
    do not rebuild another search engine.
@@ -613,12 +616,18 @@ evidence.
 - O1C-0062..0064 finish the 4K lifecycle/resource audit. The repaired path is
   stopped by native memory growth after `29.804627625 s` at the guarded
   `992 MiB` boundary. These are operational failures, not science results.
-- APPLE-VIEW-0009 supplies the next distinct mechanism: exact score-aware
-  width-6 groups are `7.06083033312537` tighter and `799,232 B` smaller than
-  frozen pairs. O1C-0064 uses independent factors, so the byte win does not
-  directly lower its process RSS; native integration must demonstrate earlier
-  pruning on the unchanged Full-256 relation. That is the sole highest-ROI next
-  paid experiment; another pure RAM increase is closed.
+- APPLE-VIEW-0009 supplies exact score-aware width-6 groups that are
+  `7.06083033312537` tighter and `799,232 B` smaller than frozen pairs. O1C-0065
+  integrates them on the unchanged Full-256 relation. Root/minimum bounds and
+  logical cache improve, but emitted cuts remain `6→6` and decisions/
+  propagations are identical. Standalone width-6 is terminal at 512 conflicts.
+- The next distinct mechanism is a bounded episodic causal no-good vault. Use a
+  fixed sequence of fresh 512-conflict solver processes, preload only canonical
+  clauses valid for the identically bound `CNF ∧ score_potential >= threshold`
+  problem, persist only newly emitted clauses plus bounded policy state, and
+  destroy solver-local assignments/trail/cache/RAM after every episode. Begin
+  with fixed policy; adaptive O1/O1-O episode control is promoted only if the
+  simple vault compounds novel pruning. Another pure RAM increase is closed.
 
 ## Operating contract
 

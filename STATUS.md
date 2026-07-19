@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T11:45:27+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T12:36:04+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -177,16 +177,27 @@
   O1C-0064 preserved the cause exactly and confirms the resource boundary:
   `watchdog_memory` after `29.804627625 s`, observed `1,040,285,696 B` against
   the guarded `1,040,187,392 B` threshold. No key, native result, or truth read.
-- **APPLE-VIEW-0009:** the public exact score-aware width-6 grouping is positive
-  before solver integration. It lowers the safe root upper bound from the frozen
+- **APPLE-VIEW-0009:** the public exact score-aware width-6 grouping artifact is
+  positive. It lowers the safe root upper bound from the frozen
   pair relaxation's `269.7472723039718` to `262.68644197084643`, while reducing
   `3,805→2,885` groups, `265,256→176,912` rows and estimated indexed state
   `2,510,008→1,710,776 B`. Exhaustive synthetic completion checks and 10,000
-  exact-outward rounding checks pass. This is a bound/mechanism result, not yet a
-  pruning or recovery result. The byte reduction is strictly versus the legacy
+  exact-outward rounding checks pass. This artifact alone is a bound/mechanism
+  result; O1C-0065 below supplies its native pruning test. The byte reduction is
+  strictly versus the legacy
   pair index, not O1C-0064's independent-factor native: on the same partial
   accounting width-6 adds `1,199,632 B` there and can move the 992-MiB wall only
   indirectly by changing search/pruning.
+- **O1C-0065:** the exact width-6 grouping is now integrated into the repaired
+  native Full-256 path and has completed its one frozen matched-work call. It
+  tightens root UB `292.30611344510277→262.68644197084643`, minimum observed UB
+  `13.197930778790159→12.934208247009447`, and shrinks the derived live cache
+  `60,456→23,080 B`, but emits the same `6` safe cuts with exactly the same
+  `4,471` decisions and `1,178,185` propagations. Native peak RSS is effectively
+  unchanged (`388,644,864→386,547,712 B`, contextual). Classification is
+  `O1C65_GROUPED_WIDTH6_EFFICACY_RETAINED`: no strict efficacy gain, no key and
+  no truth read. Do not repeat the same 512-conflict comparison or promote it
+  directly to the known 4K memory wall.
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
@@ -210,12 +221,13 @@
   fails raw at `1,340 > 1,268 > 1,031` for edge, exact unary and final→early.
   Certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass.
   All 28 wrong passes, proof replays, freeze checks and truth controls are exact.
-- **Next paid experiment:** compile APPLE-VIEW-0009's exact width-6 grouping into
-  a lifecycle-safe native successor and test its emitted safe trail prunes on the
-  frozen APPLE-VIEW-0008 Full-256 relation. Do not pay for another pure RAM-cap
-  increase first: O1C-0064 has localized memory growth as the measured 4K
-  bottleneck, while width-6 is already a strictly tighter mechanism with a small
-  measured static cost. Test whether it prunes earlier before scaling resources.
+- **Next paid experiment:** build a bounded causal no-good vault around the
+  repaired width-6 native path. Each short Full-256 episode starts a fresh solver,
+  imports only canonical threshold-certified score-feasibility clauses from earlier
+  episodes, exports newly emitted clauses, and then destroys all solver memory.
+  The first paid call waits for synthetic soundness, archive identity, deduplication
+  and lifecycle/RSS-reset gates. This tests whether exact pruning compounds while
+  keeping per-episode memory bounded instead of repeating the monolithic 4K path.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -229,10 +241,11 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** no scientific process is active. O1C-0064 is sealed as an
-  exact `992 MiB` guarded-memory boundary with no science result. Immediate ROI
-  is native APPLE-VIEW-0009 width-6 integration, not a third resource-only 4K
-  promotion. O1C-0053..0056 and the exact O1C-0058 rule remain negative and
+- **Active local run:** no scientific process is active. O1C-0065 is sealed as a
+  matched Full-256 retained-efficacy result: tighter bounds and smaller logical
+  state, but the same six cuts and identical search work. Immediate ROI is the
+  bounded episodic causal no-good vault, not another 512 comparison or a direct
+  4K promotion. O1C-0053..0056 and the exact O1C-0058 rule remain negative and
   closed.
   Sibling repositories remain read-only and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
@@ -240,6 +253,7 @@
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
+  [O1C-0065 exact width-6 native result](research/O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json),
   [O1C-0064 exact memory boundary](research/O1C0064_APPLE8_CROSSBLOCK_SIEVE_4K_RESOURCE_FIX_RESULT_20260719.json),
   [APPLE-VIEW-0009 exact grouped bound](research/APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json),
   [O1C-0063 watchdog diagnosis](research/O1C0063_RESOURCE_WATCHDOG_DIAGNOSIS_20260719.md),
@@ -350,7 +364,10 @@ requested/billed work while making redundant public P20 units and
 bound below threshold and removes six live trail branches, with decisions down
 `9166→4471`. This is certified Full-256 pruning, not key recovery. The
 O1C-0062→0064 promotion chain localizes its 4K failure to native memory growth;
-APPLE-VIEW-0009 now supplies the distinct tighter/smaller bound successor.
+APPLE-VIEW-0009 supplies the distinct tighter/smaller bound and O1C-0065 now
+closes its standalone native test: bounds/cache improve, but the same six cuts
+and identical search work remain. The next distinct lever is cross-episode
+threshold-certified clause persistence with solver memory reset.
 In parallel APPLE-VIEW-0005 finds the first exact sparse carry certificate:
 250 of 336 high-carry identities suffice to reject a complete wrong key on the
 fixed matrix, with independent proof replay. APPLE-VIEW-0006 then performs the
@@ -937,39 +954,44 @@ O1C-0017 result boundary are documented in
 | Matched augmentation | — | 2026-07-19 09:55 | APPLE-VIEW-0008 Cross-Block CNF | terminal: six safe trail prunes and strict matched effect, no recovery | complete |
 | 4K resource promotion | — | 2026-07-19 11:45 | O1C-0064 instrumented Full-256 sieve | terminal: guarded memory stop at 1,040,285,696 B after 29.805 s; no science result | complete |
 | Parallel bound build | — | 2026-07-19 11:23 | APPLE-VIEW-0009 exact width-6 grouping | terminal: strictly tighter and 799,232 B smaller than frozen pairs; current-native RSS benefit must come indirectly from pruning | complete |
+| Matched grouped native | — | 2026-07-19 12:36 | O1C-0065 exact width-6 Full-256 sieve | terminal: tighter bounds/smaller logical cache, but 6→6 cuts and identical decisions/propagations; no recovery | complete |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Compile APPLE-VIEW-0009's selected width-6 partition into a lifecycle-safe
-   native grouped-bound successor. Freeze grouping hash
-   `3da85bae132d829252a68f0e3fd99220ea7d1ef365042806af810ff02f75f636`.
-2. Test that successor once on the frozen APPLE-VIEW-0008 Full-256 relation.
-   Require emitted safe trail pruning, a lower time/memory boundary, or a
-   publicly verified candidate. Do not raise RAM again before this mechanism.
-3. Keep O1C-0056 fixed negative clause-role credit closed. If the causal branch
+1. Extend the lifecycle-safe width-6 native path with a canonical bounded archive
+   of emitted threshold-certified no-goods and deterministic preload. Bind every
+   archive to CNF, variable numbering, potential, threshold bits, grouping and
+   score semantics; these clauses are not CNF-only consequences.
+2. Prove clause soundness, canonicalization/deduplication, episode isolation and
+   solver-RSS reset on synthetic and public geometry without a scientific call.
+3. After those gates pass, execute one frozen Full-256 multi-episode stream:
+   short fresh solver episodes, cumulative exact no-good memory, fixed total
+   episode/work budget, zero truth access and no retry.
+4. Keep O1C-0056 fixed negative clause-role credit closed. If the causal branch
    resumes later, condition the unique exact role on outcome/utility; do not tune
    sign, scale, groups or cap.
-4. Keep O1C-0054's global separable factor-bound beam closed; do not widen its
+5. Keep O1C-0054's global separable factor-bound beam closed; do not widen its
    beam, reorder pairs, raise the queue cap or tune the bound.
-5. Keep O1C-0058's attended-decoy positive one-bit-delta vault closed; do not
+6. Keep O1C-0058's attended-decoy positive one-bit-delta vault closed; do not
    flip signs, tune thresholds or rerun that exact local rule. Do not extend its
    formal closure to crowd/elite consensus; the separate cheap scratch was only
    control-negative.
-6. Keep APPLE-VIEW-0007's static strongest-predecessor reader closed; do not
+7. Keep APPLE-VIEW-0007's static strongest-predecessor reader closed; do not
    root-weight, threshold, retraverse or rescore its held-out panel. Its only
    retained breadcrumb converges on the active live context/action branch.
-7. Reuse A325/A526 unchanged only when their native complement gate is met, and
+8. Reuse A325/A526 unchanged only when their native complement gate is met, and
    keep every sibling repository read-only.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0065` | 2026-07-19 12:36 | Exact width-6 compatibility groups turn their tighter public bound into more native Full-256 pruning at matched work | Root UB `292.3061134451→262.6864419708`, minimum UB `13.1979307788→12.9342082470`, cache `60,456→23,080 B`; cuts remain `6→6`, decisions `4471→4471`, propagations `1178185→1178185`; no key/truth read | `O1C65_GROUPED_WIDTH6_EFFICACY_RETAINED`; no strict efficacy gain or recovery | 3.328 s elapsed; 1.985 child CPU; 0.346 s native; 386,547,712 B native peak; one call | Standalone tighter bounding is terminal at 512; persist the six certified clauses across clean bounded episodes instead of repeating or jumping to 4K | [Result](research/O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json) |
 | `O1C-0064` | 2026-07-19 11:45 | Cause-preserving telemetry plus a 1-GiB envelope lets the repaired APPLE8 4K path reach a valid terminal result | Guarded memory stop after `29.804627625 s`: observed `1,040,285,696 B` at `1,040,187,392 B`; no native result/key/truth read | `O1C64_OPERATIONAL_FAILURE_NO_SCIENCE_RESULT`; exact resource boundary, negative operational result | 30.914 s elapsed; 30.314 child CPU; one call; no fresh/reveal/MPS/GPU | Do not retry or merely raise RAM; couple the already-positive exact width-6 bound to reduce the measured bottleneck | [Result](research/O1C0064_APPLE8_CROSSBLOCK_SIEVE_4K_RESOURCE_FIX_RESULT_20260719.json) |
-| `APPLE-VIEW-0009` | 2026-07-19 11:23 | Exact score-aware compatibility groups retain more public factor geometry with less state than frozen pairs | Safe root UB `269.7472723039718→262.68644197084643`; groups `3805→2885`; rows `265256→176912`; indexed bytes `2510008→1710776` | `PUBLIC_EXACT_GROUPED_BOUND_STRICTLY_DOMINATES_PAIR_RELAXATION_NO_SEARCH_CLAIM`; positive bound mechanism, no search/recovery claim | 0.705 s width-6 construction; zero solver/truth/fresh calls | Native integration tests earlier pruning; the static byte win is versus pairs and does not itself explain O1C64's 992-MiB wall | [Result](research/APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json) |
+| `APPLE-VIEW-0009` | 2026-07-19 11:23 | Exact score-aware compatibility groups retain more public factor geometry with less state than frozen pairs | Safe root UB `269.7472723039718→262.68644197084643`; groups `3805→2885`; rows `265256→176912`; indexed bytes `2510008→1710776` | `PUBLIC_EXACT_GROUPED_BOUND_STRICTLY_DOMINATES_PAIR_RELAXATION_NO_SEARCH_CLAIM`; positive bound mechanism, no search/recovery claim | 0.705 s width-6 construction; zero solver/truth/fresh calls | O1C65 later integrates it and retains exactly six cuts with identical search work; use it inside the episodic vault, not as another standalone test | [Result](research/APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json) |
 | `O1C-0063` | 2026-07-19 11:04 | Lifecycle-safe teardown and pending no-good retention repair O1C62 | Repaired path runs `17.763142674 s`, then terminates opaquely under the old wrapper; high-confidence guarded `736 MiB` stop, no science result | `O1C63_OPERATIONAL_FAILURE_NO_SCIENCE_RESULT`; predecessor diagnosis only | one call; zero truth/fresh/reveal | O1C64 later confirms the same memory-growth class with exact telemetry | [Diagnosis](research/O1C0063_RESOURCE_WATCHDOG_DIAGNOSIS_20260719.md) |
-| `APPLE-VIEW-0008-MATCHED` | 2026-07-19 09:55 | Explicit exact public P20 and cross-block key-lane consequences improve the O1C61 joint sieve at matched target, score, threshold and work | Requested 512/billed 513 conflicts in both arms; minimum UB `24.7944466611→13.1979307788` below threshold `14.6061787979`; safe trail prunes `0→6`; decisions `9166→4471`; propagations `1227877→1178185`; no key/truth read | `APPLE_VIEW_0008_STRICT_INCREMENTAL_EFFECT_NO_RECOVERY`; first certified Full-256 trail-pruning/search-branch removal in this line, not recovery | 36.8121 s total; 0.451725 s native; 388,644,864 B native peak; one solver call; zero fresh/reveal/MPS/GPU | Six emitted pruning clauses are deep (length 2964..2974); O1C62–64 later localize 4K scaling to memory, so integrate APPLE9 width-6 next | [Capsule](runs/20260719_095509_APPLE-VIEW-0008-MATCHED_crossblock-consequence-sieve-v1/RUN.md) |
+| `APPLE-VIEW-0008-MATCHED` | 2026-07-19 09:55 | Explicit exact public P20 and cross-block key-lane consequences improve the O1C61 joint sieve at matched target, score, threshold and work | Requested 512/billed 513 conflicts in both arms; minimum UB `24.7944466611→13.1979307788` below threshold `14.6061787979`; safe trail prunes `0→6`; decisions `9166→4471`; propagations `1227877→1178185`; no key/truth read | `APPLE_VIEW_0008_STRICT_INCREMENTAL_EFFECT_NO_RECOVERY`; first certified Full-256 trail-pruning/search-branch removal in this line, not recovery | 36.8121 s total; 0.451725 s native; 388,644,864 B native peak; one solver call; zero fresh/reveal/MPS/GPU | Six emitted pruning clauses are deep (length 2964..2974); O1C65 retains exactly those six under width-6, so the next lever is episodic persistence | [Capsule](runs/20260719_095509_APPLE-VIEW-0008-MATCHED_crossblock-consequence-sieve-v1/RUN.md) |
 | `O1C-0061` | 2026-07-19 09:19 | Corrected soft-stop accounting lets the exact O1C57 joint potential expose useful pre-model bound progress | `UNKNOWN` at requested 512/billed 513 conflicts; material root-to-minimum bound drop `267.511666784`, zero trail prunes, no complete model/key | `EXACT_JOINT_SCORE_SIEVE_ACTIVE_NO_RECOVERY`; active bound baseline, explicitly not a search-space-gain claim | 76.6567 s total; 0.419657 s native; 383,713,280 B native peak; one call; zero fresh/sibling/MPS/GPU | Use only as the matched baseline: APPLE-VIEW-0008 now turns the bound into six certified trail prunes | [Capsule](runs/20260719_091954_O1C-0061_multiblock-joint-score-sieve-soft-stop-v1/RUN.md) |
 | `O1C-0058` | 2026-07-19 07:08 | Signed one-bit finite differences around the supplied-panel-best eight-block decoy expose key-bit correction direction | Base and primary prefix 8 are both `127/256`, improvement `0`, longest correct confidence prefix `0`; key/clause controls `127/128`; all 13 candidates match `0/8` public blocks; no partial/exact gate | `MULTIBLOCK_BIT_VAULT_NO_DIRECTIONAL_TRANSFER`; fresh Full-256 negative conversion test | 99.07695375 s; 211,124,224 B peak; 34,824 forwards; 112 direct blocks; 2,048 B primary/6,144 B all-arm state; one entropy/reveal; zero solver/sibling/MPS/GPU | Two locally score-improving primary flips do not improve truth alignment; O1C-0061 and APPLE-VIEW-0008 later convert the retained joint score into six safe trail cuts | [Capsule](runs/20260719_070833_O1C-0058_multiblock-bit-vault-gradient-v1/RUN.md) |
 | `O1C-0057` | 2026-07-19 06:29 | Additional same-key public blocks compound the unchanged transferred parent-criticality score into stronger complete-key rank | Primary truth ranks `8/7/1/1` of 4,097 across prefixes 1/2/4/8; prefix-8 rotations rank `3581/4037`; truth z `+5.57888245`; frozen prediction passes | `MULTIBLOCK_PARENT_CRITICALITY_COMPOUNDING_TRANSFER`; prospective scorer/orderer, no recovery | 95.8946 s; 193,544,192 B peak; 32,776 forwards; 4,096 native branches; one fresh target/entropy/reveal; zero solver/sibling/MPS/GPU | Roughly 12 bits of discrimination transfer inside the supplied panel; convert the prefix-8 score into partial-assignment/search ordering rather than scaling decoys | [Capsule](runs/20260719_062932_O1C-0057_multiblock-parent-criticality-rank-v1/RUN.md) |
@@ -1241,6 +1263,7 @@ O1C-0017 result boundary are documented in
 ## Resume here
 
 Resume from [the ranked actions](research/NEXT_ACTIONS.md), the exact
+[O1C-0065 matched width-6 result](research/O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json),
 [O1C-0064 resource boundary](research/O1C0064_APPLE8_CROSSBLOCK_SIEVE_4K_RESOURCE_FIX_RESULT_20260719.json)
 and the positive public
 [APPLE-VIEW-0009 grouped bound](research/APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json).
@@ -1249,11 +1272,14 @@ trail cuts at requested 512/billed 513 conflicts, no key or truth read. O1C-0062
 exposed the callback lifecycle bug; O1C-0063 repaired it; O1C-0064 then proved
 that the repaired 4K path reaches the guarded `992 MiB` threshold after
 `29.804627625 s`. None of those operational failures is a science result or
-retriable attempt. APPLE-VIEW-0009 is the next mechanism: its exact width-6
-partition is `7.06083033312537` tighter and `799,232 B` smaller than frozen
-pairs. That byte win is not against O1C-0064's independent native; compile the
-frozen grouping into a lifecycle-safe successor and test whether its tighter
-geometry prunes earlier before spending another pure RAM increase.
+retriable attempt. O1C-0065 has now integrated APPLE-VIEW-0009 exactly and
+completed the sole matched 512-conflict test: its bound and live cache improve,
+but cuts remain `6→6` and decisions/propagations are byte-for-byte equal. Do not
+repeat that comparison or jump directly to 4K. Resume by implementing a bounded
+causal no-good vault: canonical threshold-certified emitted clauses survive across
+fresh short solver episodes, while each episode's CaDiCaL memory is destroyed.
+Only after archive soundness, identity, deduplication and RSS-reset gates pass
+should one frozen multi-episode Full-256 stream consume science work.
 Do not enlarge the decoy panel or repeat O1C-0058's attended-base positive-delta
 rule.
 

@@ -1,14 +1,14 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T11:45:27+02:00.
+Last ranked: 2026-07-19T12:36:04+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Compile APPLE-VIEW-0009's frozen exact width-6 grouping into a lifecycle-safe native joint-bound successor | State of the art | Extreme | Extreme | Medium | Replaces the independent relaxation with a root bound 29.619671474028735 tighter; the 799,232-B byte win is only versus legacy pairs, so efficacy must come from earlier pruning |
-| 2 | Run that grouped successor once on the frozen APPLE-VIEW-0008 Full-256 relation | State of the art | Extreme | Extreme | Medium | Tests whether tighter public geometry converts into more emitted safe trail cuts and avoids or delays O1C64's measured 992-MiB memory wall |
-| 3 | Park one outcome/utility-conditioned exact clause-role successor until ranks 1–2 resolve | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without pretending fixed conflict occurrence supplies the correct sign |
-| 4 | Keep O1C-0054 independent bounds, O1C-0056 fixed negative role credit and O1C-0058 local bit gradients closed | Operational | High | Extreme | Zero | Prevents paid repetition of three localized negative mechanisms |
-| 5 | Retain O1C-0038's exact residual-width-8 zone and unchanged A526 as terminal decoders once attacker-valid joint geometry reaches either gate | State of the art | Extreme | Extreme | High | Keeps 256-bit recovery as the end goal while recognizing intermediate rank/width gains |
+| 1 | Add a canonical bounded threshold-certified no-good archive and deterministic preload seam to the lifecycle-safe width-6 native path | State of the art | Extreme | Extreme | Medium | Converts APPLE8's exact score-feasibility cuts into persistent O1 causal memory while allowing each CaDiCaL instance to die before its RAM grows |
+| 2 | Prove archive clause soundness, identity binding, deduplication, episode isolation and solver-RSS reset without a scientific call | State of the art | Extreme | Extreme | Low | Unlocks a real multi-episode Full-256 stream without laundering local clauses into global facts or repeating the 4K memory failure |
+| 3 | Execute one frozen bounded Full-256 episode stream only after rank 2 passes | State of the art | Extreme | Extreme | Medium | Measures novel clauses per episode, cumulative exact pruning, matched total work, peak per-episode RSS and public exact recovery |
+| 4 | Park one outcome/utility-conditioned exact clause-role successor until the episodic vault resolves | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without pretending fixed conflict occurrence supplies the correct sign |
+| 5 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
 ## Frontier scoreboard
 
@@ -48,16 +48,20 @@ Last ranked: 2026-07-19T11:45:27+02:00.
   `29.804627625 s`, observed `1,040,285,696 B` at a guarded
   `1,040,187,392 B` threshold. These are negative operational results, not
   cryptanalytic evidence and not retriable attempts.
-- **Exact grouped-bound frontier:** APPLE-VIEW-0009's width-6 partition lowers
+- **Exact grouped-bound boundary:** APPLE-VIEW-0009's width-6 partition lowers
   the safe public root upper bound `269.7472723039718→262.68644197084643`
   relative to frozen pairs, while groups fall `3805→2885`, rows
   `265256→176912`, and estimated indexed bytes `2510008→1710776`. Public bound
-  safety is validated; search/pruning is not yet claimed. The indexed-byte
-  comparison is against legacy pairs. O1C-0064 uses independent factors, whose
+  safety is validated. The indexed-byte comparison is against legacy pairs.
+  O1C-0064 uses independent factors, whose
   modeled index is `1,199,632 B` smaller than the grouped successor under the
   same partial accounting and whose bounded sieve state is tiny relative to the
-  992-MiB process wall; width-6 must earn its keep through earlier pruning, not
-  a static-memory claim.
+  992-MiB process wall. O1C-0065 completes native integration at matched
+  requested 512/billed 513 conflicts: root UB falls
+  `292.30611344510277→262.68644197084643`, minimum UB falls
+  `13.197930778790159→12.934208247009447`, and the derived cache falls
+  `60456→23080 B`, but cuts remain `6→6` with exactly identical decisions and
+  propagations. Standalone width-6 efficacy is retained, not improved.
 - **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.
@@ -117,11 +121,12 @@ Last ranked: 2026-07-19T11:45:27+02:00.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** compile the exact APPLE-VIEW-0009 width-6
-  partition and make one frozen Full-256 call. It must report emitted safe trail
-  cuts, elapsed work and memory against O1C64's exact boundary, or a publicly
-  verified candidate. Do not spend another pure RAM-cap promotion first. Exact
-  256 remains the moonshot while reproducible branch removal below recovery
+- **Next measurable advance:** make the six exact score-threshold no-goods live
+  beyond one solver instance. A bounded episode stream must report canonical
+  imported/new/duplicate clauses per episode, cumulative certified cuts,
+  decisions/propagations at fixed total work, peak RSS for every fresh solver,
+  and any publicly verified exact candidate. No truth is read. Exact 256 remains
+  the moonshot while reproducible cumulative branch removal below recovery
   remains real progress.
 
 ## Effect-first stop rules
@@ -224,8 +229,10 @@ Last ranked: 2026-07-19T11:45:27+02:00.
   versus zero and a minimum safe upper bound below threshold, but recovers no
   key. O1C-0062 through O1C-0064 complete its resource/lifecycle promotion and
   end at an exact 992-MiB guarded memory boundary without science output. Do not
-  retry or sweep clause placement; APPLE-VIEW-0009 width-6 is the distinct next
-  mechanism.
+  retry or sweep clause placement. O1C-0065 then tests APPLE-VIEW-0009 width-6
+  exactly once at matched work and retains six cuts with identical search work.
+  Do not repeat or jump directly to 4K; persist threshold-certified cuts across
+  fresh identically bound episodes as the distinct next mechanism.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not

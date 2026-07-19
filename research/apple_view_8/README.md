@@ -131,12 +131,22 @@ science result:
 None is retried or interpreted as cryptanalytic evidence. A third pure RAM-cap
 increase is not the next action.
 
-APPLE-VIEW-0009 now supplies the distinct positive mechanism. Its exact
-score-aware width-6 groups lower the safe root upper bound from the frozen pair
-relaxation's `269.7472723039718` to `262.68644197084643`, while indexed state
-falls `2,510,008→1,710,776 B`. Compile grouping hash
+APPLE-VIEW-0009 supplied the distinct exact width-6 mechanism. O1C-0065 has now
+compiled grouping hash
 `3da85bae132d829252a68f0e3fd99220ea7d1ef365042806af810ff02f75f636`
-into a lifecycle-safe native successor and test emitted safe trail cuts, time,
-and memory once on these exact Apple clauses. The indexed-state reduction is
-against the legacy pair comparator; O1C-0064 uses independent factors, so any
-RSS gain must come indirectly from earlier pruning.
+into the repaired native path and completed one matched requested 512/billed 513
+call. Root UB falls `292.30611344510277→262.68644197084643`, minimum UB falls
+`13.197930778790159→12.934208247009447`, and live cache falls
+`60,456→23,080 B`; emitted cuts remain `6→6`, decisions `4,471→4,471`, and
+propagations `1,178,185→1,178,185`. This is retained efficacy, not a strict gain,
+and it is not retried or promoted directly to 4K.
+
+The next action changes the execution shape: fixed short fresh solver episodes
+with a bounded causal vault of canonical threshold-certified emitted clauses.
+Every clause is valid across restarts only for the identically bound augmented
+problem `CNF ∧ score_potential >= threshold`, not as a CNF-only consequence, so
+the vault binds CNF/variable numbering, potential, grouping, score semantics and
+threshold bits and rejects drift. Solver-local assignments, trail, group cache
+and allocator state die after every episode. The first experiment uses a fixed
+8×512 schedule; O1/O1-O adaptation waits for evidence that simple persistence
+actually produces novel cumulative cuts.

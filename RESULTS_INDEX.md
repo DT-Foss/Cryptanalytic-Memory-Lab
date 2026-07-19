@@ -184,6 +184,7 @@ attacker-valid cipher evidence.
 | `O1C-0063-APPLE8-4K-REPAIR` | Lifecycle-safe teardown and pending no-good backtrack retention over unchanged O1C62 science | `O1C63_OPERATIONAL_FAILURE_NO_SCIENCE_RESULT`; high-confidence guarded-memory stop, no retry | repaired path survives 17.763142674 s versus O1C62's ~1 s; old wrapper loses cause; no native result/key/truth read | [Diagnosis](research/O1C0063_RESOURCE_WATCHDOG_DIAGNOSIS_20260719.md) |
 | `O1C-0064-APPLE8-4K-RESOURCE` | Cause-preserving telemetry with unchanged science under a 1-GiB/45-s envelope | `O1C64_OPERATIONAL_FAILURE_NO_SCIENCE_RESULT`; exact memory boundary, no retry | `watchdog_memory` after 29.804627625 s; observed 1,040,285,696 B at guarded 1,040,187,392 B; no native result/key/truth read | [Result](research/O1C0064_APPLE8_CROSSBLOCK_SIEVE_4K_RESOURCE_FIX_RESULT_20260719.json) |
 | `APPLE-VIEW-0009-EXACT-GROUPED-BOUND` | Deterministic score-aware exact width-6 compatibility groups over the frozen public eight-block potential | `PUBLIC_EXACT_GROUPED_BOUND_STRICTLY_DOMINATES_PAIR_RELAXATION_NO_SEARCH_CLAIM`; positive bound mechanism | root UB 269.7472723039718→262.68644197084643; groups 3805→2885; rows 265256→176912; indexed bytes 2510008→1710776; zero solver/truth | [Result](research/APPLE_VIEW_0009_EXACT_GROUPED_BOUND_RESULT_20260719.json) |
+| `O1C-0065-APPLE8-WIDTH6-GROUPED` | Exact APPLE-VIEW-0009 width-6 bound integrated into the repaired native APPLE8 Full-256 sieve at matched 512/513 work | `O1C65_GROUPED_WIDTH6_EFFICACY_RETAINED`; tighter bound and smaller logical cache, no strict pruning/search gain or recovery | root UB 292.30611344510277→262.68644197084643; minimum UB 13.197930778790159→12.934208247009447; cuts 6→6; decisions 4471→4471; propagations 1178185→1178185; cache 60456→23080 B; peak RSS 388644864→386547712 B contextual; no key/truth read | [Result](research/O1C0065_APPLE8_WIDTH6_GROUPED_SIEVE_RESULT_20260719.json) |
 | `APPLE-VIEW-0005-SPARSE-CARRY` | Sparse exact c31-identity certificates for complete wrong Full-256 candidates | `CONSUMED_FULL256_CANDIDATE_FILTER`; no key-generation/entropy claim | 20/20 exact wrong-candidate conflicts; every reason-DAG slice independently replays with 250–265/336 identities, best 250 (86 omitted); 5/5 truth controls complete | [Result](research/apple_view_5/apple_view_5_report.md) |
 | `APPLE-VIEW-0006-PROOF-CREDIT-TRANSFER` | One-pass 1,346-byte proof-frequency/recency state frozen before disjoint Full20/Full256 candidate filters | `HELDOUT_CERTIFICATE_TRANSFER_WITH_SCHEDULER_LOSS`; no key-generation/entropy claim | raw learned order loses 1,268 vs best structural 1,031 total first-conflict switches; independently replayed learned certificates win 4/4 at 248/248/251/250 vs best structural 251/252/257/255, aggregate 997 vs 1,015 and immediate-public 1,013; zero held-out updates, all truth controls complete | [Result](research/apple_view_6/apple_view_6_report.md) |
 | `APPLE-VIEW-0007-PROOF-EDGE-TRANSFER` | One-pass 113,570-byte proof-DAG edge/root/terminal state with one frozen static strongest-predecessor reader | `HELDOUT_STATIC_EDGE_SCHEDULER_NEGATIVE`; no key-generation/entropy claim | raw edge order loses 1,340 vs exact APPLE6 unary 1,268 and best structural 1,031; certificate 1,003 beats fixed 1,015 but loses unary 997 and cannot pass; all 28 wrong passes, proof replays, freeze checks and truth controls exact | [Result](research/apple_view_7/apple_view_7_report.md) |
@@ -314,11 +315,15 @@ requested 512/billed 513 conflicts it produces six certified safe trail prunes,
 moves the minimum upper bound below threshold and roughly halves decisions.
 O1C-0062 exposes the callback lifecycle failure, O1C-0063 repairs it, and
 O1C-0064 then localizes 4K scaling to a guarded-memory stop at 992 MiB. None is a
-science result or retry. APPLE-VIEW-0009 now supplies the positive next
-mechanism: an exact width-6 bound that is both tighter and smaller than the
-frozen pair relaxation. O1C-0064 uses independent factors, so that static byte
-win does not directly lower its RSS; native integration must test earlier
-pruning before another pure RAM increase.
+science result or retry. APPLE-VIEW-0009 supplies an exact width-6 bound that is
+both tighter and smaller than the frozen pair relaxation. O1C-0065 integrates it
+into the repaired native path and closes the standalone question at matched
+work: root/minimum bounds and logical cache improve, but the same six clauses
+are emitted with identical decisions and propagations. The next distinct lever
+is therefore episodic causal persistence: carry canonical threshold-certified
+score-feasibility no-goods across fresh bounded solver episodes, reset CaDiCaL
+memory between episodes, and measure cumulative novel branch removal before any
+monolithic 4K promotion.
 APPLE-VIEW-0005 supplies a separate exact candidate-filter frontier. Its depth-30
 base plus a proof-replayed subset of only 250 high-carry identities rejects a
 complete wrong 256-bit key while omitting 86 of the 336 missing equations. This
