@@ -1,0 +1,81 @@
+{
+  "schema": "o1-256-o1c67-target-free-adapter-preflight-v1",
+  "attempt_id": "O1C-0067",
+  "recorded_at": "2026-07-19T15:21:45+02:00",
+  "timezone": "Europe/Berlin",
+  "classification": "O1C67_TARGET_FREE_ADAPTER_PREFLIGHT_PASS",
+  "target_free": true,
+  "all_gates_passed": true,
+  "native_solver_calls": 0,
+  "truth_key_bytes_read": false,
+  "fresh_targets": 0,
+  "scientific_entropy_calls": 0,
+  "fresh_reveal_calls": 0,
+  "refits": 0,
+  "mps_calls": 0,
+  "gpu_calls": 0,
+  "source_identity": {
+    "base_commit_before_o1c67": "c726c11e83a12638c5ddfc94516636b26fd4dac5",
+    "joint_score_sieve_v9_sha256": "15b354a01d6d8105b9e76b866dfd5cc355549e4fd35befe6e4c035a8d7092e4d",
+    "runner_sha256": "117115c0aa17573821635298732e2c1860c82fd42dac0ef822b609d9f6a3b959",
+    "adapter_test_sha256": "909fb4e9034eca5302e3b17387fc32d6be988b92e83e59bec6780695c9fbc1f6",
+    "runner_test_sha256": "182216656cf588833627a14b09580fd7349690335ba731131ceafaa13baddef3",
+    "design_sha256": "a33f4b44599067f3bd2adfae8610ee68757c238bed4790c2af6dfe6f0ef095a5"
+  },
+  "sealed_parent": {
+    "result_sha256": "b8b61d0f2feaa9c544c1fef30cba4c7cead90c390a577a444405d45ad85000e3",
+    "manifest_sha256": "b0022997a1c316e71131268b3e3e5524aee4de8167013463f845646c8982d562",
+    "retained_vault_sha256": "371dd8454e46eb6c53549efa53e6412f5798b22a06e6f96c927ab74df2ba687a",
+    "retained_vault_clauses": 12,
+    "retained_vault_literals": 35061,
+    "retained_vault_serialized_bytes": 140483,
+    "dual_parser_roundtrip_exact": true,
+    "tampered_sidecar_rejected": true,
+    "tampered_manifest_rejected": true
+  },
+  "one_call_protocol": {
+    "invocation_id": "O1C-0067-apple8-vault-continuation-v1-call-0003",
+    "local_episode_ordinal": 0,
+    "lineage_call_ordinal": 3,
+    "parent_ordinal_2_replayed": false,
+    "intent_persisted_before_invocation": true,
+    "exactly_one_invocation_observed": true,
+    "exception_terminal_without_retry": true,
+    "invalid_result_terminal_without_retry": true,
+    "completed_sidecar_publication_recovery_native_calls": 0
+  },
+  "soft_horizon_ledger": {
+    "requested_conflicts": 512,
+    "synthetic_observed_solve_conflicts": 514,
+    "synthetic_billed_conflicts": 514,
+    "synthetic_conflict_limit_overshoot": 2,
+    "numeric_overshoot_ceiling_asserted": false,
+    "forged_conflict_delta_rejected": true,
+    "strict_integer_and_nonnegative_gates": true,
+    "all_algebraic_equalities_checked": true
+  },
+  "failure_evidence": {
+    "full_stream_length_and_sha256_preserved": true,
+    "persisted_stream_bytes_capped_at": 1048576,
+    "oversized_stream_truncated": true,
+    "adapter_raw_streams_externalized": true,
+    "malformed_resource_ledger_rejected": true
+  },
+  "verification": {
+    "focused_adapter_and_runner_tests": 31,
+    "focused_regression_tests": 168,
+    "pytest_passed": true,
+    "ruff_check_passed": true,
+    "ruff_format_check_passed": true,
+    "pyright_errors": 0,
+    "python_version": "3.13.1",
+    "platform": "macOS 26.5 arm64"
+  },
+  "authorization_boundary": {
+    "science_call_executed": false,
+    "public_target_cnf_executed": false,
+    "fresh_target_generated": false,
+    "truth_or_reveal_read": false,
+    "next_authorized_action": "After final source hashes are committed and the runtime resource preflight passes, execute exactly one lineage-ordinal-3 Full-256 continuation call."
+  }
+}
