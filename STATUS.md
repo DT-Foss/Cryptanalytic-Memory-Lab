@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-19T19:32:28+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-19T20:44:41+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -279,6 +279,19 @@
   proves strong order control but closes static same-sign reassertion as a
   propagation furnace. No model, key, truth, reveal, MPS or GPU is used. Source
   is `66400bc6cc76653fb0a4b2c5bd64af498f4a49d3`.
+- **O1C-0072:** the one-call monotone backtrack-release reader completes as
+  `EPISODIC_VAULT_BACKTRACK_RELEASE_MECHANISM_WORK_GAIN_NO_RECOVERY`. Its sole
+  local-0/lineage-8 call requests/observes/bills `512/512/512` conflicts and
+  returns all `255` frozen ranked literals exactly once. All `255` are later
+  observed released, then `900` further callbacks delegate to native CDCL;
+  redecisions and phase calls are exactly `0`. Against O1C-0071, propagations
+  fall `91,260,183→5,763,035` (`-85,497,148`, `15.8354379246x`, or
+  `-93.6850%`) while decisions rise `763→1,155`. Minimum UB is
+  `19.57599384995442`. The call emits no clause or model and leaves the sealed
+  202-clause vault unchanged. This validates removal of the reassertion furnace
+  and a bounded causal release mechanism; it is not recovery, entropy reduction
+  or a novel-exclusion result. Source is
+  `bf1ffaad30ac276c2fcc3b332207c5933bf96443`.
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
@@ -302,12 +315,12 @@
   fails raw at `1,340 > 1,268 > 1,031` for edge, exact unary and final→early.
   Certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass.
   All 28 wrong passes, proof replays, freeze checks and truth controls are exact.
-- **Next mechanism:** separately precommit a backtrack-release/one-shot causal
-  reader. Consume the frozen rank monotonically, inject each ranked bit at most
-  once, and permanently delegate that bit to native CDCL after backtrack. Prove
-  its bounded state and returned-sequence consequence target-free under a new
-  attempt. Rerunning O1C-0071, replaying ordinal `7`, sweeping rank/phase/horizon,
-  merely capping redecisions and RAM scaling are closed.
+- **Next mechanism:** derive the highest-ROI genuinely new O1C-0073 mechanism
+  from O1C-0072's clean separation: frozen order information is cheap when used
+  once, while static reinjection caused the furnace. Preserve the validated
+  release primitive and change the evidence/causal operator only after its
+  expected recovery, entropy or novel-clause leverage is explicit. Rerunning or
+  replaying O1C-0072, ordinal `8`, and sweeping rank/phase/horizon/RAM are closed.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -321,18 +334,21 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** no scientific process is active. O1C-0071 is sealed as
-  an active-but-zero-gain ranked reader: it cuts decisions but creates a
-  91-million-propagation tail cascade and emits no clause or key. Immediate work
-  is only the separately precommitted one-shot backtrack-release design and its
-  target-free gates; no O1C-0071 rerun is authorized. O1C-0053..0056 and the exact
-  O1C-0058 rule remain negative and closed. Sibling repositories remain
-  read-only and untouched.
+- **Active local run:** no scientific process is active. O1C-0072 is sealed as a
+  positive mechanism/work result: one-shot release removes every reader-caused
+  redecision and cuts O1C-0071's propagation furnace by `15.8354379246x`, but
+  emits no clause/model/key and establishes no entropy reduction. Immediate work
+  is target-free derivation of the highest-ROI new O1C-0073 mechanism; no
+  O1C-0072 retry, replay or sweep is authorized. O1C-0053..0056 and the exact
+  O1C-0058 rule remain negative and closed. Sibling repositories remain read-only
+  and untouched.
 - **SOTA target:** an exactly verified uniformly random 256-bit ChaCha20 key is
   the north star; the scored objective is the strongest reproducible
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
+  [O1C-0072 backtrack-release result](research/O1C0072_APPLE8_VAULT_BACKTRACK_RELEASE_RESULT_20260719.json),
+  [O1C-0072 capsule](runs/20260719_204421_O1C-0072_apple8-vault-backtrack-release-v1/RUN.md),
   [O1C-0071 ranked-decision result](research/O1C0071_APPLE8_VAULT_RANKED_DECISION_RESULT_20260719.json),
   [O1C-0071 interpretation](research/O1C0071_APPLE8_VAULT_RANKED_DECISION_INTERPRETATION_20260719.md),
   [O1C-0071 tail-cascade analysis](research/O1C0071_RANKED_DECISION_TAIL_CASCADE_ANALYSIS_20260719.json),
@@ -491,9 +507,15 @@ without gain. O1C-0071 then applies confidence-ranked `cb_decide` order exactly
 once. Decisions fall to `763`, but all `244` redecisions form the exact
 seven-rank `1/3/7/15/31/62/125` tail cascade, pushing propagations to
 `91,260,183` and native wall to `14.818087 s` without a clause/model. Close
-static same-sign ranked reassertion. Separately precommit a one-shot backtrack-
-release reader; do not rerun O1C-0071, replay ordinal 7, sweep rank/phase/horizon
-or blind-scale RAM.
+static same-sign ranked reassertion. O1C-0072 then consumes that same immutable
+rank monotonically and returns every literal at most once. Its one lineage-8
+call records `255` once-returns, `255` guided releases, `900` zero fallbacks and
+exactly zero redecisions. Propagations fall to `5,763,035`, a
+`15.8354379246x` (`93.6850%`) reduction from O1C-0071, at `1,155` decisions.
+This validates furnace removal and bounded one-shot causality, but zero clauses,
+no model and no key mean no recovery or entropy claim. Derive a genuinely new,
+highest-ROI O1C-0073 mechanism from this breadcrumb; do not retry/replay/sweep
+O1C-0072 or ordinal 8.
 In parallel APPLE-VIEW-0005 finds the first exact sparse carry certificate:
 250 of 336 high-carry identities suffice to reject a complete wrong key on the
 fixed matrix, with independent proof replay. APPLE-VIEW-0006 then performs the
@@ -1087,17 +1109,18 @@ O1C-0017 result boundary are documented in
 | Alternating phase-1 reader | — | 2026-07-19 17:08 | O1C-0069 APPLE8 one-call composition | terminal: one zero-based vault-index-7/eighth-clause input duplicate, 0 novel; vault unchanged at 202 clauses and native trace exactly equals O1C-0067; no model/key/truth/UNSAT | complete |
 | Vault-conditioned phase reader | — | 2026-07-19 18:10 | O1C-0070 one-call cut-majority polarity reader | terminal: active distinct trace and higher minimum UB, but 0 emitted/novel clauses, unchanged 202-clause vault and no model/key/truth | complete |
 | Vault-ranked decision reader | — | 2026-07-19 19:27 | O1C-0071 one-call confidence-ranked `cb_decide` reader | terminal: strong order control and 66.78% fewer decisions, but exact seven-rank redecision cascade drives 91,260,183 propagations; 0 clauses/model/key | complete |
+| Vault backtrack-release reader | — | 2026-07-19 20:44 | O1C-0072 one-call monotone consume-once reader | terminal: 255 once-returns / 255 guided releases / 0 redecisions; propagations fall 15.8354x to 5,763,035, but 0 clauses/model/key | complete |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Separately precommit a backtrack-release/one-shot causal reader over the
-   sealed rank. Inject each ranked bit at most once; if backtracked, permanently
-   delegate it to native CDCL. Freeze callback state and source identities.
-2. Prove the one-shot returned-sequence consequence on a public target-free
-   fixture and bind it to a new attempt/ordinal. Only then consider one Full-256
-   call with every non-operator condition unchanged. Do not rerun O1C-0071,
-   replay ordinal `7`, sweep rank/horizon/phase or blind-scale RAM.
+1. Derive the highest-ROI genuinely new O1C-0073 mechanism from O1C-0072's
+   measured breadcrumb: the release primitive is valid and cheap, but the next
+   operator must plausibly produce recovery, entropy reduction or novel exact
+   clauses rather than merely repeat low work.
+2. Freeze O1C-0073 only after its new evidence/causal action and gain gate are
+   explicit and target-free. Preserve O1C-0072's rank/release result as a sealed
+   parent; do not retry it, replay ordinal `8`, or sweep rank/horizon/phase/RAM.
 3. Keep O1C-0056 fixed negative clause-role credit closed. If the causal branch
    resumes later, condition the unique exact role on outcome/utility; do not tune
    sign, scale, groups or cap.
@@ -1117,6 +1140,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0072` | 2026-07-19 20:44 | Frozen confidence order becomes computationally useful when each literal is consumed once and permanently delegated after backtrack | Local 0/lineage 8 requests/observes/bills `512/512/512`; callback `1,155` calls / `255` nonzero / `900` zero, `255` once-returns / `255` guided releases / `0` redecisions / first fallback 256; 0 clauses/model, unchanged 202-clause vault. Versus O1C-0071 decisions `763→1,155`, propagations `91,260,183→5,763,035` (`-85,497,148`, `15.8354379246x`, `-93.6850%`), minimum UB `19.297551436176224→19.57599384995442` | `EPISODIC_VAULT_BACKTRACK_RELEASE_MECHANISM_WORK_GAIN_NO_RECOVERY`; furnace removal and bounded causal release validated, not recovery/entropy | one call; 23.258629542 s elapsed; 1.193428 s native wall; 395,214,848 B native peak; 286,539,776 B runner peak; zero reveal/MPS/GPU | Preserve release primitive; derive the highest-ROI new O1C-0073 evidence/causal mechanism, with no O1C-0072 retry/replay/sweep | [Result](research/O1C0072_APPLE8_VAULT_BACKTRACK_RELEASE_RESULT_20260719.json) · [Capsule](runs/20260719_204421_O1C-0072_apple8-vault-backtrack-release-v1/RUN.md) |
 | `O1C-0071` | 2026-07-19 19:27 | Frozen vault vote strength and singleton grouped-gap become gainful when their rank controls `cb_decide` order and vote sign | Local 0/lineage 7 requests/bills `512/513`, status 0, no phase; callback `763` calls / `499` nonzero / `264` zero / `255` unique / `244` redecisions / first fallback 256; 0 clauses/model, unchanged 202-clause vault. Versus O1C-0070 decisions `2,297→763` (-66.78%), propagations `1,169,826→91,260,183` (78.01x), minimum UB `18.846601115977638→19.297551436176224`, wall `0.316808→14.818087 s`; tail ranks 249..255 add `1/3/7/15/31/62/125` redecisions while ranks 1..248 form a callback-visible stable prefix and are never returned twice | `EPISODIC_VAULT_ACTIVE_RANKED_DECISION_NO_GAIN`; strong order control, but static same-sign reassertion is a propagation furnace without frontier gain | one call; 36.940193167 s elapsed; 14.818087 s native wall; 405,553,152 B native peak; 283,738,112 B runner peak; zero reveal/MPS/GPU | Close O1C-0071 rerun/sweep; precommit one-shot backtrack release so every ranked bit is injected once then delegated after backtrack | [Result](research/O1C0071_APPLE8_VAULT_RANKED_DECISION_RESULT_20260719.json) · [Tail analysis](research/O1C0071_RANKED_DECISION_TAIL_CASCADE_ANALYSIS_20260719.json) |
 | `O1C-0070` | 2026-07-19 18:10 | The exact 190-clause cut-majority field makes stored vault evidence gainful when applied as per-variable decision polarity | Local 0/lineage 6 requests/actual/bills `512/514/514`; `139/116/1` field with 255 phase calls; 0 emitted/novel/duplicate; unchanged 202 clauses/599,728 literals/2,399,911 B. Decisions `2,297`, propagations `1,169,826`, minimum/root UB `18.846601115977638/262.68644197084643`; trace `5c5fb773…` differs from O1C-0069; no model/key/truth | `EPISODIC_VAULT_ACTIVE_PHASE_READER_NO_GAIN`; active-not-inert, but phase-only gain gate fails | one call; 16.315104458 s elapsed; 0.316808 s native wall; 406,568,960 B native peak; 326,664,192 B runner peak; zero reveal/MPS/GPU | O1C-0071 later proves ranked order strongly active but static same-sign reassertion zero-gain; next use one-shot backtrack release | [Result](research/O1C0070_APPLE8_VAULT_PHASE_READER_RESULT_20260719.json) |
 | `O1C-0069` | 2026-07-19 17:08 | The 190 phase-0 exclusions perturb a forced-phase-1 trajectory enough to expose another exact population when both readers share the sealed vault | Local 0/lineage 5 requests/actual/bills `512/514/514`; one 2,951-literal input duplicate, 0 novel; vault remains 202 clauses/599,728 literals/2,399,911 B. Decisions `4,517`, propagations `1,192,529`, minimum/root UB `9.111031965569408/262.68644197084643`, terminal assignment and trace SHA `676386a0…` exactly equal O1C-0067; no model/key/truth | `EPISODIC_VAULT_ALTERNATING_READER_NO_GAIN`; exact passive phase-1 fixed point, not vault-global exhaustion | one call; 16.869109 s elapsed; 0.367456 s native wall; 1.080018 s native CPU; 398,032,896 B peak; zero reveal/MPS/GPU | O1C-0070/0071 later close active phase and static ranked reinjection; preserve vault for one-shot backtrack release | [Result](research/O1C0069_APPLE8_ALTERNATING_READER_RESULT_20260719.json) |
@@ -1199,6 +1223,9 @@ O1C-0017 result boundary are documented in
 | `O1C-0071` ranked order | `26c0063f4eed586ef67535cccabacc07d945587a603cbb56dbb3b2225a32a2f5` |
 | `O1C-0071` rank table | `d3a007ebee7c515289d33be30757f769b2c1fde618fb5c6c312ea9f3509380ae` |
 | `O1C-0071` reader spec | `974d0f915ef827ecaa453f795a649f78b72bd38be7f413c8eb2c104de58e4543` |
+| `O1C-0072` capsule artifact manifest | `83bbc2438fc33e3a61fdf5b23b589574c6a12cfaefd9fc2f0e7c4c4e84b521f8` |
+| `O1C-0072` authoritative result | `e441a32de808ee33e2245ea69af4e6ad6f246311e5a410b0cbab4a63dbd165d8` |
+| `O1C-0072` source freeze | `bf1ffaad30ac276c2fcc3b332207c5933bf96443` |
 | `O1C-0070` capsule manifest | `ca5e0dfc724dc541b5311e2fc1453fc017f4ccd562d510aad341a53188d194c2` |
 | `O1C-0070` authoritative result | `778d2b91935ff2ae663ea706e5b7b66c8cfed2f02007ba8359e8c1cb7ff45cd7` |
 | `O1C-0070` source freeze | `c5ad5c40f0ac84f65d281cf2366d2ca6b6c49a52` |
@@ -1467,9 +1494,13 @@ field exactly once. Its distinct trace proves active steering, but zero emitted
 clauses/key close phase-only gain. O1C-0071 then binds confidence-ranked order
 once. Decisions fall by 66.78%, but the callback reasserts only the seven tail
 ranks in an exact truncated binary-counter cascade, producing 91,260,183
-propagations and no clause/model. Resume only by separately precommitting a
-one-shot backtrack-release reader under a new attempt; do not rerun O1C-0071,
-replay ordinal `7`, sweep rank/phase/horizon or blind-scale RAM.
+propagations and no clause/model. O1C-0072 then consumes that immutable rank
+monotonically: `255` once-returns, `255` guided releases, `900` zero fallbacks
+and exactly zero redecisions. Propagations fall to `5,763,035`, a
+`15.8354379246x` reduction, while `1,155` decisions still produce no clause,
+model or key. This validates furnace removal and bounded release, not recovery
+or entropy. Derive the highest-ROI new O1C-0073 mechanism from this breadcrumb;
+do not retry/replay/sweep O1C-0072 or ordinal `8`.
 Do not enlarge the decoy panel or repeat O1C-0058's attended-base positive-delta
 rule.
 

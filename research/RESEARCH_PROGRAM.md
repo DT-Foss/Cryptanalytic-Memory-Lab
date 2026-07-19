@@ -336,12 +336,20 @@ form a callback-visible stable prefix and are never returned twice; ranks
 binary-counter propagation furnace. Refute `H-CONFIDENCE-RANKED-DECIDE-075` for
 static same-sign reassertion while retaining strong order control.
 
-The direct successor must change callback causality, not the rank or budget.
-Separately precommit a backtrack-release/one-shot reader: inject each ranked bit
-at most once and permanently delegate it after backtrack. Prove its exact native
-sequence consequence target-free and give it a new attempt identity before any
-science call. No rerun of O1C-0071, replay of ordinal `7`, rank/phase/horizon
-sweep, RAM scaling or broad vault infrastructure is authorized.
+O1C-0072 changes that callback causality exactly once while retaining rank,
+target, vault, seed and horizon. Its monotone cursor records `255` once-returns,
+`255` guided releases, `900` zero fallbacks and zero redecisions. Propagations
+fall `91,260,183→5,763,035`, an exact `15.835437924635196x`
+(`93.685049919%`) reduction, while decisions rise `763→1,155`. No clause,
+model or key is produced. Support `H-BACKTRACK-RELEASE-076` at mechanism/work
+level: the reassertion furnace is removed, but no recovery or entropy has been
+created.
+
+The direct successor must now add useful evidence, not retest release. Derive
+the highest-ROI genuinely new O1C-0073 evidence/causal operator and freeze it
+only after its recovery, entropy/domain-reduction or novel-clause leverage is
+explicit target-free. No rerun/replay of O1C-0072 or ordinal `8`, release/rank/
+phase/horizon sweep, RAM scaling or broad vault infrastructure is authorized.
 
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
@@ -671,9 +679,13 @@ evidence.
    active field once: it changes the trace and search telemetry but emits zero
    clauses/key, closing phase-only gain. O1C-0071 then applies ranked variable
    order once: decisions fall to `763`, but 244 tail redecisions drive
-   `91,260,183` propagations and add no clause/key. Build only a separately
-   precommitted one-shot backtrack-release reader next; never rerun O1C-0071,
-   replay ordinal `7`, call phase, sweep rank/horizon or blind-scale.
+   `91,260,183` propagations and add no clause/key. O1C-0072 then applies the
+   separately precommitted one-shot release exactly once: all 255 ranked
+   literals return/release once, redecisions become zero, and propagations fall
+   to `5,763,035` (`15.8354x`) without a clause/model/key. Preserve the validated
+   release primitive and derive the highest-ROI new O1C-0073 evidence/causal
+   operator; never rerun O1C-0072, replay ordinal `8`, call phase, sweep release/
+   rank/horizon or blind-scale.
    Any later role-credit test must precommit an attacker-visible outcome/utility
    condition rather than tune `-32`.
 6. Complementary phase has passed only its exact-exclusion mechanism gate. Once
@@ -763,10 +775,20 @@ evidence.
   `91,260,183` and native wall to `14.818087 s`. Tail ranks `249..255` account
   for every redecision as `1/3/7/15/31/62/125`; ranks `1..248` are never
   returned twice and form a callback-visible stable prefix. Static
-  same-sign ranked reinjection is closed. The direct resume point is a new
-  one-shot backtrack-release reader under a new attempt. No rerun, replay of
-  ordinal `7`, rank/phase/horizon sweep, naive continuation, RAM scaling or
-  broad compaction layer is authorized.
+  same-sign ranked reinjection is closed. Its authorized direct successor was
+  the new one-shot backtrack-release reader recorded as O1C-0072; no O1C-0071
+  rerun, ordinal-7 replay, rank/phase/horizon sweep, naive continuation, RAM
+  scaling or broad compaction layer was authorized.
+- O1C-0072 executes that new attempt exactly once at requested/actual/billed
+  `512/512/512`. Its monotone cursor yields `255` once-returns, `255` guided
+  releases, `900` zero fallbacks and zero redecisions. Propagations fall from
+  `91,260,183` to `5,763,035`, a `15.835437924635196x`
+  (`93.685049919%`) reduction; decisions rise `763→1,155`, and minimum UB is
+  `19.57599384995442`. Zero clauses/model/key leave recovery and entropy
+  unchanged. This supports the release mechanism/work gate only. Preserve it
+  and derive the highest-ROI genuinely new O1C-0073 evidence/causal operator;
+  no O1C-0072 retry, ordinal-8 replay, release/rank/phase/horizon/RAM sweep or
+  low-work-only promotion is authorized.
 
 ## Operating contract
 

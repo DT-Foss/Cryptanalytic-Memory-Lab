@@ -2779,3 +2779,67 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [`capsule`](../runs/20260719_192742_O1C-0071_apple8-vault-ranked-decision-v1/RUN.md),
   artifact-manifest SHA-256
   `c7bbbd9d7ad0d37b80b956a3ad8141254a460ddf763ae84109a067e0343294d9`.
+
+## O1C-0072 — APPLE8 vault backtrack release
+
+- **Supersession:** this completed attempt consumes O1C-0071's sole authorized
+  successor after the monotone-cursor, consume-once, release, target-free
+  sequence, source and capacity gates passed. It is a distinct mechanism and
+  lineage call, not an O1C-0071 retry or ordinal-7 replay.
+- **Started:** 2026-07-19T20:44:18+02:00.
+- **Recorded:** 2026-07-19T20:44:41+02:00.
+- **Source commit:** `bf1ffaad30ac276c2fcc3b332207c5933bf96443`.
+- **Protocol:** exactly one fresh native subprocess imports the unchanged sealed
+  202-clause vault and immutable 255-variable signed rank, uses local ordinal
+  `0`, lineage ordinal `8`, seed `0` and requested 512-conflict soft horizon.
+  The cursor consumes every rank row permanently before acting, returns each
+  ranked literal at most once, consumes rows already assigned before their
+  opportunity, never rewinds after backtrack and delegates with zero after rank
+  exhaustion. Phase calls, rank sweeps and retries are zero.
+- **Result:**
+  `EPISODIC_VAULT_BACKTRACK_RELEASE_MECHANISM_WORK_GAIN_NO_RECOVERY`.
+  Requested, observed and billed conflicts are `512/512/512`; native status is
+  `0`. The call emits `0` eligible/novel/duplicate clauses and returns no model
+  or key. Input/output remain byte-identical at `202` clauses / `599,728`
+  literals / `2,399,911 B`, SHA-256
+  `cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858`.
+- **Validated release mechanism:** `1,155` `cb_decide` calls comprise `255`
+  nonzero once-returns followed by `900` zero/delegate returns; first fallback is
+  call `256`. All `255` guided literals are later observed released, every rank
+  row is consumed, and redecisions/phase calls are exactly `0`. The bounded live
+  guidance state is `2,140 B`.
+- **Matched-work gain:** versus O1C-0071, propagations fall
+  `91,260,183→5,763,035` (`-85,497,148`), an exact
+  `15.835437924635196x` ratio or `93.685049919%` reduction. Decisions rise
+  `763→1,155` (`+392`), and minimum UB rises
+  `19.297551436176224→19.57599384995442` (`+0.278442413778194`); root UB
+  remains `262.68644197084643`. The predeclared secondary mechanism/work gate
+  passes because repeated-ranked-bit telemetry is zero and propagation work is
+  below half the parent. This validates furnace removal, not key recovery,
+  entropy reduction or threshold-region exhaustion.
+- **Threshold boundary retained:** `tau=14.606178797892962` and minimum UB use
+  the same compiled score metric and retained direction but different
+  populations/statistics. O1C-0066 episode 1's `7.973483108047071` is not an
+  O1C-0068 or O1C-0072 result. For a visited trail `a`, strict
+  `U(a)<tau` safely excludes only its completions from the retained
+  `S(k)>=tau` region; root UB remains above threshold, so no global prune or
+  UNSAT follows.
+- **Resources and lineage:** end-to-end elapsed `23.25862954198965 s`; native
+  wall/CPU `1.193428/1.858495 s`; native peak RSS `395,214,848 B`; runner peak
+  RSS `286,539,776 B`. Only ordinal `8` is consumed. Known completed lineage
+  billing becomes `4,104`; the full actual total remains `null` because failed
+  ordinal `2` is unbilled. One native call and zero key/truth/reveal/
+  fresh-target/entropy/refit/MPS/GPU work.
+- **Decision:** support `H-BACKTRACK-RELEASE-076` at its mechanism/work level.
+  Preserve the one-shot release primitive, but do not relabel it as recovery or
+  entropy. Do not rerun O1C-0072, replay ordinal `8`, or sweep rank/phase/
+  horizon/RAM. Next derive the highest-ROI genuinely new O1C-0073 evidence or
+  causal operator from this breadcrumb before freezing another call.
+- **Artifacts:** authoritative
+  [`result`](O1C0072_APPLE8_VAULT_BACKTRACK_RELEASE_RESULT_20260719.json),
+  SHA-256
+  `e441a32de808ee33e2245ea69af4e6ad6f246311e5a410b0cbab4a63dbd165d8`;
+  sealed
+  [`capsule`](../runs/20260719_204421_O1C-0072_apple8-vault-backtrack-release-v1/RUN.md),
+  artifact-manifest SHA-256
+  `83bbc2438fc33e3a61fdf5b23b589574c6a12cfaefd9fc2f0e7c4c4e84b521f8`.

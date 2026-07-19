@@ -1,47 +1,41 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-19T19:32:28+02:00.
+Last ranked: 2026-07-19T20:44:41+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Separately precommit a backtrack-release/one-shot causal reader: consume the immutable rank monotonically, inject each ranked bit at most once, and permanently delegate it after backtrack | State of the art | Extreme | Extreme | Low | Tests whether O1C-0071's useful initial order can survive after removing all 244 reader-caused redecisions and the seven-rank tail counter |
-| 2 | Prove the one-shot release sequence on a public target-free fixture; only after every source/vault/capacity/new-attempt gate passes may one newly identified Full-256 call be considered with all non-operator conditions unchanged | State of the art | Extreme | Extreme | Medium | Distinguishes causal one-shot injection from the closed static same-sign reassertion without a rank, phase, horizon or RAM sweep |
-| 3 | Keep the outcome/utility-conditioned exact clause-role successor parked behind the one-shot vault reader | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without mixing two active-credit mechanisms |
+| 1 | Derive the highest-ROI genuinely new O1C-0073 mechanism from O1C-0072's validated release breadcrumb; make the new evidence/causal operator, not lower work alone, responsible for recovery, entropy/domain reduction or novel exact exclusions | State of the art | Extreme | Extreme | Low | Converts the now-cheap one-shot control path into a mechanism capable of producing cryptanalytic information rather than merely avoiding the furnace |
+| 2 | Freeze O1C-0073 only after its target-free operator, expected leverage and exact gain gate are explicit; preserve O1C-0072 as an immutable parent with no retry/replay/sweep | State of the art | Extreme | Extreme | Low | Prevents another call whose only possible success is already-proven zero redecisions or low propagation work |
+| 3 | Keep the outcome/utility-conditioned exact clause-role successor parked until O1C-0073 selection shows it is the highest-ROI distinct operator | Research | High | Extreme | Zero now | Preserves O1C-0056's exact unique address without prematurely mixing active-credit mechanisms |
 | 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
 ## Current resume
 
-Resume from O1C-0071's sealed
-`EPISODIC_VAULT_ACTIVE_RANKED_DECISION_NO_GAIN`. Its sole local-0/lineage-7
-call requests `512` and observes/bills `513` conflicts with native status `0`.
-It makes no phase calls and emits `0` eligible/novel/duplicate clauses, no model
-and no key. The vault remains byte-identical at `202` clauses / `599,728`
-literals / `2,399,911 B`, SHA-256
+Resume from O1C-0072's sealed
+`EPISODIC_VAULT_BACKTRACK_RELEASE_MECHANISM_WORK_GAIN_NO_RECOVERY`. Its sole
+local-0/lineage-8 call requests, observes and bills `512/512/512` conflicts with
+native status `0`. It makes no phase calls and emits `0`
+eligible/novel/duplicate clauses, no model and no key. The vault remains
+byte-identical at `202` clauses / `599,728` literals / `2,399,911 B`, SHA-256
 `cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858`.
 
-The immutable order is strongly active: `763` `cb_decide` calls comprise `499`
-nonzero and `264` zero/delegate returns, with `255` unique variables, `244`
-redecisions and first fallback at call `256`. Versus O1C-0070, decisions fall
-`2,297→763` (`-1,534`, `-66.78%`), but propagations rise
-`1,169,826→91,260,183` (`+90,090,357`, `78.01x`), minimum UB rises
-`18.846601115977638→19.297551436176224` (`+0.45095`), and native wall rises
-`0.316808→14.818087 s` (`46.77x`). Lower decisions are therefore descriptive
-order control, not gain.
+The one-shot mechanism passes exactly. Its `1,155` `cb_decide` calls comprise
+`255` nonzero once-returns and `900` zero/delegate fallbacks, with first fallback
+at call `256`. Every one of the `255` guided literals is later observed released;
+the cursor consumes all rank rows and redecisions are exactly `0`. Versus
+O1C-0071, propagations fall `91,260,183→5,763,035` (`-85,497,148`), an exact
+`15.835437924635196x` ratio or `93.685049919%` reduction. Decisions rise
+`763→1,155`; minimum UB rises
+`19.297551436176224→19.57599384995442`. This removes the exact reassertion
+furnace and supports `H-BACKTRACK-RELEASE-076` at mechanism/work level.
 
-The exact callback sequence explains the cost. Ranks `1..248` are returned once
-and form a callback-visible stable prefix—none is returned twice; tail ranks
-`249..255` incur respectively
-`1,3,7,15,31,62,125` extra same-sign returns, summing to all `244`
-redecisions. This truncated binary-counter cascade is a propagation furnace and
-produces neither a model nor a novel clause. Close
-`H-CONFIDENCE-RANKED-DECIDE-075` for static same-sign reassertion.
-
-The direct successor is a new backtrack-release/one-shot causal reader. Consume
-the immutable rank monotonically, inject each ranked bit at most once, and if it
-is backtracked permanently delegate that bit to native CDCL for the rest of the
-call. Freeze the state machine and target-free sequence consequence under a new
-attempt identity. Do not rerun O1C-0071, replay ordinal `7`, sweep rank/phase/
-horizon, merely cap redecisions, continue the vault, evict clauses or raise RAM.
+The boundary is equally exact: zero clauses/model/key mean no recovery, entropy
+reduction, novel exclusion, UNSAT or threshold-region exhaustion. O1C-0072 has
+solved the computational pathology, not created new key evidence. The direct
+resume action is therefore to derive the highest-ROI genuinely new O1C-0073
+evidence/causal operator while preserving the bounded release primitive. Do not
+rerun O1C-0072, replay ordinal `8`, sweep rank/phase/horizon/RAM, or make low
+propagation work itself sufficient to pass another attempt.
 
 Threshold `14.606178797892962` and minimum UB share the compiled score metric and
 retained direction but not population/statistic. The value
@@ -52,15 +46,13 @@ pruned. This does not imply every visited trail is below threshold; root UB
 remains `262.68644197084643>tau`, so no global prune or UNSAT follows.
 
 Resume authority is the
-[`O1C-0071 result`](O1C0071_APPLE8_VAULT_RANKED_DECISION_RESULT_20260719.json),
+[`O1C-0072 result`](O1C0072_APPLE8_VAULT_BACKTRACK_RELEASE_RESULT_20260719.json),
 SHA-256
-`84ffbe35ae83266dd4993ad70b6dc988f4a13a8595861c23f36f0d610334cb41`,
-the [tail-cascade analysis](O1C0071_RANKED_DECISION_TAIL_CASCADE_ANALYSIS_20260719.json),
-SHA-256
-`8172db9a9d8265f61a1b1191682db06f879939d99271b0f5ba96108f7ccb8259`,
+`e441a32de808ee33e2245ea69af4e6ad6f246311e5a410b0cbab4a63dbd165d8`,
 and capsule artifact manifest
-`c7bbbd9d7ad0d37b80b956a3ad8141254a460ddf763ae84109a067e0343294d9`.
-Known completed lineage billing is `3,592`; the full actual total remains `null`
+`83bbc2438fc33e3a61fdf5b23b589574c6a12cfaefd9fc2f0e7c4c4e84b521f8`.
+The source freeze is `bf1ffaad30ac276c2fcc3b332207c5933bf96443`.
+Known completed lineage billing is `4,104`; the full actual total remains `null`
 because failed ordinal `2` is unbilled.
 
 ## Frontier scoreboard
@@ -167,6 +159,14 @@ because failed ordinal `2` is unbilled.
   `249..255` as `1/3/7/15/31/62/125` extras while ranks `1..248` are never
   returned twice and form a callback-visible stable prefix.
   Static same-sign reassertion is closed; next test one-shot backtrack release.
+- **Backtrack-release boundary:** O1C-0072 consumes the same immutable order once
+  and records `255` once-returns, `255` guided releases, `900` zero fallbacks and
+  zero redecisions. Propagations fall `91,260,183→5,763,035`, an exact
+  `15.835437924635196x` (`93.685049919%`) reduction, while decisions rise
+  `763→1,155` and minimum UB becomes `19.57599384995442`. This validates
+  bounded furnace removal and one-shot causal intervention. Zero clauses/model/
+  key mean no recovery, entropy or novel-exclusion claim; O1C-0073 must add a
+  genuinely new evidence/causal operator, not retest release.
 - **Exact decoder ceiling:** O1C-0038 completes residual width eight after reveal;
   this is the zone future attacker-valid joint guidance must approach, not a
   requirement that O1 first output 248 perfect independent bits.
@@ -226,16 +226,14 @@ because failed ordinal `2` is unbilled.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0071 has closed static same-sign ranked
-  reassertion while proving strong variable-order control. Separately precommit
-  a backtrack-release/one-shot `cb_decide` reader: each ranked bit is injected
-  at most once and becomes permanently solver-delegated after backtrack. Prove
-  its exact sequence consequence on a public fixture, bind a new attempt and
-  hold target, CNF, potential, grouping, threshold, seed and soft horizon fixed
-  if one call is later authorized. Report novelty, repeated-bit telemetry,
-  search work, bound/capacity telemetry and any exact public candidate. Do not
-  replay ordinal `7`, rerun O1C-0071, call phase, sweep ranks/horizon or scale
-  RAM. Exact 256 remains the north star.
+- **Next measurable advance:** O1C-0072 has validated the consume-once release
+  primitive and removed all reader-caused redecisions with `15.8354x` less
+  propagation work, but has produced no cryptanalytic information. Derive the
+  highest-ROI genuinely new O1C-0073 evidence/causal operator and require its
+  gate to target a public exact candidate, entropy/domain reduction or novel
+  exact exclusions. Freeze only after that operator and leverage are explicit
+  target-free. Do not replay ordinal `8`, rerun O1C-0072, or sweep release,
+  rank, phase, horizon or RAM. Exact 256 remains the north star.
 
 ## Effect-first stop rules
 
@@ -351,10 +349,13 @@ because failed ordinal `2` is unbilled.
   applies the target-free `139/116/1` phase field once: trace and work change,
   but zero clauses/key fail the gate. O1C-0071 applies confidence-ranked order
   once and cuts decisions to `763`, but a seven-rank binary-counter cascade
-  drives `91,260,183` propagations with zero clauses/key. Passive alternation,
-  active phase-only gain and static ranked reassertion are closed. Only a new
-  one-shot backtrack-release reader may follow; no rerun, continuation, sweep,
-  blind scaling or 4K jump.
+  drives `91,260,183` propagations with zero clauses/key. O1C-0072 applies the
+  one-shot release once and removes all redecisions, reducing propagations to
+  `5,763,035` (`15.8354x`) while still emitting no clause/model/key. Passive
+  alternation, active phase-only gain, static ranked reassertion and repeated
+  release testing are closed. Only a genuinely new highest-ROI O1C-0073
+  evidence/causal operator may follow; no rerun, replay, sweep, blind scaling or
+  4K jump.
 - A500 already closes a 1,024-mask fixed parity spectrum on held-out exact
   transfer (`0/32` at top-1/top-16/top-256), and A503 closes its 17 tested
   target-aligned Jacobian remainder arms (`0/512` at all three cutoffs). Do not
@@ -455,10 +456,10 @@ because failed ordinal `2` is unbilled.
 ## Do not spend the next cycle on
 
 - replaying O1C-0068 lineage ordinal `4`, O1C-0069 ordinal `5`, O1C-0070 ordinal
-  `6` or O1C-0071 ordinal `7`; rerunning O1C-0071, issuing a phase call, sweeping
-  rank/phase/horizon, merely capping redecisions, increasing RAM or adding an
-  eviction/compaction service before a separately frozen one-shot backtrack-
-  release reader passes its target-free gates;
+  `6`, O1C-0071 ordinal `7` or O1C-0072 ordinal `8`; rerunning O1C-0072,
+  issuing a phase call, sweeping rank/release/horizon, increasing RAM or adding
+  an eviction/compaction service before a genuinely new O1C-0073 evidence/
+  causal operator and gain gate are frozen target-free;
 - another supplied complete-key decoy panel, static pair regrouping,
   credit-weight sweep or conflict-cap increase before the frozen O1C-0057
   prefix-8 scorer is tested on attacker-generated partial assignments/search;

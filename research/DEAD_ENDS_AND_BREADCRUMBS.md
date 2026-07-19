@@ -1546,3 +1546,40 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   `8172db9a9d8265f61a1b1191682db06f879939d99271b0f5ba96108f7ccb8259`;
   capsule artifact manifest
   `c7bbbd9d7ad0d37b80b956a3ad8141254a460ddf763ae84109a067e0343294d9`.
+
+## B-0073 — One-shot release removes the furnace but does not create evidence
+
+- **Evidence:** O1C-0072 imports the unchanged 202-clause vault and exact frozen
+  O1C-0071 rank, then makes one local-0/lineage-8 call at
+  requested/actual/billed `512/512/512`. The cursor consumes each rank row once,
+  returns all `255` signed literals once, observes `255` guided releases and
+  delegates the remaining `900` callbacks. Redecisions and phase calls are zero.
+- **Mechanism gain:** propagations fall from O1C-0071's `91,260,183` to
+  `5,763,035`, a reduction of `85,497,148`, or
+  `15.835437924635196x` (`93.685049919%`). The exact seven-rank reassertion
+  counter is gone. This supports `H-BACKTRACK-RELEASE-076` at the predeclared
+  mechanism/work level and proves that frozen order information can be injected
+  once without the propagation furnace.
+- **Boundary:** decisions rise `763→1,155`, minimum UB is
+  `19.57599384995442`, and the call emits zero clauses/model/key. The sealed
+  vault remains `202` clauses / `599,728` literals / `2,399,911 B`. This is not
+  recovery, entropy reduction, novel exclusion, UNSAT or global exhaustion.
+- **Threshold boundary:** threshold `14.606178797892962` and O1C-0066 episode
+  1's minimum UB `7.973483108047071` share the score metric and retained
+  direction, not the population/statistic. Strict `U(a)<tau` certifies only the
+  visited trail's completions outside `S(k)>=tau`; the root bound remains above
+  threshold. The value is not an O1C-0068 or O1C-0072 result.
+- **Do not repeat:** rerun O1C-0072, replay lineage ordinal `8`, sweep rank,
+  phase or horizon, raise RAM, or reinterpret low work as recovered information.
+- **Breadcrumb:** preserve the bounded release primitive and derive the
+  highest-ROI genuinely new O1C-0073 evidence/causal operator. Its gate must aim
+  at an exact candidate, entropy/domain reduction or novel exact exclusions;
+  merely reproducing zero redecisions or low propagation work cannot pass again.
+- **Artifacts:** authoritative
+  [`result`](O1C0072_APPLE8_VAULT_BACKTRACK_RELEASE_RESULT_20260719.json),
+  SHA-256
+  `e441a32de808ee33e2245ea69af4e6ad6f246311e5a410b0cbab4a63dbd165d8`;
+  sealed
+  [`capsule`](../runs/20260719_204421_O1C-0072_apple8-vault-backtrack-release-v1/RUN.md),
+  artifact-manifest SHA-256
+  `83bbc2438fc33e3a61fdf5b23b589574c6a12cfaefd9fc2f0e7c4c4e84b521f8`.
