@@ -676,17 +676,23 @@ priority, bounds or clause generation, but its callback exception invalidates
 all partial state. H097 is therefore inconclusive, Page 17 is burned, and no
 O1C-0099 output enters the attic or bank.
 
-Activate H100. O1C-0100 reprojects the unchanged certified O1C-0098 attic and
-`8100bccf…` bank onto fresh Page 18 / lineage 31 with zero solver work, importing
-only the exact terminal-failure receipt. Active limit remains 249; deterministic
-Page 18 is 249 clauses / 669,910 literals / 2,680,827 B, SHA `5d89bbe0…`, with
-composition `9 roots + 43 pinned + 65 new debt + 132 recycled`. All 65 residual
-undominated debt clauses become resident, residual debt reaches zero, and 263
-clause slots remain. O1C-0101 versions producer and consumer together: every
-owned-token lifecycle event stays exact and bounded, while non-claiming
-assignment observations become exact counts plus a canonical streamed digest.
-A >65,536-event producer→consumer stress must pass before one fresh Page-18
-call. Do not edit sealed v28, raise its cap blindly or replay Page 17.
+H100 is active with preparation achieved. O1C-0100 reprojects the unchanged
+certified O1C-0098 attic and `8100bccf…` bank onto fresh Page 18 / lineage 31
+with zero solver work, importing only the exact terminal-failure receipt. Active
+limit remains 249; Page 18 is 249 clauses / 669,910 literals / 2,680,827 B, SHA
+`5d89bbe0…`, with composition `9 roots + 43 pinned + 65 new debt + 132 recycled`.
+All 65 residual undominated debt clauses become resident, residual debt reaches
+zero, and 263 clause slots remain. The exact ten-file bundle totals 3,658,593 B
+and manifest SHA is `c0050ae0…`; Page 18 remains unburned.
+
+O1C-0101's bounded ownership primitive is complete: every owned-token lifecycle
+event stays exact within 256 live tokens / 1,024 retained lifecycle rows, while
+non-claiming assignment observations become exact counts plus a canonical
+streamed digest with preserved sequence gaps. A 1,000,000-foreign-event stress
+passes without abort or retained-row growth and independently matches the digest.
+Finish the versioned producer→consumer→runner binding, run one focused serialized
+contract gate and one zero-call preflight, then consume fresh Page 18 once. Do not
+edit sealed v28, raise its cap blindly or replay Page 17.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1282,9 +1288,12 @@ evidence.
   duplicate. O1C-0098 then seals the exact 262-clause / 745,152-literal /
   2,981,847-byte chunk, all 263 occurrences and the `8100bccf…` bank in a
   2,074-clause attic, and derives fresh Page 17 / lineage 30 at active limit 249
-  with exact 263-clause headroom. Never replay Page 8 through Page 16. Finish
-  O1C-0099's focused gate, then one owned preflight and at most one unchanged
-  Page-17 continuation before any mechanism or residency pivot.
+  with exact 263-clause headroom. O1C-0099 burns that Page at a telemetry-only
+  65,536-event cap before any native payload. O1C-0100 now recreates the exact
+  certified state on Page 18 / lineage 31, admits all 65 residual debt clauses
+  and retains 263 slots without importing partial output. Finish O1C-0101's
+  bounded producer/consumer binding, then one sufficient gate, one preflight and
+  at most one unchanged Page-18 continuation. Never replay Page 8 through Page 17.
 
 ## Operating contract
 

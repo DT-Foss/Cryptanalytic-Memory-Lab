@@ -4219,3 +4219,40 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   SHA `2f60c3dc…`; [interpretation](O1C0099_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md);
   [capsule](../runs/20260721_004001_986566_O1C-0099_apple8-parent-centered-continuation-v1/RUN.md),
   33-entry manifest SHA `93fdb7eb…`.
+
+## O1C-0100 — Page-18 zero-call telemetry recovery
+
+- **Recorded:** `2026-07-21T01:28:49+02:00` (`Europe/Berlin`).
+- **Protocol:** regenerate O1C-0098's ten certified source artifacts byte-exact,
+  validate O1C-0099's sealed terminal/capsule/intent/invocation/empty-stdout/
+  stderr contract, import only its failure receipt as provenance, and reproject
+  the unchanged attic/bank with no emissions onto fresh Page 18 / lineage 31 at
+  active limit 249. Zero native preflights, solver/science calls, intents,
+  target/truth reads, reveals or refits.
+- **Prepared state:** Page 18 is 249 clauses / 669,910 literals / 2,680,827 B,
+  SHA `5d89bbe0…`, with 9 roots + 43 pinned + 65 new debt + 132 recycled.
+  All 65 prior never-resident undominated clauses are admitted; residual debt
+  is zero. Headroom is 263 clauses / 930,090 literals / 5,707,781 B.
+- **State boundary:** attic remains 19 chunks / 2,074 unique / 5,835,680
+  literals / 23,351,207 B / 2,083 occurrences / 9 duplicates / 14 relations /
+  2,063 undominated. Bank `8100bccf…` and receipt `050551fc…` are byte-exact.
+  No O1C-0099 clause, priority update, native stdout or partial state is imported.
+- **Bounded successor:** new ownership telemetry retains at most 256 live tokens
+  and 1,024 owned lifecycle rows; non-claiming observations become exact counts
+  plus a canonical streamed digest. A 1,000,000-foreign-event stress has no abort
+  or retained-row growth and matches an independent digest; 12/12 focused
+  lifecycle/digest/cap tests pass.
+- **Classification:** `PAGE18_TELEMETRY_RECOVERY_PREPARED`; representation/state
+  enabling only. No new science clause, prune, model, key, posterior, closure or
+  attacker-valid entropy/domain reduction. Page 18 / lineage 31 is fresh,
+  unburned and unauthorized.
+- **Validation:** 11 deep preparation tests passed in 428.39 s; the final five
+  negative-path additions passed in the 10-test quick subset in 0.20 s. Ruff,
+  Pyright and diff checks were clean. Atomic bundle is 10 files / 3,658,593 B.
+- **Hypothesis/next:** H100 preparation achieved. Complete the versioned O1C-0101
+  native producer, v3-aware adapter and burn-on-intent runner against the exact
+  manifest/Page/bank/receipts. Then one focused serialized contract gate, one
+  zero-call preflight and the sole unchanged seed-0/tau/128-conflict Page-18 call.
+- **Artifacts:** [interpretation](O1C0100_PAGE18_TELEMETRY_RECOVERY_INTERPRETATION_20260721.md)
+  and [manifest](o1c100_page18_telemetry_recovery_seed_20260721/telemetry-recovery-preparation-manifest.json),
+  SHA `c0050ae0…`; source/test SHAs `dc7cbb12…` / `5c6e6523…`.
