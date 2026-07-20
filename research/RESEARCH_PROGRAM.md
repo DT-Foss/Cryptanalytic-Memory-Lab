@@ -623,11 +623,32 @@ undominated clauses and leaves residual debt zero. The attic remains
 18/1,812/1,820/14/1,801 and the `97a325c9…` bank / `1c69bb32…` receipt are
 unchanged. This is transport/residency preparation, not a new science claim.
 
-O1C-0097 is the sole next continuation. Bind it to manifest `68d42b0f…`, require
-one actual native-output→adapter regression containing both source-receipt
-fields, then one focused irreversible gate, one owned preflight and one fresh
-unchanged lineage-29 call. Page 16 is unburned; all historical Pages remain
-non-replayable.
+O1C-0097 completes H096. The repaired native-v27 / adapter-v30 path persists one
+fresh Page-16 / lineage-29 result at `128/21/21`: 255 failure-first actions make
+33,243 probes, direct certified crossings remain zero, and the trail-UB path
+fully emits 263 clauses. Exactly 262 are active-Page-new and globally novel
+against the 1,812-clause baseline, so exact-clause science gain passes. The bank
+evolves `97a325c9…→8100bccf…`. No key, model, closure, posterior or attacker-
+valid entropy/domain gain follows; Page 16 is burned permanently.
+
+The additive post-result audit closes the authoritative counters exactly. The
+263 fully emitted occurrences contain 262 unique clauses; indices 6/7 are the
+sole run-internal duplicate, identical at 2,859 literals, witness
+`UB=13.293490727958314` and clause SHA-256 `d479f133…`. The duplicate is absent
+from Page 16 and the prior attic, so all 262 unique clauses are globally new.
+Every occurrence is strict `U<tau`; witness minimum/median/maximum are
+`12.444402499433698 / 13.715761374687974 / 14.600199452723347`, with closest
+margin `0.005979345169615513`. The immutable rollover chunk is 262 clauses /
+745,152 literals / 2,981,847 B; appending all 263 occurrences predicts attic
+2,074 unique / 2,083 occurrences / 9 duplicate occurrences. Exact bank census
+is `283,069→316,312`, delta `+33,243`, with all 255 records evolved and
+variable 241 still zero; output bank is `8100bccf…` and the 52,011-byte output
+priority-state is `050551fc…`. O1C-0098 performs zero-call Page-17 rollover
+at active limit 249. This is the largest active projection that still admits a
+duplicate-free 263-clause successor (`249+263=512`); 250 would overflow and 248
+lacks an observed greater-than-263 emission basis. The positive clause result
+provides no reason to change
+operator, tau, conflict request, caps, RAM or residency semantics.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1217,9 +1238,15 @@ evidence.
   science payload survives; attic and bank remain unchanged. O1C-0096 now seals
   fresh Page 16 / lineage 29 with exact 261-clause headroom and admits all 167
   prior residency-debt clauses, leaving zero debt, without any solver/preflight/
-  intent call. Never replay Page 8 through Page 15. O1C-0097 closes the exact
-  contract regression and issues one fresh unchanged Page-16 call before any
-  mechanism or residency pivot.
+  intent call. O1C-0097 then closes the exact contract and emits 263 clauses at
+  `128/21/21`, with 262 globally novel against the 1,812-clause attic; bank
+  evolves to `8100bccf…`. The closed audit identifies indices 6/7 as the sole
+  duplicate and fixes the rollover at 262 clauses / 745,152 literals /
+  2,981,847 B plus all 263 occurrences, predicting attic 2,074 unique / 2,083
+  occurrences / 9 duplicates. Never replay Page 8 through Page 16. Perform
+  zero-call O1C-0098 Page-17 rollover at active limit 249, preserving exact
+  263-clause headroom at the observed emission ceiling before any mechanism or
+  residency pivot.
 
 ## Operating contract
 

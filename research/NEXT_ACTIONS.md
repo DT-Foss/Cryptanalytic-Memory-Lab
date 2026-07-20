@@ -1,17 +1,18 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-20 (O1C-0096 fresh Page 16 sealed).
+Last ranked: 2026-07-20 (O1C-0097 Page-16 clause gain and additive audit sealed).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Finish O1C-0097 native/adapter/runner seals against Page 16, manifest `68d42b0f…`, bank `97a325c9…` and receipt `1c69bb32…`; include one actual native-output→adapter schema regression | State of the art enabling | Extreme | Extreme | Low | Closes the exact transport contract while preserving the unchanged operator |
-| 2 | After one focused irreversible gate and one owned real preflight, authorize exactly one seed-0, tau-identical, 128-conflict lineage-29 call | State of the art | Extreme | Extreme | Low | Finally measures whether exact-exclusion compounding persists beyond the fifth disjoint burst |
+| 1 | Zero-call O1C-0098: append all 263 occurrences as the exact 262-clause chunk, preserve the evolved `8100bccf…` bank and derive fresh bounded Page 17 at active limit 249 | State of the art enabling | Extreme | Extreme | Low | Preserves the latest science-positive burst and leaves exact 263-clause headroom at the observed emission ceiling without mechanism drift |
+| 2 | Bind one unchanged Page-17 continuation only after O1C-0098 seals; keep seed, tau, 128-conflict request, cap, RAM and action semantics fixed | State of the art | Extreme | Extreme | Low | Tests continued exact-exclusion compounding from the audited corpus |
 | 3 | Feed O1C-0094's 18,034-byte quotient only to lossless state/identity consumers; do not launch the 109-relation proof campaign after its `0/218` cheap certificate screen | State of the art mechanism | High | Extreme | Zero now | Retains the 167.84x flat-binary-to-packed-state leverage without derailing the live recovery path |
-| 4 | Pivot residency alone only after an uncensored zero-novelty science result; keep O1C-0038/A526 fixed as terminal decoders when their real gates are reached | State of the art | High | Extreme | Zero now | Prevents an operational transport terminal from masquerading as evidence against the operator |
+| 4 | Pivot residency alone only after an uncensored zero-novelty science result; keep O1C-0038/A526 fixed as terminal decoders when their real gates are reached | State of the art | High | Extreme | Zero now | Prevents a censored or operational endpoint from masquerading as evidence against the operator |
 
 ## Current resume
 
-Resume from O1C-0096's zero-call Page-16 transport recovery.
+Resume from O1C-0097's terminal
+`PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`.
 O1C-0092's sole local-0 / lineage-27 call consumed Page 14 at
 requested/actual/billed `128/10/10` and fully emitted `261` trail-upper-bound
 no-goods / `756,414` literals. O1C-0093 preserves every occurrence and grows the
@@ -20,14 +21,30 @@ undominated. Page 14 is burned permanently. O1C-0093 sealed Page 15 at 251
 clauses / 710,463 literals / 2,843,047 B, SHA `71f4b544…`, with exactly 261
 clause slots; O1C-0095 burns Page 15 / lineage 28 without a retained science
 payload. O1C-0096 regenerates the certified state, imports none of that discarded
-output and seals fresh Page 16 / lineage 29 unburned at 251 clauses / 707,566
-literals / 2,831,459 B, SHA `fb3b5669…`, with the same 261 clause slots.
+output and seals fresh Page 16 / lineage 29 at 251 clauses / 707,566 literals /
+2,831,459 B, SHA `fb3b5669…`, with the same 261 clause slots. O1C-0097 then
+burns Page 16 once and completes at `128/21/21`.
 
 Page 16 admits all 167 prior never-resident-undominated clauses as new debt and
 uses its final 32 slots for recycled clauses, so residual residency debt is
 exactly zero. The attic remains 18 chunks / 1,812 unique / 1,820 occurrences /
 14 relations / 1,801 undominated; bank `97a325c9…` and receipt `1c69bb32…` are
-unchanged. This is deterministic residency/transport progress, not new science.
+unchanged before the call. O1C-0097's 255 failure-first actions make 33,243
+exact probes, while direct certified crossings remain zero. The trail-UB path
+fully emits 263 clauses; 262 are active-Page-new and globally novel against the
+1,812-clause baseline. Bank evolves to `8100bccf…`. This is exact-clause science
+gain without key/model/closure/entropy-domain gain.
+
+The additive audit is closed. The 263 occurrences contain 262 unique clauses;
+indices 6/7 are the sole duplicate, with identical 2,859 literals, witness
+`UB=13.293490727958314` and SHA-256 `d479f133…`. That clause is absent from
+Page 16 and the prior attic, so every one of the 262 unique clauses is globally
+new. All 263 witnesses satisfy strict `U<tau`, with UB minimum/median/maximum
+`12.444402499433698 / 13.715761374687974 / 14.600199452723347` and closest
+margin `0.005979345169615513` under `tau=14.606178797892962`. Exact bank census
+is `283,069→316,312`, delta `+33,243`; all 255 records evolve, variable 241
+remains zero, and the 52,011-byte output priority-state SHA-256 is
+`050551fc658de62b54b7856996fba0418194c3c2f2608e04a8e9ccc2f51fedad`.
 
 The 255 failure-first actions made 33,398 exact probes. Bank conservation is
 exact at `249,671→283,069`; the 24,576-byte state evolves to `97a325c9…`, and
@@ -111,7 +128,7 @@ persisted intent but produced no output to ingest. The immutable attic therefore
 remains `807` unique clauses / `815` occurrences and the evolved continuation
 bank remains exact SHA `05b8acf3…`.
 
-Resume authority is the [O1C-0096 interpretation](O1C0096_PAGE16_TRANSPORT_RECOVERY_INTERPRETATION_20260720.md), SHA-256 `c23bdb2791557d909d8d928d717f5f393aa3599794f11aeab5d123d16d37f85a`, and [Page-16 manifest](o1c96_page16_transport_recovery_seed_20260720/transport-recovery-preparation-manifest.json), SHA-256 `68d42b0f4cfaaf8a5b03f4b61515a8032860623dd5517fc87dac87b087a1c7b7`. Page 16 SHA-256 is `fb3b56690ec4f50d699c2598dd4fa752376d1609d1e242ee8aa987694cdc48f5`. Import no O1C-0095 output. Preserve the focused-gate-to-production rule, assign one preflight owner and never replay Page 14 or Page 15.
+Resume authority is the [O1C-0097 interpretation](O1C0097_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md), [result](O1C0097_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json), SHA-256 `19b47ac6512c073d8f2b646d864d81cedfa8f1c2b2a9999f974c119779ae79e3`, and [capsule](../runs/20260720_224639_665221_O1C-0097_apple8-parent-centered-continuation-v1/RUN.md), manifest SHA-256 `b7d8712b2ade9e5b75ff0d2f76c11907fbcafb3f01cf6e260e82303c08ff0f42`. Preserve the exact 262-clause / 745,152-literal / 2,981,847-byte rollover chunk, all 263 occurrences and evolved `8100bccf…` bank. Appending them predicts 2,074 unique clauses / 2,083 occurrences / 9 duplicate occurrences. Use Page-17 active limit 249: it leaves 263 slots, matching the observed emission ceiling without assuming the run-internal duplicate recurs; 250 would overflow on a duplicate-free 263-clause burst. Never replay Page 14, Page 15 or Page 16.
 
 ## Frontier scoreboard
 
@@ -286,13 +303,15 @@ Resume authority is the [O1C-0096 interpretation](O1C0096_PAGE16_TRANSPORT_RECOV
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0096 has already sealed fresh Page 16 /
-  lineage 29 with unchanged evidence, exact 261-clause headroom and zero
-  residency debt. O1C-0097 now closes the two-field producer/consumer contract
-  with one actual composition regression, then issues one fresh unchanged call.
-  Only that retained result may test further novelty, closure/model,
-  attacker-valid entropy/domain reduction and finally a publicly verified key.
-  Exact 256 remains the north star.
+- **Next measurable advance:** O1C-0097 has now closed transport and added 262
+  globally novel clauses at `128/21/21`. Its additive audit closes the 263
+  occurrences as 262 unique clauses and fixes the rollover payload exactly.
+  Preserve the complete harvest and `8100bccf…` bank through zero-call O1C-0098
+  Page-17 rollover at active limit 249, retaining exact 263-clause headroom at
+  the observed emission ceiling.
+  Only a later fresh retained result may test further novelty,
+  closure/model, attacker-valid entropy/domain reduction and finally a publicly
+  verified key. Exact 256 remains the north star.
 
 ## Effect-first stop rules
 

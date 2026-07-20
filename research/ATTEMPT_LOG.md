@@ -4089,3 +4089,59 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [manifest](o1c96_page16_transport_recovery_seed_20260720/transport-recovery-preparation-manifest.json)
   SHA-256
   `68d42b0f4cfaaf8a5b03f4b61515a8032860623dd5517fc87dac87b087a1c7b7`.
+
+## O1C-0097 — APPLE8 parent-centered Page-16 continuation
+
+- **Started:** `2026-07-20T22:46:43.192925+02:00`; **recorded:**
+  `2026-07-20T22:47:24.306887+02:00`; **additive audit closed:**
+  `2026-07-20T22:58:48+02:00` (`Europe/Berlin`).
+- **Protocol:** validate fresh Page 16 / lineage 29, manifest `68d42b0f…`,
+  unchanged `97a325c9…` bank and `1c69bb32…` receipt; persist one intent and
+  issue exactly one seed-0, tau-identical, 128-conflict call through the repaired
+  native-v27 / adapter-v30 contract. No retry, replay, target/truth input, reveal,
+  refit, MPS or GPU use.
+- **Terminal result:** `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`, stop
+  `globally-novel-clause`. Requested/actual/billed conflicts are `128/21/21`,
+  with 533 decisions and 2,835,645 propagations.
+- **Mechanism:** 255 failure-first actions make 33,243 probes. Direct certified
+  crossings remain zero. The trail-UB path records 263 threshold prunes and
+  fully emits 263 clauses; 262 are active-Page-new and globally novel against
+  the complete 1,812-clause baseline.
+- **Audit closure:** the 263 emitted occurrences contain 262 unique clauses.
+  Indices 6/7 are the sole run-internal duplicate: both contain 2,859 literals,
+  witness `UB=13.293490727958314` and clause SHA-256
+  `d479f1335c455aa61873154205c94b1a98cb050a0851fc8df65a5ed536baee2f`.
+  The duplicated clause is absent from Page 16 and the prior attic, so all 262
+  unique clauses are globally new. Under `tau=14.606178797892962`, all 263
+  witnesses are strict `U<tau`: minimum `12.444402499433698`, median
+  `13.715761374687974`, maximum `14.600199452723347`, closest margin
+  `0.005979345169615513`.
+- **State:** bank evolves `97a325c9…→8100bccf…`. The 12,555,982-byte native
+  stdout and 12,555,454-byte parsed result are both persisted, closing O1C-0095's
+  producer/consumer failure. Exact bank census is `283,069→316,312`, delta
+  `+33,243`; all 255 eligible records evolve and variable 241 remains the sole
+  zero coordinate. The 52,011-byte output priority-state has SHA-256
+  `050551fc658de62b54b7856996fba0418194c3c2f2608e04a8e9ccc2f51fedad`.
+  Page 16 / lineage 29 is burned permanently.
+- **Claim boundary:** science gain is exact global clause novelty only. No key,
+  model, closure, posterior or attacker-valid entropy/domain gain follows.
+- **Hypothesis/next:** H096 supported. Zero-call O1C-0098 must serialize the
+  immutable 262-clause / 745,152-literal / 2,981,847-byte chunk, append all 263
+  occurrences and preserve the evolved `8100bccf…` bank. This predicts attic
+  totals 2,074 unique / 2,083 occurrences / 9 duplicate occurrences. Use active
+  limit 249: it preserves a duplicate-free 263-clause successor exactly at the
+  observed ceiling; 250 would overflow and 248 lacks an empirical basis. No
+  operator, tau, 128-conflict request,
+  cap, RAM or residency pivot.
+- **Resources:** native wall `0.771569 s`, CPU `1.501722 s`, peak RSS
+  `378,994,688 B`; runner wall `41.114287083008094 s`; exactly one call.
+  Authoritative result commit `a925b7c` is pushed to `main`.
+- **Artifacts:** authoritative
+  [result](O1C0097_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  SHA-256
+  `19b47ac6512c073d8f2b646d864d81cedfa8f1c2b2a9999f974c119779ae79e3`;
+  [interpretation](O1C0097_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md);
+  sealed
+  [capsule](../runs/20260720_224639_665221_O1C-0097_apple8-parent-centered-continuation-v1/RUN.md),
+  artifact-manifest SHA-256
+  `b7d8712b2ade9e5b75ff0d2f76c11907fbcafb3f01cf6e260e82303c08ff0f42`.
