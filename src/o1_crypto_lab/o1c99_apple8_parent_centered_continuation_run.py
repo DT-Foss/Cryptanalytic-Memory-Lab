@@ -1731,6 +1731,15 @@ def _validate_staged_native_build(
         "build_timeout_seconds",
     }
     native = _mapping(config["native"], "validated native build config")
+    compiler = _external_path(native["compiler"], "validated build compiler")
+    include = _external_path(
+        native["cadical_include"],
+        "validated build CaDiCaL include",
+        directory=True,
+    )
+    library = _external_path(
+        native["cadical_library"], "validated build CaDiCaL library"
+    )
     closure_rows = _sequence(build.get("include_closure"), "build include closure")
     verified_closure = _verify_staged_native_closure(
         stage=capsule,
@@ -1740,14 +1749,14 @@ def _validate_staged_native_build(
     executable = dict(_mapping(build.get("executable"), "build executable"))
     smoke = dict(_mapping(build.get("smoke"), "build smoke"))
     expected_command = [
-        native["compiler"],
+        str(compiler),
         *COMPILER_FLAGS,
         "-I",
         "native",
         "-I",
-        native["cadical_include"],
+        str(include),
         native["source"],
-        native["cadical_library"],
+        str(library),
         "-o",
         f"<capsule>/native/{NATIVE_EXECUTABLE_NAME}",
     ]
@@ -1758,7 +1767,7 @@ def _validate_staged_native_build(
         or build.get("source_sha256") != native["source_sha256"]
         or build.get("staged_source") != verified_closure[0]
         or build.get("working_directory") != f"<capsule>/{NATIVE_CLOSURE_DIRECTORY}"
-        or build.get("compiler") != native["compiler"]
+        or build.get("compiler") != str(compiler)
         or _sha(
             build.get("compiler_version_stdout_sha256"),
             "compiler version digest",
@@ -2977,6 +2986,15 @@ def _validated_capsule_result(
     config_inputs = _mapping(config["inputs"], "recovery config inputs")
     config_source = _mapping(config["source"], "recovery config source")
     config_native = _mapping(config["native"], "recovery config native")
+    recovery_compiler = _external_path(config_native["compiler"], "recovery compiler")
+    recovery_include = _external_path(
+        config_native["cadical_include"],
+        "recovery CaDiCaL include",
+        directory=True,
+    )
+    recovery_library = _external_path(
+        config_native["cadical_library"], "recovery CaDiCaL library"
+    )
     config_parent = _mapping(config["parent"], "recovery config parent")
     config_preparation = _mapping(config["preparation"], "recovery config preparation")
     expected_input_sha = {
@@ -3032,9 +3050,9 @@ def _validated_capsule_result(
         != CONTINUATION_CANDIDATE_ORDER_SHA256
         or preflight.get("global_novelty_baseline_clause_count")
         != ATTIC_UNION_CLAUSE_COUNT
-        or preflight.get("compiler") != config_native["compiler"]
-        or preflight.get("cadical_include") != config_native["cadical_include"]
-        or preflight.get("cadical_library") != config_native["cadical_library"]
+        or preflight.get("compiler") != str(recovery_compiler)
+        or preflight.get("cadical_include") != str(recovery_include)
+        or preflight.get("cadical_library") != str(recovery_library)
         or system.get("system") != "Darwin"
         or system.get("machine") != "arm64"
         or system.get("sibling_solver_pids") != []

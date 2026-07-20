@@ -731,6 +731,41 @@ def test_one_build_smoke_and_observed_identity_precede_intent(
     )
 
 
+def test_build_provenance_resolves_symlinked_toolchain_parent_once(
+    fixture: Fixture,
+) -> None:
+    cellar = fixture.root / "cellar/cadical/3.0.0"
+    resolved_include = cellar / "include"
+    resolved_include.mkdir(parents=True)
+    resolved_library = cellar / "lib/libcadical.a"
+    resolved_library.parent.mkdir()
+    shutil.copy2(fixture.library, resolved_library)
+    prefix = fixture.root / "prefix/opt"
+    prefix.mkdir(parents=True)
+    (prefix / "cadical").symlink_to(cellar, target_is_directory=True)
+    fixture.include = prefix / "cadical/include"
+    fixture.library = prefix / "cadical/lib/libcadical.a"
+    fixture.write_config()
+
+    result = fixture.execute()
+    capsule = fixture.root / cast(str, result["capsule"])
+    build = json.loads((capsule / "native-build.json").read_bytes())
+    include_flags = [
+        index for index, value in enumerate(build["command"]) if value == "-I"
+    ]
+
+    assert fixture.include.is_dir() and not fixture.include.is_symlink()
+    assert fixture.library.is_file() and not fixture.library.is_symlink()
+    assert str(fixture.include) != str(fixture.include.resolve(strict=True))
+    assert str(fixture.library) != str(fixture.library.resolve(strict=True))
+    assert build["command"][include_flags[1] + 1] == str(resolved_include)
+    assert str(resolved_library) in build["command"]
+    assert str(fixture.include) not in build["command"]
+    assert str(fixture.library) not in build["command"]
+    assert fixture.execute() == result
+    assert fixture.adapter_calls == fixture.build_calls == fixture.smoke_calls == 1
+
+
 def test_compile_consumes_snapshot_during_transient_live_root_swap(
     fixture: Fixture,
 ) -> None:
