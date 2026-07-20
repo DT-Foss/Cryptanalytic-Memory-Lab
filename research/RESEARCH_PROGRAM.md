@@ -525,15 +525,25 @@ not key/model/closure/entropy/domain gain. `threshold_prunes=23` records those
 safe trail prunes; the separate failure-first action-crossing field remains
 `actual_certified_prunes=0` after 255 actions and 32,840 probes.
 
-Activate `H-PARENT-CENTERED-PAGE11-ROLLOVER-COMPOUNDING-090`: ingest all 23
-clauses into the immutable attic with zero solver work, bind the evolved
-24,576-byte bank SHA `2c0c4ccb…`, and derive a fresh Page-11 projection with
-explicit headroom. The native next vault is available at 277 clauses / 785,425
-literals / 3,142,999 B, so capacity did not stop O1C-0085. Page 10 / lineage 23
-are burned and must never be replayed. Preserve the unchanged operator/caps and
-the efficiency rule: the focused pre-burn suite caught the wrong `_seed_`
-adapter path; after correction, the direct call followed without another
-comfort-control cycle.
+O1C-0086 supports `H-PARENT-CENTERED-PAGE11-ROLLOVER-COMPOUNDING-090`. The
+zero-call rollover preserves O1C-0085's 23 clauses in an 830-clause attic and
+binds `2c0c4ccb…` into fresh Page 11. The sole lineage-24 call at
+requested/actual/billed `128/131/131` then fully emits 202 trail-upper-bound
+no-goods / 546,864 literals. All 202 are internally distinct and have zero hash
+intersection with the complete 830-clause baseline. Witness UBs span
+`8.269907850393242..14.604191886555723`, all strictly below tau. The direct
+successor vault remains available at 456 clauses / 1,265,745 literals /
+5,064,995 B, and the 24,576-byte bank evolves to `658fd285…`. This is exact
+exclusion compounding, not a key/model/closure/entropy/domain result;
+`actual_certified_prunes=0` still closes the distinct direct-action crossing.
+
+Activate `H-PARENT-CENTERED-PAGE12-ROLLOVER-COMPOUNDING-091`: ingest all 202
+clauses into the immutable attic with zero solver work, bind `658fd285…`, and
+derive fresh bounded Page 12 / lineage 25 with explicit clause/literal/payload
+headroom. Page 11 is burned and must never be replayed. Preserve the unchanged
+operator/caps and the efficiency rule: one focused static gate plus one real
+preflight went directly to production and produced an 8.78x clause-yield jump
+over O1C-0085 without a comfort-control cycle.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -551,7 +561,9 @@ the threshold semantics. O1C-0085 records 23 distinct local trail-UB prune
 events with witnesses `13.63202340517244..14.595345982194171`; its
 `actual_certified_prunes=0` refers only to the separate action-crossing path,
 not those 23 safe trail exclusions. These local prunes do not imply root
-closure; O1C-0068 remains untouched at minimum UB
+closure. O1C-0086 analogously records 202 local trail-UB prunes at
+`8.269907850393242..14.604191886555723`, while its separate action-crossing
+count remains zero. O1C-0068 remains untouched at minimum UB
 `12.8607806294803`.
 
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
@@ -912,9 +924,10 @@ evidence.
    without bit orientation. O1C-0082 converts it into 257 globally novel
    clauses; O1C-0083 ingests them; O1C-0084 burns Page 9 at the loader; and
    O1C-0085 repairs transport and adds 23 more globally novel exact clauses on
-   fresh Page 10. Build only the zero-call Page-11 rollover and, after its seals
-   pass, at most one fresh lineage-24 compounding call. Never rerun O1C-0073,
-   replay ordinals `9..23`, call phase, sweep K/release/rank/horizon or
+   fresh Page 10. O1C-0086 then adds 202 more on fresh Page 11. Build only the
+   zero-call Page-12 rollover and, after its seals pass, at most one fresh
+   lineage-25 compounding call. Never rerun O1C-0073, replay ordinals `9..24`,
+   call phase, sweep K/release/rank/horizon or
    blind-scale RAM/caps.
    Any later role-credit test must precommit an attacker-visible outcome/utility
    condition rather than tune `-32`.
@@ -1103,10 +1116,12 @@ evidence.
   trail-UB clauses / 67,130 literals are globally novel against the 807-clause
   attic, and the next vault remains available. The 255 failure-first actions
   produce no realized certified action crossing (`actual_certified_prunes=0`),
-  while the separate base sieve certifies all 23 trail prunes. No key/model/
-  closure/entropy/domain gain follows. Never replay Page 8, Page 9 or Page 10;
-  ingest the 23 clauses and `2c0c4ccb…` bank into a fresh bounded Page-11
-  rollover before any new intent.
+  while the separate base sieve certifies all 23 trail prunes. O1C-0086 then
+  rolls them into Page 11 and emits 202 further globally novel clauses against
+  the 830-clause attic at `128/131/131`, still without key/model/closure/
+  entropy/domain gain. Never replay Page 8, Page 9, Page 10 or Page 11; ingest
+  the 202 clauses and `658fd285…` bank into fresh bounded Page 12 before any
+  new intent.
 
 ## Operating contract
 

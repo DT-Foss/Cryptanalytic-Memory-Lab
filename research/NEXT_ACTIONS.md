@@ -1,31 +1,32 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-20 (O1C-0085 novel-clause continuation recorded).
+Last ranked: 2026-07-20 (O1C-0086 202-clause continuation recorded).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Ingest all 23 O1C-0085 clauses into the immutable attic and bind the evolved `2c0c4ccb…` bank; derive one fresh bounded Page-11 projection with explicit headroom and no solver call | State of the art enabling | Extreme | Extreme | Low | Tests the rollover half of `H-PARENT-CENTERED-PAGE11-ROLLOVER-COMPOUNDING-090` while preserving every new exclusion |
-| 2 | Validate the continuation parser plus source, executable, `--help`, invocation and intent seals, then authorize at most one fresh Page-11 successor call | State of the art | Extreme | Extreme | Low | Tests whether the supported Page-10 clause-compounding mechanism continues on fresh lineage without replay or cap growth |
-| 3 | If the sealed Page-11 call is scientifically inert, retain the complete attic and change the public action/residency objective rather than replaying Page 10 or raising caps | State of the art | High | Extreme | Low | Distinguishes operator saturation from evidence-capacity failure |
+| 1 | Ingest all 202 O1C-0086 clauses into the immutable attic and bind the evolved `658fd285…` bank; derive one fresh bounded Page-12 projection with explicit headroom and no solver call | State of the art enabling | Extreme | Extreme | Low | Tests the rollover half of `H-PARENT-CENTERED-PAGE12-ROLLOVER-COMPOUNDING-091` while preserving every new exclusion |
+| 2 | Validate the unchanged continuation parser plus source, executable, `--help`, invocation and intent seals, then authorize at most one fresh Page-12 successor call | State of the art | Extreme | Extreme | Low | Tests whether the 8.78x Page-11 clause-yield jump continues on fresh lineage without replay or cap growth |
+| 3 | If the sealed Page-12 call is scientifically inert, retain the complete attic and change the public action/residency objective rather than replaying Page 11 or raising caps | State of the art | High | Extreme | Low | Distinguishes operator saturation from evidence-capacity failure |
 | 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
 ## Current resume
 
-Resume from O1C-0085's
-`PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. Its sole local-0 / lineage-23
-call consumed Page 10 at exact requested/actual/billed `128/128/128`. The
-normal Darwin build and exact-byte `--help` gate passed; the call fully emitted
-`23` trail-upper-bound no-goods / `67,130` literals, all new to Page 10 and all
-globally novel against the `807`-clause attic. Minimum visited-trail
-`U=13.63202340517244 < tau=14.606178797892962`; all `23` witness scores are
-strictly below tau. Page 10 and lineage 23 are burned and must never be retried
-or replayed.
+Resume from O1C-0086's
+`PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. Its sole local-0 / lineage-24
+call consumed Page 11 at requested/actual/billed `128/131/131`. The sealed
+build-once/exact-byte-help path passed and the call fully emitted `202`
+trail-upper-bound no-goods / `546,864` literals. All 202 are distinct and
+globally novel against the complete `830`-clause attic; an independent sorted
+hash-set comparison gives intersection zero. Witness UBs range
+`8.269907850393242..14.604191886555723`, all strictly below
+`tau=14.606178797892962`. Page 11 and lineage 24 are burned and must never be
+retried or replayed.
 
 This gain does not include a key, model, closure or attacker-valid entropy/
-domain reduction. `threshold_prunes=23` counts the fully emitted safe local
+domain reduction. `threshold_prunes=202` counts the fully emitted safe local
 trail-UB prunes. The separate parent-centered action-crossing field remains
-`actual_certified_prunes=0`: `255` confirmed failure-first actions made
-`32,840` probes / `65,680` child evaluations, but no realized action crossing.
+`actual_certified_prunes=0`: `255` failure-first actions made `100,038` exact
+probes, but no realized action crossing.
 The two counters describe different certification paths.
 
 For provenance, the mechanism originates in O1C-0082:
@@ -83,18 +84,17 @@ persisted intent but produced no output to ingest. The immutable attic therefore
 remains `807` unique clauses / `815` occurrences and the evolved continuation
 bank remains exact SHA `05b8acf3…`.
 
-O1C-0085 leaves a direct next vault available at `277` clauses / `785,425`
-literals / `3,142,999 B`, SHA `21c53865…`, so active capacity did not stop the
-call. Its evolved 24,576-byte bank is SHA `2c0c4ccb…`. Ingest all `23` clauses
+O1C-0086 leaves a direct next vault available at `456` clauses / `1,265,745`
+literals / `5,064,995 B`, SHA `bdac04a2…`, so active capacity did not stop the
+call. Its evolved 24,576-byte bank is SHA `658fd285…`. Ingest all `202` clauses
 into the immutable attic with zero solver work, bind that bank, and derive a
-fresh Page-11 projection with explicit headroom. Then seal the parser, source,
+fresh Page-12 projection with explicit headroom. Then seal the parser, source,
 executable/help-smoke, invocation and intent before at most one fresh call.
-The O1C-0085 pre-burn suite earned its cost by catching an incorrect `_seed_`
-adapter path; after correction, the direct call followed without another
-comfort-control cycle. Preserve that efficiency rule and do not raise cap/RAM
-blindly or map action sign to key belief.
+One focused static pass and one sealed CLI preflight went directly to O1C-0086
+production; preserve that efficiency rule and do not raise cap/RAM blindly or
+map action sign to key belief.
 
-Resume authority is the [O1C-0085 result](O1C0085_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json), its [interpretation](O1C0085_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md), and sealed [capsule](../runs/20260720_170426_298664_O1C-0085_apple8-parent-centered-continuation-v1/RUN.md), artifact-manifest SHA-256 `c6f4cb50ab5e7b0e57afbe5bbaccf53106008094be824c35bb7f849a8d4be492`. The result SHA-256 is `d65fcaa76caa50905b5061b99cdf3ea10841449bdec6e9d20344e17bbe1e2ca4`. State provenance includes the [O1C-0084 result](O1C0084_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json), its [interpretation](O1C0084_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md), the [O1C-0083 result](O1C0083_APPLE8_CAUSAL_ROLLOVER_RESULT_20260720.json), its [interpretation](O1C0083_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md), the [sealed preparation manifest](o1c83_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json), and the parent
+Resume authority is the [O1C-0086 result](O1C0086_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json), its [interpretation](O1C0086_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md), and sealed [capsule](../runs/20260720_181212_319263_O1C-0086_apple8-parent-centered-continuation-v1/RUN.md), artifact-manifest SHA-256 `d4ff926b1c2183ca2c70b499acd9e3aa00e9c6575aee43479dc6238e690953fb`. The result SHA-256 is `535b8fa095013d4b87cadfc5e54e62698a21ab285d92becfbba88dc9c6f0ee6e`. State provenance includes the [O1C-0085 result](O1C0085_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json), its [interpretation](O1C0085_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md), the [O1C-0084 result](O1C0084_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json), its [interpretation](O1C0084_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md), the [O1C-0083 result](O1C0083_APPLE8_CAUSAL_ROLLOVER_RESULT_20260720.json), its [interpretation](O1C0083_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md), the [sealed preparation manifest](o1c83_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json), and the parent
 [`O1C-0082 result`](O1C0082_APPLE8_PARENT_CENTERED_RESULT_20260720.json),
 SHA-256 `013692cf836e594c8580734e0c95a9f0dd18ad7536c457274a1fe5684df1ad4f`,
 its [`interpretation`](O1C0082_APPLE8_PARENT_CENTERED_INTERPRETATION_20260720.md),
@@ -278,14 +278,14 @@ O1C-0084 authoritative result SHA-256 is
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0085 supports Page-10 compounding with `23`
-  globally novel exact trail-UB exclusions at exact `128/128/128` work. It
-  leaves a 277-clause next vault available and evolves the continuation bank to
-  `2c0c4ccb…`, while key/model/closure and attacker-valid entropy/domain gain
-  remain zero. The immediate gate is zero-call ingestion of all 23 clauses plus
-  a fresh bounded Page-11 projection under
-  `H-PARENT-CENTERED-PAGE11-ROLLOVER-COMPOUNDING-090`; after every seal passes,
-  at most one fresh Page-11 call may test additional novelty, closure/model,
+- **Next measurable advance:** O1C-0086 supports Page-11 compounding with `202`
+  globally novel exact trail-UB exclusions at `128/131/131` work. It leaves a
+  456-clause next vault available and evolves the continuation bank to
+  `658fd285…`, while key/model/closure and attacker-valid entropy/domain gain
+  remain zero. The immediate gate is zero-call ingestion of all 202 clauses plus
+  a fresh bounded Page-12 projection under
+  `H-PARENT-CENTERED-PAGE12-ROLLOVER-COMPOUNDING-091`; after every seal passes,
+  at most one fresh Page-12 call may test additional novelty, closure/model,
   attacker-valid entropy/domain reduction and finally a publicly verified key.
   Exact 256 remains the north star.
 
@@ -516,8 +516,9 @@ O1C-0084 authoritative result SHA-256 is
   `6`, O1C-0071 ordinal `7`, O1C-0072 ordinal `8`, O1C-0073 ordinal `9`, any
   O1C-0074 ordinal `10..13`, O1C-0075 ordinal `14/15`, O1C-0076 ordinal `16`
   or O1C-0077 ordinal `17`, O1C-0078 ordinal `18`, O1C-0079 ordinal `19`,
-  O1C-0080 ordinal `20`, O1C-0082 ordinal `21`, O1C-0084 ordinal `22` or
-  O1C-0085 ordinal `23`; replaying Page 8, Page 9 or Page 10;
+  O1C-0080 ordinal `20`, O1C-0082 ordinal `21`, O1C-0084 ordinal `22`,
+  O1C-0085 ordinal `23` or O1C-0086 ordinal `24`; replaying Page 8, Page 9,
+  Page 10 or Page 11;
   retrying the parent-zero-only 29-row reader; issuing another static
   or rotating causal-attic episode, phase call, K/rank/release/horizon sweep or
   blind RAM/cap increase. O1C-0079 answers ownership and prefix activation:
@@ -532,9 +533,9 @@ O1C-0084 authoritative result SHA-256 is
   terminal: do not replay Page 8, flip action polarity, refit the priority field,
   or spend the next fresh page on a cap/RAM sweep; preserve the 257-clause
   harvest through the attic instead. O1C-0084 is a burned loader terminal and
-  O1C-0085 is a completed positive clause-gain call: neither may be retried.
-  Preserve all 23 O1C-0085 clauses and the `2c0c4ccb…` bank through Page-11
-  rollover instead;
+  O1C-0085 and O1C-0086 are completed positive clause-gain calls: none may be
+  retried. Preserve all 202 O1C-0086 clauses and the `658fd285…` bank through
+  Page-12 rollover instead;
 - another supplied complete-key decoy panel, static pair regrouping,
   credit-weight sweep or conflict-cap increase before the frozen O1C-0057
   prefix-8 scorer is tested on attacker-generated partial assignments/search;

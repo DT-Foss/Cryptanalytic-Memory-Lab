@@ -2151,3 +2151,37 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [capsule](../runs/20260720_170426_298664_O1C-0085_apple8-parent-centered-continuation-v1/RUN.md),
   manifest SHA-256
   `c6f4cb50ab5e7b0e57afbe5bbaccf53106008094be824c35bb7f849a8d4be492`.
+
+## B-0086 — Page-11 continuation expands the novel harvest to 202 clauses
+
+- **Positive terminal:** O1C-0086 consumes Page 11 / lineage 24 once at
+  requested/actual/billed `128/131/131` and emits `202` complete
+  trail-upper-bound no-goods / `546,864` literals. The emitted set is internally
+  unique and has zero hash intersection with all 830 prior attic clauses.
+- **Measured jump:** clause yield rises from O1C-0085's 23 to 202 (`8.78x`)
+  without changing the 128-conflict request, live-state size class, active-vault
+  cap or RAM cap. Witness scores span `8.269907850393242..14.604191886555723`,
+  all strictly below tau. This is evidence of stateful exclusion compounding,
+  not brute-force width scaling.
+- **Claim boundary:** `threshold_prunes=202` certifies the emitted trail clauses;
+  `actual_certified_prunes=0` still closes direct one-bit action crossings. No
+  key, model, closure, entropy or attacker-valid domain result exists.
+- **Evolved state:** next vault remains available at 456 clauses / 1,265,745
+  literals / 5,064,995 B (`bdac04a2…`), and the bank evolves to `658fd285…`.
+  Page 11 is burned; all 202 clauses must move through the causal attic into a
+  fresh bounded Page 12, never by replay.
+- **Efficiency breadcrumb:** after one focused static check and one real sealed
+  preflight, production followed immediately. The gate found no new defect and
+  the call succeeded. Keep the same asymmetry: exact protection of irreversible
+  provenance/Page state, lightweight reversible hygiene, no post-green control
+  ceremony.
+- **Next action:** support H090 and activate
+  `H-PARENT-CENTERED-PAGE12-ROLLOVER-COMPOUNDING-091`. Ingest the 202-clause
+  burst and `658fd285…` bank with zero solver work, derive Page 12 / lineage 25,
+  and authorize at most one sealed successor call.
+- **Artifacts:** [result](O1C0086_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  [interpretation](O1C0086_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md),
+  and sealed
+  [capsule](../runs/20260720_181212_319263_O1C-0086_apple8-parent-centered-continuation-v1/RUN.md),
+  manifest SHA-256
+  `d4ff926b1c2183ca2c70b499acd9e3aa00e9c6575aee43479dc6238e690953fb`.
