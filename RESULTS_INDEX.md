@@ -204,6 +204,7 @@ attacker-valid cipher evidence.
 | `O1C-0082-APPLE8-PARENT-CENTERED` | Live O(256) parent-median/MAD coordinate state selects the strongest persistent coordinate, while the current lower-UB child supplies a one-shot failure-first proof-mining action rather than a key-bit belief | `PARENT_CENTERED_NOVEL_CLAUSE_GAIN`; operational activation and globally novel exact-exclusion science gain, no key/model/closure/certified one-bit crossing/entropy-domain claim | fresh Page 8 / local 0 / lineage 21; requested/actual/billed `128/9/9`; `512` parents, `255` confirmed actions, `33,106` probes / `66,212` child evaluations; 257 safe prunes and globally novel clauses / 743,129 literals, aggregate `bcc424b0…`; capacity stop at `256+257=513`. Zero-call audit: every clause has all 255 action coordinates; fixed first 247 plus 256-orientation eight-variable tail and one duplicate projection; agreement `247:1,248:8,249:28,250:56,251:70,252:56,253:28,254:8,255:2`; common signed core 2,764 (`247+2,517`), 2,870 common variables / 106 sign switches; 1,024 edges / 1,032 pairs, zero simple resolvents, other complements 6..23 (median 10, mean 12.25); core `U=18.66656376905567`, margin `+4.0603849711627085`, SHA `9aa383f819d1aa4b1216937ee341aa6a773d1d3456e1ea622494ef1a4345ea06`. No prefix/key/tail-free/resolution gain; zero solver/native/target/truth/reveal audit calls | [Result](research/O1C0082_APPLE8_PARENT_CENTERED_RESULT_20260720.json) · [Interpretation](research/O1C0082_APPLE8_PARENT_CENTERED_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_143008_461948_O1C-0082_apple8-parent-centered-v1/RUN.md) |
 | `O1C-0083-APPLE8-CAUSAL-ROLLOVER` | Zero-call ingestion of O1C-0082's complete exclusion harvest into the immutable attic plus one explicit-headroom Page-9 projection and sealed evolved priority bank | `CAUSAL_ATTIC_PAGE9_ROLLOVER_PREPARED`; enabling/mechanism gain at preparation level, not new cryptanalytic/key/entropy/domain gain | 257 new unique occurrences / 743,129 literals / 2,973,735 B, chunk `19e29482…`; attic 13 chunks / 807 unique / 815 occurrences / 9 strict relations / 801 undominated. Fresh Page 9 `8c3b8cc3…` is 255 clauses / 721,187 literals / 2,885,959 B (`4` roots + `43` pinned + `208` new debt), leaving 257 clauses / 878,813 literals / 5,502,649 B headroom. Evolved bank `05b8acf3…` is 24,576 B / 256x96 records / 255 eligible; Page 9 / lineage 22 were unburned at preparation and are later burned by O1C-0084 | [Result](research/O1C0083_APPLE8_CAUSAL_ROLLOVER_RESULT_20260720.json) · [Interpretation](research/O1C0083_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md) · [Manifest](research/o1c83_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json) |
 | `O1C-0084-APPLE8-PARENT-CENTERED-CONTINUATION` | One sealed live-bank Page-9 / lineage-22 continuation intent and process launch | `PARENT_CENTERED_CONTINUATION_OPERATIONAL_TERMINAL`; build-transport failure before native `main`, neither cryptanalytic negative nor gain | Intent `89483dda…` burns Page 9. The 1,696,712-byte `-Wl,-no_uuid` executable (`1ba38064…`) is rejected by Darwin `dyld` for missing `LC_UUID`; one adapter/native call consumed, native result absent, actual/billed conflicts null, no solver construction/science/state update. Attic remains 807 unique clauses and bank remains `05b8acf3…`; never retry Page 9 | [Result](research/O1C0084_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json) · [Interpretation](research/O1C0084_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_162606_777761_O1C-0084_apple8-parent-centered-continuation-v1/RUN.md) |
+| `O1C-0085-APPLE8-PARENT-CENTERED-CONTINUATION` | Repaired build-once live-bank continuation over fresh Page 10 / lineage 23 | `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`; globally novel exact-exclusion science gain, no key/model/closure/entropy-domain claim | Exact requested/actual/billed `128/128/128`; 430 parents/decisions, 255 confirmed failure-first actions, 32,840 probes / 65,680 child evaluations, 5,389,742 propagations. Base sieve emits 23 safe trail-UB clauses / 67,130 literals, all active-page new and globally novel against the 807-clause attic; minimum UB `13.63202340517244 < tau`. `actual_certified_prunes=0` is the separate realized action-crossing count. Next vault 277 clauses / 785,425 literals / 3,142,999 B is available; final bank `2c0c4ccb…`; Page 10 burned, never replay | [Result](research/O1C0085_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json) · [Interpretation](research/O1C0085_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_170426_298664_O1C-0085_apple8-parent-centered-continuation-v1/RUN.md) |
 | `APPLE-VIEW-0005-SPARSE-CARRY` | Sparse exact c31-identity certificates for complete wrong Full-256 candidates | `CONSUMED_FULL256_CANDIDATE_FILTER`; no key-generation/entropy claim | 20/20 exact wrong-candidate conflicts; every reason-DAG slice independently replays with 250–265/336 identities, best 250 (86 omitted); 5/5 truth controls complete | [Result](research/apple_view_5/apple_view_5_report.md) |
 | `APPLE-VIEW-0006-PROOF-CREDIT-TRANSFER` | One-pass 1,346-byte proof-frequency/recency state frozen before disjoint Full20/Full256 candidate filters | `HELDOUT_CERTIFICATE_TRANSFER_WITH_SCHEDULER_LOSS`; no key-generation/entropy claim | raw learned order loses 1,268 vs best structural 1,031 total first-conflict switches; independently replayed learned certificates win 4/4 at 248/248/251/250 vs best structural 251/252/257/255, aggregate 997 vs 1,015 and immediate-public 1,013; zero held-out updates, all truth controls complete | [Result](research/apple_view_6/apple_view_6_report.md) |
 | `APPLE-VIEW-0007-PROOF-EDGE-TRANSFER` | One-pass 113,570-byte proof-DAG edge/root/terminal state with one frozen static strongest-predecessor reader | `HELDOUT_STATIC_EDGE_SCHEDULER_NEGATIVE`; no key-generation/entropy claim | raw edge order loses 1,340 vs exact APPLE6 unary 1,268 and best structural 1,031; certificate 1,003 beats fixed 1,015 but loses unary 997 and cannot pass; all 28 wrong passes, proof replays, freeze checks and truth controls exact | [Result](research/apple_view_7/apple_view_7_report.md) |
@@ -337,9 +338,18 @@ categories `roots=4`, `pinned=43`, `new_debt=208`, SHA-256 `8c3b8cc3…`, leavin
 intent, then stopped at Darwin `dyld` before native `main` because
 `-Wl,-no_uuid` removed the required `LC_UUID`. Page 9 is burned; no solver or
 science state ran. The attic remains 13 chunks / 807 unique clauses / 815
-occurrences and the live bank remains `05b8acf3…`. The next gate is fresh Page
-10 plus build-once dynamic executable sealing and mandatory `--help` before
-intent; never retry Page 9.
+occurrences and the live bank remains `05b8acf3…`. The next gate at that point
+was fresh Page 10 plus build-once dynamic executable sealing and mandatory
+`--help` before intent; never retry Page 9. O1C-0085 passes that gate: executable SHA
+`b37cc3b4…` launches, help-smoke SHA `701fc730…` passes, and fresh Page 10 /
+lineage 23 adds 23 globally novel exact trail-UB clauses at `128/128/128` work.
+Authoritative result SHA-256 is
+`d65fcaa76caa50905b5061b99cdf3ea10841449bdec6e9d20344e17bbe1e2ca4`
+and capsule-manifest SHA-256 is
+`c6f4cb50ab5e7b0e57afbe5bbaccf53106008094be824c35bb7f849a8d4be492`;
+the result bytes are identical and every manifest entry verifies. Page 10 /
+lineage 23 are burned. Preserve all 23 clauses and the evolved `2c0c4ccb…` bank
+through a fresh Page-11 rollover; never replay Page 10.
 
 ## Frontier and state-of-the-art results
 
@@ -604,7 +614,14 @@ common core remains `4.0603849711627085` above tau, so it supplies no prefix
 closure, key recovery, tail-free no-good or resolution compression. Preserve
 the complete harvest by immutable attic ingestion, then confirm and seal the
 sealed 255-clause Page-9 projection and live-continuation parser before lineage
-22; never replay Page 8.
+22; never replay Page 8. O1C-0084 burns that Page at the Darwin loader without
+science output. O1C-0085 repairs the launch path and adds 23 more globally novel
+trail-UB clauses on fresh Page 10. Its `actual_certified_prunes=0` refers only
+to realized action crossings, whereas `threshold_prunes=23` counts the safe
+local trail exclusions. The next vault is available and the bank evolves to
+`2c0c4ccb…`; capacity is no longer the immediate blocker. Roll the complete
+gain into fresh Page 11 before any new production intent, and never replay
+Pages 8–10.
 APPLE-VIEW-0005 supplies a separate exact candidate-filter frontier. Its depth-30
 base plus a proof-replayed subset of only 250 high-carry identities rejects a
 complete wrong 256-bit key while omitting 86 of the 336 missing equations. This

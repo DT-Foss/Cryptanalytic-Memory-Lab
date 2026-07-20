@@ -2105,3 +2105,49 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [capsule](../runs/20260720_162606_777761_O1C-0084_apple8-parent-centered-continuation-v1/RUN.md),
   manifest SHA-256
   `811ad89955b383c4ac1303fc3f510c4169278e19cec73d465adf7a76e65cc2bf`.
+
+## B-0085 — Page-10 continuation adds 23 exact clauses; action crossings stay zero
+
+- **Positive terminal:** O1C-0085 consumes its sole Page-10 / lineage-23 call
+  at exact requested/actual/billed `128/128/128` and terminates
+  `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. All `23` fully emitted
+  trail-upper-bound no-goods / `67,130` literals are new to Page 10 and globally
+  novel against the 807-clause attic. Witness UBs
+  `13.63202340517244..14.595345982194171` are all strictly below
+  `tau=14.606178797892962`.
+- **Measurement boundary:** the base sieve's `threshold_prunes=23` are certified
+  local trail prunes and are exactly the 23 emitted clauses. The separate
+  failure-first path returns `255` confirmed actions and makes `32,840` probes,
+  but no realized certified action crossing, so
+  `actual_certified_prunes=0`. Global novelty and trail pruning must not be
+  misreported as action-crossing gain.
+- **Unchanged claims:** native status remains `UNKNOWN`; no key, complete model,
+  closure, attacker-valid entropy or domain reduction follows. Action sign is
+  still proof-mining transport, not hidden-key belief. Target/truth bytes,
+  reveal, refit, retry, replay, MPS and GPU remain unused.
+- **Evolved state:** the final 24,576-byte bank is SHA `2c0c4ccb…`. A direct
+  next vault is available at 277 clauses / 785,425 literals / 3,142,999 B, SHA
+  `21c53865…`; there was no capacity stop. Page 10 and lineage 23 are burned
+  permanently and must never be retried or replayed.
+- **Supported hypothesis:** mark
+  `H-PARENT-CENTERED-PAGE10-COMPOUNDING-089` supported for fresh globally novel
+  exact-clause gain only. This is a positive breadcrumb, not a dead end and not
+  recovery evidence.
+- **Efficiency breadcrumb:** the focused pre-burn suite caught a concrete wrong
+  `_seed_` adapter path before intent. After correction to the sealed v24 direct
+  call, production followed without another comfort-control cycle. Continue to
+  concentrate heavy validation at irreversible Page/provenance/atomicity gates,
+  record actual defect yield, and shrink only after consecutive no-find
+  milestones.
+- **Next action:** activate
+  `H-PARENT-CENTERED-PAGE11-ROLLOVER-COMPOUNDING-090`. Ingest all 23 clauses into
+  the immutable attic with zero solver work, bind `2c0c4ccb…`, derive a fresh
+  headroom-aware Page 11, and seal the parser/source/executable/help-smoke/intent
+  chain before at most one new call. No Page-10 replay, operator change or blind
+  cap/RAM sweep.
+- **Artifacts:** [result](O1C0085_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  [interpretation](O1C0085_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md),
+  and sealed
+  [capsule](../runs/20260720_170426_298664_O1C-0085_apple8-parent-centered-continuation-v1/RUN.md),
+  manifest SHA-256
+  `c6f4cb50ab5e7b0e57afbe5bbaccf53106008094be824c35bb7f849a8d4be492`.

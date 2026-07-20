@@ -514,12 +514,26 @@ updates are absent. This is build transport, not a cryptanalytic negative. The
 attic remains 807 unique clauses / 815 occurrences and the 24,576-byte bank
 remains SHA `05b8acf3…`.
 
-Activate `H-PARENT-CENTERED-PAGE10-COMPOUNDING-089`: derive fresh Page 10 from
-that unchanged attic/bank, build once with the normal Darwin UUID, seal the
-observed dynamic executable bytes and digest before intent, and require
-`--help` on those exact bytes. Never replay Page 9. Preserve the unchanged
-scientific operator and reserve heavy validation for irreversible Page and
-provenance gates; use light normal hygiene for reversible build/test work.
+O1C-0085 supports `H-PARENT-CENTERED-PAGE10-COMPOUNDING-089`. Its normal Darwin
+build is invoked once, the observed 1,696,712-byte executable is sealed and
+passes exact-byte `--help`, and the sole fresh Page-10 / lineage-23 call
+completes at requested/actual/billed `128/128/128`. It fully emits `23`
+trail-upper-bound no-goods / `67,130` literals; all 23 are new to Page 10 and
+globally novel against the 807-clause attic. Minimum visited-trail
+`U=13.63202340517244 < tau=14.606178797892962`. This is exact-exclusion gain,
+not key/model/closure/entropy/domain gain. `threshold_prunes=23` records those
+safe trail prunes; the separate failure-first action-crossing field remains
+`actual_certified_prunes=0` after 255 actions and 32,840 probes.
+
+Activate `H-PARENT-CENTERED-PAGE11-ROLLOVER-COMPOUNDING-090`: ingest all 23
+clauses into the immutable attic with zero solver work, bind the evolved
+24,576-byte bank SHA `2c0c4ccb…`, and derive a fresh Page-11 projection with
+explicit headroom. The native next vault is available at 277 clauses / 785,425
+literals / 3,142,999 B, so capacity did not stop O1C-0085. Page 10 / lineage 23
+are burned and must never be replayed. Preserve the unchanged operator/caps and
+the efficiency rule: the focused pre-burn suite caught the wrong `_seed_`
+adapter path; after correction, the direct call followed without another
+comfort-control cycle.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -533,7 +547,11 @@ O1C-0077's `14.656823218163392>tau` yields zero prunes; O1C-0078 returns no
 native bound telemetry. O1C-0079 records `18.742222666780805>tau`, a gap of
 `4.136043868887843`, and zero prunes. O1C-0080's complete child-probe population
 bottoms at `18.464862193097684>tau` and also yields zero prunes. None changes
-these conclusions; O1C-0068 remains untouched at minimum UB
+the threshold semantics. O1C-0085 records 23 distinct local trail-UB prune
+events with witnesses `13.63202340517244..14.595345982194171`; its
+`actual_certified_prunes=0` refers only to the separate action-crossing path,
+not those 23 safe trail exclusions. These local prunes do not imply root
+closure; O1C-0068 remains untouched at minimum UB
 `12.8607806294803`.
 
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
@@ -891,9 +909,13 @@ evidence.
    models, keys and sub-256 progress remain zero. O1C-0080 then consumes fresh
    Page 7 / lineage 20 once and exhausts `285,725` exact one-bit probes without a
    crossing. O1C-0081 then supports a bounded persistent centered-priority field
-   without bit orientation. Build only O1C-0082's live failure-first mapping
-   before a fresh Page-8 operator; never rerun O1C-0073, replay ordinals `9..20`, call phase, sweep
-   K/release/rank/horizon or blind-scale RAM/caps.
+   without bit orientation. O1C-0082 converts it into 257 globally novel
+   clauses; O1C-0083 ingests them; O1C-0084 burns Page 9 at the loader; and
+   O1C-0085 repairs transport and adds 23 more globally novel exact clauses on
+   fresh Page 10. Build only the zero-call Page-11 rollover and, after its seals
+   pass, at most one fresh lineage-24 compounding call. Never rerun O1C-0073,
+   replay ordinals `9..23`, call phase, sweep K/release/rank/horizon or
+   blind-scale RAM/caps.
    Any later role-credit test must precommit an attacker-visible outcome/utility
    condition rather than tune `-32`.
 6. Complementary phase has passed only its exact-exclusion mechanism gate. Once
@@ -914,7 +936,7 @@ evidence.
    only its convergence with O1C-0053's closed survival proxy: exact conflict-
    antecedent membership is the remaining causal successor.
 
-## Current exact Full-256 frontier — 2026-07-19
+## Current exact Full-256 frontier — 2026-07-20
 
 - O1C-0061 validates the first exact eight-block joint-score partial-assignment
   bound. It makes material pre-model bound progress but emits no trail cut alone.
@@ -1076,9 +1098,15 @@ evidence.
   slots. It is a zero-call enabling/mechanism gain, not new cryptanalytic/key/
   entropy gain. O1C-0084 burns Page 9 / lineage 22 at persisted intent, but
   `dyld` rejects its `-Wl,-no_uuid` binary before native `main`; no science or
-  state update occurs. Never replay Page 8 or Page 9. Derive Page 10 from the
-  unchanged 807-clause attic and `05b8acf3…` bank, then require build-once
-  dynamic hashing plus `--help` before any new intent.
+  state update occurs. O1C-0085 then repairs launch transport and consumes fresh
+  Page 10 / lineage 23 once at exact `128/128/128`: all 23 fully emitted
+  trail-UB clauses / 67,130 literals are globally novel against the 807-clause
+  attic, and the next vault remains available. The 255 failure-first actions
+  produce no realized certified action crossing (`actual_certified_prunes=0`),
+  while the separate base sieve certifies all 23 trail prunes. No key/model/
+  closure/entropy/domain gain follows. Never replay Page 8, Page 9 or Page 10;
+  ingest the 23 clauses and `2c0c4ccb…` bank into a fresh bounded Page-11
+  rollover before any new intent.
 
 ## Operating contract
 

@@ -3560,3 +3560,59 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [capsule](../runs/20260720_162606_777761_O1C-0084_apple8-parent-centered-continuation-v1/RUN.md),
   artifact-manifest SHA-256
   `811ad89955b383c4ac1303fc3f510c4169278e19cec73d465adf7a76e65cc2bf`.
+
+## O1C-0085 — APPLE8 parent-centered Page-10 continuation
+
+- **Started:** `2026-07-20T17:04:30.283656+02:00`; **recorded:**
+  `2026-07-20T17:04:54.424693+02:00` (`Europe/Berlin`).
+- **Protocol:** validate the O1C-0084 terminal receipt, unchanged 807-clause
+  attic, fresh 254-clause Page 10, live `05b8acf3…` bank and `e3512587…`
+  receipt; build once with the normal Darwin UUID, seal the observed executable
+  and require exact-byte `--help`; persist one local-0 / lineage-23 intent; then
+  issue at most one seed-0 native call at 128 requested conflicts with no retry,
+  reveal, target/truth input, refit, MPS or GPU use.
+- **Preflight:** passed before intent. The focused suite caught a wrong `_seed_`
+  adapter path, which was corrected to the sealed v24 direct call before burn;
+  no extra comfort-control cycle followed. The launchable executable is
+  `1,696,712 B`, SHA `b37cc3b4…`; exact-byte help smoke returned zero with
+  `169 B` stdout SHA `701fc730…` and empty stderr. Intent SHA-256 is
+  `18607add506d55a3b3286b3954415a5d6a65c3760aa0fe0dedd82ec10cea3114`.
+- **Terminal result:** `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`, stop
+  `globally-novel-clause`, native status `0` / `UNKNOWN`. Exact work is
+  requested/actual/billed `128/128/128`, `430` decisions and `5,389,742`
+  propagations. The run fully emits `23` trail-upper-bound no-goods / `67,130`
+  literals, all new to Page 10 and globally novel against the 807-clause attic;
+  witness UBs are `13.63202340517244..14.595345982194171`, all below
+  `tau=14.606178797892962`.
+- **Science boundary:** the base sieve records `threshold_prunes=23` and emits
+  all 23 safe local trail-prune clauses. The separate action-crossing counter is
+  `actual_certified_prunes=0`: `255` confirmed failure-first actions make
+  `32,840` probes / `65,680` child evaluations, but no realized certified action
+  crossing. Science gain is exact global clause novelty only; key/model,
+  closure and attacker-valid entropy/domain gain remain zero.
+- **State boundary:** Page 10 enters at 254 clauses / 718,295 literals /
+  2,874,387 B. A 277-clause / 785,425-literal / 3,142,999 B next vault is
+  available, SHA `21c53865…`; no capacity stop occurs. The final 24,576-byte
+  bank evolves to SHA `2c0c4ccb…`. Page 10 / lineage 23 are burned and must
+  never be retried or replayed.
+- **Hypothesis:** support
+  `H-PARENT-CENTERED-PAGE10-COMPOUNDING-089` for continued globally novel
+  exact-exclusion gain, not for key polarity, closure, entropy or recovery.
+  Activate `H-PARENT-CENTERED-PAGE11-ROLLOVER-COMPOUNDING-090`.
+- **Next action:** ingest all 23 clauses into the immutable attic with zero
+  solver work, bind the evolved `2c0c4ccb…` bank, and derive a fresh bounded
+  Page-11 projection with explicit headroom. After parser/source/executable/
+  help-smoke/intent seals pass, authorize at most one fresh successor call. Do
+  not replay Page 10 or change the operator/cap/RAM without a measured cause.
+- **Resources:** native wall `1.398980 s`, CPU `2.130116 s`, peak RSS
+  `358,400,000 B`; runner wall `24.141075249994174 s`, CPU `21.846302 s`;
+  exactly one native solver call.
+- **Artifacts:** authoritative
+  [result](O1C0085_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  SHA-256
+  `d65fcaa76caa50905b5061b99cdf3ea10841449bdec6e9d20344e17bbe1e2ca4`;
+  [interpretation](O1C0085_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md);
+  sealed
+  [capsule](../runs/20260720_170426_298664_O1C-0085_apple8-parent-centered-continuation-v1/RUN.md),
+  artifact-manifest SHA-256
+  `c6f4cb50ab5e7b0e57afbe5bbaccf53106008094be824c35bb7f849a8d4be492`.
