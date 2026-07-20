@@ -304,6 +304,49 @@ timeout, seed 0, no retry and no sweep. If the call fails operationally, burn
 Page 6 and lineage 19 and preserve the exact terminal receipt. Never report
 requested conflicts as actual or billed work without a returned native ledger.
 
+## Execution freeze
+
+The complete source/runtime boundary is frozen at commit
+`b6321863f1ba5b0a93cc133957f185ff13def746`. That commit contains the central
+ownership runtime, v20 adapter, single-call runner and all fixtures used by the
+gate. The final focused validation passed `72/72` tests in `102.18 s`, with
+peak RSS `278,052,864` bytes, zero swaps, zero Pyright errors and clean Ruff
+checks.
+
+The production executable was built twice at the same final path from the
+frozen source and both byte streams were identical:
+
+- executable SHA-256
+  `20c8948e4f1c1da3a568e8ce5f06b9733b7c7dffbf429084589c5e5a526e68e0`;
+- executable size `1,684,504` bytes;
+- native v17 source SHA-256
+  `aa9c8a8fe4eb13f6fdd9b32c157afcb65fcbbdf4cfbfd0659e18d3b5ee08c51c`;
+- complete native include-closure SHA-256
+  `d9dd35dd94996f2f4e2322403df04dd6465164a39b036ea16873ce6bdbb12057`;
+- CaDiCaL header SHA-256
+  `b7111690c61935b9c096d3701be59b3c3d26c555eab8e070f19eb2a97dc5d38c`;
+- CaDiCaL library SHA-256
+  `44cae3728485b4fd5736ce7cb986021236652daeda9cca227a2c4ac17d3a8a7f`;
+- build flags `-std=c++17 -O3 -DNDEBUG -Wall -Wextra -Werror`.
+
+The canonical target-free gate is
+`research/O1C0079_TARGET_FREE_DECISION_OWNERSHIP_PREFLIGHT_20260720.json`,
+`6,124` bytes, SHA-256
+`145b93aba6693622443b91f86ef90ff530ad329b3e3175cba825e299a54b03ed`.
+The canonical production config is
+`configs/o1c79_apple8_decision_ownership_v1.json`, `7,730` bytes, SHA-256
+`025c1a709030d56cd9a4811887f41a75b70b10004d402278e1e7f7ab04df27d9`.
+
+An execution-free preflight with commit binding deliberately disabled passed
+against those exact bytes at `2026-07-20T08:50:29+02:00`. It reconstructed and
+validated Page 6, the full source closure, native lifecycle, prepared plans and
+one-call schedule using peak RSS `251,068,416` bytes, zero swaps and exactly
+zero native solver calls. The only omitted condition was the execution-commit
+binding because the gate and config had not yet been committed. Once this
+document, gate and config are committed without changing `src/` or `native/`,
+the full commit-bound preflight is the final authorization boundary. Exactly
+one Page-6/local-0/lineage-19 call remains pending.
+
 ## Resource and project boundary
 
 - Work only in `o1-cryptanalytic-memory-lab`.
