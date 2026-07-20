@@ -1433,7 +1433,21 @@ def _read_json(path: Path, field: str) -> Mapping[str, object]:
 
 def _validate_recovery_episode(
     capsule: Path, result: Mapping[str, object]
-) -> tuple[int, int, int | None, int | None, bool, bool, bool]:
+) -> tuple[
+    int,
+    int,
+    int | None,
+    int | None,
+    bool,
+    bool,
+    bool,
+    int,
+    int,
+    int,
+    int,
+    str,
+    str,
+]:
     episodes = _sequence(result.get("episodes"), "recovery episodes")
     if len(episodes) != 1:
         raise O1C80RunError("recovery straight episode count differs")
@@ -1477,7 +1491,22 @@ def _validate_recovery_episode(
             or expected.get("billed_conflicts") is not None
         ):
             raise O1C80RunError("recovery terminal failure differs")
-        return calls, requested, None, None, False, False, False
+        terminal = _terminal_outcome(episode=expected, failure=failure)
+        return (
+            calls,
+            requested,
+            None,
+            None,
+            False,
+            False,
+            False,
+            0,
+            0,
+            0,
+            0,
+            terminal.classification,
+            terminal.stop_reason,
+        )
     if completed is not True or calls != 1:
         raise O1C80RunError("recovery completion differs")
     stats = validate_vault_soft_conflict_ledger(
@@ -1561,6 +1590,28 @@ def _validate_recovery_episode(
         is not science
     ):
         raise O1C80RunError("recovery three-axis conclusion differs")
+    status = _nonnegative_int(expected.get("status"), "recovery native status")
+    novel = _nonnegative_int(
+        expected.get("globally_novel_clause_count"), "recovery novel clauses"
+    )
+    realized = _nonnegative_int(
+        expected.get("realized_prunes"), "recovery realized prunes"
+    )
+    emitted = _nonnegative_int(
+        expected.get("fully_emitted_prunes"), "recovery emitted prunes"
+    )
+    both = _nonnegative_int(
+        expected.get("both_child_closures"), "recovery both-child closures"
+    )
+    classification, stop_reason = _classify_completed_episode(
+        status=status,
+        both_child_closures=both,
+        realized_prunes=realized,
+        fully_emitted_prunes=emitted,
+        globally_novel_clauses=novel,
+        crossing_activation=cast(bool, crossing),
+        exact_probe_operation=cast(bool, probe),
+    )
     return (
         calls,
         requested,
@@ -1569,6 +1620,12 @@ def _validate_recovery_episode(
         cast(bool, probe),
         cast(bool, crossing),
         cast(bool, science),
+        novel,
+        realized,
+        emitted,
+        both,
+        classification,
+        stop_reason,
     )
 
 
@@ -1595,9 +1652,21 @@ def recover_publication(capsule: Path) -> dict[str, object]:
         or result.get("publication_recovery") is not None
     ):
         raise O1C80RunError("pre-finalization recovery source differs")
-    calls, requested, actual, billed, probe, crossing, science = (
-        _validate_recovery_episode(capsule, result)
-    )
+    (
+        calls,
+        requested,
+        actual,
+        billed,
+        probe,
+        crossing,
+        science,
+        novel,
+        realized,
+        emitted,
+        both,
+        classification,
+        stop_reason,
+    ) = _validate_recovery_episode(capsule, result)
     resources = _mapping(result.get("resources"), "recovery resources")
     boundary = _mapping(result.get("claim_boundary"), "recovery boundary")
     if (
@@ -1605,9 +1674,15 @@ def recover_publication(capsule: Path) -> dict[str, object]:
         or resources.get("requested_conflicts") != requested
         or resources.get("actual_conflicts") != actual
         or resources.get("billed_conflicts") != billed
+        or resources.get("globally_novel_clauses") != novel
+        or resources.get("realized_prunes") != realized
+        or resources.get("fully_emitted_prunes") != emitted
+        or resources.get("both_child_closures") != both
         or boundary.get("exact_probe_operation") is not probe
         or boundary.get("crossing_activation") is not crossing
         or boundary.get("science_gain") is not science
+        or result.get("classification") != classification
+        or result.get("stop_reason") != stop_reason
     ):
         raise O1C80RunError("recovery result conclusion differs")
     result["publication_recovery"] = {
@@ -2223,7 +2298,8 @@ def preflight(
     """Reject PENDING before creating a capsule, then verify every seal/gate."""
 
     lab = (root or lab_root()).resolve(strict=True)
-    config = load_config(config_path, root=lab)
+    config_file = Path(config_path).resolve(strict=True)
+    config = load_config(config_file, root=lab)
     pending = _pending_fields(config)
     if pending:
         raise O1C80RunError(
@@ -2341,6 +2417,7 @@ def preflight(
         "schema": PREFLIGHT_SCHEMA,
         "attempt_id": ATTEMPT_ID,
         "passed": True,
+        "config_sha256": _sha256_file(config_file),
         "source_freeze_commit": expected_commit,
         "execution_commit": commit,
         "source_clean": not bool(dirty),
@@ -2369,6 +2446,44 @@ def preflight(
         "native_solver_calls": 0,
         "truth_key_bytes_read": False,
     }
+
+
+def _validate_frozen_call_inputs(
+    *,
+    root: Path,
+    config_file: Path,
+    inputs: Mapping[str, object],
+    target_free_gate: Mapping[str, object],
+    preflight_row: Mapping[str, object],
+    when: str,
+) -> None:
+    """Close the preflight-to-call window over every path-backed public input."""
+
+    if _sha256_file(config_file) != _sha256(
+        preflight_row.get("config_sha256"), "preflight config digest"
+    ):
+        raise O1C80RunError(f"frozen config changed {when} call")
+    approved_inputs = _mapping(
+        preflight_row.get("input_sha256"), "preflight input digests"
+    )
+    for name in ("cnf", "potential", "grouping", "o1c73_config"):
+        expected = _sha256(inputs.get(f"{name}_sha256"), f"config input {name}")
+        if approved_inputs.get(name) != expected:
+            raise O1C80RunError(f"preflight input {name} binding differs")
+        observed = _sha256_file(_relative(root, inputs.get(name), f"call input {name}"))
+        if observed != expected:
+            raise O1C80RunError(f"frozen input {name} changed {when} call")
+    gate_path = _relative(
+        root, target_free_gate.get("path"), "call target-free preflight"
+    )
+    gate_sha256 = _sha256(
+        target_free_gate.get("sha256"), "call target-free preflight digest"
+    )
+    if (
+        preflight_row.get("target_free_preflight_sha256") != gate_sha256
+        or _sha256_file(gate_path) != gate_sha256
+    ):
+        raise O1C80RunError(f"target-free preflight changed {when} call")
 
 
 def _remove_partial_publication(
@@ -2459,12 +2574,23 @@ def run(config_path: str | Path = CONFIG_RELATIVE) -> dict[str, object]:
     baseline = _o1c73.validate_apple8_baseline(root, baseline_config)
     public_target = _o1c73._o1c66._public_target(baseline)
     native = _mapping(config["native"], "run native")
+    target_free_gate = _mapping(
+        config["target_free_preflight"], "run target-free preflight"
+    )
     executable = root / _relative_contract(native["executable"], "native executable")
     executable_binding = validate_native_executable(
         executable, expected_sha256=cast(str, native["expected_executable_sha256"])
     )
     if executable_binding != preflight_row.get("native_executable"):
         raise O1C80RunError("post-preflight native executable differs")
+    _validate_frozen_call_inputs(
+        root=root,
+        config_file=config_file,
+        inputs=inputs,
+        target_free_gate=target_free_gate,
+        preflight_row=preflight_row,
+        when="before capsule",
+    )
 
     started_at = datetime.now().astimezone().isoformat(timespec="seconds")
     started = time.perf_counter()
@@ -2532,6 +2658,14 @@ def run(config_path: str | Path = CONFIG_RELATIVE) -> dict[str, object]:
             or _sha256_file(prefix_plan) != PREFIX_PLAN_BINARY_SHA256
         ):
             raise O1C80RunError("native Page-7 invocation identity differs")
+        _validate_frozen_call_inputs(
+            root=root,
+            config_file=config_file,
+            inputs=inputs,
+            target_free_gate=target_free_gate,
+            preflight_row=preflight_row,
+            when="before native",
+        )
         return _native_v21.run_joint_score_sieve(
             executable=executable,
             cnf_path=cnf,

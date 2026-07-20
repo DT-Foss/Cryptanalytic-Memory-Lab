@@ -427,6 +427,63 @@ def test_pending_target_free_receipt_authorizes_nothing() -> None:
     }
 
 
+@pytest.mark.parametrize(
+    "mutated",
+    ("config", "cnf", "potential", "grouping", "o1c73_config", "gate"),
+)
+def test_call_window_rejects_every_post_preflight_path_mutation_before_invoke(
+    tmp_path: Path, mutated: str
+) -> None:
+    config_file = tmp_path / "config.json"
+    config_file.write_bytes(canonical_json_bytes({"frozen": True}))
+    input_rows: dict[str, object] = {}
+    approved: dict[str, str] = {}
+    for name in ("cnf", "potential", "grouping", "o1c73_config"):
+        path = tmp_path / name
+        path.write_bytes(f"sealed-{name}".encode())
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        input_rows[name] = name
+        input_rows[f"{name}_sha256"] = digest
+        approved[name] = digest
+    gate = tmp_path / "gate.json"
+    gate.write_bytes(canonical_json_bytes({"status": "PASS"}))
+    gate_sha256 = hashlib.sha256(gate.read_bytes()).hexdigest()
+    gate_row = {"path": gate.name, "sha256": gate_sha256}
+    preflight_row = {
+        "config_sha256": hashlib.sha256(config_file.read_bytes()).hexdigest(),
+        "input_sha256": approved,
+        "target_free_preflight_sha256": gate_sha256,
+    }
+    crossing_run._validate_frozen_call_inputs(
+        root=tmp_path,
+        config_file=config_file,
+        inputs=input_rows,
+        target_free_gate=gate_row,
+        preflight_row=preflight_row,
+        when="before capsule",
+    )
+    changed = (
+        config_file
+        if mutated == "config"
+        else gate
+        if mutated == "gate"
+        else tmp_path / mutated
+    )
+    changed.write_bytes(changed.read_bytes() + b"x")
+    native_calls: list[int] = []
+    with pytest.raises(crossing_run.O1C80RunError, match="changed"):
+        crossing_run._validate_frozen_call_inputs(
+            root=tmp_path,
+            config_file=config_file,
+            inputs=input_rows,
+            target_free_gate=gate_row,
+            preflight_row=preflight_row,
+            when="before capsule",
+        )
+        native_calls.append(1)
+    assert native_calls == []
+
+
 def test_sibling_gate_matches_production_argv_without_search_false_positives(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -765,6 +822,42 @@ def test_recovery_rejects_raw_stdout_mutation(
     original = path.read_bytes()
     path.write_bytes(original[:-1] + bytes((original[-1] ^ 1,)))
     with pytest.raises(crossing_run.O1C80RunError, match="compressed seal"):
+        crossing_run.recover_publication(capsule)
+
+
+def test_recovery_rederives_classification_and_rejects_internal_promotion(
+    tmp_path: Path,
+    prepared: PreparedBoundCrossing,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        crossing_run,
+        "_validated_episode_result",
+        lambda *_args, **_kwargs: _validated(probe=True, crossing=False, science=False),
+    )
+    capsule = tmp_path / "classification-tamper"
+    outcome = _execute(
+        capsule,
+        prepared,
+        cast(crossing_run.EpisodeInvoker, lambda *_args: object()),
+    )
+    result = crossing_run.build_result(
+        outcome=outcome,
+        capsule_relative="runs/classification-tamper",
+        source_commit="ef" * 20,
+    )
+    source_path = crossing_run.write_recovery_source(capsule, result)
+    source = dict(json.loads(source_path.read_bytes()))
+    promoted = dict(cast(Mapping[str, object], source["pre_finalization_result"]))
+    promoted["classification"] = crossing_run.PUBLIC_EXACT_RECOVERY
+    promoted["stop_reason"] = "public-complete-model-exactly-verified"
+    promoted_payload = canonical_json_bytes(promoted)
+    source["pre_finalization_result"] = promoted
+    source["result_sha256"] = hashlib.sha256(promoted_payload).hexdigest()
+    source["result_serialized_bytes"] = len(promoted_payload)
+    source_path.chmod(0o644)
+    source_path.write_bytes(canonical_json_bytes(source))
+    with pytest.raises(crossing_run.O1C80RunError, match="conclusion differs"):
         crossing_run.recover_publication(capsule)
 
 
