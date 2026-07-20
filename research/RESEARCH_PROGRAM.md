@@ -540,13 +540,22 @@ exclusion compounding, not a key/model/closure/entropy/domain result;
 O1C-0087 completes the preparation half of
 `H-PARENT-CENTERED-PAGE12-ROLLOVER-COMPOUNDING-091`: all 202 clauses enter the
 immutable attic, which reaches 1,032 unique clauses, and all 202 remain resident
-on fresh bounded Page 12 / lineage 25. The 254-clause Page uses 681,054 literals
-and 2,725,423 B, leaving headroom 258 clauses / 918,946 literals / 5,663,185 B;
-the exact `658fd285…` bank and `e5ffda54…` receipt bind. Page 11 is burned and
-must never be replayed. Seal the unchanged one-shot operator around Page 12 and
-authorize at most one fresh call. Preserve the efficiency rule: focused gates
-protect irreversible state, while production follows directly after one real
-preflight without a comfort-control cycle.
+on fresh bounded Page 12 / lineage 25. O1C-0088 then supports H091 with one
+sealed `128/55/55` call: 259 trail-upper-bound clauses / 744,973 literals are
+all globally novel against that complete attic. The exact bank evolves to
+`0203de9f…`, while direct action crossings, key/model/closure and attacker-valid
+entropy/domain gain remain zero. Page 12 is burned and must never be replayed.
+
+The next mechanical transition is
+`H-PARENT-CENTERED-PAGE13-ROLLOVER-COMPOUNDING-092`. The complete O1C-0088
+harvest is archived, but `254+259=513` is exactly one above the 512-clause
+active-vault cap. Ingest every clause with zero solver work, bind receipt
+`9ecec7df…`, and derive fresh Page 13 / lineage 26 at the minimal active limit
+253. This is an O(1)-state residency rollover, not evidence loss and not a
+reason to increase cap/RAM. Freeze the next single science call from the sealed
+cross-burst audit. Preserve the efficiency rule: focused gates protect
+irreversible state, while production follows directly after one real preflight
+without a comfort-control cycle.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1121,10 +1130,11 @@ evidence.
   produce no realized certified action crossing (`actual_certified_prunes=0`),
   while the separate base sieve certifies all 23 trail prunes. O1C-0086 then
   rolls them into Page 11 and emits 202 further globally novel clauses against
-  the 830-clause attic at `128/131/131`, still without key/model/closure/
-  entropy/domain gain. Never replay Page 8, Page 9, Page 10 or Page 11; ingest
-  the 202 clauses and `658fd285…` bank into fresh bounded Page 12 before any
-  new intent.
+  the 830-clause attic at `128/131/131`; O1C-0088 continues on Page 12 with 259
+  globally novel clauses against 1,032 prior clauses at only `128/55/55`, still
+  without key/model/closure/entropy-domain gain. Never replay Page 8 through
+  Page 12. Ingest the 259 clauses and `0203de9f…` bank into fresh bounded Page
+  13 / lineage 26 at active limit 253 before any new intent.
 
 ## Operating contract
 

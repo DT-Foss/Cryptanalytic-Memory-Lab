@@ -2210,3 +2210,47 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Artifacts:** [interpretation](O1C0087_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md),
   [causal delta audit](O1C0086_PAGE11_CAUSAL_DELTA_AUDIT_20260720.md), and
   [manifest](o1c87_page12_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json).
+
+## B-0088 — Page-12 continuation reaches 259 new clauses before conflict 56
+
+- **Positive terminal:** O1C-0088 consumes Page 12 / lineage 25 once at
+  requested/actual/billed `128/55/55` and emits `259` complete trail-upper-bound
+  no-goods / `744,973` literals. The emitted set is internally unique and has
+  zero hash intersection with all 1,032 prior attic clauses.
+- **Measured gain:** clause yield rises from O1C-0086's 202 to 259 (`1.282x`)
+  while billed conflicts fall from 131 to 55. Yield per billed conflict rises
+  from `1.542` to `4.709` (`3.054x`). Native work remains subsecond at
+  `0.792959 s` and 369,213,440 B peak RSS. This is continued exact-exclusion
+  compounding, not a compute-scale effect.
+- **Geometry breadcrumb:** witness scores occupy
+  `13.374795503825057..14.605893028674872`, with the closest strict threshold
+  margin only `0.0002857692180899818`. Clause lengths concentrate at 2,861,
+  2,862 and 2,891 literals (`44`, `67`, `101` clauses respectively), with all
+  259 exact exclusions preserved for cross-page analysis.
+- **Claim boundary:** `threshold_prunes=259` certifies the emitted trail clauses;
+  `actual_certified_prunes=0` still closes direct one-bit action crossings. No
+  key, model, closure, posterior, entropy or attacker-valid domain result
+  follows.
+- **State breadcrumb:** the bank count increases by exactly 33,413, equal to the
+  probe count and all outcome counters; child evaluations are exactly twice
+  that count. The bank evolves to `0203de9f…`, receipt `9ecec7df…`, and variable
+  241 remains the sole zero record.
+- **Capacity breadcrumb:** the sole stop is `254+259=513>512`, again exactly one
+  clause over the active-vault cap. This does not discard the harvest and does
+  not justify cap/RAM growth. Preserve all 259 in the immutable attic and use
+  the minimal one-slot Page-13 projection at active limit 253.
+- **Efficiency breadcrumb:** one focused preflight went directly to production;
+  the 41.79-second archival path protected an irreversible Page while the actual
+  science call took 0.793 seconds. Keep exact Page/provenance/atomicity gates and
+  lightweight reversible hygiene; do not add a post-green control cycle.
+- **Next action:** support H091 and activate
+  `H-PARENT-CENTERED-PAGE13-ROLLOVER-COMPOUNDING-092`. Ingest the complete burst
+  and `0203de9f…` bank with zero solver work, derive Page 13 / lineage 26 at
+  active limit 253, then choose the next single discriminating call from the
+  sealed cross-burst audit. Never replay Page 12.
+- **Artifacts:** [result](O1C0088_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  [interpretation](O1C0088_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md),
+  and sealed
+  [capsule](../runs/20260720_190040_615684_O1C-0088_apple8-parent-centered-continuation-v1/RUN.md),
+  artifact-manifest SHA-256
+  `8ae16f758ee4c5e1f489c7f9c5d40d2dc001037a9b215ca60f973432af953f84`.
