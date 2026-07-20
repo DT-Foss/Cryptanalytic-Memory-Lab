@@ -1,0 +1,46 @@
+{
+  "attempt_id": "O1C-0081",
+  "classification": "TARGET_FREE_BOUND_DIFFERENTIAL_MECHANISM_CENSUS",
+  "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/python -m o1_crypto_lab.o1c81_bound_differential_analysis --format json --check research/O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.json",
+  "input": {
+    "path": "runs/20260720_124516_O1C-0080_apple8-bound-crossing-v1/episodes/00/one-bit-bound-reader.json.gz",
+    "sha256": "3b8466634e35ff526dbd3fa86ee8d4ddab3383250bd7237c97f0f80ada669e48"
+  },
+  "outputs": {
+    "json": {
+      "path": "research/O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.json",
+      "sha256": "666854f8ba323fcbf100d86457fbc4eaa3cb3b6bab12d9e47982f4b28a86a389"
+    },
+    "markdown": {
+      "path": "research/O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.md",
+      "sha256": "a9aff43a282411ff46fd660419b0ef8304f70db955880c930967a5f79f200f97"
+    }
+  },
+  "population": {
+    "full_trace_event_count": 285725,
+    "omitted_event_count": 269341,
+    "omitted_values_inferred": false,
+    "recorded_event_count": 16384,
+    "recorded_parent_count": 74
+  },
+  "resource_measurement": {
+    "maximum_resident_set_bytes": 169885696,
+    "peak_memory_footprint_bytes": 129319536,
+    "real_seconds": 0.23,
+    "system_seconds": 0.01,
+    "user_seconds": 0.22
+  },
+  "scope": {
+    "fresh_targets": 0,
+    "mps_or_gpu_calls": 0,
+    "native_solver_calls": 0,
+    "refits": 0,
+    "reveal_calls": 0,
+    "truth_key_bytes_read": false
+  },
+  "source": {
+    "module_sha256": "f5bec5ac7d20bec4a9a27fbee49c04c9344a0a0bbd1aa9f178ae47766906926b",
+    "test_sha256": "ebe662e264d08eb16385bfc2a496107ce73b719548fa4549ef536512bba76b6d"
+  },
+  "verified_at": "2026-07-20T13:02:41+02:00"
+}

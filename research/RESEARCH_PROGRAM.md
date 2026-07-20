@@ -442,15 +442,32 @@ zero calls. Final axes are operational ownership `true`, qualified prefix
 activation `true`, science gain `false`; classification
 `DECISION_OWNERSHIP_QUALIFIED_PREFIX_MECHANISM_ONLY`.
 
-Close Page 6 / lineage 19 and the prefix path. Activate
-`H-ONEBIT-BOUND-CROSSING-084`: derive fresh Page 7 from the unchanged 550-clause
-attic after real Page-6 activation via `advance_causal_residency`, lineage 20 and
-`fully_emitted_union_indices=()`. Preserve the required identity-bound empty
-rollover receipt/chunk with zero clauses, occurrences and emissions. Evaluate exact
-same-parent `U0/U1` and intervene only if `min(U0,U1)<tau`, with an asymmetric
-crossing or both children below threshold. Keep public inputs, scorer, K256 and
-128 conflicts fixed. Depth 2 is eligible only after a genuine near-crossing;
-no O1C-0080 call is yet authorized.
+O1C-0080 then consumes fresh Page 7 / lineage 20 once at exact
+`128/128/128`. It evaluates `285,725` exact same-parent bit pairs / `571,450`
+child bounds over `1,587` parents and all `255` eligible candidates. Every probe
+is `NEITHER_PRUNABLE`; the minimum child UB `18.464862193097684` remains
+`3.8586833952047215` above tau, with identical state hashes before/after the
+minimum probe. Bound interventions, prunes, closures, clauses, models and keys
+are zero. Refute `H-ONEBIT-BOUND-CROSSING-084` at this surface. Page 7 and
+lineage 20 are burned; the margin is not a near crossing, so no depth-2 fallback
+or retry is authorized.
+
+O1C-0081 supports `H-BOUND-DIFFERENTIAL-085` at mechanism level with zero solver
+or truth work. In the retained `16,384`-event / 74-parent prefix, raw
+`d=U0-U1` is positive 95.2209%; parent-median centering restores balanced signs
+while preserving persistent coordinate structure. Under the frozen eligibility
+gate of at least 37 parents, variable 185 scores 91.7528 versus deterministic
+within-parent permuted maximum 3.0907. Temporal centered-mean correlation is
+0.8538 and sign agreement 81.11%. The packed state is 28,672 B O(256). Sparse
+10–12-observation spikes are ineligible. This supports query priority only, not
+bit orientation, entropy reduction, science gain or recovery.
+
+Activate `H-LIVE-CENTERED-PROOF-MINING-086`. O1C-0082 must reproduce the frozen
+state/rank online. Residual magnitude selects a coordinate; that coordinate's
+current lower-UB child is a target-free failure-first proof-mining action, not a
+belief about the hidden key. Compose the existing typed one-shot ownership and
+release lifecycle under fixtures before at most one fresh Page-8/lineage-21
+128-conflict call. Activation alone cannot pass the science gate.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -462,8 +479,10 @@ That O1C-0066 episode records seven actual trail-threshold prune events;
 `7.973...` is their run's minimum witness UB, not itself a prune count.
 O1C-0077's `14.656823218163392>tau` yields zero prunes; O1C-0078 returns no
 native bound telemetry. O1C-0079 records `18.742222666780805>tau`, a gap of
-`4.136043868887843`, and zero prunes. None changes these conclusions; O1C-0068
-remains untouched at minimum UB `12.8607806294803`.
+`4.136043868887843`, and zero prunes. O1C-0080's complete child-probe population
+bottoms at `18.464862193097684>tau` and also yields zero prunes. None changes
+these conclusions; O1C-0068 remains untouched at minimum UB
+`12.8607806294803`.
 
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
@@ -817,9 +836,11 @@ evidence.
    ownership is the strongest inference; the responsible layer is unknown.
    O1C-0079 repairs ownership and executes fresh Page 6 / lineage 19 once. Total
    token accounting and qualified prefix activation pass, while prunes, clauses,
-   models, keys and sub-256 progress remain zero. Close ownership/prefix work and
-   prepare only O1C-0080 exact same-parent child-bound crossing on fresh Page 7;
-   never rerun O1C-0073, replay ordinals `9..19`, call phase, sweep
+   models, keys and sub-256 progress remain zero. O1C-0080 then consumes fresh
+   Page 7 / lineage 20 once and exhausts `285,725` exact one-bit probes without a
+   crossing. O1C-0081 then supports a bounded persistent centered-priority field
+   without bit orientation. Build only O1C-0082's live failure-first mapping
+   before a fresh Page-8 operator; never rerun O1C-0073, replay ordinals `9..20`, call phase, sweep
    K/release/rank/horizon or blind-scale RAM/caps.
    Any later role-credit test must precommit an attacker-visible outcome/utility
    condition rather than tune `-32`.
@@ -984,9 +1005,16 @@ evidence.
   qualifies with nine bound/releases and zero rescue skips. Corrected axes are
   operational `true`, qualified prefix `true`, science `false`. Preserve the raw
   validator false negative and apply only the zero-call erratum. Never replay
-  Page 6 / lineage 19. Prepare O1C-0080 exact one-bit `U0/U1` crossing on fresh
-  Page 7; intervention requires a certified crossing/closure and no call is yet
-  authorized.
+  Page 6 / lineage 19.
+- O1C-0080 consumes fresh Page 7 / lineage 20 once at exact `128/128/128` work.
+  Exact same-parent probing operates across `285,725` pairs, but every pair is
+  `NEITHER_PRUNABLE` and the minimum remains `3.8586833952047215` above tau.
+  Close Page 7, one-bit crossing and depth 2.
+- O1C-0081 target-free common-mode removal supports a `28,672 B` persistent
+  coordinate-priority state under permutation and temporal controls. Bit
+  orientation remains disabled. Resume with O1C-0082 online state identity and
+  failure-first proof-mining action; a production successor must use fresh Page
+  8 / lineage 21.
 
 ## Operating contract
 

@@ -1,84 +1,78 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-20T09:13:16+02:00.
+Last ranked: 2026-07-20T13:04:43+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Freeze O1C-0080's fresh Page-7 advance from the unchanged 550-clause attic after real Page-6 activation, with lineage 20, `fully_emitted_union_indices=()` and the required identity-bound empty rollover containing zero clauses/occurrences/emissions | State of the art enabling | Extreme | Extreme | Very low | Establishes a fresh target-free K256 input without replaying Page 6 or inventing evidence |
-| 2 | Build and validate one exact same-parent one-bit reader that computes `U0/U1` and remains inert unless `min(U0,U1)<tau` | State of the art | Extreme | Extreme | Low | Directly distinguishes an asymmetric safe crossing, two-child closure and no-crossing cases |
-| 3 | Freeze O1C-0080's one-call gate with unchanged public inputs/scorer/K256/128 conflicts; permit depth 2 only after a genuine near-crossing | State of the art | Extreme | High | Low | Authorizes at most one science call whose pass condition is a prune, closure, novel clause or public verified model; no call is authorized yet |
+| 1 | Implement O1C-0082's online parent median/MAD scratch and frozen 256-coordinate accumulator; prove exact state/rank identity against O1C-0081 with the >=37-parent persistence rule | State of the art enabling | Extreme | Extreme | Very low | Turns the offline mechanism hit into a real living bounded state without a solver call |
+| 2 | Map residual magnitude to coordinate priority and the selected coordinate's current lower-UB child to a failure-first proof-mining action; keep belief orientation disabled | State of the art | Extreme | Extreme | Low | Produces one attacker-visible action objective without pretending residual sign predicts the secret bit |
+| 3 | Compose typed one-shot ownership/release and freeze at most one fresh Page-8/lineage-21 128-conflict call under unchanged public inputs/scorer/K256 | State of the art | Extreme | High | Low | Tests whether the centered field creates a real prune/closure/clause/model/domain gain; activation alone cannot pass |
 | 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
 ## Current resume
 
-Resume from O1C-0079's corrected
-`DECISION_OWNERSHIP_QUALIFIED_PREFIX_MECHANISM_ONLY`. Its sole
-local-0/lineage-19 call consumes fresh Page 6 at exact `128/128/128`
-requested/actual/billed conflicts. Operational ownership and qualified prefix
-activation pass; science gain fails. The immutable raw result's false
-no-activation label is corrected additively with zero calls because its
-substring validator matched `returned-ever` inside the positive eligibility
-descriptor. Result, capsule and evidence bytes remain unchanged.
+Resume from O1C-0080's terminal `BOUND_PROBE_OPERATION_ONLY`. Its sole
+local-0/lineage-20 call consumes fresh Page 7 at exact `128/128/128`
+requested/actual/billed conflicts. Exact probe operation passes; crossing
+activation and science gain fail. Page 7 / lineage 20 are burned and must never
+be retried.
 
-Ownership is total: `549` proposals = bindings = releases, `547` confirmed, two
-unobserved, zero live and zero omitted. Tokens 75/110 retire `-108/-112`; later
-`+108/+112` are foreign token 0. Total foreign/opposite assignments are
-`9,966/0`. The unchanged prefix consumes all 11 rows before rank, binds/releases
-nine, sees two preassigned falsifying and zero rescue skips. This closes the
-ownership and prefix-activation questions without retry or refit.
+The reader scans `1,587` parents and evaluates `285,725` exact same-parent bit
+pairs / `571,450` child bounds over `255` eligible candidates. Every pair is
+`NEITHER_PRUNABLE`. The global minimum witness is key variable `115` at callback
+`413`: `U0=19.10564473318062`, `U1=18.464862193097684`, still
+`3.8586833952047215` above `tau=14.606178797892962`, with identical complete
+state hashes before and after probing. There are zero bound decisions,
+interventions, prunes, closures, clauses, models or keys.
 
-Science remains null. Minimum UB `18.742222666780805` is
-`4.136043868887843` above `tau`; there are zero safe prunes, novel clauses,
-complete models, keys or other sub-256 progress. Page 6 and lineage 19 are
-burned. Resume only with O1C-0080 target-free design: provisional Page 7 SHA
-`92b6e547e143cdaf2f28fe731fd356bc69806926ee569205d6def432144258ff`,
-selection SHA
-`776819396914179fe1a0ae9b443a6c0775e32c70bf36658b6dfe7043002dc723`,
-lineage 20, `256` clauses / `663,409` literals and the required identity-bound
-empty rollover receipt/chunk with zero clauses, occurrences and emissions.
+The threshold question is formal and unchanged. Let `S(x)` be the compiled
+complete-candidate score and `R_tau={x:S(x)>=tau}`. For a visited partial trail
+`a`, admissibility gives `S(x)<=U(a)` for every completion extending `a`.
+Therefore strict `U(a)<tau` safely removes exactly that local subtree; equality
+remains live. Threshold and UB share metric, units and maximization direction,
+but `tau` is a fixed cutoff while a reported minimum UB is a statistic over one
+run's visited trail/child population. O1C-0066 episode 1's historical
+`7.973483108047071` belongs to its population and accompanies seven separately
+recorded realized prunes; it is not a global certificate or O1C-0080 child.
+O1C-0080 has no child below threshold. The last measured root bound remains
+`262.68644197084643>tau`.
 
-The threshold question is now formal. Let `S(x)` be the compiled candidate score,
-`tau=14.606178797892962`, and the retained region be
-`R_tau={x:S(x)>=tau}`. Let `U(a)` be the admissible upper bound for completions of
-a visited partial trail `a`, so `S(x)<=U(a)` for every `x` extending `a`.
-Threshold and UB therefore use the same score units and retained direction, but
-`tau` is a fixed membership cutoff while `min_{a in V}U(a)` is a statistic over
-the run-specific visited-trail population `V`. They are comparable under the
-same underlying score metric, but have different statistic roles and
-populations. The quoted `7.973483108047071` is O1C-0066 episode 1, not
-O1C-0068. O1C-0068's minimum is `12.8607806294803`; O1C-0076's minimum is
-`14.67138759145431`; O1C-0077's is `14.656823218163392`. O1C-0078 has no
-native bound result; O1C-0079's is `18.742222666780805`. O1C-0066 episode 1 separately records seven actual
-trail-threshold prunes; `7.973...` is the minimum witness UB, not a prune count
-or a global upper bound.
+The full O1C-0080 probe stream is committed by count `285,725`, byte count
+`16,286,325` and SHA-256 `c6f6c2a9…`. Only the first `16,384` event objects are
+retained; `269,341` omitted events are digest-bound but not recoverable for new
+statistics. That recorded prefix shows a strong raw common-polarity mode in
+`d=U0-U1`, so raw sign cannot be treated as a key posterior. O1C-0081 completes
+the zero-solver census: raw signs are 15,601/783 positive/negative; parent-median
+centering yields 8,172/8,172/40 positive/negative/zero. Under the frozen
+eligibility gate of at least 37/74 parents, variable 185 has priority 91.7528 and
+stability 1.0 versus deterministic within-parent permuted maximum 3.0907.
+Temporal centered-mean correlation is 0.8538 and sign agreement 81.11%. The
+packed state is 28,672 B O(256). This supports query priority only; key-bit
+orientation, entropy gain and recovery remain absent.
 
-For any particular visited trail `a`, strict `U(a)<tau` proves
-`S(x)<tau` for every completion `x` of `a`, hence that entire local subtree is a
-safe prune from `R_tau`. A reported minimum below threshold proves at least one
-such visited subtree exists; it does not prove all visited trails or the root are
-below threshold. O1C-0077's minimum is above threshold and it records zero
-local prunes. O1C-0078 adds no UB observation; O1C-0079 remains above threshold
-with zero prunes. O1C-0080 must compare exact `U0/U1` for the same parent and
-remain inert unless `min(U0,U1)<tau`. An asymmetric crossing safely removes one
-child; both children below close that parent. The last measured root bound
-remains `262.68644197084643>tau`, so no global prune, UNSAT or threshold-region
-exhaustion follows. Depth 2 is not authorized absent a genuine near-crossing.
+Resume with O1C-0082 target-free fixtures. Reproduce the offline state/rank
+online, let residual magnitude select the coordinate, and map its current
+lower-UB child only to a failure-first proof-mining action. Compose the existing
+typed one-shot ownership/release primitive. A production successor requires
+fresh Page 8 / lineage 21; hard one-bit crossing, depth 2 and Page-7 replay stay
+closed.
 
 Resume authority is the
-immutable
-[`O1C-0079 raw result`](O1C0079_APPLE8_DECISION_OWNERSHIP_RESULT_20260720.json),
-SHA-256
-`ce68d10eed83d9a0d90518c579f4e1841cd8a6791e4cd975d0d27a64bcc6251e`,
+[`O1C-0081 census`](O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.json), SHA-256
+`666854f8ba323fcbf100d86457fbc4eaa3cb3b6bab12d9e47982f4b28a86a389`,
 its
-[`zero-call erratum`](O1C0079_APPLE8_DECISION_OWNERSHIP_ZERO_CALL_ERRATUM_20260720.json),
-SHA-256
-`b5c2465a532486aaf68a6a622f2312de29ec8a52ea6cea70c9d9c36f19985fa9`,
+[`human report`](O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.md), the capsule
+[`RUN.md`](../runs/20260720_130241_O1C-0081_bound-differential-census-v1/RUN.md),
+and the prior
+[`O1C-0080 result`](O1C0080_APPLE8_BOUND_CROSSING_RESULT_20260720.json), SHA-256
+`e2ceb375c2fb83469db8eb537459b223d8e7f63e4bb58882882f8cdd8bdb22a5`,
+its
+[`interpretation`](O1C0080_APPLE8_BOUND_CROSSING_INTERPRETATION_20260720.md),
 and capsule artifact manifest
-`f7cd0de5ba58a59de913db88ba3e9ce2ae1b486a4e922700f65dff3aa5d39475`.
-Execution/corrected-validator commits are `8b058cbf…/665ea826…`. Native and
-ownership gzip evidence is sealed by `ec75d6c3…` / `6403d8a6…`. The full
-historical actual-conflict total remains `null` because O1C-0078 has no native
-ledger; O1C-0079 itself is exact `128/128/128`.
+`400b79b01ed54addbd99db53b2cf5ad36afd388a18d1435dcd7ef850c8532c44`.
+Source/execution freezes are `0c18e064…/9469c988…`. Native peak RSS is
+`467,042,304 B`, leaving `36,274,176 B` against the effective watchdog limit;
+do not expand event retention or RAM blindly.
 
 ## Frontier scoreboard
 
@@ -253,12 +247,14 @@ ledger; O1C-0079 itself is exact `128/128/128`.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0079 proves total typed ownership and
-  qualified prefix activation, but minimum UB remains above threshold and every
-  science output is zero. O1C-0080 must use fresh Page 7 / lineage 20 to compare
-  exact same-parent `U0/U1`, intervening only on an asymmetric crossing or
-  two-child closure. Science still requires a real prune, closure, novel clause
-  or public verified model; no call is authorized yet.
+- **Next measurable advance:** O1C-0080 proves exact same-parent bound probing
+  in the full K256 search context across all 255 score-observed coordinates, but
+  finds no crossing in `285,725` probes. O1C-0081 now supports a bounded,
+  coordinate-stable differential-priority field after common-mode removal.
+  O1C-0082 must reproduce it online and convert priority into one failure-first
+  proof-mining action before a fresh Page-8/lineage-21 intervention; science
+  still requires a real prune, closure, novel clause, entropy/domain reduction
+  or public verified model.
   Exact 256 remains the north star.
 
 ## Effect-first stop rules
@@ -487,14 +483,19 @@ ledger; O1C-0079 itself is exact `128/128/128`.
 - replaying O1C-0068 lineage ordinal `4`, O1C-0069 ordinal `5`, O1C-0070 ordinal
   `6`, O1C-0071 ordinal `7`, O1C-0072 ordinal `8`, O1C-0073 ordinal `9`, any
   O1C-0074 ordinal `10..13`, O1C-0075 ordinal `14/15`, O1C-0076 ordinal `16`
-  or O1C-0077 ordinal `17`, O1C-0078 ordinal `18` or O1C-0079 ordinal `19`;
+  or O1C-0077 ordinal `17`, O1C-0078 ordinal `18`, O1C-0079 ordinal `19` or
+  O1C-0080 ordinal `20`;
   retrying the parent-zero-only 29-row reader; issuing another static
   or rotating causal-attic episode, phase call, K/rank/release/horizon sweep or
   blind RAM/cap increase. O1C-0079 answers ownership and prefix activation:
   proposals/bindings/releases are total and the complete prefix activates, but
   science is zero. Do not replay Page 6, tune ownership, select a post-result
   prefix subset, reorder it or treat the corrected classification as authority
-  for a second call. O1C-0080 must remain a new exact child-bound mechanism;
+  for a second call. O1C-0080 answers exact one-bit crossing and is terminal:
+  do not replay Page 7, infer the omitted `269,341` event values, rescue it with
+  depth 2, or enlarge event retention/RAM. O1C-0081 is sealed offline mechanism
+  evidence only: do not lower its 37-parent persistence gate, promote sparse
+  spikes, or turn residual sign into a key posterior;
 - another supplied complete-key decoy panel, static pair regrouping,
   credit-weight sweep or conflict-cap increase before the frozen O1C-0057
   prefix-8 scorer is tested on attacker-generated partial assignments/search;

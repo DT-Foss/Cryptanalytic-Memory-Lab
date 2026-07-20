@@ -1888,10 +1888,84 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   `U0/U1`. Intervene only if `min(U0,U1)<tau`, with primary evidence an
   asymmetric threshold crossing or both children below threshold. Require an
   actual prune, closure, novel clause or verified model; depth 2 is a fallback
-  only for a genuine near-crossing. No O1C-0080 call is yet authorized.
+  only for a genuine near-crossing. O1C-0080 consumed this breadcrumb and closed
+  it without a crossing; see B-0080 below.
 - **Artifacts:** immutable
   [`raw result`](O1C0079_APPLE8_DECISION_OWNERSHIP_RESULT_20260720.json),
   [`zero-call erratum`](O1C0079_APPLE8_DECISION_OWNERSHIP_ZERO_CALL_ERRATUM_20260720.json),
   [`interpretation`](O1C0079_APPLE8_DECISION_OWNERSHIP_INTERPRETATION_20260720.md)
   and sealed
   [`capsule`](../runs/20260720_085738_O1C-0079_apple8-decision-ownership-v1/RUN.md).
+
+## B-0080 — Full exact one-bit probing operates; hard crossing is absent
+
+- **Operational evidence:** O1C-0080 consumes fresh Page 7 / lineage 20 once at
+  exact `128/128/128`. It scans `1,587` parents and performs `285,725` exact
+  same-parent probes / `571,450` child-bound evaluations over `255` candidates
+  without changing the native state. This is a real operator in the full K256
+  search context, not a synthetic fixture, but the frozen potential exposes only
+  255 probe-eligible coordinates (key variable 241 is absent).
+- **Closed hypothesis:** every one of the `285,725` probes is
+  `NEITHER_PRUNABLE`. The minimum child UB is `18.464862193097684`, still
+  `3.8586833952047215` above `tau`. Bound proposals/interventions, prunes,
+  closures, clauses, models and keys are all zero. Exact one-bit crossing at this
+  Page/horizon is negative; a lower minimum alone is not gain.
+- **Formal threshold boundary:** threshold and UB share score metric, units and
+  maximization direction, but not statistic/population. For admissible `U(a)`,
+  strict `U(a)<tau` excludes only completions of that trail. O1C-0066 episode
+  1's `7.973483108047071` belongs to its visited population and accompanies
+  seven separately realized prunes; it is not a global certificate or an
+  O1C-0080 child. O1C-0080 has no safe crossing.
+- **Resource boundary:** native peak `467,042,304 B` leaves only `36,274,176 B`
+  under the effective watchdog limit. Full trace identity is preserved for all
+  `285,725` events, but only `16,384` event objects are retained. Do not enlarge
+  event storage or infer the omitted `269,341` values.
+- **Do not repeat:** Page 7, lineage 20, the same one-bit reader, depth 2, target,
+  candidate order, threshold, conflict horizon, event cap or RAM. The measured
+  `+3.858683...` margin is not a genuine near crossing.
+- **Breadcrumb:** in the recorded prefix, signed differential `d=U0-U1` has a
+  dominant common polarity while some coordinates retain stable opposite or
+  unusually small residuals. Raw sign is not a posterior. O1C-0081 was to remove
+  the within-parent median/common mode, robustly scale residuals and compare a
+  bounded O(256) coordinate stream against deterministic controls. O1C-0081
+  subsequently consumed this breadcrumb and supported query priority while
+  withholding belief orientation; see B-0081 below.
+- **Artifacts:** authoritative
+  [`result`](O1C0080_APPLE8_BOUND_CROSSING_RESULT_20260720.json),
+  [`interpretation`](O1C0080_APPLE8_BOUND_CROSSING_INTERPRETATION_20260720.md)
+  and sealed
+  [`capsule`](../runs/20260720_124516_O1C-0080_apple8-bound-crossing-v1/RUN.md),
+  artifact-manifest SHA-256
+  `400b79b01ed54addbd99db53b2cf5ad36afd388a18d1435dcd7ef850c8532c44`.
+
+## B-0081 — Common mode is not a posterior; persistent residual priority survives
+
+- **Closed interpretation:** raw `d=U0-U1` is positive in `95.2209%` of the
+  retained prefix. Treating that sign as 256-bit belief would be structurally
+  invalid: after within-parent median removal, signs balance exactly
+  `8,172/8,172` with 40 zeros. Do not orient key bits from either raw or centered
+  signs without independent calibration.
+- **Positive breadcrumb:** the centered residual is not featureless. Under a
+  frozen eligibility gate of at least 37/74 parents, variable 185 has count 73,
+  stability 1.0 and priority 91.7528. A deterministic within-parent permutation
+  peaks at only 3.0907 with correlation -0.0284; temporal centered-mean
+  correlation is 0.8538 and sign agreement 81.11%. This supports persistent
+  coordinate query priority, not correctness polarity.
+- **Sparse-spike boundary:** variables observed only 10–12 times can have large
+  raw formula scores (for example 158/188/169), but are deliberately ineligible.
+  The 37-parent filter is part of the mechanism, not a post-result cosmetic
+  choice; never omit it from reproduction or lower it to promote a spike.
+- **Population boundary:** only exact probes `1..16,384` / calls `1..74` are
+  analyzed. The `269,341` omitted values and global minimum at probe 37,567 are
+  not in the accumulators. One deterministic control supplies no p-value.
+- **Retained state:** `28,672 B` packed O(256): 24,576 B coordinate bank plus
+  4,096 B current-parent scratch. Offline JSON materialization is excluded.
+- **Next action:** O1C-0082 must reproduce this state online and keep two fields
+  separate: residual magnitude selects a coordinate; current lower-UB sign is
+  only a failure-first/proof-mining action objective. Typed one-shot ownership
+  prevents reassertion. A fresh Page-8 activation without prune/closure/clause/
+  model/domain gain remains mechanism-only.
+- **Artifacts:** canonical
+  [`JSON`](O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.json),
+  [`report`](O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.md) and sealed
+  [`capsule`](../runs/20260720_130241_O1C-0081_bound-differential-census-v1/RUN.md).

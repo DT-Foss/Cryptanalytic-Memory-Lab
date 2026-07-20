@@ -1,10 +1,20 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-20T09:13:16+02:00 (`Europe/Berlin`)
-- **Current truth:** O1C-0079 consumed its sole Page-6/lineage-19 call. Corrected
-  axes are operational ownership `true`, qualified prefix activation `true` and
-  science gain `false`; classification
-  `DECISION_OWNERSHIP_QUALIFIED_PREFIX_MECHANISM_ONLY`.
+- **Last updated:** 2026-07-20T13:04:43+02:00 (`Europe/Berlin`)
+- **Current truth:** O1C-0080 consumed its sole Page-7/lineage-20 call and is
+  terminal `BOUND_PROBE_OPERATION_ONLY`: exact probe operation `true`, crossing
+  activation `false`, science gain `false`. It evaluates `285,725` same-parent
+  bit probes / `571,450` exact child bounds in one `128/128/128` call; all are
+  `NEITHER_PRUNABLE`. Minimum child UB `18.464862193097684` remains
+  `3.8586833952047215` above `tau=14.606178797892962`.
+- **O1C-0081 mechanism hit:** target-free analysis of the exact retained
+  `16,384` events finds raw `d=U0-U1` positive in `15,601/16,384` (`95.2209%`),
+  proving strong common mode. Parent-median centering restores
+  `8,172/8,172/40` positive/negative/zero balance while preserving a large
+  coordinate-associated query-priority peak: variable 185 scores `91.7528`
+  versus deterministic permuted-control maximum `3.0907`; temporal
+  centered-mean correlation is `0.8538`. This supports a `28,672 B`, O(256)
+  query-priority field, not key-bit orientation, entropy reduction or recovery.
 - **Archive correction:** the immutable raw result's no-activation label came
   only from a substring scan matching the positive `eligibility_rule`. Corrected
   validator commit `665ea826…` reclassifies the archived evidence with zero
@@ -376,7 +386,11 @@
   Admissibility makes strict `U(a)<tau` safe only for descendants of that
   particular trail; it does not prove root/global exhaustion. O1C-0077 is
   `14.656823218163392>tau` with zero prunes, O1C-0078 has no bound result, and
-  O1C-0068 remains untouched at `12.8607806294803`.
+  O1C-0080's complete same-parent child population bottoms at
+  `18.464862193097684>tau` with zero crossings/prunes. O1C-0066's `7.973...`
+  belongs to its own visited-trail population and accompanies seven separately
+  recorded realized prunes; it is neither a global certificate nor an
+  O1C-0080 child result. O1C-0068 remains untouched at `12.8607806294803`.
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
@@ -400,14 +414,13 @@
   fails raw at `1,340 > 1,268 > 1,031` for edge, exact unary and final→early.
   Certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass.
   All 28 wrong passes, proof replays, freeze checks and truth controls are exact.
-- **Next mechanism:** O1C-0080 exact one-bit bound crossing. Advance the
-  unchanged 550-clause attic after real Page-6 activation into provisional Page
-  7 `92b6e547…` / lineage 20 through the required identity-bound empty rollover
-  chunk, which contains zero clauses/occurrences/emissions. Compare exact same-
-  parent `U0/U1` and intervene only on a certified asymmetric threshold crossing
-  or both children below `tau`; keep K256, scorer, public inputs and 128 conflicts
-  fixed. A depth-2 fallback requires a genuine near-crossing. No call is yet
-  authorized, and Page 6 / lineage 19 must never be replayed.
+- **Next mechanism:** O1C-0082 live parent-centered proof-mining reader. Preserve
+  O1C-0081's `28,672 B` state and 37/74-parent persistence gate. At each live
+  parent, update centered robust residuals, select the highest persistent
+  query-priority coordinate and use its current lower-UB child only as a
+  target-free failure-first/proof-mining action—not as a key-bit belief. Compose
+  it with the existing typed one-shot ownership/release primitive. Fixtures and
+  a frozen Page-8/lineage-21 gate precede at most one production call.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -421,11 +434,12 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** no scientific process is active. O1C-0079 is sealed as
-  qualified-prefix mechanism-only after the zero-call erratum. Immediate work is
-  target-free O1C-0080 Page-7 and exact child-bound design; no O1C-0074..0079
-  replay, ordinal-10..19 reuse, residency resweep, K/rank/phase/horizon sweep or
-  blind cap increase is authorized.
+- **Active local run:** no solver or production science process is active.
+  O1C-0080 is sealed after exactly one call; Page 7 / lineage 20 are burned.
+  O1C-0081's zero-solver census is sealed and reproducible. Immediate work is
+  target-free O1C-0082 live-state/operator construction;
+  no O1C-0074..0080 replay, ordinal-10..20 reuse, depth-2 rescue, residency
+  resweep, K/rank/phase/horizon sweep or blind cap/RAM increase is authorized.
   O1C-0053..0056 and the exact
   O1C-0058 rule remain negative and closed. Sibling repositories remain read-only
   and untouched.
@@ -434,6 +448,12 @@
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
+  [O1C-0081 bound-differential census](research/O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.json),
+  [O1C-0081 interpretation](research/O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.md),
+  [O1C-0081 capsule](runs/20260720_130241_O1C-0081_bound-differential-census-v1/RUN.md),
+  [O1C-0080 exact-bound result](research/O1C0080_APPLE8_BOUND_CROSSING_RESULT_20260720.json),
+  [O1C-0080 interpretation](research/O1C0080_APPLE8_BOUND_CROSSING_INTERPRETATION_20260720.md),
+  [O1C-0080 capsule](runs/20260720_124516_O1C-0080_apple8-bound-crossing-v1/RUN.md),
   [O1C-0079 raw decision-ownership result](research/O1C0079_APPLE8_DECISION_OWNERSHIP_RESULT_20260720.json),
   [O1C-0079 zero-call erratum](research/O1C0079_APPLE8_DECISION_OWNERSHIP_ZERO_CALL_ERRATUM_20260720.json),
   [O1C-0079 interpretation](research/O1C0079_APPLE8_DECISION_OWNERSHIP_INTERPRETATION_20260720.md),
@@ -1265,21 +1285,24 @@ O1C-0017 result boundary are documented in
 | Residual-polarity staging | — | 2026-07-20 02:55 | O1C-0077 one-call two-row upstream polarity overlay | terminal: four staged returns activate and change trace; decisions -61.36%, minimum UB moves closer to threshold, but zero prune/emission/model | complete |
 | Rescue-prefix preemption | — | 2026-07-20 06:55 | O1C-0078 one-call 11-row prefix before inherited reader | operational terminal: all prefix rows consumed and parent reached, then the returned-ever/opposite-sign invariant throws before stdout/native result; no science classification | complete |
 | Central decision ownership | — | 2026-07-20 08:57 | O1C-0079 one-call typed decision-instance arbiter plus unchanged prefix | corrected terminal: 549 proposals/bindings/releases, two unobserved tokens safely followed by foreign opposite-sign assignments; all 11 prefix rows consumed, 9 bound/released, 0 rescue skips; operational and qualified-prefix activation true, 0 science gain | complete |
+| Exact one-bit child bounds | — | 2026-07-20 12:46 | O1C-0080 one-call same-parent `U0/U1` reader on fresh Page 7 | terminal: 285,725 probes / 571,450 child bounds, all `NEITHER_PRUNABLE`; minimum `18.464862193097684`, margin `+3.8586833952047215`; exact probe operation true, crossing/science false | complete |
+| Centered bound-differential stream | — | 2026-07-20 13:02 | O1C-0081 target-free offline census over the sealed 16,384-event prefix | mechanism hit: raw 95.2209% polarity collapses to balanced centered signs; persistent var185 priority 91.7528 vs permuted max 3.0907; temporal correlation 0.8538; 28,672 B O(256), no bit/key/science claim | complete |
+| Live centered proof-mining reader | — | 2026-07-20 13:04 | O1C-0082 target-free state/operator fixtures before fresh Page 8 | active: priority selects coordinate; current lower-UB sign is failure-first action only, never key belief | active |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Freeze the target-free Page-7 advance from the unchanged 550-clause
-   attic after real Page-6 activation: lineage 20,
-   `fully_emitted_union_indices=()`, required identity-bound empty rollover with
-   zero clauses/occurrences/emissions, provisional active SHA `92b6e547…` and
-   selection SHA `77681939…`.
-2. Specify and validate one exact same-parent child-bound reader. Compute
-   `U0/U1`, remain inert unless `min(U0,U1)<tau`, and require an asymmetric
-   crossing or both children below threshold before intervention.
-3. Hold public inputs, scorer, K256 and 128 conflicts fixed. Do not authorize an
-   O1C-0080 call until target-free fixtures, source freeze and one-call gate are
-   complete; depth 2 is only a fallback for a measured genuine near-crossing.
+1. Implement O1C-0082's exact online parent median/MAD scratch plus the frozen
+   256-coordinate streaming bank, and prove chunk/order/state accounting against
+   O1C-0081's offline census without solver work.
+2. Select only coordinates meeting the frozen persistence rule and rank by the
+   centered robust priority. Map the selected coordinate's current lower-UB
+   child to a failure-first proof-mining action while keeping the belief field
+   disabled.
+3. Compose that action with typed one-shot ownership/release, then freeze one
+   Page-8/lineage-21 call under unchanged public inputs/scorer/K256/128 work.
+   Activation is not science; the gate remains prune/closure/novel clause/model
+   or attacker-valid entropy/domain gain.
 4. Keep O1C-0056 fixed negative clause-role credit closed. If the causal branch
    resumes later, condition the unique exact role on outcome/utility; do not tune
    sign, scale, groups or cap.
@@ -1299,6 +1322,8 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0081` | 2026-07-20 13:02 | Exact child-bound differentials retain coordinate-conditioned structure after parent common mode is removed | On the exact retained 16,384-event / 74-parent prefix, raw positive is 15,601 (95.2209%); median centering yields 8,172 positive / 8,172 negative / 40 zero. With frozen persistence >=37 parents, var185 scores 91.7528 at stability 1.0; within-parent permuted max is 3.0907/correlation -0.0284, temporal correlation 0.8538/sign agreement 81.11% | `TARGET_FREE_BOUND_DIFFERENTIAL_MECHANISM_CENSUS`; query-priority mechanism evidence yes, belief/key-bit/science/recovery claims no | zero solver/target/truth/reveal/refit/MPS/GPU; 0.23 s verification; 169,885,696 B max RSS; packed live state 28,672 B | Build one live parent-centered failure-first proof-mining reader; use residual magnitude for coordinate priority and current lower-UB sign only as action objective, never key belief | [JSON](research/O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.json) · [Report](research/O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.md) · [Capsule](runs/20260720_130241_O1C-0081_bound-differential-census-v1/RUN.md) |
+| `O1C-0080` | 2026-07-20 12:46 | Exact same-parent evaluation of every eligible key bit can expose an asymmetric threshold crossing or two-child closure hidden by whole-trail steering | Fresh Page 7 / lineage 20 returns exact `128/128/128`; 1,587 parents, 285,725 probes, 571,450 child UBs, all `NEITHER_PRUNABLE`; minimum witness variable 115 has `U0/U1=19.10564473318062/18.464862193097684`, still `3.8586833952047215` above tau; 0 interventions/prunes/clauses/models/key | `BOUND_PROBE_OPERATION_ONLY`; exact probe operation yes, crossing activation no, science gain no | one call; 48.718023834 s total; 6.803373 s native wall; 7.618434 s native CPU; 467,042,304 B native peak; 582,172,672 B runner peak; 14,998,858 B persistent | Close hard one-bit crossing and depth-2 rescue. The retained recorded prefix exposes a common-mode-biased signed child differential; measure centered O(256) residual streaming before any fresh Page-8 operator | [Result](research/O1C0080_APPLE8_BOUND_CROSSING_RESULT_20260720.json) · [Interpretation](research/O1C0080_APPLE8_BOUND_CROSSING_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_124516_O1C-0080_apple8-bound-crossing-v1/RUN.md) |
 | `O1C-0079` | 2026-07-20 08:57 | Explicit decision-instance ownership lets the unchanged 11-row prefix compose safely and measurably | Page 6 / lineage 19 returns `128/128/128`; proposals=bindings=releases `549`, confirmed `547`, unobserved `2`, live/omitted `0`; tokens 75/110 retire `-108/-112` before later `+108/+112` are foreign token 0; prefix `11` consumed / `9` bound-released / `2` preassigned falsifying / `0` rescue skips; minimum UB `18.742222666780805`, 0 prunes/clauses/models/key | Corrected `DECISION_OWNERSHIP_QUALIFIED_PREFIX_MECHANISM_ONLY`; operational yes, qualified prefix yes, science no. Raw no-activation label is preserved and corrected by zero-call erratum | one call; 40.11452975 s runner; 176,794 us native wall; 994,976 us native CPU; 390,922,240 B native peak; 330,285,056 B runner peak; 80.96 s complete command; 0 swaps | Stop prefix activation without science gain. Never replay Page 6/lineage 19; next design is exact same-parent one-bit bound crossing on provisional Page 7 | [Raw result](research/O1C0079_APPLE8_DECISION_OWNERSHIP_RESULT_20260720.json) · [Erratum](research/O1C0079_APPLE8_DECISION_OWNERSHIP_ZERO_CALL_ERRATUM_20260720.json) · [Interpretation](research/O1C0079_APPLE8_DECISION_OWNERSHIP_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_085738_O1C-0079_apple8-decision-ownership-v1/RUN.md) |
 | `O1C-0078` | 2026-07-20 06:55 | The complete 11-row falsifying prefix can preempt propagation before the inherited reader | Local 0/lineage 18 consumes Page 5 and requests 128 conflicts; exact throw path proves all 11 rows consumed and parent handoff reached, then `backtrack-release guided assignment sign differs`; actual/billed unknown/`null`, stdout empty, no native result or activation/trace/bound telemetry | `RESCUE_PREFIX_PREEMPTION_OPERATIONAL_TERMINAL`; neither scientific negative nor gain | one call; 31.2118055 s runner; 29.3178874 s native failure; 404,815,872 B native/watchdog peak; 381,730,816 B runner peak; 12,137,843 B persistent | Strongest inference: proposal history is not current assignment ownership. Burn Page 5; synthesize an explicit ownership arbiter, then use fresh Page 6 / lineage 19 without importing output | [Result](research/O1C0078_APPLE8_RESCUE_PREFIX_PREEMPTION_RESULT_20260720.json) · [Interpretation](research/O1C0078_APPLE8_RESCUE_PREFIX_PREEMPTION_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_065505_O1C-0078_apple8-rescue-prefix-preemption-v1/RUN.md) |
 | `O1C-0077` | 2026-07-20 02:55 | Staging the two ranked rescue originals as falsifying before propagation redirects the nearest-clause trajectory | Four exact events at callbacks 225/227/574/576; trace `f64441a2…→706ad4fa…`; decisions `2,288→884`, propagations `2,890,144→4,754,555`, minimum UB `14.67138759145431→14.656823218163392`; 0 prunes/emissions/novel/model | `RESIDUAL_POLARITY_STAGING_MECHANISM_ONLY`; activation yes, science gain no | one call; 48.235246 s runner; 0.838922 s native wall; 423,968,768 B native peak; 15,291,549 B persistent | Close the two-row operator without retry; preempt the complete sealed 11-row rescue set once on fresh Page 5 | [Result](research/O1C0077_APPLE8_RESIDUAL_POLARITY_STAGING_RESULT_20260720.json) · [Interpretation](research/O1C0077_APPLE8_RESIDUAL_POLARITY_STAGING_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_025550_O1C-0077_apple8-residual-polarity-staging-v1/RUN.md) |
@@ -1382,6 +1407,16 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0081` canonical census JSON | `666854f8ba323fcbf100d86457fbc4eaa3cb3b6bab12d9e47982f4b28a86a389` |
+| `O1C-0081` human report | `a9aff43a282411ff46fd660419b0ef8304f70db955880c930967a5f79f200f97` |
+| `O1C-0081` capsule artifact manifest | `f0ef6f75fd945958ce7e57113d9a95b177b90085e9fb3813add968af0e49e052` |
+| `O1C-0081` analyzer / focused tests | `f5bec5ac7d20bec4a9a27fbee49c04c9344a0a0bbd1aa9f178ae47766906926b` / `ebe662e264d08eb16385bfc2a496107ce73b719548fa4549ef536512bba76b6d` |
+| `O1C-0080` capsule artifact manifest | `400b79b01ed54addbd99db53b2cf5ad36afd388a18d1435dcd7ef850c8532c44` |
+| `O1C-0080` authoritative result | `e2ceb375c2fb83469db8eb537459b223d8e7f63e4bb58882882f8cdd8bdb22a5` |
+| `O1C-0080` capsule `RUN.md` | `8e71c9e17959e831b32804dc1535a2cca44dbb4fc050023de62ccfb678a4f99c` |
+| `O1C-0080` source / execution freeze | `0c18e064ae792ee719db34ff702f249994f4aab4` / `9469c988375673c901be453e199078ad61c42c1c` |
+| `O1C-0080` full probe trace | `c6f6c2a9ecf17bdd8f74891f5ffc7fba7f9658c4c95310d0c2f00f8b65093f5c` |
+| `O1C-0080` production native binary | `28842de5764f472b1c04111f2200085889971b16405522b041a4ea4a38bf8597` |
 | `O1C-0079` capsule artifact manifest | `f7cd0de5ba58a59de913db88ba3e9ce2ae1b486a4e922700f65dff3aa5d39475` |
 | `O1C-0079` immutable raw result | `ce68d10eed83d9a0d90518c579f4e1841cd8a6791e4cd975d0d27a64bcc6251e` |
 | `O1C-0079` zero-call erratum | `b5c2465a532486aaf68a6a622f2312de29ec8a52ea6cea70c9d9c36f19985fa9` |
@@ -1644,6 +1679,18 @@ O1C-0017 result boundary are documented in
 ## Resume here
 
 Resume from the authoritative
+[O1C-0081 bound-differential census](research/O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.json),
+its
+[human report](research/O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.md),
+the zero-solver
+[O1C-0081 capsule](runs/20260720_130241_O1C-0081_bound-differential-census-v1/RUN.md),
+the prior
+[O1C-0080 exact-bound result](research/O1C0080_APPLE8_BOUND_CROSSING_RESULT_20260720.json),
+its
+[interpretation](research/O1C0080_APPLE8_BOUND_CROSSING_INTERPRETATION_20260720.md),
+the sealed
+[O1C-0080 capsule](runs/20260720_124516_O1C-0080_apple8-bound-crossing-v1/RUN.md),
+the prior
 [O1C-0079 raw decision-ownership result](research/O1C0079_APPLE8_DECISION_OWNERSHIP_RESULT_20260720.json),
 the additive
 [zero-call erratum](research/O1C0079_APPLE8_DECISION_OWNERSHIP_ZERO_CALL_ERRATUM_20260720.json),
@@ -1744,10 +1791,22 @@ is the strongest code-path inference, not a reconstructed trace. Burn lineage
 fresh Page 6 / lineage 19 once. The archived evidence proves total ownership and
 qualified prefix activation; a raw substring-classifier false negative is
 corrected additively with zero calls. The call still records no prune, clause,
-model, key or sub-256 progress. Burn Page 6 / lineage 19. Resume with target-free
-O1C-0080 design only: provisional Page 7 `92b6e547…`, exact same-parent `U0/U1`,
-and intervention solely on a certified crossing or two-child closure. No call is
-authorized before that design and gate are frozen.
+model, key or sub-256 progress. Burn Page 6 / lineage 19. O1C-0080 then consumes
+fresh Page 7 / lineage 20 exactly once at
+`128/128/128`. Its same-parent reader performs `285,725` probes / `571,450`
+exact child evaluations without mutating the search state. Every probe is
+`NEITHER_PRUNABLE`; minimum child UB `18.464862193097684` remains
+`3.8586833952047215` above tau, so there is no crossing, prune, closure, clause,
+model or key. Burn Page 7 / lineage 20 and close the hard one-bit/depth-2 line.
+O1C-0081 then analyzes the sealed `16,384` recorded events target-free with zero
+solver calls. Removing parent medians collapses raw 95.2209% polarity to balanced
+signs while preserving a 91.7528 query-priority peak versus permuted maximum
+3.0907 and temporal correlation 0.8538. The frozen persistence gate is at least
+37/74 parents; sparse spikes are excluded. This is a `28,672 B` O(256)
+query-priority mechanism, not key-bit orientation or recovery. Resume with
+O1C-0082 target-free fixtures: live centered state selects the coordinate and
+the current lower-UB child supplies only a failure-first/proof-mining action.
+Compose typed one-shot ownership before one frozen fresh Page-8/lineage-21 gate.
 Do not enlarge the decoy panel or repeat O1C-0058's attended-base positive-delta
 rule.
 
