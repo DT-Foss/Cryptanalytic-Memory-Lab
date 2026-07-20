@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-20T20:06:56+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-20T20:17:16+02:00 (`Europe/Berlin`)
 - **Current truth:** O1C-0090 is terminal
   `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. Its sole Page-13 /
   lineage-26 call completes at requested/actual/billed `128/46/46` and fully
@@ -1376,9 +1376,10 @@ O1C-0017 result boundary are documented in
 1. Ingest all 260 O1C-0090 clauses into the immutable attic, bind the evolved
    `715bfbc2…` bank, and derive fresh Page 14 / lineage 27 at active limit 252
    with exact 260-clause headroom and zero solver work.
-2. Extend the burst audit through O1C-0090, then seal one Page-14 experiment.
-   Unchanged continuation remains the default unless the exact geometry says
-   otherwise; Page-8 through Page-13 replay and cap/RAM growth stay closed.
+2. The extended burst audit selects one unchanged Page-14 experiment: all 260
+   O1C-0090 clauses are new and non-subsumed, conflict efficiency rises and the
+   endpoint is capacity-censored. Page-8 through Page-13 replay and cap/RAM
+   growth stay closed.
 3. After one focused gate and one real preflight, authorize exactly one fresh
    lineage-27 call. Pivot residency alone only on zero global novelty and no
    stronger output; keep action logic unchanged and do not sweep.
