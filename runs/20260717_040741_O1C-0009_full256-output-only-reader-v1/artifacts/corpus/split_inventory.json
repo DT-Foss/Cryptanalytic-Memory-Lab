@@ -1,0 +1,51 @@
+{
+  "CALIBRATION": {
+    "public_commitment_root": "9913047b634d3490e1db4b29b2adf9957cc4dffbb6625b6a7073295d5f3880ee",
+    "structured_targets": 0,
+    "target_ids_sha256": "f0d0bcff909467df69648617f09fac770e1de438b6bf6c3a9a45c8464265f302",
+    "targets": 64,
+    "teacher_commitment_root": "e2161c9f7f4f22ba3c773a1f2e114b4b6fba3598b05191327e8bc733c9c03c8e",
+    "uniform_targets": 64
+  },
+  "DEVELOPMENT": {
+    "keys_in_publications": false,
+    "predictions_frozen_before_reveal": true,
+    "public_view_root": "0d6f06dbc64393806b9e203e970282ea4febbddf27b6f21ec34e2c006c572feb",
+    "publication_root": "026ac55756d0e250d4f5fa74db62a10d2bfcad0ca34bf8d33da1a2e596bf496b",
+    "reveal_key_commitment_root": "d280105e64fb355d3f9fbda098d0491c6b05a5a2738584a48e0cb7ce02be01c7",
+    "reveal_receipt": {
+      "frozen_prediction_index_sha256": "dcc551e5e725cb89dfcd04ba2f2137fafe04419797fd14305f69d7e0cbd2cbf5",
+      "frozen_prediction_sha256": "8431b3c19a697ce0d48e66d29b199ec6d199670870d40231564c9516e3c34ad2",
+      "predictions_frozen_before_reveal": true,
+      "reveal_artifact_sha256": "a5dc9f31202941a079ea1227bfd30d73770a459a705125b2fb3680431db52790",
+      "reveal_count": 128,
+      "reveal_root": "f04450dd5dda4c331f8214869d70b505aed9596614513b9b966ed9d1a7ce81cf",
+      "schema": "o1-256-development-panel-reveal-receipt-v1"
+    },
+    "structured_targets": 0,
+    "target_ids_sha256": "df4f3ff1dd1c1c031dfff0f672da9a86246776f7c6cf82d78ec359ea5627f897",
+    "target_traces_in_publications": false,
+    "targets": 128,
+    "uniform_targets": 128
+  },
+  "TRAIN": {
+    "public_commitment_root": "1be13f9092cc642f746979826b3ae872a4fe4eb10e2de927b63fd39290eb4cc8",
+    "structured_targets": 256,
+    "target_ids_sha256": "79900fde15a4582bd13ed05dab0b93822f1806516c4347d7e0ef23225692c7fb",
+    "targets": 512,
+    "teacher_commitment_root": "acdfeb4e0a0164822dd91d3956abd212f609a5583a7cb8f4a40561580d3a7298",
+    "uniform_targets": 256
+  },
+  "all_keys_unique": true,
+  "candidate_training": {
+    "deployment_input_sha256": "e16cc54c2935689837770d1789a7072442b916c71c36bb592a4898a89ed9d849",
+    "examples": 6144,
+    "mapped_dimension": 288,
+    "raw_candidate_features_retained": false,
+    "target_key_used_for_candidate_generation": false,
+    "teacher_correction_sha256": "ba58835b2cf12190c265b0c2e2336a6dffcaa69d53a2f614f8d75e7a7b5834db"
+  },
+  "direct_training_feature_sha256": "7495341392d67f3e49fe78f6245e8ad4b4c14cbc83927b93cfd6d973b1b61306",
+  "direct_training_label_sha256": "f47332d19a057d62692219ea9e5912fed5e96baa95b6685f331480152f649d15",
+  "full_width_only": true
+}

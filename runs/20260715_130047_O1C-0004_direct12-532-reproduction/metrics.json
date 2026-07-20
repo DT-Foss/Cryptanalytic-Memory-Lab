@@ -1,0 +1,73 @@
+{
+  "attempt_id": "O1C-0004",
+  "claim_level": "VALIDATION",
+  "elapsed_seconds": 5.986125,
+  "ended_at": "2026-07-15T13:00:53.011035+02:00",
+  "next_action": "Freeze label-free Walsh/O1 spectral banks on the A348 score-field geometry, persist complete A349 compressed orders, and compare field/order fidelity without opening any A349 outcome.",
+  "schema": "o1c-run-metrics-v1",
+  "started_at": "2026-07-15T13:00:47.024910+02:00",
+  "status": "completed",
+  "values": {
+    "a348": {
+      "attempt_id": "A348",
+      "calibration_prefix12": 2990,
+      "first8": [
+        3895,
+        1629,
+        2941,
+        3927,
+        3871,
+        3725,
+        1697,
+        1537
+      ],
+      "log2_rank_gain": 3.780831479537838,
+      "raw_order_uint16be_sha256": "94d7d510f90da9d041807d43a18d469c800e22d5e3c4e2106522ff2b715dd035",
+      "raw_rank_one_based": 375,
+      "raw_score_sha256": "7aca086229e8a72fa4acfc8af11942ea9e728b4e3a0b7a3682fd9e5dc04726ce",
+      "slice_z_order_uint16be_sha256": "922810f3695208a5b5ddeb612a588050cef59596450c5cd63aef48d2687db563",
+      "slice_z_rank_one_based": 298,
+      "slice_z_score_sha256": "81e489f95d93f3b950aad152bcab0abab193d63d099f74f9f08aa00797b32b5f",
+      "target_labels_used": 0,
+      "truth_source_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812"
+    },
+    "a349": {
+      "attempt_id": "A349",
+      "first8": [
+        3300,
+        1292,
+        3694,
+        158,
+        3628,
+        4045,
+        264,
+        3046
+      ],
+      "order_commitment_sha256": "9b11478cd8ac38459ad2f8e1692fecdc5d2f31849408aaeaf42ebc80aa1d57af",
+      "raw_order_uint16be_sha256": "2b971b398cbef67e6aeec035796e6ad4ade59abf0c7d56e1240c56ec6f2f30cb",
+      "raw_score_sha256": "f913ace4b3739cd9c761adb4731d55f20e7010aef7ad52eb09bc5da0d12ce58e",
+      "reference_order_vector_exact": true,
+      "slice_z_order_uint16be_sha256": "441c6af3d9a2a32e1a61f0d50804a1ecbf2363517a7b570c408a09a15fd1bbaa",
+      "slice_z_score_sha256": "075dd9a51afadbeba7c1012ab37aab9314e1c47589d01139291d567ecfa0a529",
+      "target_label_available": false,
+      "target_labels_used": 0
+    },
+    "cells": 13312,
+    "dataset_sha256": "6d645aa7e06fbc7e746a4e6bfe410cbc1b845357c54740bb6fd00c2bbd6a32ff",
+    "gpu_seconds": 0,
+    "labels": {
+      "A272_training_labels_read": 0,
+      "A348_calibration_labels_read_after_freeze": 1,
+      "A348_calibration_labels_read_before_freeze": 0,
+      "A349_labels_read": 0
+    },
+    "measurement_shards": 52,
+    "model_sha256": "b096c08616a81712da881862b65f0c95388e4db3cf6b8e462bf7c2a072cb0da4",
+    "new_solver_calls": 0,
+    "reader_contract_sha256": "a972842a6f4e0f10d807c4bdecc817c7f376ccba89945aeeb8be89dc906f9356",
+    "schema": "o1-crypto-direct12-reproduction-metrics-v1",
+    "solver_stages_reused": 53248,
+    "source_members": 71,
+    "success_gate_passed": true
+  }
+}

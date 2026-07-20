@@ -1,0 +1,158 @@
+# O1C Run O1C-0016
+
+- Schema: `o1c-run-capsule-v1`
+- Status: `completed`
+- Claim level: `VALIDATION`
+- Git commit: `30dfd1dfe29afd2ad89c8508e5c4a75da065a5e3`
+- Started (Europe/Berlin): `2026-07-17T11:53:25.180670+02:00`
+- Ended (Europe/Berlin): `2026-07-17T12:20:25.736981+02:00`
+- Elapsed seconds: `1620.556311`
+- Command: `o1-crypto-lab full256-polyphase-replication-v2 --config '/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/configs/full256_polyphase_replication_v2.json'`
+
+## Hypothesis
+
+A preregistered equal-logit ensemble of the exact O1C-0013 h96 reader and a deterministic h65 reader reconstructed only from O1C-0013 BUILD/CAL can remove reproducible code length from 32 fresh broker-sealed standard twenty-round ChaCha20 keys with all 256 bits unknown and only public counter, nonce and one 512-bit output block visible.
+
+## Prediction
+
+Exactly 32 fresh targets and the exact three public-evidence controls reuse one unchanged 512-branch causal probe each. The h96+h65 ensemble and its arm-matched shuffled-label control are frozen before fresh entropy; all 32 predictions are frozen before any reveal. Directional evidence requires positive ensemble aggregate compression, positive exact-h96 baseline compression, at least 18 positive ensemble targets and a positive matched-control margin; strong evidence additionally requires both conditional z scores at least 1.6448536269514722, at least 22 positive targets and positive leave-one-target-out compression. Polyphase architecture promotion is reported separately and requires both positive ensemble-minus-h96 mean compression and a paired conditional z score of at least 1.6448536269514722.
+
+## Controls
+
+- O1C-0013 manifest, result, evaluation, reader freeze, BUILD/CAL tensors, BUILD/CAL labels, BUILD/CAL index and exact h96 binary are hash-pinned before and after execution
+- O1C-0014 contributes design lineage through its manifest and result-file hashes only; none of its features, labels, targets or fitted values are read
+- h65 and both arm-matched shuffled readers are deterministically reconstructed from only the pinned four BUILD and two CAL targets over the exact O1C-0013 arm-specific grid
+- the primary h96 binary is the exact byte-roundtripped O1C-0013 reader; the reconstructed h96 candidate must reproduce its weights exactly
+- the ensemble is fixed to logit equals 0.5 times h96 plus 0.5 times h65 and exposes no target-time fit or selection path
+- the legacy global O1C-0013 shuffled reader is retained as provenance only and is never substituted for the arm-matched ensemble control
+- the protocol freeze is persisted before exactly 32 fresh target entropy calls
+- all 32 factual prediction sets and all three controls are persisted before the first reveal
+- assumption-swap logits negate and probabilities complement exactly
+- conditional-uniform, paired matched-control, component, robustness, byte, 16-bit, million-decoy and exact-verification metrics are all reported
+- no target key or target internal-round state enters any pre-reveal artifact
+- no sibling reads or writes and no MPS or GPU calls
+- O1C-0015 failed runtime manifest 326bc30a1499f6479d306df43b17ec390c020832bb5d1816fa8ab9f7f9660314 is pinned as runtime-only provenance used solely to widen CPU, wall and RSS ceilings; no O1C-0015 public views, features, predictions or reveals are read
+
+## Budgets
+
+```json
+{
+  "maximum_cpu_seconds": 3000,
+  "maximum_fresh_random_targets": 32,
+  "maximum_gpu_calls": 0,
+  "maximum_mps_calls": 0,
+  "maximum_native_solver_branches": 17920,
+  "maximum_persistent_artifact_bytes": 24000000,
+  "maximum_resident_memory_mib": 768,
+  "maximum_sibling_reads": 0,
+  "maximum_sibling_writes": 0,
+  "maximum_wall_seconds": 3000
+}
+```
+
+## Pinned source hashes
+
+- `design_lineage_manifest`: `741718cbc6b63de24f4d9c89cd2aedc8e9779a0ebb38adc4d40666e97ce24bcf`
+- `design_lineage_result`: `01d5057577d4e69b51e7d25802e9d2dfa6e307c28a75963cce38099ac59c1c61`
+- `module_cadical_sensor`: `af24c17ae98817d6ad5d6fa30be227aecaf4be3753738bda3c34fae12948fa90`
+- `module_causal_bitfield`: `54ac8c9b78b9e3ba2aabf5676fcce730a52aee345db4713c54f9c7c054b84e8a`
+- `module_causal_orientation_reader`: `69a1ee798be631cad2295d45ee25aea3a584077451dff0d36736a1250fa1e714`
+- `module_chacha_trace`: `58b8272f2cdd6665291158cecc2456258d3cb58f2ab3970d1c4c38e749473b01`
+- `module_cli`: `62d77eecc3ddc0d42ba8ae8abbe420c44868a95c36a0588d34c4e43026655e8e`
+- `module_full256_broker`: `1929006561400bb4091b39955a4b15cc73e492ab5b0bd56788afd58e6a28ea7e`
+- `module_full256_cnf`: `76572366adbcadf1525cb25f4c84f5b78ff99be9b63acd721530e53532d9a0e0`
+- `module_full256_frozen_reader_replication`: `b03bb910dcd59adf627bfcc44fea39c21ba19429a43d0952a1e04e30b38619ef`
+- `module_full256_multikey_calibration`: `3f1c169f8189836a3ae8fc8adbe0926caaca5cb63bb873f362b76678e1fab14b`
+- `module_full256_paired_sensor`: `8117048a9ea05b138974602c26f58e69fcf51add9b22a837e4cfa0e8a9794175`
+- `module_full256_polyphase_replication`: `b6c8bddb17a795449c23edaaac5c8b7081d827242fd2646e701fd36e1ef6c04f`
+- `module_full256_probe_core`: `b49bd942d7df053c505ab23693d6e89cf25b1a9d01b7b701da22ec97086b1f32`
+- `module_living_inverse`: `16c22a9776b693c40e0d6c3a3196c73c7a4c15913bde0bdb14e8d9fc4dbe127e`
+- `module_living_inverse_corpus`: `73f722366ae1a52b4d4806fda8929bdd538edb1dcf412af157178a211df9c2ba`
+- `module_living_inverse_reader_experiment`: `b117004cbb24044c3915b7987f503996c831ff8b9c30665edf6a8f9d21776e8c`
+- `module_living_inverse_ridge`: `58455de430403efee6ab457a054483e9df92bed5d3e31e34700af68fa3ae7d45`
+- `module_run_capsule`: `13681939e0a5cd09d4f32c6d92c9a56894cfe8af90f07d5d4190c96b90a1b664`
+- `module_signed_direct_replication`: `6124c3fd073db2567105e08954bb5af7922c2eb36b7c6421f9becd750be933c5`
+- `native_cadical_header`: `b7111690c61935b9c096d3701be59b3c3d26c555eab8e070f19eb2a97dc5d38c`
+- `native_cadical_library`: `44cae3728485b4fd5736ce7cb986021236652daeda9cca227a2c4ac17d3a8a7f`
+- `native_pair_sensor`: `67c094e069e8884e4761f82d2d797b594ef326a6ddcf0243dacd8019ae235669`
+- `native_tracer_header`: `36e1983eb865800aec1c042c4df4abfbcbc8ced3c82e2bf4baad340639c887fe`
+- `polyphase_replication_config`: `054e8b05c7824cf4c47f509d6a4977e3feac7e5df5ce006f55948b93554daaa6`
+- `pyproject`: `0248ec0fe7d42390b62e358fdd52f63d64f7d4e699f0f41ef77c569699716bd0`
+- `source_build_cal_features`: `43768789558a9c064c862db81437ea8a17274fea88f46fe5ba88ec70fb7d8227`
+- `source_build_cal_index`: `78d6fb8bbe586dfb71cc6acd52e167d28908ee2064b5fe0884dfb4de99dd1654`
+- `source_build_cal_labels`: `8541cd6dbb9f57c344c22014d58c037f101be9534936ed671b28b48d457ad274`
+- `source_evaluation`: `869020e3393b60dfb1c312bb6943b15e9601eb67c6f59344161d9a5c4b95be22`
+- `source_foundation_manifest`: `b7a07e6461805946897adbfb90da9e9f55ff1074e9aa1343f602eecb0645b7b4`
+- `source_foundation_semantic_map`: `7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318`
+- `source_foundation_template`: `c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52`
+- `source_manifest`: `a0d4df5c01f7de3c65a429f9589e46d784f802bc1f8e0aa90dffb011be46922c`
+- `source_primary_reader`: `796e79ec932b990a59ecbc34216c4878b9279bae3bb136fe0832e580bcb2e9f8`
+- `source_reader_freeze`: `f8c99cbb376a2d9adc04ac3cc6dcda85b91ea49765808c4ce33b0e62f236bbbf`
+- `source_result`: `38674b9c49e2463471a35fddb8d0b7d2218567cab7251e8a275e74ccace156a5`
+- `source_shuffled_reader`: `87bd132c44be5c788444088465780f227315dddde84ac42f5474092c664e19d0`
+
+## Metrics
+
+```json
+{
+  "architecture_promotion_classification": "DO_NOT_PROMOTE",
+  "architecture_promotion_passed": false,
+  "budget_checks": {
+    "causal_state": true,
+    "cpu": true,
+    "fresh_targets": true,
+    "gpu": true,
+    "live_target_state": true,
+    "mps": true,
+    "native_branches": true,
+    "persistent_artifacts": true,
+    "resident_memory": true,
+    "sibling_reads": true,
+    "sibling_writes": true,
+    "wall": true
+  },
+  "conditional_null_z_score": -0.41656149717908536,
+  "cpu_seconds": 1972.624545,
+  "ensemble_minus_h96_conditional_z_score": 1.0044702096950207,
+  "failure_reasons": [],
+  "fresh_random_targets": 32,
+  "gpu_calls": 0,
+  "h96_baseline_compression_bits_per_key": -0.17499999592803306,
+  "live_target_state_bytes": 67584,
+  "minimum_million_decoy_rank": 45147,
+  "module_budgeted_cpu_seconds": 1972.513435,
+  "module_wall_seconds": 1620.3970307502896,
+  "mps_calls": 0,
+  "native_cpu_seconds": 470.98330300000003,
+  "native_solver_branches": 17920,
+  "outcome_failed": false,
+  "outcome_parent_cpu_seconds": 1501.641242,
+  "paired_conditional_null_z_score": -0.5553578574448254,
+  "peak_rss_bytes": 434962432,
+  "peak_rss_mib": 414.8125,
+  "persisted_artifact_count": 671,
+  "persistent_artifact_bytes": 6768561,
+  "planned_native_solver_branches": 17920,
+  "planned_sweeps": 35,
+  "positive_target_count": 11,
+  "prediction_set_persisted_before_reveal": true,
+  "protocol_freeze_persisted_before_fresh_entropy": true,
+  "replication_classification": "NOT_REPLICATED",
+  "schema": "o1-256-polyphase-replication-metrics-v1",
+  "sealed_compression_bits_per_key": -0.0782490970972276,
+  "sealed_correct_bits": 4093,
+  "sealed_exact_keys": 0,
+  "sealed_target_reveals": 32,
+  "sealed_targets": 32,
+  "sealed_total_bits": 8192,
+  "sibling_reads": 0,
+  "sibling_writes": 0,
+  "success_gate_passed": true,
+  "unknown_target_key_bits": 256,
+  "wall_seconds": 1620.5370079581626
+}
+```
+
+## Next highest-ROI action
+
+If strong replication and the separate PROMOTE_POLYPHASE gate both pass, preserve all four exact reader binaries and advance the ensemble posterior into the bounded beam and causal Attic. If replication passes but PROMOTE_POLYPHASE fails, retain exact h96 as primary. If only directional evidence passes, repeat the immutable freeze on another 32 sealed keys. Otherwise retain component and coordinate residuals and replace one public causal sensor family. Never reuse any revealed O1C-0015 or O1C-0016 target for selection or efficacy measurement.

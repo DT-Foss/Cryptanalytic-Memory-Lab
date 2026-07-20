@@ -1,0 +1,1 @@
+nice -n 10 env PYTHONPATH=src python3 -m o1_crypto_lab.o1c75_apple8_causal_residency_stream_run run --config configs/o1c75_apple8_causal_residency_stream_v1.json

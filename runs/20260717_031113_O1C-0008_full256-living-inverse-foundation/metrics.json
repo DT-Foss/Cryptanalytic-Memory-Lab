@@ -1,0 +1,28 @@
+{
+  "attempt_id": "O1C-0008",
+  "claim_level": "SMOKE",
+  "elapsed_seconds": 0.996414,
+  "ended_at": "2026-07-17T03:11:14.504030+02:00",
+  "next_action": "Train O1C-0009 output-only, candidate-relative and teacher-distilled full-256 readers on the frozen deployment schema, then compare uniform development-key NLL and controls before sealing a target.",
+  "schema": "o1c-run-metrics-v1",
+  "started_at": "2026-07-17T03:11:13.507616+02:00",
+  "status": "completed",
+  "values": {
+    "build_targets": 4,
+    "decoy_count": 1000000,
+    "deployment_contrasts": 72,
+    "deployment_feature_dimension": 2576,
+    "development_targets": 2,
+    "fresh_target_revealed": false,
+    "oracle_ceiling_key_nll_bits": 3.7118898419494637,
+    "random_baseline_key_nll_bits": 256.0,
+    "result_sha256": "14bfa1dd9e4593cac223a779562ff8b591bf88c485486814be62e6f73baa79a2",
+    "schema": "o1-256-living-inverse-foundation-metrics-v1",
+    "scientific_inverse_signal_claimed": false,
+    "sibling_reads": 0,
+    "sibling_writes": 0,
+    "success_gate_passed": true,
+    "target_trace_fields_in_deployment": 0,
+    "unknown_target_key_bits": 256
+  }
+}

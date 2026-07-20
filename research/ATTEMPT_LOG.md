@@ -3217,3 +3217,73 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `5d358863162a64f27d215fc4b91258c73194d2458f89d9dd7495bb1e05e50a69`.
   Capsule `result.json` is byte-identical to the published result and all
   `33/33` manifest entries validate.
+
+## O1C-0079 — APPLE8 central decision ownership
+
+- **Started/recorded:** 2026-07-20T08:57:38+02:00 /
+  2026-07-20T08:58:18+02:00.
+- **Execution commit:** `8b058cbfe62d93d0263a275f4081982f382a4355`.
+- **Protocol:** after zero-science ownership fixtures and fresh Page-6
+  reprojection, compose prefix, staged rank and live frontier under one typed
+  level-bound decision owner. Consume local 0 / lineage 19 once at 128 requested
+  conflicts, with unchanged public inputs, scorer, threshold, K256, seed and
+  prefix; no retry, truth, reveal, refit, sweep, MPS or GPU.
+- **Corrected result:**
+  `DECISION_OWNERSHIP_QUALIFIED_PREFIX_MECHANISM_ONLY`; stop
+  `qualified-prefix-activation-without-science-gain`. Operational ownership and
+  qualified prefix activation pass; science gain fails.
+- **Ownership evidence:** `549` proposals = `549` level bindings = `549`
+  releases; `547` are confirmed and two are level-bound unobserved releases.
+  Tokens 75/110 retire `-108/-112`; later `+108/+112` observations are foreign
+  token 0. There are `9,966` foreign assignments, zero opposite assignments,
+  zero live tokens and zero omitted events. Rank original/contrast each account
+  for `254` releases; frontier initial/contrast each account for `16`.
+- **Prefix evidence:** all 11 rows are consumed before the first non-prefix
+  decision; nine bind and release, two are preassigned falsifying, zero are
+  skipped as rescue. The central reader makes `1,587` callbacks, `549` nonzero
+  and `1,038` zero. The returned trace differs from O1C-0077.
+- **Science boundary:** minimum UB `18.742222666780805` is
+  `4.136043868887843` above `tau=14.606178797892962`. Safe prunes, novel
+  clauses, complete models, keys and other sub-256 progress are all zero.
+  Decisions move `884→1,587` and propagations `4,754,555→468,611` (`-90.14%`)
+  versus O1C-0077, but successive pages make those whole-call differences
+  mechanism telemetry rather than a same-input science effect. O1C-0068 is
+  untouched.
+- **Work/resources:** exact requested/actual/billed conflicts `128/128/128`;
+  native `176,794 us` wall / `994,976 us` CPU / `390,922,240 B` peak; runner
+  `40.11452975 s` / `330,285,056 B` peak; complete command including preflight
+  `80.96 s`; zero swaps.
+- **Decision:** never retry Page 6 or lineage 19 and stop the qualified-prefix
+  path without a science gain. The next design is O1C-0080 exact same-parent
+  one-bit `U0/U1` crossing on fresh Page 7; no call is authorized yet.
+- **Artifacts:** immutable raw
+  [`result`](O1C0079_APPLE8_DECISION_OWNERSHIP_RESULT_20260720.json), SHA-256
+  `ce68d10eed83d9a0d90518c579f4e1841cd8a6791e4cd975d0d27a64bcc6251e`;
+  [`zero-call erratum`](O1C0079_APPLE8_DECISION_OWNERSHIP_ZERO_CALL_ERRATUM_20260720.json);
+  [`interpretation`](O1C0079_APPLE8_DECISION_OWNERSHIP_INTERPRETATION_20260720.md);
+  sealed
+  [`capsule`](../runs/20260720_085738_O1C-0079_apple8-decision-ownership-v1/RUN.md),
+  artifact-manifest SHA-256
+  `f7cd0de5ba58a59de913db88ba3e9ce2ae1b486a4e922700f65dff3aa5d39475`.
+
+## 2026-07-20 — O1C-0079 publication-classification correction (non-attempt)
+
+- **Defect:** the archived validator searched all serialized native text for
+  `returned-ever`. It matched the positive descriptor
+  `origin-row-level-token;never-returned-ever-plus-variable-sign`, set
+  `old_returned_ever_runtime_absent=false`, and emitted raw classification
+  `DECISION_OWNERSHIP_NO_ACTIVATION_NO_GAIN` despite complete positive ownership
+  evidence.
+- **Fix:** corrected validator commit
+  `665ea8260ae7127baabc83af2fe208080f6f58f9` checks native/central parent schema,
+  eligibility rule and assignment-notification rule by exact identity. Applying
+  that predicate to the archived canonical evidence yields axes
+  operational=`true`, qualified-prefix=`true`, science=`false`.
+- **Archive boundary:** no result, capsule, gzip or manifest byte is modified.
+  Native gzip/uncompressed SHA-256 is `ec75d6c…` / `acda128d…`; ownership is
+  `6403d8a6…` / `87e64764…`. The correction makes zero solver, truth, reveal,
+  target, refit, MPS or GPU calls.
+- **Authority:** additive erratum SHA-256
+  `b5c2465a532486aaf68a6a622f2312de29ec8a52ea6cea70c9d9c36f19985fa9`.
+  The immutable raw result remains the historical publication output; the
+  erratum supplies its corrected classification and stop reason.

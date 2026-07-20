@@ -1,0 +1,2307 @@
+{
+  "adaptive_tournament": [
+    {
+      "arm_id": "adaptive-dc-4bit-h1",
+      "clip_count_both_fields": 0,
+      "eligible": false,
+      "fields": {
+        "A355": {
+          "arm_id": "adaptive-dc-4bit-h1",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "ebb55ebeadf3e6a5cce48c61abed661affc93f2ede9f10049f34dac9f5cff07a",
+            "mean_absolute_error": 0.0014152971242333181,
+            "rank_kendall": 0.9232381333943834,
+            "rank_spearman": 0.9924020103772437,
+            "reference_field_sha256": "3a131920733141fa00059ef27d94a26a3fc8b8868aaa6230b58ca067e1b51939",
+            "root_mean_square_error": 0.0016437284639655087,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9946693991064969,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 0.0,
+                "intersection": 0,
+                "k": 1
+              },
+              {
+                "fraction": 0.875,
+                "intersection": 7,
+                "k": 8
+              },
+              {
+                "fraction": 0.6875,
+                "intersection": 22,
+                "k": 32
+              },
+              {
+                "fraction": 0.875,
+                "intersection": 112,
+                "k": 128
+              },
+              {
+                "fraction": 0.93359375,
+                "intersection": 478,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "ea3d4c74c43ad5e50b694de832f22a0189dc4a1c6ca4976bddb58017a56e629c",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 4,
+            "maximum_serialized_logical_mechanism_state_bytes": 2894,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "fc35689f977e663cce4d83c0dd9e381165cb5da69f9acc26c93227d28eb53630",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 2596,
+            "serialized_value_payload_bytes": 2048
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 6990,
+          "order_uint16be_sha256": "fc35689f977e663cce4d83c0dd9e381165cb5da69f9acc26c93227d28eb53630",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "d0607ead88491c4d349536e4a0a8ad38d6f5d00d8df247e41f80416eedc4f875",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 6692,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "df8b7f89cb7b43f094b952809773a0d7ae9b5b78421d01a23eb591512c9329c7"
+        },
+        "A356": {
+          "arm_id": "adaptive-dc-4bit-h1",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "baa6ff89666dd4e8451acface262856d71b7926caf38789572ddca0353ec0470",
+            "mean_absolute_error": 0.0027170610724318316,
+            "rank_kendall": 0.8932143811050061,
+            "rank_spearman": 0.9850207348739048,
+            "reference_field_sha256": "7bb312b3c98176fe11550935f24261e8d51b878fb2cc3d0e35fe22e418b13b70",
+            "root_mean_square_error": 0.003238713788904204,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9904907885746425,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 0.75,
+                "intersection": 6,
+                "k": 8
+              },
+              {
+                "fraction": 0.84375,
+                "intersection": 27,
+                "k": 32
+              },
+              {
+                "fraction": 0.921875,
+                "intersection": 118,
+                "k": 128
+              },
+              {
+                "fraction": 0.923828125,
+                "intersection": 473,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "2bea95ffc8ad8cfacff7f3d126ed16084255320acc7af497e132db3535cc1962",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 4,
+            "maximum_serialized_logical_mechanism_state_bytes": 2894,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "452f82cc2c5e14f8a076474e2816a7325ba47e642f4e3609791618580db97f2a",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 2596,
+            "serialized_value_payload_bytes": 2048
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 6990,
+          "order_uint16be_sha256": "452f82cc2c5e14f8a076474e2816a7325ba47e642f4e3609791618580db97f2a",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "c37720bbb38671cb3ebe6ff4fdbf17986a0c72fe80abb37e598f5c2503a108a1",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 6692,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "df8b7f89cb7b43f094b952809773a0d7ae9b5b78421d01a23eb591512c9329c7"
+        }
+      },
+      "headroom": 1.0,
+      "input_bits": 4,
+      "maximum_serialized_logical_mechanism_state_bytes": 6990,
+      "minimum_rank_kendall": 0.8932143811050061,
+      "minimum_rank_spearman": 0.9850207348739048,
+      "minimum_top128_overlap": 0.875,
+      "minimum_top32_overlap": 0.6875,
+      "minimum_top8_overlap": 0.75,
+      "serialized_online_state_bytes": 6692,
+      "template_sha256": "df8b7f89cb7b43f094b952809773a0d7ae9b5b78421d01a23eb591512c9329c7"
+    },
+    {
+      "arm_id": "adaptive-dc-4bit-h1.125",
+      "clip_count_both_fields": 0,
+      "eligible": false,
+      "fields": {
+        "A355": {
+          "arm_id": "adaptive-dc-4bit-h1.125",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "21c1c82de08d2eea0204f0f394b4233475bbdc3dc247c05806ed595470741270",
+            "mean_absolute_error": 0.0015658574997862089,
+            "rank_kendall": 0.9126063606532356,
+            "rank_spearman": 0.9901062453787771,
+            "reference_field_sha256": "3a131920733141fa00059ef27d94a26a3fc8b8868aaa6230b58ca067e1b51939",
+            "root_mean_square_error": 0.0018284421523249474,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9934444740850445,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 0.0,
+                "intersection": 0,
+                "k": 1
+              },
+              {
+                "fraction": 0.75,
+                "intersection": 6,
+                "k": 8
+              },
+              {
+                "fraction": 0.84375,
+                "intersection": 27,
+                "k": 32
+              },
+              {
+                "fraction": 0.8515625,
+                "intersection": 109,
+                "k": 128
+              },
+              {
+                "fraction": 0.921875,
+                "intersection": 472,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "414f5dc222716541f7da360ae27d6a0019ca8089f70a591328bd39a96e0ef7ab",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 4,
+            "maximum_serialized_logical_mechanism_state_bytes": 2894,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "4d72b90b5e3d4ee21561020d3e06f883ce04e39e1b10117067e10df91ea07f65",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 2596,
+            "serialized_value_payload_bytes": 2048
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 6990,
+          "order_uint16be_sha256": "4d72b90b5e3d4ee21561020d3e06f883ce04e39e1b10117067e10df91ea07f65",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "eb79722956bdc525f467b02715b2fc0d8834bc6614c47835d28d2fbe064af221",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 6692,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "6927e092fa1c0365a3b653937d54f0a44c2f8b5ae8ac944c008d334e208da465"
+        },
+        "A356": {
+          "arm_id": "adaptive-dc-4bit-h1.125",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "e0945fce8ccd8f4bacce9cf297c4afd97d22a791130f4477f1e5042ba72ef455",
+            "mean_absolute_error": 0.003089484578118768,
+            "rank_kendall": 0.8785342261904762,
+            "rank_spearman": 0.9805669003457591,
+            "reference_field_sha256": "7bb312b3c98176fe11550935f24261e8d51b878fb2cc3d0e35fe22e418b13b70",
+            "root_mean_square_error": 0.0036679998633783253,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9877746397215174,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 0.75,
+                "intersection": 6,
+                "k": 8
+              },
+              {
+                "fraction": 0.875,
+                "intersection": 28,
+                "k": 32
+              },
+              {
+                "fraction": 0.8984375,
+                "intersection": 115,
+                "k": 128
+              },
+              {
+                "fraction": 0.88671875,
+                "intersection": 454,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "c2fa89b829f24aac595d01d1750aec924a12458bcb2aec60ef41018af69ffcfa",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 4,
+            "maximum_serialized_logical_mechanism_state_bytes": 2894,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "c7586af70fe9871279f51fb14155e23207d6aa1106f35727d57e0f6893118747",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 2596,
+            "serialized_value_payload_bytes": 2048
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 6990,
+          "order_uint16be_sha256": "c7586af70fe9871279f51fb14155e23207d6aa1106f35727d57e0f6893118747",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "7bce81814582000b504caaab8c66b40e7e6ab9c7743d94076df57de892fd9dac",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 6692,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "6927e092fa1c0365a3b653937d54f0a44c2f8b5ae8ac944c008d334e208da465"
+        }
+      },
+      "headroom": 1.125,
+      "input_bits": 4,
+      "maximum_serialized_logical_mechanism_state_bytes": 6990,
+      "minimum_rank_kendall": 0.8785342261904762,
+      "minimum_rank_spearman": 0.9805669003457591,
+      "minimum_top128_overlap": 0.8515625,
+      "minimum_top32_overlap": 0.84375,
+      "minimum_top8_overlap": 0.75,
+      "serialized_online_state_bytes": 6692,
+      "template_sha256": "6927e092fa1c0365a3b653937d54f0a44c2f8b5ae8ac944c008d334e208da465"
+    },
+    {
+      "arm_id": "adaptive-dc-4bit-h1.25",
+      "clip_count_both_fields": 0,
+      "eligible": false,
+      "fields": {
+        "A355": {
+          "arm_id": "adaptive-dc-4bit-h1.25",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "2e5c8826085d6d0be6025035fa03edba5dd595a567b3cda80338c8d80ab15dae",
+            "mean_absolute_error": 0.0018009852842069353,
+            "rank_kendall": 0.901151365995116,
+            "rank_spearman": 0.9874371435805012,
+            "reference_field_sha256": "3a131920733141fa00059ef27d94a26a3fc8b8868aaa6230b58ca067e1b51939",
+            "root_mean_square_error": 0.0020789610770394797,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9916010905415364,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 0.875,
+                "intersection": 7,
+                "k": 8
+              },
+              {
+                "fraction": 0.78125,
+                "intersection": 25,
+                "k": 32
+              },
+              {
+                "fraction": 0.765625,
+                "intersection": 98,
+                "k": 128
+              },
+              {
+                "fraction": 0.9453125,
+                "intersection": 484,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "745fcb5b621d8e50cdbe2bb902b7bfa5902aaf168de0d64dcc3c57884be19d4a",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 4,
+            "maximum_serialized_logical_mechanism_state_bytes": 2894,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "9a42de9c0681efe5e81e488c690d0b16ed2c48c6fafec27c75d13053a3b5391d",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 2596,
+            "serialized_value_payload_bytes": 2048
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 6990,
+          "order_uint16be_sha256": "9a42de9c0681efe5e81e488c690d0b16ed2c48c6fafec27c75d13053a3b5391d",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "8cc1c4066a2783555501da3e91ab2ca7c2e666e68d9b731adbf745796487c343",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 6692,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "25633915fc1d1088445a5cebae2edfe0026ff4f1078bdf13f6c570d2bae9cc51"
+        },
+        "A356": {
+          "arm_id": "adaptive-dc-4bit-h1.25",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "acf2260903e88f03d6c0bd674f366f48779c99bafff17a369981aa7993629240",
+            "mean_absolute_error": 0.003471558310627878,
+            "rank_kendall": 0.8639475541819291,
+            "rank_spearman": 0.975853251774896,
+            "reference_field_sha256": "7bb312b3c98176fe11550935f24261e8d51b878fb2cc3d0e35fe22e418b13b70",
+            "root_mean_square_error": 0.004131198239805072,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.984944540580763,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 0.75,
+                "intersection": 6,
+                "k": 8
+              },
+              {
+                "fraction": 0.96875,
+                "intersection": 31,
+                "k": 32
+              },
+              {
+                "fraction": 0.90625,
+                "intersection": 116,
+                "k": 128
+              },
+              {
+                "fraction": 0.86328125,
+                "intersection": 442,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "1ce127059f15bea62097b262271be3d9d4375040c94c394ecd17f9f6fdbab5a0",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 4,
+            "maximum_serialized_logical_mechanism_state_bytes": 2894,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "0ad03d6c31f534aa29f3251aeb15565c7ff7ef889fb425e1da407156ec7fe4f9",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 2596,
+            "serialized_value_payload_bytes": 2048
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 6990,
+          "order_uint16be_sha256": "0ad03d6c31f534aa29f3251aeb15565c7ff7ef889fb425e1da407156ec7fe4f9",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "4301fff084929aa326da3528bb5b3423426e017a6f5a5a8aa5055d4d497f1f04",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 6692,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "25633915fc1d1088445a5cebae2edfe0026ff4f1078bdf13f6c570d2bae9cc51"
+        }
+      },
+      "headroom": 1.25,
+      "input_bits": 4,
+      "maximum_serialized_logical_mechanism_state_bytes": 6990,
+      "minimum_rank_kendall": 0.8639475541819291,
+      "minimum_rank_spearman": 0.975853251774896,
+      "minimum_top128_overlap": 0.765625,
+      "minimum_top32_overlap": 0.78125,
+      "minimum_top8_overlap": 0.75,
+      "serialized_online_state_bytes": 6692,
+      "template_sha256": "25633915fc1d1088445a5cebae2edfe0026ff4f1078bdf13f6c570d2bae9cc51"
+    },
+    {
+      "arm_id": "adaptive-dc-5bit-h1",
+      "clip_count_both_fields": 0,
+      "eligible": true,
+      "fields": {
+        "A355": {
+          "arm_id": "adaptive-dc-5bit-h1",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "379fef56602680e0f2fd634b3744823e043ed1ca59ea222b50e879c98796d5b2",
+            "mean_absolute_error": 0.0006610535188866471,
+            "rank_kendall": 0.9659300118284493,
+            "rank_spearman": 0.9984784745868504,
+            "reference_field_sha256": "3a131920733141fa00059ef27d94a26a3fc8b8868aaa6230b58ca067e1b51939",
+            "root_mean_square_error": 0.0007693495204424476,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9988247986847207,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 1.0,
+                "intersection": 8,
+                "k": 8
+              },
+              {
+                "fraction": 0.84375,
+                "intersection": 27,
+                "k": 32
+              },
+              {
+                "fraction": 0.9296875,
+                "intersection": 119,
+                "k": 128
+              },
+              {
+                "fraction": 0.9765625,
+                "intersection": 500,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "42af950af267cde34d38f497b71aef3f94c3e5eb037e4ca635beb941c098d8de",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 5,
+            "maximum_serialized_logical_mechanism_state_bytes": 3406,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "1c8485a7ed736f975170382ac7427b9cb6a31aca2386989c5ce27e20b3c5d561",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 3108,
+            "serialized_value_payload_bytes": 2560
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 7502,
+          "order_uint16be_sha256": "1c8485a7ed736f975170382ac7427b9cb6a31aca2386989c5ce27e20b3c5d561",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "faefcf65daa0c720cbd2f182f845678b24885a2fbe7dbe2feb5421acfa96dc3d",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 7204,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "a9068133402dc902534755d62b339600e2d9cc0b4a6dd8c8b1dc96dbdfc944da"
+        },
+        "A356": {
+          "arm_id": "adaptive-dc-5bit-h1",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "542a9cbed7d3a78bcc032811a84236169789ddb0299ba041d8b83c4b6bb3388f",
+            "mean_absolute_error": 0.0012786016479808858,
+            "rank_kendall": 0.9506534264346764,
+            "rank_spearman": 0.9966760528970205,
+            "reference_field_sha256": "7bb312b3c98176fe11550935f24261e8d51b878fb2cc3d0e35fe22e418b13b70",
+            "root_mean_square_error": 0.0015205550464303544,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.997870856889894,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 0.875,
+                "intersection": 7,
+                "k": 8
+              },
+              {
+                "fraction": 1.0,
+                "intersection": 32,
+                "k": 32
+              },
+              {
+                "fraction": 0.9609375,
+                "intersection": 123,
+                "k": 128
+              },
+              {
+                "fraction": 0.95703125,
+                "intersection": 490,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "beb9b1cfafc25f3915049be17a504ef1215e619cfcc85e90f1fef560417945d4",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 5,
+            "maximum_serialized_logical_mechanism_state_bytes": 3406,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "68495b116a92b5d61a4fabb7b191825946535372ba67f1061a3233701d48ebde",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 3108,
+            "serialized_value_payload_bytes": 2560
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 7502,
+          "order_uint16be_sha256": "68495b116a92b5d61a4fabb7b191825946535372ba67f1061a3233701d48ebde",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "4e14b498efc527d7a2d9b5b2855c4faebe10987974cdd3718dc2324b254ce02a",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 7204,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "a9068133402dc902534755d62b339600e2d9cc0b4a6dd8c8b1dc96dbdfc944da"
+        }
+      },
+      "headroom": 1.0,
+      "input_bits": 5,
+      "maximum_serialized_logical_mechanism_state_bytes": 7502,
+      "minimum_rank_kendall": 0.9506534264346764,
+      "minimum_rank_spearman": 0.9966760528970205,
+      "minimum_top128_overlap": 0.9296875,
+      "minimum_top32_overlap": 0.84375,
+      "minimum_top8_overlap": 0.875,
+      "serialized_online_state_bytes": 7204,
+      "template_sha256": "a9068133402dc902534755d62b339600e2d9cc0b4a6dd8c8b1dc96dbdfc944da"
+    },
+    {
+      "arm_id": "adaptive-dc-5bit-h1.125",
+      "clip_count_both_fields": 0,
+      "eligible": true,
+      "fields": {
+        "A355": {
+          "arm_id": "adaptive-dc-5bit-h1.125",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "88b8ef57720a77da013b5a008e94b1ad7dd4b2fdca8c7dc95860727fbe1c2078",
+            "mean_absolute_error": 0.000747562372354644,
+            "rank_kendall": 0.9611912393162393,
+            "rank_spearman": 0.9980444872051917,
+            "reference_field_sha256": "3a131920733141fa00059ef27d94a26a3fc8b8868aaa6230b58ca067e1b51939",
+            "root_mean_square_error": 0.0008667912426907039,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9985109650161743,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 0.0,
+                "intersection": 0,
+                "k": 1
+              },
+              {
+                "fraction": 0.75,
+                "intersection": 6,
+                "k": 8
+              },
+              {
+                "fraction": 0.875,
+                "intersection": 28,
+                "k": 32
+              },
+              {
+                "fraction": 0.90625,
+                "intersection": 116,
+                "k": 128
+              },
+              {
+                "fraction": 0.9609375,
+                "intersection": 492,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "304bccbb44aaecc55a5c53b51f9fb4104b80ec59c6293f3d7eaf87b192cbdfd4",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 5,
+            "maximum_serialized_logical_mechanism_state_bytes": 3406,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "4e58479b257d32947dfa8a18a15be644d1d0304f91c300c50f99cea7ce01f863",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 3108,
+            "serialized_value_payload_bytes": 2560
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 7502,
+          "order_uint16be_sha256": "4e58479b257d32947dfa8a18a15be644d1d0304f91c300c50f99cea7ce01f863",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "4ce8d1f8323ac61ba5ec866a8f67745dee0d15ee82cf418c2286094188c97fb7",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 7204,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "c1ca4a2fff403598f53affd8f3cbabcac22baeb2695b5019b298b3f697759f90"
+        },
+        "A356": {
+          "arm_id": "adaptive-dc-5bit-h1.125",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "b4d92dc7961d0496a9623953f97a0410017745ea6d7d47dc86fcb645554490f0",
+            "mean_absolute_error": 0.0014239372793470116,
+            "rank_kendall": 0.9459098843864469,
+            "rank_spearman": 0.9960417245716512,
+            "reference_field_sha256": "7bb312b3c98176fe11550935f24261e8d51b878fb2cc3d0e35fe22e418b13b70",
+            "root_mean_square_error": 0.0016975588242871414,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9973380347371961,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 0.875,
+                "intersection": 7,
+                "k": 8
+              },
+              {
+                "fraction": 1.0,
+                "intersection": 32,
+                "k": 32
+              },
+              {
+                "fraction": 0.9609375,
+                "intersection": 123,
+                "k": 128
+              },
+              {
+                "fraction": 0.953125,
+                "intersection": 488,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "2f962ba7fae8772d0a9b404f4182dc0466dbad28c91939bd53d67303b241ec82",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 5,
+            "maximum_serialized_logical_mechanism_state_bytes": 3406,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "5b08d786dff35e4d4fc20a0fe7119040c67a3b467400c75498c244f6b06261d0",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 3108,
+            "serialized_value_payload_bytes": 2560
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 7502,
+          "order_uint16be_sha256": "5b08d786dff35e4d4fc20a0fe7119040c67a3b467400c75498c244f6b06261d0",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "f049eec571c3e3ca148dbf1929a3dcce44db040addaa28606eabb25e3f7419d2",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 7204,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "c1ca4a2fff403598f53affd8f3cbabcac22baeb2695b5019b298b3f697759f90"
+        }
+      },
+      "headroom": 1.125,
+      "input_bits": 5,
+      "maximum_serialized_logical_mechanism_state_bytes": 7502,
+      "minimum_rank_kendall": 0.9459098843864469,
+      "minimum_rank_spearman": 0.9960417245716512,
+      "minimum_top128_overlap": 0.90625,
+      "minimum_top32_overlap": 0.875,
+      "minimum_top8_overlap": 0.75,
+      "serialized_online_state_bytes": 7204,
+      "template_sha256": "c1ca4a2fff403598f53affd8f3cbabcac22baeb2695b5019b298b3f697759f90"
+    },
+    {
+      "arm_id": "adaptive-dc-5bit-h1.25",
+      "clip_count_both_fields": 0,
+      "eligible": true,
+      "fields": {
+        "A355": {
+          "arm_id": "adaptive-dc-5bit-h1.25",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "22eafe5d7302b8ce4737a7df6004d133218cbad65d619cb71d636a7b653c3bf3",
+            "mean_absolute_error": 0.0008196532226560713,
+            "rank_kendall": 0.9569210737179488,
+            "rank_spearman": 0.9975746837745232,
+            "reference_field_sha256": "3a131920733141fa00059ef27d94a26a3fc8b8868aaa6230b58ca067e1b51939",
+            "root_mean_square_error": 0.0009555440135249189,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9981965517478408,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 0.875,
+                "intersection": 7,
+                "k": 8
+              },
+              {
+                "fraction": 0.90625,
+                "intersection": 29,
+                "k": 32
+              },
+              {
+                "fraction": 0.8828125,
+                "intersection": 113,
+                "k": 128
+              },
+              {
+                "fraction": 0.962890625,
+                "intersection": 493,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "101a82d4fe640fd1f0e086bd8168c5e2614eed18b9938a8d5f45e51747f9960d",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 5,
+            "maximum_serialized_logical_mechanism_state_bytes": 3406,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "94d71cd7ff2808d12140d3c09c28b6c49f0c9056860d7121c6b59385e2bdfca3",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 3108,
+            "serialized_value_payload_bytes": 2560
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 7502,
+          "order_uint16be_sha256": "94d71cd7ff2808d12140d3c09c28b6c49f0c9056860d7121c6b59385e2bdfca3",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "aa3599fac8b2825e3deae48792f28014de01f98ec090161b6e39914dfc5dfc28",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 7204,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "6aa15a82bc1fa4463ba4256c5c6430dd4af25e5c478a8832a54d22df27993603"
+        },
+        "A356": {
+          "arm_id": "adaptive-dc-5bit-h1.25",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "2cc458f7962bc566a9c5e6f2f6e42134be667f49c2940aefdd3f16be26d420b3",
+            "mean_absolute_error": 0.0016159042097768262,
+            "rank_kendall": 0.9389270451770452,
+            "rank_spearman": 0.9950147061547648,
+            "reference_field_sha256": "7bb312b3c98176fe11550935f24261e8d51b878fb2cc3d0e35fe22e418b13b70",
+            "root_mean_square_error": 0.0019166513937966573,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9966141030649517,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 0.875,
+                "intersection": 7,
+                "k": 8
+              },
+              {
+                "fraction": 0.96875,
+                "intersection": 31,
+                "k": 32
+              },
+              {
+                "fraction": 0.953125,
+                "intersection": 122,
+                "k": 128
+              },
+              {
+                "fraction": 0.935546875,
+                "intersection": 479,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "d3a09d5d79c8c74e8f1b23e7a184864299e53fdd5b9b78aa580d902f9c8f2ee2",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 5,
+            "maximum_serialized_logical_mechanism_state_bytes": 3406,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "894e7aecd001f295ea073a4f9743cedd6ee5aeae6ab732ff769364fe987a0290",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 3108,
+            "serialized_value_payload_bytes": 2560
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 7502,
+          "order_uint16be_sha256": "894e7aecd001f295ea073a4f9743cedd6ee5aeae6ab732ff769364fe987a0290",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "1517970d54691b745bf56c1965b9c783d8da73b50e351b2bfa4d991e56fbfaa1",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 7204,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "6aa15a82bc1fa4463ba4256c5c6430dd4af25e5c478a8832a54d22df27993603"
+        }
+      },
+      "headroom": 1.25,
+      "input_bits": 5,
+      "maximum_serialized_logical_mechanism_state_bytes": 7502,
+      "minimum_rank_kendall": 0.9389270451770452,
+      "minimum_rank_spearman": 0.9950147061547648,
+      "minimum_top128_overlap": 0.8828125,
+      "minimum_top32_overlap": 0.90625,
+      "minimum_top8_overlap": 0.875,
+      "serialized_online_state_bytes": 7204,
+      "template_sha256": "6aa15a82bc1fa4463ba4256c5c6430dd4af25e5c478a8832a54d22df27993603"
+    },
+    {
+      "arm_id": "adaptive-dc-6bit-h1",
+      "clip_count_both_fields": 0,
+      "eligible": true,
+      "fields": {
+        "A355": {
+          "arm_id": "adaptive-dc-6bit-h1",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "2b15794212b7f8c60d613a954cba063b7f8be79cd1d296c4e49947af2cd0b969",
+            "mean_absolute_error": 0.00032363540792097045,
+            "rank_kendall": 0.98363524496337,
+            "rank_spearman": 0.9996472765714169,
+            "reference_field_sha256": "3a131920733141fa00059ef27d94a26a3fc8b8868aaa6230b58ca067e1b51939",
+            "root_mean_square_error": 0.0003752745877692226,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9997201274069257,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 1.0,
+                "intersection": 8,
+                "k": 8
+              },
+              {
+                "fraction": 0.96875,
+                "intersection": 31,
+                "k": 32
+              },
+              {
+                "fraction": 0.9453125,
+                "intersection": 121,
+                "k": 128
+              },
+              {
+                "fraction": 0.978515625,
+                "intersection": 501,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "733fc137b0f8bf462e9c5fd41fc7f5bdf76c9772a8397ecaad42c806a8883dbf",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 6,
+            "maximum_serialized_logical_mechanism_state_bytes": 3918,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "a823093c0fd7ac0234eac40ff468f387a339a749f06fd67bede17444d4b52581",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 3620,
+            "serialized_value_payload_bytes": 3072
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 8014,
+          "order_uint16be_sha256": "a823093c0fd7ac0234eac40ff468f387a339a749f06fd67bede17444d4b52581",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "a1ffb54d4a2a0cb1bbde6c91d529b17fa5324f934d013624ecc79b0b90aecd79",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 7716,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "d6fd6e10fcde82455d802bd5777bfbad90de905b285579e125c0ad20fde51cde"
+        },
+        "A356": {
+          "arm_id": "adaptive-dc-6bit-h1",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "2af73475e2626f9ddff1e6b79271f02f7f1c9be26717be1ea1679a6145d199e8",
+            "mean_absolute_error": 0.0006191746964334357,
+            "rank_kendall": 0.9764258527930403,
+            "rank_spearman": 0.9992243506832592,
+            "reference_field_sha256": "7bb312b3c98176fe11550935f24261e8d51b878fb2cc3d0e35fe22e418b13b70",
+            "root_mean_square_error": 0.0007376292834779983,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.999496652798809,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 1.0,
+                "intersection": 8,
+                "k": 8
+              },
+              {
+                "fraction": 0.96875,
+                "intersection": 31,
+                "k": 32
+              },
+              {
+                "fraction": 0.9765625,
+                "intersection": 125,
+                "k": 128
+              },
+              {
+                "fraction": 0.9765625,
+                "intersection": 500,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "220d9054675ffdc9bd0508d497f6533d165a3295ddfa7807756a96b517e7a958",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 6,
+            "maximum_serialized_logical_mechanism_state_bytes": 3918,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "4d37fedc99f27f6fc7b9c00a6bb19812f379bc0b871ec4c81e752ecc6770ffeb",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 3620,
+            "serialized_value_payload_bytes": 3072
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 8014,
+          "order_uint16be_sha256": "4d37fedc99f27f6fc7b9c00a6bb19812f379bc0b871ec4c81e752ecc6770ffeb",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "40e5df5c1becf6761c27376d97eb0335c2786b2e189ffa1e08533dd5d55f062e",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 7716,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "d6fd6e10fcde82455d802bd5777bfbad90de905b285579e125c0ad20fde51cde"
+        }
+      },
+      "headroom": 1.0,
+      "input_bits": 6,
+      "maximum_serialized_logical_mechanism_state_bytes": 8014,
+      "minimum_rank_kendall": 0.9764258527930403,
+      "minimum_rank_spearman": 0.9992243506832592,
+      "minimum_top128_overlap": 0.9453125,
+      "minimum_top32_overlap": 0.96875,
+      "minimum_top8_overlap": 1.0,
+      "serialized_online_state_bytes": 7716,
+      "template_sha256": "d6fd6e10fcde82455d802bd5777bfbad90de905b285579e125c0ad20fde51cde"
+    },
+    {
+      "arm_id": "adaptive-dc-6bit-h1.125",
+      "clip_count_both_fields": 0,
+      "eligible": true,
+      "fields": {
+        "A355": {
+          "arm_id": "adaptive-dc-6bit-h1.125",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "68d97ca6e5fe6fcab9387476e86aaea408a47fe163b19a939744c397c115a7b2",
+            "mean_absolute_error": 0.0003570936406072146,
+            "rank_kendall": 0.9821621737637363,
+            "rank_spearman": 0.9995785540417093,
+            "reference_field_sha256": "3a131920733141fa00059ef27d94a26a3fc8b8868aaa6230b58ca067e1b51939",
+            "root_mean_square_error": 0.00041483467620861606,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9996583873616969,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 1.0,
+                "intersection": 8,
+                "k": 8
+              },
+              {
+                "fraction": 0.96875,
+                "intersection": 31,
+                "k": 32
+              },
+              {
+                "fraction": 0.9765625,
+                "intersection": 125,
+                "k": 128
+              },
+              {
+                "fraction": 0.978515625,
+                "intersection": 501,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "1fc6c91435b7b6b98ebcad11962d69142b1f865ebbbd784eadec9b8d118aef30",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 6,
+            "maximum_serialized_logical_mechanism_state_bytes": 3918,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "8534dbac6c314852d0b181cf6a5bb995e083ebfb438eaca312cebbc6c93ea239",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 3620,
+            "serialized_value_payload_bytes": 3072
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 8014,
+          "order_uint16be_sha256": "8534dbac6c314852d0b181cf6a5bb995e083ebfb438eaca312cebbc6c93ea239",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "e6594011ded2478dfbf49034d9ce09eba446e888146116832fd997fdd2a8eac8",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 7716,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "74b5d1b97bb20e535325be3ce4407916495c61937a1c8f68ecf0dc64e6bba3d9"
+        },
+        "A356": {
+          "arm_id": "adaptive-dc-6bit-h1.125",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "b64c8fb77a5cb33fe3be16036b5179e29f5a057c53022e890c757bc779889c9f",
+            "mean_absolute_error": 0.0006955335419667419,
+            "rank_kendall": 0.9734079288766789,
+            "rank_spearman": 0.9990333473548612,
+            "reference_field_sha256": "7bb312b3c98176fe11550935f24261e8d51b878fb2cc3d0e35fe22e418b13b70",
+            "root_mean_square_error": 0.0008300713337807002,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9993639949017163,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 0.875,
+                "intersection": 7,
+                "k": 8
+              },
+              {
+                "fraction": 1.0,
+                "intersection": 32,
+                "k": 32
+              },
+              {
+                "fraction": 0.984375,
+                "intersection": 126,
+                "k": 128
+              },
+              {
+                "fraction": 0.986328125,
+                "intersection": 505,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "0490e115ccb45b75c83b0870ca6a24f8bf3f01d437d556f77ce589819e2df9ed",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 6,
+            "maximum_serialized_logical_mechanism_state_bytes": 3918,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "fe6424c8f9cf9422129d5f1155afdbdd79df6eae69f5d861aa05afb30784d2b7",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 3620,
+            "serialized_value_payload_bytes": 3072
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 8014,
+          "order_uint16be_sha256": "fe6424c8f9cf9422129d5f1155afdbdd79df6eae69f5d861aa05afb30784d2b7",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "82465eb5aa7dc09dfdcffb3f5de76a7daca993038f479b388d2491bbb0f06d6d",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 7716,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "74b5d1b97bb20e535325be3ce4407916495c61937a1c8f68ecf0dc64e6bba3d9"
+        }
+      },
+      "headroom": 1.125,
+      "input_bits": 6,
+      "maximum_serialized_logical_mechanism_state_bytes": 8014,
+      "minimum_rank_kendall": 0.9734079288766789,
+      "minimum_rank_spearman": 0.9990333473548612,
+      "minimum_top128_overlap": 0.9765625,
+      "minimum_top32_overlap": 0.96875,
+      "minimum_top8_overlap": 0.875,
+      "serialized_online_state_bytes": 7716,
+      "template_sha256": "74b5d1b97bb20e535325be3ce4407916495c61937a1c8f68ecf0dc64e6bba3d9"
+    },
+    {
+      "arm_id": "adaptive-dc-6bit-h1.25",
+      "clip_count_both_fields": 0,
+      "eligible": true,
+      "fields": {
+        "A355": {
+          "arm_id": "adaptive-dc-6bit-h1.25",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "f34679b0c865a253bcf90d1504a075a0d2a98240ccb51dea0199fb3463359a30",
+            "mean_absolute_error": 0.0003966919259700395,
+            "rank_kendall": 0.9800776480463981,
+            "rank_spearman": 0.9994770081518484,
+            "reference_field_sha256": "3a131920733141fa00059ef27d94a26a3fc8b8868aaa6230b58ca067e1b51939",
+            "root_mean_square_error": 0.0004616358038706338,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9995773267405009,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 1.0,
+                "intersection": 8,
+                "k": 8
+              },
+              {
+                "fraction": 1.0,
+                "intersection": 32,
+                "k": 32
+              },
+              {
+                "fraction": 0.9609375,
+                "intersection": 123,
+                "k": 128
+              },
+              {
+                "fraction": 0.984375,
+                "intersection": 504,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "060cdd8368535d5b8b4cccf85e3faf2d8ad58bc4f87d5af6efcde9402960350b",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 6,
+            "maximum_serialized_logical_mechanism_state_bytes": 3918,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "0c39abfd97ddb606b0fe694e68a7363396cbfd18cd0bb582a9c23efaaf0ef2d4",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 3620,
+            "serialized_value_payload_bytes": 3072
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 8014,
+          "order_uint16be_sha256": "0c39abfd97ddb606b0fe694e68a7363396cbfd18cd0bb582a9c23efaaf0ef2d4",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "d1704036cc11859389ebe111c07e2718bc7d7aeedb85cde8b69630e82d79d659",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 7716,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "477ca269daff05bb2d5ba6996c3cd1e159a340b500a07f98d30997e7bd6c06e5"
+        },
+        "A356": {
+          "arm_id": "adaptive-dc-6bit-h1.25",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "57274c37d2aa06bad4232eea7b62a83e08eaa10b5ca59e1507220974c1cf50a2",
+            "mean_absolute_error": 0.0007531037869719094,
+            "rank_kendall": 0.9708922371031746,
+            "rank_spearman": 0.9988390214747724,
+            "reference_field_sha256": "7bb312b3c98176fe11550935f24261e8d51b878fb2cc3d0e35fe22e418b13b70",
+            "root_mean_square_error": 0.0008955426431528975,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9992586751041361,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 0.875,
+                "intersection": 7,
+                "k": 8
+              },
+              {
+                "fraction": 0.96875,
+                "intersection": 31,
+                "k": 32
+              },
+              {
+                "fraction": 0.9765625,
+                "intersection": 125,
+                "k": 128
+              },
+              {
+                "fraction": 0.970703125,
+                "intersection": 497,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "666eb58c5bcee0dcd2fe23ca05fd435411c265a45dd19696122f9770d90dded9",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 6,
+            "maximum_serialized_logical_mechanism_state_bytes": 3918,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "c8e6e3392bdb90f2d2c2981681eb363e1df46c43222732a7987df5e427e6d407",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 3620,
+            "serialized_value_payload_bytes": 3072
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 8014,
+          "order_uint16be_sha256": "c8e6e3392bdb90f2d2c2981681eb363e1df46c43222732a7987df5e427e6d407",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "287aaf7a35ea9aec63b657d83b29e517b546680acdfa93403c8ae162e9ff9691",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 7716,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "477ca269daff05bb2d5ba6996c3cd1e159a340b500a07f98d30997e7bd6c06e5"
+        }
+      },
+      "headroom": 1.25,
+      "input_bits": 6,
+      "maximum_serialized_logical_mechanism_state_bytes": 8014,
+      "minimum_rank_kendall": 0.9708922371031746,
+      "minimum_rank_spearman": 0.9988390214747724,
+      "minimum_top128_overlap": 0.9609375,
+      "minimum_top32_overlap": 0.96875,
+      "minimum_top8_overlap": 0.875,
+      "serialized_online_state_bytes": 7716,
+      "template_sha256": "477ca269daff05bb2d5ba6996c3cd1e159a340b500a07f98d30997e7bd6c06e5"
+    }
+  ],
+  "attempt_id": "O1C-0006",
+  "claim_boundary": {
+    "bounded_only_with_respect_to_stream_length_for_fixed_direct12_domain": true,
+    "candidate_domain_size": 4096,
+    "compression_or_domain_independent_memory_claim": false,
+    "explicit_candidate_rows_inside_frozen_state": 0,
+    "external_workspace_excluded_from_mechanism_state_accounting": true,
+    "fresh_generalization_claim": false,
+    "full_rank_fixed_domain_transform": true,
+    "information_equivalent_to_quantized_direct_table": true,
+    "matched_direct_table_maximum_serialized_logical_bytes": 3918,
+    "materialized_validation_score_fields_are_external_workspace": true,
+    "physical_runtime_memory_measured": false,
+    "recovery_claim": false,
+    "selected_spectral_ceiling_is_larger_than_direct_table": true,
+    "selected_spectral_ceiling_is_smaller_than_direct_table": false,
+    "selected_spectral_ceiling_maximum_serialized_logical_bytes": 8014,
+    "serialized_logical_state_is_not_python_process_rss": true,
+    "sota_claim": false,
+    "spectral_degrees_of_freedom": 4096,
+    "spectral_to_direct_logical_state_ratio": 2.045431342521695,
+    "sublinear_in_candidate_domain": false,
+    "zero_clip_gate_is_construction_integrity_not_robustness_evidence": true
+  },
+  "claim_level": "VALIDATION",
+  "codec": {
+    "A355_mapping_sha256": "861bc54e63a692ea5a97e4423965d43a0a452d7de01eb68b04f6021148f67a64",
+    "A356_mapping_sha256": "b94c8f3ba1bbc5779cef0e7312625b23ddf8e57b7364211c39fd0856fe2c2f13",
+    "cells": 4096,
+    "codec_sha256": "7f15225cf51b64f240d4e41b4ecffe06341e454112e381c7de561f5e16559af0",
+    "is_identity_permutation_to_recovery_group": true
+  },
+  "costs": {
+    "adaptive_candidate_arms": 9,
+    "adaptive_source_field_reads": 147456,
+    "gpu_seconds": 0,
+    "legacy_reader_cells": 8192,
+    "matched_direct_quantized_table_maximum_serialized_logical_bytes": 3918,
+    "measurement_shards_reused": 32,
+    "new_solver_calls": 0,
+    "retained_candidate_rows": 0,
+    "retained_key_value_entries": 0,
+    "selected_first_pass_logical_state_bytes": 234,
+    "selected_maximum_serialized_logical_mechanism_state_bytes": 8014,
+    "selected_online_state_bytes": 7716,
+    "selected_source_passes": 2,
+    "solver_stages_reused": 32768
+  },
+  "fields": {
+    "A355": {
+      "attempt_id": "A355",
+      "cells": 4096,
+      "compressed_measurement_bytes": 1324843,
+      "field_document_sha256": "38e703442e9acab8d82e79d037c82cc96de4a011612fbe9d007403c749333818",
+      "historical_field_sha256": "de420a7e276bf945c821f56b4799e4c58e9c9a8e299bb9a8f329f63032a81c38",
+      "measurement_shards": 16,
+      "order_uint16be_sha256": "516e32fdf7b65761f2f7f4503eb6f48ce2e0c59354aed156bcac3a02f99c433a",
+      "raw_measurement_bytes": 24728326,
+      "reader": "A340_selected8_global_raw",
+      "schema": "o1-crypto-corrected-score-field-v1",
+      "solver_stages": 16384,
+      "synthetic_mapping_sha256": "861bc54e63a692ea5a97e4423965d43a0a452d7de01eb68b04f6021148f67a64",
+      "target_labels_used_for_scoring": 0,
+      "walsh_float64be_field_sha256": "3a131920733141fa00059ef27d94a26a3fc8b8868aaa6230b58ca067e1b51939"
+    },
+    "A356": {
+      "attempt_id": "A356",
+      "cells": 4096,
+      "compressed_measurement_bytes": 1204281,
+      "field_document_sha256": "f1c3d072b040e090d6de8b4ce25585fc6d4a3751b7ee384b2b7b79dc790d6529",
+      "historical_field_sha256": "ac29c51ba0e653762d60012af48a5b9fb83f2fbab73e028689f009c118aa12d1",
+      "measurement_shards": 16,
+      "order_uint16be_sha256": "436082dcc2a3b3f1be1ff5459c11b40de84aa57ef0bc160cc8fa57af17ae692f",
+      "raw_measurement_bytes": 24344201,
+      "reader": "A340_selected8_global_raw",
+      "schema": "o1-crypto-corrected-score-field-v1",
+      "solver_stages": 16384,
+      "synthetic_mapping_sha256": "b94c8f3ba1bbc5779cef0e7312625b23ddf8e57b7364211c39fd0856fe2c2f13",
+      "target_labels_used_for_scoring": 0,
+      "walsh_float64be_field_sha256": "7bb312b3c98176fe11550935f24261e8d51b878fb2cc3d0e35fe22e418b13b70"
+    }
+  },
+  "future_template": {
+    "compression_claim_eligible": false,
+    "development_fields": {
+      "A355": {
+        "historical_field_sha256": "de420a7e276bf945c821f56b4799e4c58e9c9a8e299bb9a8f329f63032a81c38",
+        "order_uint16be_sha256": "516e32fdf7b65761f2f7f4503eb6f48ce2e0c59354aed156bcac3a02f99c433a"
+      },
+      "A356": {
+        "historical_field_sha256": "ac29c51ba0e653762d60012af48a5b9fb83f2fbab73e028689f009c118aa12d1",
+        "order_uint16be_sha256": "436082dcc2a3b3f1be1ff5459c11b40de84aa57ef0bc160cc8fa57af17ae692f"
+      }
+    },
+    "freeze_state": "FROZEN_AFTER_A355_A356_DEVELOPMENT_BEFORE_NEW_CHALLENGE",
+    "fresh_primary_mechanism_eligible": false,
+    "fresh_test_rules": {
+      "all_orders_persisted_before_recovery": true,
+      "compact_successor_required_before_fresh_challenge": true,
+      "no_fallback_after_fresh_fidelity_or_rank": true,
+      "no_parameter_change_after_public_challenge": true,
+      "same_field_scale_calibration_is_label_free_and_predeclared": true,
+      "target_labels_allowed_before_order_freeze": 0,
+      "two_canonical_source_passes_required": true
+    },
+    "future_field_binding": "UNBOUND",
+    "future_template_sha256": "cab2adc58ec83d0dde33c61aa10531cf64b17b88c4143b6a2fe7070375ba8cda",
+    "labels_used_for_selection": 0,
+    "o1c_0005_template_sha256": "69c5882e3807123dfdcf9eaca6846700377e9f95c84e7136ccec2b162bd9355c",
+    "role": "FULL_BASIS_FIXED_DOMAIN_REFERENCE_CEILING_ONLY",
+    "schema": "o1-crypto-corrected-recovery-memory-template-v1",
+    "selected_template": {
+      "addressing": {
+        "candidate_id": "(high8 << 4) | low4",
+        "canonical_pass_order": "ascending-candidate-id-0-through-4095",
+        "fixed_low4_slots": 16,
+        "high8_domain_per_slot": 256
+      },
+      "claim_boundary": {
+        "bounded_only_with_respect_to_stream_length_for_fixed_direct12_domain": true,
+        "bounded_state": true,
+        "candidate_domain_size": 4096,
+        "compression_claim_eligible": false,
+        "explicit_kv_cache": false,
+        "full_rank_fixed_domain_transform": true,
+        "information_equivalent_to_quantized_direct_table": true,
+        "no_full_sequence_attention": true,
+        "replayable_source_stream_required": true,
+        "retained_candidate_rows": 0,
+        "retained_key_value_entries": 0,
+        "serialized_logical_state_is_not_python_process_rss": true,
+        "spectral_degrees_of_freedom": 4096,
+        "sublinear_in_candidate_domain": false
+      },
+      "headroom": 1.0,
+      "input_bits": 6,
+      "integrity": {
+        "duplicate_or_out_of_order_policy": "reject-immediately",
+        "field_hash": "o1-walsh-score-field-float64be-v1",
+        "second_pass_must_match_first_pass": true
+      },
+      "mechanism_family": "o1-self-calibrating-dc-complete-quantized-walsh-vault",
+      "name": "adaptive-dc-6bit-h1",
+      "scale_rule": {
+        "formula": "scale[low4] = peak_abs[low4] * headroom / quantizer_max",
+        "labels_used": 0,
+        "name": "same-field-per-low4-absolute-peak",
+        "passes": 2
+      },
+      "schema": "o1-adaptive-dc-walsh-template-v1",
+      "spectral_bank": {
+        "accumulator_count": 4096,
+        "includes_dc": true,
+        "mask_interval": [
+          0,
+          255
+        ],
+        "masks_per_slot": 256
+      },
+      "template_sha256": "d6fd6e10fcde82455d802bd5777bfbad90de905b285579e125c0ad20fde51cde"
+    },
+    "selection_rule": {
+      "eligibility": [
+        "maximum_online_state_bytes",
+        "maximum_serialized_logical_mechanism_state_bytes",
+        "zero_clips",
+        "minimum_rank_spearman",
+        "minimum_rank_kendall",
+        "minimum_top32_overlap",
+        "minimum_top128_overlap"
+      ],
+      "lexicographic_objective": [
+        "maximize_minimum_top8_overlap",
+        "maximize_minimum_top32_overlap",
+        "maximize_minimum_top128_overlap",
+        "maximize_minimum_rank_spearman",
+        "minimize_maximum_serialized_logical_mechanism_state_bytes",
+        "minimize_arm_id_ascii"
+      ]
+    }
+  },
+  "historical_commitment_chain": {
+    "A355_measurement_commitment_sha256": "758508b7078e9e739c92f28f481ac19d331c7ba36ef65d544fdfdf25d760bd59",
+    "A355_selection_commitment_sha256": "56b91ba925a0ee5057ae92f243879f2795dd6728fdc390151f8aa0ebf2957c5f",
+    "A356_measurement_commitment_sha256": "95ea76d80b65c121d8f92b62cde4aa49ede73a7c284dccc2cd9f1de7c4c4d535",
+    "A356_order_commitment_sha256": "a41394ef15ba83d6ff9f1cefafc361ae8747ba4eeca2b5c0f13460e7d43b5ce5",
+    "all_internal_commitments_recomputed": true,
+    "schema": "o1-crypto-corrected-historical-commitment-chain-v1"
+  },
+  "labels": {
+    "A354_calibration_labeled_codec_audit_consumed": 1,
+    "A355_calibration_label_present_in_historical_result": 1,
+    "A355_calibration_label_used_for_reader_identity_before_A356": 1,
+    "A355_or_A356_labels_used_for_bridge_fidelity_selection": 0,
+    "A356_target_labels_used": 0,
+    "claim_scope": "post-hoc development validation with monotone upstream calibration provenance",
+    "fresh_target_labels_used": 0
+  },
+  "negative_breadcrumbs": {
+    "finding": "the historical fixed 4-bit non-DC scale composition is incompatible with corrected global raw fields; because scale regime, DC support, and bit depth change together, this control does not attribute causality to one component",
+    "frozen_failure_gates": {
+      "maximum_literal_o1c5_absolute_spearman": 0.1,
+      "maximum_literal_o1c5_top32_overlap": 0.05
+    },
+    "literal_failure_verified": true,
+    "literal_maximum_absolute_spearman": 0.08288967096473931,
+    "literal_maximum_top32_overlap": 0.03125,
+    "literal_o1c_0005_raw_transfer": {
+      "A355": {
+        "frozen_o1c5_raw_identity": {
+          "arm_id": "quantized-bit-vault-4bit-h1.25",
+          "clips": 0,
+          "evaluation": {
+            "approximate_field_sha256": "f39885cb59f19e1448ff795fdf6e3560bcffcfe2eb039957ad9188173833e5ef",
+            "mean_absolute_error": 0.013044582553189661,
+            "rank_kendall": -0.055256028693528636,
+            "rank_spearman": -0.08288967096473931,
+            "reference_field_sha256": "3a131920733141fa00059ef27d94a26a3fc8b8868aaa6230b58ca067e1b51939",
+            "root_mean_square_error": 0.01586149348209414,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.0,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 0.0,
+                "intersection": 0,
+                "k": 1
+              },
+              {
+                "fraction": 0.0,
+                "intersection": 0,
+                "k": 8
+              },
+              {
+                "fraction": 0.0,
+                "intersection": 0,
+                "k": 32
+              },
+              {
+                "fraction": 0.03125,
+                "intersection": 4,
+                "k": 128
+              },
+              {
+                "fraction": 0.09375,
+                "intersection": 48,
+                "k": 512
+              }
+            ]
+          },
+          "executable_plan_sha256": "08943b51f32a1979107ddd4b1a8b6f3ae5c8072a4c06c62d0f68922089f489ca",
+          "family": "o1-multislot-quantized-walsh-bit-vault",
+          "frozen_state_sha256": "a44c781a682c829a7622d78efc99020d45a526d6c6bf5f20513101c4905b3818",
+          "historical_o1c5_template_o1o_eligible": true,
+          "labels": [
+            "CONTROL"
+          ],
+          "o1c_0006_selection_eligible": false,
+          "online_state": {
+            "accumulator_safe_bound": 1792,
+            "bits_per_accumulator": 12,
+            "bits_per_clip_counter": 9,
+            "clip_counters": 32,
+            "coverage_bits": 4096,
+            "integer_accumulators": 4080,
+            "retained_candidate_rows": 0,
+            "retained_key_value_entries": 0,
+            "serialized_accumulator_bytes": 6120,
+            "serialized_clip_telemetry_bytes": 36,
+            "serialized_coverage_bytes": 512,
+            "serialized_online_state_bytes": 6668,
+            "stream_length_dependent_state": false
+          },
+          "order_uint16be_sha256": "a02cf28d81488fd0b2bbde4d6d5b035210669370a220eb257b016d7bf2dfe68e",
+          "static_plan_storage": {
+            "bound_sha256_values": 2,
+            "counted_as_online_recurrent_state": false,
+            "scale_dtype": "float64",
+            "scale_values": 16,
+            "serialized_bound_hash_bytes": 64,
+            "serialized_scale_bytes": 128
+          },
+          "target_labels_used": 0,
+          "template_sha256": "69c5882e3807123dfdcf9eaca6846700377e9f95c84e7136ccec2b162bd9355c",
+          "work": {
+            "full_direct12_pass_accumulations": 1044480,
+            "full_direct12_pass_character_evaluations": 1044480,
+            "full_direct12_pass_quantizations": 4096,
+            "full_reconstruction_fwht_butterflies": 16384,
+            "quantizations_per_observation": 1,
+            "ranking_items": 4096,
+            "update_accumulations_per_observation": 255,
+            "update_character_evaluations_per_observation": 255
+          }
+        },
+        "global_z_atan_control": {
+          "arm_id": "quantized-bit-vault-4bit-h1.25",
+          "clips": 0,
+          "compression_mechanism_claim_eligible": false,
+          "evaluation": {
+            "approximate_field_sha256": "abdecf35ab60a708e57e2633e86ea810f3566ef1a4a7f76b50b1ae7ae26be40d",
+            "mean_absolute_error": 0.11010105659297374,
+            "rank_kendall": 0.9045401213369964,
+            "rank_spearman": 0.9895639398783372,
+            "reference_field_sha256": "a58fa704adc25bd5315519ff85c8abf21893b10d4c2734e21dd1d61749df5353",
+            "root_mean_square_error": 0.13297051705988341,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9933830581425548,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 0.0,
+                "intersection": 0,
+                "k": 1
+              },
+              {
+                "fraction": 0.125,
+                "intersection": 1,
+                "k": 8
+              },
+              {
+                "fraction": 0.4375,
+                "intersection": 14,
+                "k": 32
+              },
+              {
+                "fraction": 0.6640625,
+                "intersection": 85,
+                "k": 128
+              },
+              {
+                "fraction": 0.865234375,
+                "intersection": 443,
+                "k": 512
+              }
+            ]
+          },
+          "executable_plan_sha256": "8f558014a650c9d8657bfc65aaee1800898defa44b235f577e9012bd0abb5e94",
+          "family": "o1-multislot-quantized-walsh-bit-vault",
+          "frozen_state_sha256": "8aefe34e4c4126ed0bc8fe362e4c4929ddd1b978d04020a08b67090f3e2d6184",
+          "historical_o1c5_template_o1o_eligible": true,
+          "labels": [
+            "CONTROL"
+          ],
+          "o1c_0006_selection_eligible": false,
+          "online_state": {
+            "accumulator_safe_bound": 1792,
+            "bits_per_accumulator": 12,
+            "bits_per_clip_counter": 9,
+            "clip_counters": 32,
+            "coverage_bits": 4096,
+            "integer_accumulators": 4080,
+            "retained_candidate_rows": 0,
+            "retained_key_value_entries": 0,
+            "serialized_accumulator_bytes": 6120,
+            "serialized_clip_telemetry_bytes": 36,
+            "serialized_coverage_bytes": 512,
+            "serialized_online_state_bytes": 6668,
+            "stream_length_dependent_state": false
+          },
+          "order_uint16be_sha256": "d8866eb1b45ee85ad33b7a225fda01ad123fed2d6db4aac5ba84baec0f3b1a8d",
+          "static_plan_storage": {
+            "bound_sha256_values": 2,
+            "counted_as_online_recurrent_state": false,
+            "scale_dtype": "float64",
+            "scale_values": 16,
+            "serialized_bound_hash_bytes": 64,
+            "serialized_scale_bytes": 128
+          },
+          "target_labels_used": 0,
+          "template_sha256": "69c5882e3807123dfdcf9eaca6846700377e9f95c84e7136ccec2b162bd9355c",
+          "work": {
+            "full_direct12_pass_accumulations": 1044480,
+            "full_direct12_pass_character_evaluations": 1044480,
+            "full_direct12_pass_quantizations": 4096,
+            "full_reconstruction_fwht_butterflies": 16384,
+            "quantizations_per_observation": 1,
+            "ranking_items": 4096,
+            "update_accumulations_per_observation": 255,
+            "update_character_evaluations_per_observation": 255
+          }
+        },
+        "global_z_atan_input_contract_valid": false,
+        "reason": "global raw slots are not per-low4 centered; O1C-0005 omits DC"
+      },
+      "A356": {
+        "frozen_o1c5_raw_identity": {
+          "arm_id": "quantized-bit-vault-4bit-h1.25",
+          "clips": 0,
+          "evaluation": {
+            "approximate_field_sha256": "f39885cb59f19e1448ff795fdf6e3560bcffcfe2eb039957ad9188173833e5ef",
+            "mean_absolute_error": 0.01871786649458391,
+            "rank_kendall": 0.052480874160561686,
+            "rank_spearman": 0.07759878199204995,
+            "reference_field_sha256": "7bb312b3c98176fe11550935f24261e8d51b878fb2cc3d0e35fe22e418b13b70",
+            "root_mean_square_error": 0.023315572559782064,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.0,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 0.0,
+                "intersection": 0,
+                "k": 1
+              },
+              {
+                "fraction": 0.0,
+                "intersection": 0,
+                "k": 8
+              },
+              {
+                "fraction": 0.03125,
+                "intersection": 1,
+                "k": 32
+              },
+              {
+                "fraction": 0.03125,
+                "intersection": 4,
+                "k": 128
+              },
+              {
+                "fraction": 0.091796875,
+                "intersection": 47,
+                "k": 512
+              }
+            ]
+          },
+          "executable_plan_sha256": "e1356decd87235ba9e88a3d4807f6310af3ac2388e9e9e14f10d97b87577b170",
+          "family": "o1-multislot-quantized-walsh-bit-vault",
+          "frozen_state_sha256": "29d21c5fd3ef2b9ede1ccc23486aa23f5f8d3ae7423be8ce59f2d61b05c38ed9",
+          "historical_o1c5_template_o1o_eligible": true,
+          "labels": [
+            "CONTROL"
+          ],
+          "o1c_0006_selection_eligible": false,
+          "online_state": {
+            "accumulator_safe_bound": 1792,
+            "bits_per_accumulator": 12,
+            "bits_per_clip_counter": 9,
+            "clip_counters": 32,
+            "coverage_bits": 4096,
+            "integer_accumulators": 4080,
+            "retained_candidate_rows": 0,
+            "retained_key_value_entries": 0,
+            "serialized_accumulator_bytes": 6120,
+            "serialized_clip_telemetry_bytes": 36,
+            "serialized_coverage_bytes": 512,
+            "serialized_online_state_bytes": 6668,
+            "stream_length_dependent_state": false
+          },
+          "order_uint16be_sha256": "a02cf28d81488fd0b2bbde4d6d5b035210669370a220eb257b016d7bf2dfe68e",
+          "static_plan_storage": {
+            "bound_sha256_values": 2,
+            "counted_as_online_recurrent_state": false,
+            "scale_dtype": "float64",
+            "scale_values": 16,
+            "serialized_bound_hash_bytes": 64,
+            "serialized_scale_bytes": 128
+          },
+          "target_labels_used": 0,
+          "template_sha256": "69c5882e3807123dfdcf9eaca6846700377e9f95c84e7136ccec2b162bd9355c",
+          "work": {
+            "full_direct12_pass_accumulations": 1044480,
+            "full_direct12_pass_character_evaluations": 1044480,
+            "full_direct12_pass_quantizations": 4096,
+            "full_reconstruction_fwht_butterflies": 16384,
+            "quantizations_per_observation": 1,
+            "ranking_items": 4096,
+            "update_accumulations_per_observation": 255,
+            "update_character_evaluations_per_observation": 255
+          }
+        },
+        "global_z_atan_control": {
+          "arm_id": "quantized-bit-vault-4bit-h1.25",
+          "clips": 0,
+          "compression_mechanism_claim_eligible": false,
+          "evaluation": {
+            "approximate_field_sha256": "5b6cb5e4869ea053346789442278807239e5c59df28b4914cec0c3b49d064795",
+            "mean_absolute_error": 0.1169772847741047,
+            "rank_kendall": 0.9052588904151404,
+            "rank_spearman": 0.9893733589629596,
+            "reference_field_sha256": "d1b243bd458e80d7329219b45ad35bc8e51e9740283d02ca9a64f4b57458d991",
+            "root_mean_square_error": 0.14197721090329157,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9923927930815215,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 0.0,
+                "intersection": 0,
+                "k": 1
+              },
+              {
+                "fraction": 0.625,
+                "intersection": 5,
+                "k": 8
+              },
+              {
+                "fraction": 0.59375,
+                "intersection": 19,
+                "k": 32
+              },
+              {
+                "fraction": 0.828125,
+                "intersection": 106,
+                "k": 128
+              },
+              {
+                "fraction": 0.8984375,
+                "intersection": 460,
+                "k": 512
+              }
+            ]
+          },
+          "executable_plan_sha256": "4ccea800feddc14cd4b7ea1c9b5e33ce1aa13a1b6396a71f3a61a2c4e5902870",
+          "family": "o1-multislot-quantized-walsh-bit-vault",
+          "frozen_state_sha256": "ba2020b213d8b3902526e4a2a01b8e10ed00d1649d91f8884053498e72b667fa",
+          "historical_o1c5_template_o1o_eligible": true,
+          "labels": [
+            "CONTROL"
+          ],
+          "o1c_0006_selection_eligible": false,
+          "online_state": {
+            "accumulator_safe_bound": 1792,
+            "bits_per_accumulator": 12,
+            "bits_per_clip_counter": 9,
+            "clip_counters": 32,
+            "coverage_bits": 4096,
+            "integer_accumulators": 4080,
+            "retained_candidate_rows": 0,
+            "retained_key_value_entries": 0,
+            "serialized_accumulator_bytes": 6120,
+            "serialized_clip_telemetry_bytes": 36,
+            "serialized_coverage_bytes": 512,
+            "serialized_online_state_bytes": 6668,
+            "stream_length_dependent_state": false
+          },
+          "order_uint16be_sha256": "76d3ad75aaf15abb85d20c4ac9595887df6757e862b50436ce27f0d2f540baba",
+          "static_plan_storage": {
+            "bound_sha256_values": 2,
+            "counted_as_online_recurrent_state": false,
+            "scale_dtype": "float64",
+            "scale_values": 16,
+            "serialized_bound_hash_bytes": 64,
+            "serialized_scale_bytes": 128
+          },
+          "target_labels_used": 0,
+          "template_sha256": "69c5882e3807123dfdcf9eaca6846700377e9f95c84e7136ccec2b162bd9355c",
+          "work": {
+            "full_direct12_pass_accumulations": 1044480,
+            "full_direct12_pass_character_evaluations": 1044480,
+            "full_direct12_pass_quantizations": 4096,
+            "full_reconstruction_fwht_butterflies": 16384,
+            "quantizations_per_observation": 1,
+            "ranking_items": 4096,
+            "update_accumulations_per_observation": 255,
+            "update_character_evaluations_per_observation": 255
+          }
+        },
+        "global_z_atan_input_contract_valid": false,
+        "reason": "global raw slots are not per-low4 centered; O1C-0005 omits DC"
+      }
+    }
+  },
+  "next_action": "Retain O1C-0006 as the exact corrected-codec and full-basis spectral-register ceiling, then develop a compact O1 evidence memory that beats the direct quantized-table baseline before drawing any fresh W46 challenge.",
+  "reader": {
+    "feature_indices": [
+      502,
+      504,
+      505,
+      508,
+      509,
+      510,
+      511,
+      514
+    ],
+    "historical_complete_orders_reproduced_exactly": true,
+    "historical_float_fields_reproduced_exactly": true,
+    "model_sha256": "b096c08616a81712da881862b65f0c95388e4db3cf6b8e462bf7c2a072cb0da4",
+    "name": "A340_selected8_global_raw",
+    "numpy_version": "2.2.6"
+  },
+  "report_sha256": "64ace20f8798da49e6108352ea0c95459afb2a955439148cea8f357d643b870b",
+  "schema": "o1-crypto-corrected-codec-bridge-result-v1",
+  "selection": {
+    "candidate_arms": 9,
+    "eligible_arms": 6,
+    "fresh_primary_mechanism_eligible": false,
+    "selected_arm": "adaptive-dc-6bit-h1",
+    "selected_metrics": {
+      "arm_id": "adaptive-dc-6bit-h1",
+      "clip_count_both_fields": 0,
+      "eligible": true,
+      "fields": {
+        "A355": {
+          "arm_id": "adaptive-dc-6bit-h1",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "2b15794212b7f8c60d613a954cba063b7f8be79cd1d296c4e49947af2cd0b969",
+            "mean_absolute_error": 0.00032363540792097045,
+            "rank_kendall": 0.98363524496337,
+            "rank_spearman": 0.9996472765714169,
+            "reference_field_sha256": "3a131920733141fa00059ef27d94a26a3fc8b8868aaa6230b58ca067e1b51939",
+            "root_mean_square_error": 0.0003752745877692226,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.9997201274069257,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 1.0,
+                "intersection": 8,
+                "k": 8
+              },
+              {
+                "fraction": 0.96875,
+                "intersection": 31,
+                "k": 32
+              },
+              {
+                "fraction": 0.9453125,
+                "intersection": 121,
+                "k": 128
+              },
+              {
+                "fraction": 0.978515625,
+                "intersection": 501,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "733fc137b0f8bf462e9c5fd41fc7f5bdf76c9772a8397ecaad42c806a8883dbf",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 6,
+            "maximum_serialized_logical_mechanism_state_bytes": 3918,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "a823093c0fd7ac0234eac40ff468f387a339a749f06fd67bede17444d4b52581",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 3620,
+            "serialized_value_payload_bytes": 3072
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 8014,
+          "order_uint16be_sha256": "a823093c0fd7ac0234eac40ff468f387a339a749f06fd67bede17444d4b52581",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "a1ffb54d4a2a0cb1bbde6c91d529b17fa5324f934d013624ecc79b0b90aecd79",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 7716,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "d6fd6e10fcde82455d802bd5777bfbad90de905b285579e125c0ad20fde51cde"
+        },
+        "A356": {
+          "arm_id": "adaptive-dc-6bit-h1",
+          "clip_count": 0,
+          "evaluation": {
+            "approximate_field_sha256": "2af73475e2626f9ddff1e6b79271f02f7f1c9be26717be1ea1679a6145d199e8",
+            "mean_absolute_error": 0.0006191746964334357,
+            "rank_kendall": 0.9764258527930403,
+            "rank_spearman": 0.9992243506832592,
+            "reference_field_sha256": "7bb312b3c98176fe11550935f24261e8d51b878fb2cc3d0e35fe22e418b13b70",
+            "root_mean_square_error": 0.0007376292834779983,
+            "schema": "o1-walsh-approximation-evaluation-v1",
+            "score_pearson": 0.999496652798809,
+            "target_labels_used": 0,
+            "top_k_overlap": [
+              {
+                "fraction": 1.0,
+                "intersection": 1,
+                "k": 1
+              },
+              {
+                "fraction": 1.0,
+                "intersection": 8,
+                "k": 8
+              },
+              {
+                "fraction": 0.96875,
+                "intersection": 31,
+                "k": 32
+              },
+              {
+                "fraction": 0.9765625,
+                "intersection": 125,
+                "k": 128
+              },
+              {
+                "fraction": 0.9765625,
+                "intersection": 500,
+                "k": 512
+              }
+            ]
+          },
+          "frozen_state_sha256": "220d9054675ffdc9bd0508d497f6533d165a3295ddfa7807756a96b517e7a958",
+          "labels_used": 0,
+          "matched_direct_quantized_table": {
+            "candidate_values": 4096,
+            "evaluation_identical_to_full_basis_spectral_register": true,
+            "explicit_candidate_indexed_table": true,
+            "input_bits": 6,
+            "maximum_serialized_logical_mechanism_state_bytes": 3918,
+            "mechanism_claim_eligible": false,
+            "order_uint16be_sha256": "4d37fedc99f27f6fc7b9c00a6bb19812f379bc0b871ec4c81e752ecc6770ffeb",
+            "representation": "candidate-indexed-packed-signed-quantized-values",
+            "schema": "o1-crypto-matched-direct-quantized-table-baseline-v1",
+            "serialized_online_state_bytes": 3620,
+            "serialized_value_payload_bytes": 3072
+          },
+          "maximum_serialized_logical_mechanism_state_bytes": 8014,
+          "order_uint16be_sha256": "4d37fedc99f27f6fc7b9c00a6bb19812f379bc0b871ec4c81e752ecc6770ffeb",
+          "passes": {
+            "accumulator_updates": 1048576,
+            "field_values_read": 8192,
+            "quantizations": 4096,
+            "ranking_items": 4096,
+            "reconstruction_butterflies": 16384,
+            "scale_updates": 4096,
+            "source_passes": 2,
+            "walsh_character_evaluations": 1048576
+          },
+          "physical_runtime_memory_measured": false,
+          "plan_sha256": "40e5df5c1becf6761c27376d97eb0335c2786b2e189ffa1e08533dd5d55f062e",
+          "schema": "o1-adaptive-dc-walsh-execution-v1",
+          "serialized_online_state_bytes": 7716,
+          "serialized_static_plan_bytes": 192,
+          "template_sha256": "d6fd6e10fcde82455d802bd5777bfbad90de905b285579e125c0ad20fde51cde"
+        }
+      },
+      "headroom": 1.0,
+      "input_bits": 6,
+      "maximum_serialized_logical_mechanism_state_bytes": 8014,
+      "minimum_rank_kendall": 0.9764258527930403,
+      "minimum_rank_spearman": 0.9992243506832592,
+      "minimum_top128_overlap": 0.9453125,
+      "minimum_top32_overlap": 0.96875,
+      "minimum_top8_overlap": 1.0,
+      "serialized_online_state_bytes": 7716,
+      "template_sha256": "d6fd6e10fcde82455d802bd5777bfbad90de905b285579e125c0ad20fde51cde"
+    },
+    "selected_role": "full-basis-fixed-domain-reference-ceiling",
+    "selected_template_sha256": "d6fd6e10fcde82455d802bd5777bfbad90de905b285579e125c0ad20fde51cde",
+    "selection_rule": {
+      "eligibility": [
+        "maximum_online_state_bytes",
+        "maximum_serialized_logical_mechanism_state_bytes",
+        "zero_clips",
+        "minimum_rank_spearman",
+        "minimum_rank_kendall",
+        "minimum_top32_overlap",
+        "minimum_top128_overlap"
+      ],
+      "lexicographic_objective": [
+        "maximize_minimum_top8_overlap",
+        "maximize_minimum_top32_overlap",
+        "maximize_minimum_top128_overlap",
+        "maximize_minimum_rank_spearman",
+        "minimize_maximum_serialized_logical_mechanism_state_bytes",
+        "minimize_arm_id_ascii"
+      ]
+    }
+  },
+  "source_snapshot_sha256": "ef3da5d473a5a108ef3d212a1be88ac806c794a2a9c926c3fcc7330ddf8f30f3",
+  "success_gate_passed": true,
+  "success_gates": {
+    "A355_historical_field_and_order_exact": true,
+    "A356_historical_field_and_order_exact": true,
+    "adaptive_arm_maximum_serialized_logical_state_under_8192_bytes": true,
+    "adaptive_arm_minimum_kendall_at_least_0_91": true,
+    "adaptive_arm_minimum_spearman_at_least_0_99": true,
+    "adaptive_arm_minimum_top128_at_least_0_75": true,
+    "adaptive_arm_minimum_top32_at_least_0_70": true,
+    "adaptive_arm_under_8192_bytes": true,
+    "adaptive_arm_zero_clips_both_fields": true,
+    "compact_successor_required_before_fresh_challenge": true,
+    "compression_claim_withheld": true,
+    "corrected_codec_complete": true,
+    "full_rank_table_equivalence_disclosed": true,
+    "future_template_unbound_before_fresh_target": true,
+    "literal_O1C5_failure_retained_and_verified": true,
+    "no_active_sibling_progress_or_outcome_reads": true,
+    "no_sibling_writes": true,
+    "spectral_ceiling_larger_than_matched_direct_table_disclosed": true
+  }
+}

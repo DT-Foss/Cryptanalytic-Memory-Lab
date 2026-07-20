@@ -1,0 +1,18 @@
+{
+  "attempt_id": "O1C-0005",
+  "captured": {
+    "cwd": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab",
+    "executable": "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "python": "3.13.1",
+    "timezone": "Europe/Berlin"
+  },
+  "provided": {
+    "A349_target_blind_field_is_fresh_architecture_test": false,
+    "A349_target_or_progress_access": false,
+    "mutable_sibling_access": false,
+    "source_O1C_0003": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/runs/20260715_123734_O1C-0003_direct12-source-snapshot",
+    "source_O1C_0004": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/runs/20260715_130047_O1C-0004_direct12-532-reproduction"
+  },
+  "schema": "o1c-run-environment-v1"
+}

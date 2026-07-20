@@ -1,0 +1,283 @@
+{
+  "active_coordinate_counts": [
+    12,
+    52,
+    128,
+    256
+  ],
+  "active_coordinate_plan_sha256": "eaec20369f2ce97125812805dea0deeeffda674499aefb673f775af78675519e",
+  "artifacts": {
+    "folds/build-0000/heldout/active_coordinates.json": {
+      "bytes": 2876,
+      "sha256": "eaec20369f2ce97125812805dea0deeeffda674499aefb673f775af78675519e"
+    },
+    "folds/build-0000/heldout/calibrated_predictions.f64le": {
+      "bytes": 57344,
+      "sha256": "cffb37e297eedf8f4dea4c11129fdd3d9db5f452e2c1a8789579ce13fd10aff8"
+    },
+    "folds/build-0000/heldout/calibration_scales.f64le": {
+      "bytes": 56,
+      "sha256": "0799d51209799d49c5d4bdcc0d3e7ef3465f8fd54f672be149dc9402f5d2d158"
+    },
+    "folds/build-0000/heldout/k012/execution/causal_vault_bridge_execution.json": {
+      "bytes": 1390,
+      "sha256": "98ec2d01e6581c200bbaeea3c6fe8e2fe3ed9c622449cf578e3525e1e358eaa6"
+    },
+    "folds/build-0000/heldout/k012/execution/causal_vault_bridge_ledger.json": {
+      "bytes": 9188,
+      "sha256": "def23dbdc4aa213536118a63694fbb21a70377e161469920f4b5248cdf0a0b90"
+    },
+    "folds/build-0000/heldout/k012/execution/causal_vault_state.bin": {
+      "bytes": 352,
+      "sha256": "38b863f76240e51411559100721a71c61a44e005106e3df6d3ce4e310634a7ec"
+    },
+    "folds/build-0000/heldout/k012/execution/last_only_control.i8": {
+      "bytes": 256,
+      "sha256": "c4414fa7a629f6395cf7c9523138c6af374c6b0cee983dd5444f6fc70816349f"
+    },
+    "folds/build-0000/heldout/k012/execution/normalized_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "af8f264d4367445e6b5c049811cc8ff47f678fd2ad1b553ab32fcf973d58ed0d"
+    },
+    "folds/build-0000/heldout/k012/execution/raw_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "1614485eab1b4781fc3568df8ad0132f352422a5dfaad27a1efff75fdd4a3e22"
+    },
+    "folds/build-0000/heldout/k012/execution/shuffled_control.i8": {
+      "bytes": 256,
+      "sha256": "2722eb02ea443d7c65dc33e47272763396cf2de4aadac49e720b5a33f68d6d0e"
+    },
+    "folds/build-0000/heldout/k012/execution/shuffled_destinations.u16le": {
+      "bytes": 512,
+      "sha256": "7eaa8bd0c96502fc9a95b2731913bb1beb3209c995dc2449632d253b4c453c36"
+    },
+    "folds/build-0000/heldout/k012/execution/unit_sign_control.i8": {
+      "bytes": 256,
+      "sha256": "59c7cf82ea30df43433101d71b18e86aa542cdda258b4a53b34f6ceba99a1a6b"
+    },
+    "folds/build-0000/heldout/k012/packet_deltas.json": {
+      "bytes": 12651,
+      "sha256": "2abf86ccc7fda3bbb170b4debc9dc7975ee116ce705a45ed14370211b1fc8f6e"
+    },
+    "folds/build-0000/heldout/k052/execution/causal_vault_bridge_execution.json": {
+      "bytes": 1393,
+      "sha256": "bec750d780a6ecaaaa79fe129e61e350c33a4872b3eb53d30c345b957a78a976"
+    },
+    "folds/build-0000/heldout/k052/execution/causal_vault_bridge_ledger.json": {
+      "bytes": 39820,
+      "sha256": "fc60f86ae4c31c847b7e64fe902358200b7234a0c8ea16b4afa91858b9b8cabd"
+    },
+    "folds/build-0000/heldout/k052/execution/causal_vault_state.bin": {
+      "bytes": 352,
+      "sha256": "ab52399578b738d3cb6330fd7051afb368e57fccc3b3cff3053d39f45e3eb6fb"
+    },
+    "folds/build-0000/heldout/k052/execution/last_only_control.i8": {
+      "bytes": 256,
+      "sha256": "c26a30dd7cdcfb5bf96f424f485e666ceff445a80bdee83eaa4678db27c3a669"
+    },
+    "folds/build-0000/heldout/k052/execution/normalized_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "f8ab7f288918c9112dcd2fbd6688503429d90e101fca46590bcebba8c6bda5ab"
+    },
+    "folds/build-0000/heldout/k052/execution/raw_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "f28c8e38791e2227990cee7bd35d461ba2db02b729983696238160a34ebee3ca"
+    },
+    "folds/build-0000/heldout/k052/execution/shuffled_control.i8": {
+      "bytes": 256,
+      "sha256": "56c7de942cda684a34c2a06cda67f8f29b95906bb3b606c8ce2bf2a1ed21f15e"
+    },
+    "folds/build-0000/heldout/k052/execution/shuffled_destinations.u16le": {
+      "bytes": 512,
+      "sha256": "7eaa8bd0c96502fc9a95b2731913bb1beb3209c995dc2449632d253b4c453c36"
+    },
+    "folds/build-0000/heldout/k052/execution/unit_sign_control.i8": {
+      "bytes": 256,
+      "sha256": "7c93531241c8c75ba4107b7261502144c736f4dc7939021840174dd726b59692"
+    },
+    "folds/build-0000/heldout/k052/packet_deltas.json": {
+      "bytes": 51568,
+      "sha256": "c7a1cf6ea5713b20cf6813f565ed6c4aecba2ab523d5f18bab3e6c40e9a085a7"
+    },
+    "folds/build-0000/heldout/k128/execution/causal_vault_bridge_execution.json": {
+      "bytes": 1398,
+      "sha256": "5f001fdd3679ef1f9e9a829fe8c7245ec5fd8a2ceabf687bc9c7186959327efc"
+    },
+    "folds/build-0000/heldout/k128/execution/causal_vault_bridge_ledger.json": {
+      "bytes": 98016,
+      "sha256": "fc76f880a7cd5bf7d6b14e825667bb68a24f5b35ce9fb1303bde9842706789fb"
+    },
+    "folds/build-0000/heldout/k128/execution/causal_vault_state.bin": {
+      "bytes": 352,
+      "sha256": "c7c9401ea8e0943a1c0e83aa17aa7d8b500aefea46afd25e71697641c80f8ee7"
+    },
+    "folds/build-0000/heldout/k128/execution/last_only_control.i8": {
+      "bytes": 256,
+      "sha256": "099e6550570a4ddee2881fc22f4e04832411d332a92b79c117a5553370a891c6"
+    },
+    "folds/build-0000/heldout/k128/execution/normalized_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "e3314752fd15ae41f0115ae982b45da5cf747da6b31f84274b44281b3a5e33e9"
+    },
+    "folds/build-0000/heldout/k128/execution/raw_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "bc8a770c8bf737f0b02888cc505a20a1f227b68d343a3e55feff122bf6fb16c4"
+    },
+    "folds/build-0000/heldout/k128/execution/shuffled_control.i8": {
+      "bytes": 256,
+      "sha256": "558a3653f8dea291a37bf3954e18143bb1a533d8c6ead093af1195b61213f706"
+    },
+    "folds/build-0000/heldout/k128/execution/shuffled_destinations.u16le": {
+      "bytes": 512,
+      "sha256": "7eaa8bd0c96502fc9a95b2731913bb1beb3209c995dc2449632d253b4c453c36"
+    },
+    "folds/build-0000/heldout/k128/execution/unit_sign_control.i8": {
+      "bytes": 256,
+      "sha256": "f5f5c81ba8cdf6848fdc67c56912080f561aa3ee0c45b180ad2a475285cbcb25"
+    },
+    "folds/build-0000/heldout/k128/packet_deltas.json": {
+      "bytes": 125520,
+      "sha256": "b007c3451c2f85c3833645bcf0fc2ea34aba5c96259d4aebbb8a67db6746f90a"
+    },
+    "folds/build-0000/heldout/k256/execution/causal_vault_bridge_execution.json": {
+      "bytes": 1398,
+      "sha256": "cd58355e66bf45bbc485b26ebdde6f25b40014440f1fb340240b62d7a3c34750"
+    },
+    "folds/build-0000/heldout/k256/execution/causal_vault_bridge_ledger.json": {
+      "bytes": 196051,
+      "sha256": "1d82c8ec754044a395fdc16bb37bf0d6ce42755ea52190b2d7aa33bcf0ff4db1"
+    },
+    "folds/build-0000/heldout/k256/execution/causal_vault_state.bin": {
+      "bytes": 352,
+      "sha256": "337602cfc8cb31fbafe7f79c7510fcb94395da26ae9ca6d7558f72e9aa6d2403"
+    },
+    "folds/build-0000/heldout/k256/execution/last_only_control.i8": {
+      "bytes": 256,
+      "sha256": "1a20e081e0b3168ebeec5913ddab8064489723366806af6c579978948e3b564f"
+    },
+    "folds/build-0000/heldout/k256/execution/normalized_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "111d5e122774d67dc9c3d515f8f1d2b05de96757840c66dfc7a66ad7be78a2f0"
+    },
+    "folds/build-0000/heldout/k256/execution/raw_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "cd2b031e0d6526fdb7a25859098575acf0a36f313285105b76914ffa93505786"
+    },
+    "folds/build-0000/heldout/k256/execution/shuffled_control.i8": {
+      "bytes": 256,
+      "sha256": "618f83e1961dd59e7802f4836ff0829c3e2c92f9f4ae73f56b02d4ab9fabe910"
+    },
+    "folds/build-0000/heldout/k256/execution/shuffled_destinations.u16le": {
+      "bytes": 512,
+      "sha256": "7eaa8bd0c96502fc9a95b2731913bb1beb3209c995dc2449632d253b4c453c36"
+    },
+    "folds/build-0000/heldout/k256/execution/unit_sign_control.i8": {
+      "bytes": 256,
+      "sha256": "590d9b33fc190c38c3aa34fb38186484d90197ec8dbc0a9ec1a9accc7f2aece1"
+    },
+    "folds/build-0000/heldout/k256/packet_deltas.json": {
+      "bytes": 250080,
+      "sha256": "5f9deab0f9ce34b198ac450aeb56dba96cf7ffbebe4a07bbfb866fc44024dd2c"
+    },
+    "folds/build-0000/heldout/polarity_swap/execution/causal_vault_bridge_execution.json": {
+      "bytes": 1398,
+      "sha256": "b605a6c6fca7bcf9f9b11b7523c12c63645f44889b66ca3a739cd2c7eab0bb34"
+    },
+    "folds/build-0000/heldout/polarity_swap/execution/causal_vault_bridge_ledger.json": {
+      "bytes": 196166,
+      "sha256": "3934710551578bf019e17c816701c858138c076dff30044ff189afb790f24953"
+    },
+    "folds/build-0000/heldout/polarity_swap/execution/causal_vault_state.bin": {
+      "bytes": 352,
+      "sha256": "f30610ac660798f756db02fa826bb29ad217985011a1d7f6ae3e5300b26197b4"
+    },
+    "folds/build-0000/heldout/polarity_swap/execution/last_only_control.i8": {
+      "bytes": 256,
+      "sha256": "0edea06a459aa89ef0c1a2361eaf223c1de0591f7d26347728284a8347b02db4"
+    },
+    "folds/build-0000/heldout/polarity_swap/execution/normalized_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "0a37384ec599ff96a687dee0a81fcf05785818965ac48dc4693be6f4eca402fd"
+    },
+    "folds/build-0000/heldout/polarity_swap/execution/raw_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "a634c096b752933b659c9c9c15af63a764045b3dab59e1c139bf8a52916cd931"
+    },
+    "folds/build-0000/heldout/polarity_swap/execution/shuffled_control.i8": {
+      "bytes": 256,
+      "sha256": "2fad96570c1884bffb32a2d3d684a9fa3c5758b103340f8c529b2a5789c1dadb"
+    },
+    "folds/build-0000/heldout/polarity_swap/execution/shuffled_destinations.u16le": {
+      "bytes": 512,
+      "sha256": "7eaa8bd0c96502fc9a95b2731913bb1beb3209c995dc2449632d253b4c453c36"
+    },
+    "folds/build-0000/heldout/polarity_swap/execution/unit_sign_control.i8": {
+      "bytes": 256,
+      "sha256": "e3b1cb97740edf981ca1ae835221c1a2902b97706636920a6978b91a7463cae4"
+    },
+    "folds/build-0000/heldout/polarity_swap/packet_deltas.json": {
+      "bytes": 250158,
+      "sha256": "454d2a661687e41bbbc4a2eddf8c18bb5f793823cc6871ac72e3e7578bf47ae2"
+    },
+    "folds/build-0000/heldout/pre_oracle_controls.json": {
+      "bytes": 524,
+      "sha256": "d5caef17e38b2b8099ebe0bbde2ec661d0e299131a3ea8b380d6d5611b50ddfb"
+    },
+    "folds/build-0000/heldout/quantizer.json": {
+      "bytes": 424,
+      "sha256": "7f6ce78065f856c1f61ea187bc194ab1c7f869f33eeca2e997602a3b1069e244"
+    },
+    "folds/build-0000/heldout/raw_predictions.f64le": {
+      "bytes": 57344,
+      "sha256": "489ae359bcefef8129d771282775bbcd2a75336c8d4099892f450340fc62e103"
+    },
+    "folds/build-0000/heldout/upstream_o1c19_learned_reader_exhaustive.f32le": {
+      "bytes": 1024,
+      "sha256": "8179628baabba52a1331e78edf5b0661debbd7230920644ad35b92bd458b013a"
+    }
+  },
+  "calibration_label_ordinals_used_for_this_fold": [
+    1,
+    2,
+    3
+  ],
+  "calibration_scales": [
+    0.0,
+    0.005,
+    0.0,
+    0.0,
+    0.055,
+    0.0,
+    0.0
+  ],
+  "fold_index": 0,
+  "freeze_sha256": "cfd1b2b7256a285b2433f9a646df3188ee4ce512c2597c49ceda5582b9c6b0df",
+  "held_out_action_pool_sha256": "0473112acf83efec096418c90e14aa394fc86ff286b4923dd6caa3c7cba79520",
+  "held_out_label_may_have_been_opened_in_other_fold": false,
+  "held_out_label_used_for_this_fold": false,
+  "held_out_ordinal": 0,
+  "held_out_reader_updates": 0,
+  "held_out_target_id": "build-0000",
+  "phase": "ALL_HELDOUT_DELTAS_SCALES_STATES_CONTROLS_AND_PREDICTIONS_FROZEN_BEFORE_LABEL_ORACLE",
+  "prediction_arms": [
+    "raw_float_delta_sum",
+    "normalized_float_delta_sum",
+    "quantized_int8_vault",
+    "last_horizon_only",
+    "unit_sign_sum",
+    "coordinate_shuffled_vault",
+    "zero_prior"
+  ],
+  "previously_opened_build_label_ordinals": [
+    1,
+    2,
+    3
+  ],
+  "quantizer_sha256": "7f6ce78065f856c1f61ea187bc194ab1c7f869f33eeca2e997602a3b1069e244",
+  "reader_state_sha256": "8824fefafa56fde83724bf965b8441a3673bb72de4f7f8bcc23d43084193ced0",
+  "schema": "o1-256-o1c22-heldout-prediction-freeze-v1",
+  "scientific_entropy_calls": 0,
+  "slow_state_sha256": "4f2caddc76dcc7a1a83b38f6d5b7ae17ce7b7bc3f1db2a545a2470f3ef7ce98e",
+  "solver_calls": 0,
+  "upstream_prediction_freeze_sha256": "1e75da35c47cbc75719abd9e23e81a001b360ae644f357fdb5e2a8b5086ac566"
+}

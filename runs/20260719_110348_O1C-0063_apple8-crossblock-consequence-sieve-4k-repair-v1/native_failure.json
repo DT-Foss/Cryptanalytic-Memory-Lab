@@ -1,0 +1,34 @@
+{
+  "classification": "O1C63_OPERATIONAL_NATIVE_FAILURE_NO_SCIENCE_RESULT",
+  "error_message": "joint-score-sieve execution failed",
+  "error_type": "O1RelationalSearchError",
+  "native_calls_consumed": 1,
+  "native_failure_telemetry": {
+    "returncode": null,
+    "schema": "o1-256-native-failure-telemetry-v1",
+    "signal_name": null,
+    "signal_number": null,
+    "stderr": {
+      "artifact": null,
+      "bytes": null,
+      "persisted_bytes": 0,
+      "persisted_sha256": null,
+      "present": false,
+      "sha256": null,
+      "truncated": false
+    },
+    "stdout": {
+      "artifact": null,
+      "bytes": null,
+      "persisted_bytes": 0,
+      "persisted_sha256": null,
+      "present": false,
+      "sha256": null,
+      "truncated": false
+    },
+    "structured": {}
+  },
+  "occurred_after_persisted_intent": true,
+  "retry_authorized": false,
+  "truth_key_bytes_read": false
+}

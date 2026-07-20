@@ -1,0 +1,11 @@
+{
+  "attempt_id": "O1C-0001",
+  "payload": {
+    "dataset_sha256": "ccd1c4e236cba798362745b0430beecf294599e1ac4332fd5d8ad4f8625161c1",
+    "labels_read": 0,
+    "phase": "DATASET_NORMALIZED"
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 2,
+  "updated_at": "2026-07-15T12:25:29.708292+02:00"
+}

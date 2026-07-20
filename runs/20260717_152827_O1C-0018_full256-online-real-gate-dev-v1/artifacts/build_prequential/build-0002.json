@@ -1,0 +1,15 @@
+{
+  "action_order_sha256": "4464a17e526cb692d63d654c5f7d6f5b160f7f135d585ad5d5b3b4472399586b",
+  "action_pool_sha256": "fcee9c6c05e40c47023417acf7df34bbcf694398b650810b96d6640871ad7b06",
+  "critic_updates_after_current_reveal": 0,
+  "freeze_sha256": "5d35ba15404ee4929e94d573175f57564677445be4fd0a8af4c6101babb80405",
+  "labels_materialized": 0,
+  "ordinal": 2,
+  "phase": "BUILD_TRAJECTORY_FROZEN_BEFORE_LABEL_ACCESS",
+  "primary_fast_state_sha256": "35d83f72bbaace5706b95ac3da449d9433f199008f1ea1c41de3272635833656",
+  "public_view_sha256": "9cb6ad51b47ebf531855a78380e941f423b09f9ec600daa88bd4449ae832d611",
+  "reader_updates_after_current_reveal": 0,
+  "schema": "o1-256-fullround-online-build-prediction-freeze-v1",
+  "shifted_fast_state_sha256": "5997e9570631d82f870d82bac54cb24fc145bb737352325d4b9585edddff13c8",
+  "target_id": "build-0002"
+}

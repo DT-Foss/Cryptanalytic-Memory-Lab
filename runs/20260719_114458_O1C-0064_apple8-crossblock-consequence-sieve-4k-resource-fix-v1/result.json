@@ -1,0 +1,222 @@
+{
+  "attempt_id": "O1C-0064",
+  "capsule": "runs/20260719_114458_O1C-0064_apple8-crossblock-consequence-sieve-4k-resource-fix-v1",
+  "claim_boundary": {
+    "different_budget_work_is_matched": false,
+    "fresh_reveal_calls": 0,
+    "fresh_targets": 0,
+    "native_solver_calls": 1,
+    "new_attempt_not_o1c63_retry": true,
+    "o1c63_terminal_provenance_bound": true,
+    "o1c63_writes": 0,
+    "refits": 0,
+    "retry_authorized": false,
+    "same_full256_science_as_o1c63": true,
+    "scientific_entropy_calls": 0,
+    "truth_key_bytes_read_after_public_diagnostic": false,
+    "validated_science_result": false
+  },
+  "classification": "O1C64_OPERATIONAL_FAILURE_NO_SCIENCE_RESULT",
+  "metrics": {
+    "native_status": "OPERATIONAL_FAILURE"
+  },
+  "next_action": "Do not retry O1C-0063 or O1C-0064; diagnose this immutable O1C-0064 terminal capsule under a new attempt ID.",
+  "operational_failure": {
+    "classification": "O1C64_OPERATIONAL_NATIVE_FAILURE_NO_SCIENCE_RESULT",
+    "error_message": "joint-score-sieve execution failed",
+    "error_type": "JointScoreSieveExecutionError",
+    "native_calls_consumed": 1,
+    "native_execution_failure_artifact": "native_execution_failure.json",
+    "native_execution_failure_sha256": "6da2bbdf4f7ce4ba8864f78e514c14734b0c7c018c656ea53d9df1aa2bb7de11",
+    "native_failure_telemetry": {
+      "adapter_contract_valid": true,
+      "adapter_declared_and_described_equal": true,
+      "adapter_describe_error": null,
+      "adapter_failure_schema": "o1-256-joint-score-sieve-execution-failure-v1",
+      "adapter_failure_telemetry": {
+        "classification_kind": "watchdog_memory",
+        "command": null,
+        "configured_memory_limit_bytes": 1073741824,
+        "configured_timeout_seconds": 45.0,
+        "darwin_watchdog_guard_bytes": 33554432,
+        "darwin_watchdog_kill_threshold_bytes": 1040187392,
+        "darwin_watchdog_poll_interval_seconds": 0.01,
+        "elapsed_seconds": 29.80462762499519,
+        "exception_chain": [
+          {
+            "args_repr": "('joint-score-sieve execution failed',)",
+            "depth": 0,
+            "message": "joint-score-sieve execution failed",
+            "module": "o1_crypto_lab.o1_relational_search",
+            "relationship": "outer",
+            "type": "O1RelationalSearchError"
+          },
+          {
+            "args_repr": "('Darwin physical-footprint watchdog reached its guarded ceiling (1040285696 >= 1040187392 < 1073741824)',)",
+            "depth": 1,
+            "message": "Darwin physical-footprint watchdog reached its guarded ceiling (1040285696 >= 1040187392 < 1073741824)",
+            "module": "o1_crypto_lab.joint_score_sieve",
+            "relationship": "cause",
+            "type": "_JointScoreSieveMemoryLimitExceeded"
+          }
+        ],
+        "memory_samples": [
+          {
+            "configured_limit_bytes": 1073741824,
+            "kill_threshold_bytes": 1040187392,
+            "observed_bytes": 1040285696
+          }
+        ],
+        "phase": "native_process",
+        "returncode": null,
+        "schema": "o1-256-joint-score-sieve-execution-failure-v1",
+        "signal_name": null,
+        "signal_number": null,
+        "stderr": null,
+        "stdout": null
+      },
+      "classification_kind": "watchdog_memory",
+      "configured_memory_limit_bytes": 1073741824,
+      "configured_timeout_seconds": 45.0,
+      "darwin_watchdog_guard_bytes": 33554432,
+      "darwin_watchdog_kill_threshold_bytes": 1040187392,
+      "darwin_watchdog_poll_interval_seconds": 0.01,
+      "elapsed_seconds": 29.80462762499519,
+      "exception_chain_outer_to_cause_or_context": [
+        {
+          "args": [
+            "joint-score-sieve execution failed"
+          ],
+          "depth": 0,
+          "message": "joint-score-sieve execution failed",
+          "module": "o1_crypto_lab.joint_score_sieve_v6",
+          "relationship": "outer",
+          "type": "JointScoreSieveExecutionError"
+        },
+        {
+          "args": [
+            "joint-score-sieve execution failed"
+          ],
+          "depth": 1,
+          "message": "joint-score-sieve execution failed",
+          "module": "o1_crypto_lab.o1_relational_search",
+          "relationship": "cause",
+          "type": "O1RelationalSearchError"
+        },
+        {
+          "args": [
+            "Darwin physical-footprint watchdog reached its guarded ceiling (1040285696 >= 1040187392 < 1073741824)"
+          ],
+          "depth": 2,
+          "message": "Darwin physical-footprint watchdog reached its guarded ceiling (1040285696 >= 1040187392 < 1073741824)",
+          "module": "o1_crypto_lab.joint_score_sieve",
+          "relationship": "cause",
+          "type": "_JointScoreSieveMemoryLimitExceeded"
+        }
+      ],
+      "memory_samples": [
+        {
+          "configured_limit_bytes": 1073741824,
+          "kill_threshold_bytes": 1040187392,
+          "observed_bytes": 1040285696
+        }
+      ],
+      "o1c64_resource_contract": {
+        "darwin_watchdog_guard_bytes": 33554432,
+        "darwin_watchdog_kill_threshold_bytes": 1040187392,
+        "darwin_watchdog_poll_interval_seconds": 0.01,
+        "memory_limit_bytes": 1073741824,
+        "timeout_seconds": 45.0
+      },
+      "phase": "native_process",
+      "returncode": null,
+      "schema": "o1-256-o1c64-native-failure-evidence-v1",
+      "signal_name": null,
+      "signal_number": null,
+      "stderr": {
+        "artifact": null,
+        "bytes": null,
+        "persisted_bytes": 0,
+        "persisted_sha256": null,
+        "present": false,
+        "sha256": null,
+        "truncated": false
+      },
+      "stdout": {
+        "artifact": null,
+        "bytes": null,
+        "persisted_bytes": 0,
+        "persisted_sha256": null,
+        "present": false,
+        "sha256": null,
+        "truncated": false
+      }
+    },
+    "occurred_after_persisted_intent": true,
+    "retry_authorized": false,
+    "truth_key_bytes_read": false
+  },
+  "preflight": {
+    "apple8_capsule": "runs/20260719_095509_APPLE-VIEW-0008-MATCHED_crossblock-consequence-sieve-v1",
+    "apple8_manifest_sha256": "751b89019d1f65b8180b15eafbb4bdf45c6080b0894c50567ee63eff15405a69",
+    "apple8_result_sha256": "21c2170225a814bf715b6a4332bd88210fca7cbb4c6db21237becbfdd85795be",
+    "attempt_id": "O1C-0064",
+    "cnf_sha256": "e1fc0ac93724004291c960ea06e5584c598853b9ea8370552be09f29e73e2432",
+    "config_sha256": "665d6c53137458fd9318f50a2c62f8a34511c4d77968a49dfab583b06e9a9473",
+    "expected_native_executable_sha256": "a87044336c3ad137d42405ea3db20795c4b8a2fc65d977a59235cb2ab47ae467",
+    "files_written": 0,
+    "fresh_reveal_calls": 0,
+    "fresh_targets": 0,
+    "maximum_billed_conflicts": 4097,
+    "maximum_conflict_limit_overshoot": 1,
+    "memory_limit_bytes": 1073741824,
+    "memory_pressure_free_percent": 63,
+    "native_result_schema": "o1-256-cadical-joint-score-sieve-result-v4",
+    "native_solver_calls": 0,
+    "new_attempt_not_o1c63_retry": true,
+    "o1c63_native_calls_consumed": 1,
+    "o1c63_retry_authorized": false,
+    "o1c63_terminal_manifest_sha256": "d652b9d6d1dc1fcc7c83594d236223a958cef427e6263cb964dd479b110d7b1a",
+    "o1c63_terminal_result_sha256": "fdf46885ff0c268057a8118743d127d39203a219b323729cc05ff6e1f48c23a2",
+    "o1c63_validated_science_result": false,
+    "o1c63_writes": 0,
+    "ok": true,
+    "potential_sha256": "8c6101b49c7050caf895bd9c496c05bcea9f43a2b27f378d7306be38b00d5390",
+    "ready_for_science": true,
+    "refits": 0,
+    "requested_conflicts": 4096,
+    "schema": "o1-256-apple8-crossblock-sieve-4k-resource-fix-preflight-v1",
+    "scientific_entropy_calls": 0,
+    "soft_conflict_ledger_schema": "o1-256-cadical-joint-score-sieve-soft-conflict-ledger-4k-v2",
+    "source_commit": "41b5020496d6e6e79d98a21a8711e60b181e2af9",
+    "source_commit_bound": true,
+    "threshold": 14.606178797892962,
+    "timeout_seconds": 45.0,
+    "truth_key_bytes_read": false
+  },
+  "recorded_at": "2026-07-19T11:45:27+02:00",
+  "resource_fix_provenance": {
+    "native_failure_sha256": "cb0e42774f5d1326ff79081e96768b9aec870d72f5c008caea67d5a2e9e8d0b5",
+    "new_attempt_not_retry": true,
+    "o1c63_native_calls_consumed": 1,
+    "o1c63_retry_authorized": false,
+    "source_attempt": "O1C-0063",
+    "terminal_manifest_sha256": "d652b9d6d1dc1fcc7c83594d236223a958cef427e6263cb964dd479b110d7b1a",
+    "terminal_result_sha256": "fdf46885ff0c268057a8118743d127d39203a219b323729cc05ff6e1f48c23a2"
+  },
+  "resources": {
+    "billed_conflicts": null,
+    "child_cpu_seconds": 30.313651,
+    "elapsed_seconds": 30.913741750002373,
+    "maximum_billed_conflicts": 4097,
+    "native_memory_limit_bytes": 1073741824,
+    "native_solver_calls": 1,
+    "native_timeout_seconds": 45.0,
+    "parent_cpu_seconds": 0.188852,
+    "peak_rss_bytes": 135020544,
+    "persistent_artifact_bytes": 37012,
+    "requested_conflicts": 4096
+  },
+  "schema": "o1-256-apple8-crossblock-sieve-4k-resource-fix-result-v1",
+  "source_commit": "41b5020496d6e6e79d98a21a8711e60b181e2af9"
+}

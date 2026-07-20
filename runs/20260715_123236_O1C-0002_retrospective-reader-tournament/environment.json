@@ -1,0 +1,17 @@
+{
+  "attempt_id": "O1C-0002",
+  "captured": {
+    "cwd": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab",
+    "executable": "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "python": "3.13.1",
+    "timezone": "Europe/Berlin"
+  },
+  "provided": {
+    "label_broker_process_boundary": true,
+    "o1c_0001_capsule": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/runs/20260715_122529_O1C-0001_stage3-a296-a297-ingest",
+    "source_commit": "40bdfe3acaa61d4c812be1e32f71d58e4df66d8e",
+    "source_root": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/fullround-key-recovery"
+  },
+  "schema": "o1c-run-environment-v1"
+}

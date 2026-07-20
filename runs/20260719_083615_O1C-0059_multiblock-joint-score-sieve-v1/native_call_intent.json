@@ -1,0 +1,22 @@
+{
+  "attempt_id": "O1C-0059",
+  "calls_authorized": 1,
+  "calls_before": 0,
+  "cnf_sha256": "7d99d86b64fe1fdbf377f840260aeace79a35ef9ea703b2fb7fb36d4b5918a11",
+  "conflict_limit": 512,
+  "darwin_watchdog_guard_bytes": 33554432,
+  "darwin_watchdog_poll_interval_seconds": 0.01,
+  "darwin_watchdog_temporal_blindspot": "nominally-at-most-one-10ms-poll-interval;OS-scheduling-delay-is-not-hard-bounded;32MiB-guard-reserved-below-formal-ceiling",
+  "fresh_entropy_calls": 0,
+  "fresh_reveal_calls": 0,
+  "memory_limit_bytes": 805306368,
+  "memory_limit_mechanism": "proc_pid_rusage-physical-footprint-process-group-watchdog",
+  "native_executable_sha256": "28e8f9c325a41a20d7b858d2374f79efc28981217e286687fe36903b71afe767",
+  "potential_sha256": "8c6101b49c7050caf895bd9c496c05bcea9f43a2b27f378d7306be38b00d5390",
+  "recorded_at": "2026-07-19T08:36:15+02:00",
+  "schema": "o1-256-multiblock-joint-score-sieve-native-call-intent-v1",
+  "seed": 0,
+  "threshold": 14.606178797892962,
+  "timeout_seconds": 180.0,
+  "truth_key_reads": 0
+}

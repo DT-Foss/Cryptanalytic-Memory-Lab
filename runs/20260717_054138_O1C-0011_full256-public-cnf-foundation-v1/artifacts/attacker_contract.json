@@ -1,0 +1,14 @@
+{
+  "cipher": "ChaCha20",
+  "feed_forward": true,
+  "known_inputs": [
+    "counter",
+    "nonce",
+    "512-bit output block"
+  ],
+  "rounds": 20,
+  "target_internal_state_inputs": 0,
+  "target_internal_trace_inputs": 0,
+  "target_key_units": 0,
+  "unknown_key_bits": 256
+}

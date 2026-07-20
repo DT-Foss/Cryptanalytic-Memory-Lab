@@ -1852,3 +1852,46 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [`capsule`](../runs/20260720_065505_O1C-0078_apple8-rescue-prefix-preemption-v1/RUN.md),
   artifact-manifest SHA-256
   `5d358863162a64f27d215fc4b91258c73194d2458f89d9dd7495bb1e05e50a69`.
+
+## B-0079 — Explicit ownership composes; qualified prefix activation still does not prune
+
+- **Operational evidence:** O1C-0079 consumes fresh Page 6 / lineage 19 once at
+  exact `128/128/128` requested/actual/billed work. All `549` proposals bind and
+  release, `547` confirm, two retire unobserved, and zero remain live or omitted.
+  Tokens 75/110 own `-108/-112`; later `+108/+112` assignments are foreign
+  token 0. Total foreign/opposite assignments are `9,966/0`. This supports the
+  typed decision-instance owner and closes the O1C-0078 lifecycle alias.
+- **Prefix evidence:** all 11 rows are consumed before rank, nine bind/release,
+  two are preassigned falsifying and zero are skipped as rescue. Rank
+  original/contrast complete `254+254`; frontier initial/contrast complete
+  `16+16`. The central reader returns `549` nonzero decisions in `1,587`
+  callbacks and produces a trace distinct from O1C-0077. Qualified prefix
+  activation is therefore positive.
+- **Publication correction:** the immutable raw no-activation label is false
+  only because a substring scan matched `returned-ever` inside the positive
+  eligibility descriptor
+  `origin-row-level-token;never-returned-ever-plus-variable-sign`. Corrected
+  commit `665ea826…` validates exact runtime identities. The additive erratum
+  changes no archived byte and makes zero solver/truth/reveal/refit/MPS/GPU
+  calls.
+- **Science boundary:** minimum UB `18.742222666780805` remains
+  `4.136043868887843` above `tau`; safe prunes, novel clauses, complete models,
+  keys and sub-256 progress are all zero. The `90.14%` propagation reduction
+  versus O1C-0077 is successive-page telemetry, not a same-input science gain.
+  Classification is
+  `DECISION_OWNERSHIP_QUALIFIED_PREFIX_MECHANISM_ONLY`.
+- **Do not repeat:** Page 6, lineage 19, ownership repair, prefix subset/order,
+  K, scorer, phase, seed, horizon, threshold or RAM/cap. Operational composition
+  and prefix activation are answered; more activation without a certified bound
+  crossing has no science gate.
+- **Breadcrumb:** on fresh Page 7, compare exact same-parent child bounds
+  `U0/U1`. Intervene only if `min(U0,U1)<tau`, with primary evidence an
+  asymmetric threshold crossing or both children below threshold. Require an
+  actual prune, closure, novel clause or verified model; depth 2 is a fallback
+  only for a genuine near-crossing. No O1C-0080 call is yet authorized.
+- **Artifacts:** immutable
+  [`raw result`](O1C0079_APPLE8_DECISION_OWNERSHIP_RESULT_20260720.json),
+  [`zero-call erratum`](O1C0079_APPLE8_DECISION_OWNERSHIP_ZERO_CALL_ERRATUM_20260720.json),
+  [`interpretation`](O1C0079_APPLE8_DECISION_OWNERSHIP_INTERPRETATION_20260720.md)
+  and sealed
+  [`capsule`](../runs/20260720_085738_O1C-0079_apple8-decision-ownership-v1/RUN.md).

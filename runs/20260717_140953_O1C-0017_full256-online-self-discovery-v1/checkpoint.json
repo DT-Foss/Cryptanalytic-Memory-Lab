@@ -1,0 +1,19 @@
+{
+  "attempt_id": "O1C-0017",
+  "payload": {
+    "evaluation_labels_scored": 16,
+    "failed_budgets": [],
+    "fresh_entropy_calls": 0,
+    "gpu_calls": 0,
+    "mps_calls": 0,
+    "persistent_artifact_bytes": 285581,
+    "phase": "O1C0017_SCORED_ARTIFACTS_PERSISTED",
+    "result_sha256": "609014695bc3013bb971d7d05b682d18797af5c9d9cd31561cdc41de120ff28c",
+    "scientific_success_gate_passed": true,
+    "sibling_reads": 0,
+    "sibling_writes": 0
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 3,
+  "updated_at": "2026-07-17T14:11:13.023762+02:00"
+}

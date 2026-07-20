@@ -1,0 +1,1 @@
+nice -n 10 env PYTHONPATH=src python3 -m o1_crypto_lab.o1c72_apple8_vault_backtrack_release_run run --config configs/o1c72_apple8_vault_backtrack_release_v1.json

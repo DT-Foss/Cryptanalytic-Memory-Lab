@@ -1,6 +1,9 @@
 # O1C-0079 — APPLE8 central decision ownership
 
-- **Status:** zero-call design; no O1C-0079 science call has been issued.
+- **Status at freeze:** zero-call design; no O1C-0079 science call had been
+  issued.
+- **Current disposition:** one-call execution complete; zero-call classification
+  erratum applied without changing the archived result or capsule.
 - **Predecessor:** O1C-0078
   `RESCUE_PREFIX_PREEMPTION_OPERATIONAL_TERMINAL`.
 - **Attacker surface:** unchanged public APPLE8 Full-256 CNF, public score
@@ -374,3 +377,77 @@ After execution, it must add one immutable timestamped capsule, authoritative
 result, interpretation and the normal status/index/attempt/breadcrumb/hypothesis
 updates. The direct resume point must distinguish operational ownership success,
 qualified prefix activation and scientific gain.
+
+## Post-execution disposition
+
+The authorization described above was consumed once at execution commit
+`8b058cbfe62d93d0263a275f4081982f382a4355`. Page 6 / lineage 19 returned a
+complete `128/128/128` requested/actual/billed-conflict result with zero retry.
+The archived result SHA-256 is
+`ce68d10eed83d9a0d90518c579f4e1841cd8a6791e4cd975d0d27a64bcc6251e`;
+the capsule artifact-manifest SHA-256 is
+`f7cd0de5ba58a59de913db88ba3e9ce2ae1b486a4e922700f65dff3aa5d39475`.
+
+The raw result's no-activation classification is not the final interpretation.
+Its validator scanned serialized text for `returned-ever` and matched the
+positive eligibility descriptor
+`origin-row-level-token;never-returned-ever-plus-variable-sign`. Corrected
+validator commit `665ea8260ae7127baabc83af2fe208080f6f58f9` checks explicit
+runtime identities instead. Revalidation uses only the immutable native and
+ownership evidence and makes zero solver, truth, reveal, refit, MPS or GPU calls.
+The three corrected axes are:
+
+- operational ownership success: `true`;
+- qualified prefix activation: `true`;
+- science gain: `false`.
+
+The corrected classification is
+`DECISION_OWNERSHIP_QUALIFIED_PREFIX_MECHANISM_ONLY`, with stop
+`qualified-prefix-activation-without-science-gain`. The raw result and capsule
+remain unchanged; the correction is additive in the
+[`zero-call erratum`](O1C0079_APPLE8_DECISION_OWNERSHIP_ZERO_CALL_ERRATUM_20260720.json)
+and
+[`interpretation`](O1C0079_APPLE8_DECISION_OWNERSHIP_INTERPRETATION_20260720.md).
+
+## Gate outcome
+
+Ownership is total: `549` proposals = `549` level bindings = `549` releases,
+with `547` confirmed, two unobserved, zero live and zero omitted. Tokens 75/110
+retire unobserved proposals `-108/-112`; later `+108/+112` assignments are
+foreign token 0. Across the call there are `9,966` foreign and zero opposite
+assignments. Rank original/contrast each contribute `254` releases and frontier
+initial/contrast each contribute `16`.
+
+The prefix consumes all 11 rows before rank handoff: nine bind and release, two
+are preassigned falsifying, and zero are skipped as rescue. The reader makes
+`1,587` callbacks (`549` nonzero / `1,038` zero). This passes the operational
+and qualified-prefix gates exactly.
+
+Science remains null. Minimum UB `18.742222666780805` is
+`4.136043868887843` above `tau=14.606178797892962`; there are zero safe prunes,
+novel clauses, complete models, keys or other sub-256 progress. Decisions move
+`884→1,587` versus O1C-0077 while propagations move
+`4,754,555→468,611` (`-90.14%`); successive Page inputs prevent treating those
+whole-call changes as a same-input causal science effect. O1C-0068 is untouched.
+
+## O1C-0080 handoff — exact one-bit bound crossing
+
+Do not retry Page 6 / lineage 19 or refit the activated prefix. The next
+distinct design is an exact one-bit child-bound reader on fresh Page 7. Advance
+the unchanged 550-clause attic after the real Page-6 activation with
+`advance_causal_residency`, `fully_emitted_union_indices=()` and lineage 20.
+The identity-bound empty rollover receipt/chunk is required and contains zero
+clauses, occurrences and emissions. The provisional Page-7 active projection is
+`256` clauses / `663,409` literals,
+SHA-256
+`92b6e547e143cdaf2f28fe731fd356bc69806926ee569205d6def432144258ff`;
+selection-order SHA-256
+`776819396914179fe1a0ae9b443a6c0775e32c70bf36658b6dfe7043002dc723`.
+
+Keep the public inputs, scorer, threshold, K256 projection, seed and 128-conflict
+horizon unchanged. Evaluate exact `U0/U1` children of the same parent and
+intervene only if `min(U0,U1)<tau` with a certified asymmetric crossing or both
+children below threshold. A science pass requires a real safe prune, certified
+closure, globally novel clause or public verified model. A depth-2 fallback is
+eligible only for a genuine measured near-crossing. No O1C-0080 call is
+authorized by this handoff.

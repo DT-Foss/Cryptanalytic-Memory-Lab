@@ -1,0 +1,1 @@
+/usr/bin/env 'PYTHONPATH=/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/src' /opt/anaconda3/bin/python -m o1_crypto_lab.o1c22_polyphase_bridge_run --config '/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/configs/o1c22_polyphase_bridge_v1.json'

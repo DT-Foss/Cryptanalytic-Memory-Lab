@@ -1,4 +1,4 @@
-# O1 Cryptanalytic Memory Lab
+# Cryptanalytic Memory Lab (`cryptO1`)
 
 An isolated research harness for combining three already-existing systems without
 changing any of them:
@@ -15,6 +15,26 @@ The live research cockpit is [STATUS.md](STATUS.md). It points to the last immut
 run, the strongest supported claim, active uncertainty and the ranked next action.
 Historical outcomes—including negative mechanisms—are indexed in
 [RESULTS_INDEX.md](RESULTS_INDEX.md) and the append-only files under `research/`.
+
+## Public disclosure and claim boundary
+
+This repository is the complete defensive publication of the `cryptO1`
+research line. It publishes executable mechanisms, frozen configurations,
+source-bound run capsules, positive results, negative results, and the exact
+limits of each claim under Apache-2.0. Git history and immutable artifact
+manifests are part of the evidence record.
+
+The self-contained [defensive publication](docs/DEFENSIVE_PUBLICATION.md),
+[claim boundary](docs/CLAIMS_AND_LIMITS.md), [reproduction guide](REPRODUCIBILITY.md)
+and [citation metadata](CITATION.cff) define the initial public release.
+
+The repository does **not** currently claim an exact attacker-valid recovery of
+an unknown 256-bit ChaCha20 key, a practical break of ChaCha20, or global
+exhaustion of its key space. It does establish bounded-state 256-bit retention,
+fresh full-round rank transfer, exact Full-256 safe branch pruning and
+exclusion-stream mechanisms, plus a reproducible solver-native causal-memory
+architecture. Every stronger claim remains gated on exact public ChaCha20
+verification.
 
 ## Active Moonshot: O1-256 Living Inverse
 
@@ -37,20 +57,30 @@ inspected read-only and are summarized in
 The post-O1C-0016 continuous fast/slow learner and learned picker are specified in
 [O1 Online Möbius Controller](docs/O1_ONLINE_MOBIUS_CONTROLLER.md).
 
-## Current result — 2026-07-18
+## Current result — 2026-07-20
 
-The exact A296/A448/A465/A469 sibling transfers and the complete real
-O1C-0019/O1C-0022 all256 chain have run. Every one is negative and closed.
-O1C-0019's learned policy averages `-0.271090` bit; its raw learned reader loses
-the untrained twin by `0.058470` bit. O1C-0022's exact 352-byte vault reaches
-`-1.181837` bits at K256, and no precommitted raw arm exceeds `120/210` A325 or
-`118/204` A526 complement bits. Neither residual backend can contain the true
-key.
+O1C-0068 produced `190` globally novel exact score-threshold exclusions from
+one complementary Full-256 reader call. O1C-0073 then produced `311` novel
+exclusions, and O1C-0074 retained the complete immutable `550`-clause causal
+attic while keeping the live projection bounded at `K=256` clauses. These are
+real attacker-visible search constraints, not an exact recovery claim.
 
-Do not run O1C-0023/25/29, a hot-reader sweep or another decoder over this null
-field. The next paid experiment must introduce a genuinely new public all256
-evidence source and move the exact complement or bounded-beam gate directly.
-[Full result](research/O1C0019_O1C0022_FULL256_BRIDGE_RESULT_20260718.md).
+O1C-0079 completed the first central decision-instance ownership run on the
+same public Full-256 relation. The native call consumed exactly `128` conflicts
+in `176,794 us` at `390,922,240` bytes peak RSS. All `549` proposed decisions
+were level-bound and released with zero live or omitted tokens; the sealed
+11-row prefix activated and the frontier became reachable. It nevertheless
+returned zero prunes, zero new clauses, zero model and no key. The archived
+runner initially marked the mechanism inactive because a substring audit
+mistook the safe descriptor `never-returned-ever` for legacy state. The
+checksum-preserving zero-call erratum corrects only those operational axes to
+`DECISION_OWNERSHIP_QUALIFIED_PREFIX_MECHANISM_ONLY`; science remains negative.
+
+The exact resume point is an exact child-bound crossing reader on fresh Page 7:
+intervene only when one public admissible child bound is strictly below the
+frozen threshold. No budget scaling or replay of Page 6 is authorized. See
+[STATUS.md](STATUS.md) and the
+[O1C-0079 interpretation](research/O1C0079_APPLE8_DECISION_OWNERSHIP_INTERPRETATION_20260720.md).
 
 The sections below retain the earlier architecture lineage and are historical,
 not current resume instructions.
@@ -145,8 +175,13 @@ harness uses the Python standard library.
 
 ```bash
 python3 -m venv .venv
+.venv/bin/pip install -r requirements-dev.txt
 .venv/bin/pip install -e .
-.venv/bin/python -m unittest discover -s tests -v
+PYTHONPATH=src .venv/bin/python -m pytest -q \
+  tests/test_o1c79_decision_ownership_v1.py \
+  tests/test_joint_score_sieve_v20.py \
+  tests/test_o1c79_apple8_decision_ownership_prepare.py \
+  tests/test_o1c79_apple8_decision_ownership_run.py
 .venv/bin/o1-crypto-lab benchmark \
   --config configs/quick.json \
   --output runs/quick.json
@@ -156,6 +191,10 @@ python3 -m venv .venv
   --config configs/full256_paired_causal_sensor_v1.json
 ```
 
+Install `-e '.[train]'` instead of `-e .` for the historical learned-O1 tests.
+Some archived experiments deliberately bind an exact CPython build and source
+closure; their freeze tests are provenance checks, not portable smoke tests.
+
 Inspect the operator compiler and its leakage rejection:
 
 ```bash
@@ -164,11 +203,12 @@ Inspect the operator compiler and its leakage rejection:
 ```
 
 Replay the supplied real O1-O session as normalized evidence without importing or
-executing any generated program:
+executing any generated program. This optional command expects a local checkout
+of [DT-Foss/O1-O](https://github.com/DT-Foss/O1-O); substitute its real path:
 
 ```bash
 .venv/bin/o1-crypto-lab replay-o1o \
-  --session ../O1-O/2026-02-18_013412 \
+  --session /path/to/O1-O/2026-02-18_013412 \
   --output runs/o1o-2026-02-18-replay.json \
   --include-events
 ```

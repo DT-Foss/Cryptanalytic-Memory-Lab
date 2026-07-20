@@ -1,0 +1,64 @@
+{
+  "schema": "o1-256-global-criticality-residual-beam-config-v1",
+  "attempt_id": "O1C-0047",
+  "slug": "global-criticality-residual-beam-v1",
+  "claim_level": "POST_REVEAL_CEILING",
+  "hypothesis": "O1C-0044's prospectively transferred signal is global over complete coordinated assignments: on a nested residual cube selected without score outcomes, ranking complete 256-bit executions by the unchanged global potential will concentrate the exact key even though O1C-0045/0046 one-variable schedulers erase the margin.",
+  "prediction": "At residual width 16, the exact key will rank in the primary top 256 of all 65,536 complete candidates, strictly ahead of both frozen rotations, and the primary top-256 beam will contain the unique independently verified public-output match.",
+  "source": {
+    "semantic_map": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.map.json",
+    "publication": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/publication.json",
+    "reveal": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/reveal.json",
+    "field": "runs/20260718_234233_O1C-0044_fresh-parent-criticality-rank-v1/field.bin",
+    "o1c44_result": "research/O1C0044_FRESH_PARENT_CRITICALITY_RANK_RESULT_20260718.json",
+    "primary_potential": "runs/20260719_001005_O1C-0045_criticality-live-search-v1/potentials/primary.pot",
+    "key_rotated_potential": "runs/20260719_001005_O1C-0045_criticality-live-search-v1/potentials/key_rotated.pot",
+    "clause_rotated_potential": "runs/20260719_001005_O1C-0045_criticality-live-search-v1/potentials/clause_rotated.pot",
+    "potential_source": "src/o1_crypto_lab/criticality_potential.py",
+    "forward_plan_source": "src/o1_crypto_lab/full256_forward_assignment.py",
+    "runner": "src/o1_crypto_lab/o1c47_global_criticality_residual_beam_run.py",
+    "expected_sha256": {
+      "semantic_map": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+      "publication": "b985dd4e38e764c250fb4b2e4f38fff02873361a0838399b54ae1acfd87a279a",
+      "reveal": "7caf9b1f83465138be80b28677207bf4a5e274b809ec65d55845168d21da0707",
+      "field": "58c8e2eb07632b4b4e2a26b148283effc30cc2391c276ed294a0bb64335c747f",
+      "o1c44_result": "b22f76e3fa9be4393f7e0cf03c3fa6f53607427b96ca630a45168ff03f93ef9e",
+      "primary_potential": "307a0aeac84ee5efa4e6900f2105727bedbaa3a32b941102960a0257554cdf1e",
+      "key_rotated_potential": "c97aad4c6b57fc3284f54dfdd0660b40a67ebeb46ce344823898919c608a3a1c",
+      "clause_rotated_potential": "1bed47e6753e5f517d9f0227ab7a3643c452eef30e937dfea0f036b0260e6ea6",
+      "potential_source": "79aad3271bea2e146a758fce83e06fd5993419e41b6b57faefb4873a9c8ba378",
+      "forward_plan_source": "d6793de3edec6cf1fb4b921f13f52cc072156c05aada7b9a3df37fe81b9f75a7",
+      "runner": "b4bfc452bde957e80985fce76eb2813ea5ffee371cdd26379cec9d6f0e19667f"
+    }
+  },
+  "target": {
+    "target_id": "o1c-0044-fresh-0000",
+    "rounds": 20,
+    "full_key_bits": 256,
+    "truth_fixed_complement_bits": 240,
+    "fresh_targets": 0
+  },
+  "beam": {
+    "arms": ["primary", "key_rotated", "clause_rotated"],
+    "widths": [8, 12, 16],
+    "maximum_width": 16,
+    "candidate_count": 65536,
+    "retained_beam": 256,
+    "selector": "descending-sum-abs-parent-score-units-then-count-then-coordinate",
+    "candidate_tie_break": "ascending-binary-mask",
+    "primary_width16_gate_rank": 256
+  },
+  "budgets": {
+    "maximum_wall_seconds": 150,
+    "maximum_peak_rss_bytes": 268435456,
+    "maximum_forward_evaluations": 65536,
+    "maximum_public_verifications": 769,
+    "maximum_fresh_targets": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_persistent_artifact_bytes": 4194304
+  },
+  "next_action": "If primary places the exact key in the width-16 top-256 beam with strict control margin, preserve complete-state scoring and implement the smallest pre-reveal pairwise key-group/prefix scheduler in the exact solver. If the width-16 concentration fails, do not build that adapter or spend a fresh target."
+}

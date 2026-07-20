@@ -1,0 +1,13 @@
+{
+  "attempt_id": "O1C-0028",
+  "payload": {
+    "classification": "HORIZON_MAJOR_HOT_ROUTING_PASS",
+    "persistent_artifact_bytes": 378809,
+    "phase": "MECHANISM_RESULT_AND_ARTIFACTS_FROZEN",
+    "primary_consume_calls": 1,
+    "result_sha256": "ed3517f215be1c06e7b10882f2eeb6d494ab1f75916f9979edd04729c76abc6e"
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 2,
+  "updated_at": "2026-07-18T10:35:18.751517+02:00"
+}

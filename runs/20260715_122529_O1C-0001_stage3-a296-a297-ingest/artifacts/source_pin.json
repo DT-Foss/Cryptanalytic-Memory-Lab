@@ -1,0 +1,7 @@
+{
+  "config_sha256": "7929a1d70e6ac4ca38d824cb3e6a700c4c4dd002bf060fdb18302ac5cc626791",
+  "manifest_sha256": "9c3ac76f3f012ff24c07e2e4dbe335e5156eca28fee9986aeb53c1b6cb2a4cc3",
+  "schema": "o1-crypto-stage3-source-pin-v1",
+  "selected_members_verified": 24,
+  "source_commit": "40bdfe3acaa61d4c812be1e32f71d58e4df66d8e"
+}

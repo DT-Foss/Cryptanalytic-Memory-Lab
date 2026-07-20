@@ -1,0 +1,48 @@
+{
+  "rfc_fixed_key": {
+    "clauses": 188266,
+    "instance_bytes": 4345245,
+    "instance_sha256": "4ec3ea91564990e2d0a420e0a649dbbc5c2e6e9f8971a1fb6d406e13e6901569",
+    "key_fixed_for_self_test": true,
+    "returncode": 10,
+    "solver_name": "cadical",
+    "status": "SAT",
+    "stderr": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "s SATISFIABLE\n",
+    "stdout_sha256": "3fce8455f4a0384f45e55f76fa5e229341b4eaf3d7cf9018750c38f900eb2314",
+    "variables": 32128,
+    "wall_seconds": 0.05531620793044567
+  },
+  "rfc_flipped_output": {
+    "clauses": 188266,
+    "instance_bytes": 4345244,
+    "instance_sha256": "5aca27206accb841feb5ef799b5c2f94160395aff4e119dcf6c64213aea6e85d",
+    "key_fixed_for_self_test": true,
+    "returncode": 20,
+    "solver_name": "cadical",
+    "status": "UNSAT",
+    "stderr": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "s UNSATISFIABLE\n",
+    "stdout_sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162",
+    "variables": 32128,
+    "wall_seconds": 0.05607604095712304
+  },
+  "second_fixed_key": {
+    "clauses": 188266,
+    "instance_bytes": 4345112,
+    "instance_sha256": "1a3fbf07a058cc7512d5debee0cd0fc622dd7b4c5cd94d53e1d50365363105dd",
+    "key_fixed_for_self_test": true,
+    "returncode": 10,
+    "solver_name": "cadical",
+    "status": "SAT",
+    "stderr": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "s SATISFIABLE\n",
+    "stdout_sha256": "3fce8455f4a0384f45e55f76fa5e229341b4eaf3d7cf9018750c38f900eb2314",
+    "variables": 32128,
+    "wall_seconds": 0.05698675010353327
+  },
+  "solver_binary_sha256": "c7b63954503d7fb1c8532efa37689715398683b5dea59d9bf6d80f06169e09b3"
+}

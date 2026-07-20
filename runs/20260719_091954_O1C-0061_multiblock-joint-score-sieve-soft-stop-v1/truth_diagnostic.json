@@ -1,0 +1,7 @@
+{
+  "public_model_diagnostic_complete_before_read": true,
+  "read_after_native": true,
+  "read_after_validated_conflict_ledger": true,
+  "truth_compiled_score": 21.330305438256453,
+  "truth_key_sha256": "61bd5427beb28fe279d3a692087cbf72f83b5a5c56ebba4945cba6c3ff0aa7a3"
+}

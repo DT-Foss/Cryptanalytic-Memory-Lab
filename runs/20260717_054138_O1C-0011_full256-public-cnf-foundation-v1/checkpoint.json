@@ -1,0 +1,20 @@
+{
+  "attempt_id": "O1C-0011",
+  "payload": {
+    "clause_count": 187370,
+    "gpu_calls": 0,
+    "mps_calls": 0,
+    "paired_assumption_instances": 2,
+    "phase": "FULL256_CNF_AND_PAIRED_INSTANCES_PERSISTED",
+    "public_key_units": 0,
+    "report_artifact_sha256": "2c6c749a75b88418f394f86a5bd062e3e266637b68354bf30729678ca41fba8c",
+    "result_sha256": "6c4fd7becd5307d60b30e16ea1fae8d3f4739b06c888204d638950c94b53adfe",
+    "sibling_writes": 0,
+    "solver_formula_calls": 3,
+    "template_sha256": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+    "variable_count": 32128
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 2,
+  "updated_at": "2026-07-17T05:41:47.766683+02:00"
+}

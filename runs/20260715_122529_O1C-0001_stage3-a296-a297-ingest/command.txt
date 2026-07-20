@@ -1,0 +1,1 @@
+o1-crypto-lab stage3-ingest --config '/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/configs/stage3_a296_a297_ingest_v1.json'

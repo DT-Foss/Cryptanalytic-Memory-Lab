@@ -1,0 +1,24 @@
+{
+  "attempt_id": "O1C-0031",
+  "captured": {
+    "cwd": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab",
+    "executable": "/opt/anaconda3/bin/python",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "python": "3.12.7",
+    "timezone": "Europe/Berlin"
+  },
+  "provided": {
+    "W52_live_process_observed": false,
+    "cpu_count": 10,
+    "load_average_at_start": [
+      2.75634765625,
+      2.7099609375,
+      4.3154296875
+    ],
+    "resource_gate_cpu_idle_percent": 88.26,
+    "resource_gate_memory_pressure_free_percent": 75,
+    "resource_gate_observed_at": "2026-07-18T17:29:57+02:00",
+    "self_maxrss_at_start": 47415296
+  },
+  "schema": "o1c-run-environment-v1"
+}

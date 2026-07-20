@@ -1,0 +1,88 @@
+{
+  "coefficients": [
+    0.0002906978128039326,
+    -0.0004569756916246513,
+    -0.0002063855701892963,
+    -6.56000206327406e-05,
+    -0.00014070599557434614,
+    -0.0002842021837933767,
+    6.178672280099775e-05,
+    -6.583672375287284e-05,
+    5.4256747749653784e-06,
+    -0.0001255920607324229,
+    -0.00010908525812430457,
+    -0.00011269659638695915
+  ],
+  "coefficients_float64be_sha256": "d522fc279aebecb24d496e7d86364873fbe0ce19cec9c223a47391f808c59de6",
+  "evidence_field_sha256": "aa7b395f9d14c673e72c6e406f414f0fadc17486959153f65285fbed0634e8d3",
+  "observations": 4096,
+  "order_uint16be_sha256": "fdf7c3618f7c2b5d9fbb1c47a0826fb1293932016fe5602a346e9c247e188852",
+  "plan": {
+    "claim_boundary": {
+      "candidate_indexed_table": false,
+      "full_rank": false,
+      "target_labels_accepted_by_api": false,
+      "terminal_scalar_evidence_only": true
+    },
+    "domain_size": 4096,
+    "expected_evidence_sha256": "aa7b395f9d14c673e72c6e406f414f0fadc17486959153f65285fbed0634e8d3",
+    "maximum_serialized_logical_mechanism_state_bytes": 266,
+    "mechanism_family": "o1-degree-1-2-walsh-ising-evidence-memory",
+    "n_bits": 12,
+    "name": "search_propagations__h1__signed-log1p__degree1__negative",
+    "online_state": {
+      "accounting_model": "logical-compact-recurrent-state",
+      "canonical_next_address_counter_bytes": 2,
+      "float64_accumulators": 12,
+      "logical_sha256_state_bytes": 104,
+      "retained_candidate_rows": 0,
+      "retained_evidence_values": 0,
+      "retained_key_value_entries": 0,
+      "serialized_accumulator_bytes": 96,
+      "serialized_integrity_bytes": 106,
+      "serialized_online_state_bytes": 202,
+      "stream_length_dependent_state": false
+    },
+    "output_workspace": {
+      "counted_as_recurrent_mechanism_state": false,
+      "materialized_only_when_a_complete_ranking_is_requested": true,
+      "materialized_ranking_output_payload_bytes": 40960,
+      "peak_sort_or_transform_scratch_bytes_claimed": null,
+      "reconstructed_float64_scores_bytes": 32768,
+      "retained_after_output": false,
+      "uint16_order_bytes": 8192
+    },
+    "plan_sha256": "66a00a38e9429c9746a41d7255caa0e8ae31157264a2647b98bf571ba2ecc0da",
+    "projection": {
+      "degrees": [
+        1
+      ],
+      "implicit_mask_bank_sha256": "39b9a8801899377276c98e76dbac7bae1a3c977415ede86fc34b324031ff2c03",
+      "implicit_mask_count": 12,
+      "implicit_mask_order": "degree-ascending-then-mask-ascending",
+      "implicit_mask_rule": "popcount(mask) == 1",
+      "includes_constant_mode": false,
+      "normalization": "sum(evidence*character)/4096"
+    },
+    "schema": "o1-ising-evidence-plan-v1",
+    "static_plan_storage": {
+      "implicit_masks": true,
+      "serialized_bound_hash_bytes": 64,
+      "serialized_mask_bank_bytes": 0
+    },
+    "support_id": "degree1"
+  },
+  "projected_score_field_sha256": "2faca08263f3ebed3acfeafab97768287087f837763b0eb05b4248bf0a98a91a",
+  "schema": "o1-ising-frozen-state-v1",
+  "state_accounting": {
+    "binary_state_implemented": true,
+    "retained_candidate_rows": 0,
+    "retained_evidence_values": 0,
+    "retained_key_value_entries": 0,
+    "serialized_frozen_state_bytes": 162,
+    "serialized_state_bytes": 96,
+    "state_scalars": 12
+  },
+  "state_sha256": "2b8af71a28852ac6ae9e88d11bf6a53f1fcecfa56c2efd02899e2aa656f61f3d",
+  "target_labels_used": 0
+}

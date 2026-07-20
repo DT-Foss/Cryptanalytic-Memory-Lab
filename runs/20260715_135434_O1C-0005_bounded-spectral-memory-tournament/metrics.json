@@ -1,0 +1,132 @@
+{
+  "attempt_id": "O1C-0005",
+  "claim_level": "VALIDATION",
+  "elapsed_seconds": 38.570666,
+  "ended_at": "2026-07-15T13:55:12.739054+02:00",
+  "next_action": "Carry the O1-O-frozen plan template to a new lab-owned Direct12 field that has never been used for architecture development, freeze its order, and only then run exact equal-work recovery and independent cipher confirmation.",
+  "schema": "o1c-run-metrics-v1",
+  "started_at": "2026-07-15T13:54:34.168388+02:00",
+  "status": "completed",
+  "values": {
+    "comparisons": {
+      "a272_multislot_k2048_A349_rank_spearman": 0.8714770053858202,
+      "best_candidate_id_random_k2048_A349_rank_spearman": 0.716922760017269,
+      "candidate_id_random_k2048_A349_rank_spearman": {
+        "global-candidate-id-random-k2048-s17-control": 0.716922760017269,
+        "global-candidate-id-random-k2048-s29-control": 0.6994258829050293,
+        "global-candidate-id-random-k2048-s5-control": 0.6841785920899639
+      },
+      "distributed_minus_best_candidate_id_random": 0.15455424536855122,
+      "distributed_minus_low_degree": 0.37722071640158616,
+      "global_a348_sparse_k2048_A349_rank_spearman": 0.7972250916854533,
+      "global_low_degree_k2048_A349_rank_spearman": 0.494256288984234,
+      "quantized_4bit_h1_25_A349_rank_spearman": 0.9901983485302834,
+      "quantized_4bit_h1_25_A349_top32_overlap": 0.71875,
+      "quantized_4bit_minus_sparse_a348_energy": 0.19297325684483013
+    },
+    "costs": {
+      "A272_truth_labels_read": 0,
+      "A348_truth_labels_read": 1,
+      "A349_target_labels_read": 0,
+      "calibration_arms": 72,
+      "complete_A349_orders_frozen": 86,
+      "declared_update_accumulations_calibration_plus_deployment": 311689216,
+      "deployment_arms": 72,
+      "dictionary_controls": 14,
+      "gpu_seconds": 0,
+      "new_solver_calls": 0,
+      "offline_policy_learning": {
+        "A272_reader_feature_values_materialized": 2723840,
+        "A272_reader_truth_labels_used": 0,
+        "global_4096_point_FWHT_butterflies": 221184,
+        "global_A348_energy_policy_fits": 9,
+        "multislot_256_point_source_FWHTs": 720,
+        "multislot_learned_budgets": 10,
+        "multislot_policy_FWHT_butterflies": 737280,
+        "quantized_scale_calibration_field_scans": 14,
+        "quantized_scale_calibration_values_examined": 57344
+      },
+      "phase_seconds": {
+        "calibration_tournament_seconds": 20.462952666915953,
+        "deployment_tournament_seconds": 17.587701624725014,
+        "o1o_selection_seconds": 0.003370082937180996,
+        "post_freeze_a348_audit_seconds": 0.02870750008150935,
+        "source_verification_seconds": 0.43822833290323615,
+        "total_seconds": 38.52129062497988
+      },
+      "reconstruction_and_evaluation": {
+        "FWHT_butterflies_calibration_plus_deployment": 2801664,
+        "dictionary_control_quantizations": 57344,
+        "dictionary_control_retained_candidate_entries": 57344,
+        "evaluator_workspace_counted_as_online_state": false,
+        "logical_peak_evaluator_workspace_bytes_lower_bound": 114688,
+        "ranking_items_calibration_deployment_and_dictionary": 647168,
+        "workspace_components": "reference, approximation and error float64 fields plus two uint16 rankings; Python object heap and top-k sets not measured"
+      },
+      "selected_template_static_storage": {
+        "calibration_scores_retained": 0,
+        "online_state_bytes": 6668,
+        "slot_scale_bytes": 128,
+        "slot_scale_values": 16
+      }
+    },
+    "labels": {
+      "A272_truth_labels_read": 0,
+      "A348_truth_labels_read": 1,
+      "A349_target_labels_read": 0
+    },
+    "schema": "o1-crypto-bounded-memory-tournament-metrics-v1",
+    "selected_arm": {
+      "calibration_clip_count": 0,
+      "family": "o1-multislot-quantized-walsh-bit-vault",
+      "labels": [
+        "CONTROL"
+      ],
+      "memory_plan_sha256": "69c5882e3807123dfdcf9eaca6846700377e9f95c84e7136ccec2b162bd9355c",
+      "name": "quantized-bit-vault-4bit-h1.25",
+      "rank_kendall": 0.9120328239468865,
+      "rank_spearman": 0.9904664475609107,
+      "serialized_online_state_bytes": 6668,
+      "split": "VALIDATION",
+      "top_k_overlap": [
+        {
+          "fraction": 1.0,
+          "k": 1
+        },
+        {
+          "fraction": 0.75,
+          "k": 8
+        },
+        {
+          "fraction": 0.75,
+          "k": 32
+        },
+        {
+          "fraction": 0.796875,
+          "k": 128
+        },
+        {
+          "fraction": 0.904296875,
+          "k": 512
+        }
+      ],
+      "work_units": 1044480
+    },
+    "selection_sha256": "5aaf243457850fbc1435cad8ff257da4eaf6a9b3ec983042f46dde690c1a5983",
+    "success_gate_passed": true,
+    "success_gates": {
+      "A349_target_labels_zero": true,
+      "all_A349_orders_persisted_before_A348_truth": true,
+      "dense_low_precision_beats_sparse_calibration_support": true,
+      "dictionary_controls_disqualified": true,
+      "distributed_support_beats_all_candidate_id_random_at_k2048": true,
+      "distributed_support_beats_low_degree_at_k2048": true,
+      "future_template_persisted_before_A349_field_open": true,
+      "immutable_sources_verified": true,
+      "o1o_selected_eligible_mechanism": true,
+      "o1o_selected_within_state_gate": true,
+      "quantized_4bit_A349_spearman_above_0_98": true,
+      "selected_deployment_has_no_candidate_rows": true
+    }
+  }
+}

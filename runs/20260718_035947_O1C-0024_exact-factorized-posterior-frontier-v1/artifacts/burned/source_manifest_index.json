@@ -1,0 +1,15 @@
+{
+  "committed_member_count": 680,
+  "full_capsule_scans": 0,
+  "manifest_payload_reads": 1,
+  "manifest_sha256": "fd0469885ee436414f94d708006cc40d86fc730d25b618167c7d664b3fe195ea",
+  "schema": "o1-256-selected-source-manifest-index-v1",
+  "selected_member_count": 5,
+  "selected_members": {
+    "artifacts/sealed/o1c0016-replication-0000/evaluation.json": "bae26cec9275806870e46dbb1e9c55726230e123a44fc4eb3a7785287ecc2010",
+    "artifacts/sealed/o1c0016-replication-0000/prediction_freeze.json": "169252f77e0e66e1afab1c486692c27dc2217c40d566c1468241266141fecbdc",
+    "artifacts/sealed/o1c0016-replication-0000/probabilities.f64le": "0f9c3b9f99af49f7b2a03a3a2c89e5ac81ba1ebcdad3e9db8e9b83265f129c7d",
+    "artifacts/sealed/o1c0016-replication-0000/publication.json": "577f10a7cf69d58eeb842fe9dba903f27499dfb6be4fa5a7366e2b22f3a44b81",
+    "artifacts/sealed/o1c0016-replication-0000/reveal.json": "19cf8b133bf217ec277966394ee9576c4ed16af878d0d970dbfe6cd23367efe9"
+  }
+}

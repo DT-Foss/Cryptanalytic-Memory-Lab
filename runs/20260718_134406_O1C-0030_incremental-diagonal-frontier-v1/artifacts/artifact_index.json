@@ -1,0 +1,65 @@
+{
+  "artifacts": {
+    "features/arm_features.f64le": {
+      "bytes": 40960,
+      "phase": "PUBLIC_FEATURES_FROZEN_PRE_LABEL",
+      "sha256": "cad6fd5f5625bd3ac5d89ff3b35c14c83cbeeb91ab97c0da4352913c84bcdfe7"
+    },
+    "features/feature_freeze.json": {
+      "bytes": 6269,
+      "phase": "PUBLIC_FEATURES_FROZEN_PRE_LABEL",
+      "sha256": "b258643338b126666ce7b6b3c861ae56cc93166552a47f890a4e2aa39d9141b0"
+    },
+    "o1c30_incremental_diagonal_frontier.json": {
+      "bytes": 37202,
+      "phase": "POST_FREEZE_SCORED_RESULT",
+      "sha256": "d1aa33be2852f83e923fb29dd4b13ebd3340e466b624bf4fc5efe17ea2f73715"
+    },
+    "predictions/loo_logits.f64le": {
+      "bytes": 40960,
+      "phase": "ALL_LOO_LOGITS_FROZEN_PRE_SCORE",
+      "sha256": "54b2a42e9d91ba4a1e4988453008e701091b5a48323d5ec526b453da31f03f77"
+    },
+    "predictions/prediction_freeze.json": {
+      "bytes": 26197,
+      "phase": "ALL_LOO_LOGITS_FROZEN_PRE_SCORE",
+      "sha256": "b442962f32498b706c7f1e624eda120e54ae6c76bafcd59356533a2451ae1943"
+    },
+    "scores/build_labels.bitpack": {
+      "bytes": 128,
+      "phase": "POST_FREEZE_SCORED_RESULT",
+      "sha256": "7247e0d3b8c51c5b4b397bf4feaf4bf76845d37a2c06b4c1370be5375b33b749"
+    },
+    "scores/compression_bits.f64le": {
+      "bytes": 160,
+      "phase": "POST_FREEZE_SCORED_RESULT",
+      "sha256": "edaa1a4348c25d28a0a6aa50a3e166b76fda4fb4399567290dba3acdd4e7a2ba"
+    },
+    "scores/correct_bits.u16le": {
+      "bytes": 40,
+      "phase": "POST_FREEZE_SCORED_RESULT",
+      "sha256": "21cf9f64d009cc32eae53b38bdce361178aa496d87bdff6c32c80cef68bff668"
+    },
+    "scores/local_ranks.json": {
+      "bytes": 12512,
+      "phase": "POST_FREEZE_SCORED_RESULT",
+      "sha256": "c3769777441b9ceec4a2a78d4d4e399069be738e76f037913a3a0268163a4e98"
+    },
+    "scores/nll_bits.f64le": {
+      "bytes": 160,
+      "phase": "POST_FREEZE_SCORED_RESULT",
+      "sha256": "4c9dceb03271cb5a41044f3872f987f0f1d47acd94344bc5a5ec63e7b544be1d"
+    },
+    "scores/primary_top65536.json": {
+      "bytes": 1515,
+      "phase": "POST_FREEZE_SCORED_RESULT",
+      "sha256": "f2cb1349d4efec893b3721fe92e7dbeb5a459e1f4e3d5169a27fdf5bbcab88da"
+    }
+  },
+  "attempt_id": "O1C-0030",
+  "indexed_artifact_bytes": 166103,
+  "indexed_artifact_count": 11,
+  "schema": "o1-256-o1c30-incremental-diagonal-frontier-artifact-index-v1",
+  "source_artifact_index_sha256": "e6b79631057d5a9fa75004ee0b62aea06fe9430c6a9d3cc9b7ae4b3954d8ed85",
+  "source_manifest_sha256": "fcbf43c99994c0debe5b39bb3e734ea1d1e23ba58e89b10ff2bb7e23886493fb"
+}

@@ -1,0 +1,116 @@
+{
+  "schema": "o1-256-parent-criticality-rank-config-v1",
+  "attempt_id": "O1C-0043",
+  "slug": "parent-criticality-rank-v1",
+  "claim_level": "CONSUMED_DIAGNOSTIC",
+  "hypothesis": "The O1C-0042 leaf collapse erased the ordered RUP role and the identity of the original functional clause that made each proof step causal. A bounded reader over branch-exclusive key-coordinate x parent-role x clause-criticality channels can concentrate complete true-key rank without using public unit satisfaction or target labels at deployment.",
+  "prediction": "A 15-channel reader fitted once from four consumed BUILD truths ranks both consumed DEVELOPMENT truths with geometric fraction at most 0.25, neither target worse than median, and strict margin over deterministic key- and clause-coordinate rotations. Only then may the exact frozen reader be scored once on the already-consumed O1C-0042 target; no fresh entropy is spent.",
+  "source": {
+    "template": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.cnf",
+    "semantic_map": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.map.json",
+    "sensor_source": "native/cadical_pair_sensor.cpp",
+    "tracer_header": "native/cadical_tracer_3_0_0.hpp",
+    "parent_criticality_source": "src/o1_crypto_lab/proof_parent_criticality.py",
+    "runner": "src/o1_crypto_lab/o1c43_parent_criticality_rank_run.py",
+    "o1c18_config": "configs/full256_online_real_gate_dev_v1.json",
+    "o1c18_result": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/full256_online_real_gate.json",
+    "development_labels": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/labels.bitpack",
+    "o1c42_publication": "runs/20260718_230437_O1C-0042_fresh-antecedent-chain-rank-v1/publication.json",
+    "o1c42_reveal": "runs/20260718_230437_O1C-0042_fresh-antecedent-chain-rank-v1/reveal.json",
+    "o1c42_result": "runs/20260718_230437_O1C-0042_fresh-antecedent-chain-rank-v1/result.json",
+    "expected_sha256": {
+      "template": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+      "semantic_map": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+      "sensor_source": "67c094e069e8884e4761f82d2d797b594ef326a6ddcf0243dacd8019ae235669",
+      "tracer_header": "36e1983eb865800aec1c042c4df4abfbcbc8ced3c82e2bf4baad340639c887fe",
+      "parent_criticality_source": "e142e0aceb621a87345baad801a456b7d3451613d98308e937f2c990dd1db056",
+      "runner": "545c452b2e6a9bde04d5c32c82a43c9e1b881b6dc19c279186c2e1d55137c0b5",
+      "o1c18_config": "fd539d2a2461f879ebdbcad2c29f3c6de7c514385fece2ef1bf8ddb06707056a",
+      "o1c18_result": "a8e5940edc5887e404725c98631df89e1f91963abd47d1fa51263fc681e9df4d",
+      "development_labels": "4462b2d6321469cc4faf41f961ecc95499d265429e9923f526f3122195772dfd",
+      "o1c42_publication": "b977a7269c0e5c345d483eb22ebcc2ec6e44eb4ce48b47499deb60278f88a696",
+      "o1c42_reveal": "573f66caef3567250f39743c316d6c20e02dd9e757942591bc9b658809cc7686",
+      "o1c42_result": "590275ac33be41ee61769f6a57fe3a512d9acb7a822fb304d64ef69db559309d"
+    }
+  },
+  "corpus": {
+    "seed": 180018180018,
+    "build_indices": [0, 1, 2, 3],
+    "development_indices": [0, 1],
+    "build_sidecars": [
+      "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/build-0000.json",
+      "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/build-0001.json",
+      "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/build-0002.json",
+      "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/build-0003.json"
+    ],
+    "development_sidecars": [
+      "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/development-0000.json",
+      "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/development-0001.json"
+    ],
+    "consumed_repeat_target_id": "o1c-0042-fresh-0000",
+    "fresh_targets": 0
+  },
+  "field": {
+    "conflict_horizon": 16,
+    "seed": 0,
+    "capacity": 8192,
+    "chain_identity": "sha256(terminal-clause || ordered-parent-digests)",
+    "branch_contrast": "exact-chain-multiset-difference",
+    "direct_original_only": true,
+    "exclude_unit_parents": true,
+    "score_unit": "exclusive-chain-direct-original-parent-occurrence"
+  },
+  "reader": {
+    "feature_names": [
+      "role0_critical",
+      "role0_pivot",
+      "role0_polarity",
+      "role1_critical",
+      "role1_pivot",
+      "role1_polarity",
+      "role2_critical",
+      "role2_pivot",
+      "role2_polarity",
+      "role3_critical",
+      "role3_pivot",
+      "role3_polarity",
+      "role4plus_critical",
+      "role4plus_pivot",
+      "role4plus_polarity"
+    ],
+    "fit_rule": "l2-normalized-mean-of-four-build-truth-per-target-decoy-z",
+    "free_parameters": 15,
+    "target_specific_calibration": "attacker-generated-decoy-mean-and-sample-std",
+    "no_feature_or_horizon_sweep": true
+  },
+  "candidate_panel": {
+    "count_per_target": 4096,
+    "domain": "O1C43-parent-criticality-decoy-v1",
+    "generator": "sha256(domain || public-view-digest || uint64le(index))",
+    "duplicate_policy": "reject"
+  },
+  "controls": {
+    "arms": ["primary", "key_rotated", "clause_rotated"],
+    "rotation": "one-step cyclic derangement of key coordinates or every active clause variable"
+  },
+  "success": {
+    "maximum_each_development_rank_fraction": 0.5,
+    "maximum_development_geometric_rank_fraction": 0.25,
+    "maximum_consumed_repeat_rank_fraction": 0.25,
+    "require_strict_control_margin": true
+  },
+  "budgets": {
+    "maximum_wall_seconds": 180,
+    "maximum_peak_rss_bytes": 536870912,
+    "maximum_native_probe_branches": 3584,
+    "maximum_candidate_forward_evaluations": 28679,
+    "maximum_decoy_keys": 28672,
+    "maximum_fresh_targets": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_persistent_artifact_bytes": 4194304
+  },
+  "next_action": "If DEVELOPMENT and the unchanged consumed O1C-0042 repeat both concentrate truth with control margin, freeze this exact 15-channel reader for one sealed fresh target before any live-search injection. If either gate fails, close this direct-original criticality basis and retain deeper derived-parent path or pivot-break identity without tuning H16 or the 15 channels."
+}

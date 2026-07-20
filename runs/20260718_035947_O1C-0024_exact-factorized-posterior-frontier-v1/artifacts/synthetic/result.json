@@ -1,0 +1,105 @@
+{
+  "all_gates_pass": true,
+  "evaluation": {
+    "best_hamming_distance": 0,
+    "best_hamming_rank_one_based": 4,
+    "candidate_count": 8,
+    "candidate_stream_sha256": "a40a4cb168fccac1bcdc72a1ff2ade9b7b563ba844e6ed533e4bbe41b57477a0",
+    "exact_key_hit": true,
+    "first_log2_probability": -2.7387800893677645,
+    "frontier_cutoff_log2_probability": -3.2806900893677655,
+    "schema": "o1-256-factorized-topk-evaluation-v1",
+    "tie_policy": "ascending-flip-penalty-then-coordinate topology; equal subset sums use ascending topology bitmask",
+    "true_key_sha256": "b54474b5576088252401e3fde6fa26fad6d6e1ce2e8a7f71c1fff2c273d955b1",
+    "true_rank_one_based": 4
+  },
+  "factual_verification": {
+    "candidate_stream_sha256": "4e9b57b596c4d795ab7b70f4e3e381cef4f64a38836c1c35ecccb745eb23d77e",
+    "candidates_verified": 4,
+    "exact_match_count": 1,
+    "exact_match_found": true,
+    "first_match_key_hex": "0714212e3b4855626f7c8996a3b0bdcad7e4f1fe0b1825323f4c596673808d9a",
+    "first_match_rank_one_based": 4,
+    "schema": "o1-256-factorized-topk-public-verification-v1",
+    "stopped_on_first_match": true,
+    "target_sha256": "32db5ee4b3851f11555652f46802f58ee08c6bc3d16851b8a0e9f941194ef100",
+    "verification_limit_reached": false
+  },
+  "frontier_index": {
+    "candidate_count": 8,
+    "candidate_key_bytes": 32,
+    "cutoff_log2_probability": -3.2806900893677655,
+    "first_log2_probability": -2.7387800893677645,
+    "keys_encoding": "rank-major raw 32-byte keys",
+    "keys_sha256": "23ca0bb30d417aea9a28d2d48d73392af481cac011998d89d507d54a74bafd5f",
+    "schema": "o1-256-factorized-topk-artifact-index-v1",
+    "scores_encoding": "rank-major float64 little-endian log2 probabilities",
+    "scores_sha256": "0747e14946341a01719f0bf351c422291e3260fc1bbd4e57f925a4e4349b0563",
+    "tie_policy": "ascending-flip-penalty-then-coordinate topology; equal subset sums use ascending topology bitmask",
+    "truth_used_for_generation": false
+  },
+  "gates": {
+    "candidate_generation_truth_free": true,
+    "full_round_public_verifier_hits_same_rank": true,
+    "global_truth_rank_exact": true,
+    "legacy_restricted_cube_excludes_truth": true,
+    "output_flip_has_zero_matches": true,
+    "wrong_nonce_has_zero_matches": true
+  },
+  "legacy_restricted_cube": {
+    "beam_size": 4,
+    "best_hamming_distance": 1,
+    "exact_key_in_beam": false,
+    "fixed_bit_errors": 1,
+    "true_local_rank": null,
+    "uncertain_bits": 2,
+    "uncertain_coordinates": [
+      0,
+      1
+    ]
+  },
+  "output_flip_verification": {
+    "candidate_stream_sha256": "8b59386bbbf5bbf3af08fa43c635c8bb2896f333b8da3441ee6df2856aaecc25",
+    "candidates_verified": 8,
+    "exact_match_count": 0,
+    "exact_match_found": false,
+    "first_match_key_hex": null,
+    "first_match_rank_one_based": null,
+    "schema": "o1-256-factorized-topk-public-verification-v1",
+    "stopped_on_first_match": false,
+    "target_sha256": "4017c7edd0616acf5deba08adf1b9cd82fcfc09cdb7987b8b82e8cc15b000165",
+    "verification_limit_reached": false
+  },
+  "posterior_sha256": "30269aae5438f954d13687f04363771af7635543a73758a8ce774b79ee08a042",
+  "public_target": {
+    "cipher": "ChaCha20",
+    "counter_schedule": [
+      1
+    ],
+    "feed_forward": true,
+    "nonce_hex": "000102030405060708090a0b",
+    "output_blocks_hex": [
+      "e3da85d02f3bd7a06d3cb69a1bc58f9077b25b8a16054629c954f34ffee16e32025ed0a611777d62a8e0428b7f28634edc2c63d055b5a071bbebf3ba58c1a0c9"
+    ],
+    "rounds": 20,
+    "schema": "o1-256-public-target-view-v1",
+    "target_key_included": false,
+    "target_trace_included": false,
+    "unknown_key_bits": 256
+  },
+  "public_verification_count": 20,
+  "schema": "o1-256-posterior-frontier-synthetic-discriminator-v1",
+  "true_key_sha256": "b54474b5576088252401e3fde6fa26fad6d6e1ce2e8a7f71c1fff2c273d955b1",
+  "wrong_nonce_verification": {
+    "candidate_stream_sha256": "8b59386bbbf5bbf3af08fa43c635c8bb2896f333b8da3441ee6df2856aaecc25",
+    "candidates_verified": 8,
+    "exact_match_count": 0,
+    "exact_match_found": false,
+    "first_match_key_hex": null,
+    "first_match_rank_one_based": null,
+    "schema": "o1-256-factorized-topk-public-verification-v1",
+    "stopped_on_first_match": false,
+    "target_sha256": "720a239cad7e27df17579b215665e27fd01640bb8c2c9117b4ab5f776bca7ed8",
+    "verification_limit_reached": false
+  }
+}

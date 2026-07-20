@@ -1,0 +1,181 @@
+{
+  "arms": [
+    "primary",
+    "cumulative_replace",
+    "legacy_reintegrated",
+    "deranged_confidence",
+    "polarity_even_common_mode"
+  ],
+  "diagnostics": [
+    {
+      "deranged_q_sha256": "519cd504b8769ad1b52359210d5fa818b59196bdabfc36b168f8319fc49d6a31",
+      "even_innovations_sha256": "173ebfe98f06a2d53610dd8799e86519673cd9a3dee9d0d7ac0547404f06d3e0",
+      "fold": 0,
+      "odd_innovations_sha256": "dc20dc4d72ad525069b8bc76b2fea5258e502c55b2e6d834d59b462e6e3633ea",
+      "q_sha256": "3512ca0339be4db668b86862ebb9d63858a0913f013a173b64c917265d33bc3d",
+      "target_id": "build-0000"
+    },
+    {
+      "deranged_q_sha256": "5f8df4f8d80a73bd6bd8a0a8312d4375806788afa1ba4b683bae310b5b53cec8",
+      "even_innovations_sha256": "43cc5a1a22de691d51a593d0a58a7f492bc67d92664a5c2cb0d7407a26c1037a",
+      "fold": 1,
+      "odd_innovations_sha256": "c40466917e23fad730eebbb327a632abb982b0897e3901339cbb4cb2df91a81b",
+      "q_sha256": "7004560e012b7baf56d89f17ac6fa2a322015be209cdd5cb868773a5bbad67ac",
+      "target_id": "build-0001"
+    },
+    {
+      "deranged_q_sha256": "a8862af4f99463fd71a586813cb63157d045aad318dd620131fbbce319d5c902",
+      "even_innovations_sha256": "eea92b978d455d72863507432c600b8fa573719cc011850dcdda92faaf9f597e",
+      "fold": 2,
+      "odd_innovations_sha256": "1b5b894adf734109ecce6df6d7a7f0f9dd4381c3986c0962890d81ff7fe13c1e",
+      "q_sha256": "fa44514cf97b903c6464bbc4b5811b03e49778f1089f5c599880c6f7ada1d754",
+      "target_id": "build-0002"
+    },
+    {
+      "deranged_q_sha256": "1733f19ceeefb041a41962fc8c128885d51205a58688339b9cfcf7218991ec78",
+      "even_innovations_sha256": "f484ea09363b202283b79a5b4e4a6a3d2636aad4635c8129982f822452b79581",
+      "fold": 3,
+      "odd_innovations_sha256": "3c72ab64cb945c0e6a01f8d9f61f833da8e3b0d3a8d3accfaab25a40d9d5e897",
+      "q_sha256": "792fde61525231b7fce864b0bac823ad7d630a8e7e7066a9ea05048076d36893",
+      "target_id": "build-0003"
+    }
+  ],
+  "features": [
+    {
+      "arm": "primary",
+      "fold": 0,
+      "sha256": "52518966c951adb47b57b05cea8e0631fd60b042da8009d7be49d088d51a0964",
+      "target_id": "build-0000"
+    },
+    {
+      "arm": "cumulative_replace",
+      "fold": 0,
+      "sha256": "d48a1697f52f471e194a441566717e52f4dc28b1f87ad1e2c9fd381f4c3d4281",
+      "target_id": "build-0000"
+    },
+    {
+      "arm": "legacy_reintegrated",
+      "fold": 0,
+      "sha256": "e387b56ca2b0ddf44c48938d493585532119a2d692b089f7cce0cce706f083e2",
+      "target_id": "build-0000"
+    },
+    {
+      "arm": "deranged_confidence",
+      "fold": 0,
+      "sha256": "1ac496e021e6bf7621bdc3a55a0612fb94d3dd5e191815bb15cacf39fb31cd55",
+      "target_id": "build-0000"
+    },
+    {
+      "arm": "polarity_even_common_mode",
+      "fold": 0,
+      "sha256": "298b01943bc38475596bd68c17fa8b23218c70d50debe8ac18852e11306d678b",
+      "target_id": "build-0000"
+    },
+    {
+      "arm": "primary",
+      "fold": 1,
+      "sha256": "bf3a0c52359d614e4b3e91e59f72c9baae604c3cb5bd011af2a4e938ff0c89f3",
+      "target_id": "build-0001"
+    },
+    {
+      "arm": "cumulative_replace",
+      "fold": 1,
+      "sha256": "de097032217449aedbd37504599facf6639d6f33801d8ab5e9e3d6d67f38f9ec",
+      "target_id": "build-0001"
+    },
+    {
+      "arm": "legacy_reintegrated",
+      "fold": 1,
+      "sha256": "2e93fd176cec30911c670525667783f35a88ad3d38c45f14e9c788c415417e78",
+      "target_id": "build-0001"
+    },
+    {
+      "arm": "deranged_confidence",
+      "fold": 1,
+      "sha256": "bfce81ece5786dc29fad3983a9c7d01f630c75424f5e8a3753fa509b0e260a5c",
+      "target_id": "build-0001"
+    },
+    {
+      "arm": "polarity_even_common_mode",
+      "fold": 1,
+      "sha256": "0ca21b836d20f3dc20fa348dcd49518473de17a85b69f874160199dcd582cfa9",
+      "target_id": "build-0001"
+    },
+    {
+      "arm": "primary",
+      "fold": 2,
+      "sha256": "245addf764891f020f4f6a333e6b782ff39594e7bd9dcb7e414f4f47983e34d4",
+      "target_id": "build-0002"
+    },
+    {
+      "arm": "cumulative_replace",
+      "fold": 2,
+      "sha256": "076294e44306959536c6eb1be9a69ad70ed0e27b49a1b823d76e60fdbff511b9",
+      "target_id": "build-0002"
+    },
+    {
+      "arm": "legacy_reintegrated",
+      "fold": 2,
+      "sha256": "cd03062c6c0e8c843cc9f1d4ec4de73a9b41ddcd339890b7b832ae7d4507bb55",
+      "target_id": "build-0002"
+    },
+    {
+      "arm": "deranged_confidence",
+      "fold": 2,
+      "sha256": "4eabb0f00942072305e31615d691fa53083c45629381ecdd4fc0aead18cc3859",
+      "target_id": "build-0002"
+    },
+    {
+      "arm": "polarity_even_common_mode",
+      "fold": 2,
+      "sha256": "273fdfa02f758b98077df7390da77fab0eff18d307f19392e0ba114cf2495d18",
+      "target_id": "build-0002"
+    },
+    {
+      "arm": "primary",
+      "fold": 3,
+      "sha256": "9d0be844f87be68301110f8d78779c31476d6ac6c92113857f668d589289f2f9",
+      "target_id": "build-0003"
+    },
+    {
+      "arm": "cumulative_replace",
+      "fold": 3,
+      "sha256": "7feaafce5a670e0806f279c8f5c7a544a211707055999a886f325c3ad9734c7b",
+      "target_id": "build-0003"
+    },
+    {
+      "arm": "legacy_reintegrated",
+      "fold": 3,
+      "sha256": "92b46f2732ca43327b246470af73a22248c4970e7df1a88ef78899575da5e242",
+      "target_id": "build-0003"
+    },
+    {
+      "arm": "deranged_confidence",
+      "fold": 3,
+      "sha256": "68bb079dbc10a5b232cbbf56592992a77e5aef5f556b2bfdd6812a66be990fd2",
+      "target_id": "build-0003"
+    },
+    {
+      "arm": "polarity_even_common_mode",
+      "fold": 3,
+      "sha256": "2458c72ef4dc61cc2d6313ebd93db501ede717809e7d0b267b70049ef49d6c37",
+      "target_id": "build-0003"
+    }
+  ],
+  "freeze_sha256": "5ae899814f09b5d6f45c1e9ff53680cb81bd47966f330b818e842b24b593e2dc",
+  "labels_derived": 0,
+  "phase": "ALL_FOUR_PUBLIC_BUILD_FEATURE_SETS_PERSISTED_BEFORE_LABEL_DERIVATION",
+  "schema": "o1-256-o1c30-public-feature-freeze-v1",
+  "shape": [
+    4,
+    5,
+    256
+  ],
+  "source_pool_sha256": [
+    "0473112acf83efec096418c90e14aa394fc86ff286b4923dd6caa3c7cba79520",
+    "47c184183f1211bd0a718cccf4ab202446574d9e21d5a969920280b8c0eb6df5",
+    "fcee9c6c05e40c47023417acf7df34bbcf694398b650810b96d6640871ad7b06",
+    "04a4b19797877fd7f6fc6dec9cd7af5b7608a5eab765090600be4567562bde0b"
+  ],
+  "tensor_sha256": "cad6fd5f5625bd3ac5d89ff3b35c14c83cbeeb91ab97c0da4352913c84bcdfe7"
+}

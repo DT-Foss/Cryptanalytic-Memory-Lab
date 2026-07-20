@@ -1,0 +1,4 @@
+started_at 2026-07-19T06:17:10+02:00
+recorded_at 2026-07-19T06:17:16+02:00
+capsule_stamp 20260719_061710
+source_commit 9de519a973595b76f8a2ef512a5edc518499901a

@@ -1,0 +1,51 @@
+{
+  "schema": "o1-256-relational-guided-search-config-v1",
+  "attempt_id": "O1C-0037",
+  "slug": "relational-guided-search-v1",
+  "claim_level": "TEST",
+  "hypothesis": "A frozen O1 soft field can reduce exact full-round ChaCha20 search work when its sign and confidence order are supplied as reversible first-encounter key decisions rather than 256 hard units.",
+  "prediction": "The exact solver will repair at least one incorrect low-confidence key decision under 32768 conflicts, and the real O1 field will improve matched 512-conflict search telemetry over both internal and coordinate-shuffled guidance even if it does not yet recover the key.",
+  "target": {
+    "index": 0,
+    "target_id": "build-0000",
+    "source_pool_sidecar": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/build-0000.json",
+    "source_result": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/full256_online_real_gate.json",
+    "labels": "runs/20260718_190629_O1C-0022_o1c19-causal-vault-build-loo-v1/artifacts/labels.bitpack",
+    "fold_predictions": "runs/20260718_190629_O1C-0022_o1c19-causal-vault-build-loo-v1/artifacts/folds/build-0000/heldout/calibrated_predictions.f64le",
+    "fold_prediction_freeze": "runs/20260718_190629_O1C-0022_o1c19-causal-vault-build-loo-v1/artifacts/folds/build-0000/heldout/prediction_freeze.json",
+    "width_index": 3,
+    "width": 256,
+    "o1_arm": "quantized_int8_vault",
+    "o1_arm_index": 2,
+    "shuffled_arm": "coordinate_shuffled_vault",
+    "shuffled_arm_index": 5
+  },
+  "exact_relation": {
+    "template": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.cnf",
+    "semantic_map": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.map.json",
+    "native_source": "native/cadical_o1_guided_search.cpp",
+    "base_conflict_limit": 512,
+    "o1_guided_widths": [52, 128, 256],
+    "one_error_conflict_limits": [512, 2048, 8192, 32768]
+  },
+  "controls": [
+    "internal CaDiCaL under the same 512-conflict limit",
+    "persistent O1 phase without external decision order",
+    "coordinate-shuffled frozen O1 vault at K256",
+    "post-reveal exact-truth guidance as a mechanism ceiling",
+    "post-reveal one-error guidance at four nested conflict limits",
+    "post-reveal 255-correct plus one unguided residual-bit ceiling"
+  ],
+  "budgets": {
+    "maximum_wall_seconds": 120,
+    "maximum_native_solver_calls": 12,
+    "maximum_conflicts": 47616,
+    "maximum_peak_rss_bytes": 536870912,
+    "maximum_fresh_targets": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0
+  },
+  "next_action": "If one wrong first-encounter key hint is not repaired, close key-only CDCL guidance and move the learned field to relation/proof factors or a specialized exact residual compiler rather than scaling conflicts."
+}

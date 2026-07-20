@@ -1,0 +1,30 @@
+{
+  "development_labels_read": 0,
+  "development_targets_created": 0,
+  "models": {
+    "direct": {
+      "artifact": "artifacts/calibration/models/direct.o1hrr",
+      "bytes": 201949,
+      "sha256": "b029182649f2ec6f06aa3eb00c497d57c76d0b7b81d7b4dc2a7e25f98331bc55"
+    },
+    "distilled": {
+      "artifact": "artifacts/calibration/models/distilled.o1hrr",
+      "bytes": 598528,
+      "sha256": "0f00e5c9a13d7121ae9bde35e91c8c8cc09b3b939340ccf0c356a9c79dc726a9"
+    },
+    "relative": {
+      "artifact": "artifacts/calibration/models/relative.o1hrr",
+      "bytes": 598526,
+      "sha256": "ac82fd6039da556e3c2542ecaf182724ca935ee1887f3e573e3cc552d50264d8"
+    },
+    "shuffled_key_control": {
+      "artifact": "artifacts/calibration/models/shuffled_key_control.o1hrr",
+      "bytes": 201949,
+      "sha256": "6dd9a11e64d3b93a98b1bab92f9249785aa6be2a2e46dae21fe070d63796711e"
+    }
+  },
+  "persisted": true,
+  "schema": "o1-256-calibration-freeze-receipt-v1",
+  "selection_artifact_sha256": "8e938893dcda020cadb5aa3d3cde0efc43cfe9cd6d34879ca00eb4538dd4d24d",
+  "selection_sha256": "20828f00a2f0f6fda38ae678226d6c0e45c89e7ccd3f8c47f5bc372ffe2b8d4f"
+}

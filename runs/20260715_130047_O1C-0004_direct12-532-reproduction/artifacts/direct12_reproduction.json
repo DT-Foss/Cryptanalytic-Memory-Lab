@@ -1,0 +1,1978 @@
+{
+  "a348": {
+    "attempt_id": "A348",
+    "calibration_prefix12": 2990,
+    "first8": [
+      3895,
+      1629,
+      2941,
+      3927,
+      3871,
+      3725,
+      1697,
+      1537
+    ],
+    "log2_rank_gain": 3.780831479537838,
+    "raw_order_uint16be_sha256": "94d7d510f90da9d041807d43a18d469c800e22d5e3c4e2106522ff2b715dd035",
+    "raw_rank_one_based": 375,
+    "raw_score_sha256": "7aca086229e8a72fa4acfc8af11942ea9e728b4e3a0b7a3682fd9e5dc04726ce",
+    "slice_z_order_uint16be_sha256": "922810f3695208a5b5ddeb612a588050cef59596450c5cd63aef48d2687db563",
+    "slice_z_rank_one_based": 298,
+    "slice_z_score_sha256": "81e489f95d93f3b950aad152bcab0abab193d63d099f74f9f08aa00797b32b5f",
+    "target_labels_used": 0,
+    "truth_source_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812"
+  },
+  "a349": {
+    "attempt_id": "A349",
+    "first8": [
+      3300,
+      1292,
+      3694,
+      158,
+      3628,
+      4045,
+      264,
+      3046
+    ],
+    "order_commitment_sha256": "9b11478cd8ac38459ad2f8e1692fecdc5d2f31849408aaeaf42ebc80aa1d57af",
+    "raw_order_uint16be_sha256": "2b971b398cbef67e6aeec035796e6ad4ade59abf0c7d56e1240c56ec6f2f30cb",
+    "raw_score_sha256": "f913ace4b3739cd9c761adb4731d55f20e7010aef7ad52eb09bc5da0d12ce58e",
+    "reference_order_vector_exact": true,
+    "slice_z_order_uint16be_sha256": "441c6af3d9a2a32e1a61f0d50804a1ecbf2363517a7b570c408a09a15fd1bbaa",
+    "slice_z_score_sha256": "075dd9a51afadbeba7c1012ab37aab9314e1c47589d01139291d567ecfa0a529",
+    "target_label_available": false,
+    "target_labels_used": 0
+  },
+  "attempt_id": "O1C-0004",
+  "counts": {
+    "cells": 13312,
+    "gpu_seconds": 0,
+    "measurement_shards": 52,
+    "new_solver_calls": 0,
+    "solver_stages_reused": 53248,
+    "source_members": 71
+  },
+  "dataset": {
+    "counts": {
+      "by_role": {
+        "CALIBRATION": 16,
+        "SEALED_DEPLOYMENT": 16,
+        "TRAIN": 20
+      },
+      "cells": 13312,
+      "partitions": 3,
+      "raw_values": 692224,
+      "slices": 52,
+      "stages": 53248
+    },
+    "dataset_sha256": "6d645aa7e06fbc7e746a4e6bfe410cbc1b845357c54740bb6fd00c2bbd6a32ff",
+    "information_boundary": {
+      "A349_truth_available": false,
+      "denied_member_fragments": [
+        "a325_v1.json",
+        "a345_progress",
+        "a349_order_prospective_recovery_a350",
+        "direct12_prospective_a345_validation_a349_v1.json",
+        "direct12_prospective_a345_validation_a349_v1.md",
+        "direct12_prospective_a345_validation_a349_v1.causal"
+      ],
+      "truth_api_separate": true
+    },
+    "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+    "partitions": [
+      {
+        "attempt_id": "A272",
+        "commitments": [
+          {
+            "name": "A272_protocol",
+            "sha256": "67c568baf4ac5a4d7191cca2ac7bbe4e07e62a81475b51ba838be3f011d6220f"
+          },
+          {
+            "name": "A272_result",
+            "sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da"
+          },
+          {
+            "name": "A272_measurement_ledger",
+            "sha256": "20045abeb01dfec86bb6fe19bcd3c7f99f159eb6d816fe1d90cf6180cfcf719d"
+          }
+        ],
+        "counts": {
+          "cells": 5120,
+          "raw_values": 266240,
+          "slices": 20,
+          "stages": 20480
+        },
+        "frozen_candidate_order": {
+          "count": 0,
+          "uint16be_sha256": null
+        },
+        "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+        "partition_sha256": "8b8f066a6d28d442ccec5f7582dfb50e195c283492811b485bd2026edabec807",
+        "role": "TRAIN",
+        "schema": "o1-crypto-direct12-partition-v1",
+        "slices": [
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "810f466cb9d140341af68e9283c279d8d3926e7707dd9871eb345ca8f558d8a6",
+            "provenance": {
+              "cnf_sha256": "64affc9390b9b28b6b39cbfa38bd697cc2cc7f3abc1f849a4dd483c2ad5ebf18",
+              "measurement_compressed_bytes": 96999,
+              "measurement_compressed_sha256": "a71a05e2be38f0f2a0bfeaa561f6d61948a3f2bec34dd35b5777715f6df8d625",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p00_fit_s00.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1584697,
+              "measurement_raw_sha256": "78cbeaa09a217be1ea761a376e9e1216cc3e07839988ac04f3d535a664c1dc28",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p00_fit_s00",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "007658600aff366127e1603fc8f3ad7d974bc2ab30a066fbec8bc13c57514b0f",
+            "provenance": {
+              "cnf_sha256": "fc754a2eba85748c7f364920bb1ab370a009d4f3f84e1e4835fe3eb104c572e4",
+              "measurement_compressed_bytes": 98568,
+              "measurement_compressed_sha256": "0124a06febbf853773d4709c825f9092c511e77bc18b47cf41d78d7f2e58effe",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p00_fit_s01.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1590714,
+              "measurement_raw_sha256": "070879814bb6f69713c6a067d07f4e20a0ab59415153c055590db745ea6d951c",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p00_fit_s01",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "268453459603bbd65b0de077d361c1582d7916959c4823f7c6a61b152dfa95d5",
+            "provenance": {
+              "cnf_sha256": "ee48592cc837fa478baad09d6957809abef7d21162838b4411488dff25a22f46",
+              "measurement_compressed_bytes": 97522,
+              "measurement_compressed_sha256": "9b2398b0575bb65f627ee2c9da56597f435559b41af1960b8e28c00eb75d0766",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p00_fit_s02.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1588277,
+              "measurement_raw_sha256": "189c1b79e1130e8d80fed79f2f010f032c2d8748dea8ea14c2c81b5847b494f2",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p00_fit_s02",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "8ef904485011c24fb6d41a8f9cedbec406104816bcae668ffd2b7ae90128bc69",
+            "provenance": {
+              "cnf_sha256": "6f2690d5e430e827b989f9b255dfa739133b8f52843cf04f9b1d80d47fc9c0b4",
+              "measurement_compressed_bytes": 97368,
+              "measurement_compressed_sha256": "fffdfe44754ba82bc1571502327bfb5b8b96197a3482ed35582a339875436176",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p00_fit_s03.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1587176,
+              "measurement_raw_sha256": "34d8db008c0078dbbccd50a16d4dee289e3dcb6c22b64cdb6d152cfe69b7aaf8",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p00_fit_s03",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "68fcb665f94c55159b9350807b2df083bdf3f87a61be9722c845bd1f6664bedf",
+            "provenance": {
+              "cnf_sha256": "6f91e5da7192b96806c25aeba9b6d72631dffd005c1e2b67f1d552d4e6f56041",
+              "measurement_compressed_bytes": 97946,
+              "measurement_compressed_sha256": "f724f70129f242cc9b8a0e71b4bbc5649389affce65f32f00a9f72f84913d37a",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p01_fit_s00.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1592601,
+              "measurement_raw_sha256": "277eeb3f5b7268ab5017c23619a3262d9253bdd67f1fdaea8cac368406de21f4",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p01_fit_s00",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "7c23e41e80482c61046fa4b9e9a9651e77abfe714b5bcab5981e887f9268f894",
+            "provenance": {
+              "cnf_sha256": "2b96cd51bb6b57f3f233a45457078723eb9a9c5b5173435646129209d2ba08ce",
+              "measurement_compressed_bytes": 97225,
+              "measurement_compressed_sha256": "6d5737c4416b23fcba342d18ff10c57892581f888dacd193efca139fe27082f9",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p01_fit_s01.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1584416,
+              "measurement_raw_sha256": "0fb771cd5aea34a4524493d44a55c7013d57082f62ebf275aadd954c3140c6be",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p01_fit_s01",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "5d3273f6da3d5d222f51a6cd17d48d649891f28b3c1e9091d75fddb40a8c6186",
+            "provenance": {
+              "cnf_sha256": "dac565fc117f83b575a0ae983d9402593a422263b884057555072444a5fcd458",
+              "measurement_compressed_bytes": 95005,
+              "measurement_compressed_sha256": "a9006942ad2bd6fc72ae29f8af0c77953e90220fcd7ca250f504a209515a2fef",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p01_fit_s02.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1580721,
+              "measurement_raw_sha256": "d51a3f863bea83a41024841e571fe6c42b50e7ac579293e877ffca23d8e75c13",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p01_fit_s02",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "50fb05b0fc165c7e10f4b099d384b9fe8c1c7a800286f278eec3c33af2d66484",
+            "provenance": {
+              "cnf_sha256": "8d1309d632d63d79617326b58d08c14b6d4fc755cde61e4545bbd2584f171f48",
+              "measurement_compressed_bytes": 97126,
+              "measurement_compressed_sha256": "13d034ff9b2507d87a083de8b4a4d43295a157de5b518abdb3e448149370a4ab",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p01_fit_s03.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1584517,
+              "measurement_raw_sha256": "6847157a9d296e84b42d39457a40567e547721bab97f614fb0982737e3625e76",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p01_fit_s03",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "5b8c8e51c6d76eb091aa175015d4323fcba8c5a606e33dcab6242dc0d8a3e013",
+            "provenance": {
+              "cnf_sha256": "3204629ef19451700b5068ea6ca15199ef4538513a027cbcced1a07e9d40083b",
+              "measurement_compressed_bytes": 96491,
+              "measurement_compressed_sha256": "1e3a440b9e56c422574c2332e8b4ef7b7700ad7ba42a4aced0083ff56ba340c7",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p02_fit_s00.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1586311,
+              "measurement_raw_sha256": "db11eb3af93bc7eca9f61e4bbb1d146882ae8bd1de1cf36502a4b49981b73aba",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p02_fit_s00",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "36f115afe62779e59aca5c1f155cb7cc7092adc13f762d5bf739dfa700cc7a5e",
+            "provenance": {
+              "cnf_sha256": "8e287781e94faa5753e407ce076603e0f6d0a12c37bb0f72451135036a65f6cd",
+              "measurement_compressed_bytes": 98948,
+              "measurement_compressed_sha256": "b5b11267637d035b6752a84b1a6b463f5c9e636c225849c223775575b883da96",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p02_fit_s01.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1594773,
+              "measurement_raw_sha256": "f7c3959b90ec7cb5670c7072fa0905942eb95f818641cfb4972ea94f8effb27b",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p02_fit_s01",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "200984bda7a0740d7b5e821ea02dac8d26e0bee78e0d2e0cd920872ff2ed6240",
+            "provenance": {
+              "cnf_sha256": "b36a9b15d2cc09c6a612edc27c2ada68443a83852796df9338202a583c18b268",
+              "measurement_compressed_bytes": 100369,
+              "measurement_compressed_sha256": "fb57402914944b01c1fded88be66b274415e942f763dfe464950871b5bad90fd",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p02_fit_s02.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1599772,
+              "measurement_raw_sha256": "9df562dcdfc332e1e759064f94308081eb348f11a2e12012a2c76348f57cd3fb",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p02_fit_s02",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "ce3ab0d08aeb08ee089cd118458b6b5d65d2f1ab3d85a849c87b6d7a70901a73",
+            "provenance": {
+              "cnf_sha256": "e84b6df650f80d6102df81bc27c58040888a0cf8479df1707dd9c353097f8e03",
+              "measurement_compressed_bytes": 97009,
+              "measurement_compressed_sha256": "554a0d4b74f453c9046e85ec029dd1a4d718054ae4b8b361dbfb33c89a4709d3",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p02_fit_s03.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1583251,
+              "measurement_raw_sha256": "f2bab54bb00a09b54ddb2ece0de8c6c45d1d623d09e80e6718cc6eb64bcaac8f",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p02_fit_s03",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "99c453e223414c6f4dbe5876ef8ae7001532ed891283d6f239dca829d840c720",
+            "provenance": {
+              "cnf_sha256": "9299368baabc34b35b29cc1a551a24945b72cb998c9f75d4a97ca30f6d26af58",
+              "measurement_compressed_bytes": 98908,
+              "measurement_compressed_sha256": "d84e045f07fd1b0b126dfef468c9b40627bef270264c0db99b77ca369da1d0e7",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p03_fit_s00.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1592212,
+              "measurement_raw_sha256": "cb886e9266556056db02fcc1a7f929831eb5c157b3b50d9cb9747852d9004e7e",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p03_fit_s00",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "0fb9af2d94d00b303f4b77e2fe971b5620103487abeee9990f788aad223b1fe2",
+            "provenance": {
+              "cnf_sha256": "e7dbd8ee741bebd181360f1dad0eb2bdfc37f84f326e085b2c161ddfc2077f96",
+              "measurement_compressed_bytes": 96565,
+              "measurement_compressed_sha256": "2206474badef79442bed956c4037ec4141c02d1d3f803dad7d3570aa01cc3a82",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p03_fit_s01.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1582041,
+              "measurement_raw_sha256": "f122bc4e4b4bb630134ee533ceb5dc27054f629a0a0d356efff9de9fdaafbb01",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p03_fit_s01",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "2ab540264921b18323df075d299d0dad8e497f19faa3e811af3ba5bd35cf0898",
+            "provenance": {
+              "cnf_sha256": "b164c857781139afbca7538553e75dc1ef48ba1c38cb1e9409aff84a6e9bebc6",
+              "measurement_compressed_bytes": 98408,
+              "measurement_compressed_sha256": "65016a4e8530371b34fb511684fbe8df6746e95d93610b2683f9064c0ff4eb87",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p03_fit_s02.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1586618,
+              "measurement_raw_sha256": "9730fe27948a6a9d5dd7cfa531818034d607af9860147126872ac7f7f4b57b39",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p03_fit_s02",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "e4a9b4b6bc4c15562db558ec47821cba110a313ec6bd33b83f0fcdc3c8f53750",
+            "provenance": {
+              "cnf_sha256": "3c3b2b6b54f749f6f9280716ddcf431a3b4cf7b482a64e615116a26cbefb3b07",
+              "measurement_compressed_bytes": 94635,
+              "measurement_compressed_sha256": "5b857105835f880532631e4cbab8d83d6271e1aa0ad2620d51680405feed3485",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p03_fit_s03.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1579726,
+              "measurement_raw_sha256": "627dbecfa792c26b2f964fb071afff131693527f85c05b826b4e7ff0f6de74bf",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p03_fit_s03",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "9fe8254479f58fe1a595c2ea5c44929ed1ccc2ec7bfddceed8919b472e0fb457",
+            "provenance": {
+              "cnf_sha256": "1d573b82ced7cc684881dec6adebdf74e578bc1cddb2e2593dd0b4fd37a6cda7",
+              "measurement_compressed_bytes": 98880,
+              "measurement_compressed_sha256": "33c1a5269de72d6927b3621ad9c6042834e63890fe14b275a08cb7667ee0dc64",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p04_fit_s00.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1596198,
+              "measurement_raw_sha256": "a51cbe245b553e1c57c00e3d43fdce12913f20c4a79d3a0aae629644ea249a83",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p04_fit_s00",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "72615652bc7e95ffa6e5f7a9e8c1b84013d22017a02edbcca437b236a100f800",
+            "provenance": {
+              "cnf_sha256": "34e07c3410a548d485a479b9c0e81af272dfb0adaf93dd2ffb647bb60abf07d0",
+              "measurement_compressed_bytes": 98366,
+              "measurement_compressed_sha256": "c232de2a7e7db70154af5894512acdef5473756808f8efb72732b4ccdbc6a7e2",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p04_fit_s01.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1593127,
+              "measurement_raw_sha256": "d2784d89c60e47b30e4064ec6fa28fa3d330cff2aca9480ed9aafaeb90da381b",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p04_fit_s01",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "9d3747f936e4e61af12b94849c766bf7e46a1b52fb695723347328160bf2a96e",
+            "provenance": {
+              "cnf_sha256": "388924162caaa46e2b1e4bd35581b241220a96e6ca4d2186b96f6e5078accf1a",
+              "measurement_compressed_bytes": 98315,
+              "measurement_compressed_sha256": "49316127e1e50ce8ac3acead9b9bb91f6bc6f5ad20ea5a89c00d2a9c4485b6d5",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p04_fit_s02.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1595673,
+              "measurement_raw_sha256": "3bf65228b0a65170f8cc6f6f6839fd835421eaa9bca6322ebd5ed718e516bfa4",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p04_fit_s02",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A272",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": null,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "6e2fef8d321d1a5725cef9901553e3b0f27c95fc3924383c18a5e8267ec630e4",
+            "provenance": {
+              "cnf_sha256": "3172bdd04198ecfc650528e8ef33351d7551bf7afca87ded9222e35ae6f79b58",
+              "measurement_compressed_bytes": 95447,
+              "measurement_compressed_sha256": "c532bc4081f2485ea96efb078dfe0590478941dff31f37af51f6453ecc4c7b69",
+              "measurement_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p04_fit_s03.numeric.measurement.json.zst",
+              "measurement_raw_bytes": 1579605,
+              "measurement_raw_sha256": "be2e07917deb18c3f45109fbe920245184ce0b26025571e00d8777b246bb80d5",
+              "metadata_member": "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json",
+              "metadata_sha256": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "TRAIN",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "a272_channel_p04_fit_s03",
+            "stages": 1024
+          }
+        ]
+      },
+      {
+        "attempt_id": "A348",
+        "commitments": [
+          {
+            "name": "A348_design",
+            "sha256": "d31649a3138e823c238bf8ff1318679d614f1b49ae0d53e9ebe4a0889b706b17"
+          },
+          {
+            "name": "A348_result",
+            "sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812"
+          },
+          {
+            "name": "A348_measurement",
+            "sha256": "9b055a9c2505871141af181476330a162a777dc5365a3311ea80477a5ea70bd4"
+          }
+        ],
+        "counts": {
+          "cells": 4096,
+          "raw_values": 212992,
+          "slices": 16,
+          "stages": 16384
+        },
+        "frozen_candidate_order": {
+          "count": 0,
+          "uint16be_sha256": null
+        },
+        "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+        "partition_sha256": "7fc3ac4b622f921aeb638af2bf51c831220cbc7dfa2ccdee312f8b99e7d8b700",
+        "role": "CALIBRATION",
+        "schema": "o1-crypto-direct12-partition-v1",
+        "slices": [
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 0,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "1cb59aecc4ef08173abef9f894bf8b2e388b9f51dff2b08281bce3930ffbea00",
+            "provenance": {
+              "cnf_sha256": "0ca7011135296de2a37e662277044d868c42b3538fd3ed51475b5972cbddfe6d",
+              "measurement_compressed_bytes": 79739,
+              "measurement_compressed_sha256": "64b045e452fce159b07ba11313167d12318ae642b4faa6e5b8baa3c12c655aff",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_00.json.zst",
+              "measurement_raw_bytes": 1526763,
+              "measurement_raw_sha256": "116a3810237182e58bca4ab34e0614467ff175fcddad401be529047e6d776097",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_00",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 1,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "7d445ee853c8253f1bfe459c0b35a2d7ebb5df524cee031b0bfc4fc152461fee",
+            "provenance": {
+              "cnf_sha256": "3d9dc01c588c26d8f78a22f22ca697edf0fc1fc67dded0e6fdf4211580a9f813",
+              "measurement_compressed_bytes": 85066,
+              "measurement_compressed_sha256": "9669cacdbf3354ba9ffdbfcc2849c2adc998d3026e28ac2b22782e46b0139854",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_01.json.zst",
+              "measurement_raw_bytes": 1540130,
+              "measurement_raw_sha256": "1a5debdd989e4d6cde456b719836994697d04f72f40675dc612539070c59a879",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_01",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 2,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "5346558cc76684f5d0dd0d3688bbd0250cb12b2c9876a65e90fda878bebfd321",
+            "provenance": {
+              "cnf_sha256": "6b7825a9f55af51e500a4ce83da3ce7520e6293747792b8d8df1cbce965bf644",
+              "measurement_compressed_bytes": 79678,
+              "measurement_compressed_sha256": "eebae73c2a8535606486fb54bfab6fbe237895b9cad92eda07b18abb6188fd6c",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_02.json.zst",
+              "measurement_raw_bytes": 1534422,
+              "measurement_raw_sha256": "fd4f34df596293139813e96973123f9ac6c93bdf347213877f4ae65a98417ad7",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_02",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 3,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "e2ce9817a55abd844798f2a68097bd5af77a5c6200d889211cc0bf890bb61066",
+            "provenance": {
+              "cnf_sha256": "9beb1f95fa16368619bd25db89f3e154bd63976d6e494d4f85985185fbd2cb4a",
+              "measurement_compressed_bytes": 80569,
+              "measurement_compressed_sha256": "1c0cedeb2a447d2821d76df98f1748c4652272195102c117d845778f93cac926",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_03.json.zst",
+              "measurement_raw_bytes": 1527428,
+              "measurement_raw_sha256": "882c117a8e72c83c0b3ca941231994d421e3c5b699a0bc912b0e5f530c4b5201",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_03",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 4,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "3cc57965203ac0ac191cc761615a1594d575a85c3c14aa70ee23dce965f7f353",
+            "provenance": {
+              "cnf_sha256": "b693ba1fdb17430be1d080344312da34f93155ff830089a17b68ca188fa5d2a6",
+              "measurement_compressed_bytes": 65358,
+              "measurement_compressed_sha256": "a62fe87f18a2af53c3d557b3e12b559d4745368882133362b6b927b5cf64e33d",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_04.json.zst",
+              "measurement_raw_bytes": 1510064,
+              "measurement_raw_sha256": "25e727f99a89f7568a4dbd87cf942e1cccca6775056cb9f1144c6a8dd87636d6",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_04",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 5,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "841856acb3f86b722391d71adfd90916750e0105b4b2ee73bdc2fa23ec6e9a42",
+            "provenance": {
+              "cnf_sha256": "f7c5342ecbe96e167313d1b46349109e0eef6158e605269e728a896e64e27b3a",
+              "measurement_compressed_bytes": 83641,
+              "measurement_compressed_sha256": "021d9d32f45dac978b103ba38a0cc8786675faff54531455c2d74390ce7be3c4",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_05.json.zst",
+              "measurement_raw_bytes": 1538075,
+              "measurement_raw_sha256": "f0e12e230de63c794393a9751b6f2ac12bb18cd87711d254c22fc78fe3c1108e",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_05",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 6,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "ecb6d350f0f80a84308cb37f5c4830a08dd17369251d56943f3f3d34ac8baa93",
+            "provenance": {
+              "cnf_sha256": "93688cef25bf951106f79e93c969ab95b2dcc06eca9c29901b77c7baf8cb49d5",
+              "measurement_compressed_bytes": 75786,
+              "measurement_compressed_sha256": "59a4a9da7763d47edc0b4ba38013482bc69146fedb748e334fb27018c772125f",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_06.json.zst",
+              "measurement_raw_bytes": 1539048,
+              "measurement_raw_sha256": "cc0d7457450eebe8b662762c04bdd4e3a762dcfea9c86fadb7857202df13f950",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_06",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 7,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "39a97e5cb80e41b238e956e30c8146f1f9469b356f0de4c940515bfd35038dcd",
+            "provenance": {
+              "cnf_sha256": "18c9eed5fe98619c155021d0f3ba4a84e4911fcf0d6e28dd0e49d7af97f35318",
+              "measurement_compressed_bytes": 87771,
+              "measurement_compressed_sha256": "debde0b24d05a5982c8234d8b039a2096e398e69f171c4bc4d25d0f25a15c319",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_07.json.zst",
+              "measurement_raw_bytes": 1553864,
+              "measurement_raw_sha256": "583e1016e56026ca999a638c5a596a1f9c0d0bfcdc04005773ebef1d4f912918",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_07",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 8,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "e062534ca84e1940eb434d8571de02a4f2a30fd527609a292445b8c395dc07e4",
+            "provenance": {
+              "cnf_sha256": "686530b2ae83e462ae83fedb5e684295a92089fc075ba6b07496758fe5bd44ce",
+              "measurement_compressed_bytes": 79958,
+              "measurement_compressed_sha256": "ae61f96c4a563ac47b613889353cf5b237288747caf2067781dfcecd779cb8a3",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_08.json.zst",
+              "measurement_raw_bytes": 1532271,
+              "measurement_raw_sha256": "b060feb8342a561ca8f012a5716d00fd9b5835cc803928245684089f79ed4f2e",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_08",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 9,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "d75b2b78cb9f70fda5ddb79b4a39c8d844e2f60cda8897c117b5b3216d1240b0",
+            "provenance": {
+              "cnf_sha256": "c314c9209fb01c1aac31ab87584787e201a48c7c69f0dfb461a7a68d5130aeb3",
+              "measurement_compressed_bytes": 79496,
+              "measurement_compressed_sha256": "21224cf6c9295c64425ce1ec128920c8c1a14eab3e3ac1a39448f9aa52a070de",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_09.json.zst",
+              "measurement_raw_bytes": 1523557,
+              "measurement_raw_sha256": "d438bbbc97caf9daa4d5e5d9f9eb29f7ceb74e2c035df12aa220f2b0ec0f64cf",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_09",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 10,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "2a757a4867ab5b921d1e899836245a9705358cfb62d4f4dc41bd3f2aee115b33",
+            "provenance": {
+              "cnf_sha256": "f2b21b77c1d8668e408032460c9234fec99bcd0d928dd72487393f0f11b4825c",
+              "measurement_compressed_bytes": 80402,
+              "measurement_compressed_sha256": "de0f6c18744da16c003ba33458c9756e30867d05eb0ff4b20908cee8c2e14cf8",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_0a.json.zst",
+              "measurement_raw_bytes": 1531044,
+              "measurement_raw_sha256": "44a8a80bcaa3c3920a4681bdca99c8527d6cefcb8d8517076fd0375a65376e04",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_0a",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 11,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "b2e17ed44cae52778ac51dd3a75360b4b77bb1c99c5145caa4e8ae7f928f4209",
+            "provenance": {
+              "cnf_sha256": "3141834e7c894f557df9cc38a6080f50c1d5545092a143d245d13b35021bfb56",
+              "measurement_compressed_bytes": 77992,
+              "measurement_compressed_sha256": "78323b386d92d17feef8a791bc71d7a0ff38484b9466b0d561754937b82cb23f",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_0b.json.zst",
+              "measurement_raw_bytes": 1522799,
+              "measurement_raw_sha256": "b4ad8602ee2a9c056588994130518f07d4aa90463238912b8b2fa12f65c7a004",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_0b",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 12,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "54e0870f9b45322cbd1e4f33303da571d1817daabd5953413e1a5459ad1bf33c",
+            "provenance": {
+              "cnf_sha256": "fdee8cc3bb43f4e2d07028e7e76637541a8defe4859863262fc2f09e0089de04",
+              "measurement_compressed_bytes": 81609,
+              "measurement_compressed_sha256": "d482469ff8219756473be1255ebd157eaa224fbda068424289d2d1ad1eeed893",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_0c.json.zst",
+              "measurement_raw_bytes": 1532535,
+              "measurement_raw_sha256": "3e54e5b4656c03dec9868c468f9adce58cdb7add5f402fedad78fd9d877fad93",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_0c",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 13,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "13e1126922575df951fff8669be1dcbe08c4ababd0a3bda26d1a416f2d579baf",
+            "provenance": {
+              "cnf_sha256": "fcab32f1f00c879dc959ee7b947938051acd0891393ad5c756bc6d4b16a89bcc",
+              "measurement_compressed_bytes": 77889,
+              "measurement_compressed_sha256": "ed6aae29593867229e8e153223048d75a9250c76a8e9a3f6be7035cb4d46e7cf",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_0d.json.zst",
+              "measurement_raw_bytes": 1539129,
+              "measurement_raw_sha256": "f884f3cb0bea30a3f3b68f9c4d7cc6c522f8aea3b7500f6119cf43eb8feda89f",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_0d",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 14,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "b4003a3fe1199d1ae48f50271df627db09b4eb17f96259aa46a898adbc9ce3ff",
+            "provenance": {
+              "cnf_sha256": "51a6b5192be1449e21cb6d8e8c1dcf0a3fa87aedbb1cba10ff685749b04b9bcf",
+              "measurement_compressed_bytes": 81981,
+              "measurement_compressed_sha256": "feed589a0b8491711421bdb84a5319e3129db95336384774454729f67783c1fb",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_0e.json.zst",
+              "measurement_raw_bytes": 1540224,
+              "measurement_raw_sha256": "5d97097ba7a7fb35734e44b3267a0fdc39faeb16b088197d33f7a3f3e7aaa5f4",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_0e",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A348",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 15,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "05e4d6a74288e0e30b89f2cb1956eeac3d22e28d001ef3b46d547ee69f2d78d6",
+            "provenance": {
+              "cnf_sha256": "6d4227ec9c317f6acc04615ac13959dd28f9fa086b7b7a61a6acd258a87ffeb6",
+              "measurement_compressed_bytes": 83674,
+              "measurement_compressed_sha256": "46400ffe9a1d068024b9fbf29d0917f84a357f8c4b94f379b905b04dd30fb9cb",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_0f.json.zst",
+              "measurement_raw_bytes": 1540423,
+              "measurement_raw_sha256": "c481f0621b8a4885405f0ee5c1970233fbde94c935ba0f2d113efab1c5943b59",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+              "metadata_sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "CALIBRATION",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_0f",
+            "stages": 1024
+          }
+        ]
+      },
+      {
+        "attempt_id": "A349",
+        "commitments": [
+          {
+            "name": "A349_design",
+            "sha256": "f4c8a512def4c115b0a6be0e8a86754764c3a6f835ccc8cfcfcf562cc80f164a"
+          },
+          {
+            "name": "A349_preflight",
+            "sha256": "43a54b43f257d75d89bb6a260318d5203754033de5bea8cf192e773267e8abb1"
+          },
+          {
+            "name": "A349_order",
+            "sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e"
+          },
+          {
+            "name": "A349_measurement",
+            "sha256": "d96f80a82cf9d8bdb9bf5f8331bbd38f97eb99b97c7bd7b04afed325b82b2eb0"
+          },
+          {
+            "name": "A349_score_field",
+            "sha256": "075dd9a51afadbeba7c1012ab37aab9314e1c47589d01139291d567ecfa0a529"
+          }
+        ],
+        "counts": {
+          "cells": 4096,
+          "raw_values": 212992,
+          "slices": 16,
+          "stages": 16384
+        },
+        "frozen_candidate_order": {
+          "count": 4096,
+          "uint16be_sha256": "441c6af3d9a2a32e1a61f0d50804a1ecbf2363517a7b570c408a09a15fd1bbaa"
+        },
+        "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+        "partition_sha256": "d5762150fc575f318f8e30c6640f7d700884389fee5a8aef06fa40788cd2fba4",
+        "role": "SEALED_DEPLOYMENT",
+        "schema": "o1-crypto-direct12-partition-v1",
+        "slices": [
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 0,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "20b44991ad1cd6ad1d00f8d1dcb4d75636357dda19a3f1ca172f8da235966d81",
+            "provenance": {
+              "cnf_sha256": "1ae2070d4f97524bbed09b8580c12f482926b562ec788de51d579699a2b41091",
+              "measurement_compressed_bytes": 85021,
+              "measurement_compressed_sha256": "5b044b0731e8a4bb922802caabd255529c1f3d412b58e1b08d2b39d0514808b1",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_00.json.zst",
+              "measurement_raw_bytes": 1549600,
+              "measurement_raw_sha256": "8accfc59f5c3045d41c8d7d88b557abf3d0d5b365da91c7c7858833015798c84",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_00",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 1,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "9a970216ae33bd92713676899111578f8f5bafcf4c58c69d8564641b4f5ae8bf",
+            "provenance": {
+              "cnf_sha256": "eb7034170b3885ef46b50e6c1f00865d3cb6b5c3a36ca970f2f079b09b815e95",
+              "measurement_compressed_bytes": 76569,
+              "measurement_compressed_sha256": "8c3717d20dbeff7fbdef3bccf1aa677a21b075ee7fc97a5c05a8b0545c4d9200",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_01.json.zst",
+              "measurement_raw_bytes": 1519156,
+              "measurement_raw_sha256": "4e0808ceb626317aed6752de765c53cd2301380f07925f6f241ed3b0d5d9b992",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_01",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 2,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "fe42a75f07ff95c9937149b3ad27e2b610a006cbbb4d03ec58d36d0c3bbc927f",
+            "provenance": {
+              "cnf_sha256": "89b05b48b40d42e60f68e9821402e908337eb889e30cd6d220e93646dbf009e6",
+              "measurement_compressed_bytes": 84064,
+              "measurement_compressed_sha256": "cd8d880ff7800e2cba96694680c1460f5fdcbbbf3aa4ad857839b39dbfa2df33",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_02.json.zst",
+              "measurement_raw_bytes": 1533312,
+              "measurement_raw_sha256": "5199cd0b32dd7874d1e26475286daa0bdec603f2f99062e8a607d7452d89c1ff",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_02",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 3,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "e4ea66a41534143847dbe4a4d29f77f36838a3e664725b4306a5693fa0466236",
+            "provenance": {
+              "cnf_sha256": "fc177d803a6c8af85d1b280f4358d7d09664cbf4b038cda9bebd337b574192f6",
+              "measurement_compressed_bytes": 77515,
+              "measurement_compressed_sha256": "c236b37b57152e590954f725837a4ebd59eff577fe800ffaa9a0dff93a8ca91a",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_03.json.zst",
+              "measurement_raw_bytes": 1523903,
+              "measurement_raw_sha256": "6d4fd68e37ce3d060bbbe08e5bdf66c1e3c0f3b22169ef0e619882a18ad5e19a",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_03",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 4,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "ec18afdcbfe42e406d53662ef13173fb1abfa31c98f3577565eec63a0532aa99",
+            "provenance": {
+              "cnf_sha256": "03f8d45ba5a7d0ce4a21784d6be7caa6be0e7f292602bb3c599dbc04df194909",
+              "measurement_compressed_bytes": 85107,
+              "measurement_compressed_sha256": "7402ece8c9d4bde4bfe6bf71cbed58ec9301f6214d8a7d3cfd29580727950234",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_04.json.zst",
+              "measurement_raw_bytes": 1541241,
+              "measurement_raw_sha256": "9d7aa36c1ffe4ae20c973ee3634a28ec72e760a99bc2df71cef46625b6699469",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_04",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 5,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "186493884c9483a173e80b0d0e78ff48322499e8c019c5e5e090178f8ba579b9",
+            "provenance": {
+              "cnf_sha256": "dde1571b22b84c980474ba22a2375f7b3a2f4b66e44ed18c98814b0b71e599aa",
+              "measurement_compressed_bytes": 64423,
+              "measurement_compressed_sha256": "72f0cf9093112d2530a54346cd15646c43793fe3cb325d8e1ca98caa2f86c899",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_05.json.zst",
+              "measurement_raw_bytes": 1515390,
+              "measurement_raw_sha256": "dac59420bb27dbfb5506d9315afe3e2540f3ba08b0d06c95a7a7fa098cf09ac8",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_05",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 6,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "e71fd99dd5f0e59f9422d1d6566f183a1effd4f5a5e21bdb20281374fa4175d3",
+            "provenance": {
+              "cnf_sha256": "5ac653814b09fbc4da3d410a590c66342ee37b9ea76a0f2c3e0f0721502b1257",
+              "measurement_compressed_bytes": 80199,
+              "measurement_compressed_sha256": "0d8fce456d4e9652891f3a3d66ca6bbce0ec890cfbb497293b46446c683853b9",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_06.json.zst",
+              "measurement_raw_bytes": 1539888,
+              "measurement_raw_sha256": "029f51641c2577bf17fdcf74b990855ca1503c96f90827ec0b1b421df14f83a6",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_06",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 7,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "b4bf25d7b2e98b8f1d385e3baa2c7c70329079063014be6f3bb0d8f4901aaea8",
+            "provenance": {
+              "cnf_sha256": "a90e4d90b2e18ef67cdceb7fb27cba25f34357728a05a89461ed07240aa66a44",
+              "measurement_compressed_bytes": 82372,
+              "measurement_compressed_sha256": "da7df2c1b2fc4777d43651565d9022e40089bca2be560dccc4fbf0eff783ab72",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_07.json.zst",
+              "measurement_raw_bytes": 1559438,
+              "measurement_raw_sha256": "dac1ccdfbc75d993cb1c315edc6c1d98153724b0a514c6cf60ea15d292bc8ba8",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_07",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 8,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "f6a809585c09b9bfd4adf424dd1d84004c6506edf292c64fe75851f5491e9961",
+            "provenance": {
+              "cnf_sha256": "23cd0bb1c8d4ae963b635969cc079380fccfec329b5305eb349dec251bf5eed8",
+              "measurement_compressed_bytes": 78497,
+              "measurement_compressed_sha256": "1b767c718a138a2b156d3fbabd1ded8c64092ad7e690a68ec8e760a63cb9156b",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_08.json.zst",
+              "measurement_raw_bytes": 1533437,
+              "measurement_raw_sha256": "b83f9e20d6c9df4cbb89b4a4188a7f2f9a0facbb1e7cd2014c5b979bb4f86b6f",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_08",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 9,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "0c363d6d4ae182457348f66900c8b9d7512afdc7582e757ee74ee1fea805a306",
+            "provenance": {
+              "cnf_sha256": "daa07a80af1f00bf093a359b88c01ad3b4e3e82c2f83982de253b8bedbee984f",
+              "measurement_compressed_bytes": 75789,
+              "measurement_compressed_sha256": "c9bd54ba78c4818b6f6e7db2dc5dcd43f1c65f03dd3fb51bdc01833d6f2ff436",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_09.json.zst",
+              "measurement_raw_bytes": 1538006,
+              "measurement_raw_sha256": "53c019315b92080c418d63e106b9acc2cafa9e627215c1c74b04e8268d9e8a4f",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_09",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 10,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "8e992d407851ac8b2f36cbda21b960ef68e9a0496252b26de6d793ed3e116591",
+            "provenance": {
+              "cnf_sha256": "bdffd55477381aa5f1c10e54f2542ab6c8a9c5ee281cf4c0182822401e145a91",
+              "measurement_compressed_bytes": 81229,
+              "measurement_compressed_sha256": "1eaae8bceb6f1b9fdcc7ac8cbff2fd5f2374cf6aff0a3bdc5808d66fc58adf4d",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_0a.json.zst",
+              "measurement_raw_bytes": 1542845,
+              "measurement_raw_sha256": "321e47b35c214aa3a3a362f9d709261059a4c3435ac0629289ff90014109d6ee",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_0a",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 11,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "0d4a20e862d616bc41629fd1b558926bb8d1f09039525c8cfeb244cae218f9c9",
+            "provenance": {
+              "cnf_sha256": "9ed89b007290e2a497d5530e4e25407e9c1454907bdaa380e420abb292570ea8",
+              "measurement_compressed_bytes": 76990,
+              "measurement_compressed_sha256": "3db33cc89753849e618855843409540af10915eb98e11217a4d2f165ed1f1505",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_0b.json.zst",
+              "measurement_raw_bytes": 1525173,
+              "measurement_raw_sha256": "bd0d5184f076a49c003ca793517fc9ed2fb7139b49d6736b32d955c5b8765953",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_0b",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 12,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "ca55e925b744e4e18b55242a8f1d788156912e8188581a00f1584f9c46a4976f",
+            "provenance": {
+              "cnf_sha256": "014a22507763f6089e225e86c4e1dc2d46769803ddedd533de5ae4391ffa13c8",
+              "measurement_compressed_bytes": 86119,
+              "measurement_compressed_sha256": "3ba5783cae2bf29909216a38e7b0e17c60c44edf308d9929388c8457dd78a2fe",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_0c.json.zst",
+              "measurement_raw_bytes": 1569686,
+              "measurement_raw_sha256": "f6acc377c6a3555721262e548514da497035fca10e63f4f6ccd559e79d82c947",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_0c",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 13,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "ca57ce95e44d8cd04f2e3709454a1779030c2aa12807c6bca0296d1fdc6be35c",
+            "provenance": {
+              "cnf_sha256": "c70410922637884190daec812aafefabdcde122d4107c0ef6a2fbc50e520b091",
+              "measurement_compressed_bytes": 84995,
+              "measurement_compressed_sha256": "d68f8c234b09294926d1accd532bef304daea1513ee6f37dd3ae2035446a1f1a",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_0d.json.zst",
+              "measurement_raw_bytes": 1576622,
+              "measurement_raw_sha256": "6f483781e1a816877b4264c2a8476960ebcaa566693c417b741f45854183ec18",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_0d",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 14,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "12153ba72d8e900d94e650c53c4cf1b50e97a9d7636d635a721ac7858f421f60",
+            "provenance": {
+              "cnf_sha256": "88273c1e2aca385bdf149bade98868dd42c196627564961037bd7b32aa7f3f92",
+              "measurement_compressed_bytes": 83668,
+              "measurement_compressed_sha256": "81dea0a646b1c871b5fb35a6a561dd7df06510f3c5995df17c02bf135a7f4216",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_0e.json.zst",
+              "measurement_raw_bytes": 1542931,
+              "measurement_raw_sha256": "4b96836f0b98b7d9772d5adf0b309b88492055cce679bb4d3dc7e176be68a9e7",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_0e",
+            "stages": 1024
+          },
+          {
+            "attempt_id": "A349",
+            "cells": 256,
+            "information_boundary": {
+              "elapsed_seconds_featured": false,
+              "model_bits_present": false,
+              "revealed_truth_present": false
+            },
+            "low4": 15,
+            "matrix_schema_sha256": "a4f4ae7dbab2b3c1adccbf111686468e79d2e02c65a223f48f9f6c1d33c62f17",
+            "matrix_sha256": "1e365a109acbbd6e8fa6b52d607e98d665a519d3adce09da155eac2a5fb25097",
+            "provenance": {
+              "cnf_sha256": "32ce39fe4a81fa34d18977a16e7bf7cf1145dd89476f0712fcf2a629f533410f",
+              "measurement_compressed_bytes": 78175,
+              "measurement_compressed_sha256": "c0026c9fd7662bbbd3b77ef433004b19a96249aa4afd80f56fabb654b06640f4",
+              "measurement_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_0f.json.zst",
+              "measurement_raw_bytes": 1527544,
+              "measurement_raw_sha256": "cc083d904a53224403150d0df32a64d24a8b1d3b8b29805ab54e512677aa66ac",
+              "metadata_member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+              "metadata_sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+              "snapshot_descriptor_sha256": "660859205f230171ce76f77e4dc63e9a4d0c2a5f16874ae304c325346d991ffe",
+              "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+              "source_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+              "zstd_binary": "/opt/homebrew/Cellar/zstd/1.5.7_1/bin/zstd",
+              "zstd_version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+            },
+            "raw_values": 13312,
+            "role": "SEALED_DEPLOYMENT",
+            "schema": "o1-crypto-direct12-slice-v1",
+            "slice_id": "slice_0f",
+            "stages": 1024
+          }
+        ]
+      }
+    ],
+    "schema": "o1-crypto-direct12-dataset-v1"
+  },
+  "dataset_sha256": "6d645aa7e06fbc7e746a4e6bfe410cbc1b845357c54740bb6fd00c2bbd6a32ff",
+  "information_boundary": {
+    "A349_progress_or_outcome_read": false,
+    "reader_refits": 0,
+    "sibling_paths_read": 0,
+    "sibling_paths_written": 0,
+    "source": "immutable O1C-0003 snapshot only",
+    "target_labels_used_for_selection": 0
+  },
+  "labels": {
+    "A272_training_labels_read": 0,
+    "A348_calibration_labels_read_after_freeze": 1,
+    "A348_calibration_labels_read_before_freeze": 0,
+    "A349_labels_read": 0
+  },
+  "model": {
+    "base_feature_names_sha256": "89a4ddc5696a3312ca5d41d38c8f9b4facc9e750bcb85124b8de3b88b85dd93b",
+    "dimensions": 532,
+    "feature_names_sha256": "83154bc39a17121debca0884f776fe09be890eab323428a668387fcf806c3012",
+    "model_sha256": "b096c08616a81712da881862b65f0c95388e4db3cf6b8e462bf7c2a072cb0da4",
+    "nonzero_coefficients": 476,
+    "ridge_lambda": 10.0,
+    "selected_group_indices": [
+      [
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        296,
+        297,
+        298,
+        304,
+        305,
+        307,
+        310,
+        311,
+        318,
+        319
+      ],
+      [
+        324,
+        325,
+        326,
+        327,
+        330,
+        331,
+        334,
+        335,
+        336,
+        337,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351,
+        352,
+        353,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359
+      ]
+    ],
+    "selected_views": [
+      "learned_clause_rejected_large_stage::coefficient_negative::normalized_8cube_graph_laplacian",
+      "learned_literal_count_stage::coefficient_negative::normalized_8cube_graph_laplacian"
+    ]
+  },
+  "pre_reveal_sha256": "88ec0341fc89ce077860109f202a81d9b4fff3676dfe611de102334749a7462b",
+  "reader_contract": {
+    "contract_sha256": "a972842a6f4e0f10d807c4bdecc817c7f376ccba89945aeeb8be89dc906f9356",
+    "documents": [
+      {
+        "attempt_id": "A268",
+        "member": "research/provenance/chacha20_round20_a268_prospective_trajectory_shape_preflight_v1.json",
+        "schema": "chacha20-round20-prospective-trajectory-shape-preflight-v1",
+        "sha256": "d8fdbb88254b40ea90812c29563baf8f82b693d5fa9980f28a116089abfa9a17"
+      },
+      {
+        "attempt_id": "A271",
+        "member": "research/configs/chacha20_round20_signed_channel_ablation_v1.json",
+        "schema": "chacha20-round20-signed-channel-ablation-protocol-v1",
+        "sha256": "da026bcb21805add8a32365a7d9e68dbb00ff6a3226fd89f7f45c3cc8f99c920"
+      },
+      {
+        "attempt_id": "A348",
+        "member": "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+        "schema": "chacha20-round20-w46-direct12-sliced-reader-a348-result-v1",
+        "sha256": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812"
+      },
+      {
+        "attempt_id": "A349",
+        "member": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json",
+        "schema": "chacha20-round20-w46-direct12-prospective-a345-validation-a349-order-v1",
+        "sha256": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e"
+      }
+    ],
+    "information_boundary": {
+      "denied_progress_or_outcome_read": false,
+      "exact_allowlist": [
+        "research/provenance/chacha20_round20_a268_prospective_trajectory_shape_preflight_v1.json",
+        "research/configs/chacha20_round20_signed_channel_ablation_v1.json",
+        "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json",
+        "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json"
+      ]
+    },
+    "schema": "o1-crypto-direct12-reader-contract-v1"
+  },
+  "reader_contract_sha256": "a972842a6f4e0f10d807c4bdecc817c7f376ccba89945aeeb8be89dc906f9356",
+  "report_sha256": "bea406fcc4d29a0edb0198b265d494a1d743ef5b2cd3ff0601abd963badb31ed",
+  "schema": "o1-crypto-direct12-reproduction-v1",
+  "success_gate_passed": true
+}

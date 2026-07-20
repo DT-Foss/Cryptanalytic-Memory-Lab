@@ -1,0 +1,45 @@
+{
+  "action_orders_sha256": "1b92057a6b656e27131bda7a4426841d8f42515bfcfa864eda021ac3099858f1",
+  "action_pool_sha256": "fcee9c6c05e40c47023417acf7df34bbcf694398b650810b96d6640871ad7b06",
+  "checkpoint_action_counts_sha256": "92407440f7cfabc39ac9c6aba7889d5f9f350fbe26f15c4c6957495218999b65",
+  "checkpoint_slot_counts_sha256": "f428586147eb3e0a1af1939b77aae8be60eb08258c46559041bd0945c1562b53",
+  "checkpoint_work_sha256": "960b6070e4e9db627e15eab98226702d9e221801a6904b72eb5fd55b5c032774",
+  "critic_state_sha256": "bff94ed416abfa8288c3b6c5cb0eb99693d1f383e7bff7468af5d1fd6c3fbd63",
+  "fold_index": 2,
+  "freeze_sha256": "0c599fbe92717d423367a526486ed0036a49db3ebae595a1f2a0df071f4aad52",
+  "held_out_critic_updates": 0,
+  "held_out_labels_materialized": 0,
+  "held_out_ordinal": 2,
+  "held_out_reader_updates": 0,
+  "phase": "ALL_HELD_OUT_TRAJECTORIES_FROZEN_BEFORE_LABEL_ACCESS",
+  "policy_arms": [
+    "learned_stationary",
+    "learned_stationary_no_stop",
+    "shifted_stationary",
+    "build_static",
+    "uniform_hash"
+  ],
+  "predictions_sha256": "198319ed6968566fd875a38fe503bb3d8b4c80df9288b30db3aabaf57d1cd67b",
+  "public_view_sha256": "9cb6ad51b47ebf531855a78380e941f423b09f9ec600daa88bd4449ae832d611",
+  "raw_action_counts_sha256": "b5d92118447ab7b71136579d06a7d085efb42d2daf1ddb5cc68ff5b646231931",
+  "raw_action_order_sha256": "fc4d0aad0d35ff60d34eef7347382ec09a300d460f55b4acf66b5f9632714f42",
+  "raw_action_orders_sha256": "7b5df26f91cf61691f54826e7682bfa4158780fa49fe3e0c3748eeef113e5508",
+  "raw_arms": [
+    "learned_reader_exhaustive",
+    "untrained_reader_exhaustive"
+  ],
+  "raw_predictions_sha256": "b5163519e967aee73bc2d536baff4373c4c4a83b77f3295895fedf1b96f09191",
+  "raw_work_sha256": "2da913eac278d2014b5f66f438c1fc72234e21c86d9e0d45a9be5900f9c03627",
+  "reader_state_sha256": "7363dd8661bf56158bbf713c5c8284cd50933f18094f4030caba28ebb36f0028",
+  "schema": "o1-256-fullround-multiresolution-build-loo-prediction-freeze-v1",
+  "shifted_critic_state_sha256": "03cf881ea9b6a2f74157244575f3be52fdae4b0f4d102c95fec8c866d1e869fd",
+  "slot_orders_sha256": "44182df3042591f502e1c0780b47d7d7a0b9ddf1083ce144237fb2c0cc85dd74",
+  "slow_state_sha256": "ace27de94e5d6884730dd2fbaf963ed020ccbd460841fb8d2e0b0d7452c1555f",
+  "target_id": "build-0002",
+  "terminal_codes_sha256": "8114f6797815d0f8ae1dbcd9fb62190497f19da5958dec1869685b73a89db619",
+  "work_checkpoints": [
+    16384,
+    32768,
+    49152
+  ]
+}

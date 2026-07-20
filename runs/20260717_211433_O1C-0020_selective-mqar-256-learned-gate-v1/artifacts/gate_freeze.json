@@ -1,0 +1,109 @@
+{
+  "calibration_threshold_offset": 0.0,
+  "evaluation_slow_updates": 0,
+  "evaluation_streams_generated": 0,
+  "evaluation_tokens_seen": 0,
+  "freeze_sha256": "0b027d4f0cd078fd775e8e20b8793b92231ad014205fb3ae644bbb24208ccfd0",
+  "phase": "SLOW_STATES_FROZEN_BEFORE_EVALUATION_STREAM_GENERATION",
+  "primary": {
+    "calibration": {
+      "examples": 8192,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "global_public_token_certificate": {
+        "all_legal_public_tokens_separated": true,
+        "certified_margin": 0.4546283036470413,
+        "certified_negative_upper_score": 2.1978179663419724,
+        "certified_positive_lower_score": 3.1190102100372314,
+        "effective_noncue_l1": 6.974953651428223,
+        "legal_address_absolute_bound": 0.5,
+        "legal_nuisance_absolute_bound": 0.25,
+        "legal_payload_absolute_bound": 0.5,
+        "maximum_negative_family_base_score": 0.08872263133525848,
+        "nuisance_score_absolute_bound": 2.109095335006714,
+        "positive_family_base_score": 5.228105545043945,
+        "schema": "o1-selective-mqar-linear-route-certificate-v1",
+        "threshold": 2.6524462699890137
+      },
+      "maximum_negative_score": 2.184211492538452,
+      "minimum_positive_score": 3.120681047439575,
+      "minimum_signed_margin": 0.4682347774505615,
+      "negative_examples": 4096,
+      "positive_examples": 4096,
+      "threshold": 2.6524462699890137,
+      "zero_errors": true
+    },
+    "changed_parameters": [
+      "input_gate.weight"
+    ],
+    "initial_state_sha256": "1ee0eb29aa925f04469a4bd077b891c37d456ae16373a59765f12a8cff6cd5c9",
+    "slow_state_bytes": 9767,
+    "slow_state_sha256": "853d8e643228924969d4488b6a0925c27eba2f9cf298575b58dcb9bdf6b4e5dd",
+    "training": {
+      "examples_per_step": 16384,
+      "final_loss": 0.0030017192475497723,
+      "first_loss": 0.6931473612785339,
+      "labels_shuffled": false,
+      "learning_rate": 0.05,
+      "negative_labels": 8192,
+      "objective": "PAIRED_LOGISTIC_ROUTE_MARGIN",
+      "positive_labels": 8192,
+      "steps": 320,
+      "token_exposures": 5242880
+    }
+  },
+  "schema": "o1-256-selective-mqar-gate-freeze-v1",
+  "shuffled_label": {
+    "calibration": {
+      "examples": 8192,
+      "false_negatives": 4096,
+      "false_positives": 0,
+      "global_public_token_certificate": {
+        "all_legal_public_tokens_separated": false,
+        "certified_margin": -2.7433468061499298,
+        "certified_negative_upper_score": 0.1653519794344902,
+        "certified_positive_lower_score": -0.09090053616091609,
+        "effective_noncue_l1": 0.31941676139831543,
+        "legal_address_absolute_bound": 0.5,
+        "legal_nuisance_absolute_bound": 0.25,
+        "legal_payload_absolute_bound": 0.5,
+        "maximum_negative_family_base_score": 0.06807472556829453,
+        "nuisance_score_absolute_bound": 0.09727725386619568,
+        "positive_family_base_score": 0.006376717705279589,
+        "schema": "o1-selective-mqar-linear-route-certificate-v1",
+        "threshold": 2.6524462699890137
+      },
+      "maximum_negative_score": 0.16360428929328918,
+      "minimum_positive_score": -0.08941175788640976,
+      "minimum_signed_margin": -2.7418580055236816,
+      "negative_examples": 4096,
+      "positive_examples": 4096,
+      "threshold": 2.6524462699890137,
+      "zero_errors": false
+    },
+    "changed_parameters": [
+      "input_gate.weight"
+    ],
+    "initial_state_sha256": "1ee0eb29aa925f04469a4bd077b891c37d456ae16373a59765f12a8cff6cd5c9",
+    "slow_state_bytes": 9767,
+    "slow_state_sha256": "da29c1d121b99611d6f55642c0f2bdcb492c799faa02bf6da47bddac5581275e",
+    "training": {
+      "examples_per_step": 16384,
+      "final_loss": 0.6926590800285339,
+      "first_loss": 0.6931473612785339,
+      "labels_shuffled": true,
+      "learning_rate": 0.05,
+      "negative_labels": 8192,
+      "objective": "PAIRED_LOGISTIC_ROUTE_MARGIN",
+      "positive_labels": 8192,
+      "steps": 320,
+      "token_exposures": 5242880
+    }
+  },
+  "threshold": 2.6524462699890137,
+  "threshold_source": "CAL_MIDPOINT_PLUS_FROZEN_OFFSET",
+  "untrained": {
+    "slow_state_bytes": 9767,
+    "slow_state_sha256": "1ee0eb29aa925f04469a4bd077b891c37d456ae16373a59765f12a8cff6cd5c9"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "fresh_reveal_calls": 0,
+  "fresh_targets": 0,
+  "memory_pressure_free_percent": 47,
+  "minimum_memory_pressure_free_percent": 15,
+  "native_memory_enforcement": "proc_pid_rusage-physical-footprint-process-group-watchdog",
+  "native_memory_limit_bytes": 805306368,
+  "o1c59_capsule_reads": 0,
+  "o1c59_result_reads": 0,
+  "o1c60_capsule_reads": 0,
+  "o1c60_result_reads": 0,
+  "observed_at": "2026-07-19T09:18:39+02:00",
+  "schema": "o1-256-multiblock-joint-score-sieve-soft-stop-preflight-v1",
+  "scientific_entropy_calls": 0,
+  "solver_calls_before_intent": 0,
+  "source_commit": "6cc4397b3600232bd361db1777edc4a696eb0d31"
+}

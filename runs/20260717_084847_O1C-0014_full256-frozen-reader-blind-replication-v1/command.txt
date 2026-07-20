@@ -1,0 +1,1 @@
+o1-crypto-lab full256-frozen-reader-replication --config '/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/configs/full256_frozen_reader_replication_v1.json'

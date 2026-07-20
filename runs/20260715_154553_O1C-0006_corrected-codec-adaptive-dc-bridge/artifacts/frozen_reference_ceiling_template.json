@@ -1,0 +1,99 @@
+{
+  "compression_claim_eligible": false,
+  "development_fields": {
+    "A355": {
+      "historical_field_sha256": "de420a7e276bf945c821f56b4799e4c58e9c9a8e299bb9a8f329f63032a81c38",
+      "order_uint16be_sha256": "516e32fdf7b65761f2f7f4503eb6f48ce2e0c59354aed156bcac3a02f99c433a"
+    },
+    "A356": {
+      "historical_field_sha256": "ac29c51ba0e653762d60012af48a5b9fb83f2fbab73e028689f009c118aa12d1",
+      "order_uint16be_sha256": "436082dcc2a3b3f1be1ff5459c11b40de84aa57ef0bc160cc8fa57af17ae692f"
+    }
+  },
+  "freeze_state": "FROZEN_AFTER_A355_A356_DEVELOPMENT_BEFORE_NEW_CHALLENGE",
+  "fresh_primary_mechanism_eligible": false,
+  "fresh_test_rules": {
+    "all_orders_persisted_before_recovery": true,
+    "compact_successor_required_before_fresh_challenge": true,
+    "no_fallback_after_fresh_fidelity_or_rank": true,
+    "no_parameter_change_after_public_challenge": true,
+    "same_field_scale_calibration_is_label_free_and_predeclared": true,
+    "target_labels_allowed_before_order_freeze": 0,
+    "two_canonical_source_passes_required": true
+  },
+  "future_field_binding": "UNBOUND",
+  "future_template_sha256": "cab2adc58ec83d0dde33c61aa10531cf64b17b88c4143b6a2fe7070375ba8cda",
+  "labels_used_for_selection": 0,
+  "o1c_0005_template_sha256": "69c5882e3807123dfdcf9eaca6846700377e9f95c84e7136ccec2b162bd9355c",
+  "role": "FULL_BASIS_FIXED_DOMAIN_REFERENCE_CEILING_ONLY",
+  "schema": "o1-crypto-corrected-recovery-memory-template-v1",
+  "selected_template": {
+    "addressing": {
+      "candidate_id": "(high8 << 4) | low4",
+      "canonical_pass_order": "ascending-candidate-id-0-through-4095",
+      "fixed_low4_slots": 16,
+      "high8_domain_per_slot": 256
+    },
+    "claim_boundary": {
+      "bounded_only_with_respect_to_stream_length_for_fixed_direct12_domain": true,
+      "bounded_state": true,
+      "candidate_domain_size": 4096,
+      "compression_claim_eligible": false,
+      "explicit_kv_cache": false,
+      "full_rank_fixed_domain_transform": true,
+      "information_equivalent_to_quantized_direct_table": true,
+      "no_full_sequence_attention": true,
+      "replayable_source_stream_required": true,
+      "retained_candidate_rows": 0,
+      "retained_key_value_entries": 0,
+      "serialized_logical_state_is_not_python_process_rss": true,
+      "spectral_degrees_of_freedom": 4096,
+      "sublinear_in_candidate_domain": false
+    },
+    "headroom": 1.0,
+    "input_bits": 6,
+    "integrity": {
+      "duplicate_or_out_of_order_policy": "reject-immediately",
+      "field_hash": "o1-walsh-score-field-float64be-v1",
+      "second_pass_must_match_first_pass": true
+    },
+    "mechanism_family": "o1-self-calibrating-dc-complete-quantized-walsh-vault",
+    "name": "adaptive-dc-6bit-h1",
+    "scale_rule": {
+      "formula": "scale[low4] = peak_abs[low4] * headroom / quantizer_max",
+      "labels_used": 0,
+      "name": "same-field-per-low4-absolute-peak",
+      "passes": 2
+    },
+    "schema": "o1-adaptive-dc-walsh-template-v1",
+    "spectral_bank": {
+      "accumulator_count": 4096,
+      "includes_dc": true,
+      "mask_interval": [
+        0,
+        255
+      ],
+      "masks_per_slot": 256
+    },
+    "template_sha256": "d6fd6e10fcde82455d802bd5777bfbad90de905b285579e125c0ad20fde51cde"
+  },
+  "selection_rule": {
+    "eligibility": [
+      "maximum_online_state_bytes",
+      "maximum_serialized_logical_mechanism_state_bytes",
+      "zero_clips",
+      "minimum_rank_spearman",
+      "minimum_rank_kendall",
+      "minimum_top32_overlap",
+      "minimum_top128_overlap"
+    ],
+    "lexicographic_objective": [
+      "maximize_minimum_top8_overlap",
+      "maximize_minimum_top32_overlap",
+      "maximize_minimum_top128_overlap",
+      "maximize_minimum_rank_spearman",
+      "minimize_maximum_serialized_logical_mechanism_state_bytes",
+      "minimize_arm_id_ascii"
+    ]
+  }
+}

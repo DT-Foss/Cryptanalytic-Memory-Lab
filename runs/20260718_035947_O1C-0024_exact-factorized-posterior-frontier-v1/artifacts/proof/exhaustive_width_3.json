@@ -1,0 +1,97 @@
+{
+  "best_first": [
+    {
+      "penalty_float64_hex": "0x0.0p+0",
+      "rank": 1,
+      "topology_code": 0
+    },
+    {
+      "penalty_float64_hex": "0x1.ba5e353f7ced0p-4",
+      "rank": 2,
+      "topology_code": 1
+    },
+    {
+      "penalty_float64_hex": "0x1.28f5c28f5c27cp-3",
+      "rank": 3,
+      "topology_code": 2
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-3",
+      "rank": 4,
+      "topology_code": 4
+    },
+    {
+      "penalty_float64_hex": "0x1.03126e978d4f2p-2",
+      "rank": 5,
+      "topology_code": 3
+    },
+    {
+      "penalty_float64_hex": "0x1.28f5c28f5c28ap-2",
+      "rank": 6,
+      "topology_code": 5
+    },
+    {
+      "penalty_float64_hex": "0x1.4ed916872b014p-2",
+      "rank": 7,
+      "topology_code": 6
+    },
+    {
+      "penalty_float64_hex": "0x1.bd70a3d70a3c8p-2",
+      "rank": 8,
+      "topology_code": 7
+    }
+  ],
+  "candidate_count": 8,
+  "exhaustive": [
+    {
+      "penalty_float64_hex": "0x0.0p+0",
+      "rank": 1,
+      "topology_code": 0
+    },
+    {
+      "penalty_float64_hex": "0x1.ba5e353f7ced0p-4",
+      "rank": 2,
+      "topology_code": 1
+    },
+    {
+      "penalty_float64_hex": "0x1.28f5c28f5c27cp-3",
+      "rank": 3,
+      "topology_code": 2
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-3",
+      "rank": 4,
+      "topology_code": 4
+    },
+    {
+      "penalty_float64_hex": "0x1.03126e978d4f2p-2",
+      "rank": 5,
+      "topology_code": 3
+    },
+    {
+      "penalty_float64_hex": "0x1.28f5c28f5c28ap-2",
+      "rank": 6,
+      "topology_code": 5
+    },
+    {
+      "penalty_float64_hex": "0x1.4ed916872b014p-2",
+      "rank": 7,
+      "topology_code": 6
+    },
+    {
+      "penalty_float64_hex": "0x1.bd70a3d70a3c8p-2",
+      "rank": 8,
+      "topology_code": 7
+    }
+  ],
+  "orders_match": true,
+  "proof_sha256": "a58e5419566a3fe41283362c1e13e02b6722cc3a3c1c3f96c182d28b5927c393",
+  "schema": "o1-256-factorized-topk-small-width-proof-v1",
+  "tie_policy": "ascending-flip-penalty-then-coordinate topology; equal subset sums use ascending topology bitmask",
+  "topology": [
+    2,
+    1,
+    0
+  ],
+  "width": 3
+}

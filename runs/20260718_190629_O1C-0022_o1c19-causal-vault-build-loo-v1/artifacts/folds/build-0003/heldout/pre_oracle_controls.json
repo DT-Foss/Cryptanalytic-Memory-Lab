@@ -1,0 +1,13 @@
+{
+  "actual_polarity_swapped_pool_extracted": true,
+  "build_labels_may_have_been_opened_in_other_folds": true,
+  "coordinate_commutation_maximum_absolute_residual": 0.0,
+  "coordinate_commutation_passed": true,
+  "duplicate_full_state_byte_invariant": true,
+  "fold_index": 3,
+  "held_out_label_used_for_this_fold": false,
+  "polarity_antisymmetry_passed": true,
+  "polarity_delta_maximum_absolute_residual": 0.0,
+  "polarity_logit_maximum_absolute_residual": 0.0,
+  "schema": "o1-256-o1c22-pre-oracle-control-result-v1"
+}

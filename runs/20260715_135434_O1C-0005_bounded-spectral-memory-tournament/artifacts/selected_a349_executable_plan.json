@@ -1,0 +1,88 @@
+{
+  "addressing": {
+    "candidate_id": "(high8 << 4) | low4",
+    "domain_size": 4096,
+    "fixed_low4_slots": 16,
+    "high8_domain_per_slot": 256
+  },
+  "claim_boundary": {
+    "dictionary_ceiling": false,
+    "mechanism_claim_eligible": true,
+    "no_candidate_table": true,
+    "no_full_sequence_attention": true,
+    "no_kv_cache": true
+  },
+  "input_contract": {
+    "calibration_field_sha256": "744e25c9d8c3e0bb2af8b20aef46de74ac1a9bb9a71d1e2e594f27350a642e42",
+    "calibration_role": "label-free scale-calibration field",
+    "deployment_field_sha256": "61259f1adcf8ca1acb5dd77dd28e8e7eaf3858557b3c12485867e8a2194150b4",
+    "deployment_role": "label-free hash-bound execution field",
+    "score_field": "per-low4-centered Direct12 slice-z field",
+    "target_labels_used": 0
+  },
+  "integrity": {
+    "coverage_bitsets_are_integrity_only": true,
+    "coverage_policy": "all-4096-addresses-exactly-once",
+    "duplicate_policy": "reject-immediately"
+  },
+  "mechanism_family": "o1-multislot-quantized-walsh-bit-vault",
+  "name": "quantized-bit-vault-4bit-h1.25",
+  "online_state": {
+    "accumulator_safe_bound": 1792,
+    "bits_per_accumulator": 12,
+    "bits_per_clip_counter": 9,
+    "clip_counters": 32,
+    "coverage_bits": 4096,
+    "integer_accumulators": 4080,
+    "retained_candidate_rows": 0,
+    "retained_key_value_entries": 0,
+    "serialized_accumulator_bytes": 6120,
+    "serialized_clip_telemetry_bytes": 36,
+    "serialized_coverage_bytes": 512,
+    "serialized_online_state_bytes": 6668,
+    "stream_length_dependent_state": false
+  },
+  "plan_sha256": "1ceb96f404486cd11f1d55ad740203709475c105d284deae4f9ed8d28e886bf9",
+  "quantization": {
+    "calibration": "per-low4 absolute peak times headroom",
+    "headroom": 1.25,
+    "input_bits": 4,
+    "rounding": "nearest-half-away-from-zero",
+    "saturation": "symmetric",
+    "signed_limit": 7
+  },
+  "schema": "o1-quantized-multislot-walsh-plan-v1",
+  "slot_scales": [
+    0.3976695193857391,
+    0.4066291287635046,
+    0.3757313417509596,
+    0.3951315830123977,
+    0.35698284707550865,
+    0.401338580586535,
+    0.38315462089515673,
+    0.430176250454425,
+    0.3787508801856232,
+    0.3697740740467806,
+    0.3629345028272156,
+    0.36914877917418754,
+    0.38587629189842776,
+    0.4188618108906322,
+    0.3990146660286573,
+    0.41274636103897855
+  ],
+  "slot_scales_sha256": "7d328899400a6f41a0bd850497dc53831c0903b34025debf8b43c46898f3574b",
+  "spectral_bank": {
+    "accumulator_count": 4080,
+    "includes_dc": false,
+    "masks": "implicit integers 1..255",
+    "modes_per_slot": 255
+  },
+  "static_plan_storage": {
+    "bound_sha256_values": 2,
+    "counted_as_online_recurrent_state": false,
+    "scale_dtype": "float64",
+    "scale_values": 16,
+    "serialized_bound_hash_bytes": 64,
+    "serialized_scale_bytes": 128
+  }
+}

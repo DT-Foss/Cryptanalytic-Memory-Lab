@@ -1,0 +1,12 @@
+{
+  "capsule": "runs/20260719_095509_APPLE-VIEW-0008-MATCHED_crossblock-consequence-sieve-v1",
+  "cnf_sha256": "e1fc0ac93724004291c960ea06e5584c598853b9ea8370552be09f29e73e2432",
+  "manifest_sha256": "751b89019d1f65b8180b15eafbb4bdf45c6080b0894c50567ee63eff15405a69",
+  "matched_requested_work": true,
+  "potential_sha256": "8c6101b49c7050caf895bd9c496c05bcea9f43a2b27f378d7306be38b00d5390",
+  "requested_conflicts": 512,
+  "result_sha256": "21c2170225a814bf715b6a4332bd88210fca7cbb4c6db21237becbfdd85795be",
+  "schema": "o1-256-o1c65-frozen-apple8-binding-v1",
+  "seed": 0,
+  "threshold": 14.606178797892962
+}

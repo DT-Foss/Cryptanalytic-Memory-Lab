@@ -1,0 +1,7 @@
+{
+  "collision_recovery": false,
+  "native_model_equals_committed_truth": null,
+  "public_model_diagnostic_complete": true,
+  "truth_key_sha256": null,
+  "truth_read_after_verified_public_model": false
+}

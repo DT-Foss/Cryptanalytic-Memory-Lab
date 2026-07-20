@@ -1,0 +1,80 @@
+{
+  "attempt_id": "O1C-0032",
+  "budgets": {
+    "MPS_or_GPU": false,
+    "candidate_cells": 256,
+    "device": "CPU",
+    "external_timeout_seconds": 1800.0,
+    "solver_stages": 1024,
+    "target_count": 1,
+    "target_role": "CONSUMED",
+    "watchdog_seconds_per_stage": 2.0
+  },
+  "claim_level": "TEST",
+  "commit": "4f9393eb57575c763087334d30a5f7284b60c185",
+  "config": {
+    "byte_index": 3,
+    "candidate_order": "numeric_0_through_255",
+    "other_key_bits_assigned": 0,
+    "pass_max_rank": 128,
+    "prior_public_pool_sha256": "20fbf3c50803586aba578f80a04d6bc556a8eddff19afb782e585095d62124d4",
+    "prior_public_receipt_sha256": "e8e1e249f0f2fcc7862f9ae0fd837d0e1633ef8a8d5eba3897f8865f4ea61b10",
+    "public_target": {
+      "cipher": "ChaCha20",
+      "counter_schedule": [
+        1754232325
+      ],
+      "feed_forward": true,
+      "nonce_hex": "a78b5e0400cc9f74d81ba647",
+      "output_blocks_hex": [
+        "0fc3b4db5fdfca8cc0048babb584e49c775f8b2bad64ebdfaaccade720e5ee710a5abedb74cbce0fc31f6730b36e5f72cce0612850d608d8ed7f74680cbca440"
+      ],
+      "rounds": 20,
+      "schema": "o1-256-public-target-view-v1",
+      "target_key_included": false,
+      "target_trace_included": false,
+      "unknown_key_bits": 256
+    },
+    "public_view_sha256": "e622cc6b5b99913d759179a1a371335a4945cf35a1089da973896896c05291d7",
+    "semantic_map": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.map.json",
+    "sibling_access": "strictly_read_only",
+    "sibling_root": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/arx-carry-leak",
+    "source_capsule": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1",
+    "target_recipe": {
+      "corpus_seed": 180018180018,
+      "index": 0,
+      "split": "DEVELOPMENT"
+    },
+    "template": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.cnf"
+  },
+  "controls": [
+    "the measurement API receives only the previously frozen PublicTargetView",
+    "the deterministic target reconstruction is matched to the prior zero-label public receipt",
+    "the A448 reader, candidate order, byte coordinate and all source hashes are unchanged from O1C-0031",
+    "the other 248 key bits receive no CNF units and remain unassigned",
+    "the target byte is read only after all 256 ranks and raw telemetry are frozen"
+  ],
+  "hypothesis": "The unchanged A448/A442 byte-3 reader repeats its better-than-median ordering on one disjoint consumed uniform DEVELOPMENT target while the other 248 key bits remain unknown.",
+  "next_action": "If rank <=128, freeze this exact reader and spend one fresh blind target; otherwise close A448 transfer after the two consumed tests.",
+  "prediction": "The true byte ranks <= 128/256 with no refit, target selection, or label input.",
+  "publication_protocol": "manifested-prepared-state-v1",
+  "schema": "o1c-run-config-v1",
+  "source_hashes": {
+    "a296_cube": "bbc41d0d1e85263a6113b714e746eb24778e08e0bc6f0bb6c024e4582ce7378c",
+    "a448_transfer": "b65ce097502603a7fcdf3c90f43f8b7bd85bf7d48c99d6c2997383e1c8e511a2",
+    "consumed_public_receipt": "e8e1e249f0f2fcc7862f9ae0fd837d0e1633ef8a8d5eba3897f8865f4ea61b10",
+    "full256_cnf": "76572366adbcadf1525cb25f4c84f5b78ff99be9b63acd721530e53532d9a0e0",
+    "o1c31_runner": "7ff3bb1f62f24113aec3cdfe4d267a2b13a8f41ac17aee893b1477fb14cf7f04",
+    "o1c32_runner": "eca5f1f1b2422c17ac1ee7940aa48045f8d109e2bba78230078d0de35208309d",
+    "run_capsule": "13681939e0a5cd09d4f32c6d92c9a56894cfe8af90f07d5d4190c96b90a1b664",
+    "semantic_map": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+    "shape532": "f41e657ea8414e94431ad431a31248202d322e4a762e9d42bf28d95d3f406aaf",
+    "sibling_helper": "9d0d5cbd6e523e248023fb080c206fa14d8bbb2c89d3cd8f1273eaaa1a99de67",
+    "sibling_identity_wrapper": "3a1d63d223712997519f72143ebcc3e5725a8f8659eadbd9389465dd0fe654f6",
+    "sibling_multihorizon_wrapper": "55e1722d8478bf0aea95a544e5942fa6f6a3b17e8c9c54906e2ba34ddc2be386",
+    "sibling_proof_features": "52700bb0a2442caf24ef123c745915fd7b2e2a27ca2f797886b141a640fc4c05",
+    "sibling_shape532": "44056b27937c1b4f1ab9af2dfaf904ad3b5f239deda05519c2e9a16f9f1e8160",
+    "sibling_wrapper": "bf2798e72e1c2ff7872ea262335d4500cf82e1e46cbdf110f9628f713d4af61b",
+    "template": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52"
+  }
+}

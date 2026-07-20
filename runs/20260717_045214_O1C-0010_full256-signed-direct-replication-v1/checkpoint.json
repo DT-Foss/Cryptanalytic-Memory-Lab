@@ -1,0 +1,17 @@
+{
+  "attempt_id": "O1C-0010",
+  "payload": {
+    "development_openings": 1,
+    "development_targets": 2048,
+    "gpu_calls": 0,
+    "mps_calls": 0,
+    "phase": "SIGNED_REPLICATION_COMPLETED_AND_PERSISTED",
+    "result_sha256": "76069cf7e25e194feee027d4e4a1e2cca0fed47ae4ec84fbaa9ff966845e3bc9",
+    "scientific_signal_gate_passed": false,
+    "sibling_writes": 0,
+    "source_models_refit": false
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 6,
+  "updated_at": "2026-07-17T04:52:16.621796+02:00"
+}

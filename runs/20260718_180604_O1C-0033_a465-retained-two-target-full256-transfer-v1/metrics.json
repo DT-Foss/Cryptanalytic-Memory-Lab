@@ -1,0 +1,22 @@
+{
+  "attempt_id": "O1C-0033",
+  "claim_level": "TEST",
+  "elapsed_seconds": 1.077113,
+  "ended_at": "2026-07-18T18:06:05.217484+02:00",
+  "next_action": "Close A465 all256 byte transfer; do not resweep and inspect the exact A469 input contract next.",
+  "schema": "o1c-run-metrics-v1",
+  "started_at": "2026-07-18T18:06:04.140371+02:00",
+  "status": "completed",
+  "values": {
+    "both_passed_median_gate": false,
+    "elapsed_seconds": 1.0688373330003742,
+    "new_solver_stages": 0,
+    "new_targets": 0,
+    "ranks": [
+      47,
+      239
+    ],
+    "self_maxrss_after": 298795008,
+    "target_count": 2
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "ablation_pool_set_sha256": "adeac7ff1250e7bef00cbb8d7b14a17effd4f852532a347cd552586b639f4b06",
+  "all_control_pools_sha256": "092abd9158c8cb1900cace6476a8095b915ee3276619d3bc60d0f3318569ac2a",
+  "common_only_pool_sha256": "95038196d15e6272eefaa1bd1b34efe9c0a4b5978d4334f79df4f6608109583e",
+  "controller_receives_hidden_channel_index": false,
+  "evaluation_pool_set_sha256": "9dab262abc7f37baf7587a3546bab5834d0a869a4f39879cc5cd9bad7d3eff08",
+  "evaluation_targets": 16,
+  "freeze_sha256": "b1039647c0a7eb0828d40592c307af93b5574ef7cec339cd197324f8962ceb21",
+  "fresh_entropy_calls": 0,
+  "labels_exposed_to_controllers": 0,
+  "phase": "ALL_SYNTHETIC_PREDICTIONS_FROZEN_BEFORE_SCORING",
+  "prediction_arms": [
+    "primary_learned",
+    "hidden_channel_ablation",
+    "shuffled_label_learner",
+    "untrained_reader",
+    "primary_raw_end_of_stream_o1_field"
+  ],
+  "prediction_bytes": 81920,
+  "prediction_dtype": "float32le",
+  "prediction_sha256": "b7fa72907ee01e0ff70df0b8e77fe8b67748d92377a456c2be1542050561a802",
+  "prediction_shape": [
+    5,
+    16,
+    256
+  ],
+  "schema": "o1-256-online-self-discovery-freeze-v1",
+  "swap_control_pool_sha256": "0bb6124efea3bfeb396cd44c89e372b2dca8eb12ec8ee4b731615ae9474bf856"
+}

@@ -1,0 +1,1 @@
+o1-crypto-lab upstream-ising-freeze --config '/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/configs/upstream_ising_retrospective_v1.json'

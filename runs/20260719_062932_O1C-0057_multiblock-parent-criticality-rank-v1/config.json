@@ -1,0 +1,126 @@
+{
+  "schema": "o1-256-multiblock-parent-criticality-rank-config-v1",
+  "attempt_id": "O1C-0057",
+  "slug": "multiblock-parent-criticality-rank-v1",
+  "claim_level": "TEST",
+  "hypothesis": "The frozen O1C-0043 parent-criticality reader supplies a weak but repeatable same-key signal across independently scored contiguous ChaCha20 blocks, so an unweighted signed sum of decoy-standardized block scores compounds complete-key rank without refitting or block selection.",
+  "prediction": "For one sealed uniform Full-256 target with eight contiguous public blocks, the primary eight-block prefix ranks the revealed key at most 16 of 4,097, strictly improves on the one-block primary rank, and strictly beats both eight-block endpoint rotations.",
+  "source": {
+    "template": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.cnf",
+    "semantic_map": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.map.json",
+    "sensor_source": "native/cadical_pair_sensor.cpp",
+    "tracer_header": "native/cadical_tracer_3_0_0.hpp",
+    "parent_criticality_source": "src/o1_crypto_lab/proof_parent_criticality.py",
+    "o1c43_runner": "src/o1_crypto_lab/o1c43_parent_criticality_rank_run.py",
+    "broker_source": "src/o1_crypto_lab/full256_broker.py",
+    "runner": "src/o1_crypto_lab/o1c57_multiblock_parent_criticality_rank_run.py",
+    "o1c43_result": "research/O1C0043_PARENT_CRITICALITY_RANK_RESULT_20260718.json",
+    "expected_sha256": {
+      "template": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+      "semantic_map": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+      "sensor_source": "67c094e069e8884e4761f82d2d797b594ef326a6ddcf0243dacd8019ae235669",
+      "tracer_header": "36e1983eb865800aec1c042c4df4abfbcbc8ced3c82e2bf4baad340639c887fe",
+      "parent_criticality_source": "e142e0aceb621a87345baad801a456b7d3451613d98308e937f2c990dd1db056",
+      "o1c43_runner": "545c452b2e6a9bde04d5c32c82a43c9e1b881b6dc19c279186c2e1d55137c0b5",
+      "broker_source": "1929006561400bb4091b39955a4b15cc73e492ab5b0bd56788afd58e6a28ea7e",
+      "runner": "487c6b86fdd0e1ccc6f859725957668c53898d7c611892f9398ed756cef43df1",
+      "o1c43_result": "4e1910e564f913959051078d96ac3d6e165cd3739355a3b41e274c643cec9568",
+      "o1c43_manifest": "189c15a8aafb18e8dbde8269fd2c0d5db3ca1447b5b306d6eaa8efa0035be0c6"
+    }
+  },
+  "target": {
+    "count": 1,
+    "target_id": "o1c-0057-multiblock-fresh-0000",
+    "entropy_source_id": "os.urandom:o1c-0057",
+    "block_count": 8,
+    "counter_schedule": "eight-contiguous-without-wrap",
+    "rounds": 20,
+    "feed_forward": true,
+    "unknown_key_bits": 256,
+    "publication_before_probe": true,
+    "reveal_after_complete_score_freeze": true,
+    "direct_all_block_verification": true
+  },
+  "field": {
+    "conflict_horizon": 16,
+    "seed": 0,
+    "capacity": 8192,
+    "direct_original_only": true,
+    "exclude_unit_parents": true,
+    "score_unit": "exclusive-chain-direct-original-parent-occurrence",
+    "one_field_per_public_block": true,
+    "sensor_builds": 1
+  },
+  "reader": {
+    "source_attempt": "O1C-0043",
+    "feature_names": [
+      "role0_critical",
+      "role0_pivot",
+      "role0_polarity",
+      "role1_critical",
+      "role1_pivot",
+      "role1_polarity",
+      "role2_critical",
+      "role2_pivot",
+      "role2_polarity",
+      "role3_critical",
+      "role3_pivot",
+      "role3_polarity",
+      "role4plus_critical",
+      "role4plus_pivot",
+      "role4plus_polarity"
+    ],
+    "weights_sha256": "c4149a4695b13efac42268162f8381956c9616f24f25741abbce8d46be6f4d30",
+    "feature_standardization": "unchanged-o1c43-per-block-per-arm-decoy-mean-and-sample-std",
+    "scalar_standardization": "per-block-per-arm-decoy-reader-score-mean-and-sample-std-ddof1",
+    "truth_transform": "frozen-decoy-calibration-only",
+    "no_refit": true,
+    "no_reweight": true,
+    "no_sign_selection": true,
+    "no_block_subset_selection": true
+  },
+  "candidate_panel": {
+    "count": 4096,
+    "domain": "O1C57-multiblock-parent-criticality-decoy-v1",
+    "generator": "sha256(sha256(domain || NUL || full-eight-block-public-view-digest) || uint64le(index))",
+    "shared_byte_identical_across_blocks_and_arms": true,
+    "duplicate_policy": "reject",
+    "truth_collision_policy": "fatal-without-regeneration"
+  },
+  "aggregation": {
+    "prefixes": [1, 2, 4, 8],
+    "rule": "unweighted-signed-sum-of-decoy-scalar-z-scores",
+    "block_signs": [1, 1, 1, 1, 1, 1, 1, 1],
+    "learned_weights": false,
+    "block_selection": false
+  },
+  "controls": {
+    "arms": ["primary", "key_rotated", "clause_rotated"],
+    "identical_score_and_aggregation_path": true,
+    "rotation": "one-step cyclic derangement of key coordinates or every active clause variable"
+  },
+  "success": {
+    "maximum_primary_prefix8_rank": 16,
+    "require_strict_improvement_over_primary_prefix1": true,
+    "require_strict_margin_over_both_prefix8_rotations": true,
+    "exact_recovery_claimed": false
+  },
+  "budgets": {
+    "maximum_wall_seconds": 180,
+    "maximum_peak_rss_bytes": 536870912,
+    "maximum_native_probe_branches": 4096,
+    "maximum_candidate_forward_evaluations": 32776,
+    "maximum_decoy_keys": 4096,
+    "maximum_fresh_targets": 1,
+    "maximum_scientific_entropy_calls": 1,
+    "maximum_sensor_builds": 1,
+    "maximum_reveal_calls": 1,
+    "maximum_solver_calls": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_persistent_artifact_bytes": 4194304
+  },
+  "next_action": "If the exact pre-frozen eight-block gate passes, preserve the result only as a multiblock rank-compounding transfer and design a separate attacker-valid use of additional public blocks. If rank improves without the full threshold/control gate, retain the quantitative improvement without promotion. Otherwise close unweighted multiblock parent-criticality compounding without changing signs, weights, prefixes, or the reader."
+}

@@ -1,0 +1,25 @@
+{
+  "attacker_computable_fields": [
+    "candidate_key",
+    "candidate_output",
+    "candidate_round_trace",
+    "candidate_carry_trace"
+  ],
+  "cipher": "ChaCha20",
+  "feed_forward": true,
+  "public_target_fields": [
+    "counter_schedule",
+    "nonce",
+    "output_blocks"
+  ],
+  "reduced_width_target": false,
+  "rounds": 20,
+  "target_trace_fields_in_deployment": 0,
+  "teacher_only_fields": [
+    "target_key",
+    "target_round_trace",
+    "target_carry_trace",
+    "correction_bits"
+  ],
+  "unknown_target_key_bits": 256
+}

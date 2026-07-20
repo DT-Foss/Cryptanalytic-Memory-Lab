@@ -1,0 +1,13 @@
+{
+  "attempt_id": "O1C-0004",
+  "payload": {
+    "A272_labels_read": 0,
+    "A348_labels_read": 0,
+    "A349_labels_read": 0,
+    "phase": "A348_A349_ORDERS_FROZEN",
+    "pre_reveal_sha256": "88ec0341fc89ce077860109f202a81d9b4fff3676dfe611de102334749a7462b"
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 2,
+  "updated_at": "2026-07-15T13:00:52.954500+02:00"
+}

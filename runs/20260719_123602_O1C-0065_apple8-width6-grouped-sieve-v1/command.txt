@@ -1,0 +1,1 @@
+nice -n 10 env PYTHONPATH=src python3 -m o1_crypto_lab.o1c65_apple8_width6_grouped_run run --config configs/o1c65_apple8_width6_grouped_v1.json

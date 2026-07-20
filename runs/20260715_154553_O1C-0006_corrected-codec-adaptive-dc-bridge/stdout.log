@@ -1,0 +1,2 @@
+O1C-0006 exact corrected-codec replay and bounded adaptive-DC tournament started.
+{"complete_orders_persisted": 24, "fresh_challenge_generated": false, "minimum_rank_spearman": 0.9992243506832592, "selected_arm": "adaptive-dc-6bit-h1", "selected_online_state_bytes": 7716, "success_gate_passed": true}

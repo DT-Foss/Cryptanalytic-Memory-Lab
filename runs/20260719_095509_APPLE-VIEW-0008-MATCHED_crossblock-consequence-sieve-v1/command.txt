@@ -1,0 +1,1 @@
+nice -n 10 env PYTHONPATH=src:research/apple_view_8 python3 research/apple_view_8/apple_view_8_matched_science.py run --config research/apple_view_8/apple_view_8_matched_config.o1c61.json

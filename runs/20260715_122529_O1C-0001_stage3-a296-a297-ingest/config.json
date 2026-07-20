@@ -1,0 +1,89 @@
+{
+  "attempt_id": "O1C-0001",
+  "budgets": {
+    "expected_cells": 3072,
+    "expected_episodes": 12,
+    "expected_stages": 12288,
+    "external_solver_calls": 0,
+    "gpu_seconds": 0,
+    "max_raw_bytes_per_episode": 67108864
+  },
+  "claim_level": "SMOKE",
+  "commit": "d897c531a7b065117eeefadfb95b067f38f5370a",
+  "config": {
+    "attempt_id": "O1C-0001",
+    "budgets": {
+      "expected_cells": 3072,
+      "expected_episodes": 12,
+      "expected_stages": 12288,
+      "external_solver_calls": 0,
+      "gpu_seconds": 0,
+      "max_raw_bytes_per_episode": 67108864
+    },
+    "claim_level": "SMOKE",
+    "controls": [
+      "exact compressed and raw byte/hash agreement with each target-blind order",
+      "complete 256-cell and four-horizon coverage",
+      "UNKNOWN nonterminal status, clear watchdogs and empty model bits",
+      "post-reveal panel results inaccessible to the discovery adapter",
+      "elapsed time and cell identity excluded from the feature vector"
+    ],
+    "dataset_name": "stage3_chacha20_solver_v1",
+    "denied_member_fragments": [
+      "progress",
+      "a350",
+      "prospective_recovery"
+    ],
+    "hypothesis": "The manifest-pinned A296/A297 artifacts contain a complete target-blind solver-trajectory dataset that can be normalized without reading post-reveal results.",
+    "next_action": "Fit executable readers on TRAIN only, select on VALIDATION, freeze, then reveal retrospective and transfer labels in a separately logged phase.",
+    "prediction": "Twelve episodes decode to 3,072 unique cells and 12,288 UNKNOWN model-free stages with one deterministic 57-feature vector per cell and no labels in the dataset artifact.",
+    "schema": "o1-crypto-stage3-ingest-config-v1",
+    "slug": "stage3-a296-a297-ingest",
+    "source": {
+      "expected_commit": "40bdfe3acaa61d4c812be1e32f71d58e4df66d8e",
+      "expected_manifest_sha256": "9c3ac76f3f012ff24c07e2e4dbe335e5156eca28fee9986aeb53c1b6cb2a4cc3",
+      "manifest": "provenance/ARTIFACTS.sha256",
+      "repository": "../fullround-key-recovery"
+    },
+    "split_ledger": {
+      "RETROSPECTIVE_HOLDOUT": [
+        "A296/w24_t03",
+        "A296/w28_t03"
+      ],
+      "TEST": [],
+      "TRAIN": [
+        "A296/w24_t00",
+        "A296/w24_t01",
+        "A296/w28_t00",
+        "A296/w28_t01"
+      ],
+      "TRANSFER_HOLDOUT": [
+        "A297/w32_t00",
+        "A297/w32_t01",
+        "A297/w32_t02",
+        "A297/w32_t03"
+      ],
+      "VALIDATION": [
+        "A296/w24_t02",
+        "A296/w28_t02"
+      ]
+    }
+  },
+  "controls": [
+    "exact compressed and raw byte/hash agreement with each target-blind order",
+    "complete 256-cell and four-horizon coverage",
+    "UNKNOWN nonterminal status, clear watchdogs and empty model bits",
+    "post-reveal panel results inaccessible to the discovery adapter",
+    "elapsed time and cell identity excluded from the feature vector"
+  ],
+  "hypothesis": "The manifest-pinned A296/A297 artifacts contain a complete target-blind solver-trajectory dataset that can be normalized without reading post-reveal results.",
+  "next_action": "Fit executable readers on TRAIN only, select on VALIDATION, freeze, then reveal retrospective and transfer labels in a separately logged phase.",
+  "prediction": "Twelve episodes decode to 3,072 unique cells and 12,288 UNKNOWN model-free stages with one deterministic 57-feature vector per cell and no labels in the dataset artifact.",
+  "schema": "o1c-run-config-v1",
+  "source_hashes": {
+    "fullround_manifest": "9c3ac76f3f012ff24c07e2e4dbe335e5156eca28fee9986aeb53c1b6cb2a4cc3",
+    "ingest_config": "7929a1d70e6ac4ca38d824cb3e6a700c4c4dd002bf060fdb18302ac5cc626791",
+    "stage3_adapter": "9c8abd64b687c623b8943055c152a87cc050ca1264f4563b40f33d9970c27da2",
+    "stage3_ingest_pipeline": "da6adf4fe67a44818bfe818c845fa17b85cd960166b1fe9fa29ba77a31b7a201"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "build_reward_deltas_sha256": "f963ac1e20ca573e39c618b77ce92b99018e34134066615e43bac549cc353a46",
+  "build_targets": 4,
+  "evaluation_labels_materialized": 0,
+  "evaluation_targets_generated": 0,
+  "freeze_sha256": "09043f7dec8eb916baff3879706111add83f1c4337f321e01842bc351fc2564a",
+  "operational_path_entropy_excluded": true,
+  "phase": "BUILD_LEARNING_FROZEN_BEFORE_EVALUATION_TARGET_GENERATION",
+  "primary_slow_state_sha256": "de7030eab45e7e88770d4789183e0ca604ecf943302d6c3e8b792f0a316c035c",
+  "schema": "o1-256-fullround-online-learning-freeze-v1",
+  "scientific_entropy_calls": 0,
+  "shared_reader_state_sha256": "95eb9f45af2d08e83603975629f1d361ec6e956ba8e04f18e977746d401dc14d",
+  "shifted_slow_state_sha256": "bc71d80b9f98feaf9c5f1ffe9244384f8fdd8775359b27fe62bc60076098f8b7",
+  "static_reward_mean_sha256": "97c7614bfdb6bf014313a0627726690f5143d13eae72b0541a6df777f9278352",
+  "static_reward_score_sha256": "22b0904238e1dea6ab1559e29042068ab789deb05751b33412b2c53574af4a8c",
+  "untrained_slow_state_sha256": "dddc4904a294f06a5a3c0d33fa95f4e6a103b70d734f3f83fcd59597cbb3a609"
+}

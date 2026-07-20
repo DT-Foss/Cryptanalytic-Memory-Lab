@@ -1,0 +1,9 @@
+{
+  "frozen_prediction_index_sha256": "dcc551e5e725cb89dfcd04ba2f2137fafe04419797fd14305f69d7e0cbd2cbf5",
+  "frozen_prediction_sha256": "8431b3c19a697ce0d48e66d29b199ec6d199670870d40231564c9516e3c34ad2",
+  "predictions_frozen_before_reveal": true,
+  "reveal_artifact_sha256": "a5dc9f31202941a079ea1227bfd30d73770a459a705125b2fb3680431db52790",
+  "reveal_count": 128,
+  "reveal_root": "f04450dd5dda4c331f8214869d70b505aed9596614513b9b966ed9d1a7ce81cf",
+  "schema": "o1-256-development-panel-reveal-receipt-v1"
+}

@@ -1,0 +1,16 @@
+{
+  "attempt_id": "O1C-0018",
+  "payload": {
+    "freeze_sha256": "db92bd86849ff93e0f9b935a72f64f1b4bd46b134747c913ee82e5d772ac11c9",
+    "gpu_calls": 0,
+    "mps_calls": 0,
+    "persistent_artifact_bytes": 13139765,
+    "phase": "ARTIFACT_INDEX",
+    "scientific_entropy_calls": 0,
+    "sibling_reads": 0,
+    "sibling_writes": 0
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 15,
+  "updated_at": "2026-07-17T15:36:58.808814+02:00"
+}

@@ -1,0 +1,1 @@
+PYTHONPATH=src python3 -m o1_crypto_lab.o1c58_multiblock_bit_vault_gradient_run --config /Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/configs/o1c58_multiblock_bit_vault_gradient_v1.json

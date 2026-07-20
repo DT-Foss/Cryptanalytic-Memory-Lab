@@ -1,0 +1,12 @@
+{
+  "billed_conflicts": 513,
+  "conflict_limit_overshoot": 1,
+  "conflicts": 513,
+  "conflicts_before_solve": 0,
+  "decisions": 9166,
+  "propagations": 1227877,
+  "requested_conflicts": 512,
+  "schema": "o1-256-cadical-joint-score-sieve-soft-conflict-ledger-v3",
+  "solve_conflicts": 513,
+  "unused_requested_conflicts": 0
+}

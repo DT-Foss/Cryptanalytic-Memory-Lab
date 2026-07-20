@@ -1,0 +1,154 @@
+{
+  "attempt_id": "O1C-0027",
+  "basis_sha256": "5f578f1917c5f80e662fb2c76e5e176202c9ef68dc492cd23e69c50984a78c33",
+  "classification": "POLYPHASE_SUFFICIENT_STATE_PASS",
+  "cryptanalytic_signal_claimed": false,
+  "full_round_key_recovery_claimed": false,
+  "gates": {
+    "basis_changes_require_replay": true,
+    "branch_swap_readouts_exactly_odd": true,
+    "branch_swap_slots_exactly_odd": true,
+    "chunk_partition_byte_exact": true,
+    "collapsed_bank_negative_control_rejected": true,
+    "coverage_and_clock_exact": true,
+    "direct_reference_within_derived_bound": true,
+    "hot_readouts_distinct_after_rms_normalization": true,
+    "one_pass_primary": true,
+    "query_zero_reingest_and_state_immutable": true,
+    "serialization_roundtrip_exact": true,
+    "state_size_invariant": true
+  },
+  "mechanism_validation_passed": true,
+  "readout": {
+    "collapsed_bank_maximum_pairwise_rms_after_normalization": 1.2395688701142996e-16,
+    "event_reingestion_per_switch": 0,
+    "minimum_pairwise_raw_rms": 0.046036079963234874,
+    "minimum_pairwise_rms_after_normalization": 0.08166284453308809,
+    "names": [
+      "balanced_t1",
+      "fast_t05",
+      "slow_t2",
+      "crosswave_t075"
+    ],
+    "primary_state_sha256": "9d3cf08570f64a31eac9723b10105d5948e5898a2da6ee1b9543d3f10e1046e1",
+    "work_per_switch": {
+      "scalar_slot_contributions": 3072,
+      "state_writes": 0,
+      "stream_groups_reingested": 0,
+      "temperature_scalings": 256
+    }
+  },
+  "result_sha256": "6041fbb157cb96c98a988da60b0a88f958507b3c5d0e1b5cd8ebe2733280a568",
+  "schema": "o1-256-polyphase-sufficient-state-result-v1",
+  "state": {
+    "aggregate_algorithmic_state_bytes": 174632,
+    "deployment_live_state_bytes": 100384,
+    "persistent_bytes_per_arm": 25096,
+    "reference_audit_state_bytes": 74248,
+    "snapshot_bytes": 125480,
+    "states": {
+      "prefix_t193": {
+        "basis_sha256": "5f578f1917c5f80e662fb2c76e5e176202c9ef68dc492cd23e69c50984a78c33",
+        "clock": 193,
+        "coverage_max": 193,
+        "coverage_min": 193,
+        "persistent_bytes": 25096,
+        "schema": "o1-256-polyphase-sufficient-state-v1",
+        "sha256": "b55ec2c89c4776ddf4f27c8128c2894b3c91c722835777af6e7c71f34b724383",
+        "stream_length_dependent": false
+      },
+      "primary_t384": {
+        "basis_sha256": "5f578f1917c5f80e662fb2c76e5e176202c9ef68dc492cd23e69c50984a78c33",
+        "clock": 384,
+        "coverage_max": 384,
+        "coverage_min": 384,
+        "persistent_bytes": 25096,
+        "schema": "o1-256-polyphase-sufficient-state-v1",
+        "sha256": "9d3cf08570f64a31eac9723b10105d5948e5898a2da6ee1b9543d3f10e1046e1",
+        "stream_length_dependent": false
+      },
+      "rechunk_t384": {
+        "basis_sha256": "5f578f1917c5f80e662fb2c76e5e176202c9ef68dc492cd23e69c50984a78c33",
+        "clock": 384,
+        "coverage_max": 384,
+        "coverage_min": 384,
+        "persistent_bytes": 25096,
+        "schema": "o1-256-polyphase-sufficient-state-v1",
+        "sha256": "9d3cf08570f64a31eac9723b10105d5948e5898a2da6ee1b9543d3f10e1046e1",
+        "stream_length_dependent": false
+      },
+      "swap_t384": {
+        "basis_sha256": "5f578f1917c5f80e662fb2c76e5e176202c9ef68dc492cd23e69c50984a78c33",
+        "clock": 384,
+        "coverage_max": 384,
+        "coverage_min": 384,
+        "persistent_bytes": 25096,
+        "schema": "o1-256-polyphase-sufficient-state-v1",
+        "sha256": "f2e652f5749069428c907580db532d9e38d76af731695bc82c948bba072b3a06",
+        "stream_length_dependent": false
+      },
+      "t000": {
+        "basis_sha256": "5f578f1917c5f80e662fb2c76e5e176202c9ef68dc492cd23e69c50984a78c33",
+        "clock": 0,
+        "coverage_max": 0,
+        "coverage_min": 0,
+        "persistent_bytes": 25096,
+        "schema": "o1-256-polyphase-sufficient-state-v1",
+        "sha256": "eeb93314b053584b14e51f692524e25aae4c7889d9bfde3d0b348cbc867adba9",
+        "stream_length_dependent": false
+      }
+    },
+    "stream_length_dependent": false
+  },
+  "stream": {
+    "dtype": "float32",
+    "generator": "dyadic-regime-switch-q31-parity-v1",
+    "groups": 384,
+    "maximum": 0.609375,
+    "minimum": -0.609375,
+    "regime_switch": 193,
+    "sha256_f32le": "9b1b0174dbac855c3f7b9eb96866ba021857ad0e502e70c8316ef1c8f8e41863",
+    "shape": [
+      384,
+      3,
+      256
+    ],
+    "zero_values": 0
+  },
+  "work": {
+    "consume_calls": 4,
+    "direct_reference_group_updates": 384,
+    "direct_reference_readout_calls": 4,
+    "direct_reference_readout_slot_contributions": 12288,
+    "direct_reference_resonator_cell_updates": 1179648,
+    "generated_float32_evidence_values": 294912,
+    "generated_groups": 384,
+    "gpu_calls": 0,
+    "gradient_steps": 0,
+    "input_scalar_deliveries": 1032960,
+    "label_reads": 0,
+    "maximum_control_input_chunk_bytes": 3072,
+    "mps_calls": 0,
+    "network_calls": 0,
+    "optimizer_steps": 0,
+    "outcome_or_progress_reads": 0,
+    "primary_consume_calls": 1,
+    "primary_reingested_groups": 0,
+    "replay_required_probes": 3,
+    "resonator_cell_updates": 4131840,
+    "schema": "o1-256-polyphase-sufficient-state-work-v1",
+    "scientific_entropy_calls": 0,
+    "sibling_reads": 0,
+    "sibling_writes": 0,
+    "solver_calls": 0,
+    "source_buffer_bytes": 1179648,
+    "source_generation_calls": 1,
+    "source_plus_control_input_bytes": 1182720,
+    "state_group_updates": 1345,
+    "state_readout_scalar_slot_contributions": 36864,
+    "successful_state_readout_calls": 12,
+    "target_reads": 0,
+    "total_query_attempts": 15,
+    "trainable_parameters": 0
+  }
+}

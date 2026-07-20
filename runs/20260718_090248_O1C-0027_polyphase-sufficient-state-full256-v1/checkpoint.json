@@ -1,0 +1,15 @@
+{
+  "attempt_id": "O1C-0027",
+  "payload": {
+    "classification": "POLYPHASE_SUFFICIENT_STATE_PASS",
+    "persistent_artifact_bytes": 164132,
+    "phase": "MECHANISM_RESULT_AND_ARTIFACTS_FROZEN",
+    "primary_consume_calls": 1,
+    "query_attempts": 15,
+    "result_sha256": "6041fbb157cb96c98a988da60b0a88f958507b3c5d0e1b5cd8ebe2733280a568",
+    "source_generation_calls": 1
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 2,
+  "updated_at": "2026-07-18T09:02:49.079908+02:00"
+}

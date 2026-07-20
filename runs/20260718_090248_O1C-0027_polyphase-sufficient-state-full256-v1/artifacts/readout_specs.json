@@ -1,0 +1,119 @@
+{
+  "basis_sha256": "5f578f1917c5f80e662fb2c76e5e176202c9ef68dc492cd23e69c50984a78c33",
+  "foreign_basis_probes": {
+    "encoder": "80936b8a4126de06165f3f48614b2c393787793b651703aa6c7a60b5a1571959",
+    "kernel": "179ca20416ca1de3c2f4134b1936154216e3eb1b7e45dc25e87c8eab8135aeaf",
+    "phase": "12367d50532d70d91c62e398666aa84fefc2895bb0bf65e68b4246bf0a99b48b"
+  },
+  "schema": "o1-256-polyphase-readout-set-v1",
+  "specs": [
+    {
+      "basis_sha256": "5f578f1917c5f80e662fb2c76e5e176202c9ef68dc492cd23e69c50984a78c33",
+      "name": "balanced_t1",
+      "odd_without_bias": true,
+      "schema": "o1-256-polyphase-readout-v1",
+      "slot_weights": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      ],
+      "temperature": 1.0
+    },
+    {
+      "basis_sha256": "5f578f1917c5f80e662fb2c76e5e176202c9ef68dc492cd23e69c50984a78c33",
+      "name": "fast_t05",
+      "odd_without_bias": true,
+      "schema": "o1-256-polyphase-readout-v1",
+      "slot_weights": [
+        [
+          0.625,
+          0.25,
+          0.125,
+          0.0
+        ],
+        [
+          0.625,
+          0.25,
+          0.125,
+          0.0
+        ],
+        [
+          0.625,
+          0.25,
+          0.125,
+          0.0
+        ]
+      ],
+      "temperature": 0.5
+    },
+    {
+      "basis_sha256": "5f578f1917c5f80e662fb2c76e5e176202c9ef68dc492cd23e69c50984a78c33",
+      "name": "slow_t2",
+      "odd_without_bias": true,
+      "schema": "o1-256-polyphase-readout-v1",
+      "slot_weights": [
+        [
+          0.0,
+          0.125,
+          0.25,
+          0.625
+        ],
+        [
+          0.0,
+          0.125,
+          0.25,
+          0.625
+        ],
+        [
+          0.0,
+          0.125,
+          0.25,
+          0.625
+        ]
+      ],
+      "temperature": 2.0
+    },
+    {
+      "basis_sha256": "5f578f1917c5f80e662fb2c76e5e176202c9ef68dc492cd23e69c50984a78c33",
+      "name": "crosswave_t075",
+      "odd_without_bias": true,
+      "schema": "o1-256-polyphase-readout-v1",
+      "slot_weights": [
+        [
+          0.5,
+          0.0,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.5,
+          0.0,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.5,
+          0.0
+        ]
+      ],
+      "temperature": 0.75
+    }
+  ]
+}

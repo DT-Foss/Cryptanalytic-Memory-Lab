@@ -1,0 +1,1 @@
+nice -n 10 env PYTHONPATH=src python3 -m o1_crypto_lab.o1c73_apple8_vault_release_contrast_run run --config configs/o1c73_apple8_vault_release_contrast_v1.json

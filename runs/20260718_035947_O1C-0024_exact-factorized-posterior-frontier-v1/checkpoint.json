@@ -1,0 +1,13 @@
+{
+  "attempt_id": "O1C-0024",
+  "payload": {
+    "candidate_count": 65536,
+    "phase": "BURNED_EVALUATION_PAYLOAD_READ_COMPLETED",
+    "prediction_freeze_sha256": "0413c23b2416f680c69eaabfa5a9802454f970344c3a01f261f035c98ef99237",
+    "source_evaluation_payload_reads": 1,
+    "source_reveal_payload_reads": 1
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 5,
+  "updated_at": "2026-07-18T03:59:50.009732+02:00"
+}

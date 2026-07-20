@@ -1,0 +1,468 @@
+{
+  "architecture": {
+    "coupling": "reversible_confidence_ordered_first_encounter_key_decisions",
+    "exact_relation": "O1C-0011_full256_public_ChaCha20_CNF",
+    "hard_key_units_added": 0,
+    "native_build": {
+      "cadical_header_sha256": "b7111690c61935b9c096d3701be59b3c3d26c555eab8e070f19eb2a97dc5d38c",
+      "cadical_library_sha256": "44cae3728485b4fd5736ce7cb986021236652daeda9cca227a2c4ac17d3a8a7f",
+      "command": [
+        "c++",
+        "-std=c++17",
+        "-O3",
+        "-DNDEBUG",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-I/opt/homebrew/Cellar/cadical/3.0.0/include",
+        "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/native/cadical_o1_guided_search.cpp",
+        "/opt/homebrew/Cellar/cadical/3.0.0/lib/libcadical.a",
+        "-o",
+        "<TEMP_OUTPUT>"
+      ],
+      "executable_sha256": "ab9718364d35bfa823d3e89451d0a308830c7265224308629aabd7c69cbb7ed7",
+      "source_sha256": "384870ffa73bf8b5fa404742669218c7d93918018507595c042d73d54a08eca9"
+    },
+    "public_instance": {
+      "assumption_unit_clause_count": 0,
+      "assumption_unit_clause_sha256": null,
+      "assumptions": [],
+      "clause_count": 188010,
+      "counter": 1558694472,
+      "fixed_key_sha256": null,
+      "instance_bytes": 4343569,
+      "instance_sha256": "194270361440e9aaf9b2a213575b9788ad9f6defef80586cad5ace9c472e7ce2",
+      "key_fixed_for_self_test": false,
+      "key_unit_clause_count": 0,
+      "key_unit_clause_sha256": null,
+      "nonce_hex": "1d630bd02ca4c963564d6163",
+      "output_sha256": "f363221e7aef714c0145853e41c37025537da541b920607f4dc6d99b8e687050",
+      "public_unit_clause_count": 640,
+      "public_unit_clause_sha256": "7df3a3f9be09780c1b1aca41d66d9794e2ebb760a868388a549ff1a1fa56b6a2",
+      "schema": "o1-256-chacha20-cnf-instance-v1",
+      "template_map_sha256": "13c0dd32b1c0eec0b9b95e9c7c0f2a8390b8be6f98bd59e3b7d021c23762bfaf",
+      "template_sha256": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+      "unit_clause_sha256": "7df3a3f9be09780c1b1aca41d66d9794e2ebb760a868388a549ff1a1fa56b6a2",
+      "variable_count": 32128
+    },
+    "soft_prior": "frozen_O1C-0022_K256_quantized_int8_vault"
+  },
+  "arms": [
+    {
+      "guided": {
+        "assignment_notifications": 0,
+        "backtracks": 0,
+        "maximum_assigned_key_bits": 0,
+        "maximum_decision_level": 0,
+        "requested_decisions": 0
+      },
+      "guided_bits": 0,
+      "guided_correct_bits_post_reveal": null,
+      "hint_sha256": null,
+      "map_correct_bits_post_reveal": null,
+      "mode": "internal",
+      "model_publicly_verified": false,
+      "model_truth_hamming": null,
+      "name": "internal",
+      "privileged_post_reveal_ceiling": false,
+      "resources": {
+        "cpu_microseconds": 112799,
+        "peak_rss_bytes": 41730048,
+        "wall_microseconds": 48869
+      },
+      "stats": {
+        "conflicts": 514,
+        "decisions": 12100,
+        "propagations": 334299
+      },
+      "status": "UNKNOWN",
+      "status_code": 0
+    },
+    {
+      "guided": {
+        "assignment_notifications": 0,
+        "backtracks": 0,
+        "maximum_assigned_key_bits": 0,
+        "maximum_decision_level": 0,
+        "requested_decisions": 0
+      },
+      "guided_bits": 256,
+      "guided_correct_bits_post_reveal": 117,
+      "hint_sha256": "d980013c41c3fd76dcf164b8245c5e5855e434f0efa5ae31ca3036e1d60f6f66",
+      "map_correct_bits_post_reveal": 117,
+      "mode": "phase",
+      "model_publicly_verified": false,
+      "model_truth_hamming": null,
+      "name": "o1_phase_k256",
+      "privileged_post_reveal_ceiling": false,
+      "resources": {
+        "cpu_microseconds": 77819,
+        "peak_rss_bytes": 43155456,
+        "wall_microseconds": 44079
+      },
+      "stats": {
+        "conflicts": 514,
+        "decisions": 12100,
+        "propagations": 334299
+      },
+      "status": "UNKNOWN",
+      "status_code": 0
+    },
+    {
+      "guided": {
+        "assignment_notifications": 1596,
+        "backtracks": 585,
+        "maximum_assigned_key_bits": 52,
+        "maximum_decision_level": 462,
+        "requested_decisions": 52
+      },
+      "guided_bits": 52,
+      "guided_correct_bits_post_reveal": 26,
+      "hint_sha256": "d980013c41c3fd76dcf164b8245c5e5855e434f0efa5ae31ca3036e1d60f6f66",
+      "map_correct_bits_post_reveal": 117,
+      "mode": "guided",
+      "model_publicly_verified": false,
+      "model_truth_hamming": null,
+      "name": "o1_guided_k052",
+      "privileged_post_reveal_ceiling": false,
+      "resources": {
+        "cpu_microseconds": 88803,
+        "peak_rss_bytes": 43335680,
+        "wall_microseconds": 55129
+      },
+      "stats": {
+        "conflicts": 514,
+        "decisions": 12153,
+        "propagations": 334553
+      },
+      "status": "UNKNOWN",
+      "status_code": 0
+    },
+    {
+      "guided": {
+        "assignment_notifications": 3237,
+        "backtracks": 585,
+        "maximum_assigned_key_bits": 128,
+        "maximum_decision_level": 462,
+        "requested_decisions": 128
+      },
+      "guided_bits": 128,
+      "guided_correct_bits_post_reveal": 59,
+      "hint_sha256": "d980013c41c3fd76dcf164b8245c5e5855e434f0efa5ae31ca3036e1d60f6f66",
+      "map_correct_bits_post_reveal": 117,
+      "mode": "guided",
+      "model_publicly_verified": false,
+      "model_truth_hamming": null,
+      "name": "o1_guided_k128",
+      "privileged_post_reveal_ceiling": false,
+      "resources": {
+        "cpu_microseconds": 91167,
+        "peak_rss_bytes": 43368448,
+        "wall_microseconds": 56608
+      },
+      "stats": {
+        "conflicts": 514,
+        "decisions": 12170,
+        "propagations": 334954
+      },
+      "status": "UNKNOWN",
+      "status_code": 0
+    },
+    {
+      "guided": {
+        "assignment_notifications": 1157,
+        "backtracks": 568,
+        "maximum_assigned_key_bits": 256,
+        "maximum_decision_level": 504,
+        "requested_decisions": 256
+      },
+      "guided_bits": 256,
+      "guided_correct_bits_post_reveal": 117,
+      "hint_sha256": "d980013c41c3fd76dcf164b8245c5e5855e434f0efa5ae31ca3036e1d60f6f66",
+      "map_correct_bits_post_reveal": 117,
+      "mode": "guided",
+      "model_publicly_verified": false,
+      "model_truth_hamming": null,
+      "name": "o1_guided_k256",
+      "privileged_post_reveal_ceiling": false,
+      "resources": {
+        "cpu_microseconds": 137918,
+        "peak_rss_bytes": 45301760,
+        "wall_microseconds": 103752
+      },
+      "stats": {
+        "conflicts": 512,
+        "decisions": 2627,
+        "propagations": 671214
+      },
+      "status": "UNKNOWN",
+      "status_code": 0
+    },
+    {
+      "guided": {
+        "assignment_notifications": 1157,
+        "backtracks": 568,
+        "maximum_assigned_key_bits": 256,
+        "maximum_decision_level": 504,
+        "requested_decisions": 256
+      },
+      "guided_bits": 256,
+      "guided_correct_bits_post_reveal": 117,
+      "hint_sha256": "936a453058e35a1bab600d20568ab9d48a614ac7cf794bb5790721eca0006e64",
+      "map_correct_bits_post_reveal": 117,
+      "mode": "guided",
+      "model_publicly_verified": false,
+      "model_truth_hamming": null,
+      "name": "shuffled_guided_k256",
+      "privileged_post_reveal_ceiling": false,
+      "resources": {
+        "cpu_microseconds": 137557,
+        "peak_rss_bytes": 45350912,
+        "wall_microseconds": 103254
+      },
+      "stats": {
+        "conflicts": 512,
+        "decisions": 2627,
+        "propagations": 671214
+      },
+      "status": "UNKNOWN",
+      "status_code": 0
+    },
+    {
+      "guided": {
+        "assignment_notifications": 256,
+        "backtracks": 0,
+        "maximum_assigned_key_bits": 256,
+        "maximum_decision_level": 256,
+        "requested_decisions": 256
+      },
+      "guided_bits": 256,
+      "guided_correct_bits_post_reveal": 256,
+      "hint_sha256": "e37fc52e61c237cf6a1ca544583faf113a0a43469aad16adf005bcacc03daf84",
+      "map_correct_bits_post_reveal": 256,
+      "mode": "guided",
+      "model_publicly_verified": true,
+      "model_truth_hamming": 0,
+      "name": "oracle_exact_guided_k256",
+      "privileged_post_reveal_ceiling": true,
+      "resources": {
+        "cpu_microseconds": 40138,
+        "peak_rss_bytes": 33341440,
+        "wall_microseconds": 5065
+      },
+      "stats": {
+        "conflicts": 0,
+        "decisions": 256,
+        "propagations": 32128
+      },
+      "status": "SAT",
+      "status_code": 10
+    },
+    {
+      "guided": {
+        "assignment_notifications": 1194,
+        "backtracks": 562,
+        "maximum_assigned_key_bits": 256,
+        "maximum_decision_level": 508,
+        "requested_decisions": 256
+      },
+      "guided_bits": 256,
+      "guided_correct_bits_post_reveal": 255,
+      "hint_sha256": "325c090d2a08b5bd355a2a679c794b0c9214f7c55882b822a299a07bfc8b6102",
+      "map_correct_bits_post_reveal": 255,
+      "mode": "guided",
+      "model_publicly_verified": false,
+      "model_truth_hamming": null,
+      "name": "oracle_one_error_guided_k256_c00512",
+      "privileged_post_reveal_ceiling": true,
+      "resources": {
+        "cpu_microseconds": 331860,
+        "peak_rss_bytes": 44793856,
+        "wall_microseconds": 297895
+      },
+      "stats": {
+        "conflicts": 516,
+        "decisions": 1898,
+        "propagations": 1997357
+      },
+      "status": "UNKNOWN",
+      "status_code": 0
+    },
+    {
+      "guided": {
+        "assignment_notifications": 4227,
+        "backtracks": 2140,
+        "maximum_assigned_key_bits": 256,
+        "maximum_decision_level": 508,
+        "requested_decisions": 256
+      },
+      "guided_bits": 256,
+      "guided_correct_bits_post_reveal": 255,
+      "hint_sha256": "325c090d2a08b5bd355a2a679c794b0c9214f7c55882b822a299a07bfc8b6102",
+      "map_correct_bits_post_reveal": 255,
+      "mode": "guided",
+      "model_publicly_verified": false,
+      "model_truth_hamming": null,
+      "name": "oracle_one_error_guided_k256_c02048",
+      "privileged_post_reveal_ceiling": true,
+      "resources": {
+        "cpu_microseconds": 389392,
+        "peak_rss_bytes": 59916288,
+        "wall_microseconds": 355996
+      },
+      "stats": {
+        "conflicts": 2048,
+        "decisions": 3574,
+        "propagations": 2245823
+      },
+      "status": "UNKNOWN",
+      "status_code": 0
+    },
+    {
+      "guided": {
+        "assignment_notifications": 34052,
+        "backtracks": 8896,
+        "maximum_assigned_key_bits": 256,
+        "maximum_decision_level": 508,
+        "requested_decisions": 256
+      },
+      "guided_bits": 256,
+      "guided_correct_bits_post_reveal": 255,
+      "hint_sha256": "325c090d2a08b5bd355a2a679c794b0c9214f7c55882b822a299a07bfc8b6102",
+      "map_correct_bits_post_reveal": 255,
+      "mode": "guided",
+      "model_publicly_verified": false,
+      "model_truth_hamming": null,
+      "name": "oracle_one_error_guided_k256_c08192",
+      "privileged_post_reveal_ceiling": true,
+      "resources": {
+        "cpu_microseconds": 963204,
+        "peak_rss_bytes": 85671936,
+        "wall_microseconds": 930716
+      },
+      "stats": {
+        "conflicts": 8192,
+        "decisions": 26381,
+        "propagations": 5487236
+      },
+      "status": "UNKNOWN",
+      "status_code": 0
+    },
+    {
+      "guided": {
+        "assignment_notifications": 365737,
+        "backtracks": 38643,
+        "maximum_assigned_key_bits": 256,
+        "maximum_decision_level": 508,
+        "requested_decisions": 256
+      },
+      "guided_bits": 256,
+      "guided_correct_bits_post_reveal": 255,
+      "hint_sha256": "325c090d2a08b5bd355a2a679c794b0c9214f7c55882b822a299a07bfc8b6102",
+      "map_correct_bits_post_reveal": 255,
+      "mode": "guided",
+      "model_publicly_verified": false,
+      "model_truth_hamming": null,
+      "name": "oracle_one_error_guided_k256_c32768",
+      "privileged_post_reveal_ceiling": true,
+      "resources": {
+        "cpu_microseconds": 8916129,
+        "peak_rss_bytes": 112361472,
+        "wall_microseconds": 8908928
+      },
+      "stats": {
+        "conflicts": 32769,
+        "decisions": 489130,
+        "propagations": 55107075
+      },
+      "status": "UNKNOWN",
+      "status_code": 0
+    },
+    {
+      "guided": {
+        "assignment_notifications": 1354,
+        "backtracks": 537,
+        "maximum_assigned_key_bits": 255,
+        "maximum_decision_level": 707,
+        "requested_decisions": 255
+      },
+      "guided_bits": 255,
+      "guided_correct_bits_post_reveal": 254,
+      "hint_sha256": "325c090d2a08b5bd355a2a679c794b0c9214f7c55882b822a299a07bfc8b6102",
+      "map_correct_bits_post_reveal": 255,
+      "mode": "guided",
+      "model_publicly_verified": false,
+      "model_truth_hamming": null,
+      "name": "oracle_one_residual_guided_k255",
+      "privileged_post_reveal_ceiling": true,
+      "resources": {
+        "cpu_microseconds": 375449,
+        "peak_rss_bytes": 45826048,
+        "wall_microseconds": 340258
+      },
+      "stats": {
+        "conflicts": 512,
+        "decisions": 2023,
+        "propagations": 2238972
+      },
+      "status": "UNKNOWN",
+      "status_code": 0
+    }
+  ],
+  "attempt_id": "O1C-0037",
+  "capsule": "runs/20260718_211056_O1C-0037_relational-guided-search-v1",
+  "decision": "CLOSE_KEY_ONLY_FIRST_ENCOUNTER_CDCL_GUIDANCE",
+  "metrics": {
+    "attacker_valid_arm_count": 6,
+    "attacker_valid_exact_recoveries": 0,
+    "matched_512_wall_ratio_o1_k256_over_internal": 2.1230637009146904,
+    "matched_512_wall_ratio_o1_over_shuffled": 1.0048230577023651,
+    "measured_key_only_repair_radius_bits": 0,
+    "o1_guided_k052_correct_bits": 26,
+    "o1_guided_k128_correct_bits": 59,
+    "o1_guided_k256_correct_bits": 117,
+    "o1_map_correct_bits": 117,
+    "one_error_recovered_by_32768_conflicts": false,
+    "oracle_exact_guidance_conflicts": 0,
+    "oracle_exact_guidance_recovered": true
+  },
+  "next_action": "Keep the exact adapter as a ceiling instrument. Move O1 guidance from key phases to target-specific relation/proof factors or a specialized residual compiler; do not scale conflict limits on this field.",
+  "recorded_at": "2026-07-18T21:10:56+02:00",
+  "resources": {
+    "MPS_or_GPU": false,
+    "elapsed_seconds": 14.513263041000755,
+    "native_cpu_seconds_sum": 11.662235,
+    "native_solver_calls": 12,
+    "native_wall_seconds_sum": 11.250549,
+    "peak_rss_bytes": 139853824,
+    "python_cpu_seconds": 1.926883,
+    "requested_conflicts": 47616,
+    "sibling_reads": 0,
+    "sibling_writes": 0
+  },
+  "schema": "o1-256-relational-guided-search-result-v1",
+  "source_commit": "ae0bcd339f4cfef42bda10c7d345bc34b4750753",
+  "source_sha256": {
+    "adapter": "6fe86a7e634940e7f2a3b2254c3a243ef95309692a7343fb4c37efd93033b2b9",
+    "config": "180aac72cf5e6130749052fb11259006e8da007e33d82092583f8f408c7e0c8c",
+    "labels": "7247e0d3b8c51c5b4b397bf4feaf4bf76845d37a2c06b4c1370be5375b33b749",
+    "native": "384870ffa73bf8b5fa404742669218c7d93918018507595c042d73d54a08eca9",
+    "pool_sidecar": "c916798307b514f1dfb517f3edabb1b01f983a5afd2beb1294964bb48a432f79",
+    "prediction_freeze": "332fcb63d9601420287eb3de226fb129bef016390c26b5a4d40dc1da56285896",
+    "predictions": "cffb37e297eedf8f4dea4c11129fdd3d9db5f452e2c1a8789579ce13fd10aff8",
+    "runner": "a4c74b7efb4f432b3f43b61d1ea7cb8976d728b95e9cb5be4b678f0ab5eb361c",
+    "semantic_map": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+    "source_result": "a8e5940edc5887e404725c98631df89e1f91963abd47d1fa51263fc681e9df4d",
+    "template": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52"
+  },
+  "started_at": "2026-07-18T21:10:41+02:00",
+  "target_contract": {
+    "cipher": "ChaCha20",
+    "fresh_targets": 0,
+    "privileged_truth_used_only_in_explicit_post_reveal_ceiling_arms": true,
+    "public_input": "counter_nonce_one_output_block_only",
+    "rounds": 20,
+    "target_key_entered_attacker_valid_arms": false,
+    "unknown_key_bits_at_deployment": 256
+  }
+}

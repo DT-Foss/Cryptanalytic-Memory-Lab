@@ -1,0 +1,18 @@
+{
+  "source_capsule": "runs/20260717_040741_O1C-0009_full256-output-only-reader-v1",
+  "source_capsule_verified": true,
+  "source_manifest_checked_files": 25,
+  "source_manifest_sha256": "f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2",
+  "source_member_verification": {
+    "checked": 3,
+    "manifest": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/runs/20260717_040741_O1C-0009_full256-output-only-reader-v1/artifacts.sha256",
+    "manifest_sha256": "f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2",
+    "mismatched": [],
+    "missing": [],
+    "ok": true,
+    "root": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/runs/20260717_040741_O1C-0009_full256-output-only-reader-v1",
+    "schema": "o1-crypto-source-verification-v1"
+  },
+  "source_reader_report_artifact_sha256": "e007dd7964269036c427be53e9563a4bc450955cafecbd0b8ae2f6a9db064332",
+  "source_result_sha256": "40276d71516d4d150b02cc8235c08d00fb8ceb28daf64d1316826b38fd094bf9"
+}

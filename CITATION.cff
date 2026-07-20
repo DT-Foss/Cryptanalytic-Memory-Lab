@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software or its experimental record, cite this repository and the exact tagged version."
+title: "Cryptanalytic Memory Lab (cryptO1)"
+type: software
+version: 0.1.0
+date-released: 2026-07-20
+authors:
+  - family-names: "Foss"
+    given-names: "David Tom"
+repository-code: "https://github.com/DT-Foss/Cryptanalytic-Memory-Lab"
+url: "https://github.com/DT-Foss/Cryptanalytic-Memory-Lab"
+license: Apache-2.0
+abstract: >-
+  A reproducible bounded-state research harness for solver-native causal
+  evidence streams over standard full-round ChaCha20 relations. The published
+  record includes exact retention, ranking, safe pruning, exclusion-memory,
+  mechanism-only and negative results; it does not claim exact unknown-key
+  recovery or a practical break of ChaCha20.
+keywords:
+  - cryptanalysis
+  - ChaCha20
+  - bounded-state memory
+  - causal inference
+  - SAT solving
+  - reproducible research

@@ -1,0 +1,290 @@
+{
+  "development_labels_read": 0,
+  "development_publications_opened": 0,
+  "development_targets_created": 0,
+  "direct_plan": {
+    "input_dimension": 640,
+    "interactions": [
+      [
+        "target_output",
+        "public_relation"
+      ]
+    ],
+    "output_dimension": 96,
+    "plan_sha256": "196513a919c2784faf527a416d50779988e9cd30b8e657b20d833be6c59be7ce",
+    "schema": "o1-256-holographic-feature-plan-v1",
+    "seed": 137256,
+    "segments": [
+      {
+        "end": 512,
+        "name": "target_output",
+        "start": 0
+      },
+      {
+        "end": 640,
+        "name": "public_relation",
+        "start": 512
+      }
+    ],
+    "slots": 32
+  },
+  "hypothesis_selected_post_reveal_on_source_attempt": true,
+  "models": {
+    "direct": {
+      "auxiliary_dimension": 0,
+      "effective_rank": 64,
+      "model_sha256": "b029182649f2ec6f06aa3eb00c497d57c76d0b7b81d7b4dc2a7e25f98331bc55",
+      "parameter_count": 25024,
+      "plan": {
+        "input_dimension": 640,
+        "interactions": [
+          [
+            "target_output",
+            "public_relation"
+          ]
+        ],
+        "output_dimension": 96,
+        "plan_sha256": "196513a919c2784faf527a416d50779988e9cd30b8e657b20d833be6c59be7ce",
+        "schema": "o1-256-holographic-feature-plan-v1",
+        "seed": 137256,
+        "segments": [
+          {
+            "end": 512,
+            "name": "target_output",
+            "start": 0
+          },
+          {
+            "end": 640,
+            "name": "public_relation",
+            "start": 512
+          }
+        ],
+        "slots": 32
+      },
+      "requested_rank": 64,
+      "ridge_lambda": 1.0,
+      "schema": "o1-256-frozen-holographic-ridge-v1",
+      "serialized_bytes": 201949,
+      "singular_values": [
+        4.333776119084882,
+        3.0530235465064246,
+        2.7273605061598682,
+        2.5736144711066564,
+        2.3869831118930374,
+        2.2432424499929193,
+        2.1692641843324254,
+        1.9855356202091716,
+        1.8498734626419922,
+        1.8388732795323772,
+        1.728011014311179,
+        1.6587907562878146,
+        1.5451421760210668,
+        1.4716629361412543,
+        1.412138640868668,
+        1.4019475389091924,
+        1.3548088074929725,
+        1.3115571972994606,
+        1.2705168804767235,
+        1.2384698843935706,
+        1.2353978054746135,
+        1.1723127186534856,
+        1.1136251627006226,
+        1.0980843297322465,
+        1.059249282214842,
+        1.0281498582166144,
+        1.0003845420934299,
+        0.9640240870954887,
+        0.9608977865075244,
+        0.927163455111826,
+        0.8990969207138285,
+        0.8432304305765576,
+        0.8290832548934118,
+        0.8235984597475672,
+        0.811251665701,
+        0.807868695084984,
+        0.8037881096641949,
+        0.7838254603568492,
+        0.7549065183402821,
+        0.75090365185042,
+        0.725458969545126,
+        0.7087675464001277,
+        0.6892125367805463,
+        0.6728051704195694,
+        0.6691696176657214,
+        0.6610843495562646,
+        0.6378233516904235,
+        0.6328528487491197,
+        0.6294690308004923,
+        0.6094212121273904,
+        0.5996194224843516,
+        0.5887308035524599,
+        0.5828417733653947,
+        0.5744860017742812,
+        0.5542375864764076,
+        0.5435747567870005,
+        0.5413589215524266,
+        0.52210527363058,
+        0.5124049449616976,
+        0.5085274625987197,
+        0.5030005434751642,
+        0.4930329096569234,
+        0.48923252487118174,
+        0.47520451801748603
+      ]
+    },
+    "shuffled_key_control": {
+      "auxiliary_dimension": 0,
+      "effective_rank": 64,
+      "model_sha256": "6dd9a11e64d3b93a98b1bab92f9249785aa6be2a2e46dae21fe070d63796711e",
+      "parameter_count": 25024,
+      "plan": {
+        "input_dimension": 640,
+        "interactions": [
+          [
+            "target_output",
+            "public_relation"
+          ]
+        ],
+        "output_dimension": 96,
+        "plan_sha256": "196513a919c2784faf527a416d50779988e9cd30b8e657b20d833be6c59be7ce",
+        "schema": "o1-256-holographic-feature-plan-v1",
+        "seed": 137256,
+        "segments": [
+          {
+            "end": 512,
+            "name": "target_output",
+            "start": 0
+          },
+          {
+            "end": 640,
+            "name": "public_relation",
+            "start": 512
+          }
+        ],
+        "slots": 32
+      },
+      "requested_rank": 64,
+      "ridge_lambda": 1.0,
+      "schema": "o1-256-frozen-holographic-ridge-v1",
+      "serialized_bytes": 201949,
+      "singular_values": [
+        4.208181143428021,
+        3.2467031030189575,
+        2.8545660883448645,
+        2.7836233666294943,
+        2.4727071189926115,
+        2.2843093696712344,
+        2.121656154621697,
+        2.0851836850673697,
+        2.0070220335016975,
+        1.9292275932211047,
+        1.7781208672423265,
+        1.7242609028942628,
+        1.601132648001,
+        1.5290709409391772,
+        1.4994507703113833,
+        1.408377896319383,
+        1.3620665186027197,
+        1.3042549434118091,
+        1.2297791386976695,
+        1.2237565535776898,
+        1.1946591494559013,
+        1.139235467789239,
+        1.0758215561400362,
+        1.066325147900113,
+        1.0272593917724475,
+        0.9991514272206199,
+        0.9713625018497951,
+        0.9436362675627682,
+        0.9277057376221705,
+        0.8918367917187099,
+        0.8556267751777804,
+        0.843624237899859,
+        0.8224810638074017,
+        0.8130108958439898,
+        0.7966614059016753,
+        0.7941932335269134,
+        0.7839572794565457,
+        0.7666095839407716,
+        0.7336845985453987,
+        0.7311239591800107,
+        0.7226463635694467,
+        0.7165270673174544,
+        0.7006699382152151,
+        0.6705211541703301,
+        0.6662106648334609,
+        0.6476206484421495,
+        0.6404241705039039,
+        0.6317014908313715,
+        0.6307061994156089,
+        0.6178302555728897,
+        0.6009123263383449,
+        0.5897957075945626,
+        0.5771886867488821,
+        0.5681646188342613,
+        0.5515000748905361,
+        0.5446149539508779,
+        0.5303872452143492,
+        0.5238479291331566,
+        0.5095267669181317,
+        0.5021645995812206,
+        0.49636333039421293,
+        0.49326155052581755,
+        0.47961870848861654,
+        0.4712807716931275
+      ]
+    }
+  },
+  "models_refit": false,
+  "prediction_arms": [
+    "control/output_flip",
+    "control/output_permutation",
+    "control/polarity_reverse",
+    "control/shuffled_signed",
+    "control/wrong_nonce",
+    "factual/direct_signed"
+  ],
+  "replication": {
+    "development_targets": 2048,
+    "minimum_direct_compression_bits": 0.015,
+    "minimum_direct_conditional_z": 3.0,
+    "minimum_output_permutation_margin_bits": 0.01,
+    "minimum_paired_conditional_z": 3.0,
+    "minimum_shuffled_margin_bits": 0.01,
+    "minimum_target_lcb_z": 3.0
+  },
+  "replication_is_prospective": true,
+  "scales_refit": false,
+  "schema": "o1-256-signed-direct-protocol-freeze-v1",
+  "source": {
+    "direct_model_artifact": "artifacts/calibration/models/direct.o1hrr",
+    "direct_model_sha256": "b029182649f2ec6f06aa3eb00c497d57c76d0b7b81d7b4dc2a7e25f98331bc55",
+    "direct_scale": -0.03860970720667151,
+    "selection_origin": "Post-reveal O1C-0009 diagnostic selected after the official zero-scale result; O1C-0010 is its first prospective no-refit test.",
+    "shuffled_model_artifact": "artifacts/calibration/models/shuffled_key_control.o1hrr",
+    "shuffled_model_sha256": "6dd9a11e64d3b93a98b1bab92f9249785aa6be2a2e46dae21fe070d63796711e",
+    "shuffled_scale": -0.012218718479345116,
+    "source_attempt_id": "O1C-0009",
+    "source_capsule": "runs/20260717_040741_O1C-0009_full256-output-only-reader-v1",
+    "source_manifest_sha256": "f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2",
+    "source_result_sha256": "40276d71516d4d150b02cc8235c08d00fb8ceb28daf64d1316826b38fd094bf9"
+  },
+  "source_provenance": {
+    "source_capsule": "runs/20260717_040741_O1C-0009_full256-output-only-reader-v1",
+    "source_capsule_verified": true,
+    "source_manifest_checked_files": 25,
+    "source_manifest_sha256": "f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2",
+    "source_member_verification": {
+      "checked": 3,
+      "manifest": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/runs/20260717_040741_O1C-0009_full256-output-only-reader-v1/artifacts.sha256",
+      "manifest_sha256": "f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2",
+      "mismatched": [],
+      "missing": [],
+      "ok": true,
+      "root": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/runs/20260717_040741_O1C-0009_full256-output-only-reader-v1",
+      "schema": "o1-crypto-source-verification-v1"
+    },
+    "source_reader_report_artifact_sha256": "e007dd7964269036c427be53e9563a4bc450955cafecbd0b8ae2f6a9db064332",
+    "source_result_sha256": "40276d71516d4d150b02cc8235c08d00fb8ceb28daf64d1316826b38fd094bf9"
+  }
+}

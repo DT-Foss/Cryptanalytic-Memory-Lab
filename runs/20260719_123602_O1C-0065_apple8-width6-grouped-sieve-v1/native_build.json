@@ -1,0 +1,20 @@
+{
+  "cadical_header_sha256": "b7111690c61935b9c096d3701be59b3c3d26c555eab8e070f19eb2a97dc5d38c",
+  "cadical_library_sha256": "44cae3728485b4fd5736ce7cb986021236652daeda9cca227a2c4ac17d3a8a7f",
+  "command": [
+    "c++",
+    "-std=c++17",
+    "-O3",
+    "-DNDEBUG",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-I/opt/homebrew/Cellar/cadical/3.0.0/include",
+    "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/native/cadical_o1_joint_score_sieve_v5.cpp",
+    "/opt/homebrew/Cellar/cadical/3.0.0/lib/libcadical.a",
+    "-o",
+    "<TEMP_OUTPUT>"
+  ],
+  "executable_sha256": "847a51457680ffa13472558f6bd690dede3a4e7a2b346fae6a206683e32779e7",
+  "source_sha256": "36d4498724c7f0c465fb1177aaa24b5cbb73cd3703cd8ad0d23a2aa1a51e4e81"
+}

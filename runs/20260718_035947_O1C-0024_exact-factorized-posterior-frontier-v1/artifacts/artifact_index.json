@@ -1,0 +1,79 @@
+{
+  "artifact_count_excluding_this_index": 18,
+  "artifacts": {
+    "burned/candidates.bin": {
+      "bytes": 2097152,
+      "sha256": "84ca1b77cd5fa650c1bbb2fc24d7baf94c116f3b6c57081000a2032c0cc58c94"
+    },
+    "burned/frontier_index.json": {
+      "bytes": 665,
+      "sha256": "007b9a200ebfe0d29c25ca07b37e09a11e93b834ae3cb542517a99847e3cb2e9"
+    },
+    "burned/posterior.f64le": {
+      "bytes": 2048,
+      "sha256": "0f9c3b9f99af49f7b2a03a3a2c89e5ac81ba1ebcdad3e9db8e9b83265f129c7d"
+    },
+    "burned/prediction_freeze.json": {
+      "bytes": 1678,
+      "sha256": "4251977b57429e2c26a513a3e5d9328f05f1bcf5c8d9b0edd18fdaf2ddd6dadd"
+    },
+    "burned/publication.json": {
+      "bytes": 789,
+      "sha256": "577f10a7cf69d58eeb842fe9dba903f27499dfb6be4fa5a7366e2b22f3a44b81"
+    },
+    "burned/result.json": {
+      "bytes": 2609,
+      "sha256": "12f43fed87a666b47455d860725d2c67e5007d47975f162e9920f2d159809417"
+    },
+    "burned/scores.f64le": {
+      "bytes": 524288,
+      "sha256": "723588bf9464bd8f78f10aeec629fd93204733e8111e8e61e2f269a2d8f9f287"
+    },
+    "burned/source_manifest_index.json": {
+      "bytes": 970,
+      "sha256": "443e3dae4f4dae5f121ecad7affbefcb5561c9270fe6d7a207624d1420530145"
+    },
+    "posterior_frontier_result.json": {
+      "bytes": 1587,
+      "sha256": "bcaead0060d359589efd63019b67378c5e9fe31460a2063a0cba1ac0f67400ec"
+    },
+    "proof/exhaustive_width_10.json": {
+      "bytes": 229479,
+      "sha256": "396b4116bfc4f165e3e9755ba897d2736e82e7c0c00e8a80b3230922735d5788"
+    },
+    "proof/exhaustive_width_3.json": {
+      "bytes": 2116,
+      "sha256": "1d08768ebded0a45b5b33d52eeacf82d217b363ec559dab3e1930b05b564fa3b"
+    },
+    "proof/exhaustive_width_6.json": {
+      "bytes": 14452,
+      "sha256": "f533e391fe4c99da1405681c295f8078a2c9d7c35902c2cab902c217d9f26eee"
+    },
+    "source_index.json": {
+      "bytes": 2119,
+      "sha256": "5e94dc4442e754bc6ce3637b5ffd0da1f225c54378372c599b7e39ec9bdc7417"
+    },
+    "synthetic/candidates.bin": {
+      "bytes": 256,
+      "sha256": "23ca0bb30d417aea9a28d2d48d73392af481cac011998d89d507d54a74bafd5f"
+    },
+    "synthetic/posterior.f64le": {
+      "bytes": 2048,
+      "sha256": "30269aae5438f954d13687f04363771af7635543a73758a8ce774b79ee08a042"
+    },
+    "synthetic/result.json": {
+      "bytes": 4347,
+      "sha256": "3b2e95c75d9d93b7e118ae55f8dbefa233fde4373ff766e37dac85963141aaf7"
+    },
+    "synthetic/scores.f64le": {
+      "bytes": 64,
+      "sha256": "0747e14946341a01719f0bf351c422291e3260fc1bbd4e57f925a4e4349b0563"
+    },
+    "work_ledger.json": {
+      "bytes": 998,
+      "sha256": "73a3ad1fbcb44114363eea8fe2641da3c04768f88c2d29d35fc5c5ce66dfa561"
+    }
+  },
+  "schema": "o1-256-posterior-frontier-artifact-index-v1",
+  "this_index_is_self_excluded": true
+}

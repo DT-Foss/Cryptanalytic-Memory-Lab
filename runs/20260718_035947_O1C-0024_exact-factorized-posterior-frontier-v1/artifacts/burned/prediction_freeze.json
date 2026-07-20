@@ -1,0 +1,39 @@
+{
+  "artifact_commitments": {
+    "burned/candidates.bin": {
+      "bytes": 2097152,
+      "sha256": "84ca1b77cd5fa650c1bbb2fc24d7baf94c116f3b6c57081000a2032c0cc58c94"
+    },
+    "burned/frontier_index.json": {
+      "bytes": 665,
+      "sha256": "007b9a200ebfe0d29c25ca07b37e09a11e93b834ae3cb542517a99847e3cb2e9"
+    },
+    "burned/posterior.f64le": {
+      "bytes": 2048,
+      "sha256": "0f9c3b9f99af49f7b2a03a3a2c89e5ac81ba1ebcdad3e9db8e9b83265f129c7d"
+    },
+    "burned/publication.json": {
+      "bytes": 789,
+      "sha256": "577f10a7cf69d58eeb842fe9dba903f27499dfb6be4fa5a7366e2b22f3a44b81"
+    },
+    "burned/scores.f64le": {
+      "bytes": 524288,
+      "sha256": "723588bf9464bd8f78f10aeec629fd93204733e8111e8e61e2f269a2d8f9f287"
+    },
+    "burned/source_manifest_index.json": {
+      "bytes": 970,
+      "sha256": "443e3dae4f4dae5f121ecad7affbefcb5561c9270fe6d7a207624d1420530145"
+    }
+  },
+  "candidate_count": 65536,
+  "freeze_sha256": "0413c23b2416f680c69eaabfa5a9802454f970344c3a01f261f035c98ef99237",
+  "phase": "GLOBAL_TOPK_FROZEN_BEFORE_BURNED_REVEAL_READ",
+  "schema": "o1-256-posterior-frontier-prediction-freeze-v1",
+  "semantic_reveal_reads_before_freeze": 0,
+  "source_capsule": "runs/20260717_115325_O1C-0016_full256-polyphase-blind-replication-v2",
+  "source_manifest_sha256": "fd0469885ee436414f94d708006cc40d86fc730d25b618167c7d664b3fe195ea",
+  "source_prediction_freeze_sha256": "169252f77e0e66e1afab1c486692c27dc2217c40d566c1468241266141fecbdc",
+  "target_id": "o1c0016-replication-0000",
+  "tie_policy": "ascending-flip-penalty-then-coordinate topology; equal subset sums use ascending topology bitmask",
+  "truth_used_for_generation": false
+}

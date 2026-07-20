@@ -1,0 +1,34 @@
+{
+  "attempt_id": "O1C-0028",
+  "captured": {
+    "cwd": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab",
+    "executable": "/opt/anaconda3/bin/python",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "python": "3.12.7",
+    "timezone": "Europe/Berlin"
+  },
+  "provided": {
+    "accelerator": "none",
+    "canonical_packet_extraction_generations": 1,
+    "cipher_target_reads": 0,
+    "dense_stream_bytes": 9216,
+    "derived_packet_extractions": 2,
+    "experiment_boundary": "synthetic-full256-packet-to-polyphase-mechanism",
+    "gpu_calls": 0,
+    "hard_interruption_policy": "FINALIZE_STOPPED_AND_NEVER_REPLAY",
+    "legacy_controller_stack_imported": false,
+    "mps_calls": 0,
+    "network_calls": 0,
+    "numpy_version": "1.26.4",
+    "packet_codec": "pure-stdlib-byte-exact-o1c22-v1",
+    "packet_extractions_rehydrated": 1,
+    "scientific_entropy_calls": 0,
+    "sibling_repository_reads": 0,
+    "sibling_repository_writes": 0,
+    "solver_calls": 0,
+    "state_bytes": 25128,
+    "torch_imported": false,
+    "unknown_key_reads": 0
+  },
+  "schema": "o1c-run-environment-v1"
+}

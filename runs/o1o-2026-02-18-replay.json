@@ -1,0 +1,1245 @@
+{
+  "adaptive_trace": {
+    "adaptive_retries": 6,
+    "chained_tools": 1,
+    "edge_fidelity": "aggregate counts; parent task ids were not stored",
+    "retry_successes": 3,
+    "services_discovered": 28,
+    "source_artifact": "engagement_report.json",
+    "source_sha256": "2fe6ff071883e195f900d008a4353158bb48531e3d463c4122b847ac9f6f69c2",
+    "tools_generated": 10,
+    "tools_succeeded": 8
+  },
+  "event_count": 54,
+  "events": [
+    {
+      "address": "session/services_discovered",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "ca4f3e5d5683aa15c2e0fb3aa1128f52d5167472fbec7b0b19925e6373539237",
+      "kind": "OBSERVATION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "engagement_report.json",
+      "source_sha256": "2fe6ff071883e195f900d008a4353158bb48531e3d463c4122b847ac9f6f69c2",
+      "source_task": "SESSION",
+      "status": "UNKNOWN",
+      "value": 28.0
+    },
+    {
+      "address": "session/tools_generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "603ed18e67f1e1be82046b814aef8526168f4961e000d07d25103527df5a7db4",
+      "kind": "OBSERVATION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "engagement_report.json",
+      "source_sha256": "2fe6ff071883e195f900d008a4353158bb48531e3d463c4122b847ac9f6f69c2",
+      "source_task": "SESSION",
+      "status": "UNKNOWN",
+      "value": 10.0
+    },
+    {
+      "address": "session/tools_succeeded",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "e4fffbcc0f6aff7b8add40cd900f2350171dd25eeb38fad60d8520493e9804da",
+      "kind": "OBSERVATION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "engagement_report.json",
+      "source_sha256": "2fe6ff071883e195f900d008a4353158bb48531e3d463c4122b847ac9f6f69c2",
+      "source_task": "SESSION",
+      "status": "UNKNOWN",
+      "value": 8.0
+    },
+    {
+      "address": "session/adaptive_retries",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "f32d0cc95b3f9742b89755f26113406d3c6d701031c581af9ee77d36be1d8b72",
+      "kind": "OBSERVATION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "engagement_report.json",
+      "source_sha256": "2fe6ff071883e195f900d008a4353158bb48531e3d463c4122b847ac9f6f69c2",
+      "source_task": "SESSION",
+      "status": "UNKNOWN",
+      "value": 6.0
+    },
+    {
+      "address": "session/retry_successes",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "e3944f958ea7947ca79a28915f3e19529f542bf98ecced369defb44917771c33",
+      "kind": "OBSERVATION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "engagement_report.json",
+      "source_sha256": "2fe6ff071883e195f900d008a4353158bb48531e3d463c4122b847ac9f6f69c2",
+      "source_task": "SESSION",
+      "status": "UNKNOWN",
+      "value": 3.0
+    },
+    {
+      "address": "session/chained_tools",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "117d9efae32e77f1564c39bc25d2dcbca165e8bff2d25a41075aa1d4299a864f",
+      "kind": "OBSERVATION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "engagement_report.json",
+      "source_sha256": "2fe6ff071883e195f900d008a4353158bb48531e3d463c4122b847ac9f6f69c2",
+      "source_task": "SESSION",
+      "status": "UNKNOWN",
+      "value": 1.0
+    },
+    {
+      "address": "task/001/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "a8688b0c47fff673d65683a1d963c2732c0005776f312fadf114684ffe73e9ac",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/001/meta.json",
+      "source_sha256": "e6b221ae3f38f6d2b6f06e1374cbf28c01472a0d782901d00c0ed16316db58b5",
+      "source_task": "001",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/001/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "674741e33a92c3db0f6ce8380ccd56f5f2140e7632c38e6e1ed0e5741feddc63",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/001/meta.json",
+      "source_sha256": "e6b221ae3f38f6d2b6f06e1374cbf28c01472a0d782901d00c0ed16316db58b5",
+      "source_task": "001",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/001/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "fc9606db879d78fce17ef1c29e7ad0a7572330cc7782f75923c243b551675cb9",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/001/execution_result.json",
+      "source_sha256": "9409bd9e38ff8e6fc6829efed5705626a495247c69fc615ca995e8ab3d306c22",
+      "source_task": "001",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/002/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "c025497959f18acf3c8a42c46a7a29dd74796dd0de96ba99658fbe79d278f207",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/002/meta.json",
+      "source_sha256": "4fe6247bbe4540fa7675298686902e8e8e936fe3771ed559b2757085c268cd63",
+      "source_task": "002",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/002/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "a6af6701cb44bfaa23663ebc69b241b2872b141caeb8c2d79778c4b1568e618b",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/002/meta.json",
+      "source_sha256": "4fe6247bbe4540fa7675298686902e8e8e936fe3771ed559b2757085c268cd63",
+      "source_task": "002",
+      "status": "NEGATIVE",
+      "value": -1.0
+    },
+    {
+      "address": "task/002/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "3c0c4af56bc44e9f4eb79fe3fa0a8e09d4545e870eed73d81a09fecec72c52ec",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/002/execution_result.json",
+      "source_sha256": "580600595844dddf495ce35215e55bc68b384132a0148d42bcafb009a2225a8d",
+      "source_task": "002",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/003/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "b79f52735609acc57c5a59bae0caeea20c3e0ec62a2f7ca22e1c9ee728127d80",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/003/meta.json",
+      "source_sha256": "e0ea39bc124c65b0c92b5bbe0410aff95feacfabe8a7477b11e9df082fa51e9f",
+      "source_task": "003",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/003/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "386aba1c43658607f12cca5da515f118fdec15691072f0fd37ec5fd31e5dadbf",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/003/meta.json",
+      "source_sha256": "e0ea39bc124c65b0c92b5bbe0410aff95feacfabe8a7477b11e9df082fa51e9f",
+      "source_task": "003",
+      "status": "NEGATIVE",
+      "value": -1.0
+    },
+    {
+      "address": "task/003/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "92f880807b1e1e41116097d9b536abfb559b7b2e79e16f4e7757d60c7fc3c297",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/003/execution_result.json",
+      "source_sha256": "9cf4a778294d3d141169af9a77246e1b4eff0b50bf2328ec146da5303015755f",
+      "source_task": "003",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/004/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "563bff205ff1389cf53586383359e6694a82399200c7c2bd06b524f1599cdacd",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/004/meta.json",
+      "source_sha256": "01ca2578c83aa4f702f4eeb482c5e3b3e6a1a6eefae0d5e64d361d7683737d3c",
+      "source_task": "004",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/004/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "dab6a7deb019df5b1444daf682fca735d348f02067cabb34df4bf9b7e90ac61b",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/004/meta.json",
+      "source_sha256": "01ca2578c83aa4f702f4eeb482c5e3b3e6a1a6eefae0d5e64d361d7683737d3c",
+      "source_task": "004",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/004/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "f9a18db4e7328013f7a6cc6020d9ebe77634c29f3284c71cd9f6baf2159acade",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/004/execution_result.json",
+      "source_sha256": "0bc9b903836bb8b9dc83d0a1d54e3ce60cba4c641848d1215782af07a204ffd7",
+      "source_task": "004",
+      "status": "NEGATIVE",
+      "value": -1.0
+    },
+    {
+      "address": "task/005/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "42c2ce2af377141c101bdd3c4023d6a23fd7f0395f84a5df762d169ea3132985",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/005/meta.json",
+      "source_sha256": "1e01f605dac698d0446be3943c08f77fbe3eef4d895842b9e0666a599158c5f8",
+      "source_task": "005",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/005/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "5bdd968d02e674306ecc6211bbff73523ee8f9da158de2434a0cd644067792d8",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/005/meta.json",
+      "source_sha256": "1e01f605dac698d0446be3943c08f77fbe3eef4d895842b9e0666a599158c5f8",
+      "source_task": "005",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/005/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "b792aaf9212b6907e38958964aa67d4e823b4a65d4bf412da32b8f07a7b17137",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/005/execution_result.json",
+      "source_sha256": "94f34476fba353278f6cd965704aecb45527d8a7db11d3f4c662896a303b53fd",
+      "source_task": "005",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/006/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "f997aeb9e6dd168021d06b5f4b660937393951ce51bdd2be3fdc44a5f39284fc",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/006/meta.json",
+      "source_sha256": "3e728140939c628125b1c0ed598127e9ace70a65555f14f5f66a3597752ad289",
+      "source_task": "006",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/006/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "9a6703d4fde521b5799e4cf618ed05b51fe31824843bcd3d3d0155fc5305aac0",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/006/meta.json",
+      "source_sha256": "3e728140939c628125b1c0ed598127e9ace70a65555f14f5f66a3597752ad289",
+      "source_task": "006",
+      "status": "NEGATIVE",
+      "value": -1.0
+    },
+    {
+      "address": "task/006/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "96260948289e9831106633091b4182e0db4885d7c4d49c8d38ea0c0f44e0011b",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/006/execution_result.json",
+      "source_sha256": "5fed0393bd1f693ed655b68acb83eafc28da5d71b01fd1182f56d5d720f5fb68",
+      "source_task": "006",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/007/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "d2f751dae34cab21ddaa27d69d8ab1f6be8794338f548de52301a927968438c8",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/007/meta.json",
+      "source_sha256": "2ebbd9a02388b99c69ca051243fa90c491e51e3fbb4534c3de1e23f1c4611c58",
+      "source_task": "007",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/007/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "f6b960566e94928ec6dc07c582716649930dab9be2e4765fb251c24ff3c706e7",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/007/meta.json",
+      "source_sha256": "2ebbd9a02388b99c69ca051243fa90c491e51e3fbb4534c3de1e23f1c4611c58",
+      "source_task": "007",
+      "status": "NEGATIVE",
+      "value": -1.0
+    },
+    {
+      "address": "task/007/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "83f8fb306b2ced6cd152c3de0af6e2c22369c211f7bf37497f7560db16202753",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/007/execution_result.json",
+      "source_sha256": "752cce5b5fe28b468c602f5e7fd405690ec60481620335e5c54302181c2d838e",
+      "source_task": "007",
+      "status": "NEGATIVE",
+      "value": -1.0
+    },
+    {
+      "address": "task/008/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "5325f3413e6681e15505543e9c4882688dba6d54b34347e240d63eb3b6191be4",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/008/meta.json",
+      "source_sha256": "51c63b4aabc8a1e61c05029cbd66fae87520799cfc0fc7d50d285d3112173214",
+      "source_task": "008",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/008/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "789ee9f1e76ff4209b1f74db5b8710a7045ed5d1e066776f0327b3acc6cbbf4b",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/008/meta.json",
+      "source_sha256": "51c63b4aabc8a1e61c05029cbd66fae87520799cfc0fc7d50d285d3112173214",
+      "source_task": "008",
+      "status": "NEGATIVE",
+      "value": -1.0
+    },
+    {
+      "address": "task/008/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "77274efccb49eb576f435615a0fe9d502573ef258f03e40d5441026aab89a7ee",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/008/execution_result.json",
+      "source_sha256": "40e8139556f3cff6678f9c6ee73f2fe2e9b9853e6d6467e500b5a32efc904311",
+      "source_task": "008",
+      "status": "NEGATIVE",
+      "value": -1.0
+    },
+    {
+      "address": "task/009/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "77df8b4f808a6a76da1c320a27a606218e6eda53281f63c555952926a08b4b10",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/009/meta.json",
+      "source_sha256": "97410f9538fce0c355e3f13e901b144dfeb94063cf4ec02e7a7bbc3ee6f0b294",
+      "source_task": "009",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/009/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "fcb077ff392d9a16e3ce6fca9de5f9f0c97ba59537fd1a0b9bf836457b804b5d",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/009/meta.json",
+      "source_sha256": "97410f9538fce0c355e3f13e901b144dfeb94063cf4ec02e7a7bbc3ee6f0b294",
+      "source_task": "009",
+      "status": "NEGATIVE",
+      "value": -1.0
+    },
+    {
+      "address": "task/009/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "d459946d3aae55b9a91b040bce83c267f49958c017d0dc94de8a74474bca9e36",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/009/execution_result.json",
+      "source_sha256": "566dfccdbcaaf05b79f7de76918ca026ff03d5e648f4db38a3ff01025e559ab3",
+      "source_task": "009",
+      "status": "NEGATIVE",
+      "value": -1.0
+    },
+    {
+      "address": "task/010/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "b4297c479393098c2ce3f26c141f5e64b7205bacede28e35d469ecfed917c9b0",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/010/meta.json",
+      "source_sha256": "bf579772f69f1ecd90f4a1528cc68b79651270d772f69d4b18967b79f5dd7e68",
+      "source_task": "010",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/010/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "8aefcc10ac9a2d9d9654f58b9d2a33f9c1f41fc11e51bfbe66973ca246a625ed",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/010/meta.json",
+      "source_sha256": "bf579772f69f1ecd90f4a1528cc68b79651270d772f69d4b18967b79f5dd7e68",
+      "source_task": "010",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/010/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "2060373c7678706d646b530c12e1ff00a00c356837de2b29614282ae2c512e80",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/010/execution_result.json",
+      "source_sha256": "096a39afd2966eb0d580de5b05af3892e9b33193e64bfefae4d238ae3e3ffb6a",
+      "source_task": "010",
+      "status": "NEGATIVE",
+      "value": -1.0
+    },
+    {
+      "address": "task/011/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "672dc39374059f65b14d4d50dd0ce0fa92251bb0fae29257cf0a43d0ec773d35",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/011/meta.json",
+      "source_sha256": "c7d330233b596e17597d6f67dca7b06ad784960b3ca6704744568402599f26d9",
+      "source_task": "011",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/011/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "7a3f1f2d99ea8fa2cecec5f5ad36b292feb2e767c64c3f17f823b46d14efb27e",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/011/meta.json",
+      "source_sha256": "c7d330233b596e17597d6f67dca7b06ad784960b3ca6704744568402599f26d9",
+      "source_task": "011",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/011/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "f88bda2c411cde55de744ab7161d77d271be643d9df6df5921b37dfa71fea7ab",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/011/execution_result.json",
+      "source_sha256": "7c2d4ed30a562b31053f408ed417ea4750305be13393a19d3ba9288a6a2a424b",
+      "source_task": "011",
+      "status": "NEGATIVE",
+      "value": -1.0
+    },
+    {
+      "address": "task/012/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "43dd450efefea22698644b177f3280a68ebff2b15255d1cf5ebf571cba36336c",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/012/meta.json",
+      "source_sha256": "5a75c8a7614dfc059d8636e6e0b3e72e7894fa4f87c5cf03a903dd52c7180fd3",
+      "source_task": "012",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/012/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "27906b25e5c7a98fa0814060e4d9281d90a418791d43cc82d4259c27058ac7f3",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/012/meta.json",
+      "source_sha256": "5a75c8a7614dfc059d8636e6e0b3e72e7894fa4f87c5cf03a903dd52c7180fd3",
+      "source_task": "012",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/012/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "d32f83ec3fa005fb1b403739b8b0329542faf8978751dbd5c6cab96ed29c13f5",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/012/execution_result.json",
+      "source_sha256": "c2f31bbbbc0b1ec4b93ff8a07173b182211183ca55fc2516bc8824753479db22",
+      "source_task": "012",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/013/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "753370055c21930037b72331ce8274ae5ad63019de7c0a1a3d7988e29c75ea4b",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/013/meta.json",
+      "source_sha256": "6f810638296276ff260e1877a6da9bdf0e540a65e44f48a9c6744af5a7e7f675",
+      "source_task": "013",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/013/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "cd92c02fa59fda5529d14b31a64900edbfa108eeee776392f7e6ffa9f5f96e29",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/013/meta.json",
+      "source_sha256": "6f810638296276ff260e1877a6da9bdf0e540a65e44f48a9c6744af5a7e7f675",
+      "source_task": "013",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/013/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "03c3c024d9027a215f524b865d8aae1186ea81638ac68a4db284aec2b567ce83",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/013/execution_result.json",
+      "source_sha256": "21a34bae7f876c0cf5b9887f86bb92b2844a3bee9200f0964f10bb455ed6cceb",
+      "source_task": "013",
+      "status": "NEGATIVE",
+      "value": -1.0
+    },
+    {
+      "address": "task/014/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "b11268541f835ef03b4f7144e257405d28bf2f2b44f93e21f529a36a0101130e",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/014/meta.json",
+      "source_sha256": "8713964e5c5a856bd2a84926fd380f851df9df3d06d1388905ebe4eb9c978a94",
+      "source_task": "014",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/014/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "06588d68ac3ed97406274527caad785641d409427d1be106fa883c5378b2ccef",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/014/meta.json",
+      "source_sha256": "8713964e5c5a856bd2a84926fd380f851df9df3d06d1388905ebe4eb9c978a94",
+      "source_task": "014",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/014/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "5c4d3ffd8ad12c3a3752b51d3177ce0dd36a56dcca09607b6b7445b11c0e3cbc",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/014/execution_result.json",
+      "source_sha256": "cf6eac5a6c6b6b04bbb0e1ed289018ad719c23e06ed026af0a3dc45ebe736cd5",
+      "source_task": "014",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/015/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "1fda77429fdffb8dc0292add41c05ecc030a2f08bf355d7541bc72c869f6cf19",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/015/meta.json",
+      "source_sha256": "cdc356e58a8283305829adef9fa3e2ad88328c2e8f13eb71dcafe25b0593a677",
+      "source_task": "015",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/015/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "46d94e10ea4723802b9def027312af4ec7c5b47ec81ed9a80e826cc40f6b6c82",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/015/meta.json",
+      "source_sha256": "cdc356e58a8283305829adef9fa3e2ad88328c2e8f13eb71dcafe25b0593a677",
+      "source_task": "015",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/015/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "541030099ea980a1a0bce3613583f1cc619c9b76c9f6dcbcba78ca35d95c2ebb",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/015/execution_result.json",
+      "source_sha256": "dfd53e64c46cfa935530d2f431771ca85d2501ab1ab81aa0dc49de5e9a1f7c0c",
+      "source_task": "015",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/016/generated",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "b33b21ec22a8bde5469ba793cad89057f2d2d049cdd0dae792c90c5a5256718f",
+      "kind": "ACTION",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/016/meta.json",
+      "source_sha256": "e853256685006e9e7db05b31d03b8234c4d9289d5dd96adbe200e028323164bd",
+      "source_task": "016",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/016/structural_verification",
+      "confidence": 1.0,
+      "dimension": "GENERATION",
+      "event_id": "1e645e914e0a8cfed8836e538b1b0846e41772e147d8b691c40352ff1a118648",
+      "kind": "SUPPORT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/016/meta.json",
+      "source_sha256": "e853256685006e9e7db05b31d03b8234c4d9289d5dd96adbe200e028323164bd",
+      "source_task": "016",
+      "status": "POSITIVE",
+      "value": 1.0
+    },
+    {
+      "address": "task/016/process",
+      "confidence": 1.0,
+      "dimension": "PROCESS",
+      "event_id": "035a6a1025a87121646167030eed42241a92d15998656a3d75446ce3fac8831e",
+      "kind": "RESULT",
+      "labels": [
+        "INTERNAL_TRAIN",
+        "TRAIN_LABEL"
+      ],
+      "session_id": "2026-02-18_013412",
+      "source_artifact": "tasks/016/execution_result.json",
+      "source_sha256": "789609b78a9c99f69d1bb7be67f7b4d388d534098f150b6b383b54eac291176b",
+      "source_task": "016",
+      "status": "NEGATIVE",
+      "value": -1.0
+    }
+  ],
+  "outcome_counts": {
+    "capability": {
+      "NEGATIVE": 0,
+      "POSITIVE": 0,
+      "UNKNOWN": 16
+    },
+    "compiles": {
+      "NEGATIVE": 0,
+      "POSITIVE": 16,
+      "UNKNOWN": 0
+    },
+    "mission": {
+      "NEGATIVE": 0,
+      "POSITIVE": 0,
+      "UNKNOWN": 16
+    },
+    "process": {
+      "NEGATIVE": 8,
+      "POSITIVE": 8,
+      "UNKNOWN": 0
+    },
+    "verified": {
+      "NEGATIVE": 6,
+      "POSITIVE": 10,
+      "UNKNOWN": 0
+    }
+  },
+  "schema": "o1-o-session-replay-v2",
+  "semantic_contract": {
+    "capability_success_is_not_mission_success": true,
+    "generated_code_executed": false,
+    "process_success_is_not_capability_success": true,
+    "stdout_stderr_hashes_are_unsalted_fingerprints": true,
+    "stdout_stderr_raw_omitted": true,
+    "stdout_stderr_redacted": true
+  },
+  "session_id": "2026-02-18_013412",
+  "source_root": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/O1-O/2026-02-18_013412",
+  "source_snapshot_sha256": "199e0244db96628625d6af89eed61a3c39093c90131f624b3be81b31990f0657",
+  "target_model_ingest": {
+    "bounded_control_state": true,
+    "family_attempts": {
+      "replay/generation/action": 16,
+      "replay/generation/observation": 2,
+      "replay/generation/support": 16,
+      "replay/process/observation": 4,
+      "replay/process/result": 16
+    },
+    "mode": "neutral typed observations; no success reward inferred",
+    "observations": 54,
+    "state_sha256": "4ca00bef964ff18f2c72090a76ed4bda707180211871313a2e119dfd55bc0865"
+  },
+  "task_count": 16,
+  "tasks": [
+    {
+      "execution_sha256": "9409bd9e38ff8e6fc6829efed5705626a495247c69fc615ca995e8ab3d306c22",
+      "meta_sha256": "e6b221ae3f38f6d2b6f06e1374cbf28c01472a0d782901d00c0ed16316db58b5",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "POSITIVE",
+        "verified": "POSITIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 18,
+      "stdout_sha256": "08417eaf4bcc2555a681f30ba4dbf8789326e2464b1a0ab0105d30b5b31e3cfc",
+      "task_id": "001"
+    },
+    {
+      "execution_sha256": "580600595844dddf495ce35215e55bc68b384132a0148d42bcafb009a2225a8d",
+      "meta_sha256": "4fe6247bbe4540fa7675298686902e8e8e936fe3771ed559b2757085c268cd63",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "POSITIVE",
+        "verified": "NEGATIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 1391,
+      "stdout_sha256": "40dc5b6f73053c55e78948d01e0bed84be8f03075cd6618e2f79547602e426d0",
+      "task_id": "002"
+    },
+    {
+      "execution_sha256": "9cf4a778294d3d141169af9a77246e1b4eff0b50bf2328ec146da5303015755f",
+      "meta_sha256": "e0ea39bc124c65b0c92b5bbe0410aff95feacfabe8a7477b11e9df082fa51e9f",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "POSITIVE",
+        "verified": "NEGATIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 124,
+      "stdout_sha256": "5613dac5c2ce99970d5ccaa390a1a608786b89841d6b94678bf5be3eb2bfd7f6",
+      "task_id": "003"
+    },
+    {
+      "execution_sha256": "0bc9b903836bb8b9dc83d0a1d54e3ce60cba4c641848d1215782af07a204ffd7",
+      "meta_sha256": "01ca2578c83aa4f702f4eeb482c5e3b3e6a1a6eefae0d5e64d361d7683737d3c",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "NEGATIVE",
+        "verified": "POSITIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "task_id": "004"
+    },
+    {
+      "execution_sha256": "94f34476fba353278f6cd965704aecb45527d8a7db11d3f4c662896a303b53fd",
+      "meta_sha256": "1e01f605dac698d0446be3943c08f77fbe3eef4d895842b9e0666a599158c5f8",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "POSITIVE",
+        "verified": "POSITIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 1002,
+      "stdout_sha256": "1594e799f68b2cb38ebaadcf84fc39a0c41e1a69f7aeb6b505f00017af5193d1",
+      "task_id": "005"
+    },
+    {
+      "execution_sha256": "5fed0393bd1f693ed655b68acb83eafc28da5d71b01fd1182f56d5d720f5fb68",
+      "meta_sha256": "3e728140939c628125b1c0ed598127e9ace70a65555f14f5f66a3597752ad289",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "POSITIVE",
+        "verified": "NEGATIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "task_id": "006"
+    },
+    {
+      "execution_sha256": "752cce5b5fe28b468c602f5e7fd405690ec60481620335e5c54302181c2d838e",
+      "meta_sha256": "2ebbd9a02388b99c69ca051243fa90c491e51e3fbb4534c3de1e23f1c4611c58",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "NEGATIVE",
+        "verified": "NEGATIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "task_id": "007"
+    },
+    {
+      "execution_sha256": "40e8139556f3cff6678f9c6ee73f2fe2e9b9853e6d6467e500b5a32efc904311",
+      "meta_sha256": "51c63b4aabc8a1e61c05029cbd66fae87520799cfc0fc7d50d285d3112173214",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "NEGATIVE",
+        "verified": "NEGATIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "task_id": "008"
+    },
+    {
+      "execution_sha256": "566dfccdbcaaf05b79f7de76918ca026ff03d5e648f4db38a3ff01025e559ab3",
+      "meta_sha256": "97410f9538fce0c355e3f13e901b144dfeb94063cf4ec02e7a7bbc3ee6f0b294",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "NEGATIVE",
+        "verified": "NEGATIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "task_id": "009"
+    },
+    {
+      "execution_sha256": "096a39afd2966eb0d580de5b05af3892e9b33193e64bfefae4d238ae3e3ffb6a",
+      "meta_sha256": "bf579772f69f1ecd90f4a1528cc68b79651270d772f69d4b18967b79f5dd7e68",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "NEGATIVE",
+        "verified": "POSITIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "task_id": "010"
+    },
+    {
+      "execution_sha256": "7c2d4ed30a562b31053f408ed417ea4750305be13393a19d3ba9288a6a2a424b",
+      "meta_sha256": "c7d330233b596e17597d6f67dca7b06ad784960b3ca6704744568402599f26d9",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "NEGATIVE",
+        "verified": "POSITIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "task_id": "011"
+    },
+    {
+      "execution_sha256": "c2f31bbbbc0b1ec4b93ff8a07173b182211183ca55fc2516bc8824753479db22",
+      "meta_sha256": "5a75c8a7614dfc059d8636e6e0b3e72e7894fa4f87c5cf03a903dd52c7180fd3",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "POSITIVE",
+        "verified": "POSITIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 153,
+      "stdout_sha256": "e65a5060bc6d62cb12f4fcccf1b24bc04c41a09bfc78ebd319b966da9da14021",
+      "task_id": "012"
+    },
+    {
+      "execution_sha256": "21a34bae7f876c0cf5b9887f86bb92b2844a3bee9200f0964f10bb455ed6cceb",
+      "meta_sha256": "6f810638296276ff260e1877a6da9bdf0e540a65e44f48a9c6744af5a7e7f675",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "NEGATIVE",
+        "verified": "POSITIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "task_id": "013"
+    },
+    {
+      "execution_sha256": "cf6eac5a6c6b6b04bbb0e1ed289018ad719c23e06ed026af0a3dc45ebe736cd5",
+      "meta_sha256": "8713964e5c5a856bd2a84926fd380f851df9df3d06d1388905ebe4eb9c978a94",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "POSITIVE",
+        "verified": "POSITIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 1002,
+      "stdout_sha256": "b40602403306a5520c2da275423bc4a15c0108bcedfe9d9c58bc7045c6291e49",
+      "task_id": "014"
+    },
+    {
+      "execution_sha256": "dfd53e64c46cfa935530d2f431771ca85d2501ab1ab81aa0dc49de5e9a1f7c0c",
+      "meta_sha256": "cdc356e58a8283305829adef9fa3e2ad88328c2e8f13eb71dcafe25b0593a677",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "POSITIVE",
+        "verified": "POSITIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 127,
+      "stdout_sha256": "94091715e54e26d793229d2c104bd8d2f5170e65f016272f3859f838bf2205a8",
+      "task_id": "015"
+    },
+    {
+      "execution_sha256": "789609b78a9c99f69d1bb7be67f7b4d388d534098f150b6b383b54eac291176b",
+      "meta_sha256": "e853256685006e9e7db05b31d03b8234c4d9289d5dd96adbe200e028323164bd",
+      "outcomes": {
+        "capability": "UNKNOWN",
+        "compiles": "POSITIVE",
+        "mission": "UNKNOWN",
+        "process": "NEGATIVE",
+        "verified": "POSITIVE"
+      },
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "task_id": "016"
+    }
+  ]
+}

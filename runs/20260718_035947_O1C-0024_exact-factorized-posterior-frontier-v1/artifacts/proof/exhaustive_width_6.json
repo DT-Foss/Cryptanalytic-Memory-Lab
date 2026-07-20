@@ -1,0 +1,660 @@
+{
+  "best_first": [
+    {
+      "penalty_float64_hex": "0x0.0p+0",
+      "rank": 1,
+      "topology_code": 0
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-3",
+      "rank": 2,
+      "topology_code": 1
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-3",
+      "rank": 3,
+      "topology_code": 2
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-3",
+      "rank": 4,
+      "topology_code": 4
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-3",
+      "rank": 5,
+      "topology_code": 8
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-3",
+      "rank": 6,
+      "topology_code": 16
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-3",
+      "rank": 7,
+      "topology_code": 32
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 8,
+      "topology_code": 3
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 9,
+      "topology_code": 5
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 10,
+      "topology_code": 6
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 11,
+      "topology_code": 9
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 12,
+      "topology_code": 10
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 13,
+      "topology_code": 12
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 14,
+      "topology_code": 17
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 15,
+      "topology_code": 18
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 16,
+      "topology_code": 20
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 17,
+      "topology_code": 24
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 18,
+      "topology_code": 33
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 19,
+      "topology_code": 34
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 20,
+      "topology_code": 36
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 21,
+      "topology_code": 40
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 22,
+      "topology_code": 48
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 23,
+      "topology_code": 7
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 24,
+      "topology_code": 11
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 25,
+      "topology_code": 13
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 26,
+      "topology_code": 14
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 27,
+      "topology_code": 19
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 28,
+      "topology_code": 21
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 29,
+      "topology_code": 22
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 30,
+      "topology_code": 25
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 31,
+      "topology_code": 26
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 32,
+      "topology_code": 28
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 33,
+      "topology_code": 35
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 34,
+      "topology_code": 37
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 35,
+      "topology_code": 38
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 36,
+      "topology_code": 41
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 37,
+      "topology_code": 42
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 38,
+      "topology_code": 44
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 39,
+      "topology_code": 49
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 40,
+      "topology_code": 50
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 41,
+      "topology_code": 52
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 42,
+      "topology_code": 56
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 43,
+      "topology_code": 15
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 44,
+      "topology_code": 23
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 45,
+      "topology_code": 27
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 46,
+      "topology_code": 29
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 47,
+      "topology_code": 30
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 48,
+      "topology_code": 39
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 49,
+      "topology_code": 43
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 50,
+      "topology_code": 45
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 51,
+      "topology_code": 46
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 52,
+      "topology_code": 51
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 53,
+      "topology_code": 53
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 54,
+      "topology_code": 54
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 55,
+      "topology_code": 57
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 56,
+      "topology_code": 58
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 57,
+      "topology_code": 60
+    },
+    {
+      "penalty_float64_hex": "0x1.d1eb851eb8517p-1",
+      "rank": 58,
+      "topology_code": 31
+    },
+    {
+      "penalty_float64_hex": "0x1.d1eb851eb8517p-1",
+      "rank": 59,
+      "topology_code": 47
+    },
+    {
+      "penalty_float64_hex": "0x1.d1eb851eb8517p-1",
+      "rank": 60,
+      "topology_code": 55
+    },
+    {
+      "penalty_float64_hex": "0x1.d1eb851eb8517p-1",
+      "rank": 61,
+      "topology_code": 59
+    },
+    {
+      "penalty_float64_hex": "0x1.d1eb851eb8517p-1",
+      "rank": 62,
+      "topology_code": 61
+    },
+    {
+      "penalty_float64_hex": "0x1.d1eb851eb8517p-1",
+      "rank": 63,
+      "topology_code": 62
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p+0",
+      "rank": 64,
+      "topology_code": 63
+    }
+  ],
+  "candidate_count": 64,
+  "exhaustive": [
+    {
+      "penalty_float64_hex": "0x0.0p+0",
+      "rank": 1,
+      "topology_code": 0
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-3",
+      "rank": 2,
+      "topology_code": 1
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-3",
+      "rank": 3,
+      "topology_code": 2
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-3",
+      "rank": 4,
+      "topology_code": 4
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-3",
+      "rank": 5,
+      "topology_code": 8
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-3",
+      "rank": 6,
+      "topology_code": 16
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-3",
+      "rank": 7,
+      "topology_code": 32
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 8,
+      "topology_code": 3
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 9,
+      "topology_code": 5
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 10,
+      "topology_code": 6
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 11,
+      "topology_code": 9
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 12,
+      "topology_code": 10
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 13,
+      "topology_code": 12
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 14,
+      "topology_code": 17
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 15,
+      "topology_code": 18
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 16,
+      "topology_code": 20
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 17,
+      "topology_code": 24
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 18,
+      "topology_code": 33
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 19,
+      "topology_code": 34
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 20,
+      "topology_code": 36
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 21,
+      "topology_code": 40
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-2",
+      "rank": 22,
+      "topology_code": 48
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 23,
+      "topology_code": 7
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 24,
+      "topology_code": 11
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 25,
+      "topology_code": 13
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 26,
+      "topology_code": 14
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 27,
+      "topology_code": 19
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 28,
+      "topology_code": 21
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 29,
+      "topology_code": 22
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 30,
+      "topology_code": 25
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 31,
+      "topology_code": 26
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 32,
+      "topology_code": 28
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 33,
+      "topology_code": 35
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 34,
+      "topology_code": 37
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 35,
+      "topology_code": 38
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 36,
+      "topology_code": 41
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 37,
+      "topology_code": 42
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 38,
+      "topology_code": 44
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 39,
+      "topology_code": 49
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 40,
+      "topology_code": 50
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 41,
+      "topology_code": 52
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p-1",
+      "rank": 42,
+      "topology_code": 56
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 43,
+      "topology_code": 15
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 44,
+      "topology_code": 23
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 45,
+      "topology_code": 27
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 46,
+      "topology_code": 29
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 47,
+      "topology_code": 30
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 48,
+      "topology_code": 39
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 49,
+      "topology_code": 43
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 50,
+      "topology_code": 45
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 51,
+      "topology_code": 46
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 52,
+      "topology_code": 51
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 53,
+      "topology_code": 53
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 54,
+      "topology_code": 54
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 55,
+      "topology_code": 57
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 56,
+      "topology_code": 58
+    },
+    {
+      "penalty_float64_hex": "0x1.74bc6a7ef9dacp-1",
+      "rank": 57,
+      "topology_code": 60
+    },
+    {
+      "penalty_float64_hex": "0x1.d1eb851eb8517p-1",
+      "rank": 58,
+      "topology_code": 31
+    },
+    {
+      "penalty_float64_hex": "0x1.d1eb851eb8517p-1",
+      "rank": 59,
+      "topology_code": 47
+    },
+    {
+      "penalty_float64_hex": "0x1.d1eb851eb8517p-1",
+      "rank": 60,
+      "topology_code": 55
+    },
+    {
+      "penalty_float64_hex": "0x1.d1eb851eb8517p-1",
+      "rank": 61,
+      "topology_code": 59
+    },
+    {
+      "penalty_float64_hex": "0x1.d1eb851eb8517p-1",
+      "rank": 62,
+      "topology_code": 61
+    },
+    {
+      "penalty_float64_hex": "0x1.d1eb851eb8517p-1",
+      "rank": 63,
+      "topology_code": 62
+    },
+    {
+      "penalty_float64_hex": "0x1.178d4fdf3b641p+0",
+      "rank": 64,
+      "topology_code": 63
+    }
+  ],
+  "orders_match": true,
+  "proof_sha256": "ccea01c529095039832c17f56c362aa532076e728a5d0dcbfa44c5866cb32f1d",
+  "schema": "o1-256-factorized-topk-small-width-proof-v1",
+  "tie_policy": "ascending-flip-penalty-then-coordinate topology; equal subset sums use ascending topology bitmask",
+  "topology": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "width": 6
+}

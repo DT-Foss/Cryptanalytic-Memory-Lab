@@ -1,0 +1,18 @@
+{
+  "darwin_watchdog_guard_bytes": 33554432,
+  "darwin_watchdog_poll_interval_seconds": 0.01,
+  "fresh_reveal_calls": 0,
+  "fresh_targets": 0,
+  "memory_pressure_free_percent": 48,
+  "minimum_memory_pressure_free_percent": 15,
+  "native_memory_enforcement": "proc_pid_rusage-physical-footprint-process-group-watchdog",
+  "native_memory_limit_bytes": 805306368,
+  "o1c59_capsule_reads": 0,
+  "o1c59_result_reads": 0,
+  "o1c59_writes": 0,
+  "observed_at": "2026-07-19T09:02:15+02:00",
+  "schema": "o1-256-multiblock-joint-score-sieve-conflict-ledger-preflight-v1",
+  "scientific_entropy_calls": 0,
+  "solver_calls_before_intent": 0,
+  "source_commit": "bbc226c5b12bf9c8e8de159c11e0d0c2669bd5c5"
+}

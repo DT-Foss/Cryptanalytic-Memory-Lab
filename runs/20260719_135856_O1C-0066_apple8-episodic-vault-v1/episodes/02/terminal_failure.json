@@ -1,0 +1,55 @@
+{
+  "adapter_failure_telemetry": {
+    "classification_kind": "adapter_or_parser",
+    "command": null,
+    "configured_memory_limit_bytes": 536870912,
+    "configured_timeout_seconds": 45.0,
+    "darwin_watchdog_guard_bytes": 33554432,
+    "darwin_watchdog_kill_threshold_bytes": 503316480,
+    "darwin_watchdog_poll_interval_seconds": 0.01,
+    "elapsed_seconds": 2.1533752499963157,
+    "exception_chain": [
+      {
+        "args_repr": "('joint-score-sieve-v5 soft conflict ledger differs',)",
+        "depth": 0,
+        "message": "joint-score-sieve-v5 soft conflict ledger differs",
+        "module": "o1_crypto_lab.o1_relational_search",
+        "relationship": "outer",
+        "type": "O1RelationalSearchError"
+      }
+    ],
+    "memory_last_bytes": null,
+    "memory_last_elapsed_seconds": null,
+    "memory_peak_bytes": null,
+    "memory_sample_count": 0,
+    "memory_sample_limit": 256,
+    "memory_samples": [],
+    "memory_series_schema": "o1-256-joint-score-sieve-bounded-rss-series-v1",
+    "phase": "adapter_validation",
+    "returncode": null,
+    "schema": "o1-256-joint-score-sieve-execution-failure-v1",
+    "signal_name": null,
+    "signal_number": null,
+    "stderr": null,
+    "stdout": null
+  },
+  "classification": "EPISODIC_VAULT_OPERATIONAL_TERMINAL",
+  "episode_ordinal": 2,
+  "error_message": "joint-score-sieve-v5 soft conflict ledger differs",
+  "error_type": "JointScoreSieveExecutionError",
+  "exception_chain_outer_to_cause_or_context": [
+    {
+      "message": "joint-score-sieve-v5 soft conflict ledger differs",
+      "type": "JointScoreSieveExecutionError"
+    },
+    {
+      "message": "joint-score-sieve-v5 soft conflict ledger differs",
+      "type": "O1RelationalSearchError"
+    }
+  ],
+  "intent_sha256": "7a2fb83611fbc6108e2e3503f406141c13b1087a951a075147cdb679fedd62ed",
+  "native_calls_consumed": 3,
+  "occurred_after_persisted_intent": true,
+  "retry_authorized": false,
+  "truth_key_bytes_read": false
+}

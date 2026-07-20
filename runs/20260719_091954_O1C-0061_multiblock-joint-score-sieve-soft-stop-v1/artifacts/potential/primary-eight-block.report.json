@@ -1,0 +1,12 @@
+{
+  "factor_count": 7557,
+  "maximum_factor_variables": 4,
+  "minimum_factor_variables": 3,
+  "observed_variable_count": 2981,
+  "offset": 62.4249017778927,
+  "schema": "o1-256-criticality-potential-field-v1",
+  "serialized_bytes": 2263844,
+  "source_sha256": "b0ef8533128cbfdbb618c46b686bff0bc20f6b2389251b1ae5a2109729d34f26",
+  "state_sha256": "8c6101b49c7050caf895bd9c496c05bcea9f43a2b27f378d7306be38b00d5390",
+  "truth_table_entries": 104432
+}

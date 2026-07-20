@@ -1,0 +1,245 @@
+{
+  "arm_id": "adaptive-dc-5bit-h1.25",
+  "clip_count": 0,
+  "evaluation": {
+    "approximate_field_sha256": "2cc458f7962bc566a9c5e6f2f6e42134be667f49c2940aefdd3f16be26d420b3",
+    "mean_absolute_error": 0.0016159042097768262,
+    "rank_kendall": 0.9389270451770452,
+    "rank_spearman": 0.9950147061547648,
+    "reference_field_sha256": "7bb312b3c98176fe11550935f24261e8d51b878fb2cc3d0e35fe22e418b13b70",
+    "root_mean_square_error": 0.0019166513937966573,
+    "schema": "o1-walsh-approximation-evaluation-v1",
+    "score_pearson": 0.9966141030649517,
+    "target_labels_used": 0,
+    "top_k_overlap": [
+      {
+        "fraction": 1.0,
+        "intersection": 1,
+        "k": 1
+      },
+      {
+        "fraction": 0.875,
+        "intersection": 7,
+        "k": 8
+      },
+      {
+        "fraction": 0.96875,
+        "intersection": 31,
+        "k": 32
+      },
+      {
+        "fraction": 0.953125,
+        "intersection": 122,
+        "k": 128
+      },
+      {
+        "fraction": 0.935546875,
+        "intersection": 479,
+        "k": 512
+      }
+    ]
+  },
+  "frozen_state_sha256": "d3a09d5d79c8c74e8f1b23e7a184864299e53fdd5b9b78aa580d902f9c8f2ee2",
+  "labels_used": 0,
+  "maximum_serialized_logical_mechanism_state_bytes": 7502,
+  "order_uint16be_sha256": "894e7aecd001f295ea073a4f9743cedd6ee5aeae6ab732ff769364fe987a0290",
+  "passes": {
+    "accumulator_updates": 1048576,
+    "field_values_read": 8192,
+    "quantizations": 4096,
+    "ranking_items": 4096,
+    "reconstruction_butterflies": 16384,
+    "scale_updates": 4096,
+    "source_passes": 2,
+    "walsh_character_evaluations": 1048576
+  },
+  "physical_runtime_memory_measured": false,
+  "plan": {
+    "first_pass_state": {
+      "canonical_address_counter_bytes": 2,
+      "logical_sha256_state_bytes": 104,
+      "logical_total_bytes": 234,
+      "peak_float64_values": 16,
+      "serialized_peak_bytes": 128
+    },
+    "input_field_sha256": "7bb312b3c98176fe11550935f24261e8d51b878fb2cc3d0e35fe22e418b13b70",
+    "maximum_serialized_logical_mechanism_state_bytes": 7502,
+    "mechanism_family": "o1-self-calibrating-dc-complete-quantized-walsh-vault",
+    "online_state": {
+      "bits_per_accumulator": 13,
+      "coverage_bits": 4096,
+      "dc_accumulators": 16,
+      "integer_accumulators": 4096,
+      "non_dc_accumulators": 4080,
+      "retained_candidate_rows": 0,
+      "retained_key_value_entries": 0,
+      "serialized_accumulator_bytes": 6656,
+      "serialized_clip_telemetry_bytes": 36,
+      "serialized_coverage_bytes": 512,
+      "serialized_online_state_bytes": 7204,
+      "stream_length_dependent_state": false
+    },
+    "physical_runtime_memory_measured": false,
+    "plan_sha256": "1517970d54691b745bf56c1965b9c783d8da73b50e351b2bfa4d991e56fbfaa1",
+    "schema": "o1-adaptive-dc-walsh-plan-v1",
+    "second_pass_integrity_state": {
+      "canonical_address_counter_bytes": 2,
+      "logical_sha256_state_bytes": 104,
+      "logical_total_bytes": 106
+    },
+    "slot_scales": [
+      0.008333169938919329,
+      0.005976865737510226,
+      0.009083378993638713,
+      0.004405751831511686,
+      0.006079643826225275,
+      0.004677363732056011,
+      0.010472410428655987,
+      0.006138327150737921,
+      0.0061952827500072975,
+      0.005384918162599641,
+      0.006914447594866256,
+      0.005699086092583083,
+      0.004888903503334193,
+      0.005446072044466982,
+      0.006316804751599575,
+      0.006025373807043166
+    ],
+    "slot_scales_sha256": "347f3df415b67e8215b545dee8c6e8fb2c385ddb55457ad7af30f19d61fc5084",
+    "static_plan_storage": {
+      "bound_hash_values": 2,
+      "scale_float64_values": 16,
+      "serialized_bound_hash_bytes": 64,
+      "serialized_scale_bytes": 128,
+      "serialized_static_plan_bytes": 192
+    },
+    "template": {
+      "addressing": {
+        "candidate_id": "(high8 << 4) | low4",
+        "canonical_pass_order": "ascending-candidate-id-0-through-4095",
+        "fixed_low4_slots": 16,
+        "high8_domain_per_slot": 256
+      },
+      "claim_boundary": {
+        "bounded_only_with_respect_to_stream_length_for_fixed_direct12_domain": true,
+        "bounded_state": true,
+        "candidate_domain_size": 4096,
+        "compression_claim_eligible": false,
+        "explicit_kv_cache": false,
+        "full_rank_fixed_domain_transform": true,
+        "information_equivalent_to_quantized_direct_table": true,
+        "no_full_sequence_attention": true,
+        "replayable_source_stream_required": true,
+        "retained_candidate_rows": 0,
+        "retained_key_value_entries": 0,
+        "serialized_logical_state_is_not_python_process_rss": true,
+        "spectral_degrees_of_freedom": 4096,
+        "sublinear_in_candidate_domain": false
+      },
+      "headroom": 1.25,
+      "input_bits": 5,
+      "integrity": {
+        "duplicate_or_out_of_order_policy": "reject-immediately",
+        "field_hash": "o1-walsh-score-field-float64be-v1",
+        "second_pass_must_match_first_pass": true
+      },
+      "mechanism_family": "o1-self-calibrating-dc-complete-quantized-walsh-vault",
+      "name": "adaptive-dc-5bit-h1.25",
+      "scale_rule": {
+        "formula": "scale[low4] = peak_abs[low4] * headroom / quantizer_max",
+        "labels_used": 0,
+        "name": "same-field-per-low4-absolute-peak",
+        "passes": 2
+      },
+      "schema": "o1-adaptive-dc-walsh-template-v1",
+      "spectral_bank": {
+        "accumulator_count": 4096,
+        "includes_dc": true,
+        "mask_interval": [
+          0,
+          255
+        ],
+        "masks_per_slot": 256
+      },
+      "template_sha256": "6aa15a82bc1fa4463ba4256c5c6430dd4af25e5c478a8832a54d22df27993603"
+    }
+  },
+  "plan_sha256": "1517970d54691b745bf56c1965b9c783d8da73b50e351b2bfa4d991e56fbfaa1",
+  "schema": "o1-adaptive-dc-walsh-execution-v1",
+  "serialized_online_state_bytes": 7204,
+  "serialized_static_plan_bytes": 192,
+  "state": {
+    "claim_boundary": {
+      "compression_mechanism_claim_eligible": false,
+      "full_rank_fixed_domain_transform": true,
+      "information_equivalent_to_quantized_direct_table": true,
+      "retained_candidate_rows": 0,
+      "retained_key_value_entries": 0,
+      "retention_scope": "inside-frozen-mechanism-state-only",
+      "target_labels_used": 0,
+      "validation_ceiling_eligible": true
+    },
+    "clip_telemetry": {
+      "negative_by_low4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_by_low4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "total": 0
+    },
+    "completed_source_passes": 2,
+    "coverage_complete": true,
+    "input_field_hash_verified": true,
+    "mechanism_family": "o1-self-calibrating-dc-complete-quantized-walsh-vault",
+    "observations": 4096,
+    "online_state": {
+      "bits_per_accumulator": 13,
+      "coverage_bits": 4096,
+      "dc_accumulators": 16,
+      "integer_accumulators": 4096,
+      "non_dc_accumulators": 4080,
+      "retained_candidate_rows": 0,
+      "retained_key_value_entries": 0,
+      "serialized_accumulator_bytes": 6656,
+      "serialized_clip_telemetry_bytes": 36,
+      "serialized_coverage_bytes": 512,
+      "serialized_online_state_bytes": 7204,
+      "stream_length_dependent_state": false
+    },
+    "plan_sha256": "1517970d54691b745bf56c1965b9c783d8da73b50e351b2bfa4d991e56fbfaa1",
+    "schema": "o1-adaptive-dc-walsh-state-v1",
+    "state_sha256": "d3a09d5d79c8c74e8f1b23e7a184864299e53fdd5b9b78aa580d902f9c8f2ee2"
+  },
+  "template_sha256": "6aa15a82bc1fa4463ba4256c5c6430dd4af25e5c478a8832a54d22df27993603"
+}

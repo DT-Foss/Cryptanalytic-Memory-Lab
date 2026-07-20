@@ -1,0 +1,60 @@
+{
+  "attempt_id": "O1C-0060",
+  "capsule": "runs/20260719_090328_O1C-0060_multiblock-joint-score-sieve-conflict-ledger-v1",
+  "claim_boundary": {
+    "consumed_attempt": "O1C-0057",
+    "native_solver_calls": 1,
+    "new_attempt_not_o1c59_retry": true,
+    "retry_authorized": false,
+    "validated_native_science_result": false
+  },
+  "classification": "OPERATIONAL_NATIVE_FAILURE_NO_SCIENCE_RESULT",
+  "metrics": {
+    "exact_consumed_recovery": false,
+    "native_status": "OPERATIONAL_FAILURE"
+  },
+  "native": null,
+  "next_action": "Do not retry O1C-0059 or O1C-0060; diagnose this immutable new-attempt failure first.",
+  "operational_failure": {
+    "classification": "OPERATIONAL_NATIVE_FAILURE_NO_SCIENCE_RESULT",
+    "error_message": "joint-score-sieve incremental conflict ledger differs",
+    "error_type": "O1RelationalSearchError",
+    "native_calls_consumed": 1,
+    "occurred_after_persisted_intent": true,
+    "retry_authorized": false,
+    "truth_key_bytes_read": false
+  },
+  "preflight": {
+    "darwin_watchdog_guard_bytes": 33554432,
+    "darwin_watchdog_poll_interval_seconds": 0.01,
+    "fresh_reveal_calls": 0,
+    "fresh_targets": 0,
+    "memory_pressure_free_percent": 48,
+    "minimum_memory_pressure_free_percent": 15,
+    "native_memory_enforcement": "proc_pid_rusage-physical-footprint-process-group-watchdog",
+    "native_memory_limit_bytes": 805306368,
+    "o1c59_capsule_reads": 0,
+    "o1c59_result_reads": 0,
+    "o1c59_writes": 0,
+    "observed_at": "2026-07-19T09:02:15+02:00",
+    "schema": "o1-256-multiblock-joint-score-sieve-conflict-ledger-preflight-v1",
+    "scientific_entropy_calls": 0,
+    "solver_calls_before_intent": 0,
+    "source_commit": "bbc226c5b12bf9c8e8de159c11e0d0c2669bd5c5"
+  },
+  "recorded_at": "2026-07-19T09:03:30+02:00",
+  "resources": {
+    "MPS_or_GPU": false,
+    "fresh_reveal_calls": 0,
+    "fresh_targets": 0,
+    "native_solver_calls": 1,
+    "persistent_artifact_bytes": 41538286,
+    "requested_conflicts": 512,
+    "scientific_entropy_calls": 0,
+    "sibling_reads": 0,
+    "sibling_writes": 0
+  },
+  "schema": "o1-256-multiblock-joint-score-sieve-conflict-ledger-result-v1",
+  "source_commit": "bbc226c5b12bf9c8e8de159c11e0d0c2669bd5c5",
+  "started_at": "2026-07-19T09:02:15+02:00"
+}

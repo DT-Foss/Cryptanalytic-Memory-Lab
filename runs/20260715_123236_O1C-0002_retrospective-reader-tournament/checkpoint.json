@@ -1,0 +1,12 @@
+{
+  "attempt_id": "O1C-0002",
+  "payload": {
+    "holdout_labels_read": 0,
+    "phase": "PLAN_AND_HOLDOUT_ORDERS_FROZEN",
+    "plan_sha256": "ae2bda0e6a337b5396cbbab2e72108c38f67543b137f2e266a4f3943d7d7a587",
+    "pre_reveal_sha256": "edda71bdf47a349f9f02ab1175a6392d75eb3025d1535168434e87f9a15ebdaf"
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 2,
+  "updated_at": "2026-07-15T12:32:40.170904+02:00"
+}

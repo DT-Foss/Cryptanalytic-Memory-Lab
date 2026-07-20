@@ -1,0 +1,20 @@
+{
+  "attempt_id": "O1C-0062",
+  "calls_authorized": 1,
+  "calls_before": 0,
+  "cnf_sha256": "e1fc0ac93724004291c960ea06e5584c598853b9ea8370552be09f29e73e2432",
+  "fresh_entropy_calls": 0,
+  "fresh_reveal_calls": 0,
+  "maximum_billed_conflicts": 4097,
+  "maximum_conflict_limit_overshoot": 1,
+  "memory_limit_bytes": 805306368,
+  "native_executable_sha256": "07b132949ec11737b6de8004acb1ee48874812b975604f030865aad6a13b7024",
+  "potential_sha256": "8c6101b49c7050caf895bd9c496c05bcea9f43a2b27f378d7306be38b00d5390",
+  "recorded_at": "2026-07-19T10:21:36+02:00",
+  "requested_conflicts": 4096,
+  "schema": "o1-256-apple8-crossblock-sieve-4k-native-call-intent-v1",
+  "seed": 0,
+  "threshold": 14.606178797892962,
+  "timeout_seconds": 30.0,
+  "truth_key_reads": 0
+}

@@ -1,0 +1,161 @@
+{
+  "execution_sha256": "3eb15f1909ee70efacfc280b6e29da4ef7c356b17697324689c7222f43dbd524",
+  "fresh_architecture_test": false,
+  "input_field": {
+    "attempt_id": "A356",
+    "cells": 4096,
+    "cnf_set_sha256": "cd661331bb78a47bef37f20c2c7f7db8506a2d1dd2356e6411fbb8d42f5f81c7",
+    "cnf_sha256_by_low4": [
+      "0bd23375726b51b954accef819d455a10ade50c3e37b59d2d9957277db9e44e3",
+      "a4a05e31a26786a113be2bdde8f33d4ab342909a4b6698a8e496007d7f6e8ba1",
+      "880d6f6b639bee51b77ce0faae4c93b95ae06d02c390055653e016eb1715e6dc",
+      "f2494af92c1bb87be3a79b0ddff78f9f25bca5f5f782a90280fee7ef2b86f865",
+      "ac96ce8ad7f028054f4d1c0e7654078173059e8cc5c7c386fc860beb2a8b6ee3",
+      "b4dfb5baeb466416e477810430a71006ef5ac9f4ae4b6bfbeb73da6c01d0d359",
+      "fc610c3ddb2a329bc4b63ac156822594d63584ee56bac2ea1dfd56f3468fdbab",
+      "d7eb967c31d42652b53a870ffcff98b70bc1574f952b01671f0ab147fadb7799",
+      "de396859494a0797139a580955cef31e2a36965ac962ef5674b5c385d7435375",
+      "3d3ff027e23c447934941dcfc6d7bff56e74eb4c41f5ed7a023810e88110f8ee",
+      "3bac2dcad991cd323f7869f69a6f06e24ec2fb98548f7b97beb5a710604dbdee",
+      "6929a2599385b4872dd3c0fe0a4bb42479d44e72a60e2900de1affae0dd39ef3",
+      "1bb0c926e1dc7ab0f9be71d325c92cfae66c45e105086f93ed7e04009ec152de",
+      "4e4ac66ed9a65fc7fdca2c06332a8ebab921cbc1504be54d4d3589241ea43313",
+      "2a4c1bb9fe1e1e9f3edbafc5955eb173ddae7045a1c2a5b9f0c0df3dbc4e5337",
+      "808458b06aa3d6468597eb37376417193e5e6a932e299176a746c36b05672b4e"
+    ],
+    "compressed_bytes": 1204281,
+    "input_field_sha256": "4aaa65bfc394a0b33acb19d5c611f6c60d0e91fe5a1fb2d19486b40cc20ba1cb",
+    "raw_bytes": 24344201,
+    "raw_channels": [
+      "conflicts",
+      "decisions",
+      "search_propagations",
+      "learned_clause_accepted_stage",
+      "learned_clause_offered_stage",
+      "learned_clause_rejected_large_stage",
+      "learned_literal_count_stage",
+      "active_variables_delta",
+      "irredundant_clauses_delta",
+      "redundant_clauses_delta"
+    ],
+    "schema": "o1-crypto-loaded-upstream-field-v1",
+    "shards": 16,
+    "solver_stages": 16384,
+    "target_labels_used": 0
+  },
+  "memory": {
+    "coefficients": [
+      -0.0004212554788754204,
+      0.0002745998169978361,
+      3.5712266247776674e-05,
+      3.069937185617901e-05,
+      -0.00011306206000458261,
+      -2.564666018399584e-05,
+      1.252324876715137e-06,
+      0.0001246171919163921,
+      0.00047175420830433516,
+      0.00010053144300522978,
+      1.2728146963818764e-05,
+      -0.00019579804227568085
+    ],
+    "coefficients_float64be_sha256": "8300383d2b8f15718652f36a84f1183cb68abfa5eb15b06fa4ae8433d6199900",
+    "evidence_field_sha256": "3eb798a6c6ba26d4f4e2be254e1f88942a5312410d6b314d64e8ef66df3c4b3d",
+    "observations": 4096,
+    "order_uint16be_sha256": "0a6e32430a97c968c3a831ef23c58eaacaaf411fcc9f44e59661f62efa764159",
+    "plan": {
+      "claim_boundary": {
+        "candidate_indexed_table": false,
+        "full_rank": false,
+        "target_labels_accepted_by_api": false,
+        "terminal_scalar_evidence_only": true
+      },
+      "domain_size": 4096,
+      "expected_evidence_sha256": "3eb798a6c6ba26d4f4e2be254e1f88942a5312410d6b314d64e8ef66df3c4b3d",
+      "maximum_serialized_logical_mechanism_state_bytes": 266,
+      "mechanism_family": "o1-degree-1-2-walsh-ising-evidence-memory",
+      "n_bits": 12,
+      "name": "search_propagations__h1__signed-log1p__degree1__negative",
+      "online_state": {
+        "accounting_model": "logical-compact-recurrent-state",
+        "canonical_next_address_counter_bytes": 2,
+        "float64_accumulators": 12,
+        "logical_sha256_state_bytes": 104,
+        "retained_candidate_rows": 0,
+        "retained_evidence_values": 0,
+        "retained_key_value_entries": 0,
+        "serialized_accumulator_bytes": 96,
+        "serialized_integrity_bytes": 106,
+        "serialized_online_state_bytes": 202,
+        "stream_length_dependent_state": false
+      },
+      "output_workspace": {
+        "counted_as_recurrent_mechanism_state": false,
+        "materialized_only_when_a_complete_ranking_is_requested": true,
+        "materialized_ranking_output_payload_bytes": 40960,
+        "peak_sort_or_transform_scratch_bytes_claimed": null,
+        "reconstructed_float64_scores_bytes": 32768,
+        "retained_after_output": false,
+        "uint16_order_bytes": 8192
+      },
+      "plan_sha256": "94cfa9eb8e7b0f5bc86851d660eddf6f66adb1168e2d9c8b96dfa4875f944cf9",
+      "projection": {
+        "degrees": [
+          1
+        ],
+        "implicit_mask_bank_sha256": "39b9a8801899377276c98e76dbac7bae1a3c977415ede86fc34b324031ff2c03",
+        "implicit_mask_count": 12,
+        "implicit_mask_order": "degree-ascending-then-mask-ascending",
+        "implicit_mask_rule": "popcount(mask) == 1",
+        "includes_constant_mode": false,
+        "normalization": "sum(evidence*character)/4096"
+      },
+      "schema": "o1-ising-evidence-plan-v1",
+      "static_plan_storage": {
+        "implicit_masks": true,
+        "serialized_bound_hash_bytes": 64,
+        "serialized_mask_bank_bytes": 0
+      },
+      "support_id": "degree1"
+    },
+    "projected_score_field_sha256": "f9f0248e35079ad20532eca9e7fa890a36243d563e1710e76347f423e5961b20",
+    "schema": "o1-ising-frozen-state-v1",
+    "state_accounting": {
+      "binary_state_implemented": true,
+      "retained_candidate_rows": 0,
+      "retained_evidence_values": 0,
+      "retained_key_value_entries": 0,
+      "serialized_frozen_state_bytes": 162,
+      "serialized_state_bytes": 96,
+      "state_scalars": 12
+    },
+    "state_sha256": "dc858b87dad7f3eef92c1fa92b81a671f0240eb5fd5975bb9bbe6e715c99f798",
+    "target_labels_used": 0
+  },
+  "order_cells": 4096,
+  "order_sha256": "0a6e32430a97c968c3a831ef23c58eaacaaf411fcc9f44e59661f62efa764159",
+  "prospective_only_relative_to_target_outcome_reveal": true,
+  "reader_refits": 0,
+  "schema": "o1-crypto-o1c0007-a356-target-blind-execution-v1",
+  "selected_view": {
+    "accumulator_evidence_passes": 1,
+    "channel_name": "search_propagations",
+    "current_harness_input": "materialized-canonical-field",
+    "end_to_end_source_streaming_executed": false,
+    "horizon": 1,
+    "ineligibility_reason": null,
+    "orientation": "negative",
+    "panel_id": "o1-upstream-solver-evidence-panel-672-v1",
+    "projection_numeric_contract": "canonical-one-pass-affine-zscore-representative",
+    "register_count": 12,
+    "schema": "o1-upstream-panel-view-spec-v1",
+    "selection_eligible": true,
+    "spec_sha256": "4c78e10edf21504085e6bf3efc21ef03e50fe6abfb0993556b8fb6f0531d6694",
+    "streamable": true,
+    "support_id": "degree1",
+    "transform_id": "signed-log1p",
+    "view_id": "search_propagations__h1__signed-log1p__degree1__negative"
+  },
+  "source_unseen_or_fresh_holdout": false,
+  "target_labels_read": 0,
+  "transductive_target_outcome_blind_freeze": true
+}

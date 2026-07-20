@@ -1,0 +1,46 @@
+[
+  {
+    "best_hamming_distance": 138,
+    "best_hamming_rank": 52895,
+    "candidate_limit": 65536,
+    "candidates_evaluated": 65536,
+    "fold": 0,
+    "frontier_sha256": "b7863f579845ddc344bf5e83a60c1e2542e00dd1d65ddfe442c101da7a82b3ff",
+    "ranking": "exact-binary64-logit-subset-penalty",
+    "true_key_rank_if_within_limit": null,
+    "true_key_within_limit": false
+  },
+  {
+    "best_hamming_distance": 112,
+    "best_hamming_rank": 17467,
+    "candidate_limit": 65536,
+    "candidates_evaluated": 65536,
+    "fold": 1,
+    "frontier_sha256": "2ea1f5d64edb3f71fc18c4767ee8d1a2cf2970e40389f04ad71f0095ccdf372c",
+    "ranking": "exact-binary64-logit-subset-penalty",
+    "true_key_rank_if_within_limit": null,
+    "true_key_within_limit": false
+  },
+  {
+    "best_hamming_distance": 104,
+    "best_hamming_rank": 29295,
+    "candidate_limit": 65536,
+    "candidates_evaluated": 65536,
+    "fold": 2,
+    "frontier_sha256": "3c78061ae696639d983e8ed91cb919d24296a1e1eeaf1fd089ef5b9632e2820a",
+    "ranking": "exact-binary64-logit-subset-penalty",
+    "true_key_rank_if_within_limit": null,
+    "true_key_within_limit": false
+  },
+  {
+    "best_hamming_distance": 114,
+    "best_hamming_rank": 21717,
+    "candidate_limit": 65536,
+    "candidates_evaluated": 65536,
+    "fold": 3,
+    "frontier_sha256": "c9f5828b3285f138b381c19a8d4ce222acb02726c330e934e07f43bbaca8679d",
+    "ranking": "exact-binary64-logit-subset-penalty",
+    "true_key_rank_if_within_limit": null,
+    "true_key_within_limit": false
+  }
+]

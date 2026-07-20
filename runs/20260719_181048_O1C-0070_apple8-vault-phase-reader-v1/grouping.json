@@ -1,0 +1,83 @@
+{
+  "artifact": "apple8-width6.grouping",
+  "bound_rule": "exact-binary64-lattice-factor-sum;round-once-positive-infinity;partial-group-maximum;exact-binary64-lattice-root-sum;round-once-positive-infinity",
+  "estimated_indexed_bytes": 1710776,
+  "estimated_indexed_mib": 1.6315231323242188,
+  "factor_count": 7557,
+  "group_count": 2885,
+  "group_size_distribution": [
+    [
+      1,
+      28
+    ],
+    [
+      2,
+      1641
+    ],
+    [
+      3,
+      695
+    ],
+    [
+      4,
+      473
+    ],
+    [
+      5,
+      30
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      7,
+      6
+    ],
+    [
+      8,
+      3
+    ]
+  ],
+  "group_width_distribution": [
+    [
+      3,
+      24
+    ],
+    [
+      4,
+      27
+    ],
+    [
+      5,
+      159
+    ],
+    [
+      6,
+      2675
+    ]
+  ],
+  "grouped_root_upper_bound": 262.68644197084643,
+  "grouped_root_upper_bound_f64le_hex": "327693aafb6a7040",
+  "grouping_rule": "ascending-factor-score-aware-overlap-greedy;maximum-exact-root-gain;ties-smaller-union-width,larger-group,smaller-minimum-factor-index;groups-ascending-minimum-factor-index",
+  "grouping_sha256": "3da85bae132d829252a68f0e3fd99220ea7d1ef365042806af810ff02f75f636",
+  "higher_order_group_count": 1216,
+  "independent_root_upper_bound": 292.30611344487517,
+  "independent_root_upper_bound_f64le_hex": "ad2936d7e5447240",
+  "materialized_before_intent": true,
+  "maximum_group_size": 8,
+  "memory_rule": "8*table_rows+8*group_count+16*variable_group_incidences;excludes-immutable-potential,container-headers,allocator-slack",
+  "observed_variable_count": 2981,
+  "pair_group_count": 1641,
+  "potential_sha256": "8c6101b49c7050caf895bd9c496c05bcea9f43a2b27f378d7306be38b00d5390",
+  "raw_table_bytes": 1415296,
+  "schema": "o1-public-potential-compatibility-grouping-v1",
+  "serialized_bytes": 115700,
+  "sha256": "3da85bae132d829252a68f0e3fd99220ea7d1ef365042806af810ff02f75f636",
+  "singleton_group_count": 28,
+  "table_rows": 176912,
+  "tightening": 29.619671474028735,
+  "tightening_per_mib": 18.154613248929817,
+  "variable_group_incidences": 17025,
+  "width_cap": 6
+}

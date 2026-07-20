@@ -1,0 +1,22 @@
+{
+  "development_labels_read": 0,
+  "development_targets_created": 0,
+  "models": {
+    "direct": {
+      "artifact": "artifacts/source/models/direct.o1hrr",
+      "bytes": 201949,
+      "sha256": "b029182649f2ec6f06aa3eb00c497d57c76d0b7b81d7b4dc2a7e25f98331bc55"
+    },
+    "shuffled_key_control": {
+      "artifact": "artifacts/source/models/shuffled_key_control.o1hrr",
+      "bytes": 201949,
+      "sha256": "6dd9a11e64d3b93a98b1bab92f9249785aa6be2a2e46dae21fe070d63796711e"
+    }
+  },
+  "persisted": true,
+  "protocol_artifact_sha256": "161c7c81a6d349ed3079bbf747a46a776564377cceccf58575d80b37a23f1253",
+  "protocol_sha256": "75d90a63501ca4c6671170b7b9ffb039f2c6e713279b63a2073f26d15d20e419",
+  "schema": "o1-256-signed-direct-protocol-freeze-receipt-v1",
+  "source_manifest_copy_sha256": "f31d7672921dc0c2ec684cf8c5247a3ff2386fbea316c2eab98072cd22fb29d2",
+  "source_pin_artifact_sha256": "9eab14f0ab447d2583acb1083c34faac6b885ae2038e9b14f2a1716482c26831"
+}

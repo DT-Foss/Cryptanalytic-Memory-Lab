@@ -1,0 +1,123 @@
+{
+  "calibration": {
+    "eligible_views_after_tie_gate": 152,
+    "exact_familywise_p": 0.593505859375,
+    "favorable_labels": 2431,
+    "gain_bits": 5.810175441119982,
+    "order_sha256": "fdf7c3618f7c2b5d9fbb1c47a0826fb1293932016fe5602a346e9c247e188852",
+    "panel_views": 672,
+    "streamable_views_before_tie_gate": 448,
+    "target_rank": 73
+  },
+  "claim_boundary": {
+    "A356_is_transductive_target_outcome_blind_freeze": true,
+    "A356_source_unseen_or_fresh_holdout": false,
+    "A356_target_label_available": false,
+    "fresh_challenge_generated": false,
+    "recovery_claimed": false,
+    "retrospective_calibration_only": true,
+    "selection_adjusted_significant": false,
+    "statistical_sota_claimed": false,
+    "table_budget_comparison_is_not_compression_dominance": true
+  },
+  "execution_evidence_decoder": {
+    "accumulator_evidence_passes": 1,
+    "current_harness_materializes_canonical_input_field": true,
+    "elision_proof": "all retained Walsh masks are nonconstant, so mean subtraction vanishes and division by one positive scale preserves order",
+    "end_to_end_source_streaming_executed": false,
+    "eventwise_decoder_implementation_status": "executed-over-materialized-canonical-field",
+    "external_reference_replay_counted_as_mechanism_pass": false,
+    "external_reference_replay_passes": 1,
+    "horizon": 1,
+    "orientation": "negative",
+    "pointwise_transform": "signed-log1p",
+    "population_zscore_elided": true,
+    "source_channel": "search_propagations"
+  },
+  "freeze_state": "FROZEN_AFTER_A355_EXACT_NULL_BEFORE_A356_SOURCE_OPEN",
+  "future_template_sha256": "39cd8db1f10e6366cc26cbc896a8f8a7418d0fa8804277e5b373df08436d73cf",
+  "schema": "o1-crypto-o1c0007-frozen-evidence-template-v1",
+  "selected_view": {
+    "accumulator_evidence_passes": 1,
+    "channel_name": "search_propagations",
+    "current_harness_input": "materialized-canonical-field",
+    "end_to_end_source_streaming_executed": false,
+    "horizon": 1,
+    "ineligibility_reason": null,
+    "orientation": "negative",
+    "panel_id": "o1-upstream-solver-evidence-panel-672-v1",
+    "projection_numeric_contract": "canonical-one-pass-affine-zscore-representative",
+    "register_count": 12,
+    "schema": "o1-upstream-panel-view-spec-v1",
+    "selection_eligible": true,
+    "spec_sha256": "4c78e10edf21504085e6bf3efc21ef03e50fe6abfb0993556b8fb6f0531d6694",
+    "streamable": true,
+    "support_id": "degree1",
+    "transform_id": "signed-log1p",
+    "view_id": "search_propagations__h1__signed-log1p__degree1__negative"
+  },
+  "state_gate": {
+    "matched_fidelity_or_equal_information_comparison": false,
+    "maximum_serialized_logical_mechanism_state_bytes": 266,
+    "prior_o1c0006_direct_table_budget_reference_bytes": 3918,
+    "registers": 12,
+    "retained_candidate_rows": 0,
+    "retained_evidence_values": 0,
+    "retained_key_value_entries": 0
+  },
+  "unbound_memory_plan": {
+    "claim_boundary": {
+      "candidate_indexed_table": false,
+      "full_rank": false,
+      "target_labels_accepted_by_api": false,
+      "terminal_scalar_evidence_only": true
+    },
+    "domain_size": 4096,
+    "expected_evidence_sha256": null,
+    "maximum_serialized_logical_mechanism_state_bytes": 234,
+    "mechanism_family": "o1-degree-1-2-walsh-ising-evidence-memory",
+    "n_bits": 12,
+    "name": "search_propagations__h1__signed-log1p__degree1__negative",
+    "online_state": {
+      "accounting_model": "logical-compact-recurrent-state",
+      "canonical_next_address_counter_bytes": 2,
+      "float64_accumulators": 12,
+      "logical_sha256_state_bytes": 104,
+      "retained_candidate_rows": 0,
+      "retained_evidence_values": 0,
+      "retained_key_value_entries": 0,
+      "serialized_accumulator_bytes": 96,
+      "serialized_integrity_bytes": 106,
+      "serialized_online_state_bytes": 202,
+      "stream_length_dependent_state": false
+    },
+    "output_workspace": {
+      "counted_as_recurrent_mechanism_state": false,
+      "materialized_only_when_a_complete_ranking_is_requested": true,
+      "materialized_ranking_output_payload_bytes": 40960,
+      "peak_sort_or_transform_scratch_bytes_claimed": null,
+      "reconstructed_float64_scores_bytes": 32768,
+      "retained_after_output": false,
+      "uint16_order_bytes": 8192
+    },
+    "plan_sha256": "46b2f7f16fe4b920fe8d675b55d929c95626d23819f95967ef3a8079337b5289",
+    "projection": {
+      "degrees": [
+        1
+      ],
+      "implicit_mask_bank_sha256": "39b9a8801899377276c98e76dbac7bae1a3c977415ede86fc34b324031ff2c03",
+      "implicit_mask_count": 12,
+      "implicit_mask_order": "degree-ascending-then-mask-ascending",
+      "implicit_mask_rule": "popcount(mask) == 1",
+      "includes_constant_mode": false,
+      "normalization": "sum(evidence*character)/4096"
+    },
+    "schema": "o1-ising-evidence-plan-v1",
+    "static_plan_storage": {
+      "implicit_masks": true,
+      "serialized_bound_hash_bytes": 32,
+      "serialized_mask_bank_bytes": 0
+    },
+    "support_id": "degree1"
+  }
+}

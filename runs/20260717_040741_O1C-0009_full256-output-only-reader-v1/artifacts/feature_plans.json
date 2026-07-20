@@ -1,0 +1,82 @@
+{
+  "candidate": {
+    "input_dimension": 2576,
+    "interactions": [
+      [
+        "target_output",
+        "candidate_output"
+      ],
+      [
+        "target_output",
+        "output_residual"
+      ],
+      [
+        "candidate_key",
+        "candidate_trace"
+      ]
+    ],
+    "output_dimension": 288,
+    "plan_sha256": "3cd1ea1a6dcd3e11ad9b549b9c32793c07f554c88df225606661d4b952f877dc",
+    "schema": "o1-256-holographic-feature-plan-v1",
+    "seed": 2758261825,
+    "segments": [
+      {
+        "end": 512,
+        "name": "target_output",
+        "start": 0
+      },
+      {
+        "end": 1024,
+        "name": "candidate_output",
+        "start": 512
+      },
+      {
+        "end": 1536,
+        "name": "output_residual",
+        "start": 1024
+      },
+      {
+        "end": 1792,
+        "name": "candidate_key",
+        "start": 1536
+      },
+      {
+        "end": 1920,
+        "name": "public_relation",
+        "start": 1792
+      },
+      {
+        "end": 2576,
+        "name": "candidate_trace",
+        "start": 1920
+      }
+    ],
+    "slots": 32
+  },
+  "direct": {
+    "input_dimension": 640,
+    "interactions": [
+      [
+        "target_output",
+        "public_relation"
+      ]
+    ],
+    "output_dimension": 96,
+    "plan_sha256": "196513a919c2784faf527a416d50779988e9cd30b8e657b20d833be6c59be7ce",
+    "schema": "o1-256-holographic-feature-plan-v1",
+    "seed": 137256,
+    "segments": [
+      {
+        "end": 512,
+        "name": "target_output",
+        "start": 0
+      },
+      {
+        "end": 640,
+        "name": "public_relation",
+        "start": 512
+      }
+    ],
+    "slots": 32
+  }
+}

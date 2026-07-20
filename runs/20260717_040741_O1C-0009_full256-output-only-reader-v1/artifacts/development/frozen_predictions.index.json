@@ -1,0 +1,111 @@
+{
+  "bytes": 2621440,
+  "dtype": "float64-le",
+  "index_sha256": "dcc551e5e725cb89dfcd04ba2f2137fafe04419797fd14305f69d7e0cbd2cbf5",
+  "labels_read_before_freeze": 0,
+  "matrices": [
+    {
+      "bytes": 262144,
+      "name": "direct_control/output_flip",
+      "offset": 0,
+      "sha256": "9ae0d0bd42e4198dd82a0e6760d5d59a0c44ca3ce644d1e40367472b07b1ba38",
+      "shape": [
+        128,
+        256
+      ]
+    },
+    {
+      "bytes": 262144,
+      "name": "direct_control/output_permutation",
+      "offset": 262144,
+      "sha256": "9ae0d0bd42e4198dd82a0e6760d5d59a0c44ca3ce644d1e40367472b07b1ba38",
+      "shape": [
+        128,
+        256
+      ]
+    },
+    {
+      "bytes": 262144,
+      "name": "direct_control/wrong_nonce",
+      "offset": 524288,
+      "sha256": "9ae0d0bd42e4198dd82a0e6760d5d59a0c44ca3ce644d1e40367472b07b1ba38",
+      "shape": [
+        128,
+        256
+      ]
+    },
+    {
+      "bytes": 262144,
+      "name": "factual/direct",
+      "offset": 786432,
+      "sha256": "9ae0d0bd42e4198dd82a0e6760d5d59a0c44ca3ce644d1e40367472b07b1ba38",
+      "shape": [
+        128,
+        256
+      ]
+    },
+    {
+      "bytes": 262144,
+      "name": "factual/distilled",
+      "offset": 1048576,
+      "sha256": "9ae0d0bd42e4198dd82a0e6760d5d59a0c44ca3ce644d1e40367472b07b1ba38",
+      "shape": [
+        128,
+        256
+      ]
+    },
+    {
+      "bytes": 262144,
+      "name": "factual/relative",
+      "offset": 1310720,
+      "sha256": "9ae0d0bd42e4198dd82a0e6760d5d59a0c44ca3ce644d1e40367472b07b1ba38",
+      "shape": [
+        128,
+        256
+      ]
+    },
+    {
+      "bytes": 262144,
+      "name": "factual/shuffled_key_control",
+      "offset": 1572864,
+      "sha256": "9ae0d0bd42e4198dd82a0e6760d5d59a0c44ca3ce644d1e40367472b07b1ba38",
+      "shape": [
+        128,
+        256
+      ]
+    },
+    {
+      "bytes": 262144,
+      "name": "primary_control/output_flip",
+      "offset": 1835008,
+      "sha256": "9ae0d0bd42e4198dd82a0e6760d5d59a0c44ca3ce644d1e40367472b07b1ba38",
+      "shape": [
+        128,
+        256
+      ]
+    },
+    {
+      "bytes": 262144,
+      "name": "primary_control/output_permutation",
+      "offset": 2097152,
+      "sha256": "9ae0d0bd42e4198dd82a0e6760d5d59a0c44ca3ce644d1e40367472b07b1ba38",
+      "shape": [
+        128,
+        256
+      ]
+    },
+    {
+      "bytes": 262144,
+      "name": "primary_control/wrong_nonce",
+      "offset": 2359296,
+      "sha256": "9ae0d0bd42e4198dd82a0e6760d5d59a0c44ca3ce644d1e40367472b07b1ba38",
+      "shape": [
+        128,
+        256
+      ]
+    }
+  ],
+  "schema": "o1-256-frozen-development-predictions-v1",
+  "sha256": "8431b3c19a697ce0d48e66d29b199ec6d199670870d40231564c9516e3c34ad2",
+  "target_order_sha256": "df4f3ff1dd1c1c031dfff0f672da9a86246776f7c6cf82d78ec359ea5627f897"
+}

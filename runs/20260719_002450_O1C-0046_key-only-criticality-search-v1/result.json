@@ -1,0 +1,682 @@
+{
+  "architecture": {
+    "all_factor_variables_observed": true,
+    "conditional_decision_rule": "sum-local-uniform-marginal-energy-difference",
+    "decision_scope": "transformed-field-key-variables-only",
+    "decision_variable_count_by_arm": {
+      "clause_rotated": 126,
+      "key_rotated": 126,
+      "primary": 126
+    },
+    "decision_variables_sha256": {
+      "clause_rotated": "b2717ff354862abc1ae01f8a6b0ccef493f35df1fb759a1a707c88cc01448bda",
+      "key_rotated": "53bb0d153980b5f9874c3754acb1f1a8af7edfea5f0c053a1045366569d86924",
+      "primary": "b2717ff354862abc1ae01f8a6b0ccef493f35df1fb759a1a707c88cc01448bda"
+    },
+    "hard_factor_clauses_added": 0,
+    "internal_build": {
+      "cadical_header_sha256": "b7111690c61935b9c096d3701be59b3c3d26c555eab8e070f19eb2a97dc5d38c",
+      "cadical_library_sha256": "44cae3728485b4fd5736ce7cb986021236652daeda9cca227a2c4ac17d3a8a7f",
+      "command": [
+        "c++",
+        "-std=c++17",
+        "-O3",
+        "-DNDEBUG",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-I/opt/homebrew/Cellar/cadical/3.0.0/include",
+        "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/native/cadical_o1_guided_search.cpp",
+        "/opt/homebrew/Cellar/cadical/3.0.0/lib/libcadical.a",
+        "-o",
+        "<TEMP_OUTPUT>"
+      ],
+      "executable_sha256": "ab9718364d35bfa823d3e89451d0a308830c7265224308629aabd7c69cbb7ed7",
+      "source_sha256": "384870ffa73bf8b5fa404742669218c7d93918018507595c042d73d54a08eca9"
+    },
+    "native_internal_variables_externally_decided": false,
+    "potential_build": {
+      "cadical_header_sha256": "b7111690c61935b9c096d3701be59b3c3d26c555eab8e070f19eb2a97dc5d38c",
+      "cadical_library_sha256": "44cae3728485b4fd5736ce7cb986021236652daeda9cca227a2c4ac17d3a8a7f",
+      "command": [
+        "c++",
+        "-std=c++17",
+        "-O3",
+        "-DNDEBUG",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-I/opt/homebrew/Cellar/cadical/3.0.0/include",
+        "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/native/cadical_o1_criticality_search.cpp",
+        "/opt/homebrew/Cellar/cadical/3.0.0/lib/libcadical.a",
+        "-o",
+        "<TEMP_OUTPUT>"
+      ],
+      "executable_sha256": "ce9fe3b10edbed59e9bf24bed19a7a723ae91949d757c3d636daa443fd10de0c",
+      "source_sha256": "16a44473ec4ad9ddf0c7f9b92857f9e063a632fa719212b7143f7a1af9ec2130"
+    },
+    "public_instance": {
+      "assumption_unit_clause_count": 0,
+      "assumption_unit_clause_sha256": null,
+      "assumptions": [],
+      "clause_count": 188010,
+      "counter": 914980544,
+      "fixed_key_sha256": null,
+      "instance_bytes": 4343565,
+      "instance_sha256": "f4a02c0b47a2e0d44943ba6cd2b47050710178e4e53603ab17cc02fabfd186ca",
+      "key_fixed_for_self_test": false,
+      "key_unit_clause_count": 0,
+      "key_unit_clause_sha256": null,
+      "nonce_hex": "5e7861b809ebe273019b0fcc",
+      "output_sha256": "dc34c6d7769eecbd0f8654315cada285710dea0d879394bc5341bc70169ac82d",
+      "public_unit_clause_count": 640,
+      "public_unit_clause_sha256": "44c360965bf63cfd809cd794505ea7b7976409c8973a3c6c25c2f9ad8bae2ee7",
+      "schema": "o1-256-chacha20-cnf-instance-v1",
+      "template_map_sha256": "13c0dd32b1c0eec0b9b95e9c7c0f2a8390b8be6f98bd59e3b7d021c23762bfaf",
+      "template_sha256": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+      "unit_clause_sha256": "44c360965bf63cfd809cd794505ea7b7976409c8973a3c6c25c2f9ad8bae2ee7",
+      "variable_count": 32128
+    },
+    "residual_selector": "descending-sum-abs-parent-score-units-then-count-then-coordinate",
+    "reversible_after_backtrack": true
+  },
+  "attacker_freeze_sha256": "7dd7656728b70346d37796d1fc0cf8fc2d15f8760061fa5bd31187063bb9e308",
+  "attempt_id": "O1C-0046",
+  "capsule": "runs/20260719_002450_O1C-0046_key-only-criticality-search-v1",
+  "claim_boundary": {
+    "fresh_targets": 0,
+    "full256_search_attacker_valid": true,
+    "full256_search_precedes_reveal": true,
+    "full256_unknown_key_bits": 256,
+    "potentials_reused_byte_for_byte_from_o1c45": true,
+    "reader_refit": false,
+    "residual_prefix_uses_truth_key": true,
+    "residual_search_is_post_reveal_ceiling": true
+  },
+  "classification": "KEY_ONLY_POTENTIAL_FAMILY_GAIN_WITHOUT_PRIMARY_MARGIN",
+  "full256_search": [
+    {
+      "conflict_limit": 512,
+      "model_publicly_verified": false,
+      "model_sha256": null,
+      "model_truth_hamming": null,
+      "name": "internal",
+      "resources": {
+        "cpu_microseconds": 60334,
+        "peak_rss_bytes": 41287680,
+        "wall_microseconds": 23383
+      },
+      "stats": {
+        "conflicts": 515,
+        "decisions": 12925,
+        "propagations": 143130
+      },
+      "status": "UNKNOWN"
+    },
+    {
+      "conflict_limit": 512,
+      "model_publicly_verified": false,
+      "model_sha256": null,
+      "model_truth_hamming": null,
+      "name": "primary",
+      "potential": {
+        "assignment_notifications": 15539,
+        "backtracks": 602,
+        "conditional_factor_evaluations": 2618995,
+        "decision_scope": "explicit",
+        "eligible_decision_variables": 126,
+        "factor_count": 836,
+        "maximum_abs_support": 0.6405710216720683,
+        "maximum_assigned_variables": 447,
+        "maximum_decision_level": 354,
+        "observed_variables": 447,
+        "offset": 6.425430921119808,
+        "repeated_decisions": 6465,
+        "requested_decisions": 6591,
+        "source_sha256": "2222616d2a44e87fc0d5d9cdc9186be091388d7513d9136ef2e65cc1c3bc8b2a"
+      },
+      "resources": {
+        "cpu_microseconds": 155379,
+        "peak_rss_bytes": 40828928,
+        "wall_microseconds": 115913
+      },
+      "stats": {
+        "conflicts": 513,
+        "decisions": 11003,
+        "propagations": 79569
+      },
+      "status": "UNKNOWN"
+    },
+    {
+      "conflict_limit": 512,
+      "model_publicly_verified": false,
+      "model_sha256": null,
+      "model_truth_hamming": null,
+      "name": "key_rotated",
+      "potential": {
+        "assignment_notifications": 12945,
+        "backtracks": 615,
+        "conditional_factor_evaluations": 2410481,
+        "decision_scope": "explicit",
+        "eligible_decision_variables": 126,
+        "factor_count": 836,
+        "maximum_abs_support": 0.6689204681462789,
+        "maximum_assigned_variables": 500,
+        "maximum_decision_level": 417,
+        "observed_variables": 500,
+        "offset": 5.353079843696351,
+        "repeated_decisions": 4933,
+        "requested_decisions": 5059,
+        "source_sha256": "314acfafd458f45264c567435e6728556a72f41674e4e34635971f090a66455f"
+      },
+      "resources": {
+        "cpu_microseconds": 158655,
+        "peak_rss_bytes": 40419328,
+        "wall_microseconds": 117703
+      },
+      "stats": {
+        "conflicts": 513,
+        "decisions": 9775,
+        "propagations": 81929
+      },
+      "status": "UNKNOWN"
+    },
+    {
+      "conflict_limit": 512,
+      "model_publicly_verified": false,
+      "model_sha256": null,
+      "model_truth_hamming": null,
+      "name": "clause_rotated",
+      "potential": {
+        "assignment_notifications": 16870,
+        "backtracks": 612,
+        "conditional_factor_evaluations": 3577763,
+        "decision_scope": "explicit",
+        "eligible_decision_variables": 126,
+        "factor_count": 836,
+        "maximum_abs_support": 0.5623185723323403,
+        "maximum_assigned_variables": 447,
+        "maximum_decision_level": 353,
+        "observed_variables": 447,
+        "offset": 5.776597061976986,
+        "repeated_decisions": 6661,
+        "requested_decisions": 6787,
+        "source_sha256": "0fff46a89d97807a247fd22acd18854b69d347434633d43e167e37ca092d312a"
+      },
+      "resources": {
+        "cpu_microseconds": 206360,
+        "peak_rss_bytes": 40747008,
+        "wall_microseconds": 166971
+      },
+      "stats": {
+        "conflicts": 512,
+        "decisions": 11553,
+        "propagations": 92756
+      },
+      "status": "UNKNOWN"
+    }
+  ],
+  "metrics": {
+    "attacker_valid_full256_recoveries_all_arms": 0,
+    "conflicts_by_arm_at_shared_width": {
+      "clause_rotated": 22,
+      "internal": 217,
+      "key_rotated": 195,
+      "primary": 43
+    },
+    "maximum_recovered_residual_bits_by_arm": {
+      "clause_rotated": 9,
+      "internal": 8,
+      "key_rotated": 9,
+      "primary": 9
+    },
+    "o1c45_all_variable_conflicts_by_arm_at_shared_width": {
+      "clause_rotated": 69,
+      "internal": 217,
+      "key_rotated": 51,
+      "primary": 152
+    },
+    "o1c45_all_variable_maximum_recovered_residual_bits_by_arm": {
+      "clause_rotated": 9,
+      "internal": 8,
+      "key_rotated": 9,
+      "primary": 9
+    },
+    "potential_family_residual_frontier_gain": true,
+    "primary_full256_recovery": false,
+    "primary_matched_work_gain": false,
+    "primary_residual_conflict_gain": false,
+    "primary_residual_frontier_gain": false,
+    "primary_residual_frontier_gain_vs_internal": true,
+    "shared_recovered_work_width": 8
+  },
+  "next_action": "If the primary arm gains over both rotations, retain key-only branching and validate the frozen rule prospectively. If controls still match or beat primary, close greedy marginal branching and reuse the unchanged global O1C-0044 scores in a bounded best-first prefix or score-aware activation test; do not refit, raise the conflict cap, or consume a fresh target first.",
+  "recorded_at": "2026-07-19T00:24:50+02:00",
+  "residual_search": [
+    {
+      "conflict_limit": 512,
+      "model_publicly_verified": true,
+      "model_sha256": "722380bf59f57c52b258aebbd423cb8b188ea89bcdb85df114828a9c7fd37246",
+      "model_truth_hamming": 0,
+      "name": "internal",
+      "prefix": {
+        "clause_count": 188258,
+        "fixed_key_bits": 248,
+        "residual_key_bits": 8,
+        "sha256": "582d3d6e958bae6161d93ab02d0b67a40292e534abe59e27e65add1aaa42abfe"
+      },
+      "privileged_post_reveal_prefix": true,
+      "residual_bits": 8,
+      "residual_variables": [
+        9,
+        59,
+        143,
+        173,
+        174,
+        175,
+        176,
+        184
+      ],
+      "resources": {
+        "cpu_microseconds": 397850,
+        "peak_rss_bytes": 36765696,
+        "wall_microseconds": 361265
+      },
+      "stats": {
+        "conflicts": 217,
+        "decisions": 525,
+        "propagations": 2744075
+      },
+      "status": "SAT"
+    },
+    {
+      "conflict_limit": 512,
+      "eligible_unfixed_decision_variables": 8,
+      "model_publicly_verified": true,
+      "model_sha256": "722380bf59f57c52b258aebbd423cb8b188ea89bcdb85df114828a9c7fd37246",
+      "model_truth_hamming": 0,
+      "name": "primary",
+      "potential": {
+        "assignment_notifications": 1532,
+        "backtracks": 43,
+        "conditional_factor_evaluations": 1593,
+        "decision_scope": "explicit",
+        "eligible_decision_variables": 126,
+        "factor_count": 836,
+        "maximum_abs_support": 0.6181787617984208,
+        "maximum_assigned_variables": 447,
+        "maximum_decision_level": 8,
+        "observed_variables": 447,
+        "offset": 6.425430921119808,
+        "repeated_decisions": 39,
+        "requested_decisions": 47,
+        "source_sha256": "2222616d2a44e87fc0d5d9cdc9186be091388d7513d9136ef2e65cc1c3bc8b2a"
+      },
+      "prefix": {
+        "clause_count": 188258,
+        "fixed_key_bits": 248,
+        "residual_key_bits": 8,
+        "sha256": "582d3d6e958bae6161d93ab02d0b67a40292e534abe59e27e65add1aaa42abfe"
+      },
+      "privileged_post_reveal_prefix": true,
+      "residual_bits": 8,
+      "residual_variables": [
+        9,
+        59,
+        143,
+        173,
+        174,
+        175,
+        176,
+        184
+      ],
+      "resources": {
+        "cpu_microseconds": 220704,
+        "peak_rss_bytes": 37814272,
+        "wall_microseconds": 194517
+      },
+      "stats": {
+        "conflicts": 43,
+        "decisions": 47,
+        "propagations": 1059887
+      },
+      "status": "SAT"
+    },
+    {
+      "conflict_limit": 512,
+      "eligible_unfixed_decision_variables": 4,
+      "model_publicly_verified": true,
+      "model_sha256": "722380bf59f57c52b258aebbd423cb8b188ea89bcdb85df114828a9c7fd37246",
+      "model_truth_hamming": 0,
+      "name": "key_rotated",
+      "potential": {
+        "assignment_notifications": 2043,
+        "backtracks": 222,
+        "conditional_factor_evaluations": 4122,
+        "decision_scope": "explicit",
+        "eligible_decision_variables": 126,
+        "factor_count": 836,
+        "maximum_abs_support": 0.5716955110741835,
+        "maximum_assigned_variables": 500,
+        "maximum_decision_level": 19,
+        "observed_variables": 500,
+        "offset": 5.353079843696351,
+        "repeated_decisions": 81,
+        "requested_decisions": 85,
+        "source_sha256": "314acfafd458f45264c567435e6728556a72f41674e4e34635971f090a66455f"
+      },
+      "prefix": {
+        "clause_count": 188258,
+        "fixed_key_bits": 248,
+        "residual_key_bits": 8,
+        "sha256": "582d3d6e958bae6161d93ab02d0b67a40292e534abe59e27e65add1aaa42abfe"
+      },
+      "privileged_post_reveal_prefix": true,
+      "residual_bits": 8,
+      "residual_variables": [
+        9,
+        59,
+        143,
+        173,
+        174,
+        175,
+        176,
+        184
+      ],
+      "resources": {
+        "cpu_microseconds": 332168,
+        "peak_rss_bytes": 37257216,
+        "wall_microseconds": 283362
+      },
+      "stats": {
+        "conflicts": 195,
+        "decisions": 406,
+        "propagations": 1811168
+      },
+      "status": "SAT"
+    },
+    {
+      "conflict_limit": 512,
+      "eligible_unfixed_decision_variables": 8,
+      "model_publicly_verified": true,
+      "model_sha256": "722380bf59f57c52b258aebbd423cb8b188ea89bcdb85df114828a9c7fd37246",
+      "model_truth_hamming": 0,
+      "name": "clause_rotated",
+      "potential": {
+        "assignment_notifications": 866,
+        "backtracks": 22,
+        "conditional_factor_evaluations": 1323,
+        "decision_scope": "explicit",
+        "eligible_decision_variables": 126,
+        "factor_count": 836,
+        "maximum_abs_support": 0.736164264530136,
+        "maximum_assigned_variables": 447,
+        "maximum_decision_level": 8,
+        "observed_variables": 447,
+        "offset": 5.776597061976986,
+        "repeated_decisions": 19,
+        "requested_decisions": 27,
+        "source_sha256": "0fff46a89d97807a247fd22acd18854b69d347434633d43e167e37ca092d312a"
+      },
+      "prefix": {
+        "clause_count": 188258,
+        "fixed_key_bits": 248,
+        "residual_key_bits": 8,
+        "sha256": "582d3d6e958bae6161d93ab02d0b67a40292e534abe59e27e65add1aaa42abfe"
+      },
+      "privileged_post_reveal_prefix": true,
+      "residual_bits": 8,
+      "residual_variables": [
+        9,
+        59,
+        143,
+        173,
+        174,
+        175,
+        176,
+        184
+      ],
+      "resources": {
+        "cpu_microseconds": 133264,
+        "peak_rss_bytes": 37683200,
+        "wall_microseconds": 89660
+      },
+      "stats": {
+        "conflicts": 22,
+        "decisions": 27,
+        "propagations": 558599
+      },
+      "status": "SAT"
+    },
+    {
+      "conflict_limit": 512,
+      "model_publicly_verified": false,
+      "model_sha256": null,
+      "model_truth_hamming": null,
+      "name": "internal",
+      "prefix": {
+        "clause_count": 188257,
+        "fixed_key_bits": 247,
+        "residual_key_bits": 9,
+        "sha256": "7bbf38c171a2a8fa8427c8eafcbdb8c690674f04b07ce1ba4c9315a82e035bb2"
+      },
+      "privileged_post_reveal_prefix": true,
+      "residual_bits": 9,
+      "residual_variables": [
+        9,
+        59,
+        60,
+        143,
+        173,
+        174,
+        175,
+        176,
+        184
+      ],
+      "resources": {
+        "cpu_microseconds": 782279,
+        "peak_rss_bytes": 46514176,
+        "wall_microseconds": 768739
+      },
+      "stats": {
+        "conflicts": 512,
+        "decisions": 1094,
+        "propagations": 5822163
+      },
+      "status": "UNKNOWN"
+    },
+    {
+      "conflict_limit": 512,
+      "eligible_unfixed_decision_variables": 9,
+      "model_publicly_verified": true,
+      "model_sha256": "722380bf59f57c52b258aebbd423cb8b188ea89bcdb85df114828a9c7fd37246",
+      "model_truth_hamming": 0,
+      "name": "primary",
+      "potential": {
+        "assignment_notifications": 1817,
+        "backtracks": 87,
+        "conditional_factor_evaluations": 2933,
+        "decision_scope": "explicit",
+        "eligible_decision_variables": 126,
+        "factor_count": 836,
+        "maximum_abs_support": 0.6181787617984208,
+        "maximum_assigned_variables": 447,
+        "maximum_decision_level": 9,
+        "observed_variables": 447,
+        "offset": 6.425430921119808,
+        "repeated_decisions": 82,
+        "requested_decisions": 91,
+        "source_sha256": "2222616d2a44e87fc0d5d9cdc9186be091388d7513d9136ef2e65cc1c3bc8b2a"
+      },
+      "prefix": {
+        "clause_count": 188257,
+        "fixed_key_bits": 247,
+        "residual_key_bits": 9,
+        "sha256": "7bbf38c171a2a8fa8427c8eafcbdb8c690674f04b07ce1ba4c9315a82e035bb2"
+      },
+      "privileged_post_reveal_prefix": true,
+      "residual_bits": 9,
+      "residual_variables": [
+        9,
+        59,
+        60,
+        143,
+        173,
+        174,
+        175,
+        176,
+        184
+      ],
+      "resources": {
+        "cpu_microseconds": 368922,
+        "peak_rss_bytes": 38174720,
+        "wall_microseconds": 327574
+      },
+      "stats": {
+        "conflicts": 87,
+        "decisions": 91,
+        "propagations": 2107208
+      },
+      "status": "SAT"
+    },
+    {
+      "conflict_limit": 512,
+      "eligible_unfixed_decision_variables": 5,
+      "model_publicly_verified": true,
+      "model_sha256": "722380bf59f57c52b258aebbd423cb8b188ea89bcdb85df114828a9c7fd37246",
+      "model_truth_hamming": 0,
+      "name": "key_rotated",
+      "potential": {
+        "assignment_notifications": 3082,
+        "backtracks": 368,
+        "conditional_factor_evaluations": 8627,
+        "decision_scope": "explicit",
+        "eligible_decision_variables": 126,
+        "factor_count": 836,
+        "maximum_abs_support": 0.5716955110741835,
+        "maximum_assigned_variables": 500,
+        "maximum_decision_level": 18,
+        "observed_variables": 500,
+        "offset": 5.353079843696351,
+        "repeated_decisions": 158,
+        "requested_decisions": 163,
+        "source_sha256": "314acfafd458f45264c567435e6728556a72f41674e4e34635971f090a66455f"
+      },
+      "prefix": {
+        "clause_count": 188257,
+        "fixed_key_bits": 247,
+        "residual_key_bits": 9,
+        "sha256": "7bbf38c171a2a8fa8427c8eafcbdb8c690674f04b07ce1ba4c9315a82e035bb2"
+      },
+      "privileged_post_reveal_prefix": true,
+      "residual_bits": 9,
+      "residual_variables": [
+        9,
+        59,
+        60,
+        143,
+        173,
+        174,
+        175,
+        176,
+        184
+      ],
+      "resources": {
+        "cpu_microseconds": 576853,
+        "peak_rss_bytes": 45268992,
+        "wall_microseconds": 534064
+      },
+      "stats": {
+        "conflicts": 331,
+        "decisions": 639,
+        "propagations": 3520478
+      },
+      "status": "SAT"
+    },
+    {
+      "conflict_limit": 512,
+      "eligible_unfixed_decision_variables": 9,
+      "model_publicly_verified": true,
+      "model_sha256": "722380bf59f57c52b258aebbd423cb8b188ea89bcdb85df114828a9c7fd37246",
+      "model_truth_hamming": 0,
+      "name": "clause_rotated",
+      "potential": {
+        "assignment_notifications": 1135,
+        "backtracks": 46,
+        "conditional_factor_evaluations": 2142,
+        "decision_scope": "explicit",
+        "eligible_decision_variables": 126,
+        "factor_count": 836,
+        "maximum_abs_support": 0.6802589430713218,
+        "maximum_assigned_variables": 447,
+        "maximum_decision_level": 9,
+        "observed_variables": 447,
+        "offset": 5.776597061976986,
+        "repeated_decisions": 42,
+        "requested_decisions": 51,
+        "source_sha256": "0fff46a89d97807a247fd22acd18854b69d347434633d43e167e37ca092d312a"
+      },
+      "prefix": {
+        "clause_count": 188257,
+        "fixed_key_bits": 247,
+        "residual_key_bits": 9,
+        "sha256": "7bbf38c171a2a8fa8427c8eafcbdb8c690674f04b07ce1ba4c9315a82e035bb2"
+      },
+      "privileged_post_reveal_prefix": true,
+      "residual_bits": 9,
+      "residual_variables": [
+        9,
+        59,
+        60,
+        143,
+        173,
+        174,
+        175,
+        176,
+        184
+      ],
+      "resources": {
+        "cpu_microseconds": 223142,
+        "peak_rss_bytes": 38027264,
+        "wall_microseconds": 181111
+      },
+      "stats": {
+        "conflicts": 46,
+        "decisions": 51,
+        "propagations": 1120051
+      },
+      "status": "SAT"
+    }
+  ],
+  "resources": {
+    "MPS_or_GPU": false,
+    "child_cpu_seconds": 4.873894,
+    "elapsed_seconds": 7.767219708999619,
+    "fresh_targets": 0,
+    "native_solver_calls": 12,
+    "parent_cpu_seconds": 2.378201,
+    "peak_rss_bytes": 122552320,
+    "persistent_artifact_bytes": 35478,
+    "requested_conflicts": 6144,
+    "sibling_reads": 0,
+    "sibling_writes": 0
+  },
+  "schema": "o1-256-key-only-criticality-search-result-v1",
+  "source_commit": "b0f8bcbd38fd5eb93d25712c1fd92fbeea5d18ae",
+  "source_sha256": {
+    "clause_rotated_potential": "1bed47e6753e5f517d9f0227ab7a3643c452eef30e937dfea0f036b0260e6ea6",
+    "field": "58c8e2eb07632b4b4e2a26b148283effc30cc2391c276ed294a0bb64335c747f",
+    "internal_native_source": "384870ffa73bf8b5fa404742669218c7d93918018507595c042d73d54a08eca9",
+    "key_rotated_potential": "c97aad4c6b57fc3284f54dfdd0660b40a67ebeb46ce344823898919c608a3a1c",
+    "o1c45_result": "fb35fab89c293e229c3adaf1c63de4274b29d5f84e1892baf410cf715b71d779",
+    "potential_native_source": "16a44473ec4ad9ddf0c7f9b92857f9e063a632fa719212b7143f7a1af9ec2130",
+    "primary_potential": "307a0aeac84ee5efa4e6900f2105727bedbaa3a32b941102960a0257554cdf1e",
+    "publication": "b985dd4e38e764c250fb4b2e4f38fff02873361a0838399b54ae1acfd87a279a",
+    "reveal": "7caf9b1f83465138be80b28677207bf4a5e274b809ec65d55845168d21da0707",
+    "runner": "c1dc705599f5c5544531caa24d4a69b6283c489f641625ad79bded819e46373a",
+    "search_adapter": "1973709a325c158d27f2c4be1db152e18fa3958770d0cc6d704561250bf3297d",
+    "semantic_map": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+    "template": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52"
+  },
+  "started_at": "2026-07-19T00:24:42+02:00"
+}

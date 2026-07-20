@@ -1,0 +1,4 @@
+O1C-0005 bounded-memory tournament started from immutable O1C-0003/0004.
+O1-O future memory template persisted before the A349 score field was opened.
+Persisted 86 complete A349 target-blind orders before A348 truth.
+{"A349_labels_read": 0, "A349_rank_spearman": 0.9901983485302834, "selected_arm": "quantized-bit-vault-4bit-h1.25", "selected_online_state_bytes": 6668, "success_gate_passed": true}

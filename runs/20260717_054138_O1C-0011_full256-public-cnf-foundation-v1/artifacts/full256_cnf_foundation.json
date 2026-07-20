@@ -1,0 +1,269 @@
+{
+  "artifact_inventory": {
+    "cnf/full256_chacha20.cnf": {
+      "bytes": 4339399,
+      "sha256": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52"
+    },
+    "cnf/full256_chacha20.map.json": {
+      "bytes": 3699044,
+      "sha256": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318"
+    },
+    "cnf/paired_keybit_173_eq_0.cnf": {
+      "bytes": 4343648,
+      "sha256": "758c463982ce6222bf6dab9d130fc1c18a34fb2bf48d1f004d851ca46c9de003"
+    },
+    "cnf/paired_keybit_173_eq_1.cnf": {
+      "bytes": 4343647,
+      "sha256": "10717d9dadd4aa60d04ea4e38ffb95d34be0867c2424a501e01c224a1b930e5d"
+    },
+    "cnf/public_attacker_instance.cnf": {
+      "bytes": 4343641,
+      "sha256": "dde6a2791726e148c99064ec71f746fb8803e5d0f6b1996dd8b238c9c9b0a2a0"
+    }
+  },
+  "attacker_contract": {
+    "cipher": "ChaCha20",
+    "feed_forward": true,
+    "known_inputs": [
+      "counter",
+      "nonce",
+      "512-bit output block"
+    ],
+    "rounds": 20,
+    "target_internal_state_inputs": 0,
+    "target_internal_trace_inputs": 0,
+    "target_key_units": 0,
+    "unknown_key_bits": 256
+  },
+  "determinism": {
+    "byte_identical_double_compile": true,
+    "hash_identical_double_compile": true,
+    "template_verification": {
+      "clause_count": 187370,
+      "clause_length_histogram": {
+        "1": 6,
+        "2": 1172,
+        "3": 104848,
+        "4": 81344
+      },
+      "dimacs_sha256": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+      "map_sha256": "13c0dd32b1c0eec0b9b95e9c7c0f2a8390b8be6f98bd59e3b7d021c23762bfaf",
+      "max_referenced_variable": 32128,
+      "ok": true,
+      "schema": "o1-256-chacha20-cnf-verification-v1",
+      "variable_count": 32128
+    },
+    "two_pass_compile": true
+  },
+  "formula": {
+    "add32_operations": 336,
+    "clause_count": 187370,
+    "clause_length_histogram": {
+      "1": 6,
+      "2": 1172,
+      "3": 104848,
+      "4": 81344
+    },
+    "dimacs_bytes": 4339399,
+    "dimacs_sha256": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+    "final_overflow_carry_constrained": true,
+    "interface": {
+      "bit_order": "little-endian-within-byte; little-endian-32-bit-words",
+      "counter": {
+        "attacker_known": true,
+        "bit_count": 32,
+        "first_variable": 257,
+        "last_variable": 288
+      },
+      "key": {
+        "attacker_known": false,
+        "bit_count": 256,
+        "first_variable": 1,
+        "last_variable": 256
+      },
+      "nonce": {
+        "attacker_known": true,
+        "bit_count": 96,
+        "first_variable": 289,
+        "last_variable": 384
+      },
+      "output": {
+        "attacker_known": true,
+        "bit_count": 512,
+        "first_variable": 385,
+        "last_variable": 896
+      }
+    },
+    "map_file_sha256": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+    "map_sha256": "13c0dd32b1c0eec0b9b95e9c7c0f2a8390b8be6f98bd59e3b7d021c23762bfaf",
+    "operation_count": 656,
+    "range_semantics": "one-based inclusive; null only for zero-allocation ranges",
+    "symmetric_explicit_full_adder_wires": true,
+    "variable_count": 32128,
+    "xor32_operations": 320
+  },
+  "gates": {
+    "all_passed": true,
+    "byte_identical_double_compile": true,
+    "frozen_formula_bytes": true,
+    "paired_assumptions_change_only_one_key_unit": true,
+    "public_instance_has_zero_key_units": true,
+    "rfc_fixed_key_sat": true,
+    "rfc_one_output_bit_flip_unsat": true,
+    "second_full256_fixed_key_sat": true,
+    "streaming_template_verification": true,
+    "working_byte_budget": true
+  },
+  "instances": {
+    "pair_differs_only_by_final_assumption_literal": true,
+    "paired": {
+      "0": {
+        "assumption_unit_clause_count": 1,
+        "assumption_unit_clause_sha256": "fe9390d721cfdc3321adc1ada1dc03c4fcc41de08d0bcc7f474f77b74028e4eb",
+        "assumptions": [
+          {
+            "key_bit": 173,
+            "value": 0
+          }
+        ],
+        "clause_count": 188011,
+        "counter": 1,
+        "fixed_key_sha256": null,
+        "instance_bytes": 4343648,
+        "instance_sha256": "758c463982ce6222bf6dab9d130fc1c18a34fb2bf48d1f004d851ca46c9de003",
+        "key_fixed_for_self_test": false,
+        "key_unit_clause_count": 0,
+        "key_unit_clause_sha256": null,
+        "nonce_hex": "000000090000004a00000000",
+        "output_sha256": "c77ed898301e57815e68f8ca5a2e78bc9b021b7ac9a7cf300a7a3b19a34bb29e",
+        "public_unit_clause_count": 640,
+        "public_unit_clause_sha256": "910a517203a7157cdb043cb1bfab8a4f91102863aa5ec783d32d7334825bcbe6",
+        "schema": "o1-256-chacha20-cnf-instance-v1",
+        "template_map_sha256": "13c0dd32b1c0eec0b9b95e9c7c0f2a8390b8be6f98bd59e3b7d021c23762bfaf",
+        "template_sha256": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+        "unit_clause_sha256": "bfeb0fb2dd74f88fb7e3e8e4960c5697787d8f963d00517e2521d9a457a9f7a8",
+        "variable_count": 32128
+      },
+      "1": {
+        "assumption_unit_clause_count": 1,
+        "assumption_unit_clause_sha256": "f8d25bcfd4f7ed167424d4e87e81610e6234ecb2b2891e0dd758778c5d0a481b",
+        "assumptions": [
+          {
+            "key_bit": 173,
+            "value": 1
+          }
+        ],
+        "clause_count": 188011,
+        "counter": 1,
+        "fixed_key_sha256": null,
+        "instance_bytes": 4343647,
+        "instance_sha256": "10717d9dadd4aa60d04ea4e38ffb95d34be0867c2424a501e01c224a1b930e5d",
+        "key_fixed_for_self_test": false,
+        "key_unit_clause_count": 0,
+        "key_unit_clause_sha256": null,
+        "nonce_hex": "000000090000004a00000000",
+        "output_sha256": "c77ed898301e57815e68f8ca5a2e78bc9b021b7ac9a7cf300a7a3b19a34bb29e",
+        "public_unit_clause_count": 640,
+        "public_unit_clause_sha256": "910a517203a7157cdb043cb1bfab8a4f91102863aa5ec783d32d7334825bcbe6",
+        "schema": "o1-256-chacha20-cnf-instance-v1",
+        "template_map_sha256": "13c0dd32b1c0eec0b9b95e9c7c0f2a8390b8be6f98bd59e3b7d021c23762bfaf",
+        "template_sha256": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+        "unit_clause_sha256": "0924eb8a72eece63c45de70dfd97ea298f0562b0ecc2b848a97d9a51974a6446",
+        "variable_count": 32128
+      }
+    },
+    "paired_key_bit": 173,
+    "public": {
+      "instance_report": {
+        "assumption_unit_clause_count": 0,
+        "assumption_unit_clause_sha256": null,
+        "assumptions": [],
+        "clause_count": 188010,
+        "counter": 1,
+        "fixed_key_sha256": null,
+        "instance_bytes": 4343641,
+        "instance_sha256": "dde6a2791726e148c99064ec71f746fb8803e5d0f6b1996dd8b238c9c9b0a2a0",
+        "key_fixed_for_self_test": false,
+        "key_unit_clause_count": 0,
+        "key_unit_clause_sha256": null,
+        "nonce_hex": "000000090000004a00000000",
+        "output_sha256": "c77ed898301e57815e68f8ca5a2e78bc9b021b7ac9a7cf300a7a3b19a34bb29e",
+        "public_unit_clause_count": 640,
+        "public_unit_clause_sha256": "910a517203a7157cdb043cb1bfab8a4f91102863aa5ec783d32d7334825bcbe6",
+        "schema": "o1-256-chacha20-cnf-instance-v1",
+        "template_map_sha256": "13c0dd32b1c0eec0b9b95e9c7c0f2a8390b8be6f98bd59e3b7d021c23762bfaf",
+        "template_sha256": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+        "unit_clause_sha256": "910a517203a7157cdb043cb1bfab8a4f91102863aa5ec783d32d7334825bcbe6",
+        "variable_count": 32128
+      },
+      "key_unit_clauses": 0,
+      "public_units_cover_variables_257_through_896_once": true
+    }
+  },
+  "resources": {
+    "gpu_calls": 0,
+    "maximum_working_bytes": 32000000,
+    "mps_calls": 0,
+    "peak_working_bytes": 25414624,
+    "persistent_artifact_bytes": 21069379,
+    "sibling_reads": 0,
+    "sibling_writes": 0,
+    "solver_formula_calls": 3
+  },
+  "result_sha256": "6c4fd7becd5307d60b30e16ea1fae8d3f4739b06c888204d638950c94b53adfe",
+  "schema": "o1-256-full-cnf-foundation-result-v1",
+  "scientific_claim_boundary": {
+    "full256_relation_validated": true,
+    "inverse_signal_claimed": false,
+    "next_mechanism": "paired key-bit assumptions -> bounded solver telemetry -> coordinate-bound O1 evidence state",
+    "unknown_key_inversion_performed": false
+  },
+  "self_tests": {
+    "rfc_fixed_key": {
+      "clauses": 188266,
+      "instance_bytes": 4345245,
+      "instance_sha256": "4ec3ea91564990e2d0a420e0a649dbbc5c2e6e9f8971a1fb6d406e13e6901569",
+      "key_fixed_for_self_test": true,
+      "returncode": 10,
+      "solver_name": "cadical",
+      "status": "SAT",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "s SATISFIABLE\n",
+      "stdout_sha256": "3fce8455f4a0384f45e55f76fa5e229341b4eaf3d7cf9018750c38f900eb2314",
+      "variables": 32128,
+      "wall_seconds": 0.05531620793044567
+    },
+    "rfc_flipped_output": {
+      "clauses": 188266,
+      "instance_bytes": 4345244,
+      "instance_sha256": "5aca27206accb841feb5ef799b5c2f94160395aff4e119dcf6c64213aea6e85d",
+      "key_fixed_for_self_test": true,
+      "returncode": 20,
+      "solver_name": "cadical",
+      "status": "UNSAT",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "s UNSATISFIABLE\n",
+      "stdout_sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162",
+      "variables": 32128,
+      "wall_seconds": 0.05607604095712304
+    },
+    "second_fixed_key": {
+      "clauses": 188266,
+      "instance_bytes": 4345112,
+      "instance_sha256": "1a3fbf07a058cc7512d5debee0cd0fc622dd7b4c5cd94d53e1d50365363105dd",
+      "key_fixed_for_self_test": true,
+      "returncode": 10,
+      "solver_name": "cadical",
+      "status": "SAT",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "s SATISFIABLE\n",
+      "stdout_sha256": "3fce8455f4a0384f45e55f76fa5e229341b4eaf3d7cf9018750c38f900eb2314",
+      "variables": 32128,
+      "wall_seconds": 0.05698675010353327
+    },
+    "solver_binary_sha256": "c7b63954503d7fb1c8532efa37689715398683b5dea59d9bf6d80f06169e09b3"
+  }
+}

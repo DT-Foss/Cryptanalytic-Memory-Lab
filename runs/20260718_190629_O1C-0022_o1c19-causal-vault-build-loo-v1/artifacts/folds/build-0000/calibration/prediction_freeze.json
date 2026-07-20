@@ -1,0 +1,169 @@
+{
+  "artifacts": {
+    "folds/build-0000/calibration/quantizer.json": {
+      "bytes": 424,
+      "sha256": "7f6ce78065f856c1f61ea187bc194ab1c7f869f33eeca2e997602a3b1069e244"
+    },
+    "folds/build-0000/calibration/raw_predictions.f64le": {
+      "bytes": 43008,
+      "sha256": "a27ad15046179aaf4460e0f1c619e9a307b765b9254ff08762faf70dc9051d5e"
+    },
+    "folds/build-0000/calibration/source-build-0001/active_coordinates.json": {
+      "bytes": 2885,
+      "sha256": "eadad119cee35cc8c58064d247849fadc73ff3b9d58e6d475c7faed1f39fd29d"
+    },
+    "folds/build-0000/calibration/source-build-0001/execution/causal_vault_bridge_execution.json": {
+      "bytes": 1398,
+      "sha256": "a2a3f0cebf339044844a073345d0e0b7dd7c85e3aa17bcb2a4fe97fc6533bb84"
+    },
+    "folds/build-0000/calibration/source-build-0001/execution/causal_vault_bridge_ledger.json": {
+      "bytes": 196204,
+      "sha256": "edd05aea715506c6a429e5608bb91b225995988236cc60099f6a9fbc2efa8885"
+    },
+    "folds/build-0000/calibration/source-build-0001/execution/causal_vault_state.bin": {
+      "bytes": 352,
+      "sha256": "df0b1697f12767b8e870f7896d18f39f9da4ecdfa6233f115cf3e39d90201db5"
+    },
+    "folds/build-0000/calibration/source-build-0001/execution/last_only_control.i8": {
+      "bytes": 256,
+      "sha256": "7047b08a057575622fbe6e6bb861eb4a9f7c715a9d0a91f883e70884b62638eb"
+    },
+    "folds/build-0000/calibration/source-build-0001/execution/normalized_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "0638d38c7abe8397be3f4cd301bec23f7dccf5b266156d136a4b6f6966040b22"
+    },
+    "folds/build-0000/calibration/source-build-0001/execution/raw_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "74ca3a967e58453d8e6aeb122ebc9cb9a8d93c0187ab5a41a5368618c015526e"
+    },
+    "folds/build-0000/calibration/source-build-0001/execution/shuffled_control.i8": {
+      "bytes": 256,
+      "sha256": "9e59a2ebc0019b6be32160e68f869e34a2cc3cb3b890f0afefc5ab1997a36af0"
+    },
+    "folds/build-0000/calibration/source-build-0001/execution/shuffled_destinations.u16le": {
+      "bytes": 512,
+      "sha256": "ac402d1d7904ebdfa664dd54b9f5d83238e801071cd222441760eafe06275195"
+    },
+    "folds/build-0000/calibration/source-build-0001/execution/unit_sign_control.i8": {
+      "bytes": 256,
+      "sha256": "c55e7b1bd67c7425ada49664e9a362f44a5d4a0c1e7eddd9fdb02ebde3f661b2"
+    },
+    "folds/build-0000/calibration/source-build-0001/packet_deltas.json": {
+      "bytes": 250156,
+      "sha256": "130340637553526dbff11806642c9f71f0639e4ccfb1947c837912f55c736bec"
+    },
+    "folds/build-0000/calibration/source-build-0002/active_coordinates.json": {
+      "bytes": 2871,
+      "sha256": "34b4ea8bb868632d6582bf538ad124ac5480d62776536198df28ea880b1a1c45"
+    },
+    "folds/build-0000/calibration/source-build-0002/execution/causal_vault_bridge_execution.json": {
+      "bytes": 1398,
+      "sha256": "76978833c8d4fed15f2d7394c4392633c96417d82ca6d528c7a6410f66a73967"
+    },
+    "folds/build-0000/calibration/source-build-0002/execution/causal_vault_bridge_ledger.json": {
+      "bytes": 196140,
+      "sha256": "a22ea1ee994f1a040fa8220bccf17767fcc252ae83cfb1b7cbbc6272de2932bf"
+    },
+    "folds/build-0000/calibration/source-build-0002/execution/causal_vault_state.bin": {
+      "bytes": 352,
+      "sha256": "34bfa67f824b6df21b24ef331cf1d8bfdfb0a44e8da2e9a44b9ec4005e44a6de"
+    },
+    "folds/build-0000/calibration/source-build-0002/execution/last_only_control.i8": {
+      "bytes": 256,
+      "sha256": "eea17ca0063a6e139d6f23beb418db03133a9266333264bb5a4e8621b0954877"
+    },
+    "folds/build-0000/calibration/source-build-0002/execution/normalized_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "2b29e8985fb45ea8a5d6f68f1778686fb01299c66789873d9b7b3e34d4560564"
+    },
+    "folds/build-0000/calibration/source-build-0002/execution/raw_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "abecd5796340216d3cdd14b5a350d773c8928a2394939bd1fa162eaf0a7d294d"
+    },
+    "folds/build-0000/calibration/source-build-0002/execution/shuffled_control.i8": {
+      "bytes": 256,
+      "sha256": "54486f0efbe97413828d8eccdc43bbc9f6ef2c02a1dc429c44e84e4e4df83857"
+    },
+    "folds/build-0000/calibration/source-build-0002/execution/shuffled_destinations.u16le": {
+      "bytes": 512,
+      "sha256": "9217c2388061cc8fb6937c0535937509d884422d8fd348079d25aabf94deb16b"
+    },
+    "folds/build-0000/calibration/source-build-0002/execution/unit_sign_control.i8": {
+      "bytes": 256,
+      "sha256": "4b1b17cf5fd93b676e8480658cf6242349e9b7f5e8fa820b3fdf31d12107341a"
+    },
+    "folds/build-0000/calibration/source-build-0002/packet_deltas.json": {
+      "bytes": 250128,
+      "sha256": "da59c5141a0b7ef82618ac391f97f57aed29ae73423f98b04f0dc88144a6b5a6"
+    },
+    "folds/build-0000/calibration/source-build-0003/active_coordinates.json": {
+      "bytes": 2870,
+      "sha256": "2fe3c792c6b3bf63e81e7a59e58504b1965f8731546f603bd1ce595cb6fb52ed"
+    },
+    "folds/build-0000/calibration/source-build-0003/execution/causal_vault_bridge_execution.json": {
+      "bytes": 1398,
+      "sha256": "f6d9cced233f565b2eccaed30193cfd5821b852d1425d054784f7d83513de32a"
+    },
+    "folds/build-0000/calibration/source-build-0003/execution/causal_vault_bridge_ledger.json": {
+      "bytes": 196160,
+      "sha256": "c928dda2745a4218371e856b77060d0c8b206d4c67f7747c50ddf0972ef6d019"
+    },
+    "folds/build-0000/calibration/source-build-0003/execution/causal_vault_state.bin": {
+      "bytes": 352,
+      "sha256": "b7079ed8a3f1963d844ba9bb204f802dd9c33ec3b00fdb186f6b7b932c0462c3"
+    },
+    "folds/build-0000/calibration/source-build-0003/execution/last_only_control.i8": {
+      "bytes": 256,
+      "sha256": "71989c1280a3cfd919a0a5d8f64e2af128db3f87c48fa12aaf5afa48e03b4630"
+    },
+    "folds/build-0000/calibration/source-build-0003/execution/normalized_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "08242a0420e9c261166c71b46f17bd657e13bb5efc162244c371a8190fc0a974"
+    },
+    "folds/build-0000/calibration/source-build-0003/execution/raw_float_control.f64le": {
+      "bytes": 2048,
+      "sha256": "766794cdc02ed7de6dcf521f590839c86a45166bb4480ef5bad250936201d6b4"
+    },
+    "folds/build-0000/calibration/source-build-0003/execution/shuffled_control.i8": {
+      "bytes": 256,
+      "sha256": "0d4793e24eeedfd8942d23474c77d1a8c7fee19c82da0032f5f3e5ef0d1f57ca"
+    },
+    "folds/build-0000/calibration/source-build-0003/execution/shuffled_destinations.u16le": {
+      "bytes": 512,
+      "sha256": "35e91fce93f4d9d9884d1bc336fb8c94c2493f118509a91aee702022e9aabb5c"
+    },
+    "folds/build-0000/calibration/source-build-0003/execution/unit_sign_control.i8": {
+      "bytes": 256,
+      "sha256": "0eb8d81141c5827d7818f87e484d77cc61b932892d968aaa8f774d29d477ffab"
+    },
+    "folds/build-0000/calibration/source-build-0003/packet_deltas.json": {
+      "bytes": 250179,
+      "sha256": "1eaec6178663e65a29f186ce435c4d66ed504ca8f509a543cc2e15f2459e3c87"
+    }
+  },
+  "build_labels_may_have_been_opened_in_other_folds": false,
+  "fold_index": 0,
+  "freeze_sha256": "1f33c059f59c47c6192e597fcdab4bfc01e5f2e399450bbe4f03239d898f0b83",
+  "held_out_label_used_for_this_fold": false,
+  "held_out_ordinal": 0,
+  "held_out_target_id": "build-0000",
+  "labels_used_by_this_fold_before_calibration_freeze": [],
+  "phase": "THIS_FOLD_TRAINING_PUBLIC_DELTAS_STATES_AND_PREDICTIONS_FROZEN_BEFORE_THIS_FOLD_CALIBRATION_LABEL_USE",
+  "previously_opened_build_label_ordinals": [],
+  "quantizer_sha256": "7f6ce78065f856c1f61ea187bc194ab1c7f869f33eeca2e997602a3b1069e244",
+  "reader_state_sha256": "8824fefafa56fde83724bf965b8441a3673bb72de4f7f8bcc23d43084193ced0",
+  "reader_updates": 0,
+  "schema": "o1-256-o1c22-calibration-prediction-freeze-v1",
+  "slow_state_sha256": "4f2caddc76dcc7a1a83b38f6d5b7ae17ce7b7bc3f1db2a545a2470f3ef7ce98e",
+  "solver_calls": 0,
+  "training_ordinals": [
+    1,
+    2,
+    3
+  ],
+  "training_target_ids": [
+    "build-0001",
+    "build-0002",
+    "build-0003"
+  ]
+}

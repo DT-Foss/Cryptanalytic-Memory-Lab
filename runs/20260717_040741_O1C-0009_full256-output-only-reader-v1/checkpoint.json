@@ -1,0 +1,16 @@
+{
+  "attempt_id": "O1C-0009",
+  "payload": {
+    "development_openings": 1,
+    "development_targets": 128,
+    "mps_calls": 0,
+    "phase": "DEVELOPMENT_OPENED_ONCE_AND_PERSISTED",
+    "primary_arm": "direct",
+    "result_sha256": "40276d71516d4d150b02cc8235c08d00fb8ceb28daf64d1316826b38fd094bf9",
+    "scientific_signal_gate_passed": false,
+    "sibling_writes": 0
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 6,
+  "updated_at": "2026-07-17T04:07:48.947668+02:00"
+}

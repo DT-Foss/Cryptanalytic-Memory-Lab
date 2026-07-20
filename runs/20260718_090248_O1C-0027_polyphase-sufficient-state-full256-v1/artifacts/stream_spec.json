@@ -1,0 +1,34 @@
+{
+  "contains_target_label_or_outcome": false,
+  "dtype": "float32",
+  "formula": {
+    "carrier": "+1 iff popcount(i xor (13*t+5*h)) is even else -1",
+    "carrier_scale": [
+      4,
+      -8
+    ],
+    "division": 64,
+    "q": "2*((17*i+29*t+7*h)&31)-31",
+    "regime_signs": [
+      [
+        1,
+        -1,
+        1
+      ],
+      [
+        -1,
+        1,
+        1
+      ]
+    ]
+  },
+  "generated_once": true,
+  "generator": "dyadic-regime-switch-q31-parity-v1",
+  "schema": "o1-256-polyphase-source-spec-v1",
+  "sha256_f32le": "9b1b0174dbac855c3f7b9eb96866ba021857ad0e502e70c8316ef1c8f8e41863",
+  "shape": [
+    384,
+    3,
+    256
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "artifacts": {
+    "controls.json": {
+      "bytes": 14289,
+      "sha256": "e9241f23569945639007c724c722956dbfa7840c3d974a2f98c22f8d09050cd5"
+    },
+    "normalized_evidence.f32le": {
+      "bytes": 9216,
+      "sha256": "84ea296f708be8337ea214a7f92d6af2b66b4f936581fe34586e3ed69a3519a8"
+    },
+    "normalized_stream.json": {
+      "bytes": 1344,
+      "sha256": "23c138968ba53eecad591b35999683beb1708d5c5dd0fc940c3c850b204f398c"
+    },
+    "packet_extraction.json": {
+      "bytes": 248743,
+      "sha256": "3a5c4c1808cb6ce1736cbceab6f004b49ebe3f5f1304974e73ed03fff224de65"
+    },
+    "quantized_evidence.f32le": {
+      "bytes": 9216,
+      "sha256": "032ecba3f9f2e05ace4996457a540a8dfaa005b64774bf2890ed770b3ef93b6b"
+    },
+    "quantized_stream.json": {
+      "bytes": 1348,
+      "sha256": "5fec888d4641fd27a9cf288958e585e4bc7fe8c3d98b3a9c4984dc18bf9602e1"
+    },
+    "quantizer.json": {
+      "bytes": 424,
+      "sha256": "84f78fb3e46c2b3c6b2e04756fe84764061374b7eb00c92a07b71dc4a799ac97"
+    },
+    "readouts.f32le": {
+      "bytes": 7168,
+      "sha256": "9dd79403e49108b4d3cd7029b5ec65dd35e7a8212be6bdd63a93edcd42d0f090"
+    },
+    "result.json": {
+      "bytes": 7981,
+      "sha256": "8c6f845c9ac7a604cba51d3b07bcd648f1e7a0810f7d5c149f1cffd462a3ac1e"
+    },
+    "state_complement.bin": {
+      "bytes": 25128,
+      "sha256": "ee0257f010fd90cfccabd98be86139599f529020a2668b0c477d9da6b1636bc0"
+    },
+    "state_primary.bin": {
+      "bytes": 25128,
+      "sha256": "02837fe664dc8b75b4dc651fc4d5fd6981b4c9a2653d4040c276fbe124047abe"
+    },
+    "state_quantized.bin": {
+      "bytes": 25128,
+      "sha256": "d9b2b7f524f44d6a03876ffb3d2b5ddb0a3fc978f32730d308d9c9e04236ebc3"
+    },
+    "structural_work_ledger.json": {
+      "bytes": 1650,
+      "sha256": "35081d72fefef320ccf779457bb2e535951f6d457cf74ab330941de56e130419"
+    }
+  },
+  "attempt_id": "O1C-0028",
+  "indexed_artifact_bytes": 376763,
+  "indexed_artifact_count": 13,
+  "schema": "o1-256-o1c22-polyphase-bridge-artifact-index-v1",
+  "self_excluded_from_index": true
+}

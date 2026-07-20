@@ -1,0 +1,1 @@
+PYTHONPATH=src python3 -c 'from o1_crypto_lab.o1c56_clause_role_credit_screen import run; run()'

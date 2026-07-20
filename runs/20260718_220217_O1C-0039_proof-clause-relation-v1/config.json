@@ -1,0 +1,73 @@
+{
+  "schema": "o1-256-proof-clause-relation-transfer-config-v1",
+  "attempt_id": "O1C-0039",
+  "slug": "proof-clause-relation-transfer-v1",
+  "claim_level": "TEST",
+  "hypothesis": "A target-specific H16 signed proof-clause contrast contains portable key-to-internal-variable relations that improve exact search geometry without target-key input.",
+  "prediction": "The BUILD-selected absolute half-unit edge class will exceed 50 percent relation accuracy on each DEVELOPMENT target and its pooled accuracy will beat both endpoint-rotation controls. In the explicit post-reveal ceiling, primary factors may expand exact completion from eight to nine unknown high-degree coordinates.",
+  "selection_freeze": {
+    "source_targets": ["build-0000", "build-0001", "build-0002", "build-0003"],
+    "source_pooled_correct": 595,
+    "source_pooled_edges": 1045,
+    "source_pooled_accuracy": 0.569377990430622,
+    "selected_conflict_horizon": 16,
+    "unit_scale": 6,
+    "selected_abs_units": 3,
+    "selected_absolute_weight": 0.5,
+    "no_other_horizon_or_weight_arm": true
+  },
+  "targets": [
+    {
+      "target_id": "development-0000",
+      "sidecar": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/development-0000.json",
+      "label_index": 0
+    },
+    {
+      "target_id": "development-0001",
+      "sidecar": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/development-0001.json",
+      "label_index": 1
+    }
+  ],
+  "source_result": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/full256_online_real_gate.json",
+  "labels": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/labels.bitpack",
+  "exact_relation": {
+    "template": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.cnf",
+    "semantic_map": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.map.json",
+    "sensor_source": "native/cadical_pair_sensor.cpp",
+    "tracer_header": "native/cadical_tracer_3_0_0.hpp",
+    "factor_search_source": "native/cadical_o1_factor_search.cpp",
+    "internal_search_source": "native/cadical_o1_guided_search.cpp",
+    "cadical_cli": "/opt/homebrew/bin/cadical"
+  },
+  "field": {
+    "conflict_horizon": 16,
+    "selected_abs_units": 3,
+    "capacity": 4096,
+    "seed": 0
+  },
+  "search": {
+    "conflict_limit": 512,
+    "residual_bits": 9,
+    "residual_selector": "highest_relation_degree_then_key_coordinate",
+    "oracle_anchor_variable": 257,
+    "oracle_anchor_max_magnitude": 4096,
+    "seed": 0
+  },
+  "budgets": {
+    "maximum_wall_seconds": 120,
+    "maximum_peak_rss_bytes": 536870912,
+    "maximum_native_probe_branches": 1024,
+    "maximum_exact_solver_calls": 18,
+    "maximum_factor_search_calls": 14,
+    "maximum_internal_search_calls": 2,
+    "maximum_truth_model_calls": 2,
+    "maximum_requested_conflicts": 8192,
+    "maximum_persistent_artifact_bytes": 1048576,
+    "maximum_fresh_targets": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0
+  },
+  "next_action": "If the relation transfers, keep the exact half-unit field and replace oracle anchors with attacker-valid O1/live-trail orientation. If it does not, close H16 clause-occurrence contrast and move one level deeper to signed antecedent-chain factors without sweeping weights."
+}

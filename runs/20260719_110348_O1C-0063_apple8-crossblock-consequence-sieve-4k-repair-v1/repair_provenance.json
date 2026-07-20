@@ -1,0 +1,21 @@
+{
+  "diagnosis": "a solve exception was masked by invalid external-propagator disconnect during unwinding",
+  "native_calls_consumed": 1,
+  "native_failure_classification": "O1C62_OPERATIONAL_NATIVE_FAILURE_NO_SCIENCE_RESULT",
+  "native_failure_sha256": "273503c9aeff43c6959649610e25c7fc3dd9862c0d8f22cb882e438f422e0ef8",
+  "new_attempt_not_retry": true,
+  "pending_backtrack_rule": "retain-valid-pending-no-good;unwind-trail-and-refresh-factor-cache;defer-new-bound",
+  "predecessor_writes": 0,
+  "repair": "destroy the connected solver before its external propagator without explicit disconnect, and retain valid pending no-goods while backtrack unwinds the trail and refreshes the factor cache before deferring a new bound",
+  "retry_authorized": false,
+  "schema": "o1-256-o1c62-terminal-repair-provenance-v1",
+  "source_attempt": "O1C-0062",
+  "teardown_rule": "connected-solver-destroyed-before-external-propagator;no-explicit-disconnect",
+  "terminal_capsule": "runs/20260719_102136_O1C-0062_apple8-crossblock-consequence-sieve-4k-v1",
+  "terminal_classification": "O1C62_OPERATIONAL_FAILURE_NO_SCIENCE_RESULT",
+  "terminal_manifest_sha256": "2f5acb7852a14c30854da4eed8512eec101a9e4871a6ef1834088b4fb1297f0a",
+  "terminal_result": "research/O1C0062_APPLE8_CROSSBLOCK_SIEVE_4K_RESULT_20260719.json",
+  "terminal_result_sha256": "918d585878e667e94f31f042366b5f2d779bf4689a6a024160a5cc5997a27726",
+  "truth_key_bytes_read": false,
+  "validated_science_result": false
+}

@@ -1,0 +1,735 @@
+{
+  "arm_order": [
+    "direct",
+    "relative",
+    "distilled"
+  ],
+  "calibration_candidate_deployment_sha256": "c9de655c1284fc01b2bd5efde1a96983adbbf56b84b69ae1cbcfb4c5073130b1",
+  "candidate_plan": {
+    "input_dimension": 2576,
+    "interactions": [
+      [
+        "target_output",
+        "candidate_output"
+      ],
+      [
+        "target_output",
+        "output_residual"
+      ],
+      [
+        "candidate_key",
+        "candidate_trace"
+      ]
+    ],
+    "output_dimension": 288,
+    "plan_sha256": "3cd1ea1a6dcd3e11ad9b549b9c32793c07f554c88df225606661d4b952f877dc",
+    "schema": "o1-256-holographic-feature-plan-v1",
+    "seed": 2758261825,
+    "segments": [
+      {
+        "end": 512,
+        "name": "target_output",
+        "start": 0
+      },
+      {
+        "end": 1024,
+        "name": "candidate_output",
+        "start": 512
+      },
+      {
+        "end": 1536,
+        "name": "output_residual",
+        "start": 1024
+      },
+      {
+        "end": 1792,
+        "name": "candidate_key",
+        "start": 1536
+      },
+      {
+        "end": 1920,
+        "name": "public_relation",
+        "start": 1792
+      },
+      {
+        "end": 2576,
+        "name": "candidate_trace",
+        "start": 1920
+      }
+    ],
+    "slots": 32
+  },
+  "curves": {
+    "direct": [
+      {
+        "mean_key_nll_bits": 256.0,
+        "scale": 0.0
+      },
+      {
+        "mean_key_nll_bits": 256.01483760557716,
+        "scale": 0.015625
+      },
+      {
+        "mean_key_nll_bits": 256.03466942941077,
+        "scale": 0.03125
+      },
+      {
+        "mean_key_nll_bits": 256.08931291666454,
+        "scale": 0.0625
+      },
+      {
+        "mean_key_nll_bits": 256.2584770734819,
+        "scale": 0.125
+      },
+      {
+        "mean_key_nll_bits": 256.83564253491426,
+        "scale": 0.25
+      },
+      {
+        "mean_key_nll_bits": 258.9347783355936,
+        "scale": 0.5
+      },
+      {
+        "mean_key_nll_bits": 266.7552400957127,
+        "scale": 1.0
+      }
+    ],
+    "distilled": [
+      {
+        "mean_key_nll_bits": 256.0,
+        "scale": 0.0
+      },
+      {
+        "mean_key_nll_bits": 256.0019906736826,
+        "scale": 0.015625
+      },
+      {
+        "mean_key_nll_bits": 256.0041322695629,
+        "scale": 0.03125
+      },
+      {
+        "mean_key_nll_bits": 256.0088682260521,
+        "scale": 0.0625
+      },
+      {
+        "mean_key_nll_bits": 256.02015116997586,
+        "scale": 0.125
+      },
+      {
+        "mean_key_nll_bits": 256.0499607341486,
+        "scale": 0.25
+      },
+      {
+        "mean_key_nll_bits": 256.13854741131956,
+        "scale": 0.5
+      },
+      {
+        "mean_key_nll_bits": 256.43147663779314,
+        "scale": 1.0
+      }
+    ],
+    "relative": [
+      {
+        "mean_key_nll_bits": 256.0,
+        "scale": 0.0
+      },
+      {
+        "mean_key_nll_bits": 256.001233965157,
+        "scale": 0.015625
+      },
+      {
+        "mean_key_nll_bits": 256.00263619656914,
+        "scale": 0.03125
+      },
+      {
+        "mean_key_nll_bits": 256.00594545583834,
+        "scale": 0.0625
+      },
+      {
+        "mean_key_nll_bits": 256.01458312534703,
+        "scale": 0.125
+      },
+      {
+        "mean_key_nll_bits": 256.0399345113512,
+        "scale": 0.25
+      },
+      {
+        "mean_key_nll_bits": 256.1229325649607,
+        "scale": 0.5
+      },
+      {
+        "mean_key_nll_bits": 256.41796754922484,
+        "scale": 1.0
+      }
+    ],
+    "shuffled_key_control": [
+      {
+        "mean_key_nll_bits": 256.0,
+        "scale": 0.0
+      },
+      {
+        "mean_key_nll_bits": 256.00635262115037,
+        "scale": 0.015625
+      },
+      {
+        "mean_key_nll_bits": 256.0176602967898,
+        "scale": 0.03125
+      },
+      {
+        "mean_key_nll_bits": 256.0551379719813,
+        "scale": 0.0625
+      },
+      {
+        "mean_key_nll_bits": 256.1895000812097,
+        "scale": 0.125
+      },
+      {
+        "mean_key_nll_bits": 256.69517427820574,
+        "scale": 0.25
+      },
+      {
+        "mean_key_nll_bits": 258.64370875766906,
+        "scale": 0.5
+      },
+      {
+        "mean_key_nll_bits": 266.13219626957743,
+        "scale": 1.0
+      }
+    ]
+  },
+  "development_labels_read": 0,
+  "development_publications_opened": 0,
+  "development_targets_created": 0,
+  "direct_plan": {
+    "input_dimension": 640,
+    "interactions": [
+      [
+        "target_output",
+        "public_relation"
+      ]
+    ],
+    "output_dimension": 96,
+    "plan_sha256": "196513a919c2784faf527a416d50779988e9cd30b8e657b20d833be6c59be7ce",
+    "schema": "o1-256-holographic-feature-plan-v1",
+    "seed": 137256,
+    "segments": [
+      {
+        "end": 512,
+        "name": "target_output",
+        "start": 0
+      },
+      {
+        "end": 640,
+        "name": "public_relation",
+        "start": 512
+      }
+    ],
+    "slots": 32
+  },
+  "evaluations": {
+    "direct": {
+      "bit_accuracy": 0.50018310546875,
+      "maximum_key_nll_bits": 256.0,
+      "mean_effective_compression_bits": 0.0,
+      "mean_key_nll_bits": 256.0,
+      "median_key_nll_bits": 256.0,
+      "minimum_key_nll_bits": 256.0,
+      "posterior_set_sha256": "31f1d2b2391050bc1f6975db4e8ae4dac6ddab211f45fc7f5333c18a3981aa3a",
+      "stable_bit_coordinates": [],
+      "stable_bits": 0,
+      "targets": 64,
+      "top_bits": [
+        {
+          "accuracy": 0.5,
+          "bit": 0,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.421875,
+          "bit": 1,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 2,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5,
+          "bit": 3,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5625,
+          "bit": 4,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.546875,
+          "bit": 5,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 6,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.40625,
+          "bit": 7,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5625,
+          "bit": 8,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.546875,
+          "bit": 9,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.59375,
+          "bit": 10,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.53125,
+          "bit": 11,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 12,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.59375,
+          "bit": 13,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5,
+          "bit": 14,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 15,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        }
+      ]
+    },
+    "distilled": {
+      "bit_accuracy": 0.50018310546875,
+      "maximum_key_nll_bits": 256.0,
+      "mean_effective_compression_bits": 0.0,
+      "mean_key_nll_bits": 256.0,
+      "median_key_nll_bits": 256.0,
+      "minimum_key_nll_bits": 256.0,
+      "posterior_set_sha256": "31f1d2b2391050bc1f6975db4e8ae4dac6ddab211f45fc7f5333c18a3981aa3a",
+      "stable_bit_coordinates": [],
+      "stable_bits": 0,
+      "targets": 64,
+      "top_bits": [
+        {
+          "accuracy": 0.5,
+          "bit": 0,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.421875,
+          "bit": 1,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 2,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5,
+          "bit": 3,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5625,
+          "bit": 4,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.546875,
+          "bit": 5,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 6,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.40625,
+          "bit": 7,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5625,
+          "bit": 8,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.546875,
+          "bit": 9,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.59375,
+          "bit": 10,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.53125,
+          "bit": 11,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 12,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.59375,
+          "bit": 13,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5,
+          "bit": 14,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 15,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        }
+      ]
+    },
+    "relative": {
+      "bit_accuracy": 0.50018310546875,
+      "maximum_key_nll_bits": 256.0,
+      "mean_effective_compression_bits": 0.0,
+      "mean_key_nll_bits": 256.0,
+      "median_key_nll_bits": 256.0,
+      "minimum_key_nll_bits": 256.0,
+      "posterior_set_sha256": "31f1d2b2391050bc1f6975db4e8ae4dac6ddab211f45fc7f5333c18a3981aa3a",
+      "stable_bit_coordinates": [],
+      "stable_bits": 0,
+      "targets": 64,
+      "top_bits": [
+        {
+          "accuracy": 0.5,
+          "bit": 0,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.421875,
+          "bit": 1,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 2,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5,
+          "bit": 3,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5625,
+          "bit": 4,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.546875,
+          "bit": 5,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 6,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.40625,
+          "bit": 7,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5625,
+          "bit": 8,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.546875,
+          "bit": 9,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.59375,
+          "bit": 10,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.53125,
+          "bit": 11,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 12,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.59375,
+          "bit": 13,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5,
+          "bit": 14,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 15,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        }
+      ]
+    },
+    "shuffled_key_control": {
+      "bit_accuracy": 0.50018310546875,
+      "maximum_key_nll_bits": 256.0,
+      "mean_effective_compression_bits": 0.0,
+      "mean_key_nll_bits": 256.0,
+      "median_key_nll_bits": 256.0,
+      "minimum_key_nll_bits": 256.0,
+      "posterior_set_sha256": "31f1d2b2391050bc1f6975db4e8ae4dac6ddab211f45fc7f5333c18a3981aa3a",
+      "stable_bit_coordinates": [],
+      "stable_bits": 0,
+      "targets": 64,
+      "top_bits": [
+        {
+          "accuracy": 0.5,
+          "bit": 0,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.421875,
+          "bit": 1,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 2,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5,
+          "bit": 3,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5625,
+          "bit": 4,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.546875,
+          "bit": 5,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 6,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.40625,
+          "bit": 7,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5625,
+          "bit": 8,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.546875,
+          "bit": 9,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.59375,
+          "bit": 10,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.53125,
+          "bit": 11,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 12,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.59375,
+          "bit": 13,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.5,
+          "bit": 14,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        },
+        {
+          "accuracy": 0.4375,
+          "bit": 15,
+          "nll_bits": 1.0,
+          "nll_gain_bits": 0.0
+        }
+      ]
+    }
+  },
+  "frozen_bit_selections": {
+    "direct": {
+      "coordinates": [],
+      "details": [],
+      "development_statistics_used_for_selection": false,
+      "familywise_alpha": 0.05,
+      "hypotheses": 256,
+      "maximum_selected_bits": 16,
+      "minimum_correct": 47,
+      "null_tail_probability_per_bit": 0.0001134411914416403,
+      "selected_bits": 0,
+      "selection_split": "CALIBRATION"
+    },
+    "distilled": {
+      "coordinates": [],
+      "details": [],
+      "development_statistics_used_for_selection": false,
+      "familywise_alpha": 0.05,
+      "hypotheses": 256,
+      "maximum_selected_bits": 16,
+      "minimum_correct": 47,
+      "null_tail_probability_per_bit": 0.0001134411914416403,
+      "selected_bits": 0,
+      "selection_split": "CALIBRATION"
+    },
+    "relative": {
+      "coordinates": [],
+      "details": [],
+      "development_statistics_used_for_selection": false,
+      "familywise_alpha": 0.05,
+      "hypotheses": 256,
+      "maximum_selected_bits": 16,
+      "minimum_correct": 47,
+      "null_tail_probability_per_bit": 0.0001134411914416403,
+      "selected_bits": 0,
+      "selection_split": "CALIBRATION"
+    }
+  },
+  "models": {
+    "direct": {
+      "bytes": 201949,
+      "sha256": "b029182649f2ec6f06aa3eb00c497d57c76d0b7b81d7b4dc2a7e25f98331bc55"
+    },
+    "distilled": {
+      "bytes": 598528,
+      "sha256": "0f00e5c9a13d7121ae9bde35e91c8c8cc09b3b939340ccf0c356a9c79dc726a9"
+    },
+    "relative": {
+      "bytes": 598526,
+      "sha256": "ac82fd6039da556e3c2542ecaf182724ca935ee1887f3e573e3cc552d50264d8"
+    },
+    "shuffled_key_control": {
+      "bytes": 201949,
+      "sha256": "6dd9a11e64d3b93a98b1bab92f9249785aa6be2a2e46dae21fe070d63796711e"
+    }
+  },
+  "primary_arm": "direct",
+  "scales": {
+    "direct": 0.0,
+    "distilled": 0.0,
+    "relative": 0.0,
+    "shuffled_key_control": 0.0
+  },
+  "schema": "o1-256-living-inverse-calibration-freeze-v1"
+}

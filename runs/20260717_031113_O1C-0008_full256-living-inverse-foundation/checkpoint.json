@@ -1,0 +1,13 @@
+{
+  "attempt_id": "O1C-0008",
+  "payload": {
+    "deployment_contrasts": 72,
+    "fresh_target_revealed": false,
+    "phase": "FOUNDATION_MEASURED",
+    "result_sha256": "14bfa1dd9e4593cac223a779562ff8b591bf88c485486814be62e6f73baa79a2",
+    "success_gate_passed": true
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 2,
+  "updated_at": "2026-07-17T03:11:14.503627+02:00"
+}

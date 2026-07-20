@@ -1,0 +1,26 @@
+{
+  "attempt_id": "O1C-0015",
+  "claim_level": "VALIDATION",
+  "elapsed_seconds": 1737.454918,
+  "ended_at": "2026-07-17T11:01:50.165244+02:00",
+  "next_action": "Preserve the failed O1C-0015 capsule, fix the exact protocol, source, reader, native, or budget invariant under a new attempt ID, and never replay any sealed target from this attempt.",
+  "schema": "o1c-run-metrics-v1",
+  "started_at": "2026-07-17T10:32:52.710326+02:00",
+  "status": "failed",
+  "values": {
+    "error": "polyphase resource budget exceeded: cpu_under_budget, resident_memory_under_budget, wall_under_budget",
+    "error_type": "Full256PolyphaseReplicationError",
+    "fresh_target_state": "possibly-generated-after-protocol-freeze",
+    "gpu_calls": 0,
+    "mps_calls": 0,
+    "prediction_set_persisted": true,
+    "protocol_freeze_persisted": true,
+    "schema": "o1-256-polyphase-replication-failure-v1",
+    "scientific_inverse_signal_claimed": false,
+    "sibling_reads": 0,
+    "sibling_writes": 0,
+    "target_internal_trace_inputs": 0,
+    "target_key_units": 0,
+    "unknown_target_key_bits": 256
+  }
+}

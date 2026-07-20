@@ -1,0 +1,1 @@
+PYTHONPATH=src python3 -m o1_crypto_lab.o1c58_serialization_recovery --capsule runs/20260719_070833_O1C-0058_multiblock-bit-vault-gradient-v1

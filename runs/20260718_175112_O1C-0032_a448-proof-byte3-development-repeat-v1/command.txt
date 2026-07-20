@@ -1,0 +1,1 @@
+PYTHONPATH=src python -m o1_crypto_lab.o1c32_a448_transfer_run

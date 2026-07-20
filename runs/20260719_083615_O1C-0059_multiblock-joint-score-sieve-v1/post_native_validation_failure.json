@@ -1,0 +1,16 @@
+{
+  "classification": "OPERATIONAL_POST_NATIVE_VALIDATION_FAILURE_NO_SCIENCE_CLAIM",
+  "error_message": "O1C-0059 native resource ledger differs",
+  "error_type": "O1C59RunError",
+  "native_calls_consumed": 1,
+  "native_result_preserved": true,
+  "native_result_sha256": "a19beb1504bd92dff7d65277c1b9028c1e12506ed315e2ebfdb895c1f9be102c",
+  "occurred_after_persisted_intent": true,
+  "occurred_after_persisted_native_result": true,
+  "public_model_diagnostic_complete": true,
+  "retry_authorized": false,
+  "truth_access_intent_persisted": true,
+  "truth_access_receipt_persisted": true,
+  "truth_access_stage": "COMPLETED_RECEIPT_PERSISTED",
+  "truth_key_bytes_read": true
+}

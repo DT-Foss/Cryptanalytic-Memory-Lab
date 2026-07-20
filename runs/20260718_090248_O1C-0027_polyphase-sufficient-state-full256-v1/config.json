@@ -1,0 +1,243 @@
+{
+  "attempt_id": "O1C-0027",
+  "budgets": {
+    "maximum_aggregate_algorithmic_state_bytes": 174632,
+    "maximum_control_input_chunk_bytes": 3072,
+    "maximum_cpu_seconds": 5.0,
+    "maximum_deployment_live_state_bytes": 100384,
+    "maximum_direct_reference_group_updates": 384,
+    "maximum_direct_reference_readout_calls": 4,
+    "maximum_direct_reference_readout_slot_contributions": 12288,
+    "maximum_direct_reference_resonator_cell_updates": 1179648,
+    "maximum_gpu_calls": 0,
+    "maximum_input_scalar_deliveries": 1032960,
+    "maximum_label_reads": 0,
+    "maximum_mps_calls": 0,
+    "maximum_network_calls": 0,
+    "maximum_outcome_or_progress_reads": 0,
+    "maximum_persistent_artifact_bytes": 1048576,
+    "maximum_primary_consume_calls": 1,
+    "maximum_primary_reingested_groups": 0,
+    "maximum_readout_artifact_bytes": 16384,
+    "maximum_reference_state_bytes": 74248,
+    "maximum_replay_required_probes": 3,
+    "maximum_resident_memory_mib": 128,
+    "maximum_resonator_cell_updates": 4131840,
+    "maximum_scientific_entropy_calls": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_solver_calls": 0,
+    "maximum_source_buffer_bytes": 1179648,
+    "maximum_source_generation_calls": 1,
+    "maximum_source_plus_control_input_bytes": 1182720,
+    "maximum_state_bytes_per_arm": 25096,
+    "maximum_state_group_updates": 1345,
+    "maximum_state_snapshot_bytes": 125480,
+    "maximum_successful_state_readout_calls": 12,
+    "maximum_target_reads": 0,
+    "maximum_wall_seconds": 5.0
+  },
+  "claim_level": "VALIDATION",
+  "commit": "f47a6dacd54a7d9c93bc41c0ee08902bf855e85d",
+  "config": {
+    "attempt_id": "O1C-0027",
+    "budgets": {
+      "maximum_aggregate_algorithmic_state_bytes": 174632,
+      "maximum_control_input_chunk_bytes": 3072,
+      "maximum_cpu_seconds": 5.0,
+      "maximum_deployment_live_state_bytes": 100384,
+      "maximum_direct_reference_group_updates": 384,
+      "maximum_direct_reference_readout_calls": 4,
+      "maximum_direct_reference_readout_slot_contributions": 12288,
+      "maximum_direct_reference_resonator_cell_updates": 1179648,
+      "maximum_gpu_calls": 0,
+      "maximum_input_scalar_deliveries": 1032960,
+      "maximum_label_reads": 0,
+      "maximum_mps_calls": 0,
+      "maximum_network_calls": 0,
+      "maximum_outcome_or_progress_reads": 0,
+      "maximum_persistent_artifact_bytes": 1048576,
+      "maximum_primary_consume_calls": 1,
+      "maximum_primary_reingested_groups": 0,
+      "maximum_readout_artifact_bytes": 16384,
+      "maximum_reference_state_bytes": 74248,
+      "maximum_replay_required_probes": 3,
+      "maximum_resident_memory_mib": 128,
+      "maximum_resonator_cell_updates": 4131840,
+      "maximum_scientific_entropy_calls": 0,
+      "maximum_sibling_reads": 0,
+      "maximum_sibling_writes": 0,
+      "maximum_solver_calls": 0,
+      "maximum_source_buffer_bytes": 1179648,
+      "maximum_source_generation_calls": 1,
+      "maximum_source_plus_control_input_bytes": 1182720,
+      "maximum_state_bytes_per_arm": 25096,
+      "maximum_state_group_updates": 1345,
+      "maximum_state_snapshot_bytes": 125480,
+      "maximum_successful_state_readout_calls": 12,
+      "maximum_target_reads": 0,
+      "maximum_wall_seconds": 5.0
+    },
+    "claim_level": "VALIDATION",
+    "controls": [
+      "the complete deterministic float32[384,3,256] source is generated once with no entropy, target, label, outcome, solver, sibling, network or accelerator access",
+      "primary, rechunked, branch-swapped and prefix arms each call consume exactly once while only the primary arm defines the one-pass deployment path",
+      "an independent chronological complex128 recurrence uses the exact frozen complex64 pole and float32 gain bytes and a derived roundoff envelope",
+      "the rechunk partition crosses the regime switch and must still serialize to exactly the same 25,096 bytes as the one-chunk arm",
+      "encoder order, one kernel timescale and one phase wavelength are independently changed only through foreign basis commitments and must hard-fail without state mutation",
+      "all readers are bias-free linear odd experts; state counters are branch-even and zero evidence remains an observed group"
+    ],
+    "experiment": {
+      "basis_sha256": "5f578f1917c5f80e662fb2c76e5e176202c9ef68dc492cd23e69c50984a78c33",
+      "chunk_partition": [
+        17,
+        64,
+        5,
+        96,
+        65,
+        32,
+        105
+      ],
+      "minimum_pairwise_normalized_readout_rms": 0.05,
+      "n_bits": 256,
+      "readouts": [
+        {
+          "name": "balanced_t1",
+          "slot_weights": [
+            [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ],
+            [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ],
+            [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ]
+          ],
+          "temperature": 1.0
+        },
+        {
+          "name": "fast_t05",
+          "slot_weights": [
+            [
+              0.625,
+              0.25,
+              0.125,
+              0.0
+            ],
+            [
+              0.625,
+              0.25,
+              0.125,
+              0.0
+            ],
+            [
+              0.625,
+              0.25,
+              0.125,
+              0.0
+            ]
+          ],
+          "temperature": 0.5
+        },
+        {
+          "name": "slow_t2",
+          "slot_weights": [
+            [
+              0.0,
+              0.125,
+              0.25,
+              0.625
+            ],
+            [
+              0.0,
+              0.125,
+              0.25,
+              0.625
+            ],
+            [
+              0.0,
+              0.125,
+              0.25,
+              0.625
+            ]
+          ],
+          "temperature": 2.0
+        },
+        {
+          "name": "crosswave_t075",
+          "slot_weights": [
+            [
+              0.5,
+              0.0,
+              0.25,
+              0.25
+            ],
+            [
+              0.25,
+              0.5,
+              0.0,
+              0.25
+            ],
+            [
+              0.25,
+              0.25,
+              0.5,
+              0.0
+            ]
+          ],
+          "temperature": 0.75
+        }
+      ],
+      "regime_switch": 193,
+      "source_generator": "dyadic-regime-switch-q31-parity-v1",
+      "stream_groups": 384,
+      "timescales": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "wavelengths": [
+        64,
+        96,
+        65
+      ]
+    },
+    "hypothesis": "A fixed 25,096-byte bank of stable polyphase resonators is a T-independent sufficient statistic of a once-consumed full-256 evidence stream for late-bound slot and temperature readouts; changing the bound encoder, kernel, or phase basis instead requires replay.",
+    "next_action": "If every mechanism and resource gate passes, bind O1-O successor operators to immutable PolyphaseReadoutSpec values and feed real O1C-0022 causal packets through the unchanged one-pass state; if a gate fails, preserve the capsule and repair only the first localized mechanism under O1C-0028.",
+    "prediction": "Four distinct hot readouts from one final state hash will match an independent complex128 recurrence within its derived float32 error envelope, leave the state unchanged, remain byte-identical across chunk partitions, and negate exactly under branch swap; three foreign basis descriptors will each raise ReplayRequiredError before computation.",
+    "schema": "o1-256-polyphase-sufficient-state-run-config-v1",
+    "slug": "polyphase-sufficient-state-full256-v1"
+  },
+  "controls": [
+    "the complete deterministic float32[384,3,256] source is generated once with no entropy, target, label, outcome, solver, sibling, network or accelerator access",
+    "primary, rechunked, branch-swapped and prefix arms each call consume exactly once while only the primary arm defines the one-pass deployment path",
+    "an independent chronological complex128 recurrence uses the exact frozen complex64 pole and float32 gain bytes and a derived roundoff envelope",
+    "the rechunk partition crosses the regime switch and must still serialize to exactly the same 25,096 bytes as the one-chunk arm",
+    "encoder order, one kernel timescale and one phase wavelength are independently changed only through foreign basis commitments and must hard-fail without state mutation",
+    "all readers are bias-free linear odd experts; state counters are branch-even and zero evidence remains an observed group"
+  ],
+  "hypothesis": "A fixed 25,096-byte bank of stable polyphase resonators is a T-independent sufficient statistic of a once-consumed full-256 evidence stream for late-bound slot and temperature readouts; changing the bound encoder, kernel, or phase basis instead requires replay.",
+  "next_action": "If every mechanism and resource gate passes, bind O1-O successor operators to immutable PolyphaseReadoutSpec values and feed real O1C-0022 causal packets through the unchanged one-pass state; if a gate fails, preserve the capsule and repair only the first localized mechanism under O1C-0028.",
+  "prediction": "Four distinct hot readouts from one final state hash will match an independent complex128 recurrence within its derived float32 error envelope, leave the state unchanged, remain byte-identical across chunk partitions, and negate exactly under branch swap; three foreign basis descriptors will each raise ReplayRequiredError before computation.",
+  "publication_protocol": "manifested-prepared-state-v1",
+  "schema": "o1c-run-config-v1",
+  "source_hashes": {
+    "config": "6fab58bb10101067eecaa7c206f66e0b0463e9032bee6a3aeb7605778993747b",
+    "module_isolation": "50399219de30c9f9e3ed23ee1d5b4c434d8736107316a7647276aa481900b652",
+    "module_polyphase_sufficient_state": "06d338e890a466d7723d60cbb56a63e069cc99f5cc25ecd9916fa4c0072a75c3",
+    "module_polyphase_sufficient_state_run": "41f38290a2ab6595fa633934d39c59188f7944a83df67c0e402eb3c27d743872",
+    "module_run_capsule": "13681939e0a5cd09d4f32c6d92c9a56894cfe8af90f07d5d4190c96b90a1b664",
+    "pyproject": "0248ec0fe7d42390b62e358fdd52f63d64f7d4e699f0f41ef77c569699716bd0"
+  }
+}

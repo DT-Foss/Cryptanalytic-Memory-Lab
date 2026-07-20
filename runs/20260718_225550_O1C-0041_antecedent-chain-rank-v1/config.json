@@ -1,0 +1,90 @@
+{
+  "schema": "o1-256-antecedent-chain-rank-config-v1",
+  "attempt_id": "O1C-0041",
+  "slug": "antecedent-chain-rank-v1",
+  "claim_level": "RETROSPECTIVE_DIAGNOSTIC",
+  "hypothesis": "Branch-exclusive signed proof-antecedent chains preserve target-specific causal identity that terminal clause occurrence erased, and one orientation learned by rank-product over four consumed BUILD keys concentrates complete true-key executions on the two consumed DEVELOPMENT keys.",
+  "prediction": "The deliberately strict unanimous BUILD sign rule reproduces no selection, while the separately declared pooled BUILD rank-product rule selects one global orientation. Under that unchanged pooled orientation both consumed DEVELOPMENT true keys rank within the best quarter of 4,097 complete forward executions and their geometric rank fraction is at most 0.10. This retrospective result can authorize exactly one unchanged fresh-target replication but is not itself a prospective transfer claim.",
+  "source": {
+    "template": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.cnf",
+    "semantic_map": "runs/20260717_054138_O1C-0011_full256-public-cnf-foundation-v1/artifacts/cnf/full256_chacha20.map.json",
+    "sensor_source": "native/cadical_pair_sensor.cpp",
+    "tracer_header": "native/cadical_tracer_3_0_0.hpp",
+    "o1c18_config": "configs/full256_online_real_gate_dev_v1.json",
+    "o1c18_result": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/full256_online_real_gate.json",
+    "development_labels": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/labels.bitpack",
+    "expected_sha256": {
+      "template": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+      "semantic_map": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+      "sensor_source": "67c094e069e8884e4761f82d2d797b594ef326a6ddcf0243dacd8019ae235669",
+      "tracer_header": "36e1983eb865800aec1c042c4df4abfbcbc8ced3c82e2bf4baad340639c887fe",
+      "o1c18_config": "fd539d2a2461f879ebdbcad2c29f3c6de7c514385fece2ef1bf8ddb06707056a",
+      "o1c18_result": "a8e5940edc5887e404725c98631df89e1f91963abd47d1fa51263fc681e9df4d",
+      "development_labels": "4462b2d6321469cc4faf41f961ecc95499d265429e9923f526f3122195772dfd"
+    }
+  },
+  "corpus": {
+    "seed": 180018180018,
+    "build_split": "BUILD",
+    "build_indices": [0, 1, 2, 3],
+    "development_split": "DEVELOPMENT",
+    "development_indices": [0, 1],
+    "build_sidecars": [
+      "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/build-0000.json",
+      "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/build-0001.json",
+      "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/build-0002.json",
+      "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/build-0003.json"
+    ],
+    "development_sidecars": [
+      "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/development-0000.json",
+      "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1/artifacts/pools/development-0001.json"
+    ],
+    "fresh_targets": 0
+  },
+  "field": {
+    "conflict_horizon": 16,
+    "seed": 0,
+    "capacity": 8192,
+    "chain_identity": "sha256(terminal-clause || ordered-parent-digests)",
+    "branch_contrast": "exact-chain-multiset-difference-before-unique-original-leaf-collapse",
+    "score_unit": "exclusive_chain_leaf_occurrence",
+    "unit_scale": 1
+  },
+  "candidate_panel": {
+    "count_per_target": 4096,
+    "domain": "O1C41-antecedent-chain-decoy-v1",
+    "generator": "sha256(domain || public-view-digest || uint64le(index))",
+    "duplicate_policy": "reject"
+  },
+  "orientation": {
+    "strict_rule": "all four BUILD truth scores have the same strict sign relative to their own decoy mean; otherwise no selection",
+    "strict_expected_selection": 0,
+    "pooled_rule": "argmin orientation in {-1,+1} of geometric exact BUILD rank fraction; exact tie means no selection",
+    "pooled_expected_selection": -1,
+    "development_uses_only_pooled_build_selection": true,
+    "no_development_sign_selection": true,
+    "no_other_weight_or_calibration_arm": true
+  },
+  "controls": {
+    "arms": ["primary", "key_rotated", "factor_rotated"],
+    "rotation": "smallest deterministic cyclic derangement preserving edge weights"
+  },
+  "success": {
+    "maximum_each_development_rank_fraction": 0.25,
+    "maximum_development_geometric_rank_fraction": 0.10
+  },
+  "budgets": {
+    "maximum_wall_seconds": 60,
+    "maximum_peak_rss_bytes": 536870912,
+    "maximum_native_probe_branches": 3072,
+    "maximum_candidate_forward_evaluations": 24582,
+    "maximum_decoy_keys": 24576,
+    "maximum_fresh_targets": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0,
+    "maximum_persistent_artifact_bytes": 2097152
+  },
+  "next_action": "If the pooled BUILD orientation concentrates both consumed DEVELOPMENT keys as predicted, freeze that single orientation and chain extractor unchanged for one fresh standard Full-256 target. Only a fresh positive rank earns context-reversible live-CDCL integration. If the fresh rank is null, close this exact unique-leaf chain reader and retain full signed parent-role or pivot-literal identity next."
+}

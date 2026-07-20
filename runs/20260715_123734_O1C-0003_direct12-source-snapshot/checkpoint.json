@@ -1,0 +1,12 @@
+{
+  "attempt_id": "O1C-0003",
+  "payload": {
+    "denied_members_read": 0,
+    "members_copied": 64,
+    "members_total": 71,
+    "phase": "COPYING_SOURCE_SNAPSHOT"
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 5,
+  "updated_at": "2026-07-15T12:37:34.525020+02:00"
+}

@@ -1,0 +1,1 @@
+nice -n 10 env PYTHONPATH=src python3 -m o1_crypto_lab.o1c63_apple8_4k_repair_run run --config configs/o1c63_apple8_4k_repair_v1.json

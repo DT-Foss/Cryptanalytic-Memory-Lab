@@ -1,0 +1,3 @@
+Independent 133-to-532 Direct12 reproduction started from O1C-0003.
+A348 and A349 complete orders persisted before calibration truth; A349 truth API absent.
+{"A349_labels_read": 0, "a348_rank": 298, "a349_order_sha256": "441c6af3d9a2a32e1a61f0d50804a1ecbf2363517a7b570c408a09a15fd1bbaa", "dataset_sha256": "6d645aa7e06fbc7e746a4e6bfe410cbc1b845357c54740bb6fd00c2bbd6a32ff", "success_gate_passed": true}

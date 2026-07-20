@@ -430,6 +430,28 @@ release synthetically, separate proposal history from signed live-decision
 ownership under one arbiter, then derive fresh Page 6 / lineage 19 without
 importing nonexistent O1C-0078 output. Never replay Page 5 or lineage 18.
 
+O1C-0079 completes that repair and consumes fresh Page 6 / lineage 19 once at
+exact `128/128/128` requested/actual/billed conflicts. All `549` proposals bind
+and release; `547` confirm, two retire unobserved, and later `+108/+112` are
+foreign token 0 rather than owners of retired `-108/-112`. The unchanged prefix
+consumes all 11 rows, binds/releases nine, sees two preassigned falsifying and
+zero rescue skips. Support `H-READER-OWNERSHIP-083` operationally and
+`H-RESCUE-PREFIX-PREEMPTION-082` at mechanism level. The raw no-activation label
+is a preserved substring-validator false negative corrected additively with
+zero calls. Final axes are operational ownership `true`, qualified prefix
+activation `true`, science gain `false`; classification
+`DECISION_OWNERSHIP_QUALIFIED_PREFIX_MECHANISM_ONLY`.
+
+Close Page 6 / lineage 19 and the prefix path. Activate
+`H-ONEBIT-BOUND-CROSSING-084`: derive fresh Page 7 from the unchanged 550-clause
+attic after real Page-6 activation via `advance_causal_residency`, lineage 20 and
+`fully_emitted_union_indices=()`. Preserve the required identity-bound empty
+rollover receipt/chunk with zero clauses, occurrences and emissions. Evaluate exact
+same-parent `U0/U1` and intervene only if `min(U0,U1)<tau`, with an asymmetric
+crossing or both children below threshold. Keep public inputs, scorer, K256 and
+128 conflicts fixed. Depth 2 is eligible only after a genuine near-crossing;
+no O1C-0080 call is yet authorized.
+
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
 a statistic over one run's visited trails. The historical minimum
@@ -439,8 +461,9 @@ a statistic over one run's visited trails. The historical minimum
 That O1C-0066 episode records seven actual trail-threshold prune events;
 `7.973...` is their run's minimum witness UB, not itself a prune count.
 O1C-0077's `14.656823218163392>tau` yields zero prunes; O1C-0078 returns no
-native bound telemetry and changes none of these conclusions. O1C-0068 remains
-untouched at minimum UB `12.8607806294803`.
+native bound telemetry. O1C-0079 records `18.742222666780805>tau`, a gap of
+`4.136043868887843`, and zero prunes. None changes these conclusions; O1C-0068
+remains untouched at minimum UB `12.8607806294803`.
 
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
@@ -792,9 +815,11 @@ evidence.
    consumes the complete 11-row prefix and reaches parent handoff, then stops on
    the returned-ever/opposite-sign invariant before native telemetry. Missing
    ownership is the strongest inference; the responsible layer is unknown.
-   Reproduce and repair assignment ownership synthetically, derive Page 6 / lineage 19 by
-   burning the missing output, and only then make one fresh unchanged-prefix
-   call; never rerun O1C-0073, replay ordinals `9..18`, call phase, sweep
+   O1C-0079 repairs ownership and executes fresh Page 6 / lineage 19 once. Total
+   token accounting and qualified prefix activation pass, while prunes, clauses,
+   models, keys and sub-256 progress remain zero. Close ownership/prefix work and
+   prepare only O1C-0080 exact same-parent child-bound crossing on fresh Page 7;
+   never rerun O1C-0073, replay ordinals `9..19`, call phase, sweep
    K/release/rank/horizon or blind-scale RAM/caps.
    Any later role-credit test must precommit an attacker-visible outcome/utility
    condition rather than tune `-32`.
@@ -953,6 +978,15 @@ evidence.
   synthetically, then derive Page 6 / lineage 19 without importing nonexistent
   output; no O1C-0078 replay. Empty stdout does not establish which nested layer
   created the opposite-sign assignment.
+- O1C-0079 consumes fresh Page 6 / lineage 19 once at exact `128/128/128` work.
+  Its typed owner accounts for every proposal/binding/release and treats the two
+  non-eager opposite-sign successors as foreign; the unchanged 11-row prefix
+  qualifies with nine bound/releases and zero rescue skips. Corrected axes are
+  operational `true`, qualified prefix `true`, science `false`. Preserve the raw
+  validator false negative and apply only the zero-call erratum. Never replay
+  Page 6 / lineage 19. Prepare O1C-0080 exact one-bit `U0/U1` crossing on fresh
+  Page 7; intervention requires a certified crossing/closure and no call is yet
+  authorized.
 
 ## Operating contract
 

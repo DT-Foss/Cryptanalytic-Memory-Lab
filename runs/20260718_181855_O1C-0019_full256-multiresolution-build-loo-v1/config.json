@@ -1,0 +1,127 @@
+{
+  "attempt_id": "O1C-0019",
+  "budgets": {
+    "expected_existing_build_pools": 4,
+    "maximum_cpu_seconds": 7200.0,
+    "maximum_gpu_calls": 0,
+    "maximum_mps_calls": 0,
+    "maximum_native_solver_branches": 0,
+    "maximum_persistent_artifact_bytes": 50000000,
+    "maximum_physical_public_pools_generated": 0,
+    "maximum_resident_memory_mib": 1024,
+    "maximum_scientific_entropy_calls": 0,
+    "maximum_sibling_reads": 0,
+    "maximum_sibling_writes": 0,
+    "maximum_source_artifact_bytes_read": 16000000,
+    "maximum_wall_seconds": 7200.0
+  },
+  "claim_level": "RETROSPECTIVE",
+  "commit": "f2285f4a1d2777396d985a248e0839634f0e27e9",
+  "config": {
+    "attempt_id": "O1C-0019",
+    "budgets": {
+      "expected_existing_build_pools": 4,
+      "maximum_cpu_seconds": 7200.0,
+      "maximum_gpu_calls": 0,
+      "maximum_mps_calls": 0,
+      "maximum_native_solver_branches": 0,
+      "maximum_persistent_artifact_bytes": 50000000,
+      "maximum_physical_public_pools_generated": 0,
+      "maximum_resident_memory_mib": 1024,
+      "maximum_scientific_entropy_calls": 0,
+      "maximum_sibling_reads": 0,
+      "maximum_sibling_writes": 0,
+      "maximum_source_artifact_bytes_read": 16000000,
+      "maximum_wall_seconds": 7200.0
+    },
+    "claim_level": "RETROSPECTIVE",
+    "controls": [
+      "Four symmetric BUILD leave-one-out folds with a fresh reader and critic lineage per fold.",
+      "Shifted-label stationarity critic with byte-identical final reader and byte-identical contexts.",
+      "True stationary route with STOP disabled to isolate picker routing from abstention.",
+      "Fold-local static mean packet reward recomputed only after the final reader freeze.",
+      "Pool-blind uniform-hash picker under the identical affordability and starvation field.",
+      "Fixed exhaustive learned-reader versus untrained-reader trajectory on the same action order.",
+      "Zero solver regeneration, fresh entropy, sibling access, MPS calls, or GPU calls."
+    ],
+    "experiment": {
+      "controller": {
+        "critic_exploration_scale": 0.05,
+        "gate_max_scale": 4.0,
+        "minimum_critic_episodes_before_stop": 2,
+        "minimum_decisions_before_stop": 256,
+        "reader_training_passes": 4,
+        "require_all_coordinates_before_stop": true,
+        "soft_age_weight": 0.002,
+        "soft_coverage_weight": 0.002,
+        "starvation_steps": 256,
+        "stationarity_penalty": 1.0,
+        "stop_margin": 0.0
+      },
+      "coordinate_rotation_stride": 67,
+      "held_out_ordinals": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "raw_actions_per_episode": null,
+      "schema": "o1-256-fullround-multiresolution-build-loo-config-v1",
+      "train_gate": true,
+      "train_stream": true,
+      "training_actions_per_episode": null,
+      "work_checkpoints": [
+        16384,
+        32768,
+        49152
+      ]
+    },
+    "hypothesis": "A packetized q_after-minus-q_before O1 reader with a reader-bound episode-equal stationarity critic can learn transferable full-round 256-bit BUILD structure and autonomously route physical conflict work better than shifted, static, and hash mechanisms.",
+    "next_action": "If reader-isolated transfer and learned policy advantage both survive all four BUILD folds, freeze this exact O1C-0019 lineage and attack one untouched DEVELOPMENT pool under a new disjoint attempt. Otherwise preserve the per-fold reader, stationarity, STOP, and agency breadcrumbs and change only the failed mechanism.",
+    "prediction": "The fixed exhaustive learned reader beats its untrained twin in mean 256-bit compression, while the true stationary ACTION/STOP policy beats shifted-label, no-STOP, static, and uniform-hash diagnostics in normalized information area without generating any new proof pool.",
+    "schema": "o1-256-fullround-multiresolution-build-loo-run-config-v1",
+    "slug": "full256-multiresolution-build-loo-v1",
+    "source": {
+      "capsule": "runs/20260717_152827_O1C-0018_full256-online-real-gate-dev-v1",
+      "expected_artifact_index_sha256": "e6b79631057d5a9fa75004ee0b62aea06fe9430c6a9d3cc9b7ae4b3954d8ed85",
+      "expected_manifest_sha256": "fcbf43c99994c0debe5b39bb3e734ea1d1e23ba58e89b10ff2bb7e23886493fb"
+    }
+  },
+  "controls": [
+    "Four symmetric BUILD leave-one-out folds with a fresh reader and critic lineage per fold.",
+    "Shifted-label stationarity critic with byte-identical final reader and byte-identical contexts.",
+    "True stationary route with STOP disabled to isolate picker routing from abstention.",
+    "Fold-local static mean packet reward recomputed only after the final reader freeze.",
+    "Pool-blind uniform-hash picker under the identical affordability and starvation field.",
+    "Fixed exhaustive learned-reader versus untrained-reader trajectory on the same action order.",
+    "Zero solver regeneration, fresh entropy, sibling access, MPS calls, or GPU calls."
+  ],
+  "hypothesis": "A packetized q_after-minus-q_before O1 reader with a reader-bound episode-equal stationarity critic can learn transferable full-round 256-bit BUILD structure and autonomously route physical conflict work better than shifted, static, and hash mechanisms.",
+  "next_action": "If reader-isolated transfer and learned policy advantage both survive all four BUILD folds, freeze this exact O1C-0019 lineage and attack one untouched DEVELOPMENT pool under a new disjoint attempt. Otherwise preserve the per-fold reader, stationarity, STOP, and agency breadcrumbs and change only the failed mechanism.",
+  "prediction": "The fixed exhaustive learned reader beats its untrained twin in mean 256-bit compression, while the true stationary ACTION/STOP policy beats shifted-label, no-STOP, static, and uniform-hash diagnostics in normalized information area without generating any new proof pool.",
+  "publication_protocol": "manifested-prepared-state-v1",
+  "schema": "o1c-run-config-v1",
+  "source_hashes": {
+    "config": "96d9017d2262537281218ccd23b52533c8ed801e245bea6bcb13fa13bd186c61",
+    "module_full256_action_pool": "df0d6a0df60d811e7cf674aa1a91b22a80834fab3acee534f77f7e1c289c1883",
+    "module_full256_multiresolution_build_loo": "34654f54e66a91ee8ac517c9022d7f41e943b22ebb63304bb463f9730a20a740",
+    "module_full256_multiresolution_build_loo_run": "36f03de45a7841f02feb713e0188c52d5ef9259b8e4d6e40e398c8e804c2c30d",
+    "module_full256_proof_pool": "7fec03dd03ffe61144f836491db9be7094dda20a80e1aedd4e6a7c26a689d30c",
+    "module_living_inverse": "16c22a9776b693c40e0d6c3a3196c73c7a4c15913bde0bdb14e8d9fc4dbe127e",
+    "module_o1_streaming_core": "c918789a668d2e4a47f927cfe44e7e0dd3825e84dfa46e29aa48dee14d737fd7",
+    "module_online_causal_controller": "e28cd7d43b71040d91ea850d1ff76b700feaa20996825ea35448221c9936f157",
+    "module_online_multiresolution_controller": "4833513502d18ad390b7e5e572f97608d7b31c94c1fa38ceed74b02a7fb79a58",
+    "module_run_capsule": "13681939e0a5cd09d4f32c6d92c9a56894cfe8af90f07d5d4190c96b90a1b664",
+    "module_stationarity_critic": "80ad977cb2ad6591866aff77da8ef101f1371a68b3a894a52655b6f376dc0a28",
+    "pyproject": "0248ec0fe7d42390b62e358fdd52f63d64f7d4e699f0f41ef77c569699716bd0",
+    "source_artifact_corpus": "d137a931782b19e2cd8fdd44f38a9109d239ba332605c3a512078ca314c1be64",
+    "source_artifact_index": "e6b79631057d5a9fa75004ee0b62aea06fe9430c6a9d3cc9b7ae4b3954d8ed85",
+    "source_capsule_manifest": "fcbf43c99994c0debe5b39bb3e734ea1d1e23ba58e89b10ff2bb7e23886493fb",
+    "source_config": "a8e19525e62d60977a2c32b822ad169791f021b55633517b14ff831c56e81a7a",
+    "source_pool_0000": "0473112acf83efec096418c90e14aa394fc86ff286b4923dd6caa3c7cba79520",
+    "source_pool_0001": "47c184183f1211bd0a718cccf4ab202446574d9e21d5a969920280b8c0eb6df5",
+    "source_pool_0002": "fcee9c6c05e40c47023417acf7df34bbcf694398b650810b96d6640871ad7b06",
+    "source_pool_0003": "04a4b19797877fd7f6fc6dec9cd7af5b7608a5eab765090600be4567562bde0b",
+    "source_result": "a8e5940edc5887e404725c98631df89e1f91963abd47d1fa51263fc681e9df4d"
+  }
+}

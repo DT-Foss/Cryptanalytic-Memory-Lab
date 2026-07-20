@@ -1,0 +1,21 @@
+{
+  "conditional_null_z_score": -0.9460815985078296,
+  "direct_minus_output_permutation_compression_bits": 0.0009622424228086879,
+  "direct_minus_shuffled_compression_bits": -0.017541123410184392,
+  "execution_success_gate_passed": true,
+  "fresh_target_count": 2048,
+  "full_key_recovery_claimed": false,
+  "gpu_calls": 0,
+  "mean_effective_compression_bits": -0.019088462508241047,
+  "mean_key_nll_bits": 256.01908846250825,
+  "mps_calls": 0,
+  "result_sha256": "76069cf7e25e194feee027d4e4a1e2cca0fed47ae4ec84fbaa9ff966845e3bc9",
+  "schema": "o1-256-signed-direct-replication-metrics-v1",
+  "scientific_signal_gate_passed": false,
+  "scientific_subkey_signal_claimed": false,
+  "sibling_reads": 0,
+  "sibling_writes": 0,
+  "source_models_refit": false,
+  "target_trace_fields_in_deployment": 0,
+  "unknown_target_key_bits": 256
+}

@@ -1,0 +1,27 @@
+{
+  "absolute_tolerance": 1e-10,
+  "block_count": 8,
+  "compiled_scores_sha256": "3907ac514e6a6c456b9615a48f55391d092eb02cc0dec8cbd2541ad4015dc84c",
+  "complete_assignments": 4096,
+  "decoy_count": 4096,
+  "forward_plan_evaluations": 32768,
+  "forward_plan_requested_variables": [
+    419,
+    476,
+    520,
+    458,
+    453,
+    446,
+    498,
+    522
+  ],
+  "frozen_scores_sha256": "8bdcc5a004e002a26d0004e5929a419d5ab3133a8f608227d56860588ad87890",
+  "maximum_component_sum_absolute_error": 3.552713678800501e-15,
+  "maximum_local_raw_score_absolute_error": 5.861977570020827e-14,
+  "maximum_merged_score_absolute_error": 5.329070518200751e-15,
+  "primary_only": true,
+  "purpose": "deterministic-complete-assignment-adapter-equivalence-only",
+  "schema": "o1-256-multiblock-complete-score-equivalence-v1",
+  "scientific_forward_scoring_calls": 0,
+  "semantic_map_sha256": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318"
+}

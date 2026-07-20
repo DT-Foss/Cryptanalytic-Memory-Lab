@@ -1,0 +1,25 @@
+{
+  "attempt_id": "O1C-0006",
+  "captured": {
+    "cwd": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab",
+    "executable": "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "python": "3.13.1",
+    "timezone": "Europe/Berlin"
+  },
+  "provided": {
+    "active_sibling_progress_or_outcome_reads": 0,
+    "development_fields": [
+      "A355",
+      "A356"
+    ],
+    "fresh_challenge_generated": false,
+    "hard_interruption_policy": "FINALIZE_STOPPED_AND_ADVANCE_ATTEMPT_ID",
+    "outcome_bearing_replay_begins_after_attempt_reservation": true,
+    "scientific_replay_executions": 1,
+    "sibling_repository": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/arx-carry-leak",
+    "sibling_repository_access": "READ_ONLY_PINNED_MEMBERS",
+    "sibling_writes": 0
+  },
+  "schema": "o1c-run-environment-v1"
+}

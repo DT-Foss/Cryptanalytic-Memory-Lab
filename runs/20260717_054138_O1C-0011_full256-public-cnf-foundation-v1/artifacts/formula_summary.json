@@ -1,0 +1,47 @@
+{
+  "add32_operations": 336,
+  "clause_count": 187370,
+  "clause_length_histogram": {
+    "1": 6,
+    "2": 1172,
+    "3": 104848,
+    "4": 81344
+  },
+  "dimacs_bytes": 4339399,
+  "dimacs_sha256": "c293d36cab270b28ab2e89c073227fd50b75a6b357b9994d27c3acf7c01a0d52",
+  "final_overflow_carry_constrained": true,
+  "interface": {
+    "bit_order": "little-endian-within-byte; little-endian-32-bit-words",
+    "counter": {
+      "attacker_known": true,
+      "bit_count": 32,
+      "first_variable": 257,
+      "last_variable": 288
+    },
+    "key": {
+      "attacker_known": false,
+      "bit_count": 256,
+      "first_variable": 1,
+      "last_variable": 256
+    },
+    "nonce": {
+      "attacker_known": true,
+      "bit_count": 96,
+      "first_variable": 289,
+      "last_variable": 384
+    },
+    "output": {
+      "attacker_known": true,
+      "bit_count": 512,
+      "first_variable": 385,
+      "last_variable": 896
+    }
+  },
+  "map_file_sha256": "7f7438a6277086787ff2cf9b6d7468367b4edd82a65b9cfc4f9249f7ecda3318",
+  "map_sha256": "13c0dd32b1c0eec0b9b95e9c7c0f2a8390b8be6f98bd59e3b7d021c23762bfaf",
+  "operation_count": 656,
+  "range_semantics": "one-based inclusive; null only for zero-allocation ranges",
+  "symmetric_explicit_full_adder_wires": true,
+  "variable_count": 32128,
+  "xor32_operations": 320
+}

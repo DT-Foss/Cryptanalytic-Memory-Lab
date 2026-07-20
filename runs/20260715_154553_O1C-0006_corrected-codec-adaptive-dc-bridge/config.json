@@ -1,0 +1,342 @@
+{
+  "attempt_id": "O1C-0006",
+  "budgets": {
+    "maximum_adaptive_arms": 9,
+    "maximum_gpu_seconds": 0,
+    "maximum_new_solver_calls": 0,
+    "maximum_online_state_bytes": 8192,
+    "maximum_serialized_logical_mechanism_state_bytes": 8192,
+    "maximum_source_passes_per_arm_per_field": 2,
+    "maximum_target_labels_for_bridge_selection": 0
+  },
+  "claim_level": "VALIDATION",
+  "commit": "f3e627490bd046618ce1e550cb7cbce9d02bf140",
+  "config": {
+    "anchors": {
+      "a268_sha256": "d8fdbb88254b40ea90812c29563baf8f82b693d5fa9980f28a116089abfa9a17",
+      "a272_protocol_sha256": "67c568baf4ac5a4d7191cca2ac7bbe4e07e62a81475b51ba838be3f011d6220f",
+      "model_sha256": "b096c08616a81712da881862b65f0c95388e4db3cf6b8e462bf7c2a072cb0da4",
+      "o1c_0003_capsule": "runs/20260715_123734_O1C-0003_direct12-source-snapshot",
+      "o1c_0003_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+      "o1c_0005_capsule": "runs/20260715_135434_O1C-0005_bounded-spectral-memory-tournament",
+      "o1c_0005_future_plan_member": "artifacts/o1o_frozen_future_plan.json",
+      "o1c_0005_future_plan_sha256": "cd273617aa8135d171f3f2fc22010c666f19aefc59fc3a4dbe51873f48594e60",
+      "o1c_0005_manifest_sha256": "de67260cf44556a3fa48ef2b6daa1b738cf40b392739c6a05d835cbcdb1ab103"
+    },
+    "attempt_id": "O1C-0006",
+    "budgets": {
+      "maximum_adaptive_arms": 9,
+      "maximum_gpu_seconds": 0,
+      "maximum_new_solver_calls": 0,
+      "maximum_online_state_bytes": 8192,
+      "maximum_serialized_logical_mechanism_state_bytes": 8192,
+      "maximum_source_passes_per_arm_per_field": 2,
+      "maximum_target_labels_for_bridge_selection": 0
+    },
+    "claim_level": "VALIDATION",
+    "controls": [
+      "Reproduce the historical A355 and A356 float fields and complete uint16be orders exactly before the memory tournament.",
+      "Retain the literal O1C-0005 4-bit fixed-scale transfer as a negative control.",
+      "Record global-z atan only as an invalid input-contract diagnostic, never as a qualifying arm.",
+      "Use the same label-free two-pass scale calibration and canonical address stream for every adaptive arm.",
+      "Keep all sibling repositories read-only and copy every consumed byte into the immutable run capsule.",
+      "Freeze the selected future template before generating any fresh challenge."
+    ],
+    "expected": {
+      "a355_field_sha256": "de420a7e276bf945c821f56b4799e4c58e9c9a8e299bb9a8f329f63032a81c38",
+      "a355_order_sha256": "516e32fdf7b65761f2f7f4503eb6f48ce2e0c59354aed156bcac3a02f99c433a",
+      "a356_field_sha256": "ac29c51ba0e653762d60012af48a5b9fb83f2fbab73e028689f009c118aa12d1",
+      "a356_order_sha256": "436082dcc2a3b3f1be1ff5459c11b40de84aa57ef0bc160cc8fa57af17ae692f",
+      "numpy_version": "2.2.6"
+    },
+    "hypothesis": "The historical A355/A356 corrected W46 score fields can be reproduced exactly in the recovery codec, and the failure of the fixed non-DC O1C-0005 bank can be converted into a DC-complete full-basis spectral-register ceiling that emits complete high-fidelity approximate 4096-cell orderings under a frozen 8192-byte serialized-logical-state budget.",
+    "negative_control_gates": {
+      "maximum_literal_o1c5_absolute_spearman": 0.1,
+      "maximum_literal_o1c5_top32_overlap": 0.05
+    },
+    "next_action": "Retain O1C-0006 as the exact corrected-codec and full-basis spectral-register ceiling, then develop a compact O1 evidence memory that beats the direct quantized-table baseline before drawing any fresh W46 challenge.",
+    "prediction": "At least one frozen adaptive DC full-basis ceiling arm will use no target labels, retain no explicit candidate rows inside its frozen state, use at most 8192 bytes of maximum serialized logical mechanism state, clip zero coefficients, and achieve worst-field Spearman >= 0.99, Kendall >= 0.91, Top-32 overlap >= 0.70, and Top-128 overlap >= 0.75 on exact A355/A356 fields; the report must also disclose that the 4096-mode transform is full-rank and larger than the matched direct quantized-table baseline.",
+    "schema": "o1-crypto-corrected-codec-bridge-config-v1",
+    "slug": "corrected-codec-adaptive-dc-bridge",
+    "source": {
+      "members": [
+        {
+          "bytes": 3775,
+          "path": "research/configs/chacha20_round20_w46_direct12_coordinate_codec_audit_a354_design_v1.json",
+          "role": "mechanism",
+          "sha256": "5c25cb81f03ee613ce70bc5bd1fb2c18cc11efadc545a0ad9d07ef34be3d2dde"
+        },
+        {
+          "bytes": 21356,
+          "path": "research/experiments/chacha20_round20_w46_direct12_coordinate_codec_audit_a354.py",
+          "role": "mechanism",
+          "sha256": "551fce689e6110122a44032273a3082864c821f07d40ba15aff7331c97125905"
+        },
+        {
+          "bytes": 14517,
+          "path": "research/results/v1/chacha20_round20_w46_direct12_coordinate_codec_audit_a354_v1.json",
+          "role": "calibration_labeled",
+          "sha256": "9fc3487266aee3f4e637b9a1afc0b434a5f0c56fa430e9aa14b576cfe8782ac4"
+        },
+        {
+          "bytes": 4353,
+          "path": "research/configs/chacha20_round20_w46_corrected_group_direct12_reader_a355_design_v1.json",
+          "role": "mechanism",
+          "sha256": "0bcf7533fa8a9f2ef33546d9aec8d190bf1e1435b9dd9eb5dbec4a0399cc5aae"
+        },
+        {
+          "bytes": 1227,
+          "path": "research/configs/chacha20_round20_w46_corrected_group_direct12_reader_a355_implementation_v1.json",
+          "role": "mechanism",
+          "sha256": "3e755117a572cc58ab76cafc73b19bbb967c3219ce85b4a5bf7befdbb1b79b4d"
+        },
+        {
+          "bytes": 30079,
+          "path": "research/experiments/chacha20_round20_w46_corrected_group_direct12_reader_a355.py",
+          "role": "mechanism",
+          "sha256": "82aa4b694e212f2d2e4938e95ee1b6ae0f81aa1c14077d46fead8b259ba11199"
+        },
+        {
+          "bytes": 403956,
+          "path": "research/results/v1/chacha20_round20_w46_corrected_group_direct12_reader_a355_v1.json",
+          "role": "calibration_labeled",
+          "sha256": "b197ba0145e85119fabfc32d14116836a905e260f70fc4bb7dc779924077b686"
+        },
+        {
+          "bytes": 3434,
+          "path": "research/configs/chacha20_round20_w46_corrected_group_a345_transfer_a356_design_v1.json",
+          "role": "mechanism",
+          "sha256": "776e0a33fe1f88c7e3c785b2e422630802eb672f35321034ee6b4d2c43ad1f05"
+        },
+        {
+          "bytes": 1934,
+          "path": "research/configs/chacha20_round20_w46_corrected_group_a345_transfer_a356_implementation_v1.json",
+          "role": "mechanism",
+          "sha256": "f9014c1d0a30b7c20a96e3b213570c2c0afc10cfe4f65656160fc55fdd5a103a"
+        },
+        {
+          "bytes": 29768,
+          "path": "research/experiments/chacha20_round20_w46_corrected_group_a345_transfer_a356.py",
+          "role": "mechanism",
+          "sha256": "118633987cf449aa5ad88554e79690614c0c5bda4966791f4209b34c0e56f227"
+        },
+        {
+          "bytes": 9212,
+          "path": "research/results/v1/chacha20_round20_w46_corrected_group_a345_transfer_a356_measurement_v1.json",
+          "role": "measurements_unlabeled",
+          "sha256": "343e9dc7bdb93c687150a4f2e5ec656b53c9dd8892d8be753cab473105c3caea"
+        },
+        {
+          "bytes": 47293,
+          "path": "research/results/v1/chacha20_round20_w46_corrected_group_a345_transfer_a356_order_v1.json",
+          "role": "deployment",
+          "sha256": "2069c706d070ac1add659232a08c80a6b46d213cc9c6abb5ad9eebf99afc481a"
+        },
+        {
+          "bytes": 10544,
+          "path": "research/results/v1/chacha20_round20_w46_target_conditioned_causal_order_a340_preflight_v1.json",
+          "role": "mechanism",
+          "sha256": "129f4f7cec98322cdf7b60a0e25e7286fd1f6712339181f30bf9b4b05f77f5f6"
+        },
+        {
+          "bytes": 3082,
+          "path": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_preflight_v1.json",
+          "role": "deployment",
+          "sha256": "43a54b43f257d75d89bb6a260318d5203754033de5bea8cf192e773267e8abb1"
+        },
+        {
+          "bytes": 13377,
+          "path": "src/arx_carry_leak/solver_trajectory_shape.py",
+          "role": "mechanism",
+          "sha256": "44056b27937c1b4f1ab9af2dfaf904ad3b5f239deda05519c2e9a16f9f1e8160"
+        },
+        {
+          "bytes": 7989,
+          "path": "src/arx_carry_leak/trajectory_contribution.py",
+          "role": "mechanism",
+          "sha256": "edcee636acf826a7c7cc737bd72193731b2272986857156543762baa6054aba3"
+        },
+        {
+          "bytes": 4534,
+          "path": "research/results/v1/chacha20_round20_w46_direct12_coordinate_codec_audit_a354_v1.causal",
+          "role": "calibration_labeled",
+          "sha256": "9fcb66a14de418ca23c000c5bf48ed27386790a341d0ce19547d7ad0ebb8397d"
+        },
+        {
+          "bytes": 642,
+          "path": "research/results/v1/chacha20_round20_w46_direct12_coordinate_codec_audit_a354_v1.md",
+          "role": "calibration_labeled",
+          "sha256": "499481c0816c40c94fe9ad9f1ba7fc1d4be83fb288920c82a9a037d3e4bcf4bb"
+        },
+        {
+          "bytes": 588,
+          "path": "scripts/reproduce_chacha20_round20_w46_direct12_coordinate_codec_audit_a354.sh",
+          "role": "mechanism",
+          "sha256": "ae189e30f9046afe4c96e097c5a97ac7976fea5756239dcc8e17d9c334e51093"
+        },
+        {
+          "bytes": 2419,
+          "path": "tests/test_chacha20_round20_w46_direct12_coordinate_codec_audit_a354.py",
+          "role": "calibration_labeled",
+          "sha256": "d223c302427df7eb8f81d03c76c5365354060873cf8993ecf240f9e3a748369a"
+        },
+        {
+          "bytes": 6263,
+          "path": "research/results/v1/chacha20_round20_w46_corrected_group_direct12_reader_a355_v1.causal",
+          "role": "calibration_labeled",
+          "sha256": "e25bee6fa672ac5d6f3ec661d627d2fb47045501f2e641600ddb4f1affce62d2"
+        },
+        {
+          "bytes": 570,
+          "path": "research/results/v1/chacha20_round20_w46_corrected_group_direct12_reader_a355_v1.md",
+          "role": "calibration_labeled",
+          "sha256": "1e71f2c1d957c76ee36676daf46bbf2132cbe2cad4b44aca0b5f5b2f020f0df2"
+        },
+        {
+          "bytes": 856,
+          "path": "scripts/reproduce_chacha20_round20_w46_corrected_group_direct12_reader_a355.sh",
+          "role": "mechanism",
+          "sha256": "3b8f82238de3b24c32863e871a44c89731fb19abb9a242b0f8943cb674717ecd"
+        },
+        {
+          "bytes": 2860,
+          "path": "tests/test_chacha20_round20_w46_corrected_group_direct12_reader_a355.py",
+          "role": "calibration_labeled",
+          "sha256": "00c22906063cffa8b5b935e173fcfd3fe33c7f8b4b94d79de8cb940f6bc9b816"
+        },
+        {
+          "bytes": 3686,
+          "path": "research/results/v1/chacha20_round20_w46_corrected_group_a345_transfer_a356_order_v1.causal",
+          "role": "deployment",
+          "sha256": "8bf6a550b57fd39500e8382731dd7436ec6c7776ad73bf8a7425c9e1f2fe3c5c"
+        },
+        {
+          "bytes": 451,
+          "path": "research/results/v1/chacha20_round20_w46_corrected_group_a345_transfer_a356_order_v1.md",
+          "role": "deployment",
+          "sha256": "08f98b2c7104b55634ff6c7c2f17f579eee7992386c61813408b691fa71d190c"
+        },
+        {
+          "bytes": 1523,
+          "path": "scripts/reproduce_chacha20_round20_w46_corrected_group_a345_transfer_a356.sh",
+          "role": "mechanism",
+          "sha256": "43b575ec1e6de1ba3720b6a4594f1fb5e9e885f0a70211943116689b89727eca"
+        },
+        {
+          "bytes": 2817,
+          "path": "tests/test_chacha20_round20_w46_corrected_group_a345_transfer_a356.py",
+          "role": "mechanism",
+          "sha256": "5588febbf16086ed2a91d485e09701200813af1467738aca6159f7179e9357af"
+        },
+        {
+          "bytes": 28765,
+          "path": "research/experiments/chacha20_round20_selected_channel_target_replication_measure.py",
+          "role": "mechanism",
+          "sha256": "218815280ce978aba16ba857db80828424e390cc1d141a1be3d33fb330c4e56b"
+        }
+      ],
+      "repository": "../arx-carry-leak",
+      "roles": {
+        "a340_preflight": "research/results/v1/chacha20_round20_w46_target_conditioned_causal_order_a340_preflight_v1.json",
+        "a349_preflight": "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_preflight_v1.json",
+        "a355_result": "research/results/v1/chacha20_round20_w46_corrected_group_direct12_reader_a355_v1.json",
+        "a356_measurement": "research/results/v1/chacha20_round20_w46_corrected_group_a345_transfer_a356_measurement_v1.json",
+        "a356_order": "research/results/v1/chacha20_round20_w46_corrected_group_a345_transfer_a356_order_v1.json"
+      }
+    },
+    "tournament": {
+      "adaptive_input_bits": [
+        4,
+        5,
+        6
+      ],
+      "gates": {
+        "maximum_online_state_bytes": 8192,
+        "maximum_serialized_logical_mechanism_state_bytes": 8192,
+        "minimum_rank_kendall": 0.91,
+        "minimum_rank_spearman": 0.99,
+        "minimum_top128_overlap": 0.75,
+        "minimum_top32_overlap": 0.7
+      },
+      "headroom_factors": [
+        1.0,
+        1.125,
+        1.25
+      ],
+      "selection_rule": {
+        "eligibility": [
+          "maximum_online_state_bytes",
+          "maximum_serialized_logical_mechanism_state_bytes",
+          "zero_clips",
+          "minimum_rank_spearman",
+          "minimum_rank_kendall",
+          "minimum_top32_overlap",
+          "minimum_top128_overlap"
+        ],
+        "lexicographic_objective": [
+          "maximize_minimum_top8_overlap",
+          "maximize_minimum_top32_overlap",
+          "maximize_minimum_top128_overlap",
+          "maximize_minimum_rank_spearman",
+          "minimize_maximum_serialized_logical_mechanism_state_bytes",
+          "minimize_arm_id_ascii"
+        ]
+      },
+      "top_ks": [
+        1,
+        8,
+        32,
+        128,
+        512
+      ]
+    }
+  },
+  "controls": [
+    "Reproduce the historical A355 and A356 float fields and complete uint16be orders exactly before the memory tournament.",
+    "Retain the literal O1C-0005 4-bit fixed-scale transfer as a negative control.",
+    "Record global-z atan only as an invalid input-contract diagnostic, never as a qualifying arm.",
+    "Use the same label-free two-pass scale calibration and canonical address stream for every adaptive arm.",
+    "Keep all sibling repositories read-only and copy every consumed byte into the immutable run capsule.",
+    "Freeze the selected future template before generating any fresh challenge."
+  ],
+  "hypothesis": "The historical A355/A356 corrected W46 score fields can be reproduced exactly in the recovery codec, and the failure of the fixed non-DC O1C-0005 bank can be converted into a DC-complete full-basis spectral-register ceiling that emits complete high-fidelity approximate 4096-cell orderings under a frozen 8192-byte serialized-logical-state budget.",
+  "next_action": "Retain O1C-0006 as the exact corrected-codec and full-basis spectral-register ceiling, then develop a compact O1 evidence memory that beats the direct quantized-table baseline before drawing any fresh W46 challenge.",
+  "prediction": "At least one frozen adaptive DC full-basis ceiling arm will use no target labels, retain no explicit candidate rows inside its frozen state, use at most 8192 bytes of maximum serialized logical mechanism state, clip zero coefficients, and achieve worst-field Spearman >= 0.99, Kendall >= 0.91, Top-32 overlap >= 0.70, and Top-128 overlap >= 0.75 on exact A355/A356 fields; the report must also disclose that the 4096-mode transform is full-rank and larger than the matched direct quantized-table baseline.",
+  "schema": "o1c-run-config-v1",
+  "source_hashes": {
+    "corrected_bridge_config": "4c0d3bc3841b21fe81f0d8d6af217c770fb3806d53e48f9bfdd33e4cc42c38be",
+    "module___init__": "55dfe57debadb7a5525f4763140e3e5bf601761fdad697182e0ea4c1de858101",
+    "module___main__": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "module_adaptive_dc_spectral": "d8d0e425cd78138f6366e24e2917d0e9ea8dbd337ea5496cae73254ab5c188a8",
+    "module_artifacts": "dabb5588f67f9e89af93996cbcc646601e336e9db18e29804ad0bfeddbf913d9",
+    "module_benchmark": "963cec73dccf6831b1f94dd6e84901ef98e459fbe856bd04c0b232a95328d492",
+    "module_cli": "4d9d8269741aaf93006eaf456348835d4bafe2964605f2606282dd1ad31f829a",
+    "module_cockpit": "fb21873261ea7dffecfdf66cd27a9c581f6ed0eba234526331e4851e18c7e4db",
+    "module_composer": "51f4081efa10573e2722e82fb74b7555697b441b40d1c8a385d8c86cb3511b3a",
+    "module_corrected_direct12": "96f5ca45951fd0b476ba8f7fbcd1e376aa420d85b06a21416cef4facf7b84dc4",
+    "module_direct12": "5809ce79280c1c50f4eea973faf0f89878acff6500f248a8b01063958d05263f",
+    "module_direct12_reproduction": "75c6fba30fe3b9d6f5f14470939214adbc1c7264b64c2ad2436a38aff5ce34c6",
+    "module_events": "fd8ba230d570616782596846530ada72e46f4558b91cb6d27b01ab1567e6497a",
+    "module_failure_memory": "f0cd174e012df9273a50ee0a7ae0ba305f54fe642eaf5d3823da5a01749ed963",
+    "module_isolation": "50399219de30c9f9e3ed23ee1d5b4c434d8736107316a7647276aa481900b652",
+    "module_label_broker": "f8de803ec41b8fc73978f060907a7e8550581ae9a31a24d2de33d23151f93bb2",
+    "module_memory": "75fa10898fe49dd67aa1294915658e463ce5f7753839a588d080f22022351188",
+    "module_multislot_spectral": "1191370ae67eee87d5fe300331eee257d48359ef0011cc106d83d48ccbc9c0e6",
+    "module_o1o_selector": "d648fbfdf41ab6392a4859082c9d3d33492c9ee7f765ae6d98d99e3ca2341e46",
+    "module_orchestrator": "3351034b5a7fdc59a972834e62e5b469b0e04d7464594a4c954f38c95044b114",
+    "module_quantized_spectral": "d2678e7efbdd9a49bc13c535478ac927533fa2dea87f2dba26aa408940a4df0a",
+    "module_reader_experiment": "ddfd84daa4fd903ca8472f488183bc0fa072bd17b105c43b38b5dffc53938b89",
+    "module_replay": "f71df0518fd7fe4a91992ac9d2098c589c677c034794ad5c00e736afecaeba7f",
+    "module_run_capsule": "96e708011399e3ec73e54c0f32a360308b15475d5498fe4f69600ad2f3adeb76",
+    "module_shape532": "f41e657ea8414e94431ad431a31248202d322e4a762e9d42bf28d95d3f406aaf",
+    "module_spectral_experiment": "c1f6eb54623d2977f7f8b01decea28cec6634aa44b5fe45828d0cc68e15d4f40",
+    "module_stage3": "9c8abd64b687c623b8943055c152a87cc050ca1264f4563b40f33d9970c27da2",
+    "module_stage3_ingest": "da6adf4fe67a44818bfe818c845fa17b85cd960166b1fe9fa29ba77a31b7a201",
+    "module_trajectory_reader": "692c859bdca69793c57fe1acc92713c36e098efba4ab2ce9f20d05995fc00453",
+    "module_types": "91e3e8116b40fec516b6467dd4e22ae7a4aed9e4343f0dcce80be8b9da6d6693",
+    "module_walsh_memory": "0e959d021ad7e3f965142e40c57390d9d949badaecb59fd5486d00552a7922ce",
+    "o1c_0003_capsule_manifest": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+    "o1c_0005_capsule_manifest": "de67260cf44556a3fa48ef2b6daa1b738cf40b392739c6a05d835cbcdb1ab103",
+    "pyproject": "5f837140906147653068517ededac005cad3995595fc6ac20a38558ec75b3fef"
+  }
+}

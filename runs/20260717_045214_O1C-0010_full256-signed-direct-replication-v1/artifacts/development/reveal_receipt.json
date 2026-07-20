@@ -1,0 +1,11 @@
+{
+  "frozen_prediction_index_sha256": "2224ab10e3b3362ab374c4d5d90b7f19a697c9aca4cbfe094864e90d5a5313ca",
+  "frozen_prediction_sha256": "4643e0e849178014ede98e355037829158ca2eadc9b404671a8f64d6904e2dee",
+  "predictions_frozen_before_reveal": true,
+  "protocol_sha256": "75d90a63501ca4c6671170b7b9ffb039f2c6e713279b63a2073f26d15d20e419",
+  "publication_root": "cb9868cce5fb79b2b7690e90e7047681b765a28c9f3507255dd419efb9b97b63",
+  "reveal_artifact_sha256": "29348bc55f54d2d775616d3743b4cddc80ab114baa39103b295ba16e57a974c4",
+  "reveal_count": 2048,
+  "reveal_root": "203804994ae7dcae7eac6459a762911d9b7a550829762098b560de0057183fac",
+  "schema": "o1-256-development-panel-reveal-receipt-v1"
+}

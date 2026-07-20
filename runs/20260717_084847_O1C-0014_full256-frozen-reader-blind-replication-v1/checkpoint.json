@@ -1,0 +1,31 @@
+{
+  "attempt_id": "O1C-0014",
+  "payload": {
+    "budget_checks": {
+      "causal_state": true,
+      "cpu": true,
+      "fresh_targets": true,
+      "gpu": true,
+      "live_target_state": true,
+      "mps": true,
+      "native_branches": true,
+      "persistent_artifacts": true,
+      "resident_memory": true,
+      "sibling_reads": true,
+      "sibling_writes": true,
+      "wall": true
+    },
+    "gpu_calls": 0,
+    "mps_calls": 0,
+    "persistent_artifact_bytes": 2947408,
+    "phase": "SEALED_TARGETS_REVEALED_ONCE_AND_RESULT_PERSISTED",
+    "result_sha256": "ecc06b011a95f6ceeec08641b68e1105511cf714cc250f9fe3b62e66c2af4c4a",
+    "sealed_compression_bits_per_key": 0.23378414295848415,
+    "sealed_exact_keys": 0,
+    "sealed_targets_revealed": 8,
+    "sibling_writes": 0
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 4,
+  "updated_at": "2026-07-17T08:52:52.979535+02:00"
+}

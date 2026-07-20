@@ -1,0 +1,237 @@
+{
+  "attempt_id": "O1C-0005",
+  "budgets": {
+    "A349_target_labels": 0,
+    "a272_training_fields": 20,
+    "a348_calibration_cells": 4096,
+    "a349_target_blind_development_cells": 4096,
+    "gpu_seconds": 0,
+    "new_solver_calls": 0
+  },
+  "claim_level": "VALIDATION",
+  "commit": "a1ebe8a01bcfc1369b413e53c2e15ab4be043cb5",
+  "config": {
+    "attempt_id": "O1C-0005",
+    "budgets": {
+      "A349_target_labels": 0,
+      "a272_training_fields": 20,
+      "a348_calibration_cells": 4096,
+      "a349_target_blind_development_cells": 4096,
+      "gpu_seconds": 0,
+      "new_solver_calls": 0
+    },
+    "claim_level": "VALIDATION",
+    "controls": [
+      "all mask and scale policies are frozen from A272 TRAIN and/or A348 CALIBRATION fields before the A349 score file is opened",
+      "O1-O receives A348 target-blind field fidelity and declared state/work only; it receives neither A348 rank labels nor any A349 metric",
+      "the O1-O selection-source hash is built only from A272, the reader, A348 and mechanism/gate configs; whole-capsule manifests containing A349 are provenance-only and cannot affect selection",
+      "future-template and complete-order persistence require hash-bound callback receipts; in-memory freezing alone cannot pass the evidence gate",
+      "every A349 order is persisted before the separate A348 truth registry is opened",
+      "low-degree, deterministic candidate-ID random, full-float ceiling and direct quantized dictionary ceiling controls are reported",
+      "the dictionary ceiling is explicitly invalid as an O1 mechanism and can never win the mechanism gate",
+      "online recurrent state, integrity state, static plan storage, offline policy learning, evaluator-only reference workspace, controls and query work are reported separately",
+      "no KV cache, no full O(T) attention, no retained candidate rows and no mutable sibling path",
+      "A349 target, outcome and progress remain unread"
+    ],
+    "development_boundary": {
+      "A349_is_fresh_architecture_test": false,
+      "A349_progress_read": false,
+      "A349_target_blind_field_fidelity_was_inspected_during_mechanism_development": true,
+      "A349_target_labels_used": 0,
+      "A349_target_or_outcome_available": false,
+      "allowed_claim": "mechanistic validation and future-plan freeze, not fresh recovery generalization"
+    },
+    "fidelity": {
+      "o1o_gate": {
+        "maximum_online_state_bytes": 8192,
+        "minimum_rank_kendall": 0.91,
+        "minimum_rank_spearman": 0.99,
+        "minimum_top128_overlap": 0.75,
+        "minimum_top32_overlap": 0.7,
+        "require_zero_calibration_clips": true
+      },
+      "top_ks": [
+        1,
+        8,
+        32,
+        128,
+        512
+      ]
+    },
+    "global_walsh": {
+      "budgets": [
+        12,
+        78,
+        218,
+        256,
+        512,
+        1024,
+        2048,
+        3072,
+        4095,
+        4096
+      ],
+      "policies": [
+        "a348_energy",
+        "low_degree_prefix",
+        "candidate_id_random"
+      ],
+      "random_seeds": [
+        5,
+        17,
+        29
+      ]
+    },
+    "hypothesis": "Distributed multi-target spectral support and a dense low-precision O1 Bit-Vault will preserve the verified Direct12 ordering more efficiently and more transferably than sparse modes selected from one calibration field.",
+    "multislot_walsh": {
+      "calibration_slots": 16,
+      "policies": [
+        "a272_average_energy",
+        "a272_a348_pooled_energy",
+        "a348_average_energy"
+      ],
+      "slot_address_bits": 8,
+      "slots": 16,
+      "total_budgets": [
+        128,
+        256,
+        512,
+        1024,
+        1536,
+        2048,
+        2560,
+        3072,
+        3584,
+        4080
+      ],
+      "training_fields": 20
+    },
+    "next_action": "Carry the O1-O-frozen plan template to a new lab-owned Direct12 field that has never been used for architecture development, freeze its order, and only then run exact equal-work recovery and independent cipher confirmation.",
+    "prediction": "At matched declared state, A272-distributed 16-slot masks will beat low-degree and candidate-ID controls on target-blind A349 field fidelity, while a 4-bit dense multi-slot Bit-Vault with frozen A348 scales will exceed 0.98 A349 rank-Spearman without retaining candidate rows or a KV table.",
+    "quantized_bit_vault": {
+      "dictionary_ceiling_control": true,
+      "headroom_factors": [
+        1.0,
+        1.25
+      ],
+      "input_bits": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "modes_per_slot": 255,
+      "o1o_eligible_headroom_factors": [
+        1.25
+      ],
+      "slots": 16
+    },
+    "reader": {
+      "model_sha256": "b096c08616a81712da881862b65f0c95388e4db3cf6b8e462bf7c2a072cb0da4",
+      "selected_group_indices": [
+        [
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          296,
+          297,
+          298,
+          304,
+          305,
+          307,
+          310,
+          311,
+          318,
+          319
+        ],
+        [
+          324,
+          325,
+          326,
+          327,
+          330,
+          331,
+          334,
+          335,
+          336,
+          337,
+          342,
+          343,
+          344,
+          345,
+          346,
+          347,
+          348,
+          349,
+          350,
+          351,
+          352,
+          353,
+          354,
+          355,
+          356,
+          357,
+          358,
+          359
+        ]
+      ],
+      "selected_views": [
+        "learned_clause_rejected_large_stage::coefficient_negative::normalized_8cube_graph_laplacian",
+        "learned_literal_count_stage::coefficient_negative::normalized_8cube_graph_laplacian"
+      ]
+    },
+    "schema": "o1-crypto-bounded-memory-tournament-config-v1",
+    "slug": "bounded-spectral-memory-tournament",
+    "sources": {
+      "a348_historical_score_sha256": "81e489f95d93f3b950aad152bcab0abab193d63d099f74f9f08aa00797b32b5f",
+      "a348_score_member": "artifacts/a348_score_field.json",
+      "a349_historical_score_sha256": "075dd9a51afadbeba7c1012ab37aab9314e1c47589d01139291d567ecfa0a529",
+      "a349_score_member": "artifacts/a349_score_field.json",
+      "o1c_0003_capsule": "runs/20260715_123734_O1C-0003_direct12-source-snapshot",
+      "o1c_0003_manifest_sha256": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+      "o1c_0004_capsule": "runs/20260715_130047_O1C-0004_direct12-532-reproduction",
+      "o1c_0004_manifest_sha256": "ac3333606e0aaf47dc519553c0e9407fc8ab67dba5319ed340eac579cb25c7bf"
+    }
+  },
+  "controls": [
+    "all mask and scale policies are frozen from A272 TRAIN and/or A348 CALIBRATION fields before the A349 score file is opened",
+    "O1-O receives A348 target-blind field fidelity and declared state/work only; it receives neither A348 rank labels nor any A349 metric",
+    "the O1-O selection-source hash is built only from A272, the reader, A348 and mechanism/gate configs; whole-capsule manifests containing A349 are provenance-only and cannot affect selection",
+    "future-template and complete-order persistence require hash-bound callback receipts; in-memory freezing alone cannot pass the evidence gate",
+    "every A349 order is persisted before the separate A348 truth registry is opened",
+    "low-degree, deterministic candidate-ID random, full-float ceiling and direct quantized dictionary ceiling controls are reported",
+    "the dictionary ceiling is explicitly invalid as an O1 mechanism and can never win the mechanism gate",
+    "online recurrent state, integrity state, static plan storage, offline policy learning, evaluator-only reference workspace, controls and query work are reported separately",
+    "no KV cache, no full O(T) attention, no retained candidate rows and no mutable sibling path",
+    "A349 target, outcome and progress remain unread"
+  ],
+  "hypothesis": "Distributed multi-target spectral support and a dense low-precision O1 Bit-Vault will preserve the verified Direct12 ordering more efficiently and more transferably than sparse modes selected from one calibration field.",
+  "next_action": "Carry the O1-O-frozen plan template to a new lab-owned Direct12 field that has never been used for architecture development, freeze its order, and only then run exact equal-work recovery and independent cipher confirmation.",
+  "prediction": "At matched declared state, A272-distributed 16-slot masks will beat low-degree and candidate-ID controls on target-blind A349 field fidelity, while a 4-bit dense multi-slot Bit-Vault with frozen A348 scales will exceed 0.98 A349 rank-Spearman without retaining candidate rows or a KV table.",
+  "schema": "o1c-run-config-v1",
+  "source_hashes": {
+    "module_artifacts": "dabb5588f67f9e89af93996cbcc646601e336e9db18e29804ad0bfeddbf913d9",
+    "module_cli": "6d2ed2e3dbea819c3f1c842faabe63eba7fa728edc52c5924716dd06a8e330c2",
+    "module_direct12": "e83138ec93d45bcf32307ea4d930ed92838e3d27cbb0765667b237d681630e21",
+    "module_isolation": "50399219de30c9f9e3ed23ee1d5b4c434d8736107316a7647276aa481900b652",
+    "module_multislot_spectral": "1191370ae67eee87d5fe300331eee257d48359ef0011cc106d83d48ccbc9c0e6",
+    "module_o1o_selector": "d648fbfdf41ab6392a4859082c9d3d33492c9ee7f765ae6d98d99e3ca2341e46",
+    "module_orchestrator": "3351034b5a7fdc59a972834e62e5b469b0e04d7464594a4c954f38c95044b114",
+    "module_quantized_spectral": "d2678e7efbdd9a49bc13c535478ac927533fa2dea87f2dba26aa408940a4df0a",
+    "module_run_capsule": "96e708011399e3ec73e54c0f32a360308b15475d5498fe4f69600ad2f3adeb76",
+    "module_shape532": "f41e657ea8414e94431ad431a31248202d322e4a762e9d42bf28d95d3f406aaf",
+    "module_spectral_experiment": "c1f6eb54623d2977f7f8b01decea28cec6634aa44b5fe45828d0cc68e15d4f40",
+    "module_stage3": "9c8abd64b687c623b8943055c152a87cc050ca1264f4563b40f33d9970c27da2",
+    "module_types": "91e3e8116b40fec516b6467dd4e22ae7a4aed9e4343f0dcce80be8b9da6d6693",
+    "module_walsh_memory": "0e959d021ad7e3f965142e40c57390d9d949badaecb59fd5486d00552a7922ce",
+    "o1c_0003_capsule_manifest": "d7dcb2b2c3f39d866c7820dbc7423ce55b4d5c9df6634d5a00126a954a0a065d",
+    "o1c_0004_capsule_manifest": "ac3333606e0aaf47dc519553c0e9407fc8ab67dba5319ed340eac579cb25c7bf",
+    "tournament_config": "85e4bf1aa02ac3110a599aef05827d2effc9811b392e46657855f5d203dce693"
+  }
+}

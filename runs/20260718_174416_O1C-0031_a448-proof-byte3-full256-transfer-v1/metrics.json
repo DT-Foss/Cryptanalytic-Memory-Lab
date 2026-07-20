@@ -1,0 +1,30 @@
+{
+  "attempt_id": "O1C-0031",
+  "claim_level": "TEST",
+  "elapsed_seconds": 56.444986,
+  "ended_at": "2026-07-18T17:45:12.463166+02:00",
+  "next_action": "Repeat the unchanged A448 reader on exactly one disjoint consumed DEVELOPMENT target; use a fresh target only if the consumed repeat also ranks <=128.",
+  "schema": "o1c-run-metrics-v1",
+  "started_at": "2026-07-18T17:44:16.018180+02:00",
+  "status": "completed",
+  "values": {
+    "candidate_cells": 256,
+    "candidate_order_uint8_sha256": "34f1289689ff9cc254135ff3d78581e60a739f0d63af01a5d83184ad57acbc08",
+    "descriptive_gain_vs_uniform_mean_log_rank_bits": 1.023521645291951,
+    "other_key_bits_assigned": 0,
+    "pass_max_rank": 128,
+    "passed": true,
+    "public_key_label_inputs": 0,
+    "rank_bit_gain_from_worst_rank": 2.4454111483223624,
+    "raw_artifact_bytes": 297014,
+    "raw_artifact_sha256": "8098c6438a0e2264242733a554b0956ee2e49701bb84979b947bd16d201860bf",
+    "self_maxrss_after": 188841984,
+    "solver_stages": 1024,
+    "stable_run_sha256": "1a376baa490e726de553fe6f3f30e2260a32be1059d33351ba94fbfd9578a266",
+    "stdout_sha256": "3c014405b91d9c315c4ab669d8aa1d059f286985fdc3508410a21527acb80665",
+    "target_byte": 3,
+    "target_rank": 47,
+    "target_role": "CONSUMED",
+    "wall_seconds": 55.29026987499992
+  }
+}

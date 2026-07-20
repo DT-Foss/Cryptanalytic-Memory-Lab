@@ -1,0 +1,138 @@
+# O1C Run O1C-0003
+
+- Schema: `o1c-run-capsule-v1`
+- Status: `completed`
+- Claim level: `SMOKE`
+- Git commit: `be3e8c539a80a63e97accb4dce0fe52ad90430a2`
+- Started (Europe/Berlin): `2026-07-15T12:37:34.460997+02:00`
+- Ended (Europe/Berlin): `2026-07-15T12:37:34.529762+02:00`
+- Elapsed seconds: `0.068765`
+- Command: `o1-crypto-lab direct12-snapshot --config '/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/configs/direct12_source_snapshot_v1.json'`
+
+## Hypothesis
+
+The minimal A272/A342/A348/A349 Direct12 dependency set can be made immutable inside the lab without reading any recovery progress or outcome artifact.
+
+## Prediction
+
+Exactly 71 ledger members and 9,882,690 bytes will verify against the dirty read-only source tree and be copied byte-for-byte into one immutable capsule.
+
+## Controls
+
+- every copied byte is verified by the lab-owned SHA-256 ledger at read time
+- the source HEAD and dirty status are recorded without upgrading them to a clean-commit claim
+- the clean Fullround manifest is explicitly not cited as provenance for these files
+- progress, recovery and prospective outcome stems are absent from the ledger
+- no sibling file is written, imported or executed
+
+## Budgets
+
+```json
+{
+  "bytes": 9882690,
+  "external_solver_calls": 0,
+  "gpu_seconds": 0,
+  "members": 71
+}
+```
+
+## Pinned source hashes
+
+- `direct12_boundary`: `260869afaf5c5935627594db3c2afb44b610ae2584a3fe78622c5a273a63fe95`
+- `direct12_source_ledger`: `01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394`
+- `snapshot_config`: `b9466fd72af119809e3af9dbba20d03ef843d3cc7b31bd8b694855584e91ae2c`
+
+## Metrics
+
+```json
+{
+  "bytes": 9882690,
+  "denied_members_read": 0,
+  "entries": {
+    "research/artifacts/a349_chacha20_r20_w46_direct12_a345/a349_a345_public_output_w46_b1.cnf": "bbd87ae30a430e5cb802e24134f42f9593f47cddf235228963150b3ac36ed07b",
+    "research/configs/chacha20_round20_selected_channel_prospective_validation_v1.json": "67c568baf4ac5a4d7191cca2ac7bbe4e07e62a81475b51ba838be3f011d6220f",
+    "research/configs/chacha20_round20_signed_channel_ablation_v1.json": "da026bcb21805add8a32365a7d9e68dbb00ff6a3226fd89f7f45c3cc8f99c920",
+    "research/configs/chacha20_round20_w46_direct12_prospective_a345_validation_a349_design_v1.json": "f4c8a512def4c115b0a6be0e8a86754764c3a6f835ccc8cfcfcf562cc80f164a",
+    "research/configs/chacha20_round20_w46_direct12_prospective_a345_validation_a349_implementation_v1.json": "f106b28e0b9243f7eaa62298e9cc806ae6ff6dc3c22a9b915ce593326faad3e5",
+    "research/configs/chacha20_round20_w46_direct12_prospective_a345_validation_a349_selection_v1.json": "4f33a99b859044ed79d933b813486dba195e37438bc9afcf32b21d31d2d6c422",
+    "research/configs/chacha20_round20_w46_direct12_sliced_reader_a348_design_v1.json": "d31649a3138e823c238bf8ff1318679d614f1b49ae0d53e9ebe4a0889b706b17",
+    "research/configs/chacha20_round20_w46_direct12_sliced_reader_a348_implementation_v1.json": "372534d194a8d938fe9330248ebdee331cf94075c1764cfffcba93817f8bf30b",
+    "research/configs/chacha20_round20_w46_exhaustive_reader_ensemble_a342_design_v1.json": "966dd1d053b95a62595bc87aced47362af74872a404100649452988e78cd336c",
+    "research/provenance/chacha20_round20_a268_prospective_trajectory_shape_preflight_v1.json": "d8fdbb88254b40ea90812c29563baf8f82b693d5fa9980f28a116089abfa9a17",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1.json": "41460e75bed006f5df23057151d22d594d30e88b55f6320f28462e24945f18da",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p00_fit_s00.numeric.measurement.json.zst": "a71a05e2be38f0f2a0bfeaa561f6d61948a3f2bec34dd35b5777715f6df8d625",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p00_fit_s01.numeric.measurement.json.zst": "0124a06febbf853773d4709c825f9092c511e77bc18b47cf41d78d7f2e58effe",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p00_fit_s02.numeric.measurement.json.zst": "9b2398b0575bb65f627ee2c9da56597f435559b41af1960b8e28c00eb75d0766",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p00_fit_s03.numeric.measurement.json.zst": "fffdfe44754ba82bc1571502327bfb5b8b96197a3482ed35582a339875436176",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p01_fit_s00.numeric.measurement.json.zst": "f724f70129f242cc9b8a0e71b4bbc5649389affce65f32f00a9f72f84913d37a",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p01_fit_s01.numeric.measurement.json.zst": "6d5737c4416b23fcba342d18ff10c57892581f888dacd193efca139fe27082f9",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p01_fit_s02.numeric.measurement.json.zst": "a9006942ad2bd6fc72ae29f8af0c77953e90220fcd7ca250f504a209515a2fef",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p01_fit_s03.numeric.measurement.json.zst": "13d034ff9b2507d87a083de8b4a4d43295a157de5b518abdb3e448149370a4ab",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p02_fit_s00.numeric.measurement.json.zst": "1e3a440b9e56c422574c2332e8b4ef7b7700ad7ba42a4aced0083ff56ba340c7",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p02_fit_s01.numeric.measurement.json.zst": "b5b11267637d035b6752a84b1a6b463f5c9e636c225849c223775575b883da96",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p02_fit_s02.numeric.measurement.json.zst": "fb57402914944b01c1fded88be66b274415e942f763dfe464950871b5bad90fd",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p02_fit_s03.numeric.measurement.json.zst": "554a0d4b74f453c9046e85ec029dd1a4d718054ae4b8b361dbfb33c89a4709d3",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p03_fit_s00.numeric.measurement.json.zst": "d84e045f07fd1b0b126dfef468c9b40627bef270264c0db99b77ca369da1d0e7",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p03_fit_s01.numeric.measurement.json.zst": "2206474badef79442bed956c4037ec4141c02d1d3f803dad7d3570aa01cc3a82",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p03_fit_s02.numeric.measurement.json.zst": "65016a4e8530371b34fb511684fbe8df6746e95d93610b2683f9064c0ff4eb87",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p03_fit_s03.numeric.measurement.json.zst": "5b857105835f880532631e4cbab8d83d6271e1aa0ad2620d51680405feed3485",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p04_fit_s00.numeric.measurement.json.zst": "33c1a5269de72d6927b3621ad9c6042834e63890fe14b275a08cb7667ee0dc64",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p04_fit_s01.numeric.measurement.json.zst": "c232de2a7e7db70154af5894512acdef5473756808f8efb72732b4ccdbc6a7e2",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p04_fit_s02.numeric.measurement.json.zst": "49316127e1e50ce8ac3acead9b9bb91f6bc6f5ad20ea5a89c00d2a9c4485b6d5",
+    "research/results/v1/chacha20_round20_selected_channel_prospective_validation_v1/a272_channel_p04_fit_s03.numeric.measurement.json.zst": "c532bc4081f2485ea96efb078dfe0590478941dff31f37af51f6453ecc4c7b69",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_order_v1.json": "d2cbc5cbfe4765d7fd3681f92c4881a962d6b856d86a88bf9c9af716867dc96e",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_preflight_v1.json": "43a54b43f257d75d89bb6a260318d5203754033de5bea8cf192e773267e8abb1",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_00.json.zst": "5b044b0731e8a4bb922802caabd255529c1f3d412b58e1b08d2b39d0514808b1",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_01.json.zst": "8c3717d20dbeff7fbdef3bccf1aa677a21b075ee7fc97a5c05a8b0545c4d9200",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_02.json.zst": "cd8d880ff7800e2cba96694680c1460f5fdcbbbf3aa4ad857839b39dbfa2df33",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_03.json.zst": "c236b37b57152e590954f725837a4ebd59eff577fe800ffaa9a0dff93a8ca91a",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_04.json.zst": "7402ece8c9d4bde4bfe6bf71cbed58ec9301f6214d8a7d3cfd29580727950234",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_05.json.zst": "72f0cf9093112d2530a54346cd15646c43793fe3cb325d8e1ca98caa2f86c899",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_06.json.zst": "0d8fce456d4e9652891f3a3d66ca6bbce0ec890cfbb497293b46446c683853b9",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_07.json.zst": "da7df2c1b2fc4777d43651565d9022e40089bca2be560dccc4fbf0eff783ab72",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_08.json.zst": "1b767c718a138a2b156d3fbabd1ded8c64092ad7e690a68ec8e760a63cb9156b",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_09.json.zst": "c9bd54ba78c4818b6f6e7db2dc5dcd43f1c65f03dd3fb51bdc01833d6f2ff436",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_0a.json.zst": "1eaae8bceb6f1b9fdcc7ac8cbff2fd5f2374cf6aff0a3bdc5808d66fc58adf4d",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_0b.json.zst": "3db33cc89753849e618855843409540af10915eb98e11217a4d2f165ed1f1505",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_0c.json.zst": "3ba5783cae2bf29909216a38e7b0e17c60c44edf308d9929388c8457dd78a2fe",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_0d.json.zst": "d68f8c234b09294926d1accd532bef304daea1513ee6f37dd3ae2035446a1f1a",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_0e.json.zst": "81dea0a646b1c871b5fb35a6a561dd7df06510f3c5995df17c02bf135a7f4216",
+    "research/results/v1/chacha20_round20_w46_direct12_prospective_a345_validation_a349_v1/slice_0f.json.zst": "c0026c9fd7662bbbd3b77ef433004b19a96249aa4afd80f56fabb654b06640f4",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1.json": "f09bba039b26c8b78804f48169df62db167a9d95fbfff91e7099a01c1be1c812",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_00.json.zst": "64b045e452fce159b07ba11313167d12318ae642b4faa6e5b8baa3c12c655aff",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_01.json.zst": "9669cacdbf3354ba9ffdbfcc2849c2adc998d3026e28ac2b22782e46b0139854",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_02.json.zst": "eebae73c2a8535606486fb54bfab6fbe237895b9cad92eda07b18abb6188fd6c",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_03.json.zst": "1c0cedeb2a447d2821d76df98f1748c4652272195102c117d845778f93cac926",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_04.json.zst": "a62fe87f18a2af53c3d557b3e12b559d4745368882133362b6b927b5cf64e33d",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_05.json.zst": "021d9d32f45dac978b103ba38a0cc8786675faff54531455c2d74390ce7be3c4",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_06.json.zst": "59a4a9da7763d47edc0b4ba38013482bc69146fedb748e334fb27018c772125f",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_07.json.zst": "debde0b24d05a5982c8234d8b039a2096e398e69f171c4bc4d25d0f25a15c319",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_08.json.zst": "ae61f96c4a563ac47b613889353cf5b237288747caf2067781dfcecd779cb8a3",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_09.json.zst": "21224cf6c9295c64425ce1ec128920c8c1a14eab3e3ac1a39448f9aa52a070de",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_0a.json.zst": "de0f6c18744da16c003ba33458c9756e30867d05eb0ff4b20908cee8c2e14cf8",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_0b.json.zst": "78323b386d92d17feef8a791bc71d7a0ff38484b9466b0d561754937b82cb23f",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_0c.json.zst": "d482469ff8219756473be1255ebd157eaa224fbda068424289d2d1ad1eeed893",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_0d.json.zst": "ed6aae29593867229e8e153223048d75a9250c76a8e9a3f6be7035cb4d46e7cf",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_0e.json.zst": "feed589a0b8491711421bdb84a5319e3129db95336384774454729f67783c1fb",
+    "research/results/v1/chacha20_round20_w46_direct12_sliced_reader_a348_v1/slice_0f.json.zst": "46400ffe9a1d068024b9fbf29d0917f84a357f8c4b94f379b905b04dd30fb9cb",
+    "research/results/v1/chacha20_round20_w46_exhaustive_reader_ensemble_a342_v1.json": "8d6d6f99b89d67d7eff186037934bfa515cf93a00af10b244826f44056b4cebb",
+    "src/arx_carry_leak/key_atlas.py": "3ec5fa9c363d930bb9cc62a83192f46faf8b50bfee28bdc9023fbbfa92ea32a6",
+    "src/arx_carry_leak/score_hypercube.py": "45e18296ac12a80caafbc930815c8bb8db6e37d2813e59d64e2396765e6f2265",
+    "src/arx_carry_leak/solver_trajectory_shape.py": "44056b27937c1b4f1ab9af2dfaf904ad3b5f239deda05519c2e9a16f9f1e8160",
+    "src/arx_carry_leak/trajectory_contribution.py": "edcee636acf826a7c7cc737bd72193731b2272986857156543762baa6054aba3"
+  },
+  "external_solver_calls": 0,
+  "fullround_manifest_provenance_claimed": false,
+  "gpu_seconds": 0,
+  "members": 71,
+  "schema": "o1-crypto-direct12-source-snapshot-v1",
+  "selected_source_members_verified": 71,
+  "source_head": "97fa868b96771951d5fb2c26aa1785e9d05c4cde",
+  "source_ledger_sha256": "01b19d91706019655fa286e5c249ad73efbc081509e5e596dd5c5b0b08a42394",
+  "source_worktree_dirty": true
+}
+```
+
+## Next highest-ROI action
+
+Read only the immutable capsule snapshot, independently reimplement the 532-feature transform, and reproduce the published feature/order commitments before any O1 compression experiment.

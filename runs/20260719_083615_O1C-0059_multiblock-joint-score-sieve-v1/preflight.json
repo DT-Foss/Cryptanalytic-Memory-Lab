@@ -1,0 +1,25 @@
+{
+  "MPS_or_GPU": false,
+  "cpu_count": 10,
+  "darwin_watchdog_guard_bytes": 33554432,
+  "darwin_watchdog_poll_interval_seconds": 0.01,
+  "darwin_watchdog_temporal_blindspot": "nominally-at-most-one-10ms-poll-interval;OS-scheduling-delay-is-not-hard-bounded;32MiB-guard-reserved-below-formal-ceiling",
+  "fresh_reveal_calls": 0,
+  "fresh_targets": 0,
+  "load_average": [
+    3.083984375,
+    3.22021484375,
+    3.08349609375
+  ],
+  "memory_pressure_free_percent": 42,
+  "minimum_memory_pressure_free_percent": 15,
+  "native_memory_enforcement": "proc_pid_rusage-physical-footprint-process-group-watchdog",
+  "native_memory_limit_bytes": 805306368,
+  "observed_at": "2026-07-19T08:35:02+02:00",
+  "schema": "o1-256-multiblock-joint-score-sieve-preflight-v1",
+  "scientific_entropy_calls": 0,
+  "sibling_reads": 0,
+  "sibling_writes": 0,
+  "solver_calls_before_intent": 0,
+  "source_commit": "b35ae35923cdf4b2760263257db9171e6c218807"
+}

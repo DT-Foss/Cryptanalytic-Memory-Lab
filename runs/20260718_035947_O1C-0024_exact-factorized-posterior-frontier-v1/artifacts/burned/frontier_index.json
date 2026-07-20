@@ -1,0 +1,13 @@
+{
+  "candidate_count": 65536,
+  "candidate_key_bytes": 32,
+  "cutoff_log2_probability": -251.9751244505961,
+  "first_log2_probability": -251.968003323662,
+  "keys_encoding": "rank-major raw 32-byte keys",
+  "keys_sha256": "84ca1b77cd5fa650c1bbb2fc24d7baf94c116f3b6c57081000a2032c0cc58c94",
+  "schema": "o1-256-factorized-topk-artifact-index-v1",
+  "scores_encoding": "rank-major float64 little-endian log2 probabilities",
+  "scores_sha256": "723588bf9464bd8f78f10aeec629fd93204733e8111e8e61e2f269a2d8f9f287",
+  "tie_policy": "ascending-flip-penalty-then-coordinate topology; equal subset sums use ascending topology bitmask",
+  "truth_used_for_generation": false
+}

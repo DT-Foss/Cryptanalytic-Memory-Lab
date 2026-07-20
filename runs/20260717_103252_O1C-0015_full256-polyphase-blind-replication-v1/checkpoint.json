@@ -1,0 +1,17 @@
+{
+  "attempt_id": "O1C-0015",
+  "payload": {
+    "gpu_calls": 0,
+    "mps_calls": 0,
+    "persistent_artifact_bytes": 4400198,
+    "phase": "ALL_POLYPHASE_PREDICTIONS_PERSISTED_BEFORE_ANY_REVEAL",
+    "prediction_set_sha256": "f2958da162a2dca74f2c5dd62ccb45f3d764be7c8f71200ee3afba8409a62116",
+    "protocol_freeze_sha256": "efec83f5ec720622678303d54f435e9a7a8054b1a8ef0eb10574b6c34237355d",
+    "sealed_prediction_count": 32,
+    "sealed_target_reveals": 0,
+    "sibling_writes": 0
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 3,
+  "updated_at": "2026-07-17T11:01:38.619726+02:00"
+}

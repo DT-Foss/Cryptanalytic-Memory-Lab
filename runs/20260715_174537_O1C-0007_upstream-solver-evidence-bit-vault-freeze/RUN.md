@@ -1,0 +1,118 @@
+# O1C Run O1C-0007
+
+- Schema: `o1c-run-capsule-v1`
+- Status: `completed`
+- Claim level: `RETROSPECTIVE`
+- Git commit: `cf7ef298caf80006ae3470240d509c661221b150`
+- Started (Europe/Berlin): `2026-07-15T17:45:37.359256+02:00`
+- Ended (Europe/Berlin): `2026-07-15T17:45:48.158166+02:00`
+- Elapsed seconds: `10.798910`
+- Command: `o1-crypto-lab upstream-ising-freeze --config '/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/o1-cryptanalytic-memory-lab/configs/upstream_ising_retrospective_v1.json'`
+
+## Hypothesis
+
+A compact O1 bit-vault that streams solver-stage evidence into implicit unary or unary-plus-pairwise Walsh registers can preserve useful cryptanalytic candidate information below the 3918-byte direct-table ceiling, even when a broad retrospective panel and its negative selection-adjusted evidence are accounted for exactly.
+
+## Prediction
+
+The complete target-blind 672-view A355 panel will reproduce one frozen streamable tie-free primary with 12 implicit registers, rank 73, 5.810175441119982 bits of raw rank gain, and at most 266 bytes of conservatively bound logical state; exact enumeration over all 4096 labels will disclose the conditional familywise probability across every tie-free view among the 448 pre-gate streamable views, and the selected single-pass accumulator over a materialized canonical evidence field will emit a complete hash-frozen A356 order without reading an A356 target, outcome, or progress artifact.
+
+## Controls
+
+- Persist all 672 complete A355 target-blind orders before opening the A355 calibration truth.
+- Enumerate all 4096 possible A355 labels through the exact selection procedure after applying the target-blind tie gate to all 448 pre-gate streamable views; do not substitute an unadjusted rank or approximate permutation test.
+- State explicitly that the conditional exact null adjusts the declared 672-view panel but not pre-panel exploration or panel-family design.
+- Retain all 224 rank-transform views as nonstreamable negative breadcrumbs and exclude them from primary selection.
+- Exclude every streamable view with any projected-score tie from primary selection so numeric candidate ID cannot become hidden ranking evidence; retain all such views as controls.
+- Retain the previously identified offered-per-conflict h8 degree1+2 candidate as a named historical breadcrumb rather than silently replacing it.
+- Count the plan binding, evidence binding, canonical stream counter, and logical SHA-256 state in the compact-memory ceiling.
+- Open the A356 metadata and 16 shards only after the selected template and A355 state have been persisted.
+- Keep sibling repositories untouched; consume only exact members of the immutable O1C-0006 capsule.
+- Claim neither recovery, fresh validation, statistical significance, nor SOTA from O1C-0007.
+- Treat every success flag as a protocol-integrity result; the scientific-efficacy gate remains false at selection-adjusted p = 0.593505859375.
+- Treat 266 bytes versus 3918 bytes only as a prior table-budget reference across different fields and fidelity targets, never as matched-information compression dominance.
+- Treat A356 as a transductive target- and outcome-blind order freeze that is prospective only relative to target/outcome reveal, never as source-unseen or fresh holdout evidence.
+
+## Budgets
+
+```json
+{
+  "direct_quantized_table_ceiling_bytes": 3918,
+  "maximum_A355_calibration_labels": 1,
+  "maximum_A356_target_labels": 0,
+  "maximum_fresh_challenges": 0,
+  "maximum_gpu_seconds": 0,
+  "maximum_new_solver_calls": 0,
+  "maximum_panel_views": 672,
+  "maximum_selection_eligible_views": 448,
+  "maximum_serialized_logical_mechanism_state_bytes": 512
+}
+```
+
+## Pinned source hashes
+
+- `module___init__`: `55dfe57debadb7a5525f4763140e3e5bf601761fdad697182e0ea4c1de858101`
+- `module___main__`: `935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d`
+- `module_adaptive_dc_spectral`: `d8d0e425cd78138f6366e24e2917d0e9ea8dbd337ea5496cae73254ab5c188a8`
+- `module_artifacts`: `dabb5588f67f9e89af93996cbcc646601e336e9db18e29804ad0bfeddbf913d9`
+- `module_benchmark`: `963cec73dccf6831b1f94dd6e84901ef98e459fbe856bd04c0b232a95328d492`
+- `module_cli`: `bb4c2e854548fc54bae001899bb19392fb1e35e082a4884e3a2a1ed98762be15`
+- `module_cockpit`: `fb21873261ea7dffecfdf66cd27a9c581f6ed0eba234526331e4851e18c7e4db`
+- `module_composer`: `51f4081efa10573e2722e82fb74b7555697b441b40d1c8a385d8c86cb3511b3a`
+- `module_corrected_direct12`: `96f5ca45951fd0b476ba8f7fbcd1e376aa420d85b06a21416cef4facf7b84dc4`
+- `module_direct12`: `5809ce79280c1c50f4eea973faf0f89878acff6500f248a8b01063958d05263f`
+- `module_direct12_reproduction`: `75c6fba30fe3b9d6f5f14470939214adbc1c7264b64c2ad2436a38aff5ce34c6`
+- `module_events`: `fd8ba230d570616782596846530ada72e46f4558b91cb6d27b01ab1567e6497a`
+- `module_failure_memory`: `f0cd174e012df9273a50ee0a7ae0ba305f54fe642eaf5d3823da5a01749ed963`
+- `module_ising_memory`: `0a64ea38ab8d01f004489b985a8a8651d2891496c97f366885621b8f26e4212b`
+- `module_isolation`: `50399219de30c9f9e3ed23ee1d5b4c434d8736107316a7647276aa481900b652`
+- `module_label_broker`: `f8de803ec41b8fc73978f060907a7e8550581ae9a31a24d2de33d23151f93bb2`
+- `module_memory`: `75fa10898fe49dd67aa1294915658e463ce5f7753839a588d080f22022351188`
+- `module_multislot_spectral`: `1191370ae67eee87d5fe300331eee257d48359ef0011cc106d83d48ccbc9c0e6`
+- `module_o1o_selector`: `d648fbfdf41ab6392a4859082c9d3d33492c9ee7f765ae6d98d99e3ca2341e46`
+- `module_orchestrator`: `3351034b5a7fdc59a972834e62e5b469b0e04d7464594a4c954f38c95044b114`
+- `module_quantized_spectral`: `d2678e7efbdd9a49bc13c535478ac927533fa2dea87f2dba26aa408940a4df0a`
+- `module_reader_experiment`: `ddfd84daa4fd903ca8472f488183bc0fa072bd17b105c43b38b5dffc53938b89`
+- `module_replay`: `f71df0518fd7fe4a91992ac9d2098c589c677c034794ad5c00e736afecaeba7f`
+- `module_run_capsule`: `13681939e0a5cd09d4f32c6d92c9a56894cfe8af90f07d5d4190c96b90a1b664`
+- `module_shape532`: `f41e657ea8414e94431ad431a31248202d322e4a762e9d42bf28d95d3f406aaf`
+- `module_spectral_experiment`: `c1f6eb54623d2977f7f8b01decea28cec6634aa44b5fe45828d0cc68e15d4f40`
+- `module_stage3`: `9c8abd64b687c623b8943055c152a87cc050ca1264f4563b40f33d9970c27da2`
+- `module_stage3_ingest`: `da6adf4fe67a44818bfe818c845fa17b85cd960166b1fe9fa29ba77a31b7a201`
+- `module_trajectory_reader`: `692c859bdca69793c57fe1acc92713c36e098efba4ab2ce9f20d05995fc00453`
+- `module_types`: `91e3e8116b40fec516b6467dd4e22ae7a4aed9e4343f0dcce80be8b9da6d6693`
+- `module_upstream_experiment`: `172ce9ac4d05eda84dc266fab14b846f12c258fc6e084b443ebef4793718c5e1`
+- `module_upstream_panel`: `307654d2d2774ad9d142d4f6df2765a7873a7c8c9cebace0008fb469d2421afc`
+- `module_walsh_memory`: `0e959d021ad7e3f965142e40c57390d9d949badaecb59fd5486d00552a7922ce`
+- `o1c_0006_capsule_manifest`: `720bc88834e5ae2959ac960d4f5fe2ca1c8845283b0d32273c6ca2cfea34fdc6`
+- `pyproject`: `5f837140906147653068517ededac005cad3995595fc6ac20a38558ec75b3fef`
+- `upstream_ising_config`: `10566f1a6cea33d8114ad50e90f21e0b58e61ae2def540be35c2ebbd9b38a7e5`
+
+## Metrics
+
+```json
+{
+  "A355_gain_bits": 5.810175441119982,
+  "A355_order_sha256": "fdf7c3618f7c2b5d9fbb1c47a0826fb1293932016fe5602a346e9c247e188852",
+  "A355_rank": 73,
+  "A356_order_sha256": "0a6e32430a97c968c3a831ef23c58eaacaaf411fcc9f44e59661f62efa764159",
+  "A356_target_labels_read": 0,
+  "exact_familywise_p": 0.593505859375,
+  "favorable_labels": 2431,
+  "fresh_challenge_generated": false,
+  "maximum_serialized_logical_mechanism_state_bytes": 266,
+  "protocol_success_gate_passed": true,
+  "schema": "o1-crypto-o1c0007-metrics-v1",
+  "scientific_efficacy_gate_passed": false,
+  "selected_view_id": "search_propagations__h1__signed-log1p__degree1__negative",
+  "source_receipt_set_sha256": "df193264386fd952e9fbe6a42a2b6893a2e2ec393195e1cb6259115c8cc6176c",
+  "state_registers": 12,
+  "statistical_sota_claimed": false,
+  "success_gate_passed": true,
+  "success_gate_semantics": "protocol-integrity-not-scientific-efficacy"
+}
+```
+
+## Next highest-ROI action
+
+Treat O1C-0007 as a retrospective mechanism freeze and negative multiple-testing breadcrumb; under O1C-0008 generate fresh OS-random paired-assumption solver trajectories with every tested key bit passed as an assumption, stream them through the frozen 12-register decoder, commit the output before reveal, and require multi-target recovery or reproducible fresh rank gain before any SOTA claim.

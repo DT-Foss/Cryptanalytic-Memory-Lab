@@ -1,0 +1,136 @@
+{
+  "attempt_id": "O1C-0002",
+  "claim_level": "RETROSPECTIVE",
+  "elapsed_seconds": 4.573172,
+  "ended_at": "2026-07-15T12:32:40.806892+02:00",
+  "next_action": "If transfer fails, preserve the feature-level breadcrumb and move to the richer 532-dimensional temporal/XOR/Laplacian reader before adding memory complexity.",
+  "schema": "o1c-run-metrics-v1",
+  "started_at": "2026-07-15T12:32:36.233720+02:00",
+  "status": "completed",
+  "values": {
+    "candidate_operators": 119,
+    "external_solver_calls": 0,
+    "familywise_validation_selection_null": {
+      "candidate_operators": 119,
+      "familywise_p_ge_observed": 0.6641387939453125,
+      "label_pairs_enumerated": 65536,
+      "null": "two independent uniformly random correct cells over 0..255",
+      "null_best_mean_gain": 3.8234298371212714,
+      "null_best_median_gain": 3.7421500808579786,
+      "null_best_quantiles": {
+        "q50": 3.7421500808579786,
+        "q90": 5.04655470219574,
+        "q95": 5.5,
+        "q99": 6.415037499278844
+      },
+      "observed_selected_mean_log2_rank_gain": 3.3481096259114485,
+      "schema": "o1-crypto-exact-familywise-selection-null-v1"
+    },
+    "gpu_seconds": 0,
+    "holdout_labels_read_before_freeze": 0,
+    "plan_sha256": "ae2bda0e6a337b5396cbbab2e72108c38f67543b137f2e266a4f3943d7d7a587",
+    "retrospective_holdout": {
+      "mean_log2_rank_gain": 0.8006281540309035,
+      "mean_reciprocal_rank": 0.0076388888888888895,
+      "median_log2_rank_gain": 0.8006281540309035,
+      "targets": 2,
+      "top_k": [
+        {
+          "count": 0,
+          "k": 1,
+          "rate": 0.0
+        },
+        {
+          "count": 0,
+          "k": 4,
+          "rate": 0.0
+        },
+        {
+          "count": 0,
+          "k": 8,
+          "rate": 0.0
+        },
+        {
+          "count": 0,
+          "k": 16,
+          "rate": 0.0
+        },
+        {
+          "count": 0,
+          "k": 32,
+          "rate": 0.0
+        }
+      ]
+    },
+    "schema": "o1-crypto-stage3-reader-metrics-v1",
+    "selected_feature": "h8.search_propagations",
+    "selected_operator": "feature.rank.047.+1",
+    "success_gate_passed": false,
+    "transfer_holdout": {
+      "mean_log2_rank_gain": 1.104380178549594,
+      "mean_reciprocal_rank": 0.011191339790614367,
+      "median_log2_rank_gain": 0.8558553289095151,
+      "targets": 4,
+      "top_k": [
+        {
+          "count": 0,
+          "k": 1,
+          "rate": 0.0
+        },
+        {
+          "count": 0,
+          "k": 4,
+          "rate": 0.0
+        },
+        {
+          "count": 0,
+          "k": 8,
+          "rate": 0.0
+        },
+        {
+          "count": 0,
+          "k": 16,
+          "rate": 0.0
+        },
+        {
+          "count": 0,
+          "k": 32,
+          "rate": 0.0
+        }
+      ]
+    },
+    "validation": {
+      "mean_log2_rank_gain": 3.3481096259114485,
+      "mean_reciprocal_rank": 0.06882911392405064,
+      "median_log2_rank_gain": 3.3481096259114485,
+      "targets": 2,
+      "top_k": [
+        {
+          "count": 0,
+          "k": 1,
+          "rate": 0.0
+        },
+        {
+          "count": 0,
+          "k": 4,
+          "rate": 0.0
+        },
+        {
+          "count": 1,
+          "k": 8,
+          "rate": 0.5
+        },
+        {
+          "count": 1,
+          "k": 16,
+          "rate": 0.5
+        },
+        {
+          "count": 1,
+          "k": 32,
+          "rate": 0.5
+        }
+      ]
+    }
+  }
+}

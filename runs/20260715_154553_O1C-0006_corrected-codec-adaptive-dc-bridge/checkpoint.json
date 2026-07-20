@@ -1,0 +1,15 @@
+{
+  "attempt_id": "O1C-0006",
+  "payload": {
+    "fresh_challenge_generated": false,
+    "future_template_sha256": "cab2adc58ec83d0dde33c61aa10531cf64b17b88c4143b6a2fe7070375ba8cda",
+    "order_set_sha256": "964dd87ddf6cf506d9399ff6f1fb16245617bcec8f3ab66484031d79f9cd41e8",
+    "orders": 24,
+    "phase": "DEVELOPMENT_ORDERS_AND_REFERENCE_CEILING_PERSISTED",
+    "selected_arm": "adaptive-dc-6bit-h1",
+    "target_labels_used_for_selection": 0
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 2,
+  "updated_at": "2026-07-15T15:46:01.051507+02:00"
+}

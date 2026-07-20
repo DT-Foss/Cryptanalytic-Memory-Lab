@@ -1,0 +1,50 @@
+{
+  "burned": {
+    "best_hamming_distance_at_configured_k": 110,
+    "candidate_count": 65536,
+    "compression_bits": 0.506129537281879,
+    "exact_key_hit": false,
+    "legacy_exact_key_in_beam": false,
+    "map_correct_bits": 139,
+    "public_prefix_match": false,
+    "public_prefix_verified": 4096,
+    "true_rank_one_based": null
+  },
+  "burned_diagnostic_only": true,
+  "classification": "EXACT_GLOBAL_FRONTIER_VALIDATED_BURNED_NULL",
+  "cryptanalytic_signal_claimed": false,
+  "decoder_runtime_inputs": [
+    "posterior_probabilities",
+    "candidate_limit"
+  ],
+  "failed_budgets": [],
+  "mechanism_validation_passed": true,
+  "operational_budget_passed": true,
+  "proof_widths": [
+    3,
+    6,
+    10
+  ],
+  "result_sha256": "0bdf0eb3c20b1d9f8e2b121aa7a2eb3bed883bbb45e399251a3bc8f4c3eeb7ad",
+  "schema": "o1-256-posterior-frontier-result-v1",
+  "science_gates": {
+    "burned_candidates_frozen_before_reveal": true,
+    "exhaustive_orders_match": true,
+    "full_source_capsule_was_not_scanned": true,
+    "outcome_reads_are_exact_and_post_freeze": true,
+    "selected_source_manifest_and_members_verify": true,
+    "synthetic_discriminator_passes": true,
+    "zero_fresh_entropy_solver_sibling_or_accelerator_work": true
+  },
+  "science_gates_passed": true,
+  "scientific_result_claimed": true,
+  "synthetic": {
+    "legacy_exact_key_in_beam": false,
+    "output_flip_match": false,
+    "public_verification_rank_one_based": 4,
+    "true_rank_one_based": 4,
+    "wrong_nonce_match": false
+  },
+  "synthetic_full_round_recovery_only": true,
+  "terminal_c_achieved": false
+}

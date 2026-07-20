@@ -1,0 +1,10 @@
+{
+  "checked": 570,
+  "manifest": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/fullround-key-recovery/provenance/ARTIFACTS.sha256",
+  "manifest_sha256": "9c3ac76f3f012ff24c07e2e4dbe335e5156eca28fee9986aeb53c1b6cb2a4cc3",
+  "mismatched": [],
+  "missing": [],
+  "ok": true,
+  "root": "/Users/bhkmie/Documents/Krypto karm/Kryptkram codex/fullround-key-recovery",
+  "schema": "o1-crypto-source-verification-v1"
+}

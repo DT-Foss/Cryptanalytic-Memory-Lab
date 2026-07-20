@@ -1,0 +1,17 @@
+{
+  "attempt_id": "O1C-0020",
+  "payload": {
+    "freeze_sha256": "6c12a0fcb9e0b58a86b8bea340ea475294b530372c9a9a28ddaa62724cab8cb5",
+    "gpu_calls": 0,
+    "mps_calls": 0,
+    "native_solver_branches": 0,
+    "persistent_artifact_bytes": 945387,
+    "phase": "ARTIFACT_INDEX",
+    "scientific_entropy_calls": 0,
+    "sibling_reads": 0,
+    "sibling_writes": 0
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 5,
+  "updated_at": "2026-07-17T21:14:43.543915+02:00"
+}

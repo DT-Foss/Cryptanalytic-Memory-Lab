@@ -1,0 +1,11 @@
+{
+  "A375_reader_rank_difference_count": 0,
+  "A442_borda_rank_difference_count": 0,
+  "one_pass_exact": true,
+  "primitive_rank_difference_count": 0,
+  "raw_shape532_max_difference": 0.0,
+  "schema": "o1-256-a448-single-pass-equivalence-v1",
+  "source_pair": "A447_target_00_vs_A359_target_00",
+  "stored_and_reconstructed_borda_rank": 11,
+  "stored_truth_cell": 19
+}

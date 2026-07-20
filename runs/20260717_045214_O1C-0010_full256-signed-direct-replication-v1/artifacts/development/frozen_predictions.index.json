@@ -1,0 +1,71 @@
+{
+  "bytes": 25165824,
+  "dtype": "float64-le",
+  "index_sha256": "2224ab10e3b3362ab374c4d5d90b7f19a697c9aca4cbfe094864e90d5a5313ca",
+  "labels_read_before_freeze": 0,
+  "matrices": [
+    {
+      "bytes": 4194304,
+      "name": "control/output_flip",
+      "offset": 0,
+      "sha256": "ef9e2ee123cd9625ca407ec42f6c138270bf90c8862268a44eecb75cacd378a8",
+      "shape": [
+        2048,
+        256
+      ]
+    },
+    {
+      "bytes": 4194304,
+      "name": "control/output_permutation",
+      "offset": 4194304,
+      "sha256": "c39de1fd15c116fd34ee84422fccd2284e265b259c8aeabac280483ebc7cf517",
+      "shape": [
+        2048,
+        256
+      ]
+    },
+    {
+      "bytes": 4194304,
+      "name": "control/polarity_reverse",
+      "offset": 8388608,
+      "sha256": "8dcfeca93314c27c73994f334cbdbaa8c1c0ef30c1e79d86d4aed0bf819fecc2",
+      "shape": [
+        2048,
+        256
+      ]
+    },
+    {
+      "bytes": 4194304,
+      "name": "control/shuffled_signed",
+      "offset": 12582912,
+      "sha256": "9ce5a576328e2c0b3108d3001f9cc8b9c7320a7f5545eafa97e28a0bbabeb2bc",
+      "shape": [
+        2048,
+        256
+      ]
+    },
+    {
+      "bytes": 4194304,
+      "name": "control/wrong_nonce",
+      "offset": 16777216,
+      "sha256": "b1b53051f1f916fdd755f60da3ef77667d6fe843c4f1bc1739e95675ae0f7f88",
+      "shape": [
+        2048,
+        256
+      ]
+    },
+    {
+      "bytes": 4194304,
+      "name": "factual/direct_signed",
+      "offset": 20971520,
+      "sha256": "d77002bde5bd8854b59399245e0adf3557bf29e0073c15bf278091657e6ecfbe",
+      "shape": [
+        2048,
+        256
+      ]
+    }
+  ],
+  "schema": "o1-256-frozen-development-predictions-v1",
+  "sha256": "4643e0e849178014ede98e355037829158ca2eadc9b404671a8f64d6904e2dee",
+  "target_order_sha256": "491697abcb98bdb4a2a8397f3a5991b544fdf3f25023d9adb71346c53a6dba3e"
+}

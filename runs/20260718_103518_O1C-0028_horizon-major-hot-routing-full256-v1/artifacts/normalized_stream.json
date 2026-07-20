@@ -1,0 +1,36 @@
+{
+  "action_pool_sha256": "e73ece620a85f95c8b4a7de4e80e09af499c3a9a057670b74f42c17ca5bb8a09",
+  "active_coordinates_sha256": "d8e2d7e7e2a34d0be71030a3fe204336d59e686aa3e4388b7423be91571378b9",
+  "bridge_schema": "o1-256-o1c22-horizon-major-polyphase-bridge-v1",
+  "bytes": 9216,
+  "coordinate_order": "canonical-key-bit-0-through-255",
+  "dtype": "float32",
+  "encoding": "normalized_float32",
+  "evidence_sha256": "84ea296f708be8337ea214a7f92d6af2b66b4f936581fe34586e3ed69a3519a8",
+  "groups_consumed_once": 3,
+  "maximum_absolute_float64_to_float32_error": 0.0,
+  "nonzero_values": 743,
+  "packet_horizon_order": [
+    64,
+    65,
+    96
+  ],
+  "packet_ledger_sha256": "a310bebb9341ed62039e69112379fa975a86994a40457b676ed0c0a6f82514e1",
+  "packet_order_canonicalized": true,
+  "polyphase_basis_sha256": "75b0c13e830c2bf586c0df5fd180eb84ff0d7676b2f28759cc3ce0e3c4f579f6",
+  "polyphase_wavelength_order": [
+    64,
+    96,
+    65
+  ],
+  "quantizer_sha256": "84f78fb3e46c2b3c6b2e04756fe84764061374b7eb00c92a07b71dc4a799ac97",
+  "reader_state_sha256": "c4186cc1385798882425ea0054c557c1e8ed8640e38562629c794fe556f70454",
+  "schema": "o1-256-o1c22-horizon-major-dense-stream-v1",
+  "shape": [
+    3,
+    3,
+    256
+  ],
+  "source_stream_sha256": "f9ccbd951bacd13171e6239c0f761300b283ad18e835364852a2659cc2fbc152",
+  "target_or_label_accesses": 0
+}

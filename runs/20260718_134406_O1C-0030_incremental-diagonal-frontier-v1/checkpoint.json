@@ -1,0 +1,11 @@
+{
+  "attempt_id": "O1C-0030",
+  "payload": {
+    "freeze_sha256": "c3034b35443b623c7a273e599bdb2580e39a2671bad59c359006cba754688f90",
+    "persistent_artifact_bytes": 114386,
+    "phase": "ALL_LOO_LOGITS_FROZEN_PRE_SCORE"
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 3,
+  "updated_at": "2026-07-18T13:44:06.363412+02:00"
+}

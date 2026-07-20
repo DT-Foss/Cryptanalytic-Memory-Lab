@@ -1,0 +1,443 @@
+{
+  "active_coordinate_counts": [
+    12,
+    52,
+    128,
+    256
+  ],
+  "arms": {
+    "coordinate_shuffled_vault": {
+      "widths": [
+        {
+          "active_coordinates": 12,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 12.0,
+          "mean_compression_bits": 0.0,
+          "mean_nll_bits": 256.0,
+          "minimum_compression_bits": 0.0,
+          "positive_folds": 0
+        },
+        {
+          "active_coordinates": 52,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 52.00000000000001,
+          "mean_compression_bits": 0.0,
+          "mean_nll_bits": 256.0,
+          "minimum_compression_bits": 0.0,
+          "positive_folds": 0
+        },
+        {
+          "active_coordinates": 128,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 128.0,
+          "mean_compression_bits": 0.0,
+          "mean_nll_bits": 256.0,
+          "minimum_compression_bits": 0.0,
+          "positive_folds": 0
+        },
+        {
+          "active_coordinates": 256,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 256.0,
+          "mean_compression_bits": 0.0,
+          "mean_nll_bits": 256.0,
+          "minimum_compression_bits": 0.0,
+          "positive_folds": 0
+        }
+      ]
+    },
+    "last_horizon_only": {
+      "widths": [
+        {
+          "active_coordinates": 12,
+          "maximum_compression_bits": 0.08170620403220141,
+          "mean_active_nll_bits": 11.97957344899194,
+          "mean_compression_bits": 0.020426551008050353,
+          "mean_nll_bits": 255.97957344899194,
+          "minimum_compression_bits": 0.0,
+          "positive_folds": 1
+        },
+        {
+          "active_coordinates": 52,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 52.02836692446203,
+          "mean_compression_bits": -0.028366924462019938,
+          "mean_nll_bits": 256.02836692446203,
+          "minimum_compression_bits": -0.11346769784807975,
+          "positive_folds": 0
+        },
+        {
+          "active_coordinates": 128,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 128.07291459966063,
+          "mean_compression_bits": -0.07291459966064906,
+          "mean_nll_bits": 256.07291459966063,
+          "minimum_compression_bits": -0.29165839864259624,
+          "positive_folds": 0
+        },
+        {
+          "active_coordinates": 256,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 256.06439810527615,
+          "mean_compression_bits": -0.06439810527616885,
+          "mean_nll_bits": 256.06439810527615,
+          "minimum_compression_bits": -0.2575924211046754,
+          "positive_folds": 0
+        }
+      ]
+    },
+    "normalized_float_delta_sum": {
+      "widths": [
+        {
+          "active_coordinates": 12,
+          "maximum_compression_bits": 0.21892879095142348,
+          "mean_active_nll_bits": 12.022613819475408,
+          "mean_compression_bits": -0.022613819475417074,
+          "mean_nll_bits": 256.0226138194754,
+          "minimum_compression_bits": -0.3084050872327566,
+          "positive_folds": 1
+        },
+        {
+          "active_coordinates": 52,
+          "maximum_compression_bits": 0.012584763337088134,
+          "mean_active_nll_bits": 52.010923590076985,
+          "mean_compression_bits": -0.010923590076998835,
+          "mean_nll_bits": 256.01092359007697,
+          "minimum_compression_bits": -0.05954852136420641,
+          "positive_folds": 2
+        },
+        {
+          "active_coordinates": 128,
+          "maximum_compression_bits": 0.06392177348180894,
+          "mean_active_nll_bits": 128.94716039010007,
+          "mean_compression_bits": -0.9471603901001089,
+          "mean_nll_bits": 256.9471603901001,
+          "minimum_compression_bits": -3.5180647283962116,
+          "positive_folds": 1
+        },
+        {
+          "active_coordinates": 256,
+          "maximum_compression_bits": 0.2538376146233361,
+          "mean_active_nll_bits": 257.5775239582613,
+          "mean_compression_bits": -1.5775239582612883,
+          "mean_nll_bits": 257.5775239582613,
+          "minimum_compression_bits": -6.3743006599588625,
+          "positive_folds": 1
+        }
+      ]
+    },
+    "quantized_int8_vault": {
+      "widths": [
+        {
+          "active_coordinates": 12,
+          "maximum_compression_bits": 0.3062785815583311,
+          "mean_active_nll_bits": 12.006771658785368,
+          "mean_compression_bits": -0.006771658785368118,
+          "mean_nll_bits": 256.0067716587854,
+          "minimum_compression_bits": -0.33336521669980357,
+          "positive_folds": 1
+        },
+        {
+          "active_coordinates": 52,
+          "maximum_compression_bits": 0.05888499828847671,
+          "mean_active_nll_bits": 52.021456561682264,
+          "mean_compression_bits": -0.021456561682271058,
+          "mean_nll_bits": 256.02145656168227,
+          "minimum_compression_bits": -0.14471124501756094,
+          "positive_folds": 1
+        },
+        {
+          "active_coordinates": 128,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 128.580458062845,
+          "mean_compression_bits": -0.5804580628450253,
+          "mean_nll_bits": 256.580458062845,
+          "minimum_compression_bits": -2.0925430144961865,
+          "positive_folds": 0
+        },
+        {
+          "active_coordinates": 256,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 257.1818371316239,
+          "mean_compression_bits": -1.1818371316239364,
+          "mean_nll_bits": 257.1818371316239,
+          "minimum_compression_bits": -4.6606413596453535,
+          "positive_folds": 0
+        }
+      ]
+    },
+    "raw_float_delta_sum": {
+      "widths": [
+        {
+          "active_coordinates": 12,
+          "maximum_compression_bits": 0.16741544345930492,
+          "mean_active_nll_bits": 11.988281476769691,
+          "mean_compression_bits": 0.011718523230292988,
+          "mean_nll_bits": 255.9882814767697,
+          "minimum_compression_bits": -0.12054135053813297,
+          "positive_folds": 1
+        },
+        {
+          "active_coordinates": 52,
+          "maximum_compression_bits": 0.18238126330984983,
+          "mean_active_nll_bits": 51.95904247384625,
+          "mean_compression_bits": 0.04095752615373982,
+          "mean_nll_bits": 255.95904247384627,
+          "minimum_compression_bits": -0.018551158694890546,
+          "positive_folds": 1
+        },
+        {
+          "active_coordinates": 128,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 128.5841821767837,
+          "mean_compression_bits": -0.5841821767837274,
+          "mean_nll_bits": 256.5841821767837,
+          "minimum_compression_bits": -2.049926939641125,
+          "positive_folds": 0
+        },
+        {
+          "active_coordinates": 256,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 256.9898077985001,
+          "mean_compression_bits": -0.9898077985001521,
+          "mean_nll_bits": 256.9898077985001,
+          "minimum_compression_bits": -3.7846513134714996,
+          "positive_folds": 0
+        }
+      ]
+    },
+    "unit_sign_sum": {
+      "widths": [
+        {
+          "active_coordinates": 12,
+          "maximum_compression_bits": 0.17718148937902356,
+          "mean_active_nll_bits": 12.097967309096289,
+          "mean_compression_bits": -0.0979673090963118,
+          "mean_nll_bits": 256.0979673090963,
+          "minimum_compression_bits": -0.7717133358622732,
+          "positive_folds": 3
+        },
+        {
+          "active_coordinates": 52,
+          "maximum_compression_bits": 0.38234601812510505,
+          "mean_active_nll_bits": 51.92225919525303,
+          "mean_compression_bits": 0.07774080474696632,
+          "mean_nll_bits": 255.92225919525305,
+          "minimum_compression_bits": -0.5977831436870247,
+          "positive_folds": 3
+        },
+        {
+          "active_coordinates": 128,
+          "maximum_compression_bits": 0.18935738594794316,
+          "mean_active_nll_bits": 128.21581983206292,
+          "mean_compression_bits": -0.21581983206292676,
+          "mean_nll_bits": 256.21581983206295,
+          "minimum_compression_bits": -1.1226965125986794,
+          "positive_folds": 2
+        },
+        {
+          "active_coordinates": 256,
+          "maximum_compression_bits": 0.8782493381516474,
+          "mean_active_nll_bits": 256.115190683337,
+          "mean_compression_bits": -0.1151906833370262,
+          "mean_nll_bits": 256.115190683337,
+          "minimum_compression_bits": -2.5632639348970088,
+          "positive_folds": 3
+        }
+      ]
+    },
+    "zero_prior": {
+      "widths": [
+        {
+          "active_coordinates": 12,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 12.0,
+          "mean_compression_bits": 0.0,
+          "mean_nll_bits": 256.0,
+          "minimum_compression_bits": 0.0,
+          "positive_folds": 0
+        },
+        {
+          "active_coordinates": 52,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 52.00000000000001,
+          "mean_compression_bits": 0.0,
+          "mean_nll_bits": 256.0,
+          "minimum_compression_bits": 0.0,
+          "positive_folds": 0
+        },
+        {
+          "active_coordinates": 128,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 128.0,
+          "mean_compression_bits": 0.0,
+          "mean_nll_bits": 256.0,
+          "minimum_compression_bits": 0.0,
+          "positive_folds": 0
+        },
+        {
+          "active_coordinates": 256,
+          "maximum_compression_bits": 0.0,
+          "mean_active_nll_bits": 256.0,
+          "mean_compression_bits": 0.0,
+          "mean_nll_bits": 256.0,
+          "minimum_compression_bits": 0.0,
+          "positive_folds": 0
+        }
+      ]
+    }
+  },
+  "calibration_orientation_flip_allowed": false,
+  "calibration_scale_grid": {
+    "maximum": 2.0,
+    "minimum": 0.0,
+    "steps": 401
+  },
+  "calibration_scales": [
+    [
+      0.0,
+      0.005,
+      0.0,
+      0.0,
+      0.055,
+      0.0,
+      0.0
+    ],
+    [
+      0.395,
+      0.01,
+      0.015,
+      0.005,
+      0.06,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.025,
+      0.0,
+      0.0
+    ],
+    [
+      1.36,
+      0.045,
+      0.045,
+      0.0,
+      0.1,
+      0.0,
+      0.0
+    ]
+  ],
+  "claim_boundary": {
+    "disjoint_evaluation_claimed": false,
+    "exact_key_recovery_claimed": false,
+    "fullround_chacha20_public_artifact_replay": true,
+    "native_solver_speedup_claimed": false,
+    "retrospective_build_leave_one_out": true,
+    "unknown_key_bits_at_heldout_probe": 256
+  },
+  "classification": "CROSS_COORDINATE_DILUTION",
+  "failed_gates": [
+    "all_four_final_folds_positive",
+    "int8_mean_final_compression_bits_minimum",
+    "int8_minus_coordinate_shuffled_mean_compression_positive",
+    "int8_minus_last_horizon_only_mean_compression_positive",
+    "int8_minus_unit_sign_sum_mean_compression_positive",
+    "int8_preserves_float_compression_fraction_minimum",
+    "strict_mean_compression_growth_across_k"
+  ],
+  "gates": {
+    "actual_polarity_swapped_pool_delta_and_logit_antisymmetry": true,
+    "all_duplicate_groups_full_state_byte_invariant": true,
+    "all_fold_calibration_predictions_frozen_before_that_folds_calibration_label_use": true,
+    "all_fold_heldout_predictions_frozen_before_that_folds_heldout_label_use": true,
+    "all_four_final_folds_positive": false,
+    "all_predictions_finite": true,
+    "all_primary_live_states_exactly_352_bytes": true,
+    "calibration_scales_nonnegative_without_orientation_flip": true,
+    "calibration_value_evaluations_exact": true,
+    "coordinate_permutation_commutes_with_accumulation": true,
+    "every_fold_excludes_its_heldout_label_from_calibration": true,
+    "int8_mean_final_compression_bits_minimum": false,
+    "int8_minus_coordinate_shuffled_mean_compression_positive": false,
+    "int8_minus_last_horizon_only_mean_compression_positive": false,
+    "int8_minus_unit_sign_sum_mean_compression_positive": false,
+    "int8_preserves_float_compression_fraction_minimum": false,
+    "integrity_gate_passed": true,
+    "matched_public_packet_work_for_all_derived_arms": true,
+    "packet_slot_observations_exact": true,
+    "physical_public_work_units_exact": true,
+    "reader_replays_exact": true,
+    "strict_mean_compression_growth_across_k": false,
+    "zero_solver_entropy_sibling_mps_gpu_work": true
+  },
+  "integrity_diagnostics": {
+    "coordinate_commutation_maximum_absolute_residual": 0.0,
+    "polarity_delta_maximum_absolute_residual": 0.0,
+    "polarity_logit_maximum_absolute_residual": 0.0
+  },
+  "margins": {
+    "coordinate_shuffled_mean_final_compression_bits": 0.0,
+    "int8_mean_compression_curve_bits": [
+      -0.006771658785368118,
+      -0.021456561682271058,
+      -0.5804580628450253,
+      -1.1818371316239364
+    ],
+    "int8_mean_final_compression_bits": -1.1818371316239364,
+    "int8_minus_coordinate_shuffled_mean_final_compression_bits": -1.1818371316239364,
+    "int8_minus_last_horizon_only_mean_final_compression_bits": -1.1174390263477676,
+    "int8_minus_unit_sign_sum_mean_final_compression_bits": -1.0666464482869102,
+    "int8_preserves_normalized_float_fraction": 0.0,
+    "last_horizon_only_mean_final_compression_bits": -0.06439810527616885,
+    "normalized_float_mean_final_compression_bits": -1.5775239582612883,
+    "raw_float_mean_final_compression_bits": -0.9898077985001521,
+    "unit_sign_sum_mean_final_compression_bits": -0.1151906833370262
+  },
+  "prediction_arms": [
+    "raw_float_delta_sum",
+    "normalized_float_delta_sum",
+    "quantized_int8_vault",
+    "last_horizon_only",
+    "unit_sign_sum",
+    "coordinate_shuffled_vault",
+    "zero_prior"
+  ],
+  "resources": {
+    "calibration_value_evaluations": 7391232,
+    "existing_build_pools_loaded": 4,
+    "gpu_calls": 0,
+    "maximum_accumulator_live_state_bytes": 352,
+    "mps_calls": 0,
+    "native_solver_branches": 0,
+    "o1c19_reader_replays": 32,
+    "packet_slot_observations": 17664,
+    "physical_public_pools_generated": 0,
+    "physical_public_work_units": 1130496,
+    "scientific_entropy_calls": 0,
+    "sibling_reads": 0,
+    "sibling_writes": 0,
+    "source_artifact_bytes_read": 9211170,
+    "upstream_reader_state_billed_separately": true
+  },
+  "result_sha256": "888a9ec9b77d09080b2e896b929d0546f965040848c27d525a0d97965756b7be",
+  "schema": "o1-256-o1c19-causal-vault-bridge-result-v1",
+  "source": {
+    "o1c18_artifact_corpus_sha256": "d137a931782b19e2cd8fdd44f38a9109d239ba332605c3a512078ca314c1be64",
+    "o1c19_artifact_index_sha256": "ba4bdd20c7ab076f73d0fc5705bb7b4b44445c6b5f9f89755e7f0e0c8b4d9705",
+    "o1c19_manifest_sha256": "d636d9359c8e5f85f21e0903334d4a8fb172b4a216ad8413f1578dc471f431d7",
+    "o1c19_result_sha256": "7546b2a526c20f45dd936c9d9838ddafa72b535ea39a05a81c5e206e5aa56ad8",
+    "o1c21_config_sha256": "c683237f7f251ffb2314b01cfbfbbfeac9acd557379a3070e982c0bc15b4a39d"
+  },
+  "source_anchor": {
+    "arm": "o1c19_learned_reader_exhaustive_k256",
+    "joins_o1c22_calibration_or_gates": false,
+    "mean_compression_bits": 0.312763538118368,
+    "mean_nll_bits": 255.68723646188164,
+    "minimum_compression_bits": -1.2456988720857112,
+    "positive_folds": 2
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "attempt_id": "O1C-0019",
+  "payload": {
+    "fold_index": null,
+    "freeze_sha256": "307998072a70db9d68811531c72aafc724af5992d16276f7e5f28ca9faca3b95",
+    "gpu_calls": 0,
+    "mps_calls": 0,
+    "native_solver_branches": 0,
+    "persistent_artifact_bytes": 1538916,
+    "phase": "ARTIFACT_INDEX",
+    "physical_public_pools_generated": 0,
+    "scientific_entropy_calls": 0,
+    "sibling_reads": 0,
+    "sibling_writes": 0
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 11,
+  "updated_at": "2026-07-18T19:00:03.203472+02:00"
+}

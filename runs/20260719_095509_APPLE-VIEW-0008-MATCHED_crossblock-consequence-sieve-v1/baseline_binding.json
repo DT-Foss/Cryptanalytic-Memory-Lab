@@ -1,0 +1,10 @@
+{
+  "capsule": "runs/20260719_091954_O1C-0061_multiblock-joint-score-sieve-soft-stop-v1",
+  "cnf_sha256": "7d99d86b64fe1fdbf377f840260aeace79a35ef9ea703b2fb7fb36d4b5918a11",
+  "conflict_ledger_sha256": "81a7f6061439846690c9daa4546378a1a61fb8e873e730f0e435e373ea14dca1",
+  "manifest_sha256": "d37f58d70ddc99d4d0f7d6e1cf1dfe667b580397562f22bc517209e23b28c958",
+  "native_result_sha256": "acfe9bf0ace3bd6878d05281942e19afc6147150002017aced15894b5e2b4895",
+  "outcome_semantics_deferred_until_after_augmented_public_model_diagnostic": true,
+  "potential_sha256": "8c6101b49c7050caf895bd9c496c05bcea9f43a2b27f378d7306be38b00d5390",
+  "result_sha256": "100cde7911d9297170b63b2a095a4f0b7710b241bf25f1c8964fccca76758d7c"
+}

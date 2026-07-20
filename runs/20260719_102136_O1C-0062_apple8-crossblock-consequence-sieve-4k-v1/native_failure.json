@@ -1,0 +1,9 @@
+{
+  "classification": "O1C62_OPERATIONAL_NATIVE_FAILURE_NO_SCIENCE_RESULT",
+  "error_message": "joint-score-sieve execution failed: cadical: fatal error: invalid API usage of 'void CaDiCaL::Solver::disconnect_external_propagator()' in '../src/solver.cpp': solver in invalid state",
+  "error_type": "O1RelationalSearchError",
+  "native_calls_consumed": 1,
+  "occurred_after_persisted_intent": true,
+  "retry_authorized": false,
+  "truth_key_bytes_read": false
+}

@@ -1,0 +1,50 @@
+{
+  "artifact_index_self_entry": false,
+  "artifact_index_self_exclusion_reason": "the capsule manifest binds this index without a recursive hash",
+  "artifacts": {
+    "compressions.f64le": {
+      "bytes": 640,
+      "phase": "post-freeze-scored-result",
+      "sha256": "17c7a31ccc3921f92aff7ad867a13cfe4d803b0d816407091a2fd4e4e778332b"
+    },
+    "labels.bitpack": {
+      "bytes": 512,
+      "phase": "post-freeze-scored-result",
+      "sha256": "0c58f807d291c5857729666739de2998590466badae351a2b28e6762e80a1814"
+    },
+    "online_self_discovery.json": {
+      "bytes": 28724,
+      "phase": "post-freeze-scored-result",
+      "sha256": "09e9f9793fd75aa3ea7f12b3e8f53a4914909be53a53040df7ddc99e9f704faf"
+    },
+    "prediction_freeze.json": {
+      "bytes": 1228,
+      "phase": "prediction-freeze-before-scoring",
+      "sha256": "a2f5a8ba939bdedf9fdce4bb1e0dabac9fc3ac850a3b9e249b9b2f1d3abafba7"
+    },
+    "predictions.f32le": {
+      "bytes": 81920,
+      "phase": "prediction-freeze-before-scoring",
+      "sha256": "b7fa72907ee01e0ff70df0b8e77fe8b67748d92377a456c2be1542050561a802"
+    },
+    "primary_slow_state.bin": {
+      "bytes": 74625,
+      "phase": "post-freeze-scored-result",
+      "sha256": "481f8177a1d4cca0efc7a96daf09dbfa9615fcbeca5106845b976985c353c477"
+    },
+    "representative_fast_state.bin": {
+      "bytes": 21472,
+      "phase": "post-freeze-scored-result",
+      "sha256": "51c99f3a8a273863329f524b36909c24cdc1237ec17b8dc361ab6c54533f35bb"
+    },
+    "shuffled_slow_state.bin": {
+      "bytes": 74625,
+      "phase": "post-freeze-scored-result",
+      "sha256": "eb71d8ecb7f39b6875d013f8099d25cfd6372d92831541efc7a0826ef0a73f06"
+    }
+  },
+  "attempt_id": "O1C-0017",
+  "indexed_artifact_bytes": 283746,
+  "indexed_artifact_count": 8,
+  "schema": "o1-256-online-self-discovery-artifact-index-v1"
+}

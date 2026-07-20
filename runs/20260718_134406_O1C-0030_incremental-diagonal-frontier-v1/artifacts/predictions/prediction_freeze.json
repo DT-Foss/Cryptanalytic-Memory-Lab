@@ -1,0 +1,594 @@
+{
+  "arms": [
+    "primary",
+    "cumulative_replace",
+    "legacy_reintegrated",
+    "deranged_confidence",
+    "polarity_even_common_mode"
+  ],
+  "fits": {
+    "cumulative_replace": {
+      "folds": [
+        {
+          "absolute_gradient_float64_hex": "0x1.1080000000000p-53",
+          "arm": "cumulative_replace",
+          "coefficient_float64_hex": "0x1.c9ac9afcc1cb6p-3",
+          "effective_raw_coefficient_float64_hex": "0x1.b25c593a52dd0p+5",
+          "heldout_episode": 0,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.5fb7c10fc790ep-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            1,
+            2,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "6063eb13764475931044e349113cf7def2f188167e3d6061c540a3fbb89e0402",
+          "training_labels_sha256": "de5d7ebffd907739ee075ff147b54c2acd493c056d068f83262d93773d7b5143",
+          "training_rms_float64_hex": "0x1.0dbd85d10089dp-8"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.9120000000000p-53",
+          "arm": "cumulative_replace",
+          "coefficient_float64_hex": "0x1.c7e22f53a6ae6p-4",
+          "effective_raw_coefficient_float64_hex": "0x1.b4056872dd160p+4",
+          "heldout_episode": 1,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.6218d3ac0eaf2p-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            2,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "84e4d657edb4024bb9dc290be644455a9421570212899668cfb843fed980dc26",
+          "training_labels_sha256": "40b56efda6dea7c0cc21cbbf39978cd488ed6d7a32d6814e25c2736548b48a64",
+          "training_rms_float64_hex": "0x1.0ba96993c4e07p-8"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.d440000000000p-54",
+          "arm": "cumulative_replace",
+          "coefficient_float64_hex": "0x1.43cefd4df7f73p-4",
+          "effective_raw_coefficient_float64_hex": "0x1.2da0000a684dbp+4",
+          "heldout_episode": 2,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.627d6b672229cp-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            1,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "d2e8ff8953d5c60a34d020aaed603097fecd1ae8bec28e0fd994ba19e0be3b69",
+          "training_labels_sha256": "4618cae5c1cd08bb2e16e0b3e77e097cfeaf0f5f06c3d4a85172d828305179d3",
+          "training_rms_float64_hex": "0x1.12d3f676035cbp-8"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.0320000000000p-54",
+          "arm": "cumulative_replace",
+          "coefficient_float64_hex": "0x1.032356ae2812ep-3",
+          "effective_raw_coefficient_float64_hex": "0x1.f2964af3374c1p+4",
+          "heldout_episode": 3,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.61dd9b6bd94eap-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            1,
+            2
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "6f7dfe451c164885ec0ecfa663e68e370a1320bc5b0e528755d2e6c4a76e2934",
+          "training_labels_sha256": "36f5ac547ad127168817291d1fe696faee8eb174254c41fff73869318d7eb416",
+          "training_rms_float64_hex": "0x1.0a1bfd74a2b1ep-8"
+        }
+      ],
+      "logits_sha256": "4c483ced57f664f2a43b5bc1e7821e32ccf65709aea4e5f5dab8de26862b99d1",
+      "loo_receipt": {
+        "arm": "cumulative_replace",
+        "fit_receipt_sha256": [
+          "a9491fed035ff1727b458e13f8b1ab1108425456f4d0d83eb723935bd95ee9e9",
+          "0962ed0e7630cf29676a4553560c55c6e6e5c256ca4351457545228bf973ed62",
+          "8b71b273e108b17ab656807ae19b4bb1e3ef5b59e889f097d764df909ebb1eee",
+          "3b6b07ebd057c139a12d299ec0011b7198b10ccd064af82e8b675ac73a232cd9"
+        ],
+        "heldout_logits_sha256": [
+          "68559919849c901081e9c7f151301c0e1c90c3dca545bbb1c93fedf86183539f",
+          "7c69309841ce0dd415e3ce5744b74a183e3a3023aef1702cc033573896696077",
+          "14de87ea2e970c83743ecf45f3674b96ad245809a958419bcf9854c711d2ca84",
+          "1b2f07b02ac90b0a7d06dd19f189a1fac69090e0b4a4cf099581eb7e30e9f083"
+        ],
+        "l2_float64_hex": "0x1.5555555555555p-10",
+        "schema": "o1-256-o1c30-leave-one-out-logits-v1"
+      }
+    },
+    "deranged_confidence": {
+      "folds": [
+        {
+          "absolute_gradient_float64_hex": "0x1.cb60000000000p-53",
+          "arm": "deranged_confidence",
+          "coefficient_float64_hex": "0x1.0857d747d55dcp-2",
+          "effective_raw_coefficient_float64_hex": "0x1.8ed96f9ed0c91p+5",
+          "heldout_episode": 0,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.5ebe268598590p-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            1,
+            2,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "0c678747b2a5999f9152d1ee51bdcc6c3eeb2359dcd115fde438b77330e2e92c",
+          "training_labels_sha256": "de5d7ebffd907739ee075ff147b54c2acd493c056d068f83262d93773d7b5143",
+          "training_rms_float64_hex": "0x1.5355d8a8b37e3p-8"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.3910000000000p-53",
+          "arm": "deranged_confidence",
+          "coefficient_float64_hex": "0x1.5c9f27732782dp-3",
+          "effective_raw_coefficient_float64_hex": "0x1.fffb6e38aeb72p+4",
+          "heldout_episode": 1,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.610e83adb36dcp-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            2,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "de1bffff2803954c4788ee0c0cfacde4d21a6061c471eacff04143a268cc16f5",
+          "training_labels_sha256": "40b56efda6dea7c0cc21cbbf39978cd488ed6d7a32d6814e25c2736548b48a64",
+          "training_rms_float64_hex": "0x1.5ca243fb5c24fp-8"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.01e8000000000p-52",
+          "arm": "deranged_confidence",
+          "coefficient_float64_hex": "0x1.ab1c864ca8c1cp-4",
+          "effective_raw_coefficient_float64_hex": "0x1.6a9ad9d3fa076p+4",
+          "heldout_episode": 2,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.62320910f281ap-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            1,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "ffdd67793fd44e3ab800fb915130c20efa171ad214e1f8f2182e6506c2558289",
+          "training_labels_sha256": "4618cae5c1cd08bb2e16e0b3e77e097cfeaf0f5f06c3d4a85172d828305179d3",
+          "training_rms_float64_hex": "0x1.2d8ab2696d1a9p-8"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.8780000000000p-53",
+          "arm": "deranged_confidence",
+          "coefficient_float64_hex": "0x1.92c32e3ebef5bp-3",
+          "effective_raw_coefficient_float64_hex": "0x1.269e88f6f8e52p+5",
+          "heldout_episode": 3,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.607451e531d51p-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            1,
+            2
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "adefbe729d38f23794820a433e78825e137089680f05804baa77a0090515c595",
+          "training_labels_sha256": "36f5ac547ad127168817291d1fe696faee8eb174254c41fff73869318d7eb416",
+          "training_rms_float64_hex": "0x1.5df7b0028782fp-8"
+        }
+      ],
+      "logits_sha256": "09440b034cd92e73e56650054011c53ec4fba37b0277fae324d5f90b234c1249",
+      "loo_receipt": {
+        "arm": "deranged_confidence",
+        "fit_receipt_sha256": [
+          "5599b6558014960f1d6c52cec537202860ea806a4ea7e7ec17b7b865b479b308",
+          "5c859228e44db1ba3da7b808549be4d0eba252ad28fa90c733e3e28a9410dbe5",
+          "809dfc74a37d474ce5b7776b50210dbd5db26a48ce537b8494ee3b9a22b26474",
+          "9ecc7c508aeb9449d112cfc251dcfa880c5ec3b30f7ddc5524beda12d5ece34a"
+        ],
+        "heldout_logits_sha256": [
+          "e6b71b61148077dccc3f930e5ed37ff88885b4cbc20164aacf7b73fed773d012",
+          "fcfccf260ed6d2d6b716b943d74d36fdbbf4c9b73e7187263be9dafd2646eabe",
+          "2e8a30a38101ce19746943315f2558a1eedb17d9f773ce3dccfe530ca384d198",
+          "f4532c890e57574fe0487beae473e9e075726d7776e04257b9653bc8fc6ba247"
+        ],
+        "l2_float64_hex": "0x1.5555555555555p-10",
+        "schema": "o1-256-o1c30-leave-one-out-logits-v1"
+      }
+    },
+    "legacy_reintegrated": {
+      "folds": [
+        {
+          "absolute_gradient_float64_hex": "0x1.6220000000000p-53",
+          "arm": "legacy_reintegrated",
+          "coefficient_float64_hex": "0x1.cb393a4732caap-3",
+          "effective_raw_coefficient_float64_hex": "0x1.b8fe2e88b00bdp+3",
+          "heldout_episode": 0,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.5fb24f1dcef14p-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            1,
+            2,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "e7f67cfe4a261b427ca2a60ccdcf26042f0e0fc946ee6814b26c2d38f6005e53",
+          "training_labels_sha256": "de5d7ebffd907739ee075ff147b54c2acd493c056d068f83262d93773d7b5143",
+          "training_rms_float64_hex": "0x1.0a95422b47c34p-6"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.2960000000000p-53",
+          "arm": "legacy_reintegrated",
+          "coefficient_float64_hex": "0x1.da1f94b13aca0p-4",
+          "effective_raw_coefficient_float64_hex": "0x1.cd789927296b9p+2",
+          "heldout_episode": 1,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.620847bf078cep-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            2,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "4a3ead7c9b6434baeaaea1246219c9fd4de11ccfeaf90ceb6eef882193b481b5",
+          "training_labels_sha256": "40b56efda6dea7c0cc21cbbf39978cd488ed6d7a32d6814e25c2736548b48a64",
+          "training_rms_float64_hex": "0x1.0704d16627af9p-6"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.1448000000000p-53",
+          "arm": "legacy_reintegrated",
+          "coefficient_float64_hex": "0x1.5d6a7c2a46ee7p-4",
+          "effective_raw_coefficient_float64_hex": "0x1.4b053f58ca64ep+2",
+          "heldout_episode": 2,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.626c8d25e61b5p-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            1,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "fda1eca5b8d3117354321444ea29abb720493764013b5ba8de1996b5cbc3f50d",
+          "training_labels_sha256": "4618cae5c1cd08bb2e16e0b3e77e097cfeaf0f5f06c3d4a85172d828305179d3",
+          "training_rms_float64_hex": "0x1.0e39f6d8eaa38p-6"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.0358000000000p-52",
+          "arm": "legacy_reintegrated",
+          "coefficient_float64_hex": "0x1.0eb7b6fffcbb0p-3",
+          "effective_raw_coefficient_float64_hex": "0x1.06d8f7ba9e5bap+3",
+          "heldout_episode": 3,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.61c5b850bae13p-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            1,
+            2
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "0b98a741f15e9f2ea3e0331fc37e29f11cdf32df102346938b2cb7ed69c59be2",
+          "training_labels_sha256": "36f5ac547ad127168817291d1fe696faee8eb174254c41fff73869318d7eb416",
+          "training_rms_float64_hex": "0x1.07aa42a279b19p-6"
+        }
+      ],
+      "logits_sha256": "9053ba008b3f3ec0cd2a0964a112e3001f6db7dd235be8d23fd38d10ef00b53b",
+      "loo_receipt": {
+        "arm": "legacy_reintegrated",
+        "fit_receipt_sha256": [
+          "cf257529718a46affe0e2c1b5c464cba5a4fa2a34af2161d2e038908f55b7724",
+          "7c9daf41c32fe4f2c8bb4be5b5c0f7398dcf59d18a647b199bab78d1d62661ea",
+          "3d8a9cc62ed1dc89e173f060bc2c9a09adced55ef07d5acdde2e6ad68eb8cde3",
+          "0fb0ef9a79be105384005ddf3ff716bbb6ffd482d11f4a69ea76d8945d4b394d"
+        ],
+        "heldout_logits_sha256": [
+          "23d62bdd4fb5c5be0b489498019b978f6f28b430b91375c3c34c0add6f2fdf9c",
+          "659ac9f2e63e56fe6f79383104912cd73aff98a3487b720b6a851ac230ace6c5",
+          "9b77b1bf3281f6463dbd532b431ccb618f6911e2d43663f95ec22680f465f4f6",
+          "d0b1c3695105f23a0f9675ecc917daaaf3d42579db57e2e3d770f53a8468f728"
+        ],
+        "l2_float64_hex": "0x1.5555555555555p-10",
+        "schema": "o1-256-o1c30-leave-one-out-logits-v1"
+      }
+    },
+    "polarity_even_common_mode": {
+      "folds": [
+        {
+          "absolute_gradient_float64_hex": "0x1.71b0000000000p-53",
+          "arm": "polarity_even_common_mode",
+          "coefficient_float64_hex": "-0x1.65c7f20ab5034p-3",
+          "effective_raw_coefficient_float64_hex": "-0x1.d9b17c8b7c3a8p+4",
+          "heldout_episode": 0,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.60f4ee7962ea1p-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            1,
+            2,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "fd9c4776ba31ca56c75c4597c61bbea26867eab75652d790faff773d2c941d7a",
+          "training_labels_sha256": "de5d7ebffd907739ee075ff147b54c2acd493c056d068f83262d93773d7b5143",
+          "training_rms_float64_hex": "0x1.82b6d0aaf6b43p-8"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.7a60000000000p-55",
+          "arm": "polarity_even_common_mode",
+          "coefficient_float64_hex": "-0x1.17a91c4ad4ca2p-4",
+          "effective_raw_coefficient_float64_hex": "-0x1.5fac53022371ap+3",
+          "heldout_episode": 1,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.6297a1bbaedd7p-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            2,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "2edff7d6b2c3fa8042510e648fbddf1dfb0525da4fd48551570949883983fe0e",
+          "training_labels_sha256": "40b56efda6dea7c0cc21cbbf39978cd488ed6d7a32d6814e25c2736548b48a64",
+          "training_rms_float64_hex": "0x1.9728388da8072p-8"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.14b0000000000p-54",
+          "arm": "polarity_even_common_mode",
+          "coefficient_float64_hex": "-0x1.85ef8173315f2p-5",
+          "effective_raw_coefficient_float64_hex": "-0x1.25dda4644ee42p+3",
+          "heldout_episode": 2,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.62beef23a9bbcp-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            1,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "e8c8ba6dbbd7cca8f76d130a58e457dfb5558b7b0299b33516408165f9d91926",
+          "training_labels_sha256": "4618cae5c1cd08bb2e16e0b3e77e097cfeaf0f5f06c3d4a85172d828305179d3",
+          "training_rms_float64_hex": "0x1.53b0d8601db91p-8"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.7080000000000p-55",
+          "arm": "polarity_even_common_mode",
+          "coefficient_float64_hex": "-0x1.871b66d413e5ep-4",
+          "effective_raw_coefficient_float64_hex": "-0x1.ef39579e54838p+3",
+          "heldout_episode": 3,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.624ee36c4fc3ep-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            1,
+            2
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "9b5fad810b980ff8bdc1485899fcbc9f1c977ca00791d3b465f2ebd6bcf94ea3",
+          "training_labels_sha256": "36f5ac547ad127168817291d1fe696faee8eb174254c41fff73869318d7eb416",
+          "training_rms_float64_hex": "0x1.945b242f99ae8p-8"
+        }
+      ],
+      "logits_sha256": "1b0511d821b7eaa0cd1cea96ad29cce5a2934da1fe206bd9703d6e4de3c7b785",
+      "loo_receipt": {
+        "arm": "polarity_even_common_mode",
+        "fit_receipt_sha256": [
+          "8df0c715e3ee880c1ec59a2b21811d64e1a00a8551f39044863118a56bfbbbe2",
+          "49c95a0d189103bf518a15a4db81eabb40914569791c8402735cf957f457757e",
+          "df9c0dc533bf675f6a9717d8461305bed378fd18e431e28a37e764e7bd2cea0c",
+          "e1906eff1b5930bc58561ad417a2e499c6c67e1be7166437c85b4baa88e08a77"
+        ],
+        "heldout_logits_sha256": [
+          "ba182d65a2dfed28baf5cdddb308696af3efe06643a1a21a0145768685d0d278",
+          "b03f61109ac9a0f156411a4da6a378151129e30635c0f5050d0d1d8ba469f143",
+          "45019f022af95daf4ba04292a0eb22f683d6837ced856ef6a7c0db7e8fa6fea8",
+          "3f4862c9799787ec03abbae4341b1dfc007ccd452bb38b701013ebf3ed543d67"
+        ],
+        "l2_float64_hex": "0x1.5555555555555p-10",
+        "schema": "o1-256-o1c30-leave-one-out-logits-v1"
+      }
+    },
+    "primary": {
+      "folds": [
+        {
+          "absolute_gradient_float64_hex": "0x1.aba0000000000p-53",
+          "arm": "primary",
+          "coefficient_float64_hex": "0x1.8b88ea1f4f055p-3",
+          "effective_raw_coefficient_float64_hex": "0x1.0be684644ee6fp+5",
+          "heldout_episode": 0,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.608973e1b9af3p-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            1,
+            2,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "73776f6d226878859759aa726ab4945b3f19d67ff5f0091aa373a3a265ff357c",
+          "training_labels_sha256": "de5d7ebffd907739ee075ff147b54c2acd493c056d068f83262d93773d7b5143",
+          "training_rms_float64_hex": "0x1.79f6f63282247p-8"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.9a68000000000p-53",
+          "arm": "primary",
+          "coefficient_float64_hex": "0x1.f276e44678c0dp-5",
+          "effective_raw_coefficient_float64_hex": "0x1.50ccd7d7343fcp+3",
+          "heldout_episode": 1,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.62a754e568538p-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            2,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "cd89d893676c0aa647cec6694ded2497a625bf4cd66ace8fda1a5a5539ee22cb",
+          "training_labels_sha256": "40b56efda6dea7c0cc21cbbf39978cd488ed6d7a32d6814e25c2736548b48a64",
+          "training_rms_float64_hex": "0x1.7ae150377b22cp-8"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.c0c0000000000p-56",
+          "arm": "primary",
+          "coefficient_float64_hex": "0x1.ab082a0912f0ap-6",
+          "effective_raw_coefficient_float64_hex": "0x1.65e528311659ep+2",
+          "heldout_episode": 2,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.62d900aa5fd5cp-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            1,
+            3
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "8c41cbedfc75e55d3f17b03585781df2786c6f7b21bef7b0ef6035c3c0facb7f",
+          "training_labels_sha256": "4618cae5c1cd08bb2e16e0b3e77e097cfeaf0f5f06c3d4a85172d828305179d3",
+          "training_rms_float64_hex": "0x1.3173fb37b067ep-8"
+        },
+        {
+          "absolute_gradient_float64_hex": "0x1.8720000000000p-54",
+          "arm": "primary",
+          "coefficient_float64_hex": "0x1.5dfa723ef7456p-4",
+          "effective_raw_coefficient_float64_hex": "0x1.d4e4853efa356p+3",
+          "heldout_episode": 3,
+          "heldout_features_used_for_fit": 0,
+          "heldout_labels_used_for_fit": 0,
+          "intercept": 0,
+          "iterations": 59,
+          "l2_float64_hex": "0x1.5555555555555p-10",
+          "objective_float64_hex": "0x1.626c69c702213p-1",
+          "schema": "o1-256-o1c30-global-scalar-logit-fit-v1",
+          "training_episode_indices": [
+            0,
+            1,
+            2
+          ],
+          "training_examples": 768,
+          "training_features_sha256": "ac00668ac3fc605b2be1820138e93466aa06689e375d05e089d35fff6c8c1eaa",
+          "training_labels_sha256": "36f5ac547ad127168817291d1fe696faee8eb174254c41fff73869318d7eb416",
+          "training_rms_float64_hex": "0x1.7e2740e3692d8p-8"
+        }
+      ],
+      "logits_sha256": "90c104092f09bc8be2fd5fe4180c80fe359d20d2ab7fe6cea7dfd921c152cd55",
+      "loo_receipt": {
+        "arm": "primary",
+        "fit_receipt_sha256": [
+          "72804e15c00a9dff1d961d6e1f90b0f49093424438c877a562ce09ef4949c7b4",
+          "bacf5d73784c0c3a9cef42606ea5d550bc97c8f43ce007b3a7dc56ad298b1375",
+          "9f4d6e6f6b6275c08b407d2e482fc5fedd3931e48f2bacbfe173c238f1609a45",
+          "a0a70854e8a1e1bb4a77c67b775798fd8e5a8f094aef28d6bd6f4ea75ad7fd38"
+        ],
+        "heldout_logits_sha256": [
+          "c4d2a4d37499ddb765f3812a30e503dd8d9942a6221d42dfbb6b5473ffa71e83",
+          "b2de1b725652d2e2a42a5a3d47ebde5a3398b6e9a31ce7c63e12531537d303c2",
+          "0689bfd247c6f164ca61833985b78607ac9a58900ec8c669b1a9aece1d824ea2",
+          "b3aa87b3e2eddacea444c48bb72e22c8ee68dd16cfea1c44b3823feb0ce74654"
+        ],
+        "l2_float64_hex": "0x1.5555555555555p-10",
+        "schema": "o1-256-o1c30-leave-one-out-logits-v1"
+      }
+    }
+  },
+  "freeze_sha256": "c3034b35443b623c7a273e599bdb2580e39a2671bad59c359006cba754688f90",
+  "heldout_rows_per_fit": 256,
+  "logits_sha256": "54b2a42e9d91ba4a1e4988453008e701091b5a48323d5ec526b453da31f03f77",
+  "phase": "ALL_ARM_ALL_FOLD_LOO_LOGITS_PERSISTED_BEFORE_SCORING",
+  "ridge_l2": 0.0013020833333333333,
+  "schema": "o1-256-o1c30-loo-prediction-freeze-v1",
+  "score_calls_before_freeze": 0,
+  "shape": [
+    5,
+    4,
+    256
+  ],
+  "training_rows_per_fit": 768
+}

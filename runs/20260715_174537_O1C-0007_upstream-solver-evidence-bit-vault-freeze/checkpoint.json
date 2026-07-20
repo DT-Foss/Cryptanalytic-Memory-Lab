@@ -1,0 +1,14 @@
+{
+  "attempt_id": "O1C-0007",
+  "payload": {
+    "A356_order_sha256": "0a6e32430a97c968c3a831ef23c58eaacaaf411fcc9f44e59661f62efa764159",
+    "A356_state_sha256": "9037889414595585f45f4dcb014b9c96e4514e66b5dd05b4c0d4d576de4a9290",
+    "A356_target_labels_read": 0,
+    "execution_sha256": "3eb15f1909ee70efacfc280b6e29da4ef7c356b17697324689c7222f43dbd524",
+    "fresh_challenge_generated": false,
+    "phase": "A356_TARGET_BLIND_ORDER_PERSISTED"
+  },
+  "schema": "o1c-run-checkpoint-v1",
+  "sequence": 4,
+  "updated_at": "2026-07-15T17:45:48.066423+02:00"
+}

@@ -1,0 +1,33 @@
+{
+  "burned_capsule": "runs/20260717_115325_O1C-0016_full256-polyphase-blind-replication-v2",
+  "burned_evaluation_payload_reads": 1,
+  "burned_evaluation_read_completed": true,
+  "burned_full_capsule_scans": 0,
+  "burned_manifest_members_committed": 680,
+  "burned_other_outcome_payload_reads": 0,
+  "burned_reveal_payload_reads": 1,
+  "burned_reveal_read_after_prediction_freeze": true,
+  "burned_reveal_read_completed": true,
+  "burned_selected_members_verified": 5,
+  "burned_source_manifest_reads": 1,
+  "burned_source_payload_reads": 5,
+  "burned_target_id": "o1c0016-replication-0000",
+  "fresh_target_or_entropy": false,
+  "schema": "o1-256-posterior-frontier-source-index-v1",
+  "source_hashes": {
+    "burned_capsule_manifest_expected": "fd0469885ee436414f94d708006cc40d86fc730d25b618167c7d664b3fe195ea",
+    "burned_evaluation_json_expected": "bae26cec9275806870e46dbb1e9c55726230e123a44fc4eb3a7785287ecc2010",
+    "burned_prediction_freeze_json_expected": "169252f77e0e66e1afab1c486692c27dc2217c40d566c1468241266141fecbdc",
+    "burned_probabilities_f64le_expected": "0f9c3b9f99af49f7b2a03a3a2c89e5ac81ba1ebcdad3e9db8e9b83265f129c7d",
+    "burned_publication_json_expected": "577f10a7cf69d58eeb842fe9dba903f27499dfb6be4fa5a7366e2b22f3a44b81",
+    "burned_reveal_json_expected": "19cf8b133bf217ec277966394ee9576c4ed16af878d0d970dbfe6cd23367efe9",
+    "config": "d0b393ea14fc3594907b2ed1abf63f2ef7a5cbdecf6dc1bf29701a6c4889f84d",
+    "module_chacha_trace": "58b8272f2cdd6665291158cecc2456258d3cb58f2ab3970d1c4c38e749473b01",
+    "module_full256_broker": "1929006561400bb4091b39955a4b15cc73e492ab5b0bd56788afd58e6a28ea7e",
+    "module_living_inverse": "16c22a9776b693c40e0d6c3a3196c73c7a4c15913bde0bdb14e8d9fc4dbe127e",
+    "module_posterior_frontier": "f57f20ae32311f1c5291953e9619a0bd32c31fa04ab969c8bf3a787dfd800fb8",
+    "module_posterior_frontier_run": "11d9a9a340dbc6a17ea32255c7a3a73fd989444f3d18b3930cb8827edc778652",
+    "module_run_capsule": "13681939e0a5cd09d4f32c6d92c9a56894cfe8af90f07d5d4190c96b90a1b664",
+    "pyproject": "0248ec0fe7d42390b62e358fdd52f63d64f7d4e699f0f41ef77c569699716bd0"
+  }
+}
