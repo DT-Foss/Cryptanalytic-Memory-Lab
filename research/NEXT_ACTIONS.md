@@ -1,18 +1,18 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-20 (O1C-0097 Page-16 clause gain and additive audit sealed).
+Last ranked: 2026-07-20 (O1C-0098 fresh Page 17 / lineage 30 sealed unburned).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Zero-call O1C-0098: append all 263 occurrences as the exact 262-clause chunk, preserve the evolved `8100bccf…` bank and derive fresh bounded Page 17 at active limit 249 | State of the art enabling | Extreme | Extreme | Low | Preserves the latest science-positive burst and leaves exact 263-clause headroom at the observed emission ceiling without mechanism drift |
-| 2 | Bind one unchanged Page-17 continuation only after O1C-0098 seals; keep seed, tau, 128-conflict request, cap, RAM and action semantics fixed | State of the art | Extreme | Extreme | Low | Tests continued exact-exclusion compounding from the audited corpus |
+| 1 | Finish and seal O1C-0099's in-progress native/adapter/runner code gate against exact manifest `ba7ad5d9…`, Page 17 `0c25ce47…`, bank `8100bccf…` and receipt `050551fc…` | State of the art enabling | Extreme | Extreme | Low | Closes the production contract without changing the scientific operator |
+| 2 | After the focused gate and one owned preflight, persist one intent and issue at most one unchanged seed-0, tau-identical, 128-conflict lineage-30 continuation | State of the art | Extreme | Extreme | Low | Tests continued exact-exclusion compounding from the complete 2,074-clause attic |
 | 3 | Feed O1C-0094's 18,034-byte quotient only to lossless state/identity consumers; do not launch the 109-relation proof campaign after its `0/218` cheap certificate screen | State of the art mechanism | High | Extreme | Zero now | Retains the 167.84x flat-binary-to-packed-state leverage without derailing the live recovery path |
 | 4 | Pivot residency alone only after an uncensored zero-novelty science result; keep O1C-0038/A526 fixed as terminal decoders when their real gates are reached | State of the art | High | Extreme | Zero now | Prevents a censored or operational endpoint from masquerading as evidence against the operator |
 
 ## Current resume
 
-Resume from O1C-0097's terminal
-`PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`.
+Resume from O1C-0098's terminal
+`CAUSAL_ATTIC_PAGE17_ROLLOVER_PREPARED`.
 O1C-0092's sole local-0 / lineage-27 call consumed Page 14 at
 requested/actual/billed `128/10/10` and fully emitted `261` trail-upper-bound
 no-goods / `756,414` literals. O1C-0093 preserves every occurrence and grows the
@@ -45,6 +45,21 @@ margin `0.005979345169615513` under `tau=14.606178797892962`. Exact bank census
 is `283,069→316,312`, delta `+33,243`; all 255 records evolve, variable 241
 remains zero, and the 52,011-byte output priority-state SHA-256 is
 `050551fc658de62b54b7856996fba0418194c3c2f2608e04a8e9ccc2f51fedad`.
+
+O1C-0098 now ingests that complete result without a solver or science call.
+All 263 occurrences append in order as one 262-clause / 745,152-literal /
+2,981,847-byte chunk, SHA `c5e9c357…`; occurrence 7 exactly duplicates 6. The
+attic becomes 19 chunks / 2,074 unique / 5,835,680 literals / 23,351,207 B /
+2,083 occurrences / 9 duplicates / 14 relations / 2,063 undominated, union SHA
+`fbe18682…`. Bank `8100bccf…` and receipt `050551fc…` remain exact.
+
+Fresh Page 17 / lineage 30 is unburned at active limit 249: 249 clauses /
+693,183 literals / 2,773,919 B, SHA `0c25ce47…`, composed of 9 roots + 43
+pinned + 197 new debt. It leaves 263 clause / 906,817 literal / 5,614,689 B
+headroom. Exactly 65 newest undominated clauses remain explicit nonresident
+debt. The two-slot sacrifice covers a duplicate-free 263-clause successor at
+the observed ceiling; it displaces one extra ordinary debt clause relative to
+250, while 248 has no observed greater-than-263 basis.
 
 The 255 failure-first actions made 33,398 exact probes. Bank conservation is
 exact at `249,671→283,069`; the 24,576-byte state evolves to `97a325c9…`, and
@@ -128,7 +143,7 @@ persisted intent but produced no output to ingest. The immutable attic therefore
 remains `807` unique clauses / `815` occurrences and the evolved continuation
 bank remains exact SHA `05b8acf3…`.
 
-Resume authority is the [O1C-0097 interpretation](O1C0097_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md), [result](O1C0097_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json), SHA-256 `19b47ac6512c073d8f2b646d864d81cedfa8f1c2b2a9999f974c119779ae79e3`, and [capsule](../runs/20260720_224639_665221_O1C-0097_apple8-parent-centered-continuation-v1/RUN.md), manifest SHA-256 `b7d8712b2ade9e5b75ff0d2f76c11907fbcafb3f01cf6e260e82303c08ff0f42`. Preserve the exact 262-clause / 745,152-literal / 2,981,847-byte rollover chunk, all 263 occurrences and evolved `8100bccf…` bank. Appending them predicts 2,074 unique clauses / 2,083 occurrences / 9 duplicate occurrences. Use Page-17 active limit 249: it leaves 263 slots, matching the observed emission ceiling without assuming the run-internal duplicate recurs; 250 would overflow on a duplicate-free 263-clause burst. Never replay Page 14, Page 15 or Page 16.
+Resume authority is the [O1C-0098 interpretation](O1C0098_PAGE17_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md) and [manifest](o1c98_page17_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json), SHA-256 `ba7ad5d9417542d62725ab588dea4a85bc7eff8847f5276bf79a847f44c5470d`. The authoritative Page 17 SHA-256 is `0c25ce470df0945fb05914bab107ecea05531166575ec88ebf7d15bb9a22fbfd`; chunk SHA-256 is `c5e9c357eb80c9a32e17c3cc19a1fa6ab2db11e50e5e0d2140fbe46865fee185`; bank and receipt are `8100bccf…` / `050551fc…`. Page 17 / lineage 30 is fresh and unburned. Finish O1C-0099's code gate before one owned preflight and at most one unchanged call. Never replay Page 14, Page 15 or Page 16.
 
 ## Frontier scoreboard
 
@@ -303,13 +318,11 @@ Resume authority is the [O1C-0097 interpretation](O1C0097_APPLE8_PARENT_CENTERED
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0097 has now closed transport and added 262
-  globally novel clauses at `128/21/21`. Its additive audit closes the 263
-  occurrences as 262 unique clauses and fixes the rollover payload exactly.
-  Preserve the complete harvest and `8100bccf…` bank through zero-call O1C-0098
-  Page-17 rollover at active limit 249, retaining exact 263-clause headroom at
-  the observed emission ceiling.
-  Only a later fresh retained result may test further novelty,
+- **Next measurable advance:** O1C-0098 has preserved the complete O1C-0097
+  harvest and live bank in a 2,074-clause attic, then sealed fresh Page 17 at
+  active limit 249 with exact 263-clause headroom. Finish O1C-0099's focused
+  code gate and use at most one unchanged fresh lineage-30 call. Only that
+  retained result may test further novelty,
   closure/model, attacker-valid entropy/domain reduction and finally a publicly
   verified key. Exact 256 remains the north star.
 

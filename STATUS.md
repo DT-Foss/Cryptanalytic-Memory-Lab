@@ -1,18 +1,21 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-20T22:58:48+02:00 (`Europe/Berlin`)
-- **Current truth:** O1C-0097 is terminal
-  `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. Its sole fresh Page-16 /
-  lineage-29 call completes at requested/actual/billed `128/21/21`, fully emits
-  263 clauses and records 262 active-Page-new / 262 globally novel clauses
-  against the 1,812-clause attic. Science gain is exact global novelty.
-- **Retained state:** the input bank `97a325c9…` / receipt `1c69bb32…` validates
-  exactly and the 24,576-byte output bank evolves to SHA-256
-  `8100bccf7e463c11b41d97a07017202c5e7ffc37763a76d38114c3044f9fa2fc`.
-  Before O1C-0098 ingestion, the immutable attic baseline remains 18 chunks /
-  1,812 unique clauses / 1,820 occurrences / 14 strict relations / 1,801
-  undominated. Page 16 had admitted all 167 prior debt clauses plus 32 recycled
-  clauses. Pages 14/15/16 and lineages 27/28/29 are burned permanently.
+- **Last updated:** 2026-07-20T23:38:45+02:00 (`Europe/Berlin`)
+- **Current truth:** O1C-0098 is terminal
+  `CAUSAL_ATTIC_PAGE17_ROLLOVER_PREPARED`. It consumes zero solver/science calls,
+  appends all 263 O1C-0097 occurrences as one 262-unique-clause chunk and seals
+  fresh Page 17 / lineage 30 unburned at active limit 249.
+- **Retained state:** the immutable attic is now 19 chunks / 2,074 unique
+  clauses / 5,835,680 literals / 23,351,207 B, union SHA-256
+  `fbe18682bae134784684e4676dbb1fce1b78d4da27182fb67679a7317b3e9646`,
+  with 2,083 occurrences / 9 duplicates / 14 strict relations / 2,063
+  undominated. The 24,576-byte bank `8100bccf…` and 52,011-byte receipt
+  `050551fc…` are byte-exact. Pages 14/15/16 and lineages 27/28/29 remain burned.
+- **Fresh Page 17:** 249 clauses / 693,183 literals / 2,773,919 B, SHA-256
+  `0c25ce470df0945fb05914bab107ecea05531166575ec88ebf7d15bb9a22fbfd`,
+  composed of 9 structural roots + 43 pinned + 197 new debt. It leaves 263
+  clause / 906,817 literal / 5,614,689 B headroom; 65 new undominated clauses
+  remain explicit nonresident debt.
 - **Bounded-memory result:** O1C-0094 is terminal
   `LOSSLESS_NINE_AXIS_COMPRESSION_QUOTIENT`. It reconstructs all 261 clauses and
   witness identities exactly from an 18,034-byte packed retained quotient plus
@@ -31,14 +34,16 @@
   failure-first actions made 33,398 exact probes but no realized certified
   action crossing. No key, complete model, closure or attacker-valid entropy/
   domain gain follows.
-- **Immediate decision:** zero-call O1C-0098 serializes the exact 262-clause /
-  745,152-literal / 2,981,847-byte chunk, appends all 263 occurrences and carries
-  `8100bccf…` into fresh Page 17 at active limit 249. This leaves 263 clause
-  slots, exactly covering O1C-0097's observed fully-emitted ceiling even when a
-  future burst has no internal duplicate (`249+263=512`). The extra displaced
-  clause is ordinary attic debt, not a root or pinned clause. No
-  operator, tau, conflict-budget, cap, RAM or residency pivot is justified;
-  never replay Page 16.
+- **O1C-0098 claim boundary:** zero-call bounded representation/state gain only.
+  The new chunk is 262 clauses / 745,152 literals / 2,981,847 B, SHA
+  `c5e9c357…`; occurrence 7 exactly duplicates occurrence 6. No fresh science
+  clause, key, model, closure, posterior or attacker-valid entropy/domain gain
+  follows.
+- **Immediate decision:** finish and seal the in-progress O1C-0099 code gate
+  against exact Page 17, manifest `ba7ad5d9…`, bank `8100bccf…` and receipt
+  `050551fc…`; then one owned preflight and at most one unchanged seed-0,
+  tau-identical, 128-conflict lineage-30 call. Page 17 is fresh and unburned.
+  No operator, cap, RAM or residency pivot is justified; never replay Page 16.
 - **Parent truth:** O1C-0082 consumed fresh Page 8 / lineage 21 exactly once
   and is terminal `PARENT_CENTERED_NOVEL_CLAUSE_GAIN`. The live O(256)
   parent-centered reader returns and confirms `255` one-shot failure-first
@@ -1386,16 +1391,16 @@ O1C-0017 result boundary are documented in
 | Page-15 live-bank continuation | — | 2026-07-20 22:01 | O1C-0095 one sealed Page-15 / lineage-28 call through native v26 and adapter v29 | operational terminal after native completion: code-0 JSON returned, then adapter rejected `priority_seed` because two receipt-provenance fields were absent from `_SEED_FIELDS`; stdout/result not persisted, actual/billed conflicts null, no science result. Page 15 burned; attic/bank unchanged; never retry | complete |
 | Page-16 transport recovery | — | 2026-07-20 22:35 | O1C-0096 zero-call fresh Page-16 / lineage-29 projection from unchanged certified state | prepared: Page 16 has 251 clauses / 707,566 literals / 2,831,459 B, categories 9 roots + 43 pinned + 167 debt + 32 recycled, SHA `fb3b5669…`, with 261 clause / 892,434 literal / 5,557,149 B headroom. All 167 prior debt clauses admitted, remaining debt zero; attic/bank/receipt unchanged; Page 16 was unburned at preparation and is later burned by O1C-0097 | complete |
 | Page-16 live-bank continuation | — | 2026-07-20 22:47 | O1C-0097 one repaired-contract Page-16 / lineage-29 call | terminal science gain: exact `128/21/21`; 533 decisions / 2,835,645 propagations; 255 failure-first actions / 33,243 probes / zero certified crossings. The 263 occurrences contain 262 unique globally novel clauses; sole duplicate indices 6/7 share 2,859 literals, UB `13.293490727958314`, SHA `d479f133…`. All witnesses are strict below tau; bank evolves to `8100bccf…`; Page 16 burned | complete |
+| Page-17 causal rollover | — | 2026-07-20 23:38 | O1C-0098 zero-call ingestion plus fresh Page-17 / lineage-30 preparation | prepared: all 263 occurrences become one 262-clause / 745,152-literal chunk; attic 19 chunks / 2,074 unique / 2,083 occurrences / 9 duplicates / 14 relations / 2,063 undominated. Page 17 has 249 clauses / 693,183 literals / 2,773,919 B, categories 9 roots + 43 pinned + 197 new debt, SHA `0c25ce47…`, with exact 263-clause headroom. Bank/receipt exact; Page 17 unburned | complete |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Atomically ingest the exact 262-clause chunk plus all 263 occurrences and
-   `8100bccf…` bank through zero-call O1C-0098, deriving fresh Page 17.
-2. Seal active limit 249: it preserves a duplicate-free 263-clause successor at
-   the observed ceiling, while the one extra displaced clause is ordinary debt
-   retained in the attic. Then bind one unchanged continuation; no operator/
-   tau/budget/RAM/cap pivot.
+1. Finish and seal O1C-0099's in-progress native/adapter/runner code gate against
+   manifest `ba7ad5d9…`, Page 17 `0c25ce47…`, bank `8100bccf…` and receipt
+   `050551fc…` without changing scientific semantics.
+2. After the focused gate and one owned preflight, persist one intent and issue
+   at most one fresh seed-0, tau-identical, 128-conflict lineage-30 continuation.
 3. Pivot residency alone only after an uncensored zero-novelty result with no
    stronger output; never replay Page 14/15 or sweep actions/caps. Keep the
    quotient as the exact bounded state/decoder, not an unproved CNF substitute.
@@ -1418,6 +1423,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0098` | 2026-07-20 23:38 | O1C-0097's complete harvest and evolved bank can enter a fresh bounded Page 17 while retaining forward capacity for a duplicate-free 263-clause successor | Zero-call ingestion appends all 263 occurrences as 262 unique clauses. Attic reaches 19 chunks / 2,074 unique / 2,083 occurrences / 9 duplicates / 14 relations / 2,063 undominated. Page 17 is 249 clauses / 693,183 literals / 2,773,919 B with 263 clause slots; 197 newest clauses resident / 65 explicit nonresidents; bank/receipt exact | `CAUSAL_ATTIC_PAGE17_ROLLOVER_PREPARED`; enabling representation/state gain only, no new science/key/model/closure/entropy-domain claim | zero solver/preflight/intent/target/truth/reveal/refit; 7 tests in 440.44 s; 10-file 6,720,938 B bundle | H097 preparation half achieved. Page 17 / lineage 30 is fresh and unburned; finish O1C-0099's code gate, then one unchanged continuation | [Interpretation](research/O1C0098_PAGE17_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md) · [Manifest](research/o1c98_page17_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json) |
 | `O1C-0097` | 2026-07-20 22:47 | Fresh Page 16 plus the exact producer→consumer repair can persist a science-bearing continuation result from the unchanged operator | The sole call completes at `128/21/21`; 255 actions make 33,243 probes. Its 263 occurrences comprise 262 unique globally novel clauses; sole duplicate indices 6/7 are identical. Bank evolves `97a325c9…→8100bccf…`; all witnesses are strict `U<tau` | `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`; exact-clause science gain only, no key/model/closure/entropy-domain claim | one call; 533 decisions / 2,835,645 propagations; native 0.771569 s wall / 1.501722 s CPU / 378,994,688 B peak; runner 41.114287 s | H096 supported. Exact rollover predicts attic 2,074 unique / 2,083 occurrences / 9 duplicates; O1C-0098 uses active limit 249 so a duplicate-free 263-clause successor still fits exactly, with no scientific-operator pivot | [Result](research/O1C0097_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json) · [Interpretation](research/O1C0097_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_224639_665221_O1C-0097_apple8-parent-centered-continuation-v1/RUN.md) |
 | `O1C-0096` | 2026-07-20 22:35 | The unchanged certified state can recover from O1C-0095 without importing discarded output and expose fresh Page 16 with the same 261-slot envelope | Zero-call projection seals Page 16 at 251 clauses / 707,566 literals / 2,831,459 B and admits all 167 prior never-resident-undominated clauses; residual debt becomes zero. Attic 18/1,812/1,820/14/1,801 and bank/receipt remain exact | Zero-call transport/residency preparation; enabling gain only, no new science/key/clause/entropy-domain claim | zero solver/preflight/intent/target/truth calls; 8 tests in 0.38 s; 10-file 3,682,821 B bundle | H096 preparation half achieved. O1C-0097 later consumes Page 16 through the repaired contract and adds 262 globally novel clauses; the 263 occurrences contain one duplicate pair, and the closed audit fixes the exact Page-17 rollover payload | [Interpretation](research/O1C0096_PAGE16_TRANSPORT_RECOVERY_INTERPRETATION_20260720.md) · [Manifest](research/o1c96_page16_transport_recovery_seed_20260720/transport-recovery-preparation-manifest.json) |
 | `O1C-0095` | 2026-07-20 22:01 | Fresh Page 15 can continue exact-exclusion compounding from the 1,812-clause attic and `97a325c9…` bank | Native v26 runs to completion and returns code-0 parsed JSON, but adapter v29 rejects the exact `priority_seed` field set before stdout/result persistence because `_SEED_FIELDS` omits `source_priority_state_receipt_sha256` and `source_priority_state_receipt_bytes`; actual/billed conflicts null | `PARENT_CENTERED_CONTINUATION_OPERATIONAL_TERMINAL`; transport only, neither cryptanalytic negative nor gain | one call; 128 requested; 21.109976 s wall; Page 15 / lineage 28 burned | The 65/65 tests exercised producer and consumer separately, not actual composition. O1C-0096 later seals fresh Page 16 from unchanged state; O1C-0097 owns the exact composition regression and one fresh call. Never retry Page 15 | [Result](research/O1C0095_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json) · [Interpretation](research/O1C0095_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_220052_433697_O1C-0095_apple8-parent-centered-continuation-v1/RUN.md) |
@@ -1519,6 +1525,8 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0098` Page 17 / new chunk / attic union / preparation manifest | `0c25ce470df0945fb05914bab107ecea05531166575ec88ebf7d15bb9a22fbfd` / `c5e9c357eb80c9a32e17c3cc19a1fa6ab2db11e50e5e0d2140fbe46865fee185` / `fbe18682bae134784684e4676dbb1fce1b78d4da27182fb67679a7317b3e9646` / `ba7ad5d9417542d62725ab588dea4a85bc7eff8847f5276bf79a847f44c5470d` |
+| `O1C-0098` source / focused tests / carried bank / receipt | `6476f883e978c98208227a609a5c6bf4b985109490d410a93c2103b8de6b04d6` / `4dfbfcdd67b9e06f19c04083f6c0ba8254d302cee633ab8be9492e22c9bb118e` / `8100bccf7e463c11b41d97a07017202c5e7ffc37763a76d38114c3044f9fa2fc` / `050551fc658de62b54b7856996fba0418194c3c2f2608e04a8e9ccc2f51fedad` |
 | `O1C-0097` result / capsule artifact manifest / intent / invocation | `19b47ac6512c073d8f2b646d864d81cedfa8f1c2b2a9999f974c119779ae79e3` / `b7d8712b2ade9e5b75ff0d2f76c11907fbcafb3f01cf6e260e82303c08ff0f42` / `956c3f5f0dfa56b7b2cab9f89da962038ceb116d6d59c672ea9ff41c56738888` / `677d85e8e339f776806e0ba388e3030f7aa4af78708f17cfeebe00ec132412d7` |
 | `O1C-0097` native stdout / parsed native result / evolved bank | `b6d96e8752b6bd146f6ae99cf846c8a73b89c7464ae88e73d4162b8fb849233d` / `c43e2ab845a204c47d2ce2056ed13f178adec458d32d8639e4b4b15368dabc2a` / `8100bccf7e463c11b41d97a07017202c5e7ffc37763a76d38114c3044f9fa2fc` |
 | `O1C-0096` Page 16 / preparation manifest / interpretation | `fb3b56690ec4f50d699c2598dd4fa752376d1609d1e242ee8aa987694cdc48f5` / `68d42b0f4cfaaf8a5b03f4b61515a8032860623dd5517fc87dac87b087a1c7b7` / `c23bdb2791557d909d8d928d717f5f393aa3599794f11aeab5d123d16d37f85a` |

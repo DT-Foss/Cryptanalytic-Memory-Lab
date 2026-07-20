@@ -4145,3 +4145,47 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [capsule](../runs/20260720_224639_665221_O1C-0097_apple8-parent-centered-continuation-v1/RUN.md),
   artifact-manifest SHA-256
   `b7d8712b2ade9e5b75ff0d2f76c11907fbcafb3f01cf6e260e82303c08ff0f42`.
+
+## O1C-0098 — Page-17 zero-call causal rollover
+
+- **Recorded:** `2026-07-20T23:38:45+02:00` (`Europe/Berlin`).
+- **Protocol:** validate O1C-0097's sealed result/capsule, append every one of
+  its 263 emitted occurrences to the immutable causal attic, carry the exact
+  evolved bank/receipt and derive fresh Page 17 / lineage 30 at active limit
+  249. No solver, native preflight, intent, target/truth, reveal or refit call.
+- **Ingestion:** the 263 occurrences map to 262 globally novel unique clauses /
+  745,152 literals. Emission 7 exactly duplicates emission 6. The immutable
+  2,981,847-byte chunk has SHA `c5e9c357…`.
+- **Attic:** 19 chunks / 2,074 unique clauses / 5,835,680 literals /
+  23,351,207 B / 2,083 occurrences / 9 duplicate occurrences / 14 strict
+  relations / 2,063 undominated. The prior union and relations remain exact;
+  updated union SHA is `fbe18682…`.
+- **Prepared state:** Page 17 is 249 clauses / 693,183 literals / 2,773,919 B,
+  SHA `0c25ce47…`, with 9 roots + 43 pinned + 197 new debt. Headroom is 263
+  clauses / 906,817 literals / 5,614,689 B. Of the 262 newest unique clauses,
+  197 are resident and 65 new undominated clauses remain explicit nonresidents.
+- **Forward ROI:** active limit 249 is the largest projection covering a
+  duplicate-free 263-clause successor at the observed ceiling (`249+263=512`).
+  It displaces one additional ordinary debt clause relative to 250; 248 has no
+  observed greater-than-263 basis. Literal/byte future safety is not claimed.
+- **Live state:** 24,576-byte bank `8100bccf…` and 52,011-byte receipt
+  `050551fc…` are byte-identical to O1C-0097 output. Aggregate evolved count is
+  316,312 across 255 eligible records; variable 241 remains the sole zero.
+- **Claim boundary:** `CAUSAL_ATTIC_PAGE17_ROLLOVER_PREPARED`; enabling bounded
+  representation/state gain only. No new science clause, key, model, closure,
+  posterior or attacker-valid entropy/domain claim. Page 17 / lineage 30 is
+  fresh, unburned and unauthorized.
+- **Hypothesis/next:** H096 remains supported; H097 is active with preparation
+  achieved. Finish and seal O1C-0099's in-progress code gate against the exact
+  manifest/Page/bank/receipt, then one owned preflight and at most one unchanged
+  seed-0, tau-identical, 128-conflict lineage-30 call. Never replay Page 16.
+- **Validation:** 7/7 focused tests in 440.44 s; Ruff, Pyright and diff check
+  clean. Atomic bundle 10 files / 6,720,938 B; manifest 18,785 B.
+- **Artifacts:** [interpretation](O1C0098_PAGE17_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md)
+  and [manifest](o1c98_page17_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json),
+  SHA-256
+  `ba7ad5d9417542d62725ab588dea4a85bc7eff8847f5276bf79a847f44c5470d`;
+  source SHA-256
+  `6476f883e978c98208227a609a5c6bf4b985109490d410a93c2103b8de6b04d6`;
+  focused-test SHA-256
+  `4dfbfcdd67b9e06f19c04083f6c0ba8254d302cee633ab8be9492e22c9bb118e`.

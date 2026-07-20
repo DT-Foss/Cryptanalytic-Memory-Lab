@@ -643,12 +643,29 @@ margin `0.005979345169615513`. The immutable rollover chunk is 262 clauses /
 2,074 unique / 2,083 occurrences / 9 duplicate occurrences. Exact bank census
 is `283,069→316,312`, delta `+33,243`, with all 255 records evolved and
 variable 241 still zero; output bank is `8100bccf…` and the 52,011-byte output
-priority-state is `050551fc…`. O1C-0098 performs zero-call Page-17 rollover
-at active limit 249. This is the largest active projection that still admits a
-duplicate-free 263-clause successor (`249+263=512`); 250 would overflow and 248
-lacks an observed greater-than-263 emission basis. The positive clause result
-provides no reason to change
-operator, tau, conflict request, caps, RAM or residency semantics.
+priority-state is `050551fc…`.
+
+O1C-0098 completes the zero-call Page-17 rollover and activates H097. The exact
+262-clause / 745,152-literal / 2,981,847-byte chunk has SHA `c5e9c357…`; all
+263 occurrences append in order, with occurrence 7 the sole duplicate of 6.
+The attic becomes 19 chunks / 2,074 unique clauses / 5,835,680 literals /
+23,351,207 B / 2,083 occurrences / 9 duplicates / 14 relations / 2,063
+undominated, union SHA `fbe18682…`. Bank `8100bccf…` and receipt `050551fc…`
+remain byte-exact.
+
+Fresh Page 17 / lineage 30 is unburned at active limit 249: 249 clauses /
+693,183 literals / 2,773,919 B, SHA `0c25ce47…`, composition `9+43+197`, with
+263 clause / 906,817 literal / 5,614,689 B headroom. Exactly 65 new undominated
+clauses remain explicit nonresident debt. Limit 249 is the largest active
+projection that admits a duplicate-free 263-clause successor
+(`249+263=512`); it displaces one extra ordinary debt clause versus 250, while
+248 lacks an observed greater-than-263 basis. O1C-0098 is enabling bounded
+representation/state gain only: it makes zero solver/preflight/intent/target/
+truth/reveal/refit calls and claims no fresh science clause, key, model, closure
+or attacker-valid entropy/domain gain. O1C-0099 now finishes its focused code
+gate, then uses one owned preflight and at most one unchanged fresh lineage-30
+call. The positive clause lineage provides no reason to change operator, tau,
+conflict request, caps, RAM or residency semantics.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1241,12 +1258,12 @@ evidence.
   intent call. O1C-0097 then closes the exact contract and emits 263 clauses at
   `128/21/21`, with 262 globally novel against the 1,812-clause attic; bank
   evolves to `8100bccf…`. The closed audit identifies indices 6/7 as the sole
-  duplicate and fixes the rollover at 262 clauses / 745,152 literals /
-  2,981,847 B plus all 263 occurrences, predicting attic 2,074 unique / 2,083
-  occurrences / 9 duplicates. Never replay Page 8 through Page 16. Perform
-  zero-call O1C-0098 Page-17 rollover at active limit 249, preserving exact
-  263-clause headroom at the observed emission ceiling before any mechanism or
-  residency pivot.
+  duplicate. O1C-0098 then seals the exact 262-clause / 745,152-literal /
+  2,981,847-byte chunk, all 263 occurrences and the `8100bccf…` bank in a
+  2,074-clause attic, and derives fresh Page 17 / lineage 30 at active limit 249
+  with exact 263-clause headroom. Never replay Page 8 through Page 16. Finish
+  O1C-0099's focused gate, then one owned preflight and at most one unchanged
+  Page-17 continuation before any mechanism or residency pivot.
 
 ## Operating contract
 
