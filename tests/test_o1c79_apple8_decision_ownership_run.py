@@ -248,6 +248,105 @@ def _execute(
     )
 
 
+def test_positive_never_returned_ever_rule_is_not_a_legacy_runtime() -> None:
+    ownership = {
+        "proposals": 1,
+        "level_bound_interventions": 1,
+        "releases": 1,
+        "live_tokens": 0,
+        "omitted_event_count": 0,
+        "eligibility_rule": (
+            "origin-row-level-token;never-returned-ever-plus-variable-sign"
+        ),
+        "assignment_notification_rule": (
+            "confirmation-is-evidence-not-release-precondition;"
+            "opposite-and-foreign-never-claim-token"
+        ),
+        "events": [
+            {"kind": "PROPOSED", "token": 1},
+            {"kind": "LEVEL_BOUND", "token": 1},
+            {"kind": "RELEASED", "token": 1},
+        ],
+    }
+    central = {
+        "runtime_parent_schema": "o1-256-cadical-joint-score-sieve-result-v6",
+        "nonzero_returns": 1,
+        "return_events": [{"origin": "PREFIX", "token": 1}],
+    }
+    raw = {
+        "implementation_parent_schema": ("o1-256-cadical-joint-score-sieve-result-v6"),
+        "decision_ownership": ownership,
+        "central_reader": central,
+    }
+
+    assert b"returned-ever" in canonical_json_bytes(raw)
+
+    conclusion = ownership_run._ownership_activation(
+        ownership=ownership,
+        central=central,
+        raw=raw,
+    )
+
+    assert conclusion["old_returned_ever_runtime_absent"] is True
+    assert conclusion["operational_ownership_success"] is True
+
+
+@pytest.mark.parametrize(
+    "identity_field",
+    (
+        "implementation_parent_schema",
+        "central_runtime_parent_schema",
+        "eligibility_rule",
+        "assignment_notification_rule",
+    ),
+)
+def test_runtime_identity_mutation_still_fails_closed(identity_field: str) -> None:
+    ownership = {
+        "proposals": 1,
+        "level_bound_interventions": 1,
+        "releases": 1,
+        "live_tokens": 0,
+        "omitted_event_count": 0,
+        "eligibility_rule": (
+            "origin-row-level-token;never-returned-ever-plus-variable-sign"
+        ),
+        "assignment_notification_rule": (
+            "confirmation-is-evidence-not-release-precondition;"
+            "opposite-and-foreign-never-claim-token"
+        ),
+        "events": [
+            {"kind": "PROPOSED", "token": 1},
+            {"kind": "LEVEL_BOUND", "token": 1},
+            {"kind": "RELEASED", "token": 1},
+        ],
+    }
+    central = {
+        "runtime_parent_schema": "o1-256-cadical-joint-score-sieve-result-v6",
+        "nonzero_returns": 1,
+        "return_events": [{"origin": "PREFIX", "token": 1}],
+    }
+    raw = {
+        "implementation_parent_schema": ("o1-256-cadical-joint-score-sieve-result-v6"),
+        "decision_ownership": ownership,
+        "central_reader": central,
+    }
+    if identity_field == "implementation_parent_schema":
+        raw[identity_field] = "legacy"
+    elif identity_field == "central_runtime_parent_schema":
+        central["runtime_parent_schema"] = "legacy"
+    else:
+        ownership[identity_field] = "legacy"
+
+    conclusion = ownership_run._ownership_activation(
+        ownership=ownership,
+        central=central,
+        raw=raw,
+    )
+
+    assert conclusion["old_returned_ever_runtime_absent"] is False
+    assert conclusion["operational_ownership_success"] is False
+
+
 def test_straight_call_persists_intent_and_keeps_three_axes_separate(
     tmp_path: Path,
     prepared: PreparedDecisionOwnership,

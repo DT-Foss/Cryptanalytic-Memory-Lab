@@ -214,12 +214,6 @@ NATIVE_INCLUDE_CLOSURE = (
 )
 SOURCE_FREEZE_GUARD_PATHS = ("src/o1_crypto_lab", "native")
 
-_BANNED_NATIVE_TEXT = (
-    b"returned-ever",
-    b"returned_ever",
-    b"backtrack-release guided assignment sign differs",
-)
-
 
 class O1C79RunError(RuntimeError):
     """A frozen input, call ledger, conclusion, or publication differs."""
@@ -536,8 +530,15 @@ def _ownership_activation(
             bound_tokens.add(token)
         elif kind in {"RELEASED", "LEVEL_BOUND_UNOBSERVED_RELEASE"}:
             terminal_tokens.add(token)
-    serialized_raw = canonical_json_bytes(raw)
-    old_runtime_absent = not any(text in serialized_raw for text in _BANNED_NATIVE_TEXT)
+    old_runtime_absent = (
+        raw.get("implementation_parent_schema")
+        == _native_v20.JOINT_SCORE_SIEVE_IMPLEMENTATION_PARENT_SCHEMA
+        and central.get("runtime_parent_schema")
+        == _native_v20.JOINT_SCORE_SIEVE_IMPLEMENTATION_PARENT_SCHEMA
+        and ownership.get("eligibility_rule") == _native_v20.OWNERSHIP_ELIGIBILITY_RULE
+        and ownership.get("assignment_notification_rule")
+        == _native_v20.OWNERSHIP_ASSIGNMENT_RULE
+    )
     complete_proposal_binding = (
         proposal_tokens == list(range(1, proposals + 1))
         and len(bound_tokens) == bound
