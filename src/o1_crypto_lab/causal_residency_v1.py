@@ -742,7 +742,10 @@ def reproject_causal_residency(
         if next_active_limit is None
         else _positive_int(next_active_limit, "next active limit")
     )
-    if limit > O1C66_VAULT_CAPS.maximum_clauses:
+    if (
+        limit > O1C66_VAULT_CAPS.maximum_clauses
+        or limit > previous_state.active_limit
+    ):
         raise CausalResidencyError("causal-residency next active limit differs")
     if attic.active_limit != limit:
         try:
@@ -831,7 +834,7 @@ def advance_causal_residency(
         if next_active_limit is None
         else _positive_int(next_active_limit, "next active limit")
     )
-    if limit > O1C66_VAULT_CAPS.maximum_clauses:
+    if limit > O1C66_VAULT_CAPS.maximum_clauses or limit > state.active_limit:
         raise CausalResidencyError("causal-residency next active limit differs")
     try:
         attic = reproject_causal_attic(

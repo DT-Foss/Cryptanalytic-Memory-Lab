@@ -302,7 +302,7 @@ def test_direct_reprojection_can_lower_only_the_next_active_limit() -> None:
     validate_activation_replay(projected)
 
 
-@pytest.mark.parametrize("bad_limit", (True, 0, 513))
+@pytest.mark.parametrize("bad_limit", (True, 0, 5, 513))
 def test_next_active_limit_rejects_invalid_values(bad_limit: object) -> None:
     clauses = (
         ThresholdNoGoodClause((1,)),
