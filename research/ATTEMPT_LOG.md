@@ -3800,3 +3800,58 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [manifest](o1c89_page13_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json),
   SHA-256
   `467e519df281db4fc10de9223195dfedba9fd51edc93b40883f59fd3821e29ec`.
+
+## O1C-0090 — APPLE8 parent-centered Page-13 continuation
+
+- **Started:** `2026-07-20T19:56:21.829149+02:00`; **recorded:**
+  `2026-07-20T19:57:03.181268+02:00` (`Europe/Berlin`).
+- **Protocol:** validate the complete 1,291-clause attic, fresh 253-clause Page
+  13, `0203de9f…` live bank and canonical receipt; build native v24 once with
+  normal Darwin UUID, seal/help-smoke those exact executable bytes; persist one
+  local-0 / lineage-26 intent; then issue exactly one seed-0 call at 128
+  requested conflicts with no retry, reveal, target/truth input, refit, MPS or
+  GPU use.
+- **Preflight:** focused native/adapter/runner gates passed. A coordination race
+  issued two read-only CLI preflights instead of one; both returned zero solver
+  calls, capsules and intents. No further preflight ran and production followed
+  exactly once.
+- **Terminal result:** `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`, stop
+  `globally-novel-clause`, native status `0` / `UNKNOWN`. Work is
+  requested/actual/billed `128/46/46`, leaving 82 conflicts unused, with 540
+  decisions and 1,369,570 propagations. The call fully emits 260
+  trail-upper-bound no-goods / 743,794 literals.
+- **Independent novelty:** the emitted set contains 260 distinct clause and
+  witness hashes; the prior attic contains 1,291 distinct hashes; sorted-set
+  intersection is exactly zero. All clauses are new `trail_upper_bound` rows.
+  Witness UBs are `13.057051120644449..14.605986705470585`, all strictly below
+  `tau=14.606178797892962`; closest margin is
+  `0.0001920924223774989`.
+- **Science boundary:** `threshold_prunes=260` is the safe trail-UB path. The
+  separate action counter is `actual_certified_prunes=0`: 255 failure-first
+  actions made 33,890 exact probes / 67,780 child evaluations without a
+  realized one-bit crossing. Science gain is exact global clause novelty only;
+  no key/model/closure or attacker-valid entropy/domain gain is claimed.
+- **State boundary:** the complete harvest is archived. A combined successor
+  is unavailable only because `253+260=513`, exactly one above the 512-clause
+  cap; no pending or empty clause exists. The bank evolves to `715bfbc2…`, with
+  receipt `4e13df32…`. Conservation closes at `215,781→249,671`, delta
+  33,890, equal to probe and outcome counts; child evaluations are exactly
+  twice that number. Variable 241 remains the sole zero record. Page 13 /
+  lineage 26 are burned and must never be replayed.
+- **Hypothesis:** support
+  `H-PARENT-CENTERED-PAGE13-ROLLOVER-COMPOUNDING-092`; activate
+  `H-PARENT-CENTERED-PAGE14-ROLLOVER-COMPOUNDING-093`.
+- **Next action:** ingest all 260 clauses with zero solver work, bind the evolved
+  bank and derive fresh bounded Page 14 / lineage 27 at active limit 252. Do not
+  replay Page 13, rearm crossings or raise caps.
+- **Resources:** native wall `0.661900 s`, CPU `1.418933 s`, peak RSS
+  `381,517,824 B`; runner wall `41.3517715 s`; exactly one native call.
+- **Artifacts:** authoritative
+  [result](O1C0090_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  SHA-256
+  `7089f78809de90007a4914f0cdaebeef7491d04a46871d05e8a2598e30676886`;
+  [interpretation](O1C0090_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md);
+  sealed
+  [capsule](../runs/20260720_195618_030937_O1C-0090_apple8-parent-centered-continuation-v1/RUN.md),
+  artifact-manifest SHA-256
+  `d4088eddb3cf671b908ebbc2d19e6e0159eac149b4b882bb21cca62635df1df0`.

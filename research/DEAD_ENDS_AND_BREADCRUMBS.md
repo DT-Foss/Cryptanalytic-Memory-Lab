@@ -2282,3 +2282,40 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Artifacts:** [interpretation](O1C0089_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md),
   [cross-burst audit](O1C0088_PAGE12_CROSS_BURST_CAUSAL_AUDIT_20260720.md), and
   [manifest](o1c89_page13_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json).
+
+## B-0090 — Page-13 continuation fills the measured 260-clause frontier
+
+- **Positive terminal:** O1C-0090 consumes Page 13 / lineage 26 once at
+  requested/actual/billed `128/46/46` and emits 260 complete trail-upper-bound
+  no-goods / 743,794 literals. The emitted clause and witness sets are internally
+  unique and have zero hash intersection with all 1,291 prior attic clauses.
+- **Measured frontier:** absolute yield rises `259→260` and clauses per billed
+  conflict rise `4.7091→5.6522`. Clauses per 1,000 probes remain near-flat at
+  `7.7515→7.6719`. The call terminates at the first capacity crossing,
+  `253+260=513`; 46 conflicts are capacity-censored, not a yield endpoint.
+- **Certification breadcrumb:** scores span
+  `13.057051120644449..14.605986705470585 < tau`; the closest strict margin
+  tightens to `0.0001920924223774989`. All 260 exact exclusions remain valid
+  despite the unavailable combined vault.
+- **State breadcrumb:** bank count increases by exactly 33,890, equal to probes
+  and outcome counters; child evaluations are 67,780. The bank evolves to
+  `715bfbc2…`, receipt `4e13df32…`, and variable 241 remains the sole zero.
+- **Claim boundary:** `threshold_prunes=260` certifies emitted trail clauses;
+  `actual_certified_prunes=0` still closes direct one-bit action crossings. No
+  key, model, closure, posterior, entropy or attacker-valid domain result
+  follows.
+- **Efficiency debt:** an orchestration race duplicated the read-only CLI
+  preflight. Both invocations were 0 solver / 0 capsule / 0 intent and production
+  remained exactly once. Avoid this by assigning the sole preflight owner before
+  the next green gate; no broader ceremony is required.
+- **Next action:** support H092 and activate
+  `H-PARENT-CENTERED-PAGE14-ROLLOVER-COMPOUNDING-093`. Ingest the full burst and
+  `715bfbc2…` bank with zero solver work, derive Page 14 / lineage 27 at active
+  limit 252 for 260-clause headroom, then select one fresh call. Never replay
+  Page 13.
+- **Artifacts:** [result](O1C0090_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  [interpretation](O1C0090_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md),
+  and sealed
+  [capsule](../runs/20260720_195618_030937_O1C-0090_apple8-parent-centered-continuation-v1/RUN.md),
+  artifact-manifest SHA-256
+  `d4088eddb3cf671b908ebbc2d19e6e0159eac149b4b882bb21cca62635df1df0`.

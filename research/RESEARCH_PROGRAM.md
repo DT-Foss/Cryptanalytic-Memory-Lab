@@ -556,12 +556,18 @@ O(1)-state residency rollover, not evidence loss or a reason to increase caps.
 The sealed cross-burst audit selects one unchanged Page-13 continuation:
 clauses per 1,000 probes rise `0.7004 -> 2.0192 -> 7.7515`, the three bursts have
 zero clause/witness overlap or subsumption, and Page 12 is capacity-censored.
-Bind the unchanged operator, perform one focused seal gate and one real
-preflight, then authorize at most one lineage-26 call. Only zero global novelty
-with no stronger output activates the predeclared residency-only max-min
-signed-diversity pivot. Preserve the efficiency rule: focused gates protect
-irreversible state, while production follows directly without a comfort-control
-cycle.
+O1C-0090 then supports H092 with one `128/46/46` call: 260 trail-UB clauses /
+743,794 literals are globally novel against the complete 1,291-clause attic.
+Conflict efficiency rises to 5.6522 clauses per conflict; probe efficiency stays
+near-flat at 7.6719 per 1,000. The bank evolves to `715bfbc2…`, while direct
+action crossings, key/model/closure and entropy/domain gain remain zero.
+
+O1C-0090 is again capacity-censored at `253+260=513`. Under
+`H-PARENT-CENTERED-PAGE14-ROLLOVER-COMPOUNDING-093`, ingest every clause with
+zero solver work and derive fresh Page 14 / lineage 27 at active limit 252,
+giving exactly 260 clause slots. Preserve the efficiency rule: focused gates
+protect irreversible state, assign one preflight owner, and proceed directly
+without a comfort-control cycle.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1138,10 +1144,11 @@ evidence.
   rolls them into Page 11 and emits 202 further globally novel clauses against
   the 830-clause attic at `128/131/131`; O1C-0088 continues on Page 12 with 259
   globally novel clauses against 1,032 prior clauses at only `128/55/55`, still
-  without key/model/closure/entropy-domain gain. O1C-0089 preserves the complete
-  burst and `0203de9f…` bank in fresh bounded Page 13 / lineage 26 at active
-  limit 253. Never replay Page 8 through Page 12; seal the unchanged Page-13
-  continuation before at most one new intent.
+  without key/model/closure/entropy-domain gain. O1C-0089 preserves that burst
+  and `0203de9f…` bank in bounded Page 13; O1C-0090 then adds 260 more globally
+  novel clauses against 1,291 prior clauses at `128/46/46` and evolves the bank
+  to `715bfbc2…`. Never replay Page 8 through Page 13; ingest all 260 clauses in
+  fresh Page 14 / lineage 27 at active limit 252 before any new intent.
 
 ## Operating contract
 
