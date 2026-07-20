@@ -2387,7 +2387,9 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   167 total never-resident-undominated clauses.
 - **Mechanism decision:** Page 15 removes the measured one-slot censorship
   without changing the successful operator. The next call can distinguish a
-  natural yield endpoint from a sixth capacity crossing.
+  natural yield endpoint from a sixth capacity crossing. O1C-0095 later burns
+  Page 15 at adapter transport without retaining that measurement; the
+  discriminator therefore moves unchanged to fresh Page 16 under H096.
 - **Failure pivot:** only an uncensored zero-novelty result with no stronger
   output activates a residency-only change. Do not combine that pivot with
   action logic, cap growth, quotient substitution or replay.
@@ -2413,3 +2415,34 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Artifacts:** [result](O1C0094_PAGE14_NINE_AXIS_QUOTIENT_RESULT_20260720.json),
   [interpretation](O1C0094_PAGE14_NINE_AXIS_QUOTIENT_INTERPRETATION_20260720.md)
   and [capsule](../runs/20260720_214029_O1C-0094_page14-nine-axis-quotient-zero-call-v1/RUN.md).
+
+## B-0095 — Page 15 burned after native completion at adapter contract
+
+- **Operational terminal:** O1C-0095 persists intent `089d65e7…`, burns Page
+  15 / lineage 28 and issues its sole call. Native v26 completes with code 0 and
+  parsed JSON; adapter v29 then rejects `priority_seed` before stdout/result
+  persistence.
+- **Exact defect:** native adds
+  `source_priority_state_receipt_sha256` and
+  `source_priority_state_receipt_bytes`, but adapter `_SEED_FIELDS` omits both.
+  The 65/65 tests checked the producer and consumer separately and never passed
+  actual native output through the adapter schema.
+- **Measurement boundary:** requested work is 128; actual/billed remain `null`.
+  No retained science payload exists, so this is not a cryptanalytic negative
+  and cannot trigger the predeclared residency pivot.
+- **Unchanged state:** attic 1,812 unique clauses / 1,820 occurrences / 14
+  relations / 1,801 undominated; bank `97a325c9…` and receipt `1c69bb32…`.
+  Import no missing output and never retry Page 15.
+- **Breadcrumb:** replace parallel schema fixtures with one exact
+  native-output→adapter contract regression covering both source-receipt fields.
+  This is a narrow transport repair, not a reason for a broad review or operator,
+  cap, RAM, threshold or residency change.
+- **Next action:** activate H096. Derive fresh Page 16 / lineage 29 with zero
+  solver work from unchanged state, repair and regression-test the contract,
+  then authorize one fresh unchanged call after one focused irreversible gate
+  and one owned preflight.
+- **Artifacts:** [result](O1C0095_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  [interpretation](O1C0095_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md)
+  and [capsule](../runs/20260720_220052_433697_O1C-0095_apple8-parent-centered-continuation-v1/RUN.md),
+  manifest SHA-256
+  `10c2b0f2f2745bb2a101c116d1ecf9af5c090cf627bf334d96f01e46998d26a6`.

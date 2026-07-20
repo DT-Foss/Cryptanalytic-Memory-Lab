@@ -4010,3 +4010,47 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `0bc68cb220386239b5dd046a8578777825dca88b6c7a2dfa8bd70be822fdc9a2`,
   artifact-manifest SHA-256
   `5f9fe066ac9a7c7871ca9a1118a77c8bebd95eda1f8f88eae79c63984e59a216`.
+
+## O1C-0095 — APPLE8 parent-centered Page-15 continuation
+
+- **Started:** `2026-07-20T22:00:56.648042+02:00`; **recorded:**
+  `2026-07-20T22:01:17.757888+02:00` (`Europe/Berlin`).
+- **Protocol:** validate the complete 1,812-clause attic, fresh 251-clause Page
+  15, `97a325c9…` live bank and `1c69bb32…` receipt; persist one local-0 /
+  lineage-28 intent; issue exactly one seed-0 call at 128 requested conflicts
+  with no retry, replay, reveal, target/truth input, refit, MPS or GPU use.
+- **Pre-burn gate:** 65/65 focused tests passed. Native v26, adapter v29 and the
+  runner were separately sealed, but the gate lacked one composition test that
+  feeds actual native-v26 JSON through adapter-v29 schema validation.
+- **Terminal result:** `PARENT_CENTERED_CONTINUATION_OPERATIONAL_TERMINAL`, stop
+  `burned-terminal-failure-no-retry`. Native v26 runs the solver to completion,
+  exits 0 and yields parsed JSON. Adapter v29 then throws
+  `joint-score-sieve-v29 priority seed fields differs` because native includes
+  `source_priority_state_receipt_sha256` and
+  `source_priority_state_receipt_bytes` while adapter `_SEED_FIELDS` omits
+  them. Stdout and a science result are not persisted.
+- **Measurement boundary:** one call and the 128-conflict request are consumed;
+  actual/billed conflicts remain `null`. No auditable action/probe/bound/prune/
+  clause/model/key/closure/entropy result survives. `science_gain=false` marks
+  absent transport, not an inert cryptanalytic operator.
+- **State boundary:** Page 15 / lineage 28 are burned permanently. The attic
+  remains 1,812 unique clauses / 1,820 occurrences / 14 relations / 1,801
+  undominated; bank `97a325c9…` and receipt `1c69bb32…` remain exact. Import no
+  O1C-0095 output and never retry Page 15.
+- **Hypotheses:** close H094 at its operational contract gate only; its
+  cryptanalytic proposition remains untested. Activate H096: zero-call fresh
+  Page 16 / lineage 29, exact producer→consumer contract regression including
+  both receipt fields, then one fresh unchanged call.
+- **Resources:** wall `21.10997600000701 s`, CPU `19.494059999999998 s`, child
+  user/system `1.4725379999999997/0.06852799999999998 s`; one native call.
+- **Artifacts:** authoritative
+  [result](O1C0095_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  SHA-256
+  `7838ce882a696ce932b36fa11af190aaff0ee0a7673e12bbfdac1b272b2e8c93`;
+  [interpretation](O1C0095_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md);
+  sealed
+  [capsule](../runs/20260720_220052_433697_O1C-0095_apple8-parent-centered-continuation-v1/RUN.md),
+  artifact-manifest SHA-256
+  `10c2b0f2f2745bb2a101c116d1ecf9af5c090cf627bf334d96f01e46998d26a6`;
+  intent SHA-256
+  `089d65e7270f579c78d5d4ac15d1987cc18d82566ed233039d9e2030b3cb0bad`.

@@ -596,9 +596,22 @@ O1C-0093 preserves the full burst in fresh Page 15 / lineage 28 at active limit
 251. The attic reaches 1,812 unique clauses / 1,820 occurrences; Page 15 is 251
 clauses and leaves exact 261-clause headroom. Of the newest burst, 160 clauses
 are resident and 101 remain explicit nonresidents; one is dominated and 100 are
-undominated. Bind the unchanged operator through O1C-0095. Preserve the
-efficiency rule: focused gates protect irreversible state, assign one preflight
-owner, and proceed directly without a comfort-control cycle.
+undominated. O1C-0095 then burns Page 15 / lineage 28 with one authorized call.
+Native v26 runs the solver to completion and returns code-0 JSON, but adapter
+v29 rejects `priority_seed` before stdout/result persistence because its
+`_SEED_FIELDS` omits `source_priority_state_receipt_sha256` and
+`source_priority_state_receipt_bytes`. Requested work is 128; actual/billed are
+`null`, the attic and `97a325c9…` bank remain unchanged, and no cryptanalytic
+outcome exists. This is an operational contract terminal, not a negative result
+for the parent-centered operator.
+
+The 65/65 pre-burn tests exercised producer and consumer separately but missed
+their actual composition. Under H096, derive fresh Page 16 / lineage 29 with
+zero solver work, add one exact native-output→adapter regression covering both
+receipt fields, then use one focused irreversible gate, one owned preflight and
+one fresh unchanged call. Never retry Page 15, recover unpersisted stdout,
+change the scientific operator or trigger residency pivot from this transport
+failure.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1182,9 +1195,13 @@ evidence.
   another 261 globally novel clauses against 1,551 prior clauses at only
   `128/10/10`, evolving the bank to `97a325c9…`. O1C-0093 now preserves all of
   them in fresh Page 15 / lineage 28 at active limit 251, while O1C-0094 proves
-  exact lossless nine-axis reconstruction in 18,034 retained bytes. Never replay
-  Page 8 through Page 14; bind one unchanged O1C-0095 call to Page 15 and the
-  evolved bank before any new mechanism or residency pivot.
+  exact lossless nine-axis reconstruction in 18,034 retained bytes. O1C-0095
+  burns Page 15 after native completion but before adapter persistence because
+  two native receipt-provenance fields are absent from the adapter schema. No
+  science payload survives; attic and bank remain unchanged. Never replay Page
+  8 through Page 15. Derive fresh Page 16 / lineage 29, close the exact contract
+  regression and issue one fresh unchanged call before any mechanism or
+  residency pivot.
 
 ## Operating contract
 
@@ -1205,6 +1222,9 @@ evidence.
   Track pre-burn defect yield per milestone and shrink the suite after two or
   three no-find milestones. Do not count O1C-0083's 66.35-second preparation as
   solver-resource progress or repeat a giant review without a concrete defect.
+- For an irreversible producer/consumer boundary, one actual serialized producer
+  output must traverse the exact consumer validator; parallel self-consistent
+  fixtures do not satisfy the contract gate.
 - Repetition requires a new mechanism, variable, dataset, scaling question or
   replication purpose.
 - One targeted validity review per milestone is enough unless a concrete defect is
