@@ -1,18 +1,20 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-20 (O1C-0098 fresh Page 17 / lineage 30 sealed unburned).
+Last ranked: 2026-07-21 (O1C-0099 Page 17 telemetry terminal sealed; Page 18
+zero-call recovery active).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Finish and seal O1C-0099's in-progress native/adapter/runner code gate against exact manifest `ba7ad5d9…`, Page 17 `0c25ce47…`, bank `8100bccf…` and receipt `050551fc…` | State of the art enabling | Extreme | Extreme | Low | Closes the production contract without changing the scientific operator |
-| 2 | After the focused gate and one owned preflight, persist one intent and issue at most one unchanged seed-0, tau-identical, 128-conflict lineage-30 continuation | State of the art | Extreme | Extreme | Low | Tests continued exact-exclusion compounding from the complete 2,074-clause attic |
-| 3 | Feed O1C-0094's 18,034-byte quotient only to lossless state/identity consumers; do not launch the 109-relation proof campaign after its `0/218` cheap certificate screen | State of the art mechanism | High | Extreme | Zero now | Retains the 167.84x flat-binary-to-packed-state leverage without derailing the live recovery path |
-| 4 | Pivot residency alone only after an uncensored zero-novelty science result; keep O1C-0038/A526 fixed as terminal decoders when their real gates are reached | State of the art | High | Extreme | Zero now | Prevents a censored or operational endpoint from masquerading as evidence against the operator |
+| 1 | Complete O1C-0100 zero-call transport from the unchanged O1C-0098 attic/bank to fresh Page 18 / lineage 31; import only O1C-0099's exact failure receipt | State of the art enabling | Extreme | Extreme | Low | Preserves all certified evidence while removing the burned Page from the execution path |
+| 2 | Version ownership producer/consumer so at most 1,024 owned lifecycle rows remain exact and non-claiming assignments become counts plus a streamed canonical digest; stress beyond 65,536 events | State of the art mechanism | Extreme | Extreme | Low | Removes the terminal at its cause with bounded stream state instead of moving the cap |
+| 3 | Bind the corrected native/adapter/runner to exact Page 18, O1C-0100 manifest, bank and receipt; after one focused gate and preflight issue one unchanged seed-0/tau/128-conflict lineage-31 call | State of the art | Extreme | Extreme | Low | Finally tests the still-open exact-exclusion compounding proposition with a retained payload |
+| 4 | Feed O1C-0094's 18,034-byte quotient only to lossless state/identity consumers; do not launch the 109-relation proof campaign after its `0/218` cheap certificate screen | State of the art mechanism | High | Extreme | Zero now | Retains the 167.84x flat-binary-to-packed-state leverage without derailing the live recovery path |
 
 ## Current resume
 
-Resume from O1C-0098's terminal
-`CAUSAL_ATTIC_PAGE17_ROLLOVER_PREPARED`.
+Resume from O1C-0099's terminal
+`PARENT_CENTERED_CONTINUATION_OPERATIONAL_TERMINAL` and the unchanged certified
+O1C-0098 state.
 O1C-0092's sole local-0 / lineage-27 call consumed Page 14 at
 requested/actual/billed `128/10/10` and fully emitted `261` trail-upper-bound
 no-goods / `756,414` literals. O1C-0093 preserves every occurrence and grows the
@@ -53,13 +55,31 @@ attic becomes 19 chunks / 2,074 unique / 5,835,680 literals / 23,351,207 B /
 2,083 occurrences / 9 duplicates / 14 relations / 2,063 undominated, union SHA
 `fbe18682…`. Bank `8100bccf…` and receipt `050551fc…` remain exact.
 
-Fresh Page 17 / lineage 30 is unburned at active limit 249: 249 clauses /
+Page 17 / lineage 30 was prepared at active limit 249: 249 clauses /
 693,183 literals / 2,773,919 B, SHA `0c25ce47…`, composed of 9 roots + 43
 pinned + 197 new debt. It leaves 263 clause / 906,817 literal / 5,614,689 B
 headroom. Exactly 65 newest undominated clauses remain explicit nonresident
 debt. The two-slot sacrifice covers a duplicate-free 263-clause successor at
 the observed ceiling; it displaces one extra ordinary debt clause relative to
 250, while 248 has no observed greater-than-263 basis.
+
+O1C-0099 consumes that Page exactly once and burns it at persisted intent. Native
+v28 exits 1 after `19.82277620799141 s` with empty stdout and exact
+`decision ownership event cap exceeded` stderr. Requested conflicts are 128;
+actual/billed are `null`; no native result, science payload or state update
+exists. The 65,536-row cap belongs to audit telemetry: O1C-0097's 47,005
+ownership events already contained 46,231 non-claiming foreign assignments.
+The operator never reads the event vector, but the callback exception makes all
+partial state inadmissible. Page 17 is permanently burned and O1C-0099 is neither
+a cryptanalytic negative nor gain.
+
+The deterministic zero-call successor keeps active limit 249 and reprojects the
+same 19-chunk / 2,074-clause attic onto fresh Page 18 / lineage 31. The derived
+projection is 249 clauses / 669,910 literals / 2,680,827 B, SHA `5d89bbe0…`,
+with 9 roots + 43 pinned + 65 new debt + 132 recycled. It admits all 65 prior
+nonresident undominated clauses, leaves zero debt and retains 263 clause slots.
+Bank `8100bccf…` and receipt `050551fc…` remain byte-identical; no O1C-0099
+science output is imported.
 
 The 255 failure-first actions made 33,398 exact probes. Bank conservation is
 exact at `249,671→283,069`; the 24,576-byte state evolves to `97a325c9…`, and
@@ -143,7 +163,7 @@ persisted intent but produced no output to ingest. The immutable attic therefore
 remains `807` unique clauses / `815` occurrences and the evolved continuation
 bank remains exact SHA `05b8acf3…`.
 
-Resume authority is the [O1C-0098 interpretation](O1C0098_PAGE17_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md) and [manifest](o1c98_page17_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json), SHA-256 `ba7ad5d9417542d62725ab588dea4a85bc7eff8847f5276bf79a847f44c5470d`. The authoritative Page 17 SHA-256 is `0c25ce470df0945fb05914bab107ecea05531166575ec88ebf7d15bb9a22fbfd`; chunk SHA-256 is `c5e9c357eb80c9a32e17c3cc19a1fa6ab2db11e50e5e0d2140fbe46865fee185`; bank and receipt are `8100bccf…` / `050551fc…`. Page 17 / lineage 30 is fresh and unburned. Finish O1C-0099's code gate before one owned preflight and at most one unchanged call. Never replay Page 14, Page 15 or Page 16.
+Current terminal authority is the [O1C-0099 interpretation](O1C0099_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md), [result](O1C0099_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json) SHA-256 `2f60c3dc12adea0157534cd67296a0839ac9e17303868f121b1593d36a50611b`, and capsule manifest SHA-256 `93fdb7eb7ce828fd6c41a327a5ab1c7c58305e6a6be752dc0812b214b1fbbf9e`. Certified-state authority remains the [O1C-0098 manifest](o1c98_page17_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json), SHA-256 `ba7ad5d9417542d62725ab588dea4a85bc7eff8847f5276bf79a847f44c5470d`. Page 17 / lineage 30 is burned. Complete O1C-0100 and the bounded telemetry producer→consumer contract before one fresh Page-18 call. Never replay Pages 14 through 17.
 
 ## Frontier scoreboard
 

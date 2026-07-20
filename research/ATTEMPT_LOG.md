@@ -4189,3 +4189,33 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `6476f883e978c98208227a609a5c6bf4b985109490d410a93c2103b8de6b04d6`;
   focused-test SHA-256
   `4dfbfcdd67b9e06f19c04083f6c0ba8254d302cee633ab8be9492e22c9bb118e`.
+
+## O1C-0099 — APPLE8 parent-centered Page-17 continuation
+
+- **Started/recorded:** `2026-07-21T00:40:05.191277+02:00` /
+  `2026-07-21T00:40:25.076700+02:00`.
+- **Protocol:** consume Page 17 / local 0 / lineage 30 exactly once with the
+  unchanged seed-0, tau and 128-conflict parent-centered operator. Burn occurs
+  on persisted intent; retry and replay are forbidden.
+- **Terminal:** native v28 exits 1 after `19.82277620799141 s` with empty stdout
+  and exact stderr `decision ownership event cap exceeded`. Runner wall is
+  `19.8852734999964 s`; one call is consumed, requested conflicts are 128 and
+  actual/billed conflicts are `null`. Page 17 / lineage 30 is burned.
+- **Classification:** `PARENT_CENTERED_CONTINUATION_OPERATIONAL_TERMINAL` with
+  `science_gain=false`. No action/probe/bound/prune/clause/model/key/closure or
+  attacker-valid entropy/domain result survived, so this is neither a
+  cryptanalytic negative nor gain.
+- **Root cause:** ownership telemetry has a fixed 65,536-event vector and records
+  every assignment notification. O1C-0097 already retained 47,005 events, of
+  which 46,231 (`98.35%`) were non-claiming `FOREIGN_ASSIGNMENT` rows. The
+  vector is not read by solver decisions, priority, bounds or clause generation,
+  but the callback exception makes partial state inadmissible.
+- **State boundary:** import no O1C-0099 output. The certified 19-chunk /
+  2,074-clause O1C-0098 attic, bank `8100bccf…` and receipt `050551fc…` remain
+  exact. O1C-0100 must reproject them with zero calls onto fresh Page 18 and
+  carry only the exact terminal-failure receipt.
+- **Artifacts:** authoritative
+  [result](O1C0099_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  SHA `2f60c3dc…`; [interpretation](O1C0099_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md);
+  [capsule](../runs/20260721_004001_986566_O1C-0099_apple8-parent-centered-continuation-v1/RUN.md),
+  33-entry manifest SHA `93fdb7eb…`.

@@ -653,7 +653,7 @@ The attic becomes 19 chunks / 2,074 unique clauses / 5,835,680 literals /
 undominated, union SHA `fbe18682…`. Bank `8100bccf…` and receipt `050551fc…`
 remain byte-exact.
 
-Fresh Page 17 / lineage 30 is unburned at active limit 249: 249 clauses /
+Page 17 / lineage 30 was prepared at active limit 249: 249 clauses /
 693,183 literals / 2,773,919 B, SHA `0c25ce47…`, composition `9+43+197`, with
 263 clause / 906,817 literal / 5,614,689 B headroom. Exactly 65 new undominated
 clauses remain explicit nonresident debt. Limit 249 is the largest active
@@ -662,10 +662,31 @@ projection that admits a duplicate-free 263-clause successor
 248 lacks an observed greater-than-263 basis. O1C-0098 is enabling bounded
 representation/state gain only: it makes zero solver/preflight/intent/target/
 truth/reveal/refit calls and claims no fresh science clause, key, model, closure
-or attacker-valid entropy/domain gain. O1C-0099 now finishes its focused code
-gate, then uses one owned preflight and at most one unchanged fresh lineage-30
-call. The positive clause lineage provides no reason to change operator, tau,
-conflict request, caps, RAM or residency semantics.
+or attacker-valid entropy/domain gain.
+
+O1C-0099 consumes Page 17 / lineage 30 exactly once but returns no native result.
+After persisted intent, native v28 exits 1 in `19.82277620799141 s` with empty
+stdout and `decision ownership event cap exceeded`; requested work is 128 while
+actual/billed remain `null`. The terminal is instrumentation, not science. The
+ownership ledger stores every assignment notification in a fixed 65,536-row
+vector even when no live action token can claim it. O1C-0097 already retained
+47,005 rows, 46,231 (`98.35%`) of them foreign assignments and 45,713 from
+internal variables above 256. That vector is not read by solver decisions,
+priority, bounds or clause generation, but its callback exception invalidates
+all partial state. H097 is therefore inconclusive, Page 17 is burned, and no
+O1C-0099 output enters the attic or bank.
+
+Activate H100. O1C-0100 reprojects the unchanged certified O1C-0098 attic and
+`8100bccf…` bank onto fresh Page 18 / lineage 31 with zero solver work, importing
+only the exact terminal-failure receipt. Active limit remains 249; deterministic
+Page 18 is 249 clauses / 669,910 literals / 2,680,827 B, SHA `5d89bbe0…`, with
+composition `9 roots + 43 pinned + 65 new debt + 132 recycled`. All 65 residual
+undominated debt clauses become resident, residual debt reaches zero, and 263
+clause slots remain. O1C-0101 versions producer and consumer together: every
+owned-token lifecycle event stays exact and bounded, while non-claiming
+assignment observations become exact counts plus a canonical streamed digest.
+A >65,536-event producer→consumer stress must pass before one fresh Page-18
+call. Do not edit sealed v28, raise its cap blindly or replay Page 17.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is

@@ -2448,3 +2448,33 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   and [capsule](../runs/20260720_220052_433697_O1C-0095_apple8-parent-centered-continuation-v1/RUN.md),
   manifest SHA-256
   `10c2b0f2f2745bb2a101c116d1ecf9af5c090cf627bf334d96f01e46998d26a6`.
+
+## B-0099 — Page 17 burned by row-wise non-claim telemetry
+
+- **Operational terminal:** O1C-0099 persists intent `7791ed49…`, burns Page
+  17 / lineage 30 and issues its sole native call. Native v28 exits 1 after
+  about 19.8 seconds with `decision ownership event cap exceeded`; stdout is
+  empty and no native result returns.
+- **Exact defect:** `DecisionOwnershipLedger` hard-caps its retained event vector
+  at 65,536 rows while every assignment without a live action token is still
+  stored as a full `FOREIGN_ASSIGNMENT`. O1C-0097 already used 47,005 rows;
+  46,231 (`98.35%`) were foreign and 45,713 referred to internal variables
+  above 256.
+- **Measurement boundary:** requested work is 128; actual/billed are `null`.
+  No science payload or state update exists. This is not a scientific negative,
+  and Page 17 is never retried or reconstructed.
+- **Breadcrumb:** the scientific operator does not read the event vector. Keep
+  every owned-token lifecycle event exactly, but replace row-wise non-claiming
+  assignment retention with fixed counters and a canonical streamed digest.
+  A blind cap increase only moves the terminal and risks the 128-MiB artifact
+  bound.
+- **Next action:** O1C-0100 reprojects the unchanged certified O1C-0098 attic,
+  `8100bccf…` bank and `050551fc…` receipt onto fresh Page 18 / lineage 31 with
+  zero solver work and imports only the terminal-failure receipt. O1C-0101 must
+  version producer and consumer together before one fresh call. Never edit
+  sealed v28/header bytes or replay Page 17.
+- **Artifacts:** [result](O1C0099_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  [interpretation](O1C0099_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md)
+  and [capsule](../runs/20260721_004001_986566_O1C-0099_apple8-parent-centered-continuation-v1/RUN.md),
+  manifest SHA-256
+  `93fdb7eb7ce828fd6c41a327a5ab1c7c58305e6a6be752dc0812b214b1fbbf9e`.
