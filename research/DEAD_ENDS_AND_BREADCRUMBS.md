@@ -2319,3 +2319,25 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [capsule](../runs/20260720_195618_030937_O1C-0090_apple8-parent-centered-continuation-v1/RUN.md),
   artifact-manifest SHA-256
   `d4088eddb3cf671b908ebbc2d19e6e0159eac149b4b882bb21cca62635df1df0`.
+
+## B-0091 — Page 14 preserves the burst and exposes three stronger relations
+
+- **Prepared state:** zero-call ingestion grows the attic 1,291→1,551 unique
+  clauses and preserves all 260 O1C-0090 exclusions. Fresh Page 14 is 252
+  clauses / 704,145 literals / 2,817,779 B with exact 260-clause headroom.
+- **Residency boundary:** 190 new clauses are resident and 70 explicit
+  nonresidents remain addressable. Three missing clauses are dominated; the 67
+  other new missing clauses and the 107 historical never-resident-undominated
+  clauses are different populations and must stay distinct.
+- **Relation breadcrumb:** three new strict pairs `1296→1295`, `1298→1297`,
+  `1328→1327` add shorter resident subsumers and grow roots `5→8`. This is a
+  concrete geometry change, not new key/entropy evidence.
+- **Mechanism decision:** four-burst exact overlap and cross-burst subsumption
+  remain zero for O1C-0090 versus predecessors; conflict efficiency rises and
+  the endpoint is capacity-censored. The unchanged operator remains the next
+  test after Page-14 seals.
+- **Failure pivot:** only a fresh Page-14 zero-novelty result with no stronger
+  output activates residency-only change. Never mix that pivot with new action
+  logic, cap growth or Page replay.
+- **Artifacts:** [interpretation](O1C0091_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md)
+  and [manifest](o1c91_page14_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json).

@@ -563,11 +563,14 @@ near-flat at 7.6719 per 1,000. The bank evolves to `715bfbc2…`, while direct
 action crossings, key/model/closure and entropy/domain gain remain zero.
 
 O1C-0090 is again capacity-censored at `253+260=513`. Under
-`H-PARENT-CENTERED-PAGE14-ROLLOVER-COMPOUNDING-093`, ingest every clause with
-zero solver work and derive fresh Page 14 / lineage 27 at active limit 252,
-giving exactly 260 clause slots. Preserve the efficiency rule: focused gates
-protect irreversible state, assign one preflight owner, and proceed directly
-without a comfort-control cycle.
+`H-PARENT-CENTERED-PAGE14-ROLLOVER-COMPOUNDING-093`, O1C-0091 ingests every
+clause with zero solver work and seals fresh Page 14 / lineage 27 at active
+limit 252, giving exactly 260 clause slots. The attic reaches 1,551 clauses;
+190/260 new clauses are resident, 70 explicit nonresidents remain addressable,
+and three new strict subsumption pairs grow structural roots `5→8`. Bind the
+unchanged operator through O1C-0092. Preserve the efficiency rule: focused
+gates protect irreversible state, assign one preflight owner, and proceed
+directly without a comfort-control cycle.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is

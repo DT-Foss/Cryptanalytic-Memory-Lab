@@ -3855,3 +3855,36 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [capsule](../runs/20260720_195618_030937_O1C-0090_apple8-parent-centered-continuation-v1/RUN.md),
   artifact-manifest SHA-256
   `d4088eddb3cf671b908ebbc2d19e6e0159eac149b4b882bb21cca62635df1df0`.
+
+## O1C-0091 — APPLE8 Page-14 causal rollover
+
+- **Recorded:** `2026-07-20` (`Europe/Berlin`).
+- **Protocol:** ingest the complete O1C-0090 harvest and evolved live state with
+  zero solver work; derive fresh Page 14 / lineage 27 at active limit 252;
+  publish only as an atomic, byte-sealed bundle.
+- **Terminal result:** `CAUSAL_ATTIC_PAGE14_ROLLOVER_PREPARED`. All 260 clauses /
+  743,794 literals are preserved as unique new occurrences. The attic reaches
+  17 chunks / 1,551 unique clauses / 1,559 occurrences / 13 strict relations /
+  1,541 undominated.
+- **Fresh page:** 252 clauses / 704,145 literals / 2,817,779 B, SHA
+  `00a5a4a7…`, with exact 260-clause headroom. Categories are 8 structural
+  roots + 43 pinned core + 201 new debt.
+- **Residency:** 190/260 newest clauses are resident and 70 explicit
+  nonresidents remain in the attic; three missing clauses are dominated by new
+  resident subsumers. Fourteen prior nonresidents return, 40 remain missing,
+  and 107 undominated clauses across history were never resident.
+- **State:** bank `715bfbc2…` and receipt `4e13df32…` match exactly; aggregate
+  count 249,671, maximum 2,180 at variable 15, sole zero variable 241.
+- **Claim boundary:** enabling/mechanism only. Native solver/science/target/
+  truth/reveal/refit/MPS/GPU calls are zero; no intent exists and Page 14 /
+  lineage 27 remain unburned.
+- **Validation:** 10 focused tests; Ruff clean; Pyright zero errors; all nine
+  payload seals and manifest independently revalidated.
+- **Next action:** bind unchanged native v25 / adapter v28 / O1C-0092 runner,
+  then one owned preflight and at most one fresh lineage-27 call. No Page-13
+  replay, cap growth, action change or comfort control.
+- **Artifacts:** [interpretation](O1C0091_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md)
+  and canonical
+  [manifest](o1c91_page14_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json),
+  SHA-256
+  `e46ca7373bc3a94efc30dcd309728005e3bee8b93983dc2c396f45bd487dd458`.
