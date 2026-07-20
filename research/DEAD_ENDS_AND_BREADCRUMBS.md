@@ -2341,3 +2341,37 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   logic, cap growth or Page replay.
 - **Artifacts:** [interpretation](O1C0091_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md)
   and [manifest](o1c91_page14_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json).
+
+## B-0092 — Page-14 continuation exposes a nine-axis repetition code
+
+- **Positive terminal:** the sole Page-14 / lineage-27 call emits 261 complete,
+  globally novel trail-UB clauses / 756,414 literals at `128/10/10`; exact
+  intersection with the 1,551-clause attic is zero.
+- **Measured frontier:** absolute yield rises `260→261`, clauses per billed
+  conflict rise `5.6522→26.1`, and clauses per 1,000 probes rise
+  `7.6719→7.8148`. The endpoint is capacity-censored at `252+261=513`, not a
+  measured yield fixed point.
+- **State breadcrumb:** bank count rises exactly by all 33,398 probes and the
+  state evolves `715bfbc2…→97a325c9…`; variable 241 stays the only zero
+  coordinate. Direct action crossings remain zero despite 255 actions.
+- **Structural breadcrumb:** the 256 equal-length tail clauses have affine sign
+  rank nine. Their 118 switching variables are exact copy/complement functions
+  of axes `{15,18,23,28,100,118,181,216,238}`. A shared-core quotient provides
+  exact conservative `15.9198131077x` literal-entry compression.
+- **Logical boundary:** projected eight-axis coverage is complete, all projected
+  Hamming edges retain other complementary literals, and there are zero
+  non-tautological simple resolvents. A common internal literal makes the vault
+  family's existential key projection tautological. Do not interpret the 245
+  common key signs as a posterior or substitute axis equivalences without a CNF
+  proof.
+- **One exact simplification:** clause 3 strictly subsumes clause 2; there is no
+  other equality or subsumption. Preserve this relation in the causal attic.
+- **Next action:** O1C-0093 performs zero-call Page-15 rollover at active limit
+  251. O1C-0094 materializes and mutation-tests the lossless quotient. Only an
+  uncensored zero-novelty call licenses a residency pivot; never replay Page 14.
+- **Artifacts:** [result](O1C0092_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  [interpretation](O1C0092_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md),
+  [cross-burst audit](O1C0092_PAGE14_CROSS_BURST_CAUSAL_AUDIT_20260720.md),
+  [nine-axis audit](O1C0092_PAGE14_NINE_AXIS_QUOTIENT_AUDIT_20260720.md), and
+  sealed
+  [capsule](../runs/20260720_205659_306771_O1C-0092_apple8-parent-centered-continuation-v1/RUN.md).

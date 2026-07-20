@@ -1,45 +1,48 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-20 (O1C-0091 fresh Page-14 rollover sealed).
+Last ranked: 2026-07-20 (O1C-0092 Page-14 gain and nine-axis audit sealed).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Finish O1C-0092 native-v25 / adapter-v28 / runner seals around O1C-0091 Page 14 and the unchanged `715bfbc2…` live bank | State of the art enabling | Extreme | Extreme | Low | Opens the irreversible lineage-27 gate without confounding the measured mechanism |
-| 2 | After one focused integration gate and one owned real preflight, authorize exactly one seed-0, tau-identical, 128-conflict lineage-27 call | State of the art | Extreme | Extreme | Low | Tests further global exclusion, closure/model, attacker-valid domain reduction and ultimately recovery |
-| 3 | Pivot residency alone only if the fresh Page-14 call has zero global novelty and no stronger output; never replay Page 13/14 or sweep caps/actions | State of the art | High | Extreme | Low | Isolates live residency geometry without changing the successful operator |
-| 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
+| 1 | Complete O1C-0093 zero-call ingestion of all 261 clauses and derive fresh Page 15 / lineage 28 at active limit 251 | State of the art enabling | Extreme | Extreme | Low | Preserves the full 1,812-clause causal history and opens exactly 261 live clause slots without replay or cap growth |
+| 2 | Complete O1C-0094's canonical shared-core/nine-axis quotient with exact round-trip reconstruction and mutation rejection | State of the art mechanism | Extreme | Extreme | Low | Converts the measured repetition code into a bounded O1-state primitive while keeping logical inference closed until separately proved |
+| 3 | After O1C-0093's focused seal gate and one owned preflight, issue one unchanged seed-0, tau-identical Page-15 continuation | State of the art | Extreme | Extreme | Low | Tests whether exact-exclusion compounding persists beyond the fifth globally disjoint burst |
+| 4 | Pivot residency alone only after an uncensored zero-novelty result; keep O1C-0038/A526 fixed as terminal decoders when their real gates are reached | State of the art | High | Extreme | Zero now | Preserves exact 256-bit recovery as the north star without mixing mechanisms or paying for closed sweeps |
 
 ## Current resume
 
-Resume from O1C-0090's
-`PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. Its sole local-0 / lineage-26
-call consumed Page 13 at requested/actual/billed `128/46/46`. The sealed
-build-once/exact-byte-help path passed and the call fully emitted `260`
-trail-upper-bound no-goods / `743,794` literals. All 260 are distinct and
-globally novel against the complete `1,291`-clause attic; an independent sorted
-hash-set comparison gives intersection zero. Witness UBs range
-`13.057051120644449..14.605986705470585`, all strictly below
-`tau=14.606178797892962`. Page 13 and lineage 26 are burned and must never be
-retried or replayed.
+Resume from O1C-0092's terminal
+`PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. Its sole local-0 / lineage-27
+call consumed Page 14 at requested/actual/billed `128/10/10` and fully emitted
+`261` trail-upper-bound no-goods / `756,414` literals. All 261 clause and
+witness identities are distinct and globally novel against the complete
+`1,551`-clause attic; independent sorted-set intersection is zero. Witness UBs
+range `11.553303084092308..14.038279700095462`, all at least
+`0.5678990977975005` below `tau=14.606178797892962`. Page 14 and lineage 27 are
+burned permanently.
 
-This gain does not include a key, model, closure or attacker-valid entropy/
-domain reduction. `threshold_prunes=260` counts the fully emitted safe local
-trail-UB prunes. The separate parent-centered action-crossing field remains
-`actual_certified_prunes=0`: `255` failure-first actions made `33,890` exact
-probes, but no realized action crossing.
-The two counters describe different certification paths.
+The 255 failure-first actions made 33,398 exact probes. Bank conservation is
+exact at `249,671→283,069`; the 24,576-byte state evolves to `97a325c9…`, and
+variable 241 remains the sole zero coordinate. `threshold_prunes=261` certifies
+the emitted local trail exclusions, while the separate direct-action field is
+still `actual_certified_prunes=0`. No key, model, closure, posterior or
+attacker-valid entropy/domain reduction follows yet.
 
-O1C-0090 supports H092. O1C-0091 has completed the zero-call half of H093: all
-260 clauses remain in the 1,551-clause attic; fresh Page 14 / lineage 27 is
-unburned and sealed at 252 clauses / 704,145 literals / 2,817,779 B, SHA
-`00a5a4a7…`. It keeps 190 new clauses resident, records 70 nonresidents exactly,
-and leaves 260 clause slots. The bank is `715bfbc2…`, receipt `4e13df32…`, and
-variable 241 remains the sole zero coordinate. Manifest SHA is `e46ca737…`.
+The call is censored at the first clause overflow, `252+261=513`, after only ten
+conflicts. Conflict efficiency rises `5.6522→26.1` clauses per billed conflict;
+probe efficiency rises `7.6719→7.8148` clauses per 1,000 probes. The five-burst
+audit finds zero exact overlap, witness overlap or cross-burst subsumption and
+therefore selects one unchanged Page-15 continuation after O1C-0093 creates
+active limit 251 and exact 261-clause headroom.
 
-Conflict efficiency rises again to 5.6522 clauses per conflict; probe efficiency
-remains essentially flat at 7.6719 per 1,000 probes. The extended burst audit
-and sealed Page 14 agree on one unchanged O1C-0092 call. Do not raise caps/RAM,
-replay Page 13, change actions or add a control cycle.
+A read-only structural audit additionally factors the 256 equal-length tail
+clauses into a 2,780-literal signed core plus 118 signs generated by nine key
+axes `{15,18,23,28,100,118,181,216,238}`. The conservative literal-entry ratio
+is `756,414/47,514 = 15.9198131077x`; O1C-0094 must now serialize and round-trip
+this quotient exactly. It is a representation result, not a key consequence:
+the vault family alone has an identically true existential key projection due
+to shared internal literals, and all projected cube edges have tautological
+full-clause resolvents.
 
 For provenance, the mechanism originates in O1C-0082:
 
@@ -96,17 +99,7 @@ persisted intent but produced no output to ingest. The immutable attic therefore
 remains `807` unique clauses / `815` occurrences and the evolved continuation
 bank remains exact SHA `05b8acf3…`.
 
-O1C-0090 fully archives 260 globally novel clauses, but its combined successor
-vault is unavailable at `253+260=513`, exactly one over the 512-clause limit.
-Its evolved 24,576-byte bank is SHA `715bfbc2…`. O1C-0091 has ingested the full
-harvest with zero solver work and sealed fresh Page 14 at active limit 252,
-SHA `00a5a4a7…`, before any intent. Bind parser, source,
-executable/help-smoke and invocation around the single evidence-selected
-O1C-0092 experiment.
-Preserve the focused-gate-to-production efficiency rule and do not raise caps,
-map action sign to key belief or duplicate read-only preflights.
-
-Resume authority is the [O1C-0091 Page-14 rollover interpretation](O1C0091_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md) and [sealed preparation manifest](o1c91_page14_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json), SHA-256 `e46ca7373bc3a94efc30dcd309728005e3bee8b93983dc2c396f45bd487dd458`. Its science parent is the [O1C-0090 result](O1C0090_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json), [interpretation](O1C0090_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md), and sealed [capsule](../runs/20260720_195618_030937_O1C-0090_apple8-parent-centered-continuation-v1/RUN.md). The parent result SHA-256 is `7089f78809de90007a4914f0cdaebeef7491d04a46871d05e8a2598e30676886`; capsule artifact-manifest SHA-256 is `d4088eddb3cf671b908ebbc2d19e6e0159eac149b4b882bb21cca62635df1df0`.
+Resume authority is the [O1C-0092 result](O1C0092_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json), [interpretation](O1C0092_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md), [five-burst audit](O1C0092_PAGE14_CROSS_BURST_CAUSAL_AUDIT_20260720.md), [nine-axis audit](O1C0092_PAGE14_NINE_AXIS_QUOTIENT_AUDIT_20260720.md) and sealed [capsule](../runs/20260720_205659_306771_O1C-0092_apple8-parent-centered-continuation-v1/RUN.md). Result SHA-256 is `04c4d7673898dd35d9c613ed0f1676dd8f3a60f01b04167b02660b93adfcc16c`; artifact-manifest SHA-256 is `b91e23706c1a019c30f4de016f4f78e8da3494416e9a5fc69043b5c2fb890eae`; structural-audit SHA-256 is `9d9b103c23e63a7bc5212ae190b744edb2dc5f9b667f873c0aa2ff5b12492462`. Preserve the focused-gate-to-production rule, assign one preflight owner and never replay Page 14.
 
 ## Frontier scoreboard
 
@@ -281,16 +274,14 @@ Resume authority is the [O1C-0091 Page-14 rollover interpretation](O1C0091_APPLE
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0090 supports Page-13 compounding with `260`
-  globally novel exact trail-UB exclusions at `128/46/46` work. It evolves the
-  continuation bank to `715bfbc2…`; key/model/closure and attacker-valid
-  entropy/domain gain remain zero. O1C-0091 resolves the exact `253+260=513`
-  event with zero solver work and seals Page 14 under
-  `H-PARENT-CENTERED-PAGE14-ROLLOVER-COMPOUNDING-093`. After native v25,
-  adapter v28 and the O1C-0092 runner are sealed, at most one fresh lineage-27
-  call may test additional novelty, closure/model,
-  attacker-valid entropy/domain reduction and finally a publicly verified key.
-  Exact 256 remains the north star.
+- **Next measurable advance:** O1C-0092 supports Page-14 compounding with `261`
+  globally novel exact trail-UB exclusions at only `128/10/10` work and evolves
+  the continuation bank to `97a325c9…`. O1C-0093 must preserve the full burst
+  and create fresh Page 15 / lineage 28 at active limit 251. In parallel,
+  O1C-0094 must convert the audited nine-axis repetition into an exact lossless
+  bounded-state quotient. Only the next fresh Page-15 call may test further
+  novelty, closure/model, attacker-valid entropy/domain reduction and finally a
+  publicly verified key. Exact 256 remains the north star.
 
 ## Effect-first stop rules
 

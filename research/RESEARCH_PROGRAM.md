@@ -567,10 +567,29 @@ O1C-0090 is again capacity-censored at `253+260=513`. Under
 clause with zero solver work and seals fresh Page 14 / lineage 27 at active
 limit 252, giving exactly 260 clause slots. The attic reaches 1,551 clauses;
 190/260 new clauses are resident, 70 explicit nonresidents remain addressable,
-and three new strict subsumption pairs grow structural roots `5→8`. Bind the
-unchanged operator through O1C-0092. Preserve the efficiency rule: focused
-gates protect irreversible state, assign one preflight owner, and proceed
-directly without a comfort-control cycle.
+and three new strict subsumption pairs grow structural roots `5→8`.
+
+O1C-0092 then supports H093 with one unchanged `128/10/10` call. It fully emits
+261 trail-UB clauses / 756,414 literals, all internally unique and globally
+novel against the complete 1,551-clause attic. Witness UBs span
+`11.553303084092308..14.038279700095462`, all robustly below tau. Conflict
+efficiency rises `5.6522→26.1` clauses per billed conflict and probe efficiency
+rises `7.6719→7.8148` per 1,000. The bank evolves to `97a325c9…`; direct action
+crossings, key/model/closure/posterior and attacker-valid entropy/domain gain
+remain zero. The result is capacity-censored at `252+261=513` after ten
+conflicts, so the five-burst audit selects an unchanged Page-15 continuation.
+
+The read-only Page-14 structural audit exposes an exact nine-axis repetition
+code: 256 tail clauses share a 2,780-literal signed core, while all 118 changing
+signs are copies or complements of nine key-coordinate axes. Conservative
+literal-entry accounting contracts `756,414→47,514` (`15.9198131077x`). This is
+a bounded-state representation opportunity, not a key inference: the vault
+family alone has tautological existential key projection and zero
+non-tautological simple resolvents. O1C-0093 now preserves the full burst in
+fresh Page 15 / lineage 28 at active limit 251; O1C-0094 independently requires
+byte-exact quotient reconstruction. Preserve the efficiency rule: focused gates
+protect irreversible state, assign one preflight owner, and proceed directly
+without a comfort-control cycle.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1150,8 +1169,11 @@ evidence.
   without key/model/closure/entropy-domain gain. O1C-0089 preserves that burst
   and `0203de9f…` bank in bounded Page 13; O1C-0090 then adds 260 more globally
   novel clauses against 1,291 prior clauses at `128/46/46` and evolves the bank
-  to `715bfbc2…`. Never replay Page 8 through Page 13; ingest all 260 clauses in
-  fresh Page 14 / lineage 27 at active limit 252 before any new intent.
+  to `715bfbc2…`. O1C-0091 preserves that burst in Page 14, and O1C-0092 adds
+  another 261 globally novel clauses against 1,551 prior clauses at only
+  `128/10/10`, evolving the bank to `97a325c9…`. Never replay Page 8 through
+  Page 14; ingest all 261 clauses in fresh Page 15 / lineage 28 at active limit
+  251 before any new intent, while the nine-axis quotient is validated offline.
 
 ## Operating contract
 

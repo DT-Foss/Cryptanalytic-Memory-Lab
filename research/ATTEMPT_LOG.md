@@ -3888,3 +3888,62 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [manifest](o1c91_page14_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json),
   SHA-256
   `e46ca7373bc3a94efc30dcd309728005e3bee8b93983dc2c396f45bd487dd458`.
+
+## O1C-0092 — APPLE8 parent-centered Page-14 continuation
+
+- **Started:** `2026-07-20T20:56:59.306771+02:00`; **recorded:**
+  `2026-07-20T20:57:41.789278+02:00` (`Europe/Berlin`).
+- **Protocol:** validate the complete 1,551-clause attic, fresh 252-clause Page
+  14, `715bfbc2…` live bank and canonical receipt; build native v25 once, seal
+  and help-smoke the exact executable bytes; persist one local-0 / lineage-27
+  intent; then issue exactly one seed-0 call at 128 requested conflicts with no
+  retry, reveal, target/truth input, refit, MPS or GPU use.
+- **Preflight:** the combined focused gate passed 60/60 tests plus Ruff and
+  Pyright. Exactly one real CLI preflight returned zero solver calls, capsules
+  and intents; production then ran exactly once.
+- **Terminal result:** `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`, stop
+  `globally-novel-clause`, native status `0` / `UNKNOWN`. Work is
+  requested/actual/billed `128/10/10`, leaving 118 conflicts unused, with 521
+  decisions and 2,074,835 propagations. The call fully emits 261
+  trail-upper-bound no-goods / 756,414 literals.
+- **Independent novelty:** 261 distinct clause hashes and 261 distinct witness
+  hashes have exact intersection zero with all 1,551 prior attic clauses.
+  Witness UBs are `11.553303084092308..14.038279700095462`, all strictly below
+  `tau=14.606178797892962`; minimum/median margins are
+  `0.5678990977975005/1.4443174838336663`.
+- **Science boundary:** `threshold_prunes=261` is the safe trail-UB path. The
+  separate direct-action field remains `actual_certified_prunes=0`: 255
+  failure-first actions made 33,398 probes / 66,796 child evaluations without
+  a realized action crossing. Science gain is exact global clause novelty only;
+  no key/model/closure/posterior or attacker-valid entropy/domain gain follows.
+- **State boundary:** the harvest is complete and archived. A combined successor
+  is unavailable only because `252+261=513`, exactly one above the 512-clause
+  cap. Bank conservation closes at `249,671→283,069`, delta 33,398 equal to
+  probes and outcomes; the bank evolves to `97a325c9…`, receipt `1c69bb32…`,
+  and variable 241 remains the sole zero record. Page 14 / lineage 27 are burned.
+- **Structural audit:** the 256 equal-length tail rows share a 2,780-literal core
+  and their 118 changing signs are exact copies/complements of nine key axes.
+  A conservative lossless quotient reduces literal-entry accounting
+  `756,414→47,514` (`15.9198131077x`, `93.7185192236%`). This is representation,
+  not inference: zero non-tautological simple resolvents exist and the vault
+  family alone has no key-only consequence.
+- **Hypothesis:** support
+  `H-PARENT-CENTERED-PAGE14-ROLLOVER-COMPOUNDING-093`; activate
+  `H-PARENT-CENTERED-PAGE15-ROLLOVER-COMPOUNDING-094` and
+  `H-PAGE14-NINE-AXIS-QUOTIENT-095`.
+- **Next action:** O1C-0093 ingests all 261 clauses with zero solver work and
+  derives fresh Page 15 / lineage 28 at active limit 251. O1C-0094 separately
+  round-trips the quotient exactly. Never replay Page 14 or raise caps/RAM.
+- **Resources:** native wall `0.701334 s`, CPU `1.472248 s`, peak RSS
+  `377,815,040 B`; runner wall `42.482507042 s`; exactly one native call.
+- **Artifacts:** authoritative
+  [result](O1C0092_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  SHA-256
+  `04c4d7673898dd35d9c613ed0f1676dd8f3a60f01b04167b02660b93adfcc16c`;
+  [interpretation](O1C0092_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md),
+  [five-burst audit](O1C0092_PAGE14_CROSS_BURST_CAUSAL_AUDIT_20260720.md),
+  [nine-axis audit](O1C0092_PAGE14_NINE_AXIS_QUOTIENT_AUDIT_20260720.md), and
+  sealed
+  [capsule](../runs/20260720_205659_306771_O1C-0092_apple8-parent-centered-continuation-v1/RUN.md),
+  artifact-manifest SHA-256
+  `b91e23706c1a019c30f4de016f4f78e8da3494416e9a5fc69043b5c2fb890eae`.
