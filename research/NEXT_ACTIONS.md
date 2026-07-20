@@ -1,17 +1,18 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-20T14:35:32+02:00.
+Last ranked: 2026-07-20 (O1C-0083 preparation sealed).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Ingest O1C-0082's complete 257-clause harvest into the existing immutable causal attic and prove canonical novelty/occurrence/union identity with zero solver calls | State of the art enabling | Extreme | Extreme | Very low | Converts the capacity terminal into durable accumulated evidence without replay or extra RAM |
-| 2 | Implement and seal one deterministic headroom-aware Page-9 projection; if exact confirmation passes, set explicit `next_active_limit=255`, then bind O1C-0082's final 24,576-byte priority bank as the continuation seed; keep belief orientation disabled | State of the art | Extreme | Extreme | Low | Expected, unsealed and unimplemented: 255 live clauses / 721,187 literals / 2,885,959 B, `4+43+208`, SHA `8c3b8cc33badd4aa23920caabc5ea3fc5006675d93805578b74b2b20788c8204`, leaving 257 rather than 256 clause slots; no production call |
-| 3 | Freeze at most one fresh Page-9/lineage-22 call under unchanged public relation/scorer/K256; accept further global clauses, closure/model, entropy/domain gain or verified key | State of the art | Extreme | High | Low | Tests whether the first 257-clause burst compounds rather than saturates |
+| 1 | Build a Page-9 runner and preflight that accept the sealed live continuation bank and validate its state receipt/digest; freeze every source, input, projection, bank and invocation hash | State of the art enabling | Extreme | Extreme | Low | Removes the only parser/authorization gate without spending Page 9 |
+| 2 | Freeze at most one fresh Page-9/lineage-22 call under unchanged public relation/scorer/K256; accept novel clauses, closure/model/key, or attacker-valid entropy/domain gain | State of the art | Extreme | Extreme | Low | Tests `H-PARENT-CENTERED-COMPOUNDING-088` without replay or a cap sweep |
+| 3 | If the sealed call is inert, retain the complete attic and change the public action/residency objective rather than replaying or raising caps | State of the art | High | Extreme | Low | Distinguishes operator saturation from evidence-capacity failure |
 | 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
 ## Current resume
 
-Resume from O1C-0082's terminal `PARENT_CENTERED_NOVEL_CLAUSE_GAIN`. Its sole
+Resume from O1C-0083's zero-call `CAUSAL_ATTIC_PAGE9_ROLLOVER_PREPARED`, which
+preserves O1C-0082's terminal `PARENT_CENTERED_NOVEL_CLAUSE_GAIN`. O1C-0082's sole
 local-0/lineage-21 call consumed fresh Page 8 at requested/actual/billed
 `128/9/9`. Page 8 and lineage 21 are burned and must never be retried or
 replayed.
@@ -57,22 +58,23 @@ wall is 0.778217 s at 320,897,024 B peak. The complete emitted set is archived
 and the updated priority bank SHA-256 is `05b8acf3…`; no next combined vault is
 serialized.
 
-Resume with O1C-0083 zero-call causal-attic ingestion. Preserve the full 257
-clauses and their witnesses/occurrences in the immutable union, then select one
-bounded active Page 9 with explicit clause/literal/payload headroom. If exact
-implementation confirms the projection, set `next_active_limit=255`, the minimal
-one-slot sacrifice from hard-inheriting `256`. Expected is `255` live clauses /
+O1C-0083 has now ingested the full 257 clauses and their unique occurrences into
+the immutable union and sealed a bounded active Page 9 with explicit clause,
+literal and payload headroom. Explicit `next_active_limit=255`, the minimal
+one-slot sacrifice from hard-inheriting `256`, selects `255` live clauses /
 `721,187` literals / `2,885,959 B`, SHA-256
 `8c3b8cc33badd4aa23920caabc5ea3fc5006675d93805578b74b2b20788c8204`,
 categorized `roots=4`, `pinned=43`, `new_debt=208`, with `257` clause slots of
-headroom rather than `256`. This is unsealed and unimplemented; no production
-call has occurred. Seed it with the final priority bank and authorize fresh
-lineage 22 only after exact state and projection identity pass. A cheap
+headroom rather than `256`. The projection is implemented and sealed; no
+production call or intent exists, and Page 9 / lineage 22 remain unburned. The
+future runner must accept the evolved live continuation bank plus its receipt,
+not the incompatible fresh 74-parent seed format. Authorize fresh lineage 22
+only after all code/input/state/invocation hashes pass. A cheap
 attribution control is secondary and must not consume the sole fresh successor
 page. Do not raise the cap/RAM blindly or map action sign to a hidden-bit
 posterior.
 
-Resume authority is the
+Resume authority is the [O1C-0083 result](O1C0083_APPLE8_CAUSAL_ROLLOVER_RESULT_20260720.json), its [interpretation](O1C0083_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md), the [sealed preparation manifest](o1c83_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json), and the parent
 [`O1C-0082 result`](O1C0082_APPLE8_PARENT_CENTERED_RESULT_20260720.json),
 SHA-256 `013692cf836e594c8580734e0c95a9f0dd18ad7536c457274a1fe5684df1ad4f`,
 its [`interpretation`](O1C0082_APPLE8_PARENT_CENTERED_INTERPRETATION_20260720.md),
@@ -259,8 +261,8 @@ Runner freeze is `b0cf256ef43a85bd7f16c522f1e048a139908dc8`.
   its bounded live field produces 257 globally novel exact exclusions in nine
   conflicts. Its zero-call cube audit closes prefix/key and simple-resolution
   shortcuts: the common core remains `4.0603849711627085` above tau. O1C-0083
-  must preserve that complete harvest in the causal attic, confirm and seal the
-  expected 255-clause Page-9 projection, and only then test whether the exclusion
+  preserves that complete harvest in the causal attic and seals the 255-clause
+  Page-9 projection. A live-continuation preflight must pass before the exclusion
   stream compounds on fresh lineage 22. The next higher gates are additional
   novelty, closure/model, attacker-valid entropy/domain reduction and finally a
   publicly verified key.

@@ -487,18 +487,20 @@ no-good, resolution compression or prunable core subset. Canonical core SHA-256
 is `9aa383f819d1aa4b1216937ee341aa6a773d1d3456e1ea622494ef1a4345ea06`.
 Solver/native/target/truth/reveal calls remain zero.
 
-Activate `H-PARENT-CENTERED-ATTIC-ROLLOVER-087`. O1C-0083 first ingests the
-complete 257-clause harvest into the external causal attic with zero solver work,
-then implements and seals one deterministic bounded Page-9 projection with
-explicit capacity headroom. If exact confirmation passes, use
-`next_active_limit=255`, the minimal one-slot sacrifice. Expected but currently
-unsealed and unimplemented is `255` live clauses / `721,187` literals /
+O1C-0083 supports `H-PARENT-CENTERED-ATTIC-ROLLOVER-087` at preparation level. It ingests the
+complete 257-clause harvest into the external causal attic with zero solver work
+and seals one deterministic bounded Page-9 projection with explicit capacity
+headroom. Explicit `next_active_limit=255`, the minimal one-slot sacrifice,
+selects `255` live clauses / `721,187` literals /
 `2,885,959 B`, SHA-256
 `8c3b8cc33badd4aa23920caabc5ea3fc5006675d93805578b74b2b20788c8204`,
 partitioned as `roots=4`, `pinned=43`, `new_debt=208`, leaving `257` clause
-slots instead of the `256` left by hard-inheriting 256 clauses. No production
-call has occurred. Preserve the final 24,576-byte bank and continue only on
-fresh lineage 22 after sealing. The architecture now has the intended split:
+slots instead of the `256` left by hard-inheriting 256 clauses. The attic is now
+13 chunks / 807 unique clauses / 815 occurrences / 9 strict relations / 801
+undominated clauses. No production call or intent exists; Page 9 / lineage 22
+remain unburned. Preserve the final 24,576-byte evolved bank, require a dedicated
+live-continuation parser and receipt validation, and activate
+`H-PARENT-CENTERED-COMPOUNDING-088`. The architecture now has the intended split:
 bounded living priority state, bounded active clause residency and an exact
 unbounded-history attic.
 
@@ -1052,10 +1054,11 @@ evidence.
   stops the call at `256+257=513` clauses versus the 512-clause active cap.
   Its zero-call audit exposes the exact 256-orientation tail cube but finds zero
   simple resolvents and a non-prunable common core, so it adds no closure/key or
-  compressed clause. Preserve the complete harvest through O1C-0083 immutable
-  causal-attic ingestion. Expected/unsealed/unimplemented
-  `next_active_limit=255` would leave 257 clause slots; confirm and seal it
-  before any fresh Page 9 / lineage 22 call. Never replay Page 8.
+  compressed clause. O1C-0083 preserves the complete harvest through immutable
+  causal-attic ingestion and seals `next_active_limit=255`, leaving 257 clause
+  slots. It is a zero-call enabling/mechanism gain, not new cryptanalytic/key/
+  entropy gain. Build a live-continuation-bank-capable runner and preflight
+  before freezing at most one fresh Page 9 / lineage 22 call. Never replay Page 8.
 
 ## Operating contract
 

@@ -2031,3 +2031,37 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [`interpretation`](O1C0082_APPLE8_PARENT_CENTERED_INTERPRETATION_20260720.md)
   and sealed
   [`capsule`](../runs/20260720_143008_461948_O1C-0082_apple8-parent-centered-v1/RUN.md).
+
+## B-0083 — Rollover is sealed; live-continuation parsing is the next gate
+
+- **Positive breadcrumb:** O1C-0083 imports all 257 O1C-0082 exclusions as new,
+  unique occurrences. The immutable attic now contains 13 chunks, 807 unique
+  clauses, 815 occurrences, nine strict subsumption relations and 801
+  undominated clauses. The exact chunk is 743,129 literals / 2,973,735 B, SHA
+  `19e294822deb3b98904e9d14b944fe167cd3ff048f7d04d870c003b34cdadaf0`.
+- **Capacity breadcrumb:** explicit `next_active_limit=255` is implemented and
+  sealed. Fresh Page 9 is 255 clauses / 721,187 literals / 2,885,959 B,
+  categories 4 roots + 43 pinned + 208 new debt, SHA `8c3b8cc3…`; it leaves
+  headroom for 257 clauses / 878,813 literals / 5,502,649 B.
+- **Parser boundary:** the 24,576-byte final bank is evolved live state: 256
+  ordered 96-byte records, 255 eligible, zero-count variable 241, maximum count
+  575. Receipt SHA `e3512587…` validates it, but the fresh 74-parent seed parser
+  is intentionally incompatible. A dedicated continuation parser must validate
+  the live digest and receipt before Page 9 can be authorized.
+- **Claim boundary:** classification is
+  `CAUSAL_ATTIC_PAGE9_ROLLOVER_PREPARED`. This is a zero-call enabling/mechanism
+  gain, not new cryptanalytic/key/entropy/domain gain. Page 9 / lineage 22 are
+  unburned, no production intent exists, and Page 8 remains permanently burned.
+- **Closed shortcut:** common core `U=18.66656376905567` remains
+  `4.0603849711627085` above tau and nonprunable. Rollover does not turn the
+  tail cube into closure, a key, or a compressed certificate.
+- **Do not repeat:** Page 8 / lineage 21, O1C-0083 ingestion, a 256-clause hard
+  inheritance, fresh-seed parsing of the evolved bank, cap/RAM sweeps or action
+  polarity reinterpretation.
+- **Next action:** build and preflight the continuation-bank-capable Page-9
+  runner, freeze every hash, then make at most one fresh lineage-22 call under
+  `H-PARENT-CENTERED-COMPOUNDING-088`. Accept novel clauses, closure/model/key,
+  or attacker-valid entropy/domain gain; otherwise change the public operator.
+- **Artifacts:** [result](O1C0083_APPLE8_CAUSAL_ROLLOVER_RESULT_20260720.json),
+  [interpretation](O1C0083_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md),
+  and [manifest](o1c83_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json).

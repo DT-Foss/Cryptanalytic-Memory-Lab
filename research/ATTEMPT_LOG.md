@@ -3448,16 +3448,16 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   and O1C-0082 use different pages/operators and are not a matched causal
   ablation; the sharp 0→257 exclusion change is therefore a high-value
   mechanism result, not isolated effect size.
-- **Decision:** burn Page 8 / lineage 21 permanently. O1C-0083 must first ingest
-  all 257 clauses into the external causal attic and derive one deterministic
-  bounded Page-9 projection with capacity headroom. If implementation confirms,
-  explicit `next_active_limit=255` is the minimal one-slot sacrifice: expected
+- **Decision:** burn Page 8 / lineage 21 permanently. O1C-0083 has ingested
+  all 257 clauses into the external causal attic and derived one deterministic
+  bounded Page-9 projection with capacity headroom. Implemented and sealed
+  explicit `next_active_limit=255` is the minimal one-slot sacrifice:
   `255` clauses / `721,187` literals / `2,885,959 B`, SHA-256
   `8c3b8cc33badd4aa23920caabc5ea3fc5006675d93805578b74b2b20788c8204`,
   categorized `roots=4`, `pinned=43`, `new_debt=208`, leaving `257` clause
-  slots rather than hard-inheriting `256` and leaving `256`. This projection is
-  expected, unsealed and unimplemented; no production call has occurred.
-  Continue from the final priority bank on fresh lineage 22 only after sealing.
+  slots rather than hard-inheriting `256` and leaving `256`. No production call
+  or intent exists. Continue from the final priority bank on fresh lineage 22
+  only after a dedicated live-continuation parser and full preflight are sealed.
   Do not replay, raise RAM blindly or treat action sign as a key posterior.
 - **Artifacts:** authoritative
   [`result`](O1C0082_APPLE8_PARENT_CENTERED_RESULT_20260720.json), SHA-256
@@ -3467,3 +3467,44 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [`capsule`](../runs/20260720_143008_461948_O1C-0082_apple8-parent-centered-v1/RUN.md),
   artifact-manifest SHA-256
   `3256a85e1095ffeaee349d3248035cb53470b1921abd58dd230e1617696134e6`.
+
+## O1C-0083 — APPLE8 causal-attic Page-9 rollover preparation
+
+- **Prepared/recorded:** `2026-07-20T15:31:57+02:00` (`Europe/Berlin`). Code
+  commit `ddb9368c0a2f5cf469148c30748c416ace805225`; capacity API commits
+  `b9eff33` and monotone fix `65c122b`.
+- **Protocol:** reconstruct O1C-0082's sealed parent from result SHA-256
+  `013692cf836e594c8580734e0c95a9f0dd18ad7536c457274a1fe5684df1ad4f`,
+  capsule-manifest SHA-256 `3256a85e1095ffeaee349d3248035cb53470b1921abd58dd230e1617696134e6`
+  and telemetry SHA-256 `9c7705591948e1f3b4ee1589cf431c8bd9a5844bad670ddb1c713c4d1d3e5445`;
+  ingest all 257 emitted clauses, advance residency with explicit
+  `next_active_limit=255`, and publish atomically with zero solver/native/science/
+  target/truth/reveal/refit calls.
+- **Result:** `CAUSAL_ATTIC_PAGE9_ROLLOVER_PREPARED`; zero-call enabling and
+  mechanism gain only, not new cryptanalytic/key/entropy/domain gain. New chunk
+  SHA `19e29482…` is 257 clauses / 743,129 literals / 2,973,735 B, with every
+  occurrence new and unique. The attic becomes 13 chunks / 807 unique clauses /
+  815 occurrences / 9 strict relations / 801 undominated clauses.
+- **Page 9:** fresh SHA `8c3b8cc3…`, 255 clauses / 721,187 literals /
+  2,885,959 B, categories 4 roots + 43 pinned + 208 new debt. Headroom is 257
+  clauses / 878,813 literals / 5,502,649 B. Page 9 / lineage 22 are not burned;
+  no intent or production call exists.
+- **Continuation gate:** bank SHA `05b8acf3…` is 24,576 B as 256x96-byte records,
+  255 eligible, variable 241 zero-count and maximum evolved count 575. Receipt
+  `e3512587…` is 51,949 B and byte-validates the bank. It is incompatible with
+  the fresh 74-parent seed parser; the future runner must accept the live
+  continuation digest and receipt.
+- **Audit:** common-core SHA `9aa383f8…`, 2,764 literals, exact grouped
+  `U=18.66656376905567 > tau=14.606178797892962` by
+  `4.0603849711627085`; nonprunable. Focused tests 8 passed in 90.91 s;
+  historical suite 120 passed in 162.13 s; Ruff/Pyright clean.
+- **Decision:** support `H-PARENT-CENTERED-ATTIC-ROLLOVER-087` at preparation level. Activate
+  `H-PARENT-CENTERED-COMPOUNDING-088`: build and preflight a live-continuation-
+  bank-capable Page-9 runner, freeze every hash, then authorize at most one fresh
+  lineage-22 call. Accept novel clauses, closure/model/key, or attacker-valid
+  entropy/domain gain. No replay or cap sweep.
+- **Artifacts:** authoritative [result](O1C0083_APPLE8_CAUSAL_ROLLOVER_RESULT_20260720.json),
+  [interpretation](O1C0083_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md),
+  [config](../configs/o1c83_apple8_causal_rollover_v1.json), and sealed
+  [manifest](o1c83_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json)
+  SHA-256 `b8a829a642159640a10cc553c6c27e5312cae4fbda8f75975688c6d14afe7dda`.
