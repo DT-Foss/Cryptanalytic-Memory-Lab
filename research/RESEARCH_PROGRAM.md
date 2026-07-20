@@ -581,15 +581,24 @@ conflicts, so the five-burst audit selects an unchanged Page-15 continuation.
 
 The read-only Page-14 structural audit exposes an exact nine-axis repetition
 code: 256 tail clauses share a 2,780-literal signed core, while all 118 changing
-signs are copies or complements of nine key-coordinate axes. Conservative
-literal-entry accounting contracts `756,414→47,514` (`15.9198131077x`). This is
-a bounded-state representation opportunity, not a key inference: the vault
-family alone has tautological existential key projection and zero
-non-tautological simple resolvents. O1C-0093 now preserves the full burst in
-fresh Page 15 / lineage 28 at active limit 251; O1C-0094 independently requires
-byte-exact quotient reconstruction. Preserve the efficiency rule: focused gates
-protect irreversible state, assign one preflight owner, and proceed directly
-without a comfort-control cycle.
+signs are copies or complements of nine key-coordinate axes. O1C-0094 converts
+that structure into an executable lossless codec. Every one of 261 clause and
+witness identities round-trips exactly; conservative literal-entry accounting
+contracts `756,414→47,514` (`15.9198131077x`), while the packed retained quotient
+is 18,034 B and maximum streaming decoder state is 29,766 B. This is a genuine
+bounded-state representation gain, not a key inference: the vault family alone
+has tautological existential key projection and zero non-tautological simple
+resolvents. A cheap follow-up checks both violating polarities for all 109
+nontrivial mappings and certifies `0/218` under the unchanged score bound, so no
+Page or general proof campaign is spent there.
+
+O1C-0093 preserves the full burst in fresh Page 15 / lineage 28 at active limit
+251. The attic reaches 1,812 unique clauses / 1,820 occurrences; Page 15 is 251
+clauses and leaves exact 261-clause headroom. Of the newest burst, 160 clauses
+are resident and 101 remain explicit nonresidents; one is dominated and 100 are
+undominated. Bind the unchanged operator through O1C-0095. Preserve the
+efficiency rule: focused gates protect irreversible state, assign one preflight
+owner, and proceed directly without a comfort-control cycle.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1171,9 +1180,11 @@ evidence.
   novel clauses against 1,291 prior clauses at `128/46/46` and evolves the bank
   to `715bfbc2…`. O1C-0091 preserves that burst in Page 14, and O1C-0092 adds
   another 261 globally novel clauses against 1,551 prior clauses at only
-  `128/10/10`, evolving the bank to `97a325c9…`. Never replay Page 8 through
-  Page 14; ingest all 261 clauses in fresh Page 15 / lineage 28 at active limit
-  251 before any new intent, while the nine-axis quotient is validated offline.
+  `128/10/10`, evolving the bank to `97a325c9…`. O1C-0093 now preserves all of
+  them in fresh Page 15 / lineage 28 at active limit 251, while O1C-0094 proves
+  exact lossless nine-axis reconstruction in 18,034 retained bytes. Never replay
+  Page 8 through Page 14; bind one unchanged O1C-0095 call to Page 15 and the
+  evolved bank before any new mechanism or residency pivot.
 
 ## Operating contract
 

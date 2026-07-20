@@ -3947,3 +3947,66 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [capsule](../runs/20260720_205659_306771_O1C-0092_apple8-parent-centered-continuation-v1/RUN.md),
   artifact-manifest SHA-256
   `b91e23706c1a019c30f4de016f4f78e8da3494416e9a5fc69043b5c2fb890eae`.
+
+## O1C-0093 — APPLE8 Page-15 causal rollover
+
+- **Recorded:** `2026-07-20T21:38:20+02:00` (`Europe/Berlin`).
+- **Protocol:** ingest all 261 O1C-0092 clauses and evolved live state with zero
+  solver work; derive fresh Page 15 / lineage 28 at active limit 251; publish
+  only as an atomic byte-sealed bundle.
+- **Terminal result:** `CAUSAL_ATTIC_PAGE15_ROLLOVER_PREPARED`. The attic grows
+  to 18 chunks / 1,812 unique clauses / 1,820 occurrences / 14 relations /
+  1,801 undominated; prior union and relations remain exact prefixes.
+- **Fresh page:** 251 clauses / 710,463 literals / 2,843,047 B, SHA
+  `71f4b544…`; categories 9 roots + 43 pinned + 199 new debt. Exact clause
+  headroom is 261, five beyond the 256 action coordinates.
+- **Residency:** 160/261 newest clauses are resident and 101 explicit
+  nonresidents remain in the attic; one missing clause is dominated by the sole
+  new relation `1554→1553`, and 100 are undominated. Historical never-resident-
+  undominated shrinks `107→67`; combined new plus historical debt is 167.
+- **State:** bank `97a325c9…` and receipt `1c69bb32…` remain byte-exact; total
+  count 283,069, maximum 2,675 at variable 15, sole zero variable 241.
+- **Claim boundary:** enabling/mechanism only. Native solver/science/preflight/
+  target/truth/reveal/refit/MPS/GPU calls are zero; no intent exists and Page 15
+  / lineage 28 remain unburned.
+- **Validation:** one focused 10-case reconstruction gate, Ruff clean, Pyright
+  zero errors; all ten published artifacts independently byte/hash verified.
+- **Next action:** bind native v26, adapter v29 and O1C-0095 runner, then one
+  owned preflight and at most one fresh lineage-28 call. No Page-14 replay, cap
+  growth, action change or comfort control.
+- **Artifacts:** [interpretation](O1C0093_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md)
+  and [manifest](o1c93_page15_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json),
+  SHA-256
+  `187f09309b2d866549441d713f29bfed696c140f5c5a99536001c889f5836a24`.
+
+## O1C-0094 — Page-14 lossless nine-axis quotient
+
+- **Recorded:** `2026-07-20T21:40:29+02:00` (`Europe/Berlin`).
+- **Protocol:** validate the sealed O1C-0092 vault/result/manifest; factor the
+  occurrence ledger into a shared core, explicit prefix residuals and nine-axis
+  tail; reconstruct every row from quotient state only; reject core, map,
+  codeword and witness-bit mutations. No solver or target/truth input.
+- **Terminal result:** `LOSSLESS_NINE_AXIS_COMPRESSION_QUOTIENT`. All 261 clause
+  identities, all 261 witness identities, row order, multiplicity and aggregate
+  `dad38833…` round-trip exactly.
+- **State:** 2,709 shared literals, five explicit prefix residuals, 2,780 tail-
+  core literals, 118 one-axis copy/complement tags, 256 nine-bit codewords and
+  exact f64 witness bits. Packed retained quotient is 18,034 B; maximum row
+  scratch is 11,732 B and maximum streaming decoder state is 29,766 B.
+- **Compression:** conservative literal-entry accounting is
+  `756,414→47,514`, saving 708,900 (`93.7185192236%`, `15.9198131077x`). The
+  canonical audit JSON is 31,029 B, SHA `0f6eb084…`.
+- **Logical boundary:** compression only. Zero CNF copy/complement equivalences,
+  key bits, entropy/domain reduction or logical substitutions are claimed. The
+  later cheap screen checks 218 violating polarities for 109 real mappings and
+  certifies `0/218`; do not spend a Page on that route.
+- **Validation:** 10 tests in 3.85 s, Ruff clean, Pyright zero errors/warnings;
+  capsule seals exact. Zero solver/preflight/target/truth/reveal/refit/public-
+  verification/MPS/GPU calls.
+- **Artifacts:** [result](O1C0094_PAGE14_NINE_AXIS_QUOTIENT_RESULT_20260720.json),
+  [interpretation](O1C0094_PAGE14_NINE_AXIS_QUOTIENT_INTERPRETATION_20260720.md),
+  and [capsule](../runs/20260720_214029_O1C-0094_page14-nine-axis-quotient-zero-call-v1/RUN.md),
+  result SHA-256
+  `0bc68cb220386239b5dd046a8578777825dca88b6c7a2dfa8bd70be822fdc9a2`,
+  artifact-manifest SHA-256
+  `5f9fe066ac9a7c7871ca9a1118a77c8bebd95eda1f8f88eae79c63984e59a216`.

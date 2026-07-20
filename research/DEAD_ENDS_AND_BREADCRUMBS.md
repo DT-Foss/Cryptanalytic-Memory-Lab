@@ -2375,3 +2375,41 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [nine-axis audit](O1C0092_PAGE14_NINE_AXIS_QUOTIENT_AUDIT_20260720.md), and
   sealed
   [capsule](../runs/20260720_205659_306771_O1C-0092_apple8-parent-centered-continuation-v1/RUN.md).
+
+## B-0093 — Page 15 preserves every clause while residency debt rises
+
+- **Prepared state:** zero-call ingestion grows the attic `1,551→1,812` unique
+  clauses and preserves all 261 O1C-0092 exclusions. Fresh Page 15 is 251
+  clauses / 710,463 literals / 2,843,047 B with exact 261-clause headroom.
+- **Residency boundary:** 160 newest clauses are resident; 101 are explicit
+  nonresidents. One is dominated by new relation `1554→1553`, while 100 are
+  undominated. Forty historical debt clauses return, leaving 67 historical and
+  167 total never-resident-undominated clauses.
+- **Mechanism decision:** Page 15 removes the measured one-slot censorship
+  without changing the successful operator. The next call can distinguish a
+  natural yield endpoint from a sixth capacity crossing.
+- **Failure pivot:** only an uncensored zero-novelty result with no stronger
+  output activates a residency-only change. Do not combine that pivot with
+  action logic, cap growth, quotient substitution or replay.
+- **Artifacts:** [interpretation](O1C0093_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md)
+  and [manifest](o1c93_page15_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json).
+
+## B-0094 — Exact 18-KiB quotient, but no cheap equivalence certificate
+
+- **Positive mechanism:** O1C-0094 reconstructs every O1C-0092 clause and
+  witness identity from 18,034 retained bytes plus one 11,732-byte row scratch;
+  no flat clause materialization is required for streaming consumers.
+- **Compression boundary:** format-independent literal entries shrink
+  `756,414→47,514` (`15.9198x`). The exact flat-binary-to-packed-state ratio is
+  `167.8435732505x`; keep both figures tied to their different denominators.
+- **Logical non-result:** nine mapping rows are axis self-identities and 109 are
+  real candidates (85 equality / 24 complement). Direct binary clauses certify
+  none, and the exact width-6 score bound rejects none of 218 violating
+  polarities (`U=261.442..262.686 > tau`). This does not disprove CNF
+  derivability, but it kills the cheap proof route.
+- **ROI decision:** retain the quotient as O1/holographic state and identity
+  codec. Do not spend a Page or launch up to 109 potentially inversion-hard SAT
+  consequence queries without a new local certificate.
+- **Artifacts:** [result](O1C0094_PAGE14_NINE_AXIS_QUOTIENT_RESULT_20260720.json),
+  [interpretation](O1C0094_PAGE14_NINE_AXIS_QUOTIENT_INTERPRETATION_20260720.md)
+  and [capsule](../runs/20260720_214029_O1C-0094_page14-nine-axis-quotient-zero-call-v1/RUN.md).
