@@ -206,3 +206,45 @@ v6 prune evidence is mechanism telemetry, not recovery progress.
   automatic expansion.
 - If neither depth 1 nor a justified depth 2 produces a crossing, close the
   Apple decision-order line and move to a different public evidence operator.
+
+## Frozen target-free implementation receipt
+
+The final runtime/source boundary is commit
+`0c18e064ae792ee719db34ff702f249994f4aab4`.  The execution commit may change
+only this design note, the O1C-0080 config, and the target-free PASS receipt;
+the runner's broad `src/o1_crypto_lab` / `native` guard and its 23 enumerated
+blob bindings reject any runtime drift.
+
+The frozen implementation identities are:
+
+- runner `e30a60a9be56bc8b17115d0b30ca691b79745fb4bc3da29af8bff80ca0365c2a`;
+- runner fixtures `595ce16016bed1bf07ce0920cd5e7d426e0ea48cdf67a818936e1d7f42853e8c`;
+- adapter v21 `9d5dcb263e9a78ac45113845c5a57981f8efbe4180b9a7ec2e007488695a1b92`;
+- native v18 `21c61e11d2188a122b888e21d2e59dd98fcc21d482af4cec6a1962bd218b7595`;
+- native include closure
+  `51d9894dad1f103aa3b67433e398de533f145383a9ffaadc53e73d9a2fff434e`;
+- arm64 executable
+  `28842de5764f472b1c04111f2200085889971b16405522b041a4ea4a38bf8597`
+  (`1,740,376` bytes); and
+- target-free PASS receipt
+  `8002d3f713d236ebdec8dcd8b428c0a4f09994768f79db61544f1122556c7e75`.
+
+The final component evidence comprises 52 unchanged preparation/native/adapter
+fixtures from the 75-test combined run plus 30 post-hardening runner fixtures.
+The latter independently reject every path-backed input mutation between
+preflight and call, rederive recovery classification from episode evidence,
+preserve raw stdout byte-exactly, detect the production solver basename, and
+keep probe, crossing, and science conclusions separate.  Ruff, formatting and
+Pyright are clean.
+
+The retained probe-event cap is 16,384.  Against the O1C-0079 peak, its measured
+allocation delta projects approximately `420,470,784` bytes total and
+`82,845,696` bytes of headroom below the native watchdog's effective limit.
+Crossings, the full probe count/trace digest, and the independent global minimum
+witness remain untruncated.
+
+An execution-free target-free preflight passed with zero native calls, zero
+siblings, `4,885,118,976` available memory bytes and `16,025,063,424` free disk
+bytes.  Page 7, local episode 0 and lineage 20 remain unburned.  The sole next
+action is the clean commit-bound preflight followed by exactly one 128-conflict
+production call; no retry, sweep or replay is authorized.
