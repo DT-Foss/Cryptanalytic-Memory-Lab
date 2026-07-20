@@ -613,12 +613,12 @@ def test_novelty_uses_complete_o1c83_attic_union(fixture: Fixture) -> None:
     assert novel_classification == runner.SCIENCE_CLAUSE
 
 
-def test_pending_production_gate_and_no_stale_page_or_lineage_fields() -> None:
+def test_sealed_production_gate_and_no_stale_page_or_lineage_fields() -> None:
     production = Path(__file__).parents[1] / runner.CONFIG_RELATIVE
-    with pytest.raises(runner.O1C84RunError, match="contains PENDING"):
-        runner.preflight(production)
     source = (Path(__file__).parents[1] / runner.SOURCE_PATHS["runner"]).read_text()
     config = json.loads(production.read_bytes())
+    assert runner._pending(config) == ()
+    assert runner.load_config(production) == config
     assert "joint_score_sieve_v23" in source
     assert "prepare_o1c83_causal_rollover" in source
     assert "active_page9_new_clauses" in source
