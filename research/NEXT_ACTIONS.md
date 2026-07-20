@@ -1,11 +1,11 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-20 (O1C-0086 202-clause continuation recorded).
+Last ranked: 2026-07-20 (O1C-0087 fresh Page-12 rollover sealed).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Ingest all 202 O1C-0086 clauses into the immutable attic and bind the evolved `658fd285…` bank; derive one fresh bounded Page-12 projection with explicit headroom and no solver call | State of the art enabling | Extreme | Extreme | Low | Tests the rollover half of `H-PARENT-CENTERED-PAGE12-ROLLOVER-COMPOUNDING-091` while preserving every new exclusion |
-| 2 | Validate the unchanged continuation parser plus source, executable, `--help`, invocation and intent seals, then authorize at most one fresh Page-12 successor call | State of the art | Extreme | Extreme | Low | Tests whether the 8.78x Page-11 clause-yield jump continues on fresh lineage without replay or cap growth |
+| 1 | Bind the unchanged one-shot operator to the sealed O1C-0087 Page-12 manifest and `658fd285…` live bank; complete one focused native/adapter/runner preflight with exact conservation checks | State of the art enabling | Extreme | Extreme | Low | Opens the irreversible lineage-25 gate without changing the demonstrated mechanism |
+| 2 | If and only if the Page-12 seals pass, authorize exactly one fresh lineage-25 call at 128 requested conflicts | State of the art | Extreme | Extreme | Low | Tests whether the 8.78x Page-11 clause-yield jump continues on fresh lineage without replay or cap growth |
 | 3 | If the sealed Page-12 call is scientifically inert, retain the complete attic and change the public action/residency objective rather than replaying Page 11 or raising caps | State of the art | High | Extreme | Low | Distinguishes operator saturation from evidence-capacity failure |
 | 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
@@ -28,6 +28,16 @@ trail-UB prunes. The separate parent-centered action-crossing field remains
 `actual_certified_prunes=0`: `255` failure-first actions made `100,038` exact
 probes, but no realized action crossing.
 The two counters describe different certification paths.
+
+O1C-0087 has completed the zero-call half of H091. The attic now contains
+1,032 unique clauses / 1,040 occurrences / 1,025 undominated clauses. Fresh
+Page 12 / lineage 25 is unburned and sealed at 254 clauses / 681,054 literals /
+2,725,423 B, SHA `44205f81…`; all 202 O1C-0086 clauses are resident as new debt.
+Headroom is 258 clauses / 918,946 literals / 5,663,185 B. The exact bank is
+`658fd285…`, receipt `e5ffda54…`, and the sole zero coordinate remains 241.
+Manifest SHA `64427e48…` verifies all ten artifacts. The next work is only the
+Page-12-specific native/adapter/runner seal and one real preflight; no further
+rollover or control cycle is needed before the sole authorized call.
 
 For provenance, the mechanism originates in O1C-0082:
 
@@ -86,10 +96,10 @@ bank remains exact SHA `05b8acf3…`.
 
 O1C-0086 leaves a direct next vault available at `456` clauses / `1,265,745`
 literals / `5,064,995 B`, SHA `bdac04a2…`, so active capacity did not stop the
-call. Its evolved 24,576-byte bank is SHA `658fd285…`. Ingest all `202` clauses
-into the immutable attic with zero solver work, bind that bank, and derive a
-fresh Page-12 projection with explicit headroom. Then seal the parser, source,
-executable/help-smoke, invocation and intent before at most one fresh call.
+call. Its evolved 24,576-byte bank is SHA `658fd285…`. O1C-0087 has ingested all
+`202` clauses with zero solver work and sealed fresh Page 12 with explicit
+headroom. Now seal the parser, source, executable/help-smoke, invocation and
+intent before at most one fresh call.
 One focused static pass and one sealed CLI preflight went directly to O1C-0086
 production; preserve that efficiency rule and do not raise cap/RAM blindly or
 map action sign to key belief.
@@ -282,10 +292,10 @@ O1C-0084 authoritative result SHA-256 is
   globally novel exact trail-UB exclusions at `128/131/131` work. It leaves a
   456-clause next vault available and evolves the continuation bank to
   `658fd285…`, while key/model/closure and attacker-valid entropy/domain gain
-  remain zero. The immediate gate is zero-call ingestion of all 202 clauses plus
-  a fresh bounded Page-12 projection under
-  `H-PARENT-CENTERED-PAGE12-ROLLOVER-COMPOUNDING-091`; after every seal passes,
-  at most one fresh Page-12 call may test additional novelty, closure/model,
+  remain zero. O1C-0087 has completed the zero-call ingestion and sealed fresh
+  bounded Page 12 under `H-PARENT-CENTERED-PAGE12-ROLLOVER-COMPOUNDING-091`.
+  After the Page-12 native/adapter/runner seals pass, at most one fresh call may
+  test additional novelty, closure/model,
   attacker-valid entropy/domain reduction and finally a publicly verified key.
   Exact 256 remains the north star.
 

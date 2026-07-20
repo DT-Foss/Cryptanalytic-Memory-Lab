@@ -3668,3 +3668,38 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [capsule](../runs/20260720_181212_319263_O1C-0086_apple8-parent-centered-continuation-v1/RUN.md),
   artifact-manifest SHA-256
   `d4ff926b1c2183ca2c70b499acd9e3aa00e9c6575aee43479dc6238e690953fb`.
+
+## O1C-0087 — APPLE8 Page-12 causal rollover preparation
+
+- **Recorded:** `2026-07-20T18:39+02:00` (`Europe/Berlin`).
+- **Protocol:** with zero native/science calls, ingest all 202 fully emitted
+  O1C-0086 clauses into the immutable causal attic, bind the exact final
+  `658fd285…` live bank and `e5ffda54…` state receipt, then deterministically
+  project fresh bounded Page 12 / lineage 25 with explicit capacity accounting.
+- **Result:** all 202 occurrences are unique and globally novel against the
+  prior 830-clause union. The new chunk is 202 clauses / 546,864 literals /
+  2,188,455 B, SHA `d5338ef8…`. The attic reaches 15 chunks / 1,032 unique /
+  1,040 occurrences / 10 strict relations / 1,025 undominated.
+- **Page 12:** 254 clauses / 681,054 literals / 2,725,423 B, SHA `44205f81…`.
+  Composition is five structural roots, 43 pinned core, 202 new debt and four
+  recycled; all O1C-0086 clauses are resident. Headroom is 258 clauses /
+  918,946 literals / 5,663,185 B. Clause slots prove capacity for 256 actions
+  plus two; literal and byte safety for unknown future emissions are not claimed.
+- **State:** the 24,576-byte bank and 52,009-byte receipt match exactly; 255
+  coordinates are eligible and variable 241 is the sole zero record. The
+  fresh-seed parser is incompatible by design; live continuation is mandatory.
+- **Claim boundary:** `CAUSAL_ATTIC_PAGE12_ROLLOVER_PREPARED`; enabling/mechanism
+  only. Native solver/science/target/truth/reveal/refit/MPS/GPU calls are zero.
+  No intent exists and Page 12 / lineage 25 remain unburned and unauthorized.
+- **Defect yield:** the focused gate caught inherited Page-11 writer delegation
+  reapplying old seals. O1C-0087 now validates its own contract before the
+  existing atomic low-level writer; only the failed test target was rerun. A
+  malformed 63-character parent digest was also rejected before publication.
+- **Next action:** finish Page-12-specific native/adapter/runner seals around the
+  unchanged one-shot operator, then issue at most one lineage-25 call after one
+  real preflight. Do not replay Page 11, rearm crossing actions or raise caps.
+- **Artifacts:** [interpretation](O1C0087_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md)
+  and canonical
+  [manifest](o1c87_page12_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json),
+  SHA-256
+  `64427e4861507e373cc02b52b9c0f2d25d62f26cf9362af681b9bc90ef4a57b6`.

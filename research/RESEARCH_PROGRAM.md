@@ -537,13 +537,16 @@ successor vault remains available at 456 clauses / 1,265,745 literals /
 exclusion compounding, not a key/model/closure/entropy/domain result;
 `actual_certified_prunes=0` still closes the distinct direct-action crossing.
 
-Activate `H-PARENT-CENTERED-PAGE12-ROLLOVER-COMPOUNDING-091`: ingest all 202
-clauses into the immutable attic with zero solver work, bind `658fd285…`, and
-derive fresh bounded Page 12 / lineage 25 with explicit clause/literal/payload
-headroom. Page 11 is burned and must never be replayed. Preserve the unchanged
-operator/caps and the efficiency rule: one focused static gate plus one real
-preflight went directly to production and produced an 8.78x clause-yield jump
-over O1C-0085 without a comfort-control cycle.
+O1C-0087 completes the preparation half of
+`H-PARENT-CENTERED-PAGE12-ROLLOVER-COMPOUNDING-091`: all 202 clauses enter the
+immutable attic, which reaches 1,032 unique clauses, and all 202 remain resident
+on fresh bounded Page 12 / lineage 25. The 254-clause Page uses 681,054 literals
+and 2,725,423 B, leaving headroom 258 clauses / 918,946 literals / 5,663,185 B;
+the exact `658fd285…` bank and `e5ffda54…` receipt bind. Page 11 is burned and
+must never be replayed. Seal the unchanged one-shot operator around Page 12 and
+authorize at most one fresh call. Preserve the efficiency rule: focused gates
+protect irreversible state, while production follows directly after one real
+preflight without a comfort-control cycle.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is

@@ -2185,3 +2185,28 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [capsule](../runs/20260720_181212_319263_O1C-0086_apple8-parent-centered-continuation-v1/RUN.md),
   manifest SHA-256
   `d4ff926b1c2183ca2c70b499acd9e3aa00e9c6575aee43479dc6238e690953fb`.
+
+## B-0087 — Page 12 preserves the complete 202-clause shallow basin
+
+- **Prepared state:** zero-call ingestion grows the attic 830→1,032 unique
+  clauses and makes all 202 O1C-0086 exclusions resident as Page-12 new debt.
+  The live projection remains 254 clauses while shrinking to 681,054 literals /
+  2,725,423 B, leaving more literal/byte headroom than Page 11.
+- **Mechanism breadcrumb:** the O1C-0085→0086 audit decomposes the 8.78x yield
+  into 2.39x more bound opportunities and 3.67x higher prune conversion. The
+  clearest geometric signature is 164/202 clauses at length 2,650–2,653, absent
+  from O1C-0085. Preserve this basin before testing speculative crossing rearm.
+- **State breadcrumb:** O1C-0086's action order was highly stable relative to
+  O1C-0085 (`rho=0.97882`), but all-coordinate release produced 67,398
+  post-action probes and refreshed final-priority rank to correlation 0.67847.
+  Page 12 must recompute from `658fd285…`, never replay the old action order.
+- **Efficiency defect:** the inherited O1C-0086 writer correctly rejected a
+  Page-12 bundle because it reapplied Page-11 seals. O1C-0087 now performs its
+  own validation then calls the existing atomic low-level writer. This is a
+  real irreversible-gate find; no broad rerun followed.
+- **Next action:** unchanged one-shot operator, Page-12-specific seals and one
+  real preflight, followed by at most one fresh lineage-25 call. Page 11 replay,
+  crossing rearm and cap/RAM growth remain closed for this immediate test.
+- **Artifacts:** [interpretation](O1C0087_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md),
+  [causal delta audit](O1C0086_PAGE11_CAUSAL_DELTA_AUDIT_20260720.md), and
+  [manifest](o1c87_page12_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json).
