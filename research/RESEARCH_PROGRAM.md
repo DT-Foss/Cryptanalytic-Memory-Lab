@@ -546,16 +546,22 @@ all globally novel against that complete attic. The exact bank evolves to
 `0203de9f…`, while direct action crossings, key/model/closure and attacker-valid
 entropy/domain gain remain zero. Page 12 is burned and must never be replayed.
 
-The next mechanical transition is
-`H-PARENT-CENTERED-PAGE13-ROLLOVER-COMPOUNDING-092`. The complete O1C-0088
-harvest is archived, but `254+259=513` is exactly one above the 512-clause
-active-vault cap. Ingest every clause with zero solver work, bind receipt
-`9ecec7df…`, and derive fresh Page 13 / lineage 26 at the minimal active limit
-253. This is an O(1)-state residency rollover, not evidence loss and not a
-reason to increase cap/RAM. Freeze the next single science call from the sealed
-cross-burst audit. Preserve the efficiency rule: focused gates protect
-irreversible state, while production follows directly after one real preflight
-without a comfort-control cycle.
+O1C-0089 completes the preparation half of
+`H-PARENT-CENTERED-PAGE13-ROLLOVER-COMPOUNDING-092`. All 259 clauses remain in
+the 1,291-clause attic; fresh Page 13 / lineage 26 is sealed at active limit 253
+with 205 new clauses resident, 54 explicitly nonresident and exactly 259 clause
+slots of headroom. The `0203de9f…` bank and `9ecec7df…` receipt bind. This is an
+O(1)-state residency rollover, not evidence loss or a reason to increase caps.
+
+The sealed cross-burst audit selects one unchanged Page-13 continuation:
+clauses per 1,000 probes rise `0.7004 -> 2.0192 -> 7.7515`, the three bursts have
+zero clause/witness overlap or subsumption, and Page 12 is capacity-censored.
+Bind the unchanged operator, perform one focused seal gate and one real
+preflight, then authorize at most one lineage-26 call. Only zero global novelty
+with no stronger output activates the predeclared residency-only max-min
+signed-diversity pivot. Preserve the efficiency rule: focused gates protect
+irreversible state, while production follows directly without a comfort-control
+cycle.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1132,9 +1138,10 @@ evidence.
   rolls them into Page 11 and emits 202 further globally novel clauses against
   the 830-clause attic at `128/131/131`; O1C-0088 continues on Page 12 with 259
   globally novel clauses against 1,032 prior clauses at only `128/55/55`, still
-  without key/model/closure/entropy-domain gain. Never replay Page 8 through
-  Page 12. Ingest the 259 clauses and `0203de9f…` bank into fresh bounded Page
-  13 / lineage 26 at active limit 253 before any new intent.
+  without key/model/closure/entropy-domain gain. O1C-0089 preserves the complete
+  burst and `0203de9f…` bank in fresh bounded Page 13 / lineage 26 at active
+  limit 253. Never replay Page 8 through Page 12; seal the unchanged Page-13
+  continuation before at most one new intent.
 
 ## Operating contract
 

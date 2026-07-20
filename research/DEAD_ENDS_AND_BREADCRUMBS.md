@@ -2254,3 +2254,31 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [capsule](../runs/20260720_190040_615684_O1C-0088_apple8-parent-centered-continuation-v1/RUN.md),
   artifact-manifest SHA-256
   `8ae16f758ee4c5e1f489c7f9c5d40d2dc001037a9b215ca60f973432af953f84`.
+
+## B-0089 — Page 13 preserves all 259 clauses with exact bounded residency
+
+- **Prepared state:** zero-call ingestion grows the attic 1,032→1,291 unique
+  clauses and preserves all 259 O1C-0088 exclusions. Fresh Page 13 is 253
+  clauses / 711,355 literals / 2,846,623 B with exactly 259 clause slots of
+  headroom.
+- **Residency boundary:** 205 new clauses are resident and 54 are explicitly
+  nonresident, but all 259 remain immutable and addressable in the attic. This
+  is the intended bounded live-state/external-memory split, not evidence loss.
+  Five structural roots and the 43-clause pinned core remain resident.
+- **Relation breadcrumb:** the attic keeps exactly ten prior strict subsumption
+  relations; the new 259-clause family creates none. Its gain is distinct signed
+  geometry rather than a set of stronger clauses replacing old exclusions.
+- **Mechanism decision:** cross-burst yield per 1,000 probes rises
+  `0.700365→2.019233→7.751474`. O1C-0088 is stopped by capacity at its 259th
+  emission, and cross-burst clause/witness/subsumption overlaps are all zero.
+  The unchanged operator remains the highest-ROI next test.
+- **Failure pivot:** only zero global novelty with no stronger formal output may
+  activate a fresh max-min signed-diversity K253 residency. Do not change action
+  logic and residency together; do not sweep Page 13, caps or controls.
+- **Efficiency boundary:** one focused 9-case gate, Ruff and Pyright preceded
+  atomic publication. No second pytest followed the final two-constant manifest
+  bind; the publisher revalidated every final artifact seal. Keep this
+  asymmetric validation pattern.
+- **Artifacts:** [interpretation](O1C0089_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md),
+  [cross-burst audit](O1C0088_PAGE12_CROSS_BURST_CAUSAL_AUDIT_20260720.md), and
+  [manifest](o1c89_page13_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json).

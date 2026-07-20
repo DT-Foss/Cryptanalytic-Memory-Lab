@@ -1,12 +1,12 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-20 (O1C-0088 Page-12 novel-clause gain sealed).
+Last ranked: 2026-07-20 (O1C-0089 fresh Page-13 rollover sealed).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Complete O1C-0089 zero-call ingestion of all 259 O1C-0088 clauses, bind `0203de9f…` bank / `9ecec7df…` receipt and atomically derive Page 13 / lineage 26 at the minimal active limit 253 | State of the art enabling | Extreme | Extreme | Low | Converts the exact one-slot capacity overflow into a fresh unburned continuation without discarding evidence or raising caps |
-| 2 | Use the sealed O1C-0085/86/88 cross-burst audit to freeze one Page-13 experiment; default to the unchanged one-shot continuation only if the measured geometry still supports it | State of the art | Extreme | Extreme | Low | Separates genuine stateful compounding from a clause-population fixed point without spending a Page on an unfrozen hunch |
-| 3 | After one focused Page-13 native/adapter/runner gate and one real preflight, authorize exactly one fresh lineage-26 call; if inert, preserve the attic and change the public action/residency objective rather than replay or cap sweep | State of the art | Extreme | Extreme | Low | Tests further exact exclusion, closure/model, attacker-valid domain reduction and ultimately recovery on a new irreversible Page |
+| 1 | Bind the unchanged one-shot operator to the sealed O1C-0089 Page-13 manifest, active SHA `4c1b7d5a…` and `0203de9f…` live bank; complete one focused native/adapter/runner gate with exact conservation checks | State of the art enabling | Extreme | Extreme | Low | Opens the irreversible lineage-26 gate without confounding the monotonically improving operator |
+| 2 | After exactly one real sealed CLI preflight, authorize one fresh lineage-26 call at 128 requested conflicts with unchanged caps and no replay/sweep arm | State of the art | Extreme | Extreme | Low | Tests further global novelty against 1,291 clauses, formal closure/model, attacker-valid domain reduction and ultimately recovery |
+| 3 | Only if that call has zero global novelty and no stronger output, retain its bank and derive a fresh max-min signed-diversity K253 residency while leaving the action operator unchanged | State of the art | High | Extreme | Low | Isolates clause-residency geometry from action logic instead of changing both at once |
 | 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
 ## Current resume
@@ -29,14 +29,19 @@ trail-UB prunes. The separate parent-centered action-crossing field remains
 probes, but no realized action crossing.
 The two counters describe different certification paths.
 
-O1C-0088 supports H091. Its complete 259-clause harvest is archived, and the
-bank evolves to `0203de9f…` with receipt `9ecec7df…`; variable 241 remains the
-sole zero coordinate. A direct combined successor vault is unavailable solely
-because `254+259=513`, exactly one above the 512-clause cap. O1C-0089 therefore
-performs the zero-call half of H092: ingest all 259 occurrences, retain the
-complete causal attic and derive fresh Page 13 / lineage 26 at active limit 253.
-Do not raise cap/RAM, replay Page 12 or add a comfort-control cycle. Freeze the
-single next science call only after the cross-burst audit and Page-13 seals agree.
+O1C-0088 supports H091. O1C-0089 has completed the zero-call half of H092: all
+259 clauses remain in the 1,291-clause attic; fresh Page 13 / lineage 26 is
+unburned and sealed at 253 clauses / 711,355 literals / 2,846,623 B, SHA
+`4c1b7d5a…`. It keeps 205 new clauses resident, records 54 nonresidents exactly
+and leaves 259 clause slots of headroom. The bank is `0203de9f…`, receipt
+`9ecec7df…`, and variable 241 remains the sole zero coordinate. Manifest SHA
+`467e519d…` seals all ten artifacts.
+
+The cross-burst audit selects the unchanged one-shot continuation: clauses per
+1,000 probes rise `0.7004 -> 2.0192 -> 7.7515`, with zero cross-burst clause or
+witness overlap and zero subsumption. Page 12 was capacity-censored. Seal the
+Page-13 native/adapter/runner chain, perform one real preflight, then issue the
+single fresh call; no cap/RAM increase, action change or comfort-control cycle.
 
 For provenance, the mechanism originates in O1C-0082:
 
@@ -95,10 +100,11 @@ bank remains exact SHA `05b8acf3…`.
 
 O1C-0088 fully archives 259 globally novel clauses, but its combined successor
 vault is unavailable at `254+259=513`, exactly one over the 512-clause limit.
-Its evolved 24,576-byte bank is SHA `0203de9f…`. O1C-0089 must ingest the full
-harvest with zero solver work and seal fresh Page 13 at active limit 253 before
-any new intent. Then bind parser, source, executable/help-smoke and invocation
-around the single cross-burst-selected experiment.
+O1C-0089 has resolved that boundary with zero solver work: its fresh Page 13 at
+active limit 253 leaves exactly 259 clause slots and carries the evolved
+24,576-byte bank SHA `0203de9f…`. Now bind parser, source,
+executable/help-smoke and invocation around the unchanged cross-burst-selected
+experiment.
 One focused static pass and one sealed CLI preflight went directly to O1C-0088
 production; preserve that efficiency rule and do not raise cap/RAM blindly or
 map action sign to key belief.
@@ -290,11 +296,11 @@ O1C-0084 authoritative result SHA-256 is
 - **Next measurable advance:** O1C-0088 supports Page-12 compounding with `259`
   globally novel exact trail-UB exclusions at `128/55/55` work. It evolves the
   continuation bank to `0203de9f…`; key/model/closure and attacker-valid
-  entropy/domain gain remain zero. The exact `254+259=513` capacity event makes
-  O1C-0089's zero-call Page-13 rollover under
-  `H-PARENT-CENTERED-PAGE13-ROLLOVER-COMPOUNDING-092` the immediate work. After
-  that Page and its cross-burst-selected operator are sealed, at most one fresh
-  call may test additional novelty, closure/model,
+  entropy/domain gain remain zero. O1C-0089 has resolved the exact
+  `254+259=513` event and sealed Page 13 under
+  `H-PARENT-CENTERED-PAGE13-ROLLOVER-COMPOUNDING-092`. After the unchanged
+  native/adapter/runner chain and one real preflight are sealed, at most one
+  fresh lineage-26 call may test additional novelty, closure/model,
   attacker-valid entropy/domain reduction and finally a publicly verified key.
   Exact 256 remains the north star.
 

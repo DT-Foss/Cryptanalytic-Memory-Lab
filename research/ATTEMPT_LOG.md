@@ -3758,3 +3758,45 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [capsule](../runs/20260720_190040_615684_O1C-0088_apple8-parent-centered-continuation-v1/RUN.md),
   artifact-manifest SHA-256
   `8ae16f758ee4c5e1f489c7f9c5d40d2dc001037a9b215ca60f973432af953f84`.
+
+## O1C-0089 — APPLE8 Page-13 causal rollover preparation
+
+- **Recorded:** `2026-07-20T19:27+02:00` (`Europe/Berlin`).
+- **Protocol:** with zero native/science calls, ingest all 259 fully emitted
+  O1C-0088 clauses into the immutable causal attic, bind the exact final
+  `0203de9f…` live bank and `9ecec7df…` state receipt, then deterministically
+  project fresh bounded Page 13 / lineage 26 at minimal active limit 253.
+- **Result:** all 259 occurrences are unique and globally novel against the
+  prior 1,032-clause union. The new chunk is 259 clauses / 744,973 literals /
+  2,981,119 B, SHA `d02b2ca0…`. The attic reaches 16 chunks / 1,291 unique /
+  1,299 occurrences / 10 strict relations / 1,284 undominated. The prior union
+  and relation set are exact prefixes; the new burst adds no subsumption pair.
+- **Page 13:** 253 clauses / 711,355 literals / 2,846,623 B, SHA `4c1b7d5a…`.
+  Composition is five structural roots, 43 pinned core and 205 new debt. All
+  259 new clauses remain in the attic; 205 are resident and 54 nonresidents are
+  explicitly hash/index recorded. Headroom is 259 clauses / 888,645 literals /
+  5,541,985 B. Clause slots prove capacity for 256 actions plus three; literal
+  and byte safety for unknown future emissions are not claimed.
+- **State:** the 24,576-byte bank and 52,009-byte receipt match exactly; 255
+  coordinates are eligible and variable 241 remains the sole zero record.
+  Aggregate count is 215,781; variable 21 has maximum count 1,752. The
+  fresh-seed parser is incompatible by design; live continuation is mandatory.
+- **Claim boundary:** `CAUSAL_ATTIC_PAGE13_ROLLOVER_PREPARED`; enabling/mechanism
+  only. Native solver/science/target/truth/reveal/refit/MPS/GPU calls are zero.
+  No intent exists and Page 13 / lineage 26 remain unburned and unauthorized.
+- **Cross-burst decision:** O1C-0085/86/88 clauses per 1,000 probes rise
+  `0.7004→2.0192→7.7515`; all cross-burst clause/witness intersections and
+  subsumption counts are zero. O1C-0088 is capacity-censored. Preserve the
+  unchanged one-shot action operator for the next single call.
+- **Next action:** finish Page-13-specific native/adapter/runner seals around the
+  unchanged operator, then issue at most one lineage-26 call after one real
+  preflight. Do not replay Page 12, change actions, rearm crossings or raise
+  caps. Diversity residency is predeclared only for a zero-novelty outcome.
+- **Validation:** focused 9-case gate passed; Ruff clean; Pyright zero errors and
+  warnings. Atomic publication revalidated all ten final artifact seals.
+- **Artifacts:** [interpretation](O1C0089_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md),
+  [cross-burst audit](O1C0088_PAGE12_CROSS_BURST_CAUSAL_AUDIT_20260720.md) and
+  canonical
+  [manifest](o1c89_page13_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json),
+  SHA-256
+  `467e519df281db4fc10de9223195dfedba9fd51edc93b40883f59fd3821e29ec`.
