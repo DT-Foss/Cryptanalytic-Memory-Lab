@@ -203,6 +203,27 @@ The deterministic zero-call Page-6 projection is frozen as:
   `e99682c4d0c1cfb53a2b51284d810e5a0a07dd7023672549b8435a920d688307`;
 - lineage ordinal `19`, empty fully-emitted-index set and zero native calls.
 
+The complete published zero-call seed is frozen by manifest SHA-256
+`17ce7568ca16fb6af01d842b9f875176ca3df11ff1ec7496d2d76ab5d2d57b4b`.
+Its exact Page-6 intervention bindings are:
+
+- frontier binary `785cae9e32912e1d45858d046b36a7c7b9e4cf51799f233a7b3246aa6756ad65`
+  (`4,479` bytes) and document
+  `e5c9474b5105e3c6eb38f026ba43f087c14e320f566e9efd2c8f732b80bc8e84`;
+- staging binary `c536a94483467ee1197d52e0e3f81ad2f728a36ad3982124e1b9966e0011f927`
+  (`4,477` bytes) and document
+  `c9408efbc9880da9beb25437524288e3c1deee883e4384aff93202d90cfb629b`;
+- prefix binding document
+  `6ad85e96e257e281469993ce9af6f750c3b9d67163f0291d114bfd3a6856408e`;
+- complete science-input document
+  `2c9cb3879d50d104e9c6e8d2ad64f78631f8bc1a69728b8eec93849f9ccefa2a`.
+
+The prefix binary remains byte-identical because its native format contains
+only the eleven signed i32 literals; its Page-6, source and staging-parent
+bindings live in the new canonical document and manifest. The focused suite is
+`30/30`, and an independent loader audit reproduced the seed in a separate
+short process without a native or science call.
+
 The gate must retain the complete eight-SHA science-input history before Page 6
 and prove that Page 6 is absent from it. Preparation must be deterministic,
 atomic, symlink-safe, extra-file rejecting and byte-identical across two
