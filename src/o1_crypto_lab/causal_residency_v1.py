@@ -311,7 +311,10 @@ class CausalResidencyState:
                 "causal-residency parent union clause count differs"
             )
         limit = _positive_int(self.active_limit, "active limit")
-        if limit > O1C66_VAULT_CAPS.maximum_clauses:
+        if (
+            limit > O1C66_VAULT_CAPS.maximum_clauses
+            or self.attic.active_limit != limit
+        ):
             raise CausalResidencyError("causal-residency active limit differs")
         _indices(
             self.pinned_core_indices,
@@ -726,6 +729,7 @@ def reproject_causal_residency(
     previous_state: CausalResidencyState,
     fully_emitted_union_indices: Sequence[int],
     next_lineage_ordinal: int,
+    next_active_limit: int | None = None,
 ) -> CausalResidencyState:
     """Project an extended attic after one complete call and activate its page."""
 
@@ -733,6 +737,24 @@ def reproject_causal_residency(
         attic, CausalAttic
     ):
         raise CausalResidencyError("causal-residency reprojection state differs")
+    limit = (
+        previous_state.active_limit
+        if next_active_limit is None
+        else _positive_int(next_active_limit, "next active limit")
+    )
+    if limit > O1C66_VAULT_CAPS.maximum_clauses:
+        raise CausalResidencyError("causal-residency next active limit differs")
+    if attic.active_limit != limit:
+        try:
+            attic = reproject_causal_attic(
+                attic.chunks,
+                attic.occurrences,
+                active_limit=limit,
+            )
+        except CausalAtticError as exc:
+            raise CausalResidencyError(
+                "causal-residency next active limit differs"
+            ) from exc
     _validate_attic_extension(previous_state.attic, attic)
     next_lineage = _nonnegative_int(next_lineage_ordinal, "next lineage ordinal")
     if next_lineage <= previous_state.activation_ledger[-1].lineage_ordinal:
@@ -749,7 +771,7 @@ def reproject_causal_residency(
     projection = _priority_projection(
         attic,
         lineage_ordinal=next_lineage,
-        active_limit=previous_state.active_limit,
+        active_limit=limit,
         pinned_core_indices=previous_state.pinned_core_indices,
         inherited_debt_indices=previous_state.inherited_debt_indices,
         activation_counts=counts_before,
@@ -773,7 +795,7 @@ def reproject_causal_residency(
         parent_union_clause_count=previous_state.parent_union_clause_count,
         pinned_core_indices=previous_state.pinned_core_indices,
         inherited_debt_indices=previous_state.inherited_debt_indices,
-        active_limit=previous_state.active_limit,
+        active_limit=limit,
         current_projection=projection,
         activation_ledger=(*previous_state.activation_ledger, entry),
         activation_counts=counts,
@@ -790,6 +812,7 @@ def advance_causal_residency(
     chunk: ThresholdNoGoodVault,
     occurrences: Sequence[ClauseOccurrence],
     next_lineage_ordinal: int,
+    next_active_limit: int | None = None,
 ) -> CausalResidencyState:
     """Append one immutable evidence chunk and reproject in a single operation."""
 
@@ -803,11 +826,18 @@ def advance_causal_residency(
         for occurrence in new_occurrences
     ):
         raise CausalResidencyError("causal-residency advance occurrences differ")
+    limit = (
+        state.active_limit
+        if next_active_limit is None
+        else _positive_int(next_active_limit, "next active limit")
+    )
+    if limit > O1C66_VAULT_CAPS.maximum_clauses:
+        raise CausalResidencyError("causal-residency next active limit differs")
     try:
         attic = reproject_causal_attic(
             (*state.attic.chunks, chunk),
             (*state.attic.occurrences, *new_occurrences),
-            active_limit=state.active_limit,
+            active_limit=limit,
         )
     except CausalAtticError as exc:
         raise CausalResidencyError(
@@ -821,6 +851,7 @@ def advance_causal_residency(
         previous_state=state,
         fully_emitted_union_indices=event_indices,
         next_lineage_ordinal=next_lineage_ordinal,
+        next_active_limit=limit,
     )
 
 
@@ -894,6 +925,20 @@ def replay_causal_residency(
         root.get("parent_union_clause_count"), "replay parent union clause count"
     )
     limit = _positive_int(root.get("active_limit"), "replay active limit")
+    if limit > O1C66_VAULT_CAPS.maximum_clauses:
+        raise CausalResidencyError("causal-residency replay active limit differs")
+    if attic.active_limit != limit:
+        try:
+            attic = reproject_causal_attic(
+                attic.chunks,
+                attic.occurrences,
+                active_limit=limit,
+            )
+        except CausalAtticError as exc:
+            raise CausalResidencyError(
+                "causal-residency replay active limit differs"
+            ) from exc
+        clause_count = attic.union_vault.clause_count
     pinned = _indices(
         cast(Sequence[int], _sequence(root.get("pinned_core_indices"), "replay core")),
         clause_count=clause_count,

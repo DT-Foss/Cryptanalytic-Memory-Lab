@@ -226,6 +226,159 @@ def test_append_preserves_all_evidence_and_promotes_new_structural_root() -> Non
     validate_activation_replay(advanced)
 
 
+def test_advance_can_lower_only_the_next_active_limit() -> None:
+    clauses = (
+        ThresholdNoGoodClause((1,)),
+        ThresholdNoGoodClause((1, 2)),
+        ThresholdNoGoodClause((-2, 3)),
+        ThresholdNoGoodClause((-3, 4)),
+        ThresholdNoGoodClause((-4, 5)),
+        ThresholdNoGoodClause((-5, 6)),
+    )
+    attic = _attic(clauses, active_limit=4)
+    state = initialize_causal_residency(
+        attic,
+        parent_active_indices=(0, 2, 3, 4),
+        inherited_event_indices=(2,),
+        active_limit=4,
+    )
+    new_clause = ThresholdNoGoodClause((-6, 7))
+    chunk = ThresholdNoGoodVault(IDENTITY, OBSERVED, (new_clause,))
+    occurrence = _occurrence("episode-00", 0, new_clause, score=9.0)
+
+    advanced = advance_causal_residency(
+        state,
+        chunk=chunk,
+        occurrences=(occurrence,),
+        next_lineage_ordinal=15,
+        next_active_limit=3,
+    )
+
+    assert advanced.active_limit == 3
+    assert advanced.attic.active_limit == 3
+    assert advanced.active_projection.clause_count == 3
+    assert advanced.activation_ledger[:-1] == state.activation_ledger
+    assert advanced.used_active_sha256[:-1] == state.used_active_sha256
+    assert advanced.attic.chunks == (*attic.chunks, chunk)
+    assert advanced.attic.occurrences == (*attic.occurrences, occurrence)
+    assert advanced.attic.union_vault.clauses[: len(clauses)] == clauses
+    validate_activation_replay(advanced)
+    assert replay_causal_residency(advanced.attic, advanced.describe()) == advanced
+
+
+def test_direct_reprojection_can_lower_only_the_next_active_limit() -> None:
+    clauses = (
+        ThresholdNoGoodClause((1,)),
+        ThresholdNoGoodClause((1, 2)),
+        ThresholdNoGoodClause((-2, 3)),
+        ThresholdNoGoodClause((-3, 4)),
+        ThresholdNoGoodClause((-4, 5)),
+        ThresholdNoGoodClause((-5, 6)),
+    )
+    attic = _attic(clauses, active_limit=4)
+    state = initialize_causal_residency(
+        attic,
+        parent_active_indices=(0, 2, 3, 4),
+        inherited_event_indices=(2,),
+        active_limit=4,
+    )
+
+    projected = reproject_causal_residency(
+        attic,
+        previous_state=state,
+        fully_emitted_union_indices=(),
+        next_lineage_ordinal=15,
+        next_active_limit=3,
+    )
+
+    assert projected.active_limit == 3
+    assert projected.attic.active_limit == 3
+    assert projected.active_projection.clause_count == 3
+    assert projected.activation_ledger[:-1] == state.activation_ledger
+    assert projected.used_active_sha256[:-1] == state.used_active_sha256
+    assert projected.attic.chunks == attic.chunks
+    assert projected.attic.occurrences == attic.occurrences
+    assert projected.attic.union_vault == attic.union_vault
+    validate_activation_replay(projected)
+
+
+@pytest.mark.parametrize("bad_limit", (True, 0, 513))
+def test_next_active_limit_rejects_invalid_values(bad_limit: object) -> None:
+    clauses = (
+        ThresholdNoGoodClause((1,)),
+        ThresholdNoGoodClause((1, 2)),
+        ThresholdNoGoodClause((-2, 3)),
+        ThresholdNoGoodClause((-3, 4)),
+        ThresholdNoGoodClause((-4, 5)),
+        ThresholdNoGoodClause((-5, 6)),
+    )
+    attic = _attic(clauses, active_limit=4)
+    state = initialize_causal_residency(
+        attic,
+        parent_active_indices=(0, 2, 3, 4),
+        inherited_event_indices=(2,),
+        active_limit=4,
+    )
+    chunk = ThresholdNoGoodVault(
+        IDENTITY,
+        OBSERVED,
+        (ThresholdNoGoodClause((-6, 7)),),
+    )
+    occurrence = _occurrence("episode-00", 0, chunk.clauses[0], score=9.0)
+
+    with pytest.raises(CausalResidencyError, match="active limit"):
+        advance_causal_residency(
+            state,
+            chunk=chunk,
+            occurrences=(occurrence,),
+            next_lineage_ordinal=15,
+            next_active_limit=cast(int, bad_limit),
+        )
+    with pytest.raises(CausalResidencyError, match="active limit"):
+        reproject_causal_residency(
+            attic,
+            previous_state=state,
+            fully_emitted_union_indices=(),
+            next_lineage_ordinal=15,
+            next_active_limit=cast(int, bad_limit),
+        )
+
+
+def test_omitted_next_active_limit_preserves_legacy_projection() -> None:
+    clauses = (
+        ThresholdNoGoodClause((1,)),
+        ThresholdNoGoodClause((1, 2)),
+        ThresholdNoGoodClause((-2, 3)),
+        ThresholdNoGoodClause((-3, 4)),
+        ThresholdNoGoodClause((-4, 5)),
+        ThresholdNoGoodClause((-5, 6)),
+        ThresholdNoGoodClause((-6, 7)),
+    )
+    attic = _attic(clauses, active_limit=4)
+    state = initialize_causal_residency(
+        attic,
+        parent_active_indices=(0, 2, 3, 4),
+        inherited_event_indices=(2,),
+        active_limit=4,
+    )
+
+    legacy = reproject_causal_residency(
+        attic,
+        previous_state=state,
+        fully_emitted_union_indices=(),
+        next_lineage_ordinal=15,
+    )
+    explicit = reproject_causal_residency(
+        attic,
+        previous_state=state,
+        fully_emitted_union_indices=(),
+        next_lineage_ordinal=15,
+        next_active_limit=state.active_limit,
+    )
+
+    assert legacy == explicit
+
+
 def test_complete_description_round_trips_and_tamper_is_rejected() -> None:
     clauses = (
         ThresholdNoGoodClause((1,)),
