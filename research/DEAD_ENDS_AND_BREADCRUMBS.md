@@ -2065,3 +2065,43 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
 - **Artifacts:** [result](O1C0083_APPLE8_CAUSAL_ROLLOVER_RESULT_20260720.json),
   [interpretation](O1C0083_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md),
   and [manifest](o1c83_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json).
+
+## B-0084 — Page 9 burned at Darwin loader; compounding remains unmeasured
+
+- **Operational terminal:** O1C-0084 persisted intent SHA
+  `89483dda835275adba37a3cbb9099c12590cf26f439913eb4d91bbd6c912d20c`
+  and issued its sole authorized Page-9 / lineage-22 process call. `dyld`
+  rejected the 1,696,712-byte executable before native `main` with
+  `missing LC_UUID load command` because the frozen build used
+  `-Wl,-no_uuid`.
+- **Measurement boundary:** one adapter/native call is consumed, but no solver
+  was constructed, no native result/stdout exists, and actual/billed conflicts
+  are `null`. There is no evidence about probes, priority actions, bounds,
+  prunes, clauses, models, keys or state evolution. Classification
+  `PARENT_CENTERED_CONTINUATION_OPERATIONAL_TERMINAL` is not a cryptanalytic
+  negative.
+- **Unchanged state:** the attic stays at 807 unique clauses / 815 occurrences,
+  and bank SHA `05b8acf3…` is unchanged. There is no failed-run output to
+  import. Page 9 SHA `8c3b8cc3…` and lineage 22 are nevertheless burned by
+  persisted intent.
+- **Closed operational hypothesis:** mark
+  `H-PARENT-CENTERED-COMPOUNDING-088` refuted at build transport only. Never
+  retry Page 9 or reinterpret the missing result as an inert operator.
+- **Breadcrumb:** executable identity and launchability are distinct gates.
+  Removing Mach-O UUID made the hash stable but the artifact unloadable. The
+  next production binary must be built once with a normal UUID, have its
+  observed dynamic digest sealed, and pass `--help` on the exact frozen bytes
+  before any fresh-page intent.
+- **Next action:** activate `H-PARENT-CENTERED-PAGE10-COMPOUNDING-089`. Derive
+  fresh Page 10 from the unchanged 807-clause attic and `05b8acf3…` bank, with
+  no import from O1C-0084. Keep heavy validation on irreversible Page/provenance
+  /atomicity gates and reversible work to one focused hygiene pass. After the
+  burn gate passes, make the real call without a comfort-control cycle. Track
+  pre-burn defect yield and shrink after 2–3 no-find milestones; do not count
+  the 66.35-second preparation as solver-resource progress.
+- **Artifacts:** [result](O1C0084_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  [interpretation](O1C0084_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md),
+  and sealed
+  [capsule](../runs/20260720_162606_777761_O1C-0084_apple8-parent-centered-continuation-v1/RUN.md),
+  manifest SHA-256
+  `811ad89955b383c4ac1303fc3f510c4169278e19cec73d465adf7a76e65cc2bf`.

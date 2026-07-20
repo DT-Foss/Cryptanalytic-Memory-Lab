@@ -1,12 +1,18 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-20T15:31:57+02:00 (`Europe/Berlin`)
-- **Current truth:** O1C-0083 is zero-call
-  `CAUSAL_ATTIC_PAGE9_ROLLOVER_PREPARED`: all 257 O1C-0082 exclusions are
-  sealed as new unique attic occurrences, and fresh Page 9 is byte-frozen at
-  255 clauses / 721,187 literals / 2,885,959 B with 257-clause headroom. This
-  is enabling/mechanism gain only, not new cryptanalytic/key/entropy gain. No
-  intent or production call exists; Page 9 / lineage 22 remain unburned.
+- **Last updated:** 2026-07-20T16:26:29.631899+02:00 (`Europe/Berlin`)
+- **Current truth:** O1C-0084 is terminal
+  `PARENT_CENTERED_CONTINUATION_OPERATIONAL_TERMINAL`. Its sole persisted
+  Page-9 / lineage-22 intent burned that Page, and one adapter/native process
+  call was issued, but Darwin `dyld` rejected the `-Wl,-no_uuid` executable for
+  a missing `LC_UUID` before native `main` or solver construction. No native
+  result, science measurement or priority-state update exists; actual/billed
+  conflicts are `null`. This is a build-transport failure, not a cryptanalytic
+  negative. Page 9 must never be retried.
+- **Retained state:** O1C-0083's attic remains 13 chunks / 807 unique clauses /
+  815 occurrences / 9 strict relations / 801 undominated clauses, and the
+  24,576-byte continuation bank remains SHA-256 `05b8acf3…`. O1C-0084 produced
+  no output to ingest. Fresh Page 10 must be derived from this unchanged state.
 - **Parent truth:** O1C-0082 consumed fresh Page 8 / lineage 21 exactly once
   and is terminal `PARENT_CENTERED_NOVEL_CLAUSE_GAIN`. The live O(256)
   parent-centered reader returns and confirms `255` one-shot failure-first
@@ -448,21 +454,19 @@
   fails raw at `1,340 > 1,268 > 1,031` for edge, exact unary and final→early.
   Certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass.
   All 28 wrong passes, proof replays, freeze checks and truth controls are exact.
-- **Next mechanism:** `H-PARENT-CENTERED-COMPOUNDING-088`. O1C-0083 has imported
-  O1C-0082's exact `257`-clause harvest and final 24,576-byte priority bank
-  without replaying Page 8, preserved the complete global union, and sealed
-  explicit `next_active_limit=255` as the minimal one-slot sacrifice. The
-  Page-9 projection is `255` live clauses / `721,187` literals / `2,885,959 B`,
-  SHA-256 `8c3b8cc33badd4aa23920caabc5ea3fc5006675d93805578b74b2b20788c8204`,
-  with `roots=4`, `pinned=43`, `new_debt=208` and `257` clause slots of
-  headroom. Build and preflight a runner that accepts the evolved live bank and
-  validates its receipt; the fresh 74-parent seed parser is incompatible. No
-  production call or intent exists. Continue on fresh lineage 22 only after
-  every hash is sealed. The bottleneck is continuation parsing, not clause
-  residency, live actions or RAM. A matched
-  target-free attribution screen may compare the frozen action order to a
-  public deterministic control, but it must not consume the only successor page
-  before the rollover path is sealed.
+- **Next mechanism:** `H-PARENT-CENTERED-PAGE10-COMPOUNDING-089`. O1C-0084
+  closes `H-PARENT-CENTERED-COMPOUNDING-088` only at its operational launch
+  gate: removing the Mach-O UUID made the binary unloadable, so Page-9 science
+  was never measured. Derive fresh Page 10 from the unchanged 807-clause attic
+  and `05b8acf3…` bank. Build once without `-Wl,-no_uuid`, seal the observed
+  dynamic binary identity before intent, and require `--help` on those exact
+  bytes. Then authorize at most one fresh successor call under the unchanged
+  operator and budget. Heavy validation protects irreversible Page/provenance
+  and atomicity gates; reversible hygiene is focused and one-time. After the
+  burn gate passes, make the real call without another comfort-control cycle.
+  Track pre-burn defect yield per milestone and shrink the suite after 2–3
+  no-find milestones. O1C-0083's 66.35-second preparation is provenance cost,
+  not resource progress.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -478,10 +482,11 @@
   do not scale or reorient it.
 - **Active local run:** no solver or production science process is active.
   O1C-0082 is sealed after exactly one call; Page 8 / lineage 21 are burned.
-  O1C-0083 preparation is sealed after zero calls; Page 9 / lineage 22 are
-  unburned. Immediate work is a continuation-bank-capable Page-9 runner and
-  preflight over the archived `257`-clause harvest and final priority bank;
-  no O1C-0074..0082 replay, ordinal-10..21 reuse, depth-2 rescue, residency
+  O1C-0084 consumed its one process call without reaching native `main`; Page 9
+  / lineage 22 are burned. Immediate work is zero-call Page-10 derivation plus
+  build-once dynamic hash and mandatory `--help` smoke over the unchanged
+  `807`-clause attic and final priority bank; no O1C-0074..0084 replay,
+  ordinal-10..22 reuse, depth-2 rescue, residency
   resweep, K/rank/phase/horizon sweep or blind cap/RAM increase is authorized.
   O1C-0053..0056 and the exact
   O1C-0058 rule remain negative and closed. Sibling repositories remain read-only
@@ -491,6 +496,9 @@
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
+  [O1C-0084 result](research/O1C0084_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  [O1C-0084 interpretation](research/O1C0084_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md),
+  [O1C-0084 capsule](runs/20260720_162606_777761_O1C-0084_apple8-parent-centered-continuation-v1/RUN.md),
   [O1C-0083 result](research/O1C0083_APPLE8_CAUSAL_ROLLOVER_RESULT_20260720.json),
   [O1C-0083 interpretation](research/O1C0083_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md),
   [O1C-0083 manifest](research/o1c83_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json),
@@ -1337,20 +1345,21 @@ O1C-0017 result boundary are documented in
 | Exact one-bit child bounds | — | 2026-07-20 12:46 | O1C-0080 one-call same-parent `U0/U1` reader on fresh Page 7 | terminal: 285,725 probes / 571,450 child bounds, all `NEITHER_PRUNABLE`; minimum `18.464862193097684`, margin `+3.8586833952047215`; exact probe operation true, crossing/science false | complete |
 | Centered bound-differential stream | — | 2026-07-20 13:02 | O1C-0081 target-free offline census over the sealed 16,384-event prefix | mechanism hit: raw 95.2209% polarity collapses to balanced centered signs; persistent var185 priority 91.7528 vs permuted max 3.0907; temporal correlation 0.8538; 28,672 B O(256), no bit/key/science claim | complete |
 | Live centered proof-mining reader | — | 2026-07-20 14:30 | O1C-0082 one-call online parent-centered reader on fresh Page 8 | terminal science gain: 255 confirmed one-shot actions, 33,106 probes, 257 safe threshold prunes and 257 globally novel clauses after 9 conflicts; capacity stop at 513 combined clauses, no model/key/entropy claim | complete |
-| Causal-attic capacity rollover | — | 2026-07-20 15:31 | O1C-0083 zero-call ingestion plus fresh Page-9 preparation | prepared: 257 new unique occurrences; attic 13 chunks / 807 unique / 815 occurrences / 9 relations / 801 undominated; sealed `next_active_limit=255` Page 9 has 255 clauses / 721,187 literals / 2,885,959 B, categories 4 roots + 43 pinned + 208 new debt, SHA `8c3b8cc3…` and 257-clause headroom; no production intent/call, Page 9 unburned | complete |
+| Causal-attic capacity rollover | — | 2026-07-20 15:31 | O1C-0083 zero-call ingestion plus fresh Page-9 preparation | prepared: 257 new unique occurrences; attic 13 chunks / 807 unique / 815 occurrences / 9 relations / 801 undominated; sealed `next_active_limit=255` Page 9 has 255 clauses / 721,187 literals / 2,885,959 B, categories 4 roots + 43 pinned + 208 new debt, SHA `8c3b8cc3…` and 257-clause headroom; Page 9 unburned at preparation, later burned by O1C-0084 | complete |
+| Page-9 live-bank continuation | — | 2026-07-20 16:26 | O1C-0084 one sealed Page-9 / lineage-22 intent and process call | operational terminal before native `main`: `-Wl,-no_uuid` removed Darwin-required `LC_UUID`, so `dyld` returned no native result; actual/billed conflicts null, no solver construction/science/state update; Page 9 burned, attic/bank unchanged | complete |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Build and preflight a Page-9 runner that accepts the sealed evolved
-   `05b8acf3…` continuation bank, validates the `e3512587…` receipt/digest, and
-   freezes all source/input/projection/bank/invocation hashes. Keep belief
-   orientation disabled.
-2. Freeze at most one fresh Page-9/lineage-22 call. The gate is further globally
+1. Derive fresh Page 10 from the unchanged 807-clause attic and `05b8acf3…`
+   continuation bank. Build once without `-Wl,-no_uuid`, then freeze the
+   observed executable bytes/digest and require `--help` on those exact bytes
+   before intent. Keep belief orientation disabled.
+2. Freeze at most one fresh Page-10 successor call. The gate is further globally
    novel exclusion, certified closure/model, attacker-valid domain/entropy gain
-   or exact verified key; Page-8 replay and blind cap/RAM growth remain closed.
-3. If the sealed call is inert, retain the complete attic and change the public
-   action/residency objective; do not replay or sweep caps.
+   or exact verified key; Page-8/9 replay and blind cap/RAM growth remain closed.
+3. If the sealed Page-10 call is scientifically inert, retain the complete attic
+   and change the public action/residency objective; do not replay or sweep caps.
 4. Keep O1C-0056 fixed negative clause-role credit closed. If the causal branch
    resumes later, condition the unique exact role on outcome/utility; do not tune
    sign, scale, groups or cap.
@@ -1370,7 +1379,8 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
-| `O1C-0083` | 2026-07-20 15:31 | The complete O1C-0082 exclusion burst can be retained in the causal attic while bounded Page 9 preserves headroom for compounding | Zero-call ingestion adds 257 new unique occurrences; attic reaches 13 chunks / 807 unique / 815 occurrences / 9 relations / 801 undominated. Fresh Page 9 is 255 clauses / 721,187 literals / 2,885,959 B (`4+43+208`), SHA `8c3b8cc3…`, with 257-clause headroom; evolved 24,576 B bank validates against its receipt | `CAUSAL_ATTIC_PAGE9_ROLLOVER_PREPARED`; enabling/mechanism gain only, no new cryptanalytic/key/entropy/domain gain | zero calls; preflight 66.35 s real / 65.72 s user / 0.35 s sys; 371,752,960 B max RSS; 0 swaps/block I/O | Rollover is sealed. Build a live-continuation-bank-capable runner/preflight, freeze all hashes, then make at most one fresh lineage-22 call; no replay/cap sweep | [Result](research/O1C0083_APPLE8_CAUSAL_ROLLOVER_RESULT_20260720.json) · [Interpretation](research/O1C0083_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md) · [Manifest](research/o1c83_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json) |
+| `O1C-0084` | 2026-07-20 16:26 | The sealed Page-9 projection and live continuation bank can compound O1C-0082's exclusion gain | Persisted intent burns Page 9 / lineage 22; the sole process call is rejected by `dyld` for missing `LC_UUID` before native `main` because the binary used `-Wl,-no_uuid`. No native JSON, solver construction, science telemetry or state update; actual/billed conflicts null | `PARENT_CENTERED_CONTINUATION_OPERATIONAL_TERMINAL`; operational build-transport failure only, cryptanalytic proposition untested | one process call consumed; 128 requested, actual/billed null; 19.430220 s runner wall / 18.909330 s CPU | Never retry Page 9. Derive fresh Page 10 from unchanged 807-clause attic + `05b8acf3…` bank; build once with normal UUID, seal dynamic hash before intent, require `--help` smoke | [Result](research/O1C0084_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json) · [Interpretation](research/O1C0084_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_162606_777761_O1C-0084_apple8-parent-centered-continuation-v1/RUN.md) |
+| `O1C-0083` | 2026-07-20 15:31 | The complete O1C-0082 exclusion burst can be retained in the causal attic while bounded Page 9 preserves headroom for compounding | Zero-call ingestion adds 257 new unique occurrences; attic reaches 13 chunks / 807 unique / 815 occurrences / 9 relations / 801 undominated. Fresh Page 9 is 255 clauses / 721,187 literals / 2,885,959 B (`4+43+208`), SHA `8c3b8cc3…`, with 257-clause headroom; evolved 24,576 B bank validates against its receipt | `CAUSAL_ATTIC_PAGE9_ROLLOVER_PREPARED`; enabling/mechanism gain only, no new cryptanalytic/key/entropy/domain gain | zero calls; preflight 66.35 s real / 65.72 s user / 0.35 s sys; 371,752,960 B max RSS; 0 swaps/block I/O | Rollover remains sealed. O1C-0084 later burns Page 9 at the loader without state update; derive fresh Page 10 from the unchanged attic/bank | [Result](research/O1C0083_APPLE8_CAUSAL_ROLLOVER_RESULT_20260720.json) · [Interpretation](research/O1C0083_APPLE8_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md) · [Manifest](research/o1c83_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json) |
 | `O1C-0082` | 2026-07-20 14:30 | The target-free parent-centered differential state can choose live failure-first actions that expose exact score-threshold exclusions | Fresh Page 8 / lineage 21 returns 255/255 confirmed one-shot actions across all score-observed key coordinates, 33,106 probes / 66,212 child bounds and 257 trail-threshold prunes. All 257 emitted clauses are active-page and global-attic novel (`743,129` literals); minimum UB `13.019691682287633 < tau`. The 513th combined clause triggers the sealed 512-clause capacity stop | `PARENT_CENTERED_NOVEL_CLAUSE_GAIN`; science gain yes, operational activation yes; key/model/closure/certified one-bit crossing/entropy-domain gain no | one call; 9/128 conflicts, 512 decisions, 3,209,096 propagations; 0.778217 s native wall; 320,897,024 B native peak; 43.436453 s runner wall | The living 28,672 B priority field converts the prior offline signal into a large exact exclusion harvest. Preserve all clauses in the causal attic and roll to bounded Page 9; no Page-8 retry | [Result](research/O1C0082_APPLE8_PARENT_CENTERED_RESULT_20260720.json) · [Interpretation](research/O1C0082_APPLE8_PARENT_CENTERED_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_143008_461948_O1C-0082_apple8-parent-centered-v1/RUN.md) |
 | `O1C-0081` | 2026-07-20 13:02 | Exact child-bound differentials retain coordinate-conditioned structure after parent common mode is removed | On the exact retained 16,384-event / 74-parent prefix, raw positive is 15,601 (95.2209%); median centering yields 8,172 positive / 8,172 negative / 40 zero. With frozen persistence >=37 parents, var185 scores 91.7528 at stability 1.0; within-parent permuted max is 3.0907/correlation -0.0284, temporal correlation 0.8538/sign agreement 81.11% | `TARGET_FREE_BOUND_DIFFERENTIAL_MECHANISM_CENSUS`; query-priority mechanism evidence yes, belief/key-bit/science/recovery claims no | zero solver/target/truth/reveal/refit/MPS/GPU; 0.23 s verification; 169,885,696 B max RSS; packed live state 28,672 B | Build one live parent-centered failure-first proof-mining reader; use residual magnitude for coordinate priority and current lower-UB sign only as action objective, never key belief | [JSON](research/O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.json) · [Report](research/O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.md) · [Capsule](runs/20260720_130241_O1C-0081_bound-differential-census-v1/RUN.md) |
 | `O1C-0080` | 2026-07-20 12:46 | Exact same-parent evaluation of every eligible key bit can expose an asymmetric threshold crossing or two-child closure hidden by whole-trail steering | Fresh Page 7 / lineage 20 returns exact `128/128/128`; 1,587 parents, 285,725 probes, 571,450 child UBs, all `NEITHER_PRUNABLE`; minimum witness variable 115 has `U0/U1=19.10564473318062/18.464862193097684`, still `3.8586833952047215` above tau; 0 interventions/prunes/clauses/models/key | `BOUND_PROBE_OPERATION_ONLY`; exact probe operation yes, crossing activation no, science gain no | one call; 48.718023834 s total; 6.803373 s native wall; 7.618434 s native CPU; 467,042,304 B native peak; 582,172,672 B runner peak; 14,998,858 B persistent | Close hard one-bit crossing and depth-2 rescue. The retained recorded prefix exposes a common-mode-biased signed child differential; measure centered O(256) residual streaming before any fresh Page-8 operator | [Result](research/O1C0080_APPLE8_BOUND_CROSSING_RESULT_20260720.json) · [Interpretation](research/O1C0080_APPLE8_BOUND_CROSSING_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_124516_O1C-0080_apple8-bound-crossing-v1/RUN.md) |
@@ -1457,6 +1467,8 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0084` result / capsule manifest / intent | `4ae1238203ef10c03a1dd325242ccb59bd0f8f67c0b93fa5debd95259c7f7b96` / `811ad89955b383c4ac1303fc3f510c4169278e19cec73d465adf7a76e65cc2bf` / `89483dda835275adba37a3cbb9099c12590cf26f439913eb4d91bbd6c912d20c` |
+| `O1C-0084` failed executable / native source | `1ba38064eaf0f3cc75e6c121c83f79024d84f5af50d37e9fe62cde2afc67b5ad` / `910784593a207adc763dd57518a2ea850a2db3d00a167500ae5216f1aebf76ca` |
 | `O1C-0083` preparation manifest | `b8a829a642159640a10cc553c6c27e5312cae4fbda8f75975688c6d14afe7dda` |
 | `O1C-0083` Page-9 projection / new chunk | `8c3b8cc33badd4aa23920caabc5ea3fc5006675d93805578b74b2b20788c8204` / `19e294822deb3b98904e9d14b944fe167cd3ff048f7d04d870c003b34cdadaf0` |
 | `O1C-0083` residency / activation / occurrence / relations | `2509b084b56a28be24163b60e94d7c2a631ddacddc5469b1ab8db4bc5a7876dd` / `e1bb54ff72920f66f3e882182a7d709e7c46d4bb7694f432430e24d519fee3ad` / `b011f4c7bbda808fc78827353fe39ddec334b067f4744bd89f1a3bc31dcacb1f` / `c599e44573e5c1be1740d1bd6fe40970cf562746e9e77ee927d7021030b58e43` |

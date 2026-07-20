@@ -497,12 +497,29 @@ selects `255` live clauses / `721,187` literals /
 partitioned as `roots=4`, `pinned=43`, `new_debt=208`, leaving `257` clause
 slots instead of the `256` left by hard-inheriting 256 clauses. The attic is now
 13 chunks / 807 unique clauses / 815 occurrences / 9 strict relations / 801
-undominated clauses. No production call or intent exists; Page 9 / lineage 22
-remain unburned. Preserve the final 24,576-byte evolved bank, require a dedicated
+undominated clauses. At O1C-0083 preparation time no production call or intent
+exists and Page 9 / lineage 22 are unburned; O1C-0084 later burns them. Preserve
+the final 24,576-byte evolved bank, require a dedicated
 live-continuation parser and receipt validation, and activate
 `H-PARENT-CENTERED-COMPOUNDING-088`. The architecture now has the intended split:
 bounded living priority state, bounded active clause residency and an exact
 unbounded-history attic.
+
+O1C-0084 closes `H-PARENT-CENTERED-COMPOUNDING-088` only at its operational
+launch gate. Its persisted Page-9 / lineage-22 intent burns that Page, but the
+`-Wl,-no_uuid` executable is rejected by Darwin `dyld` for missing `LC_UUID`
+before native `main` or CaDiCaL construction. One process call is consumed;
+native result, actual/billed conflicts, science telemetry and priority-state
+updates are absent. This is build transport, not a cryptanalytic negative. The
+attic remains 807 unique clauses / 815 occurrences and the 24,576-byte bank
+remains SHA `05b8acf3…`.
+
+Activate `H-PARENT-CENTERED-PAGE10-COMPOUNDING-089`: derive fresh Page 10 from
+that unchanged attic/bank, build once with the normal Darwin UUID, seal the
+observed dynamic executable bytes and digest before intent, and require
+`--help` on those exact bytes. Never replay Page 9. Preserve the unchanged
+scientific operator and reserve heavy validation for irreversible Page and
+provenance gates; use light normal hygiene for reversible build/test work.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1057,8 +1074,11 @@ evidence.
   compressed clause. O1C-0083 preserves the complete harvest through immutable
   causal-attic ingestion and seals `next_active_limit=255`, leaving 257 clause
   slots. It is a zero-call enabling/mechanism gain, not new cryptanalytic/key/
-  entropy gain. Build a live-continuation-bank-capable runner and preflight
-  before freezing at most one fresh Page 9 / lineage 22 call. Never replay Page 8.
+  entropy gain. O1C-0084 burns Page 9 / lineage 22 at persisted intent, but
+  `dyld` rejects its `-Wl,-no_uuid` binary before native `main`; no science or
+  state update occurs. Never replay Page 8 or Page 9. Derive Page 10 from the
+  unchanged 807-clause attic and `05b8acf3…` bank, then require build-once
+  dynamic hashing plus `--help` before any new intent.
 
 ## Operating contract
 
@@ -1072,6 +1092,13 @@ evidence.
   command, source, resource and metric record.
 - A negative result gets one explicit do-not-repeat breadcrumb, then its exact
   hypothesis closes. It is not promoted to a milestone.
+- State-efficiency rule: irreversible Page-burn, lineage, target, provenance and
+  atomicity gates receive heavy fail-closed validation; reversible local builds,
+  fixtures and normal hygiene receive one focused sufficient pass. Once the
+  burn gate passes, issue the real call without an added comfort-control cycle.
+  Track pre-burn defect yield per milestone and shrink the suite after two or
+  three no-find milestones. Do not count O1C-0083's 66.35-second preparation as
+  solver-resource progress or repeat a giant review without a concrete defect.
 - Repetition requires a new mechanism, variable, dataset, scaling question or
   replication purpose.
 - One targeted validity review per milestone is enough unless a concrete defect is

@@ -3508,3 +3508,55 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   [config](../configs/o1c83_apple8_causal_rollover_v1.json), and sealed
   [manifest](o1c83_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json)
   SHA-256 `b8a829a642159640a10cc553c6c27e5312cae4fbda8f75975688c6d14afe7dda`.
+
+## O1C-0084 — APPLE8 parent-centered Page-9 continuation
+
+- **Started:** `2026-07-20T16:26:10.201735+02:00`; **recorded:**
+  `2026-07-20T16:26:29.631899+02:00` (`Europe/Berlin`).
+- **Protocol:** validate the O1C-0083 manifest, unchanged 807-clause attic,
+  Page 9, evolved `05b8acf3…` bank and `e3512587…` state receipt; persist one
+  local-0 / lineage-22 intent; then issue at most one seed-0 native call at 128
+  requested conflicts with no retry, reveal, target/truth input, refit, MPS or
+  GPU use.
+- **Preflight:** passed before intent. The production executable was frozen at
+  `1,696,712 B`, SHA-256 `1ba38064…`, after being linked with
+  `-Wl,-no_uuid`. Intent SHA-256 is
+  `89483dda835275adba37a3cbb9099c12590cf26f439913eb4d91bbd6c912d20c`.
+- **Terminal result:** `PARENT_CENTERED_CONTINUATION_OPERATIONAL_TERMINAL`, stop
+  `burned-terminal-failure-no-retry`. Darwin `dyld` rejected the executable for
+  a missing `LC_UUID` load command. One adapter/native process call was issued
+  and consumed, but native `main` and CaDiCaL solver construction were never
+  reached; no native JSON/stdout returned. Actual and billed conflicts are
+  `null`.
+- **Science boundary:** no priority-state update, probe/action/bound telemetry,
+  prune, clause, model, key, closure, entropy or domain result exists. Science
+  gain is false because execution never began. This is a build-transport
+  failure, not a cryptanalytic negative and not evidence against O1C-0082.
+- **State boundary:** persisted intent burns Page 9 / lineage 22 permanently.
+  Never retry or replay it. The attic remains 807 unique clauses and the
+  continuation bank remains exact SHA `05b8acf3…`; no O1C-0084 output exists to
+  ingest.
+- **Hypothesis:** refute `H-PARENT-CENTERED-COMPOUNDING-088` operationally at
+  its launch gate, while leaving its cryptanalytic proposition untested.
+  Activate `H-PARENT-CENTERED-PAGE10-COMPOUNDING-089`.
+- **Next action:** derive fresh Page 10 from the unchanged attic and bank. Build
+  once without `-Wl,-no_uuid`, seal the observed dynamic executable hash before
+  intent, and require a non-science `--help` smoke on those exact bytes. Heavy
+  checks protect irreversible Page/provenance/atomicity gates; reversible
+  hygiene is one focused pass. After the burn gate passes, make the real call
+  without a comfort-control cycle. Track pre-burn defect yield and shrink after
+  2–3 no-find milestones; 66.35-second preparation is provenance cost, not
+  solver-resource progress.
+- **Resources:** runner wall `19.430220374983037 s`, CPU
+  `18.90933000000001 s`; child user/system
+  `0.0006740000000000634/0.001696000000000003 s`. These are build/loader costs,
+  not solver work.
+- **Artifacts:** authoritative
+  [result](O1C0084_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json),
+  SHA-256
+  `4ae1238203ef10c03a1dd325242ccb59bd0f8f67c0b93fa5debd95259c7f7b96`;
+  [interpretation](O1C0084_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md);
+  sealed
+  [capsule](../runs/20260720_162606_777761_O1C-0084_apple8-parent-centered-continuation-v1/RUN.md),
+  artifact-manifest SHA-256
+  `811ad89955b383c4ac1303fc3f510c4169278e19cec73d465adf7a76e65cc2bf`.
