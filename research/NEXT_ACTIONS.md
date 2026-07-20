@@ -39,8 +39,9 @@ The threshold question is now formal. Let `S(x)` be the compiled candidate score
 a visited partial trail `a`, so `S(x)<=U(a)` for every `x` extending `a`.
 Threshold and UB therefore use the same score units and retained direction, but
 `tau` is a fixed membership cutoff while `min_{a in V}U(a)` is a statistic over
-the run-specific visited-trail population `V`; they are not the same metric
-object or population. The quoted `7.973483108047071` is O1C-0066 episode 1, not
+the run-specific visited-trail population `V`. They are comparable under the
+same underlying score metric, but have different statistic roles and
+populations. The quoted `7.973483108047071` is O1C-0066 episode 1, not
 O1C-0068. O1C-0068's minimum is `12.8607806294803`; O1C-0076's minimum is
 `14.67138759145431`. O1C-0066 episode 1 separately records seven actual
 trail-threshold prunes; `7.973...` is the minimum witness UB, not a prune count
