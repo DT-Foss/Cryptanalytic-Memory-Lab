@@ -1,6 +1,6 @@
 """Fail-closed O1C-0084 adapter for the sealed live priority bank.
 
-Version 23 preserves the native-v19 proof-mining semantics while moving the
+Version 23 preserves the native-v20 proof-mining semantics while moving the
 input boundary from the original compiled seed to O1C-0082's evolved bank and
 from Page 8 to O1C-0083's fresh Page 9.  The evolved bank has a dedicated
 parser: it is never interpreted by the original census-seed validator.
@@ -584,39 +584,37 @@ def _parse_native_payload(
 def _build_native(*, source: Path, output: Path, public_fixture: bool) -> None:
     source_resolved = source.resolve(strict=True)
     before = source_resolved.read_bytes()
-    if public_fixture:
-        include = Path("/opt/homebrew/opt/cadical/include").resolve(strict=True)
-        library = Path("/opt/homebrew/opt/cadical/lib/libcadical.a").resolve(
-            strict=True
+    if not public_fixture:
+        raise _error("production executable must be prebuilt by the sealed runner")
+    include = Path("/opt/homebrew/opt/cadical/include").resolve(strict=True)
+    library = Path("/opt/homebrew/opt/cadical/lib/libcadical.a").resolve(strict=True)
+    if shutil.which("c++") is None:
+        raise _error("C++ compiler")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    command = [
+        "c++",
+        "-std=c++17",
+        "-O2",
+        "-DNDEBUG",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wl,-no_uuid",
+        "-DO1_CRYPTO_LAB_O1C84_PUBLIC_FIXTURE",
+        f"-I{include}",
+        str(source_resolved),
+        str(library),
+        "-o",
+        str(output),
+    ]
+    completed = subprocess.run(
+        command, capture_output=True, text=True, check=False, timeout=120
+    )
+    if completed.returncode or not output.is_file():
+        raise JointScoreSieveV23Error(
+            "joint-score-sieve-v23 native build failed: "
+            + (completed.stderr.strip() or completed.stdout.strip())
         )
-        if shutil.which("c++") is None:
-            raise _error("C++ compiler")
-        output.parent.mkdir(parents=True, exist_ok=True)
-        command = [
-            "c++",
-            "-std=c++17",
-            "-O2",
-            "-DNDEBUG",
-            "-Wall",
-            "-Wextra",
-            "-Werror",
-            "-DO1_CRYPTO_LAB_O1C84_PUBLIC_FIXTURE",
-            f"-I{include}",
-            str(source_resolved),
-            str(library),
-            "-o",
-            str(output),
-        ]
-        completed = subprocess.run(
-            command, capture_output=True, text=True, check=False, timeout=120
-        )
-        if completed.returncode or not output.is_file():
-            raise JointScoreSieveV23Error(
-                "joint-score-sieve-v23 native build failed: "
-                + (completed.stderr.strip() or completed.stdout.strip())
-            )
-    else:
-        _v9.build_native_joint_score_sieve(source=source_resolved, output=output)
     if source_resolved.read_bytes() != before:
         raise _error("native source changed during build")
 

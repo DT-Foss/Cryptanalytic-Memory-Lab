@@ -234,7 +234,7 @@ class Fixture:
             )
         self.compiler_calls += 1
         assert "-DO1_CRYPTO_LAB_O1C84_PUBLIC_FIXTURE" not in argv
-        assert tuple(argv[1:7]) == runner.COMPILER_FLAGS
+        assert tuple(argv[1 : 1 + len(runner.COMPILER_FLAGS)]) == runner.COMPILER_FLAGS
         output = Path(argv[argv.index("-o") + 1])
         output.write_bytes(FAKE_NATIVE)
         if self.mutate_after_build is not None:

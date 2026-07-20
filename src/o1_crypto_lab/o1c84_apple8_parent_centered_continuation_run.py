@@ -168,7 +168,15 @@ NATIVE_CLOSURE_NAMES = (
     "native_v6",
     "native_base",
 )
-COMPILER_FLAGS = ("-std=c++17", "-O2", "-DNDEBUG", "-Wall", "-Wextra", "-Werror")
+COMPILER_FLAGS = (
+    "-std=c++17",
+    "-O2",
+    "-DNDEBUG",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wl,-no_uuid",
+)
 
 
 class O1C84RunError(RuntimeError):
