@@ -3098,3 +3098,61 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `875655a95a30a4f0df01e130a074b0b6a82b98c683575818ad5110cc6a6f1366`.
   Capsule `result.json` is byte-identical to the published result and all
   `35/35` manifest entries validate.
+
+## O1C-0077 — APPLE8 residual-polarity staging
+
+- **Started:** 2026-07-20T02:55:50+02:00.
+- **Recorded:** 2026-07-20T02:56:38+02:00.
+- **Source freeze/execution:** `d4f9b3aa066b22a38ead63d83cbb76b4ead673de`
+  / `8eba8614fc9d19ef893a0e7f093737ed6b23dc68`.
+- **Protocol:** preserve the complete O1C-0076 causal attic, immutable 255-row
+  rank and fresh Page 4 `b57e3091…`. Change only source rank rows 224/226 from
+  `+131/-130` to effective `-131/+130` before constructing the inherited
+  release-contrast reader. Consume local 0 / lineage 17 once at exactly 128
+  conflicts, with no retry, sweep, truth, reveal, refit, MPS or GPU.
+- **Result:** `RESIDUAL_POLARITY_STAGING_MECHANISM_ONLY`. Effective originals
+  `-131/+130` return at callbacks 225/227 and source contrasts `+131/-130`
+  at 574/576. Native activation is true and trace changes
+  `f64441a2…→706ad4fa…`. The sole call bills `128/128` conflicts, makes 884
+  decisions and 4,754,555 propagations, and records zero safe prunes, emitted
+  occurrences, globally novel clauses or model.
+- **Reference displacement:** versus O1C-0076, decisions fall
+  `2,288→884` (-61.36%) while propagations rise
+  `2,890,144→4,754,555` (+64.51%). Minimum UB moves
+  `14.67138759145431→14.656823218163392`, reducing the positive margin above
+  `tau=14.606178797892962` by 22.33%, but remains above threshold and yields
+  zero prune. Page 3 advances to Page 4, so these whole-call deltas are not a
+  same-input counterfactual. The reader streams match through callback 224 and
+  first diverge exactly on the planned callback-225 overlay; at parent fallback
+  callback 256 the residual split improves from 18/11 to 23/6
+  falsifying/rescue. This is causal trajectory control, not yet search-space
+  gain.
+- **Threshold boundary:** `tau` and `U(a)` share the compiled score metric,
+  units and retained direction `S(k)>=tau`, but threshold and minimum UB have
+  different statistic roles/populations. Strict `U(a)<tau` safely prunes only
+  completions of that visited trail. Historical `7.973483108047071` belongs
+  to O1C-0066 episode 1 and accompanies seven actual local prune events; it is
+  neither global exhaustion nor O1C-0068, whose minimum is
+  `12.8607806294803` and whose artifacts remain untouched.
+- **Resources:** runner elapsed `48.2352461249975 s`, runner peak RSS
+  `402,210,816 B`; native wall `0.838922 s`, CPU `1.600825 s`, native
+  peak RSS `423,968,768 B`; persistent artifacts `15,291,549 B`.
+- **Decision:** close the two-row operator and never replay lineage 17. Advance
+  once to the already sealed 11-row falsifying prefix
+  `130,-131,31874,63746,190565,190566,190569,191212,191213,191216,191234`
+  on fresh Page 5 `07c73013…`. Activation requires all 11 rows consumed before
+  the parent, all 11 falsifying at handoff with zero rescue skips, at least one
+  exact prefix once-return and a new trace. Requiring 11 returns would wrongly
+  reject causal propagation assigning later rows. Science still requires a safe
+  prune, globally novel exact clause, formal exhaustion or public model.
+- **Artifacts:** authoritative
+  [`result`](O1C0077_APPLE8_RESIDUAL_POLARITY_STAGING_RESULT_20260720.json),
+  SHA-256
+  `8b87d7cdc39f6380a887b2e45d4879544ff88cd7c53e22f44876e46c334cf103`;
+  [`interpretation`](O1C0077_APPLE8_RESIDUAL_POLARITY_STAGING_INTERPRETATION_20260720.md);
+  sealed
+  [`capsule`](../runs/20260720_025550_O1C-0077_apple8-residual-polarity-staging-v1/RUN.md),
+  artifact-manifest SHA-256
+  `6b8526c5eaa2c318d4eef1e8c4dc87e744307c95f30699a90e4444021d2dbece`.
+  Capsule `result.json` is byte-identical to the published result and all
+  `39/39` manifest entries validate.

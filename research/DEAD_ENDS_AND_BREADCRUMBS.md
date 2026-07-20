@@ -1762,3 +1762,47 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [`capsule`](../runs/20260720_013632_O1C-0076_apple8-causal-frontier-v1/RUN.md),
   artifact-manifest SHA-256
   `875655a95a30a4f0df01e130a074b0b6a82b98c683575818ad5110cc6a6f1366`.
+
+## O1C-0077 residual-polarity staging — activation without science output
+
+- **Evidence:** O1C-0077 changes only rank rows 224/226 from source
+  `+131/-130` to effective `-131/+130` before constructing the inherited
+  release-contrast reader. Effective originals return at callbacks 225/227 and
+  source contrasts at 574/576. Both overlay state bits activate; the first
+  reader-stream divergence from O1C-0076 is exactly callback 225 and trace
+  changes `f64441a2…→706ad4fa…`.
+- **Boundary:** at the unchanged first parent-zero callback 256, all 29 residual
+  rows remain assigned, but staging moves the split from 18 falsifying /
+  11 rescue to 23 falsifying / 6 rescue. The remaining rescues are
+  `190565,190566,190569,191212,191213,191216`. Outer frontier substitutions
+  and unit activation remain zero/false.
+- **Science result:** exactly one `128/128` call; zero safe prunes, emitted
+  occurrences, globally novel clauses, complete models or public key. Minimum
+  UB `14.656823218163392` remains `0.050644420270430` above
+  `tau=14.606178797892962`. Classification
+  `RESIDUAL_POLARITY_STAGING_MECHANISM_ONLY` is therefore positive for the
+  causal primitive and null for the predeclared science gates.
+- **Reference work:** decisions `2,288→884`, propagations
+  `2,890,144→4,754,555`, maximum decision level `431→279`, and minimum UB
+  `14.67138759145431→14.656823218163392`. Page 3 advances to Page 4, so these
+  whole-call changes are not a same-input performance counterfactual; only the
+  exact callback-225 first divergence is directly isolated.
+- **Do not repeat:** lineage 17, the two-row overlay, or a rescue subset/order
+  selected from post-O1C-0077 telemetry. Do not sweep Page, K, rank, phase,
+  horizon, seed, threshold, RAM or caps.
+- **Breadcrumb:** retain the precommitted full prefix byte-for-byte:
+  `130,-131,31874,63746,190565,190566,190569,191212,191213,191216,191234`,
+  signed-i32le SHA
+  `b5debc5f55f7cbc1e728d00ce1d14d0c437249793f8c10e8b80e614a00ed155c`.
+  Do not drop the five rows now observed falsifying: that would be a post-result
+  refit, and prefix timing was not tested by O1C-0077. Execute it once before the
+  inherited rank on fresh Page 5 `07c73013…`, lineage 18 / 128 conflicts.
+- **Artifacts:** authoritative
+  [`result`](O1C0077_APPLE8_RESIDUAL_POLARITY_STAGING_RESULT_20260720.json),
+  SHA-256
+  `8b87d7cdc39f6380a887b2e45d4879544ff88cd7c53e22f44876e46c334cf103`;
+  [`interpretation`](O1C0077_APPLE8_RESIDUAL_POLARITY_STAGING_INTERPRETATION_20260720.md);
+  sealed
+  [`capsule`](../runs/20260720_025550_O1C-0077_apple8-residual-polarity-staging-v1/RUN.md),
+  artifact-manifest SHA-256
+  `6b8526c5eaa2c318d4eef1e8c4dc87e744307c95f30699a90e4444021d2dbece`.

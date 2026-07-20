@@ -401,6 +401,18 @@ among the five rank/residual intersections, move only rescue originals
 reader, using fresh Page 4 `b57e3091…`. Retain the sealed 11-row preemptor as the
 next escalation if those upstream signs cannot redirect propagation.
 
+O1C-0077 executes that exact lineage-17/128-conflict call and returns
+`RESIDUAL_POLARITY_STAGING_MECHANISM_ONLY`. Effective originals
+`-131/+130` and both later source contrasts return; the reader stream first
+diverges exactly at callback 225 and trace changes `f64441a2…→706ad4fa…`.
+At parent fallback callback 256 the residual split improves from 18/11 to 23/6
+falsifying/rescue. Decisions fall to 884 and minimum UB moves to
+`14.656823218163392`, while propagations rise to 4,754,555 and zero
+prunes/emissions/model remain. Support `H-RESIDUAL-POLARITY-STAGING-081` only
+at mechanism level. Close lineage 17 and freeze `H-RESCUE-PREFIX-PREEMPTION-082`
+as the unchanged predeclared 11-row signed prefix before the inherited rank on
+fresh Page 5 `07c73013…`; do not choose a post-result subset or order.
+
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
 a statistic over one run's visited trails. The historical minimum
@@ -900,6 +912,12 @@ evidence.
   reader and stage the two ranked rescue originals as falsifying before
   propagation on fresh Page 4 in one target-free O1C-0077 call. Retain the
   sealed 11-row preemptor only if this minimal upstream intervention is inert.
+- O1C-0077 stages those two signs and activates exactly: four original/contrast
+  returns, first divergence at callback 225, trace `706ad4fa…`, and residual
+  split 23 falsifying / 6 rescue at callback 256. It emits no prune, clause or
+  model, so the classification is mechanism-only. Do not retry or refit from
+  its six remaining rescues. Advance once to the already sealed complete 11-row
+  prefix on fresh Page 5, lineage 18 / 128 conflicts.
 
 ## Operating contract
 
