@@ -185,6 +185,13 @@ int synthetic_mode() {
   require(forward.current_parent_contains(1) &&
               forward.current_parent_differential(1) == 8.0,
           "current parent scratch query differs");
+  ParentCenteredPriority cleared = forward;
+  const auto bank_before_clear = cleared.export_packed_bank();
+  cleared.clear_current_parent();
+  require(cleared.current_candidate_count() == 0U &&
+              !cleared.select_current_parent().available &&
+              cleared.export_packed_bank() == bank_before_clear,
+          "empty-parent clear changed persistent state or left stale scratch");
 
   require(ParentCenteredPriority::lower_upper_bound_action_literal(7, 1.0,
                                                                    1.0) == -7 &&

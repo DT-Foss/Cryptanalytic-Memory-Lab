@@ -292,6 +292,8 @@ public:
     scratch_ = {};
   }
 
+  void clear_current_parent() noexcept { scratch_ = {}; }
+
   const CoordinateAccumulator &accumulator(int variable) const {
     return bank_.at(variable_index(variable));
   }

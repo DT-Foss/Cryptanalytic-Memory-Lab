@@ -587,6 +587,7 @@ private:
       last_robust_scale_ = update.robust_scale;
       last_priority_selection_ = priority_.select_current_parent(consumed_);
     } else {
+      priority_.clear_current_parent();
       last_priority_selection_ = {};
     }
 
