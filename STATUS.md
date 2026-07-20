@@ -1,6 +1,6 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-20T02:56:38+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-20T07:01:36+02:00 (`Europe/Berlin`)
 - **Current truth:** the exact O1C-0019 → O1C-0022 full256 chain has run. Both
   attempts are operationally complete, verified and scientifically negative.
 - **O1C-0019:** `BUILD_LOO_NO_TRANSFER`; 2,467.325 s elapsed, 362,528,768 B peak;
@@ -352,6 +352,25 @@
   overlay; the callback-256 residual split moves 18/11→23/6
   falsifying/rescue. This supports the causal intervention primitive, not yet
   cryptanalytic gain. Source freeze/execution are `d4f9b3aa…/8eba8614…`.
+- **O1C-0078:** the sole local-0/lineage-18 rescue-prefix call consumes fresh
+  Page 5 and requests 128 conflicts, then exits before a native result on
+  `backtrack-release guided assignment sign differs`; actual/billed work is
+  unknown/`null`, and stdout is empty. The exact throw path requires a historically returned parent
+  rank row, and O1C-0078 reaches that parent only after consuming all 11 prefix
+  rows. This proves complete-prefix control-flow reachability and parent handoff,
+  but not an actual prefix return, zero rescue skips, trace change, prune,
+  clause or model. Classification is
+  `RESCUE_PREFIX_PREEMPTION_OPERATIONAL_TERMINAL`: operational boundary,
+  neither scientific negative nor gain. Page 5 / lineage 18 are burned.
+  Source freeze/execution are `ced7e591…/2840824b…`.
+- **Threshold audit:** `tau=14.606178797892962` and the historical minimum UB
+  `7.973483108047071` share the compiled score metric, units and maximization
+  direction, but not statistic or population: the former is a complete-score
+  cutoff, the latter O1C-0066 episode 1's minimum over visited partial trails.
+  Admissibility makes strict `U(a)<tau` safe only for descendants of that
+  particular trail; it does not prove root/global exhaustion. O1C-0077 is
+  `14.656823218163392>tau` with zero prunes, O1C-0078 has no bound result, and
+  O1C-0068 remains untouched at `12.8607806294803`.
 - **Apple parallel tracks:** fixed-point/output-fitness descent is closed at
   `-0.484` gained key bits, AUC `0.50572`, and zero recoveries. Independent-carry
   quotienting is also closed: carry rank is 512 and exact key rank 0 on all eight
@@ -375,13 +394,14 @@
   fails raw at `1,340 > 1,268 > 1,031` for edge, exact unary and final→early.
   Certificate `1,003` beats fixed `1,015` but loses unary `997` and cannot pass.
   All 28 wrong passes, proof replays, freeze checks and truth controls are exact.
-- **Next mechanism:** O1C-0077 proves that upstream polarity staging can redirect
-  the Full-256 trajectory but its two rows do not cross a science gate. Freeze
-  the already sealed 11-row falsifying prefix
-  `130,-131,31874,63746,190565,190566,190569,191212,191213,191216,191234`
-  (i32le SHA `b5debc5f…`) before the inherited rank and use fresh Page 5
-  `07c73013…` once at lineage 18 / 128 conflicts. Never replay ordinals
-  `10..17` or sweep Page/K/rank/phase/horizon/seed/threshold/RAM/caps.
+- **Next mechanism:** O1C-0078's strongest code-path inference is missing
+  assignment provenance in nested readers after all 11 prefix rows are consumed;
+  stdout cannot identify which layer created the opposite sign. Reproduce that
+  release sequence synthetically, then replace proposal-history inference with
+  an explicit signed decision-instance arbiter. After that zero-science gate,
+  derive fresh Page 6 / lineage 19 by burning Page 5 without importing a
+  nonexistent output, and test the unchanged prefix once. Never replay ordinals
+  `10..18` or sweep Page/K/rank/phase/horizon/seed/threshold/RAM/caps.
 - **Goal correction:** A526 is a retained terminal branch, not the whole research
   objective. Transferable held-out entropy, joint true-key rank, effective
   residual-width and time-to-hit gains now count as real sub-256 progress. A
@@ -395,11 +415,12 @@
   neighbors and W8 cells are all negative at their tested surfaces. The final W8
   correlation collapsed from `-0.158165` to `-0.014003` on the unchanged repeat;
   do not scale or reorient it.
-- **Active local run:** no scientific process is active. O1C-0077 is sealed as
-  an activated mechanism-only result. Immediate work is target-free freezing of
-  the exact 11-row O1C-0078 prefix preemptor on fresh Page 5. No
-  O1C-0074/75/76/77 replay, ordinal-10..17 reuse, residency resweep,
-  K/rank/phase/horizon sweep or blind cap increase is authorized.
+- **Active local run:** no scientific process is active. O1C-0078 is sealed as
+  an operational terminal with no native science payload. Immediate work is a
+  zero-science ownership reproducer and explicit arbiter, followed only after
+  that gate by fresh Page 6 / lineage 19. No O1C-0074/75/76/77/78 replay,
+  ordinal-10..18 reuse, residency resweep, K/rank/phase/horizon sweep or blind
+  cap increase is authorized.
   O1C-0053..0056 and the exact
   O1C-0058 rule remain negative and closed. Sibling repositories remain read-only
   and untouched.
@@ -408,6 +429,9 @@
   attacker-valid point reached on entropy, joint rank, effective residual width,
   matched search work or time-to-hit, not a binary `256-or-zero` gate.
 - **Latest results:**
+  [O1C-0078 rescue-prefix result](research/O1C0078_APPLE8_RESCUE_PREFIX_PREEMPTION_RESULT_20260720.json),
+  [O1C-0078 interpretation](research/O1C0078_APPLE8_RESCUE_PREFIX_PREEMPTION_INTERPRETATION_20260720.md),
+  [O1C-0078 capsule](runs/20260720_065505_O1C-0078_apple8-rescue-prefix-preemption-v1/RUN.md),
   [O1C-0077 residual-polarity-staging result](research/O1C0077_APPLE8_RESIDUAL_POLARITY_STAGING_RESULT_20260720.json),
   [O1C-0077 interpretation](research/O1C0077_APPLE8_RESIDUAL_POLARITY_STAGING_INTERPRETATION_20260720.md),
   [O1C-0077 capsule](runs/20260720_025550_O1C-0077_apple8-residual-polarity-staging-v1/RUN.md),
@@ -614,6 +638,14 @@ return, the first divergence is exactly callback 225, trace changes to
 falsifying/rescue. It still emits zero prune/clause/model. Close the two-row
 operator and execute the unchanged sealed 11-row prefix once on fresh Page 5;
 do not refit it to the six post-result rescues.
+O1C-0078 consumes that exact Page-5/lineage-18 prefix call, reaches its inherited
+parent after all 11 rows, then terminates on a backtrack-release sign mismatch
+before native stdout/result. Proven is returned-ever/unreleased proposal history
+plus a disappearing opposite-sign assignment; stdout does not identify its
+source. Missing nested ownership is the strongest code-path inference. Page 5
+is burned; test ownership synthetically and derive fresh Page 6 / lineage 19
+without importing nonexistent output. This is an operational boundary, not a
+science null or gain.
 In parallel APPLE-VIEW-0005 finds the first exact sparse carry certificate:
 250 of 336 high-carry identities suffice to reject a complete wrong key on the
 fixed matrix, with independent proof replay. APPLE-VIEW-0006 then performs the
@@ -1213,18 +1245,18 @@ O1C-0017 result boundary are documented in
 | Causal-residency stream | — | 2026-07-20 00:27 | O1C-0075 two-page nonrepeating K256 stream | terminal: all 545 undominated clauses receive residency with zero debt, but both byte-distinct pages exactly reproduce the O1C-0074 fixed point and emit nothing | complete |
 | Causal-frontier reader | — | 2026-07-20 01:36 | O1C-0076 one-call 29-row parent-zero frontier | terminal: first parent zero arrives after all rows are assigned; 18 falsifying / 11 rescue skips, zero substitutions, unchanged trace and no science gain | complete |
 | Residual-polarity staging | — | 2026-07-20 02:55 | O1C-0077 one-call two-row upstream polarity overlay | terminal: four staged returns activate and change trace; decisions -61.36%, minimum UB moves closer to threshold, but zero prune/emission/model | complete |
+| Rescue-prefix preemption | — | 2026-07-20 06:55 | O1C-0078 one-call 11-row prefix before inherited reader | operational terminal: all prefix rows consumed and parent reached, then the returned-ever/opposite-sign invariant throws before stdout/native result; no science classification | complete |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Freeze the exact 11-row falsifying prefix with signed-i32le SHA
-   `b5debc5f55f7cbc1e728d00ce1d14d0c437249793f8c10e8b80e614a00ed155c`.
-2. Bind O1C-0078 prefix preemption before the inherited rank so the nine
-   formerly propagation-created rescue rows become explicit interventions.
-3. Use fresh Page 5 `07c73013…` once at lineage 18 / 128 conflicts. Activation
-   requires all 11 consumed and falsifying before the first parent call, zero
-   rescue skips, at least one exact once-return and a changed trace. Do not
-   replay O1C-0077 or sweep Page/K/rank/phase/horizon/RAM.
+1. Reproduce the opposite-sign release path in a synthetic zero-science trace
+   and distinguish proposal history from the signed live decision instance.
+2. Add one explicit arbiter/ownership ledger; prove nested-parent,
+   propagation-owned and backtracked assignments release only their owner.
+3. Burn Page 5 without importing nonexistent output, derive fresh Page 6 /
+   lineage 19, and only after the ownership gate run the unchanged prefix once.
+   Do not replay O1C-0078 or sweep Page/K/rank/phase/horizon/RAM.
 4. Keep O1C-0056 fixed negative clause-role credit closed. If the causal branch
    resumes later, condition the unique exact role on outcome/utility; do not tune
    sign, scale, groups or cap.
@@ -1244,6 +1276,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0078` | 2026-07-20 06:55 | The complete 11-row falsifying prefix can preempt propagation before the inherited reader | Local 0/lineage 18 consumes Page 5 and requests 128 conflicts; exact throw path proves all 11 rows consumed and parent handoff reached, then `backtrack-release guided assignment sign differs`; actual/billed unknown/`null`, stdout empty, no native result or activation/trace/bound telemetry | `RESCUE_PREFIX_PREEMPTION_OPERATIONAL_TERMINAL`; neither scientific negative nor gain | one call; 31.2118055 s runner; 29.3178874 s native failure; 404,815,872 B native/watchdog peak; 381,730,816 B runner peak; 12,137,843 B persistent | Strongest inference: proposal history is not current assignment ownership. Burn Page 5; synthesize an explicit ownership arbiter, then use fresh Page 6 / lineage 19 without importing output | [Result](research/O1C0078_APPLE8_RESCUE_PREFIX_PREEMPTION_RESULT_20260720.json) · [Interpretation](research/O1C0078_APPLE8_RESCUE_PREFIX_PREEMPTION_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_065505_O1C-0078_apple8-rescue-prefix-preemption-v1/RUN.md) |
 | `O1C-0077` | 2026-07-20 02:55 | Staging the two ranked rescue originals as falsifying before propagation redirects the nearest-clause trajectory | Four exact events at callbacks 225/227/574/576; trace `f64441a2…→706ad4fa…`; decisions `2,288→884`, propagations `2,890,144→4,754,555`, minimum UB `14.67138759145431→14.656823218163392`; 0 prunes/emissions/novel/model | `RESIDUAL_POLARITY_STAGING_MECHANISM_ONLY`; activation yes, science gain no | one call; 48.235246 s runner; 0.838922 s native wall; 423,968,768 B native peak; 15,291,549 B persistent | Close the two-row operator without retry; preempt the complete sealed 11-row rescue set once on fresh Page 5 | [Result](research/O1C0077_APPLE8_RESIDUAL_POLARITY_STAGING_RESULT_20260720.json) · [Interpretation](research/O1C0077_APPLE8_RESIDUAL_POLARITY_STAGING_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_025550_O1C-0077_apple8-residual-polarity-staging-v1/RUN.md) |
 | `O1C-0076` | 2026-07-20 01:36 | A parent-zero-only falsify/release-contrast wrapper over union clause 526's 29 residuals activates the nearest resident boundary | Local 0/lineage 16 bills 128 conflicts; first parent zero is callback 256, when all 29 rows are assigned. Cursor consumes 18 falsifying-sign and 11 rescue-sign skips; 0 substitutions/releases/contrasts, unchanged trace `f64441a2…`, 2,288 decisions, 2,890,144 propagations, minimum UB 14.67138759145431, 0 prunes/emissions/model | `CAUSAL_FRONTIER_NO_ACTIVATION_NO_GAIN`; negative activation and science result | one call; 47.790948 s elapsed; 0.566478 s native wall; 408,944,640 B native peak; 15,055,265 B persistent | Close lineage 16; stage the two ranked rescue originals as falsifying on fresh Page 4, with the sealed 11-row preemptor next only if needed | [Result](research/O1C0076_APPLE8_CAUSAL_FRONTIER_RESULT_20260720.json) · [Interpretation](research/O1C0076_APPLE8_CAUSAL_FRONTIER_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_013632_O1C-0076_apple8-causal-frontier-v1/RUN.md) |
 | `O1C-0075` | 2026-07-20 00:27 | A target-free nonrepeating K256 residency pager can escape O1C-0074's fixed point by exposing every undominated attic clause without enlarging live state | Local `0..1` / lineage `14..15` each bill exactly 128 conflicts. Input pages `82b1512a…` / `db3acd5e…` are distinct and, with the inherited projection, cover `545/545` undominated clauses with debt 0. Both reproduce trace `f64441a2…`, 2,288 decisions, 2,890,144 propagations, minimum/root UB `14.67138759145431/262.68644197084643` and 0 prunes/emissions/model, exactly matching O1C-0074 episodes 2/3. Attic remains 550 clauses / 558 occurrences / 8 duplicates | `CAUSAL_RESIDENCY_STREAM_NO_NOVEL_GAIN`; bounded pager and full-coverage ledger succeed, but pure rotation is a scientific null, not recovery/entropy/UNSAT/exhaustion | two calls; 256/256 conflicts; 93.295922 s elapsed; 482,541,568 B runner peak; 20,788,748 B persistent; zero truth/reveal/MPS/GPU | Close residency resweep; activate the target-free nearest resident 29-literal causal frontier under one frozen falsify/release-contrast reader | [Result](research/O1C0075_APPLE8_CAUSAL_RESIDENCY_STREAM_RESULT_20260720.json) · [Interpretation](research/O1C0075_APPLE8_CAUSAL_RESIDENCY_STREAM_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_002724_O1C-0075_apple8-causal-residency-stream-v1/RUN.md) |
@@ -1325,6 +1358,10 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0078` capsule artifact manifest | `5d358863162a64f27d215fc4b91258c73194d2458f89d9dd7495bb1e05e50a69` |
+| `O1C-0078` authoritative result | `f72821443ed7e7dd80698a39288ff31f9c8f52a120bb745e713e3b23b1822fed` |
+| `O1C-0078` source freeze / execution | `ced7e5917194362b84d44625f7f9f6484bb555ad` / `2840824b2aa482f30dfbd39060c200994fc09957` |
+| `O1C-0078` consumed Page 5 | `07c73013705898e228a05b0578b0f8090a6f094c427dbd8f32d856467b08e208` |
 | `O1C-0077` capsule artifact manifest | `6b8526c5eaa2c318d4eef1e8c4dc87e744307c95f30699a90e4444021d2dbece` |
 | `O1C-0077` authoritative result | `8b87d7cdc39f6380a887b2e45d4879544ff88cd7c53e22f44876e46c334cf103` |
 | `O1C-0077` source freeze / execution | `d4f9b3aa066b22a38ead63d83cbb76b4ead673de` / `8eba8614fc9d19ef893a0e7f093737ed6b23dc68` |
@@ -1671,7 +1708,13 @@ zero is callback 256, all 29 rows are already assigned, and 18 falsifying-sign /
 lineage 16. O1C-0077 then stages the two ranked rescue rows before propagation:
 all four original/contrast events return and trace changes, but no prune,
 emission or model follows. Close lineage 17 and resume with the exact sealed
-11-row O1C-0078 prefix preemptor on fresh Page 5 `07c73013…`.
+11-row O1C-0078 prefix preemptor on fresh Page 5 `07c73013…`. O1C-0078 consumes
+that page and reaches parent handoff, then stops when returned-ever proposal
+history meets a disappearing opposite-sign assignment. Empty stdout does not
+identify the layer that created the counter-assignment; missing signed ownership
+is the strongest code-path inference, not a reconstructed trace. Burn lineage
+18/Page 5; resume with a synthetic ownership trace, explicit arbiter and fresh
+Page 6 / lineage 19 only after that gate.
 Do not enlarge the decoy panel or repeat O1C-0058's attended-base positive-delta
 rule.
 

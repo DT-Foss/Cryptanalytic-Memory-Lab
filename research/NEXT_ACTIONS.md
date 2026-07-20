@@ -1,41 +1,43 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-20T02:56:38+02:00.
+Last ranked: 2026-07-20T07:01:36+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Freeze the exact 11-row falsifying rescue prefix `130,-131,31874,63746,190565,190566,190569,191212,191213,191216,191234` | State of the art | Extreme | Extreme | Low | Converts all nine propagation-created rescue rows into explicit upstream interventions while preserving the already activated two rows |
-| 2 | Bind O1C-0078 prefix preemption ahead of the inherited rank/release-contrast reader with exact i32le identity `b5debc5f…` | State of the art | Extreme | Extreme | Low | Consume all 11 before the first parent call, then invoke the parent exactly once without override |
-| 3 | Execute one target-free lineage-18/128-conflict successor on fresh Page 5 `07c73013…`; never replay lineage 17 | State of the art | Extreme | Extreme | Low | Activation requires all 11 falsifying at pre-parent handoff, zero rescue skips, at least one exact prefix return and trace change; science requires a prune, novel clause, exhaustion or model |
+| 1 | Reproduce O1C-0078's opposite-sign release sequence as a synthetic ownership trace with zero solver/science calls | State of the art enabling | Extreme | Extreme | Very low | Distinguishes proposal history from the signed decision instance currently disappearing on backtrack |
+| 2 | Replace nested implicit release ledgers with one explicit arbiter/ownership ledger and prove propagation-owned, nested-parent and backtracked cases | State of the art enabling | Extreme | Extreme | Low | Makes composed O1 readers deterministic and prevents historical proposals from claiming later opposite-sign assignments |
+| 3 | Derive fresh Page 6 / lineage 19 by burning Page 5 without importing nonexistent output; after the ownership gate, run the unchanged 11-row scientific prefix once | State of the art | Extreme | Extreme | Low | Restores the unmeasured prefix-preemption test without replaying O1C-0078; science requires a prune, novel clause, exhaustion or public model |
 | 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
 ## Current resume
 
-Resume from O1C-0077's sealed
-`RESIDUAL_POLARITY_STAGING_MECHANISM_ONLY`. Its sole local-0/lineage-17 call
-bills exactly 128 conflicts. Effective `-131/+130` return at callbacks
-225/227 and source contrasts `+131/-130` at 574/576; native activation is true
-and trace changes `f64441a2…→706ad4fa…`. Decisions fall `2,288→884`, while
-propagations rise `2,890,144→4,754,555`. Minimum UB moves
-`14.67138759145431→14.656823218163392` but remains above tau, with zero
-prunes, emissions, novelty or model.
+Resume from O1C-0078's sealed
+`RESCUE_PREFIX_PREEMPTION_OPERATIONAL_TERMINAL`. Its sole local-0/lineage-18
+call consumes fresh Page 5, requests 128 conflicts and exits before a native
+result with actual/billed conflicts unknown/`null`. The exact failure is
+`backtrack-release guided assignment sign differs`; stdout is empty. Runner
+elapsed is `31.211805499973707 s`, native-failure elapsed is
+`29.31788737498573 s`, and peak native/watchdog RSS is `404,815,872 B`.
 
-The narrow upstream intervention therefore works mechanically but leaves nine
-rescue-signed residual rows to propagation. Freeze the already predeclared
-complete falsifying prefix:
+The failing v11 condition requires a historically returned rank row. O1C-0078
+can invoke that parent only after consuming the complete 11-row outer prefix.
+Thus all rows were consumed and parent handoff was reached. Nothing stronger is
+measured: absent stdout/native result, at least one actual prefix return, zero
+rescue skips, all-falsifying handoff, trace change, prune, clause and model are
+unknown. Treat the result as an operational boundary, not a scientific negative
+or gain.
 
-```text
-130 -131 31874 63746 190565 190566 190569
-191212 191213 191216 191234
-```
-
-Its signed-i32le SHA is
-`b5debc5f55f7cbc1e728d00ce1d14d0c437249793f8c10e8b80e614a00ed155c`.
-Place it before the inherited rank/release-contrast reader and use fresh Page 5
-`07c73013705898e228a05b0578b0f8090a6f094c427dbd8f32d856467b08e208`
-in one lineage-18/128-conflict call. Do not alter the prefix from O1C-0077
-telemetry, replay lineage 17 or sweep Page/K/rank/phase/horizon/seed/threshold/
-RAM/caps.
+The proven failure state is returned-ever/unreleased proposal history plus a
+currently disappearing opposite-sign assignment. With stdout empty, the layer
+that created the counter-assignment is unknown. The strongest code-path
+inference is missing decision provenance across the nested readers: another
+reader, propagation or a later decision may own the current assignment while
+the historical proposal bit survives. O1C-0079 must first reproduce that
+ownership sequence synthetically, then introduce one explicit arbiter that
+binds reader, signed literal, decision instance and release. Only after that
+zero-science gate passes may it derive fresh Page 6 / lineage 19 and test the
+unchanged prefix once. Page 5 and lineage 18 are burned; do not replay them or
+import a nonexistent O1C-0078 output state.
 
 The threshold question is now formal. Let `S(x)` be the compiled candidate score,
 `tau=14.606178797892962`, and the retained region be
@@ -47,8 +49,8 @@ the run-specific visited-trail population `V`. They are comparable under the
 same underlying score metric, but have different statistic roles and
 populations. The quoted `7.973483108047071` is O1C-0066 episode 1, not
 O1C-0068. O1C-0068's minimum is `12.8607806294803`; O1C-0076's minimum is
-`14.67138759145431`; O1C-0077's is `14.656823218163392`. O1C-0066 episode
-1 separately records seven actual
+`14.67138759145431`; O1C-0077's is `14.656823218163392`. O1C-0078 has no
+native bound result. O1C-0066 episode 1 separately records seven actual
 trail-threshold prunes; `7.973...` is the minimum witness UB, not a prune count
 or a global upper bound.
 
@@ -57,20 +59,20 @@ For any particular visited trail `a`, strict `U(a)<tau` proves
 safe prune from `R_tau`. A reported minimum below threshold proves at least one
 such visited subtree exists; it does not prove all visited trails or the root are
 below threshold. O1C-0077's minimum is above threshold and it records zero
-local prunes. The root bound remains
-`262.68644197084643>tau`, and every episode returns native status `0`, so no
-global prune, UNSAT or threshold-region exhaustion follows.
+local prunes. O1C-0078 adds no UB observation. The last measured root bound
+remains `262.68644197084643>tau`, so no global prune, UNSAT or threshold-region
+exhaustion follows.
 
 Resume authority is the
-[`O1C-0077 result`](O1C0077_APPLE8_RESIDUAL_POLARITY_STAGING_RESULT_20260720.json),
+[`O1C-0078 result`](O1C0078_APPLE8_RESCUE_PREFIX_PREEMPTION_RESULT_20260720.json),
 SHA-256
-`8b87d7cdc39f6380a887b2e45d4879544ff88cd7c53e22f44876e46c334cf103`,
+`f72821443ed7e7dd80698a39288ff31f9c8f52a120bb745e713e3b23b1822fed`,
 and capsule artifact manifest
-`6b8526c5eaa2c318d4eef1e8c4dc87e744307c95f30699a90e4444021d2dbece`.
-The source freeze/execution commits are `d4f9b3aa…/8eba8614…`.
-Known completed lineage billing is `5,307`; the full actual total remains `null`
-because failed ordinal `2` is unbilled.
-Capsule `result.json` is byte-identical to that published result and all `39/39`
+`5d358863162a64f27d215fc4b91258c73194d2458f89d9dd7495bb1e05e50a69`.
+The source freeze/execution commits are `ced7e591…/2840824b…`.
+Known completed lineage billing remains `5,307`; the full actual total remains
+`null` because failed ordinals include unbilled lineage 18.
+Capsule `result.json` is byte-identical to that published result and all `33/33`
 manifest entries validate.
 
 ## Frontier scoreboard
@@ -246,12 +248,11 @@ manifest entries validate.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0077 proves two upstream signs activate and
-  move the callback-256 residual split from 18/11 to 23/6, but makes zero prune,
-  clause or model. O1C-0078 must apply the unchanged 11-row prefix before
-  propagation; activation requires all 11 consumed and falsifying before parent
-  handoff, zero rescue skips, at least one exact once-return and a new trace.
-  Science requires a real frontier output.
+- **Next measurable advance:** O1C-0078 proves only that the complete prefix was
+  consumed and parent handoff was reached before the returned-ever/opposite-sign
+  invariant failed. O1C-0079 must make proposal/assignment ownership explicit under a
+  synthetic trace, then use fresh Page 6 / lineage 19 for the unchanged prefix.
+  Science still requires a real frontier output.
   Exact 256 remains the north star.
 
 ## Effect-first stop rules
@@ -480,13 +481,15 @@ manifest entries validate.
 - replaying O1C-0068 lineage ordinal `4`, O1C-0069 ordinal `5`, O1C-0070 ordinal
   `6`, O1C-0071 ordinal `7`, O1C-0072 ordinal `8`, O1C-0073 ordinal `9`, any
   O1C-0074 ordinal `10..13`, O1C-0075 ordinal `14/15`, O1C-0076 ordinal `16`
-  or O1C-0077 ordinal `17`;
+  or O1C-0077 ordinal `17` or O1C-0078 ordinal `18`;
   retrying the parent-zero-only 29-row reader; issuing another static
   or rotating causal-attic episode, phase call, K/rank/release/horizon sweep or
-  blind RAM/cap increase. O1C-0077 already proves that two upstream polarities
-  redirect the trace without science output, so the successor is the sealed
-  complete 11-row prefix—not a post-result subset, reorder or another page
-  experiment;
+  blind RAM/cap increase. O1C-0078 consumed the sealed prefix and Page 5 but
+  stopped before telemetry on the returned-ever/opposite-sign invariant;
+  missing nested ownership is the strongest inference. Reproduce and repair
+  ownership synthetically; do not replay the prefix, select
+  a post-result subset, reorder it or issue another science call before that
+  gate;
 - another supplied complete-key decoy panel, static pair regrouping,
   credit-weight sweep or conflict-cap increase before the frozen O1C-0057
   prefix-8 scorer is tested on attacker-generated partial assignments/search;

@@ -1806,3 +1806,49 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [`capsule`](../runs/20260720_025550_O1C-0077_apple8-residual-polarity-staging-v1/RUN.md),
   artifact-manifest SHA-256
   `6b8526c5eaa2c318d4eef1e8c4dc87e744307c95f30699a90e4444021d2dbece`.
+
+## B-0078 — Nested proposal history is not current assignment ownership
+
+- **Evidence:** O1C-0078 consumes fresh Page 5 in its sole local-0/lineage-18
+  call, requests 128 conflicts and terminates before a native result with exact
+  stderr `backtrack-release guided assignment sign differs`. Actual/billed
+  conflicts are unknown/`null`; stdout is empty.
+- **Reachability boundary:** the v11 throw requires a returned-state bit that is
+  set only after the inherited parent returned a ranked literal. The O1C-0078
+  outer reader cannot call that parent until all 11 prefix rows are consumed.
+  Complete prefix consumption and parent handoff are proven. At least one prefix
+  return, zero rescue skips, all-falsifying handoff and trace change are not.
+- **Strongest code-path inference:** the proven state is a returned-ever,
+  unreleased proposal plus a currently disappearing opposite-sign assignment.
+  Empty stdout leaves the exact route and responsible layer unknown. Nested
+  readers most likely conflate proposal history with current ownership; another
+  reader, propagation or a later decision may create the counter-assignment.
+  Decision provenance should therefore name reader, sign and decision instance.
+- **Science boundary:** zero native stdout means no activation, bound, prune,
+  emitted clause, model or key can be measured. This is
+  `RESCUE_PREFIX_PREEMPTION_OPERATIONAL_TERMINAL`, neither a scientific negative
+  nor a gain. The conservative result field
+  `no_science_input_sha256_reused=false` reflects missing postvalidation, not
+  evidence of reuse; the bound Page-5 input was fresh and is now burned.
+- **Threshold boundary:** `tau=14.606178797892962` and O1C-0066 episode 1's
+  minimum UB `7.973483108047071` share score metric, units and retained
+  maximization direction, but not statistic/population. Strict admissible
+  `U(a)<tau` prunes only trail `a`'s subtree; it does not prove root/global
+  exhaustion. O1C-0077 is `14.656823218163392>tau` with zero prunes; O1C-0078
+  has no UB result. O1C-0068 remains untouched at `12.8607806294803`.
+- **Do not repeat:** Page 5, lineage 18, the native call, or any prefix
+  subset/order selected from this failure. Do not treat consumed rows as
+  activation, and do not import a nonexistent output residency.
+- **Breadcrumb:** first reproduce opposite-sign release in a zero-science
+  synthetic ownership trace. Then use one explicit arbiter/ownership ledger and
+  prove nested-parent, propagation-owned and backtracked decisions. Derive fresh
+  Page 6 / lineage 19 only after that gate.
+- **Artifacts:** authoritative
+  [`result`](O1C0078_APPLE8_RESCUE_PREFIX_PREEMPTION_RESULT_20260720.json),
+  SHA-256
+  `f72821443ed7e7dd80698a39288ff31f9c8f52a120bb745e713e3b23b1822fed`;
+  [`interpretation`](O1C0078_APPLE8_RESCUE_PREFIX_PREEMPTION_INTERPRETATION_20260720.md);
+  sealed
+  [`capsule`](../runs/20260720_065505_O1C-0078_apple8-rescue-prefix-preemption-v1/RUN.md),
+  artifact-manifest SHA-256
+  `5d358863162a64f27d215fc4b91258c73194d2458f89d9dd7495bb1e05e50a69`.

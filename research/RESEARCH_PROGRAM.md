@@ -413,6 +413,23 @@ at mechanism level. Close lineage 17 and freeze `H-RESCUE-PREFIX-PREEMPTION-082`
 as the unchanged predeclared 11-row signed prefix before the inherited rank on
 fresh Page 5 `07c73013…`; do not choose a post-result subset or order.
 
+O1C-0078 consumes that fresh Page-5 lineage-18 call once, requests 128 conflicts
+and stops before a native result on
+`backtrack-release guided assignment sign differs`; billed conflicts are
+`null`, actual conflicts are unknown and stdout is empty. The throw requires a
+historically returned parent rank row, while O1C-0078 reaches the parent only
+after consuming all 11 prefix
+rows. This proves complete-prefix control-flow reachability and parent handoff,
+but not one actual prefix return, zero rescue skips, trace change, prune, clause
+or model. The proven failure state is returned-ever/unreleased proposal history
+plus a currently disappearing opposite-sign assignment; empty stdout does not
+identify which layer created it. Missing nested ownership is the strongest
+code-path inference. Park `H-RESCUE-PREFIX-PREEMPTION-082` as unmeasured, not
+refuted. Activate `H-READER-OWNERSHIP-083`: reproduce the opposite-sign assignment
+release synthetically, separate proposal history from signed live-decision
+ownership under one arbiter, then derive fresh Page 6 / lineage 19 without
+importing nonexistent O1C-0078 output. Never replay Page 5 or lineage 18.
+
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
 a statistic over one run's visited trails. The historical minimum
@@ -421,6 +438,9 @@ a statistic over one run's visited trails. The historical minimum
 `262.68644197084643>tau`, so no reported minimum implies global exhaustion.
 That O1C-0066 episode records seven actual trail-threshold prune events;
 `7.973...` is their run's minimum witness UB, not itself a prune count.
+O1C-0077's `14.656823218163392>tau` yields zero prunes; O1C-0078 returns no
+native bound telemetry and changes none of these conclusions. O1C-0068 remains
+untouched at minimum UB `12.8607806294803`.
 
 In parallel, the bias-free Apple track derives a public full-key fixed-point map
 directly from ChaCha feed-forward and tests output-Hamming descent on 32 Full-256
@@ -767,10 +787,14 @@ evidence.
    K256 pages, but both reproduce that same trace and emit nothing. Close pure
    residency rotation. O1C-0076 then tests the nearest-clause parent-zero reader
    once; every row is already assigned at first fallback, so it makes zero
-   substitutions and leaves trace/science output unchanged. Close lineage 16
-   and freeze O1C-0077 two-row residual-polarity staging, with the exact 11-row
-   preemptor retained as the next escalation;
-   never rerun O1C-0073, replay ordinals `9..16`, call phase, sweep
+   substitutions and leaves trace/science output unchanged. O1C-0077 activates
+   the two-row residual-polarity staging but emits no science output. O1C-0078
+   consumes the complete 11-row prefix and reaches parent handoff, then stops on
+   the returned-ever/opposite-sign invariant before native telemetry. Missing
+   ownership is the strongest inference; the responsible layer is unknown.
+   Reproduce and repair assignment ownership synthetically, derive Page 6 / lineage 19 by
+   burning the missing output, and only then make one fresh unchanged-prefix
+   call; never rerun O1C-0073, replay ordinals `9..18`, call phase, sweep
    K/release/rank/horizon or blind-scale RAM/caps.
    Any later role-credit test must precommit an attacker-visible outcome/utility
    condition rather than tune `-32`.
@@ -918,6 +942,17 @@ evidence.
   model, so the classification is mechanism-only. Do not retry or refit from
   its six remaining rescues. Advance once to the already sealed complete 11-row
   prefix on fresh Page 5, lineage 18 / 128 conflicts.
+- O1C-0078 consumes that Page-5/lineage-18 call once and terminates before a
+  native result on `backtrack-release guided assignment sign differs`; requested
+  work is 128, while actual/billed work is unknown/`null`. The exact throw path
+  proves all 11 prefix
+  rows were consumed and the parent was reached, but empty stdout leaves prefix
+  returns, rescue skips, trace and every science metric unmeasured. Classification
+  is `RESCUE_PREFIX_PREEMPTION_OPERATIONAL_TERMINAL`, neither scientific
+  negative nor gain. Page 5 is burned. Test explicit signed decision ownership
+  synthetically, then derive Page 6 / lineage 19 without importing nonexistent
+  output; no O1C-0078 replay. Empty stdout does not establish which nested layer
+  created the opposite-sign assignment.
 
 ## Operating contract
 

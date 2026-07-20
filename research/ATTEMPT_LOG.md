@@ -3156,3 +3156,64 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `6b8526c5eaa2c318d4eef1e8c4dc87e744307c95f30699a90e4444021d2dbece`.
   Capsule `result.json` is byte-identical to the published result and all
   `39/39` manifest entries validate.
+
+## O1C-0078 — APPLE8 rescue-prefix preemption
+
+- **Started:** 2026-07-20T06:55:05+02:00.
+- **Recorded:** 2026-07-20T06:55:37+02:00.
+- **Source freeze/execution:** `ced7e5917194362b84d44625f7f9f6484bb555ad`
+  / `2840824b2aa482f30dfbd39060c200994fc09957`.
+- **Protocol:** preserve the immutable attic, separate 202-clause rank source,
+  inherited O1C-0077 stack and exact prefix
+  `130,-131,31874,63746,190565,190566,190569,191212,191213,191216,191234`
+  (signed-i32le `b5debc5f…`). Consume fresh Page 5 once at local 0 / lineage 18,
+  requested 128 conflicts, with no retry, truth, reveal, refit, sweep, MPS or GPU.
+- **Result:** `RESCUE_PREFIX_PREEMPTION_OPERATIONAL_TERMINAL`. The native call
+  exits before returning a result with exact stderr
+  `cadical_o1_joint_score_sieve_v16: backtrack-release guided assignment sign differs`
+  and empty stdout. Requested conflicts are 128; actual and billed conflicts are
+  unknown / `null`. There is no activation, trace, bound, solver-status, clause
+  or model payload.
+- **Narrow reachability fact:** v11 can throw this only for a rank row already
+  marked returned. That bit is set after inherited parent `cb_decide` returns a
+  ranked literal; O1C-0078 calls the parent only after consuming all 11 prefix
+  rows. Complete-prefix consumption and parent handoff are therefore proven.
+  At least one prefix once-return, zero rescue skips, all-falsifying handoff and
+  changed trace are not proven. This is not qualified activation.
+- **Input identity:** the bound plan/capsule identifies Page 5 as the fresh input
+  and it is now burned. Conservative failure finalization leaves
+  `no_science_input_sha256_reused=false` because postvalidation did not run;
+  that fallback is not positive evidence that an input identity was reused.
+- **Strongest code-path inference:** the proven state is one returned-ever,
+  unreleased proposal plus a currently disappearing opposite-sign assignment.
+  Empty stdout does not establish which layer created that counter-assignment.
+  Nested readers most likely conflate proposal history with current signed
+  assignment ownership; another reader, propagation or a later decision are
+  possible routes, not observed facts.
+- **Threshold clarification:** `tau=14.606178797892962` and minimum UB use the
+  same compiled score metric/units/maximization direction, but not the same
+  statistic/population. O1C-0066 episode 1's
+  `7.973483108047071` is a minimum over visited partial trails. For each
+  particular trail, admissibility plus strict `U(a)<tau` safely excludes only
+  its descendants; this is not root/global exhaustion. O1C-0077's
+  `14.656823218163392>tau` gives zero prunes; O1C-0078 has no UB result.
+  O1C-0068 remains untouched at `12.8607806294803`.
+- **Resources:** one call; runner elapsed `31.211805499973707 s`; native-failure
+  elapsed `29.31788737498573 s`; native/watchdog peak RSS `404,815,872 B`;
+  runner peak RSS `381,730,816 B`; persistent artifacts `12,137,843 B`.
+- **Decision:** do not retry lineage 18 or Page 5. First reproduce the ownership
+  conflict as a synthetic zero-science trace, then implement one explicit signed
+  decision-instance arbiter. Derive fresh Page 6 / lineage 19 by burning Page 5
+  without importing nonexistent native output; test the unchanged scientific
+  prefix once only after the ownership gate.
+- **Artifacts:** authoritative
+  [`result`](O1C0078_APPLE8_RESCUE_PREFIX_PREEMPTION_RESULT_20260720.json),
+  SHA-256
+  `f72821443ed7e7dd80698a39288ff31f9c8f52a120bb745e713e3b23b1822fed`;
+  [`interpretation`](O1C0078_APPLE8_RESCUE_PREFIX_PREEMPTION_INTERPRETATION_20260720.md);
+  sealed
+  [`capsule`](../runs/20260720_065505_O1C-0078_apple8-rescue-prefix-preemption-v1/RUN.md),
+  artifact-manifest SHA-256
+  `5d358863162a64f27d215fc4b91258c73194d2458f89d9dd7495bb1e05e50a69`.
+  Capsule `result.json` is byte-identical to the published result and all
+  `33/33` manifest entries validate.
