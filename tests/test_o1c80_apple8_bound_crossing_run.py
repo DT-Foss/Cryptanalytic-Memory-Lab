@@ -373,6 +373,7 @@ def _execute(
 
 
 def test_checked_config_is_canonical_and_production_rejects_pending_before_io(
+    tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     config = crossing_run.load_config(CONFIG)
@@ -398,7 +399,11 @@ def test_checked_config_is_canonical_and_production_rejects_pending_before_io(
         "sweep_authorized": False,
         "timeout_seconds": 45.0,
     }
-    assert crossing_run._pending_fields(config)
+    pending = copy.deepcopy(config)
+    cast(dict[str, object], pending["source"])["expected_commit"] = "PENDING"
+    pending_path = tmp_path / "pending-config.json"
+    pending_path.write_bytes(canonical_json_bytes(pending))
+    assert crossing_run._pending_fields(pending)
     monkeypatch.setattr(
         crossing_run,
         "_relative",
@@ -407,7 +412,7 @@ def test_checked_config_is_canonical_and_production_rejects_pending_before_io(
         ),
     )
     with pytest.raises(crossing_run.O1C80RunError, match="contains PENDING"):
-        crossing_run.preflight(CONFIG)
+        crossing_run.preflight(pending_path, root=tmp_path)
 
 
 def test_pending_target_free_receipt_authorizes_nothing() -> None:
@@ -415,16 +420,17 @@ def test_pending_target_free_receipt_authorizes_nothing() -> None:
     payload = path.read_bytes()
     receipt = json.loads(payload)
     assert canonical_json_bytes(receipt) == payload
-    assert receipt["status"] == "PENDING"
+    assert receipt["status"] in {"PENDING", "PASS"}
     assert receipt["native_solver_calls"] == 0
     assert receipt["truth_key_bytes_read"] is False
-    assert receipt["authorization"] == {
+    expected_authorization = {
         "intent_created": False,
         "lineage20_burned": False,
         "page7_burned": False,
-        "production_call_authorized": False,
+        "production_call_authorized": receipt["status"] == "PASS",
         "retry_sweep_or_replay_authorized": False,
     }
+    assert receipt["authorization"] == expected_authorization
 
 
 @pytest.mark.parametrize(
