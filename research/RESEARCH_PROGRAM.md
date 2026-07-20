@@ -462,12 +462,45 @@ within-parent permuted maximum 3.0907. Temporal centered-mean correlation is
 10–12-observation spikes are ineligible. This supports query priority only, not
 bit orientation, entropy reduction, science gain or recovery.
 
-Activate `H-LIVE-CENTERED-PROOF-MINING-086`. O1C-0082 must reproduce the frozen
-state/rank online. Residual magnitude selects a coordinate; that coordinate's
-current lower-UB child is a target-free failure-first proof-mining action, not a
-belief about the hidden key. Compose the existing typed one-shot ownership and
-release lifecycle under fixtures before at most one fresh Page-8/lineage-21
-128-conflict call. Activation alone cannot pass the science gate.
+O1C-0082 supports `H-LIVE-CENTERED-PROOF-MINING-086` at exact-exclusion level.
+Fresh Page 8 / lineage 21 returns and confirms all 255 one-shot lower-UB actions,
+then reaches 257 strict trail-threshold cuts and 257 globally novel clauses /
+743,129 literals after only nine conflicts. Direct action-child bounds never
+cross tau; deeper guided descendants do, with minimum witness UB
+`13.019691682287633`. The 513th combined clause exceeds the 512-clause active
+cap and stops fail-closed. This is science gain without key-bit orientation,
+model, key, entropy estimate or matched causal ablation. Page 8 is burned.
+
+The additive zero-call audit resolves the harvest's apparent cube shortcut.
+Every clause contains all 255 action coordinates; sequence positions `1..247`
+retain original polarity, and tail variables `[100,55,66,153,49,24,90,21]`
+span all 256 orientations once plus one distinct all-original-projection clause.
+The agreement histogram is
+`247:1,248:8,249:28,250:56,251:70,252:56,253:28,254:8,255:2`. The common
+signed intersection is 2,764 literals (`247` key + `2,517` internal); 2,870
+variables occur throughout, but 106 switch sign. The 1,024 cube edges / 1,032
+clause-pairs have 6..23 other complementary non-pivot literals (median 10, mean
+12.25), so zero non-tautological simple resolvents exist. Exact common-core
+grouped `U=18.66656376905567` is `+4.0603849711627085` above tau; deletion can
+only increase `U`. Thus there is no prefix closure, key recovery, tail-free
+no-good, resolution compression or prunable core subset. Canonical core SHA-256
+is `9aa383f819d1aa4b1216937ee341aa6a773d1d3456e1ea622494ef1a4345ea06`.
+Solver/native/target/truth/reveal calls remain zero.
+
+Activate `H-PARENT-CENTERED-ATTIC-ROLLOVER-087`. O1C-0083 first ingests the
+complete 257-clause harvest into the external causal attic with zero solver work,
+then implements and seals one deterministic bounded Page-9 projection with
+explicit capacity headroom. If exact confirmation passes, use
+`next_active_limit=255`, the minimal one-slot sacrifice. Expected but currently
+unsealed and unimplemented is `255` live clauses / `721,187` literals /
+`2,885,959 B`, SHA-256
+`8c3b8cc33badd4aa23920caabc5ea3fc5006675d93805578b74b2b20788c8204`,
+partitioned as `roots=4`, `pinned=43`, `new_debt=208`, leaving `257` clause
+slots instead of the `256` left by hard-inheriting 256 clauses. No production
+call has occurred. Preserve the final 24,576-byte bank and continue only on
+fresh lineage 22 after sealing. The architecture now has the intended split:
+bounded living priority state, bounded active clause residency and an exact
+unbounded-history attic.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1012,9 +1045,17 @@ evidence.
   Close Page 7, one-bit crossing and depth 2.
 - O1C-0081 target-free common-mode removal supports a `28,672 B` persistent
   coordinate-priority state under permutation and temporal controls. Bit
-  orientation remains disabled. Resume with O1C-0082 online state identity and
-  failure-first proof-mining action; a production successor must use fresh Page
-  8 / lineage 21.
+  orientation remains disabled.
+- O1C-0082 consumes fresh Page 8 / lineage 21 once and converts that state into
+  `255` confirmed one-shot actions, `257` safe threshold prunes and `257`
+  globally novel exact clauses after nine conflicts. Capacity, not efficacy,
+  stops the call at `256+257=513` clauses versus the 512-clause active cap.
+  Its zero-call audit exposes the exact 256-orientation tail cube but finds zero
+  simple resolvents and a non-prunable common core, so it adds no closure/key or
+  compressed clause. Preserve the complete harvest through O1C-0083 immutable
+  causal-attic ingestion. Expected/unsealed/unimplemented
+  `next_active_limit=255` would leave 257 clause slots; confirm and seal it
+  before any fresh Page 9 / lineage 22 call. Never replay Page 8.
 
 ## Operating contract
 

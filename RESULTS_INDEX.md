@@ -201,6 +201,7 @@ attacker-valid cipher evidence.
 | `O1C-0079-APPLE8-DECISION-OWNERSHIP` | One typed decision-instance owner composes the unchanged prefix, rank and frontier readers on fresh Page 6 | Corrected `DECISION_OWNERSHIP_QUALIFIED_PREFIX_MECHANISM_ONLY`; operational ownership and qualified prefix activation, no science gain | local 0/lineage 19; exact requested/actual/billed `128/128/128`; proposals=bindings=releases `549`, confirmed `547`, unobserved `2`, live/omitted `0`, foreign/opposite `9,966/0`; tokens 75/110 retire `-108/-112` before later `+108/+112` are foreign token 0. Prefix 11 consumed / 9 bound-released / 2 preassigned falsifying / 0 rescue skips; rank `254+254`, frontier `16+16`; 1,587 callbacks (`549/1,038` nonzero/zero); minimum UB `18.742222666780805`, `4.136043868887843` above tau, 0 prunes/clauses/models/key. Raw no-activation field is a preserved substring-validator false negative corrected by zero-call erratum | [Raw result](research/O1C0079_APPLE8_DECISION_OWNERSHIP_RESULT_20260720.json) · [Erratum](research/O1C0079_APPLE8_DECISION_OWNERSHIP_ZERO_CALL_ERRATUM_20260720.json) · [Interpretation](research/O1C0079_APPLE8_DECISION_OWNERSHIP_INTERPRETATION_20260720.md) · [Design](research/O1C0079_APPLE8_DECISION_OWNERSHIP_DESIGN_20260720.md) · [Capsule](runs/20260720_085738_O1C-0079_apple8-decision-ownership-v1/RUN.md) |
 | `O1C-0080-APPLE8-BOUND-CROSSING` | Exact same-parent `U0/U1` evaluation for every eligible key coordinate on fresh Page 7, with intervention only on a certified threshold crossing/closure | `BOUND_PROBE_OPERATION_ONLY`; exact probe operation succeeds, crossing activation and science gain fail | local 0/lineage 20; exact requested/actual/billed `128/128/128`; 1,587 parents, 285,725 probes, 571,450 child evaluations over 255 candidates; all `NEITHER_PRUNABLE`. Minimum witness variable 115 at callback 413 has `U0/U1=19.10564473318062/18.464862193097684`, minimum margin `+3.8586833952047215` above tau and identical pre/post state hashes; 0 bound proposals/interventions/prunes/closures/clauses/models/key. Full trace 285,725 events / 16,286,325 B / SHA `c6f6c2a9…`; first 16,384 objects retained, 269,341 digest-only. 48.718023834 s total, 6.803373 s native wall, 467,042,304 B native peak; no truth/reveal/refit/retry/MPS/GPU | [Result](research/O1C0080_APPLE8_BOUND_CROSSING_RESULT_20260720.json) · [Interpretation](research/O1C0080_APPLE8_BOUND_CROSSING_INTERPRETATION_20260720.md) · [Design](research/O1C0080_APPLE8_ONE_BIT_BOUND_CROSSING_DESIGN_20260720.md) · [Capsule](runs/20260720_124516_O1C-0080_apple8-bound-crossing-v1/RUN.md) |
 | `O1C-0081-BOUND-DIFFERENTIAL-CENSUS` | Target-free common-mode removal and bounded coordinate accumulation over O1C-0080's exact retained child-bound prefix | `TARGET_FREE_BOUND_DIFFERENTIAL_MECHANISM_CENSUS`; query-priority mechanism candidate, no belief/key-bit/science/recovery claim | exact 16,384 events / 74 parents only; omitted 269,341 values never inferred and global min witness excluded. Raw `d=U0-U1` positive 15,601/16,384 (95.2209%); parent-median centering gives 8,172 positive / 8,172 negative / 40 zero. Frozen eligibility >=37 parents; var185 score 91.7528/stability 1.0 vs within-parent permuted max 3.0907 and priority corr -0.0284. Temporal mean corr 0.8538/sign agreement 81.11%; packed live state 28,672 B O(256). Zero solver/target/truth/reveal/refit/MPS/GPU; 0.23 s verification | [JSON](research/O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.json) · [Report](research/O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.md) · [Capsule](runs/20260720_130241_O1C-0081_bound-differential-census-v1/RUN.md) |
+| `O1C-0082-APPLE8-PARENT-CENTERED` | Live O(256) parent-median/MAD coordinate state selects the strongest persistent coordinate, while the current lower-UB child supplies a one-shot failure-first proof-mining action rather than a key-bit belief | `PARENT_CENTERED_NOVEL_CLAUSE_GAIN`; operational activation and globally novel exact-exclusion science gain, no key/model/closure/certified one-bit crossing/entropy-domain claim | fresh Page 8 / local 0 / lineage 21; requested/actual/billed `128/9/9`; `512` parents, `255` confirmed actions, `33,106` probes / `66,212` child evaluations; 257 safe prunes and globally novel clauses / 743,129 literals, aggregate `bcc424b0…`; capacity stop at `256+257=513`. Zero-call audit: every clause has all 255 action coordinates; fixed first 247 plus 256-orientation eight-variable tail and one duplicate projection; agreement `247:1,248:8,249:28,250:56,251:70,252:56,253:28,254:8,255:2`; common signed core 2,764 (`247+2,517`), 2,870 common variables / 106 sign switches; 1,024 edges / 1,032 pairs, zero simple resolvents, other complements 6..23 (median 10, mean 12.25); core `U=18.66656376905567`, margin `+4.0603849711627085`, SHA `9aa383f819d1aa4b1216937ee341aa6a773d1d3456e1ea622494ef1a4345ea06`. No prefix/key/tail-free/resolution gain; zero solver/native/target/truth/reveal audit calls | [Result](research/O1C0082_APPLE8_PARENT_CENTERED_RESULT_20260720.json) · [Interpretation](research/O1C0082_APPLE8_PARENT_CENTERED_INTERPRETATION_20260720.md) · [Capsule](runs/20260720_143008_461948_O1C-0082_apple8-parent-centered-v1/RUN.md) |
 | `APPLE-VIEW-0005-SPARSE-CARRY` | Sparse exact c31-identity certificates for complete wrong Full-256 candidates | `CONSUMED_FULL256_CANDIDATE_FILTER`; no key-generation/entropy claim | 20/20 exact wrong-candidate conflicts; every reason-DAG slice independently replays with 250–265/336 identities, best 250 (86 omitted); 5/5 truth controls complete | [Result](research/apple_view_5/apple_view_5_report.md) |
 | `APPLE-VIEW-0006-PROOF-CREDIT-TRANSFER` | One-pass 1,346-byte proof-frequency/recency state frozen before disjoint Full20/Full256 candidate filters | `HELDOUT_CERTIFICATE_TRANSFER_WITH_SCHEDULER_LOSS`; no key-generation/entropy claim | raw learned order loses 1,268 vs best structural 1,031 total first-conflict switches; independently replayed learned certificates win 4/4 at 248/248/251/250 vs best structural 251/252/257/255, aggregate 997 vs 1,015 and immediate-public 1,013; zero held-out updates, all truth controls complete | [Result](research/apple_view_6/apple_view_6_report.md) |
 | `APPLE-VIEW-0007-PROOF-EDGE-TRANSFER` | One-pass 113,570-byte proof-DAG edge/root/terminal state with one frozen static strongest-predecessor reader | `HELDOUT_STATIC_EDGE_SCHEDULER_NEGATIVE`; no key-generation/entropy claim | raw edge order loses 1,340 vs exact APPLE6 unary 1,268 and best structural 1,031; certificate 1,003 beats fixed 1,015 but loses unary 997 and cannot pass; all 28 wrong passes, proof replays, freeze checks and truth controls exact | [Result](research/apple_view_7/apple_view_7_report.md) |
@@ -316,6 +317,23 @@ It makes zero solver/science calls and analyzes only the 16,384 materialized
 events. The 37-parent persistence threshold is part of the frozen ranking rule;
 without it, sparse 10–12-observation spikes are not comparable to persistent
 coordinates.
+O1C-0082 is source-frozen at commit
+`b0cf256ef43a85bd7f16c522f1e048a139908dc8`. Its authoritative result SHA-256
+is `013692cf836e594c8580734e0c95a9f0dd18ad7536c457274a1fe5684df1ad4f`,
+capsule artifact-manifest SHA-256 is
+`3256a85e1095ffeaee349d3248035cb53470b1921abd58dd230e1617696134e6`,
+and final continuation-bank SHA-256 is
+`05b8acf3ecd5423016e5d7ef7d649f790e758e3477a943fe7306280064a4c630`.
+All manifest entries verify and authoritative/capsule result bytes are identical.
+Page 8 / lineage 21 are terminal and must not be retried or replayed.
+The zero-call common-core canonical SHA-256 is
+`9aa383f819d1aa4b1216937ee341aa6a773d1d3456e1ea622494ef1a4345ea06`.
+O1C-0083 has made no production call. Its current projection is expected,
+unsealed and unimplemented: subject to implementation confirmation, explicit
+`next_active_limit=255` selects `255` clauses / `721,187` literals /
+`2,885,959 B`, categories `roots=4`, `pinned=43`, `new_debt=208`, SHA-256
+`8c3b8cc33badd4aa23920caabc5ea3fc5006675d93805578b74b2b20788c8204`,
+leaving `257` clause slots rather than the `256` left by hard inheritance.
 
 ## Frontier and state-of-the-art results
 
@@ -567,12 +585,19 @@ O1C-0078 has no bound result; O1C-0079 records
 same-parent child pair on fresh Page 7: all `285,725` probes remain live and the
 minimum `18.464862193097684` is still `3.8586833952047215` above tau. Exact
 operation passes, crossing/science fail, and Page 7 / lineage 20 are closed
-without depth 2. O1C-0068 remains untouched. The next distinct mechanism is
-supported by O1C-0081's target-free common-mode census: persistent centered
-coordinate priority survives one within-parent permutation and a temporal split
-in `28,672 B`, while bit orientation remains withheld. O1C-0082 must convert
-that field into a live failure-first proof-mining action under fixtures, then at
-most one fresh Page-8/lineage-21 gate.
+without depth 2. O1C-0068 remains untouched. O1C-0081's target-free common-mode
+census supports persistent centered coordinate priority in `28,672 B`, while
+bit orientation remains withheld. O1C-0082 converts it into a live one-shot
+failure-first action field and, on fresh Page 8, harvests 257 globally novel
+exact exclusions after only nine conflicts. The direct one-bit action itself
+never crosses tau; the guided descendant trails do. This is real sub-recovery
+search-space gain, not a key or matched causal ablation. The measured blocker is
+now the 512-clause active-vault cap. The zero-call audit also closes an apparent
+shortcut: the exact tail cube has no non-tautological simple resolvent and its
+common core remains `4.0603849711627085` above tau, so it supplies no prefix
+closure, key recovery, tail-free no-good or resolution compression. Preserve
+the complete harvest by immutable attic ingestion, then confirm and seal the
+expected 255-clause Page-9 projection before lineage 22; never replay Page 8.
 APPLE-VIEW-0005 supplies a separate exact candidate-filter frontier. Its depth-30
 base plus a proof-replayed subset of only 250 high-carry identities rejects a
 complete wrong 256-bit key while omitting 86 of the 336 missing equations. This

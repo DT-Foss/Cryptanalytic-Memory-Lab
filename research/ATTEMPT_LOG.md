@@ -3389,3 +3389,81 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `666854f8ba323fcbf100d86457fbc4eaa3cb3b6bab12d9e47982f4b28a86a389`;
   [`report`](O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.md); sealed zero-solver
   [`capsule`](../runs/20260720_130241_O1C-0081_bound-differential-census-v1/RUN.md).
+
+## O1C-0082 — APPLE8 live parent-centered proof mining
+
+- **Executed/recorded:** 2026-07-20T14:30:11+02:00 through
+  2026-07-20T14:30:55+02:00.
+- **Protocol:** consume fresh Page 8 SHA-256 `89e085e7…`, local episode 0 and
+  lineage 21 exactly once at seed 0 / 128 requested conflicts. Import the sealed
+  O1C-0081 24,576-byte coordinate bank, maintain 4,096 bytes of parent scratch,
+  choose the highest persistent centered-priority coordinate and return only its
+  current lower-UB child as a one-shot failure-first proof-mining action. Keep
+  belief orientation disabled. Zero truth/target/reveal/refit/MPS/GPU calls.
+- **Result:** `PARENT_CENTERED_NOVEL_CLAUSE_GAIN`; operational activation and
+  science gain both pass. The reader scans 512 parents, returns exactly 255
+  one-shot actions over the complete score-observed key-coordinate population,
+  and confirms all 255. The action literals are 151 positive / 104 negative;
+  nine later release, none is unobserved and none coincides with an already
+  pending threshold clause.
+- **Exact work:** 33,106 probes / 66,212 child-bound evaluations; every direct
+  child pair is still `NEITHER_PRUNABLE` and the selected direct-child minima
+  range `18.73032392446294..259.3541483754725`. The guided descendant search
+  nevertheless reaches minimum UB `13.019691682287633 <
+  tau=14.606178797892962` and emits 257 safe trail-threshold cuts.
+- **Durable science:** all 257 emitted no-goods are new to active Page 8 and,
+  by exact canonical-clause comparison, new to the complete prior causal-attic
+  union. They contain 743,129 literals; witness scores range
+  `13.019691682287633..14.556639837436045`, all strictly below tau; aggregate
+  SHA-256 `bcc424b009ff132348d5ac73227162395853d894c68ced65f9cd6494c3c0868d`.
+- **Zero-call clause geometry:** all `257` clauses contain all `255` action
+  coordinates. Sequence `1..247` has fixed original polarity; tail sequence
+  `248..255` is `[100,55,66,153,49,24,90,21]` and realizes all `2^8=256`
+  key-projection orientations exactly once plus one additional distinct clause
+  at the all-original key pattern. The agreement histogram is
+  `247:1,248:8,249:28,250:56,251:70,252:56,253:28,254:8,255:2`. The common
+  signed intersection is `2,764` literals (`247` key + `2,517` internal);
+  `2,870` variables are common, while `106` switch sign.
+- **Resolution/core boundary:** the projected cube has `1,024` Hamming-1 edges
+  and `1,032` clause-pairs including the duplicate projection. It yields zero
+  non-tautological simple resolvents: every pair has `6..23` other complementary
+  non-pivot literals (median `10`, mean `12.25`). Exact grouped common-core
+  `U=18.66656376905567` is `+4.0603849711627085` above
+  `tau=14.606178797892962`; deleting assignments can only increase `U`.
+  Therefore the audit provides no prefix closure, key recovery, tail-free
+  no-good, resolution compression or prunable common-core subset. Core SHA-256
+  is `9aa383f819d1aa4b1216937ee341aa6a773d1d3456e1ea622494ef1a4345ea06`.
+  Solver/native/target/truth/reveal calls were all zero.
+- **Capacity terminal:** Page 8 starts with 256 clauses. Adding the 257th new
+  clause would create 513 combined clauses, one above the sealed 512-clause
+  active-vault cap. The native terminator therefore stops fail-closed at status
+  `UNKNOWN` after only 9 actual/billed conflicts, leaving 119 requested
+  conflicts unused. No next combined vault is serialized; the complete emitted
+  clause set remains archived in the capsule.
+- **Resources:** 512 decisions, 3,209,096 propagations; native wall
+  `0.778217 s`, CPU `1.572724 s`, peak RSS `320,897,024 B`; runner wall
+  `43.43645295800525 s`. Final priority-bank SHA-256 `05b8acf3…`.
+- **Claim boundary:** no public model, key, closure, direct certified one-bit
+  crossing, attacker-valid entropy estimate or domain-size estimate. O1C-0080
+  and O1C-0082 use different pages/operators and are not a matched causal
+  ablation; the sharp 0→257 exclusion change is therefore a high-value
+  mechanism result, not isolated effect size.
+- **Decision:** burn Page 8 / lineage 21 permanently. O1C-0083 must first ingest
+  all 257 clauses into the external causal attic and derive one deterministic
+  bounded Page-9 projection with capacity headroom. If implementation confirms,
+  explicit `next_active_limit=255` is the minimal one-slot sacrifice: expected
+  `255` clauses / `721,187` literals / `2,885,959 B`, SHA-256
+  `8c3b8cc33badd4aa23920caabc5ea3fc5006675d93805578b74b2b20788c8204`,
+  categorized `roots=4`, `pinned=43`, `new_debt=208`, leaving `257` clause
+  slots rather than hard-inheriting `256` and leaving `256`. This projection is
+  expected, unsealed and unimplemented; no production call has occurred.
+  Continue from the final priority bank on fresh lineage 22 only after sealing.
+  Do not replay, raise RAM blindly or treat action sign as a key posterior.
+- **Artifacts:** authoritative
+  [`result`](O1C0082_APPLE8_PARENT_CENTERED_RESULT_20260720.json), SHA-256
+  `013692cf836e594c8580734e0c95a9f0dd18ad7536c457274a1fe5684df1ad4f`;
+  [`interpretation`](O1C0082_APPLE8_PARENT_CENTERED_INTERPRETATION_20260720.md);
+  sealed
+  [`capsule`](../runs/20260720_143008_461948_O1C-0082_apple8-parent-centered-v1/RUN.md),
+  artifact-manifest SHA-256
+  `3256a85e1095ffeaee349d3248035cb53470b1921abd58dd230e1617696134e6`.

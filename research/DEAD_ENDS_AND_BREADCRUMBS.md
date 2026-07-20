@@ -1969,3 +1969,65 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [`JSON`](O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.json),
   [`report`](O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.md) and sealed
   [`capsule`](../runs/20260720_130241_O1C-0081_bound-differential-census-v1/RUN.md).
+
+## B-0082 — Failure-first priority harvests exclusions; active-vault capacity is next
+
+- **Positive breadcrumb:** the offline O1C-0081 priority survives live use.
+  O1C-0082 returns and confirms one lower-UB action for each of all 255
+  score-observed key coordinates, then reaches 257 strict trail-threshold cuts.
+  Every resulting canonical no-good is globally novel against the complete
+  prior causal-attic union. This is exact exclusion gain, not merely a changed
+  trace or lower minimum.
+- **Mechanism boundary:** none of the direct selected child bounds is below tau;
+  the minimum selected action child is `18.73032392446294`. The cuts occur only
+  on deeper guided descendants, where witness scores span
+  `13.019691682287633..14.556639837436045`. Thus direct one-bit crossing stays
+  closed while failure-first traversal remains positive.
+- **Attribution boundary:** O1C-0080 and O1C-0082 differ in page, inherited active
+  vault and live action semantics. Their zero versus 257 emissions are a strong
+  operational contrast but not a matched counterfactual estimate of the
+  priority field alone. Do not spend the harvested successor page merely to
+  manufacture reviewer-style attribution; keep one cheap target-free control
+  available if it directly changes the next operator decision.
+- **Capacity boundary:** input Page 8 already holds 256 clauses. The 257th new
+  emission creates 513 combined clauses and triggers the sealed 512-clause
+  terminator at 9 conflicts, leaving 119 requested conflicts unused. Blindly
+  increasing the cap or RAM is unnecessary: the existing external causal attic
+  is exactly the intended overflow mechanism.
+- **Cube breadcrumb, not a decoder:** all `257` clauses include all `255` action
+  coordinates. The first `247` action-sequence polarities are fixed, while tail
+  variables `[100,55,66,153,49,24,90,21]` cover all `256` orientations once
+  plus one distinct all-original-projection clause. Agreement counts are
+  `247:1,248:8,249:28,250:56,251:70,252:56,253:28,254:8,255:2`. The common
+  signed intersection is `2,764` (`247` key + `2,517` internal); `2,870`
+  variables occur everywhere but `106` switch sign. This exact cube structure
+  is not prefix closure or key recovery.
+- **Closed shortcut:** the `1,024` Hamming-1 cube edges / `1,032` clause-pairs
+  produce no non-tautological simple resolvent; each has `6..23` other
+  complementary non-pivot literals (median `10`, mean `12.25`). There is no
+  tail-free no-good or resolution compression. The common signed core has exact
+  grouped `U=18.66656376905567`, margin `+4.0603849711627085` over tau, and
+  canonical SHA-256
+  `9aa383f819d1aa4b1216937ee341aa6a773d1d3456e1ea622494ef1a4345ea06`.
+  It is not prunable; deleting assignments can only increase grouped `U`, so
+  no subset can certify under the same bound. The audit used zero
+  solver/native/target/truth/reveal calls.
+- **Do not repeat:** Page 8, lineage 21, seed 0, the same production call, a
+  polarity flip, persistence-threshold sweep or action-sign-to-key-belief
+  reinterpretation. The complete emitted set and final bank are already sealed.
+- **Next action:** ingest all 257 clauses into the immutable causal attic, then
+  derive one deterministic bounded Page-9 active projection with real clause,
+  literal and payload headroom. If implementation confirms, the minimal
+  one-slot sacrifice is explicit `next_active_limit=255`: expected `255` live
+  clauses / `721,187` literals / `2,885,959 B`, categories `4` roots + `43`
+  pinned + `208` new debt, SHA-256
+  `8c3b8cc33badd4aa23920caabc5ea3fc5006675d93805578b74b2b20788c8204`,
+  and `257` clause slots of headroom. These values are unsealed and
+  unimplemented, with no production call. Do not hard-inherit `256` and leave
+  only `256` slots. Continue the updated 24,576-byte bank only on fresh lineage
+  22 after sealing, and preserve exact key recovery as the terminal gate.
+- **Artifacts:** authoritative
+  [`result`](O1C0082_APPLE8_PARENT_CENTERED_RESULT_20260720.json),
+  [`interpretation`](O1C0082_APPLE8_PARENT_CENTERED_INTERPRETATION_20260720.md)
+  and sealed
+  [`capsule`](../runs/20260720_143008_461948_O1C-0082_apple8-parent-centered-v1/RUN.md).

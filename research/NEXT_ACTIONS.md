@@ -1,78 +1,86 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-20T13:04:43+02:00.
+Last ranked: 2026-07-20T14:35:32+02:00.
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Implement O1C-0082's online parent median/MAD scratch and frozen 256-coordinate accumulator; prove exact state/rank identity against O1C-0081 with the >=37-parent persistence rule | State of the art enabling | Extreme | Extreme | Very low | Turns the offline mechanism hit into a real living bounded state without a solver call |
-| 2 | Map residual magnitude to coordinate priority and the selected coordinate's current lower-UB child to a failure-first proof-mining action; keep belief orientation disabled | State of the art | Extreme | Extreme | Low | Produces one attacker-visible action objective without pretending residual sign predicts the secret bit |
-| 3 | Compose typed one-shot ownership/release and freeze at most one fresh Page-8/lineage-21 128-conflict call under unchanged public inputs/scorer/K256 | State of the art | Extreme | High | Low | Tests whether the centered field creates a real prune/closure/clause/model/domain gain; activation alone cannot pass |
+| 1 | Ingest O1C-0082's complete 257-clause harvest into the existing immutable causal attic and prove canonical novelty/occurrence/union identity with zero solver calls | State of the art enabling | Extreme | Extreme | Very low | Converts the capacity terminal into durable accumulated evidence without replay or extra RAM |
+| 2 | Implement and seal one deterministic headroom-aware Page-9 projection; if exact confirmation passes, set explicit `next_active_limit=255`, then bind O1C-0082's final 24,576-byte priority bank as the continuation seed; keep belief orientation disabled | State of the art | Extreme | Extreme | Low | Expected, unsealed and unimplemented: 255 live clauses / 721,187 literals / 2,885,959 B, `4+43+208`, SHA `8c3b8cc33badd4aa23920caabc5ea3fc5006675d93805578b74b2b20788c8204`, leaving 257 rather than 256 clause slots; no production call |
+| 3 | Freeze at most one fresh Page-9/lineage-22 call under unchanged public relation/scorer/K256; accept further global clauses, closure/model, entropy/domain gain or verified key | State of the art | Extreme | High | Low | Tests whether the first 257-clause burst compounds rather than saturates |
 | 4 | Keep closed mechanisms closed and retain O1C-0038/A526 as unchanged terminal decoders when their real gates are reached | Operational / state of the art | Extreme | Extreme | Zero now | Keeps exact 256-bit recovery as the north star while preventing paid repetition |
 
 ## Current resume
 
-Resume from O1C-0080's terminal `BOUND_PROBE_OPERATION_ONLY`. Its sole
-local-0/lineage-20 call consumes fresh Page 7 at exact `128/128/128`
-requested/actual/billed conflicts. Exact probe operation passes; crossing
-activation and science gain fail. Page 7 / lineage 20 are burned and must never
-be retried.
+Resume from O1C-0082's terminal `PARENT_CENTERED_NOVEL_CLAUSE_GAIN`. Its sole
+local-0/lineage-21 call consumed fresh Page 8 at requested/actual/billed
+`128/9/9`. Page 8 and lineage 21 are burned and must never be retried or
+replayed.
 
-The reader scans `1,587` parents and evaluates `285,725` exact same-parent bit
-pairs / `571,450` child bounds over `255` eligible candidates. Every pair is
-`NEITHER_PRUNABLE`. The global minimum witness is key variable `115` at callback
-`413`: `U0=19.10564473318062`, `U1=18.464862193097684`, still
-`3.8586833952047215` above `tau=14.606178797892962`, with identical complete
-state hashes before and after probing. There are zero bound decisions,
-interventions, prunes, closures, clauses, models or keys.
+The 28,672-byte live field scans `512` parents and evaluates `33,106` exact
+same-parent bit pairs / `66,212` child bounds. It returns all `255` eligible
+coordinates exactly once in persistent-priority order, confirms every action,
+and records 151 positive / 104 negative lower-UB literals, nine releases, zero
+unobserved releases and zero coincident pending clauses. Direct selected-child
+bounds remain above tau (`18.73032392446294` minimum), so one-bit crossing stays
+closed. The actions instead build deeper proof-mining trails.
 
-The threshold question is formal and unchanged. Let `S(x)` be the compiled
-complete-candidate score and `R_tau={x:S(x)>=tau}`. For a visited partial trail
-`a`, admissibility gives `S(x)<=U(a)` for every completion extending `a`.
-Therefore strict `U(a)<tau` safely removes exactly that local subtree; equality
-remains live. Threshold and UB share metric, units and maximization direction,
-but `tau` is a fixed cutoff while a reported minimum UB is a statistic over one
-run's visited trail/child population. O1C-0066 episode 1's historical
-`7.973483108047071` belongs to its population and accompanies seven separately
-recorded realized prunes; it is not a global certificate or O1C-0080 child.
-O1C-0080 has no child below threshold. The last measured root bound remains
-`262.68644197084643>tau`.
+Those descendants produce `257` strict trail-threshold prunes. Every exact
+no-good is new both to Page 8 and the complete prior attic: `257` clauses /
+`743,129` literals, witness range `13.019691682287633..14.556639837436045`, all
+strictly below `tau=14.606178797892962`, aggregate SHA-256 `bcc424b0…`. This
+passes the predeclared science gate. It is not a key, model, closure, entropy
+estimate or global threshold-region exhaustion.
 
-The full O1C-0080 probe stream is committed by count `285,725`, byte count
-`16,286,325` and SHA-256 `c6f6c2a9…`. Only the first `16,384` event objects are
-retained; `269,341` omitted events are digest-bound but not recoverable for new
-statistics. That recorded prefix shows a strong raw common-polarity mode in
-`d=U0-U1`, so raw sign cannot be treated as a key posterior. O1C-0081 completes
-the zero-solver census: raw signs are 15,601/783 positive/negative; parent-median
-centering yields 8,172/8,172/40 positive/negative/zero. Under the frozen
-eligibility gate of at least 37/74 parents, variable 185 has priority 91.7528 and
-stability 1.0 versus deterministic within-parent permuted maximum 3.0907.
-Temporal centered-mean correlation is 0.8538 and sign agreement 81.11%. The
-packed state is 28,672 B O(256). This supports query priority only; key-bit
-orientation, entropy gain and recovery remain absent.
+The zero-call structural audit finds all `255` action-coordinate literals in
+every clause. Sequence `1..247` is fixed at original polarity; tail variables
+`[100,55,66,153,49,24,90,21]` span all `2^8=256` key-projection orientations
+once plus one additional distinct all-original-projection clause. Agreement is
+exactly `247:1,248:8,249:28,250:56,251:70,252:56,253:28,254:8,255:2`.
+The common signed intersection has `2,764` literals (`247` key + `2,517`
+internal); `2,870` variables occur throughout and `106` switch sign.
 
-Resume with O1C-0082 target-free fixtures. Reproduce the offline state/rank
-online, let residual magnitude select the coordinate, and map its current
-lower-UB child only to a failure-first proof-mining action. Compose the existing
-typed one-shot ownership/release primitive. A production successor requires
-fresh Page 8 / lineage 21; hard one-bit crossing, depth 2 and Page-7 replay stay
-closed.
+The `1,024` Hamming-1 cube edges correspond to `1,032` clause-pairs including
+the duplicate projection. Every pair has `6..23` other complementary non-pivot
+literals (median `10`, mean `12.25`), so there are zero non-tautological simple
+resolvents and no tail-free no-good or resolution compression. Common-core
+grouped `U=18.66656376905567` exceeds `tau` by `+4.0603849711627085`; deletion
+can only increase `U`, so neither the core nor a subset certifies. Core SHA-256
+is `9aa383f819d1aa4b1216937ee341aa6a773d1d3456e1ea622494ef1a4345ea06`.
+This establishes no prefix closure or key recovery and consumed zero
+solver/native/target/truth/reveal calls.
+
+The stop is mechanical and useful. Page 8 contains 256 clauses; the 257 new
+clauses make a combined count of 513, exactly one above the sealed 512-clause
+active-vault cap. Native execution terminates fail-closed after 9 conflicts,
+512 decisions and 3,209,096 propagations, leaving 119 conflicts unused. Native
+wall is 0.778217 s at 320,897,024 B peak. The complete emitted set is archived
+and the updated priority bank SHA-256 is `05b8acf3…`; no next combined vault is
+serialized.
+
+Resume with O1C-0083 zero-call causal-attic ingestion. Preserve the full 257
+clauses and their witnesses/occurrences in the immutable union, then select one
+bounded active Page 9 with explicit clause/literal/payload headroom. If exact
+implementation confirms the projection, set `next_active_limit=255`, the minimal
+one-slot sacrifice from hard-inheriting `256`. Expected is `255` live clauses /
+`721,187` literals / `2,885,959 B`, SHA-256
+`8c3b8cc33badd4aa23920caabc5ea3fc5006675d93805578b74b2b20788c8204`,
+categorized `roots=4`, `pinned=43`, `new_debt=208`, with `257` clause slots of
+headroom rather than `256`. This is unsealed and unimplemented; no production
+call has occurred. Seed it with the final priority bank and authorize fresh
+lineage 22 only after exact state and projection identity pass. A cheap
+attribution control is secondary and must not consume the sole fresh successor
+page. Do not raise the cap/RAM blindly or map action sign to a hidden-bit
+posterior.
 
 Resume authority is the
-[`O1C-0081 census`](O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.json), SHA-256
-`666854f8ba323fcbf100d86457fbc4eaa3cb3b6bab12d9e47982f4b28a86a389`,
-its
-[`human report`](O1C0081_BOUND_DIFFERENTIAL_CENSUS_20260720.md), the capsule
-[`RUN.md`](../runs/20260720_130241_O1C-0081_bound-differential-census-v1/RUN.md),
-and the prior
-[`O1C-0080 result`](O1C0080_APPLE8_BOUND_CROSSING_RESULT_20260720.json), SHA-256
-`e2ceb375c2fb83469db8eb537459b223d8e7f63e4bb58882882f8cdd8bdb22a5`,
-its
-[`interpretation`](O1C0080_APPLE8_BOUND_CROSSING_INTERPRETATION_20260720.md),
-and capsule artifact manifest
-`400b79b01ed54addbd99db53b2cf5ad36afd388a18d1435dcd7ef850c8532c44`.
-Source/execution freezes are `0c18e064…/9469c988…`. Native peak RSS is
-`467,042,304 B`, leaving `36,274,176 B` against the effective watchdog limit;
-do not expand event retention or RAM blindly.
+[`O1C-0082 result`](O1C0082_APPLE8_PARENT_CENTERED_RESULT_20260720.json),
+SHA-256 `013692cf836e594c8580734e0c95a9f0dd18ad7536c457274a1fe5684df1ad4f`,
+its [`interpretation`](O1C0082_APPLE8_PARENT_CENTERED_INTERPRETATION_20260720.md),
+and sealed capsule
+[`RUN.md`](../runs/20260720_143008_461948_O1C-0082_apple8-parent-centered-v1/RUN.md),
+artifact-manifest SHA-256
+`3256a85e1095ffeaee349d3248035cb53470b1921abd58dd230e1617696134e6`.
+Runner freeze is `b0cf256ef43a85bd7f16c522f1e048a139908dc8`.
 
 ## Frontier scoreboard
 
@@ -247,14 +255,15 @@ do not expand event retention or RAM blindly.
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0080 proves exact same-parent bound probing
-  in the full K256 search context across all 255 score-observed coordinates, but
-  finds no crossing in `285,725` probes. O1C-0081 now supports a bounded,
-  coordinate-stable differential-priority field after common-mode removal.
-  O1C-0082 must reproduce it online and convert priority into one failure-first
-  proof-mining action before a fresh Page-8/lineage-21 intervention; science
-  still requires a real prune, closure, novel clause, entropy/domain reduction
-  or public verified model.
+- **Next measurable advance:** O1C-0082 has already crossed the science gate:
+  its bounded live field produces 257 globally novel exact exclusions in nine
+  conflicts. Its zero-call cube audit closes prefix/key and simple-resolution
+  shortcuts: the common core remains `4.0603849711627085` above tau. O1C-0083
+  must preserve that complete harvest in the causal attic, confirm and seal the
+  expected 255-clause Page-9 projection, and only then test whether the exclusion
+  stream compounds on fresh lineage 22. The next higher gates are additional
+  novelty, closure/model, attacker-valid entropy/domain reduction and finally a
+  publicly verified key.
   Exact 256 remains the north star.
 
 ## Effect-first stop rules
@@ -483,8 +492,8 @@ do not expand event retention or RAM blindly.
 - replaying O1C-0068 lineage ordinal `4`, O1C-0069 ordinal `5`, O1C-0070 ordinal
   `6`, O1C-0071 ordinal `7`, O1C-0072 ordinal `8`, O1C-0073 ordinal `9`, any
   O1C-0074 ordinal `10..13`, O1C-0075 ordinal `14/15`, O1C-0076 ordinal `16`
-  or O1C-0077 ordinal `17`, O1C-0078 ordinal `18`, O1C-0079 ordinal `19` or
-  O1C-0080 ordinal `20`;
+  or O1C-0077 ordinal `17`, O1C-0078 ordinal `18`, O1C-0079 ordinal `19`,
+  O1C-0080 ordinal `20` or O1C-0082 ordinal `21`;
   retrying the parent-zero-only 29-row reader; issuing another static
   or rotating causal-attic episode, phase call, K/rank/release/horizon sweep or
   blind RAM/cap increase. O1C-0079 answers ownership and prefix activation:
@@ -495,7 +504,10 @@ do not expand event retention or RAM blindly.
   do not replay Page 7, infer the omitted `269,341` event values, rescue it with
   depth 2, or enlarge event retention/RAM. O1C-0081 is sealed offline mechanism
   evidence only: do not lower its 37-parent persistence gate, promote sparse
-  spikes, or turn residual sign into a key posterior;
+  spikes, or turn residual sign into a key posterior. O1C-0082 is positive and
+  terminal: do not replay Page 8, flip action polarity, refit the priority field,
+  or spend the next fresh page on a cap/RAM sweep; preserve the 257-clause
+  harvest through the attic instead;
 - another supplied complete-key decoy panel, static pair regrouping,
   credit-weight sweep or conflict-cap increase before the frozen O1C-0057
   prefix-8 scorer is tested on attacker-generated partial assignments/search;
