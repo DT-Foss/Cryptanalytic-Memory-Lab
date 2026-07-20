@@ -163,6 +163,20 @@ Directory:
   `5193c7a263c89225768db9365413b78e7172592787e45bf9f151d86966cb8dec`;
 - zero native, science, truth, reveal, entropy, refit, MPS and GPU calls.
 
+## Execution freeze
+
+- source freeze commit:
+  `ced7e5917194362b84d44625f7f9f6484bb555ad`;
+- final config SHA-256:
+  `f3d7dbd160c0ca427c90f5b9c3e6acd6ede36d4bc2ded81277e8ad5770d9f91f`;
+- target-free gate recorded at `2026-07-20T06:51:55+02:00`, SHA-256
+  `176299e0f9334a634d29e2290f178770bbd7f7cf0e89e64b68a574f15b15cac9`;
+- native executable built twice with identical bytes, SHA-256
+  `6e77cfa52b779d1fa8d4d9f85a2026a8052185e9a6f84cc60f6015e430a3a7ad`;
+- combined O1C-0077/O1C-0078 regression `79/79`, followed by the frozen
+  runner/config regression `18/18`; Ruff and Pyright report zero errors;
+- no science call was issued while creating these bindings.
+
 ## Formal threshold boundary
 
 Let `S(k)` be the compiled complete-key score and retain candidates satisfying

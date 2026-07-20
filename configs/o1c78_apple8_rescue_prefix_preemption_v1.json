@@ -1,0 +1,96 @@
+{
+  "schema": "o1-256-apple8-rescue-prefix-preemption-config-v1",
+  "attempt_id": "O1C-0078",
+  "parent": {
+    "result": "research/O1C0077_APPLE8_RESIDUAL_POLARITY_STAGING_RESULT_20260720.json",
+    "capsule": "runs/20260720_025550_O1C-0077_apple8-residual-polarity-staging-v1",
+    "result_sha256": "8b87d7cdc39f6380a887b2e45d4879544ff88cd7c53e22f44876e46c334cf103",
+    "manifest_sha256": "6b8526c5eaa2c318d4eef1e8c4dc87e744307c95f30699a90e4444021d2dbece",
+    "source_commit": "8eba8614fc9d19ef893a0e7f093737ed6b23dc68",
+    "last_lineage_ordinal": 17
+  },
+  "preparation": {
+    "directory": "research/o1c78_rescue_prefix_preemption_seed_20260720",
+    "manifest_sha256": "ee1a2144b2eb30ac3f69012f4e5085de1c6f668625f85b31e73c0aa188cfd30d"
+  },
+  "inputs": {
+    "cnf": "runs/20260719_095509_APPLE-VIEW-0008-MATCHED_crossblock-consequence-sieve-v1/artifacts/cnf/full256-eight-block-apple-view-0008.cnf",
+    "cnf_sha256": "e1fc0ac93724004291c960ea06e5584c598853b9ea8370552be09f29e73e2432",
+    "potential": "runs/20260719_095509_APPLE-VIEW-0008-MATCHED_crossblock-consequence-sieve-v1/artifacts/potential/primary-eight-block.potential",
+    "potential_sha256": "8c6101b49c7050caf895bd9c496c05bcea9f43a2b27f378d7306be38b00d5390",
+    "grouping": "runs/20260719_215617_O1C-0073_apple8-vault-release-contrast-v1/apple8-width6.grouping",
+    "grouping_sha256": "3da85bae132d829252a68f0e3fd99220ea7d1ef365042806af810ff02f75f636",
+    "o1c73_config": "configs/o1c73_apple8_vault_release_contrast_v1.json",
+    "o1c73_config_sha256": "be3898a8e857fff3f6683effbe1cb51cf1a30d70f73084905a5ce1d36f806df7"
+  },
+  "native": {
+    "source": "native/cadical_o1_joint_score_sieve_v16.cpp",
+    "executable": "build/o1c78/native-joint-score-sieve",
+    "expected_source_sha256": "edd527785fdfc5bd7594519b07146ccd59640d8e98ca8d4afa088c15dbccc226",
+    "expected_executable_sha256": "6e77cfa52b779d1fa8d4d9f85a2026a8052185e9a6f84cc60f6015e430a3a7ad",
+    "adapter_schema": "o1-256-joint-score-sieve-v19-adapter-v1",
+    "result_schema": "o1-256-cadical-joint-score-sieve-result-v16",
+    "rank_source_sha256": "cd523334672dd75c068c2dd32fe218fb7ae55644c0d56e6347271bba3a9c1858",
+    "frontier_plan_sha256": "8a263e555b4b5a69d3c9a937cac3e7702a1f8e3de27db4feffc2d21563a24da1",
+    "staging_plan_sha256": "ecbca2bd3ab2e5196d4cae76a968c7957909ada49e4d225d28841a4c21d2e023",
+    "prefix_plan_sha256": "b5debc5f55f7cbc1e728d00ce1d14d0c437249793f8c10e8b80e614a00ed155c",
+    "prefix_order_sha256": "b5debc5f55f7cbc1e728d00ce1d14d0c437249793f8c10e8b80e614a00ed155c",
+    "source_rank_payload_sha256": "d3a007ebee7c515289d33be30757f769b2c1fde618fb5c6c312ea9f3509380ae",
+    "source_rank_order_sha256": "26c0063f4eed586ef67535cccabacc07d945587a603cbb56dbb3b2225a32a2f5",
+    "effective_rank_order_sha256": "6ab071e611809ee898e81d0659ff0736453dd390d26c739383826c94276ad086"
+  },
+  "source": {
+    "paths": {
+      "runner": "src/o1_crypto_lab/o1c78_apple8_rescue_prefix_preemption_run.py",
+      "causal_attic_v1": "src/o1_crypto_lab/causal_attic_v1.py",
+      "causal_residency_v1": "src/o1_crypto_lab/causal_residency_v1.py",
+      "preparation": "src/o1_crypto_lab/o1c78_apple8_rescue_prefix_preemption_prepare.py",
+      "threshold_no_good_vault_v1": "src/o1_crypto_lab/threshold_no_good_vault_v1.py",
+      "causal_frontier_v1": "src/o1_crypto_lab/causal_frontier_v1.py",
+      "residual_polarity_staging_v1": "src/o1_crypto_lab/residual_polarity_staging_v1.py",
+      "rescue_prefix_preemption_v1": "src/o1_crypto_lab/rescue_prefix_preemption_v1.py",
+      "adapter_v19": "src/o1_crypto_lab/joint_score_sieve_v19.py",
+      "native_v16": "native/cadical_o1_joint_score_sieve_v16.cpp"
+    },
+    "expected_sha256": {
+      "runner": "806889771b94fd837d21f58759ad92152fce84bf3eec623867c6b623d8710585",
+      "causal_attic_v1": "39da3833f7bba7fd012313ff176e9ebd82adc7e088bdfa8d37880fbbcf3a438f",
+      "causal_residency_v1": "c769f8cf06331eb3aba83b14d86e450abaff502dfef06386511194b949df1895",
+      "preparation": "973b3d868bbd6b2d77395107d42fd048bf3b8fa6424a013c3cfb4a2245f86214",
+      "threshold_no_good_vault_v1": "622ede78c389ef9e6181e8ebf173c4cbc05197ea2c4795f352b433d2e87cbf5a",
+      "causal_frontier_v1": "471fd95be08b2ef1cca0762ce5517b0684913998ee2e6c42b3724274fef6a930",
+      "residual_polarity_staging_v1": "ee75a9d2d6fc8e17fd35e6affab202c35c082089ce58fbbd73ae8acf51bc402c",
+      "rescue_prefix_preemption_v1": "3919dc4c2efc948222c1843061a52f3149f45c86d5ad2ef4cab00a33d64c265f",
+      "adapter_v19": "f5b2844f2a82d863d42e49fd91dd351125c87fbc2cc63019308081a319882688",
+      "native_v16": "edd527785fdfc5bd7594519b07146ccd59640d8e98ca8d4afa088c15dbccc226"
+    },
+    "expected_commit": "ced7e5917194362b84d44625f7f9f6484bb555ad"
+  },
+  "target_free_preflight": {
+    "path": "research/O1C0078_TARGET_FREE_RESCUE_PREFIX_PREEMPTION_PREFLIGHT_20260720.json",
+    "sha256": "176299e0f9334a634d29e2290f178770bbd7f7cf0e89e64b68a574f15b15cac9",
+    "schema": "o1-256-o1c78-target-free-rescue-prefix-preemption-preflight-v1",
+    "classification": "O1C78_TARGET_FREE_RESCUE_PREFIX_PREEMPTION_PREFLIGHT_PASS"
+  },
+  "budgets": {
+    "active_clause_limit": 256,
+    "local_episode_ordinals": [0],
+    "lineage_call_ordinals": [18],
+    "requested_conflicts_per_episode": 128,
+    "maximum_native_solver_calls": 1,
+    "maximum_total_requested_conflicts": 128,
+    "timeout_seconds": 45.0,
+    "memory_limit_bytes": 536870912,
+    "maximum_persistent_artifact_bytes": 134217728,
+    "minimum_disk_free_bytes": 1073741824,
+    "maximum_fresh_targets": 0,
+    "maximum_scientific_entropy_calls": 0,
+    "maximum_fresh_reveal_calls": 0,
+    "maximum_refits": 0,
+    "maximum_mps_calls": 0,
+    "maximum_gpu_calls": 0,
+    "retry_authorized": false,
+    "sweep_authorized": false
+  },
+  "next_action": "Freeze the zero-call preparation, target-free gate, sources, native v16 executable and source commit; then consume only local episode 0 / lineage ordinal 18 exactly once with 128 conflicts, fresh Page 5, the sealed frontier/staging/prefix stack, and no retry or sweep."
+}
