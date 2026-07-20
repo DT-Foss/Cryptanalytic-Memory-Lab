@@ -4054,3 +4054,38 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `10c2b0f2f2745bb2a101c116d1ecf9af5c090cf627bf334d96f01e46998d26a6`;
   intent SHA-256
   `089d65e7270f579c78d5d4ac15d1987cc18d82566ed233039d9e2030b3cb0bad`.
+
+## O1C-0096 — Page-16 zero-call transport recovery
+
+- **Recorded:** `2026-07-20T22:35:36+02:00` (`Europe/Berlin`).
+- **Protocol:** validate O1C-0095's complete terminal capsule and failure
+  receipt, regenerate O1C-0093's last certified state byte-for-byte, import no
+  discarded O1C-0095 output, and project fresh Page 16 / lineage 29 with zero
+  solver work at unchanged active limit 251.
+- **Prepared state:** Page 16 is 251 clauses / 707,566 literals / 2,831,459 B,
+  SHA `fb3b5669…`; categories are 9 structural roots + 43 pinned + 167 new debt
+  + 32 recycled. Headroom is 261 clauses / 892,434 literals / 5,557,149 B.
+- **Residency:** all 167 previously never-resident-undominated clauses are
+  admitted as new debt, leaving exactly zero residual debt. The activation
+  ledger grows `16→17` while retaining the prior ledger as an exact prefix.
+- **State boundary:** attic stays 18 chunks / 1,812 unique / 1,820 occurrences /
+  14 strict relations / 1,801 undominated. Bank `97a325c9…` and receipt
+  `1c69bb32…` are byte-identical. There is no new chunk, clause, priority update
+  or imported O1C-0095 native JSON.
+- **Claim boundary:** zero-call transport/residency preparation only. Native
+  solver, native preflight, science, intent, target, truth-key, reveal and refit
+  counts are zero. Page 16 / lineage 29 is fresh and unburned; no new key,
+  clause, closure or attacker-valid entropy/domain claim follows.
+- **Hypothesis:** H096 remains active with its preparation half achieved. Bind
+  O1C-0097 to the exact manifest/Page/bank/receipt and require an actual native-
+  output→adapter regression covering both source receipt fields before one
+  fresh unchanged lineage-29 call.
+- **Validation:** 8/8 focused tests in 0.38 s; Ruff clean; Pyright zero errors/
+  warnings. Atomic bundle 10 files / 3,682,821 B; manifest 6,414 B. Published
+  commit `bbd756f` is pushed to `main`.
+- **Artifacts:** [interpretation](O1C0096_PAGE16_TRANSPORT_RECOVERY_INTERPRETATION_20260720.md)
+  SHA-256
+  `c23bdb2791557d909d8d928d717f5f393aa3599794f11aeab5d123d16d37f85a`;
+  [manifest](o1c96_page16_transport_recovery_seed_20260720/transport-recovery-preparation-manifest.json)
+  SHA-256
+  `68d42b0f4cfaaf8a5b03f4b61515a8032860623dd5517fc87dac87b087a1c7b7`.

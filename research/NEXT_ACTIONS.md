@@ -1,27 +1,33 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-20 (O1C-0095 Page-15 contract terminal sealed).
+Last ranked: 2026-07-20 (O1C-0096 fresh Page 16 sealed).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Derive fresh Page 16 / lineage 29 with zero solver work from the unchanged 1,812-clause attic and `97a325c9…` bank; import no O1C-0095 output | State of the art enabling | Extreme | Extreme | Low | Replaces the burned Page 15 without changing the scientific state or operator |
-| 2 | Repair adapter admission of both native-v26 source-receipt fields and add one actual native-output→adapter schema regression | State of the art enabling | Extreme | Extreme | Low | Closes the exact contract gap missed by 65/65 separate-component tests |
-| 3 | After one focused irreversible gate and one owned real preflight, authorize exactly one seed-0, tau-identical, 128-conflict lineage-29 call | State of the art | Extreme | Extreme | Low | Finally measures whether exact-exclusion compounding persists beyond the fifth disjoint burst |
-| 4 | Feed O1C-0094's 18,034-byte quotient only to lossless state/identity consumers; do not launch the 109-relation proof campaign after its `0/218` cheap certificate screen | State of the art mechanism | High | Extreme | Zero now | Retains the 167.84x flat-binary-to-packed-state leverage without derailing the live recovery path |
-| 5 | Pivot residency alone only after an uncensored zero-novelty science result; keep O1C-0038/A526 fixed as terminal decoders when their real gates are reached | State of the art | High | Extreme | Zero now | Prevents an operational transport terminal from masquerading as evidence against the operator |
+| 1 | Finish O1C-0097 native/adapter/runner seals against Page 16, manifest `68d42b0f…`, bank `97a325c9…` and receipt `1c69bb32…`; include one actual native-output→adapter schema regression | State of the art enabling | Extreme | Extreme | Low | Closes the exact transport contract while preserving the unchanged operator |
+| 2 | After one focused irreversible gate and one owned real preflight, authorize exactly one seed-0, tau-identical, 128-conflict lineage-29 call | State of the art | Extreme | Extreme | Low | Finally measures whether exact-exclusion compounding persists beyond the fifth disjoint burst |
+| 3 | Feed O1C-0094's 18,034-byte quotient only to lossless state/identity consumers; do not launch the 109-relation proof campaign after its `0/218` cheap certificate screen | State of the art mechanism | High | Extreme | Zero now | Retains the 167.84x flat-binary-to-packed-state leverage without derailing the live recovery path |
+| 4 | Pivot residency alone only after an uncensored zero-novelty science result; keep O1C-0038/A526 fixed as terminal decoders when their real gates are reached | State of the art | High | Extreme | Zero now | Prevents an operational transport terminal from masquerading as evidence against the operator |
 
 ## Current resume
 
-Resume from O1C-0095's terminal
-`PARENT_CENTERED_CONTINUATION_OPERATIONAL_TERMINAL`.
+Resume from O1C-0096's zero-call Page-16 transport recovery.
 O1C-0092's sole local-0 / lineage-27 call consumed Page 14 at
 requested/actual/billed `128/10/10` and fully emitted `261` trail-upper-bound
 no-goods / `756,414` literals. O1C-0093 preserves every occurrence and grows the
 attic to 1,812 unique clauses / 1,820 occurrences / 14 strict relations / 1,801
 undominated. Page 14 is burned permanently. O1C-0093 sealed Page 15 at 251
 clauses / 710,463 literals / 2,843,047 B, SHA `71f4b544…`, with exactly 261
-clause slots; O1C-0095 has now burned Page 15 / lineage 28 without a retained
-science payload.
+clause slots; O1C-0095 burns Page 15 / lineage 28 without a retained science
+payload. O1C-0096 regenerates the certified state, imports none of that discarded
+output and seals fresh Page 16 / lineage 29 unburned at 251 clauses / 707,566
+literals / 2,831,459 B, SHA `fb3b5669…`, with the same 261 clause slots.
+
+Page 16 admits all 167 prior never-resident-undominated clauses as new debt and
+uses its final 32 slots for recycled clauses, so residual residency debt is
+exactly zero. The attic remains 18 chunks / 1,812 unique / 1,820 occurrences /
+14 relations / 1,801 undominated; bank `97a325c9…` and receipt `1c69bb32…` are
+unchanged. This is deterministic residency/transport progress, not new science.
 
 The 255 failure-first actions made 33,398 exact probes. Bank conservation is
 exact at `249,671→283,069`; the 24,576-byte state evolves to `97a325c9…`, and
@@ -105,7 +111,7 @@ persisted intent but produced no output to ingest. The immutable attic therefore
 remains `807` unique clauses / `815` occurrences and the evolved continuation
 bank remains exact SHA `05b8acf3…`.
 
-Resume authority is the [O1C-0095 interpretation](O1C0095_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260720.md), [result](O1C0095_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json), SHA-256 `7838ce882a696ce932b36fa11af190aaff0ee0a7673e12bbfdac1b272b2e8c93`, and [capsule](../runs/20260720_220052_433697_O1C-0095_apple8-parent-centered-continuation-v1/RUN.md), manifest SHA-256 `10c2b0f2f2745bb2a101c116d1ecf9af5c090cf627bf334d96f01e46998d26a6`. The unchanged source state remains the [O1C-0093 Page-15 preparation manifest](o1c93_page15_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json), SHA-256 `187f09309b2d866549441d713f29bfed696c140f5c5a99536001c889f5836a24`; import no O1C-0095 output. Preserve the focused-gate-to-production rule, assign one preflight owner and never replay Page 14 or Page 15.
+Resume authority is the [O1C-0096 interpretation](O1C0096_PAGE16_TRANSPORT_RECOVERY_INTERPRETATION_20260720.md), SHA-256 `c23bdb2791557d909d8d928d717f5f393aa3599794f11aeab5d123d16d37f85a`, and [Page-16 manifest](o1c96_page16_transport_recovery_seed_20260720/transport-recovery-preparation-manifest.json), SHA-256 `68d42b0f4cfaaf8a5b03f4b61515a8032860623dd5517fc87dac87b087a1c7b7`. Page 16 SHA-256 is `fb3b56690ec4f50d699c2598dd4fa752376d1609d1e242ee8aa987694cdc48f5`. Import no O1C-0095 output. Preserve the focused-gate-to-production rule, assign one preflight owner and never replay Page 14 or Page 15.
 
 ## Frontier scoreboard
 
@@ -280,13 +286,13 @@ Resume authority is the [O1C-0095 interpretation](O1C0095_APPLE8_PARENT_CENTERED
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0095 burned Page 15 after native completion
-  but before adapter persistence, so it measured no cryptanalytic outcome.
-  Derive fresh Page 16 / lineage 29 from the unchanged attic/bank, close the
-  exact two-field producer/consumer contract gap with one composition
-  regression, then issue one fresh unchanged call. Only that retained result may
-  test further novelty, closure/model, attacker-valid entropy/domain reduction
-  and finally a publicly verified key. Exact 256 remains the north star.
+- **Next measurable advance:** O1C-0096 has already sealed fresh Page 16 /
+  lineage 29 with unchanged evidence, exact 261-clause headroom and zero
+  residency debt. O1C-0097 now closes the two-field producer/consumer contract
+  with one actual composition regression, then issues one fresh unchanged call.
+  Only that retained result may test further novelty, closure/model,
+  attacker-valid entropy/domain reduction and finally a publicly verified key.
+  Exact 256 remains the north star.
 
 ## Effect-first stop rules
 

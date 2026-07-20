@@ -613,6 +613,22 @@ one fresh unchanged call. Never retry Page 15, recover unpersisted stdout,
 change the scientific operator or trigger residency pivot from this transport
 failure.
 
+O1C-0096 completes H096's preparation half with zero calls. It validates the
+O1C-0095 terminal chain, regenerates O1C-0093's certified state byte-for-byte,
+imports no discarded native output and seals fresh Page 16 / lineage 29 at the
+unchanged active limit 251. Page 16 is 251 clauses / 707,566 literals /
+2,831,459 B, SHA `fb3b5669…`, with 261 clause / 892,434 literal / 5,557,149 B
+headroom. Its `9+43+167+32` composition admits all 167 prior never-resident-
+undominated clauses and leaves residual debt zero. The attic remains
+18/1,812/1,820/14/1,801 and the `97a325c9…` bank / `1c69bb32…` receipt are
+unchanged. This is transport/residency preparation, not a new science claim.
+
+O1C-0097 is the sole next continuation. Bind it to manifest `68d42b0f…`, require
+one actual native-output→adapter regression containing both source-receipt
+fields, then one focused irreversible gate, one owned preflight and one fresh
+unchanged lineage-29 call. Page 16 is unburned; all historical Pages remain
+non-replayable.
+
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
 a statistic over one run's visited trails. The historical minimum
@@ -1198,10 +1214,12 @@ evidence.
   exact lossless nine-axis reconstruction in 18,034 retained bytes. O1C-0095
   burns Page 15 after native completion but before adapter persistence because
   two native receipt-provenance fields are absent from the adapter schema. No
-  science payload survives; attic and bank remain unchanged. Never replay Page
-  8 through Page 15. Derive fresh Page 16 / lineage 29, close the exact contract
-  regression and issue one fresh unchanged call before any mechanism or
-  residency pivot.
+  science payload survives; attic and bank remain unchanged. O1C-0096 now seals
+  fresh Page 16 / lineage 29 with exact 261-clause headroom and admits all 167
+  prior residency-debt clauses, leaving zero debt, without any solver/preflight/
+  intent call. Never replay Page 8 through Page 15. O1C-0097 closes the exact
+  contract regression and issues one fresh unchanged Page-16 call before any
+  mechanism or residency pivot.
 
 ## Operating contract
 
