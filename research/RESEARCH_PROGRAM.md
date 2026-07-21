@@ -709,9 +709,15 @@ then consumes lineage 32 exactly once at `128/18/18` and returns 266 occurrences
 exact fixed point at 84 new derived clauses; all 52 Gen-1 clauses form the
 undominated overlay and strictly subsume 65 new native clauses. The next logical
 registry is 2,692 identities (`2,603 native + 5 prior derived + 84 new derived`),
-bank is `c0db45c1…`, and Page 19 is burned. H104 now prepares fresh Page 20 /
-lineage 33 at active limit 247 with zero calls before O1C-0105 may consume it.
-Never replay Page 18/19 or sealed v29/v30.
+bank is `c0db45c1…`, and Page 19 is burned. H104 preparation is now achieved:
+O1C-0104 atomically retains the 265-clause native chunk and both proof
+namespaces, preserves the prior 2,343 registry as an append-only prefix, and
+composes Page 20 / lineage 33 from 192 native + 3 inherited-derived + 52
+new-derived clauses. Page `537f63c5…` is 247 clauses / 690,319 literals /
+2,762,455 B with 265 clause slots; manifest `2e784eea…` binds a 16-file bundle.
+It uses zero calls and leaves Page 20 unburned. O1C-0105 now binds both derived
+triplets before one gate/preflight/call. Never replay Page 18/19 or sealed
+v29/v30.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1315,8 +1321,10 @@ evidence.
   owns the pure emitted-attic rollover plus separate five-node resolution
   closure and composed Page 19. O1C-0103 consumes lineage 32 once at `128/18/18`,
   retaining 265 globally novel native clauses and a zero-call 84-clause derived
-  fixed point. O1C-0104 now rolls that state to fresh Page 20 with no solver
-  calls. Never replay Page 8 through Page 19.
+  fixed point. O1C-0104 rolls that state to fresh Page 20 with zero calls,
+  preserving the append-only 2,692-identity registry and selecting 192 native +
+  55 derived residents at active limit 247. O1C-0105 integration is the sole
+  active successor. Never replay Page 8 through Page 19.
 
 ## Operating contract
 

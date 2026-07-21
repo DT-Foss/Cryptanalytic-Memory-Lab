@@ -1,24 +1,25 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-21 (O1C-0103 has retained a 265-clause native gain and an
-84-clause exact resolution fixed point; O1C-0104 zero-call rollover active).
+Last ranked: 2026-07-21 (O1C-0104 has published fresh composed Page 20 with an
+append-only 2,692-identity registry; O1C-0105 integration active).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Atomically zero-call ingest O1C-0103's 266 occurrences as 265 native identities, seal the separate 84-clause proof closure / 52-clause overlay, and carry bank `c0db45c1…` plus receipt `f025fffa…` | State of the art enabling | Extreme | Extreme | Low | Preserves every positive Page-19 breadcrumb while keeping native and derived evidence honest |
-| 2 | Compose and seal fresh Page 20 / lineage 33 at active limit 247 against the exact 2,692-identity registry | State of the art enabling | Extreme | Extreme | Low | Maximizes live residency while retaining the full observed 265-clause burst capacity |
-| 3 | Bind O1C-0105 to the O1C-0104 manifest, run one focused serialized gate plus one zero-call preflight, then consume Page 20 exactly once | State of the art | Extreme | Extreme | Low | Directly tests whether the larger closure-guided state compounds again toward Full-256 recovery |
+| 1 | Finish O1C-0105 native-v31, adapter-v34, runner and config binding to Page 20 `537f63c5…`, manifest `2e784eea…`, bank `c0db45c1…`, receipt `f025fffa…` and both derived proof triplets | State of the art enabling | Extreme | Extreme | Low | Creates the exact executable continuation without collapsing proof namespaces or the append-only registry |
+| 2 | Run one focused actual serialized producer→consumer gate and one zero-call preflight; add no comfort-control cycle if both pass | State of the art enabling | Extreme | Extreme | Low | Protects the sole irreversible Page-20 call while keeping validation proportional |
+| 3 | Consume Page 20 / lineage 33 exactly once and immediately classify native novelty, derived closure, model/key consequence and retained state | State of the art | Extreme | Extreme | Low | Directly tests whether the 55-clause composed overlay compounds the Full-256 exclusion trajectory again |
 | 4 | Feed O1C-0094's 18,034-byte quotient only to lossless state/identity consumers; do not launch the 109-relation proof campaign after its `0/218` cheap certificate screen | State of the art mechanism | High | Extreme | Zero now | Retains the 167.84x flat-binary-to-packed-state leverage without derailing the live recovery path |
 
 ## Current resume
 
-Resume from O1C-0103's
-`PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. Page 19 / lineage 32 is burned
-permanently. The active zero-call continuation inputs are 266 retained native
-occurrences / 265 unique global-new identities, the separate 84-clause exact
-proof closure / 52-clause overlay, the next 2,692-identity registry, evolved
-bank `c0db45c1…` and receipt `f025fffa…`. O1C-0104 creates Page 20; no current
-Page is authorized for a science call.
+Resume from O1C-0104's
+`PAGE20_CLOSURE_COMPOSED_CAUSAL_ROLLOVER_PREPARED`. Page 19 / lineage 32 is
+burned permanently. Fresh Page 20 / lineage 33 is 192 native + 3 inherited
+derived + 52 new derived clauses, SHA `537f63c5…`, with exact 265-clause
+headroom. Its append-only logical registry has 2,692 identities; bank
+`c0db45c1…` and receipt `f025fffa…` are exact. Page 20 is unburned and no science
+call is authorized until O1C-0105 completes its gate/preflight and persists
+intent.
 O1C-0092's sole local-0 / lineage-27 call consumed Page 14 at
 requested/actual/billed `128/10/10` and fully emitted `261` trail-upper-bound
 no-goods / `756,414` literals. O1C-0093 preserves every occurrence and grows the
@@ -183,7 +184,7 @@ persisted intent but produced no output to ingest. The immutable attic therefore
 remains `807` unique clauses / `815` occurrences and the evolved continuation
 bank remains exact SHA `05b8acf3…`.
 
-Current outcome authority is the [O1C-0103 interpretation](O1C0103_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md) and [result](O1C0103_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260721.json), SHA-256 `35592420623e08637b58094713a7d47bb72d1381e01aa775e97cad4fc214d6a3`. Its capsule manifest has SHA-256 `7b8801f4b1a27ea0fd799d8b18e8de0c1df73e69b186b9e04d0ec99626e78534`. Pages 9–19 and lineages through 32 are burned; Page 20 does not exist until O1C-0104 publishes its zero-call bundle. Complete and verify that rollover before any O1C-0105 integration; never reuse a historical Page.
+Current preparation authority is the [O1C-0104 interpretation](O1C0104_PAGE20_CAUSAL_ROLLOVER_INTERPRETATION_20260721.md) and [manifest](o1c104_page20_causal_rollover_seed_20260721/causal-rollover-preparation-manifest.json), SHA-256 `2e784eea7ef8fb85913e45246935fa26206626bebf52f0dcb5fc8b9672ba59c5`. O1C-0103 remains the latest science outcome authority, result SHA-256 `35592420623e08637b58094713a7d47bb72d1381e01aa775e97cad4fc214d6a3`. Pages 9–19 and lineages through 32 are burned; Page 20 / lineage 33 is fresh. Complete O1C-0105 integration, one gate/preflight, then one Page-20 call; never reuse a historical Page.
 
 ## Frontier scoreboard
 

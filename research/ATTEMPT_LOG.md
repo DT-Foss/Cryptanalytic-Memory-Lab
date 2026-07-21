@@ -4370,3 +4370,40 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   SHA `35592420…`; [interpretation](O1C0103_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md);
   [capsule](../runs/20260721_033839_385873_O1C-0103_apple8-parent-centered-continuation-v1/RUN.md),
   46-entry manifest SHA `7b8801f4…`.
+
+## O1C-0104 — Page-20 closure-composed causal rollover
+
+- **Recorded/published:** `2026-07-21T05:33:54+02:00`.
+- **Protocol:** zero-call ingest all 266 O1C-0103 occurrence rows as a 265-clause
+  lineage-32 native chunk; retain the inherited five-clause proof namespace and
+  new 84-clause fixed-point proof namespace separately; compose fresh Page 20 /
+  lineage 33 at active limit 247. No intent or science authorization.
+- **Native attic:** 21 chunks / 2,603 unique clauses / 7,358,158 literals /
+  29,443,235 B, with 2,613 occurrences / ten duplicates / 14 native relations /
+  2,592 native undominated. New chunk is `f97ec1c7…`, 3,024,419 B.
+- **Logical registry:** append-only chronology preserves the prior 2,343 prefix:
+  old native 2,338 → old derived 5 → new native 265 → new derived 84. Combined
+  registry is 2,692 clauses / 7,611,885 literals / 30,458,499 B, inventory
+  `9b61b7e9…`, vault `ed53e022…`, 119 relations and 2,579 undominated.
+- **Page/state:** Page 20 is 192 native + 3 inherited-derived + 52 new-derived =
+  247 clauses / 690,319 literals / 2,762,455 B, SHA `537f63c5…`. It leaves 265
+  clause slots, 909,681 literal slots and 5,626,153 payload bytes. The composed
+  Page is the authoritative returned state; its pure-native selector base
+  `1b46e9d8…` remains separately replayable and unactivated.
+- **Proof namespaces:** inherited closure/overlay remain 5/3. New closure is 84
+  clauses / 957,359 B, SHA `f351b4d6…`; new overlay is 52 clauses / 591,407 B,
+  SHA `44175f53…`. Derived occurrence count remains zero.
+- **Classification:** `PAGE20_CLOSURE_COMPOSED_CAUSAL_ROLLOVER_PREPARED`.
+  Lossless public representation/state only; no new native science clause,
+  recovered key/model/posterior, action crossing or attacker-valid entropy/
+  domain reduction.
+- **Validation/resources:** 18 focused tests, Ruff clean, Pyright zero. Canonical
+  atomic bundle is 16 files / 9,605,074 B; all 15 listed artifact hashes verify.
+  Zero native preflight/solver/science/target/truth/reveal/refit calls. Page 20
+  and lineage 33 remain fresh and unburned.
+- **Hypothesis/next:** H104 preparation achieved and outcome remains active.
+  Finish O1C-0105's seven-file binding to both derived triplets, run one focused
+  gate plus one zero-call preflight, then consume lineage 33 exactly once.
+- **Artifacts:** [interpretation](O1C0104_PAGE20_CAUSAL_ROLLOVER_INTERPRETATION_20260721.md);
+  [manifest](o1c104_page20_causal_rollover_seed_20260721/causal-rollover-preparation-manifest.json),
+  9,830 B / SHA `2e784eea…`.
