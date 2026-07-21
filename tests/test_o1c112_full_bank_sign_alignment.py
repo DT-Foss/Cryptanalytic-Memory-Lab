@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import math
 import struct
 from collections.abc import Mapping
@@ -358,6 +359,33 @@ def test_bank_decoder_rejects_digest_and_semantic_corruption() -> None:
             changed_payload,
             expected_sha256=hashlib.sha256(changed_payload).hexdigest(),
         )
+
+
+def test_truth_reader_accepts_hash_sealed_noncanonical_json(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    path = tmp_path / "historical-reveal.json"
+    payload = json.dumps({"fixture": "sealed-but-pretty"}, indent=2).encode("ascii")
+    path.write_bytes(payload)
+    key = bytes(range(32))
+
+    def verify(value: object) -> dict[str, object]:
+        assert value == {"fixture": "sealed-but-pretty"}
+        return {
+            "commitment_preimage": {"key_hex": key.hex()},
+            "reveal_sha256": alignment.HISTORICAL_REVEAL_INNER_SHA256,
+        }
+
+    monkeypatch.setattr(alignment, "verify_reveal", verify)
+    truth = alignment._read_historical_truth(
+        path,
+        len(payload),
+        hashlib.sha256(payload).hexdigest(),
+        "c" * 64,
+    )
+    assert truth.key == key
+    assert truth.source_file_sha256 == hashlib.sha256(payload).hexdigest()
+    assert truth.reveal_sha256 == alignment.HISTORICAL_REVEAL_INNER_SHA256
 
 
 def test_result_and_freeze_serialization_are_canonical_and_truth_minimal(

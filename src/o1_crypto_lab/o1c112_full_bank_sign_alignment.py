@@ -991,10 +991,6 @@ def _read_historical_truth(
         raise O1C112FullBankSignAlignmentError("historical reveal seal differs")
     try:
         raw = json.loads(payload.decode("ascii"))
-        if canonical_json_bytes(raw) != payload:
-            raise O1C112FullBankSignAlignmentError(
-                "historical reveal is not canonical JSON"
-            )
         reveal = verify_reveal(raw)
         preimage = _mapping(reveal["commitment_preimage"], "commitment preimage")
         key = bytes.fromhex(str(preimage["key_hex"]))
