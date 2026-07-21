@@ -4544,3 +4544,30 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:** [result](O1C0108_PAGE22_TYPE_SAFE_CAUSAL_ROLLOVER_RESULT_20260721.md);
   [manifest](o1c108_page22_type_safe_causal_rollover_seed_20260721/causal-rollover-preparation-manifest.json);
   [audit](o1c108_page22_type_safe_causal_rollover_seed_20260721/page-22-v8-certification-audit.json).
+
+## O1C-0109 — Page-22 bounded-breadcrumb continuation
+
+- **Time:** `2026-07-21T10:34:13+02:00` to
+  `2026-07-21T10:34:58.616343+02:00`.
+- **Protocol:** bind and re-certify the exact 20-file O1C-0108 bundle, add one
+  fixed 256-row local-prunable sidecar before crossing mutation without changing
+  action order, consume Page 22 / lineage 35 once, and compare every emitted
+  identity against the complete 3,111-clause logical registry.
+- **Outcome:** `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN` at
+  requested/actual/billed `128/34/34`. All 267 emitted clauses are distinct and
+  globally novel; 749,811 literals, aggregate `228da2ac…`. All witness UBs are
+  strict below tau and Page 22 is burned permanently.
+- **Runtime/state:** native wall 0.716391 s, peak RSS 371,752,960 B; 255 actions,
+  33,569 probes and zero direct certified crossings. Bank grows
+  `62360d82…→efffdc20…` by exactly the probe count; 255/256 records change.
+- **Hidden field:** 100/100 bounded rows survive with zero overflow: 37 ONE and
+  63 BOTH, all after coordinate consumption. They collapse to only coordinates
+  193 and 196 over 57 parents. The pre-truth ONE sums are negative at both, so
+  the frozen relative reader predicts bit 0 twice; no truth was read by O1C-0109.
+- **Next:** O1C-0110 appends the harvest and composes Page 23 with zero calls.
+  O1C-0111 separately checks the two frozen directions against the sealed
+  historical reveal. Never retry Page 22 or reinterpret 100 events as 100 bits.
+- **Artifacts:** raw [result](O1C0109_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260721.json),
+  SHA `22ec1c6a…`; [interpretation](O1C0109_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md);
+  [capsule](../runs/20260721_103413_313078_O1C-0109_apple8-parent-centered-continuation-v1/RUN.md),
+  inventory SHA `050a073b…`.

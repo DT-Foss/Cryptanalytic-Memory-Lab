@@ -2478,3 +2478,26 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   and [capsule](../runs/20260721_004001_986566_O1C-0099_apple8-parent-centered-continuation-v1/RUN.md),
   manifest SHA-256
   `93fdb7eb7ce828fd6c41a327a5ab1c7c58305e6a6be752dc0812b214b1fbbf9e`.
+
+## B-0109 — Zero action crossings concealed a two-coordinate local field
+
+- **Positive terminal:** the sole Page-22 / lineage-35 call emits 267/267
+  globally novel native no-goods / 749,811 literals at `128/34/34`; native wall
+  is 0.716391 s and peak RSS 371,752,960 B.
+- **Hidden-state breadcrumb:** the fixed sidecar retains 100/100 local-prunable
+  probes with zero overflow despite zero eligible direct action crossings: 37
+  ONE and 63 BOTH events, all after their coordinate was consumed.
+- **Coverage boundary:** these are not 100 bits. Every row belongs to coordinate
+  193 or 196 over 57 distinct parents. The ONE-only binary64 sums are negative
+  at both coordinates, freezing bit-0/bit-0 before any truth read.
+- **Interpretation:** direct action crossing is too strict as an observability
+  counter; useful child-bound asymmetry can exist behind one-shot consumption.
+  This establishes a bounded live evidence field, not correct key direction.
+- **Next action:** O1C-0111 tests the exact frozen sign through the historical
+  sealed reveal. A 2/2 result is only a retrospective breadcrumb with fair-coin
+  tail 0.25 and earns unchanged fresh replication; a miss closes this sign rule
+  without post-hoc inversion. O1C-0110 independently preserves the clause gain.
+- **Artifacts:** [result](O1C0109_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260721.json),
+  [interpretation](O1C0109_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md),
+  [frozen design](O1C0111_BREADCRUMB_SIGN_ALIGNMENT_DESIGN_20260721.md) and
+  [capsule](../runs/20260721_103413_313078_O1C-0109_apple8-parent-centered-continuation-v1/RUN.md).

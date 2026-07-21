@@ -1,26 +1,27 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-21 (O1C-0108 published fresh certified Page 22 / lineage 35;
-O1C-0109 live typed continuation is active).
+Last ranked: 2026-07-21 (O1C-0109 completed the third Full-256 clause gain;
+O1C-0110 Page-23 rollover and O1C-0111 frozen sign alignment are active).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Version O1C-0109 native/adapter/runner against exact Page 22 `18387804…`, manifest `f16d505f…`, registry 3,111 and bank `62360d82…` | State of the art enabling | Extreme | Extreme | Low | Turns the proof-dense typed state into the next executable Full-256 continuation |
-| 2 | Add one bounded local-prunable breadcrumb sidecar carrying variable, proposed literal, parent identity and exact child bounds without changing action order or solver behavior | State of the art mechanism | Extreme | High | Low | Preserves O1C-0107's otherwise-lost 8 one-sided + 32 two-sided local crossings for posterior-oriented analysis |
-| 3 | Run one producer→consumer gate, one zero-call preflight and consume fresh lineage 35 exactly once; classify clause gain and key/posterior/search gain separately | State of the art | Extreme | Extreme | Low | Tests a third compounding step and whether proof density creates signed attacker-useful structure |
+| 1 | Finish O1C-0110 zero-call ingestion of all 267 O1C-0109 clauses, exact 48-clause fixed point and 245-row v8-safe Page 23 with 267 slots | State of the art enabling | Extreme | Extreme | Low | Preserves the third gain and opens the fourth live compounding step without spending a Page |
+| 2 | Execute O1C-0111 exactly once after source/tests/config freeze: evaluate the predeclared ONE reader on coordinates 193/196 through the sealed historical reveal | State of the art mechanism | Extreme | High | Near zero | Distinguishes whether the first hidden live-bound field carries even two correct key directions or only solver geometry |
+| 3 | If and only if O1C-0111 is 2/2, keep the sign rule byte-exact and enlarge prospective coordinate coverage on fresh Page 23; otherwise pivot the breadcrumb operator, not its sign post hoc | State of the art recovery | Extreme | High | Low | Converts a retrospective two-bit breadcrumb into a fresh attacker-valid directional test, or closes the exact reader cleanly |
 | 4 | Feed O1C-0094's 18,034-byte quotient only to lossless state/identity consumers; do not launch the 109-relation proof campaign after its `0/218` cheap certificate screen | State of the art mechanism | High | Extreme | Zero now | Retains the 167.84x flat-binary-to-packed-state leverage without derailing the live recovery path |
 
 ## Current resume
 
-Resume from O1C-0108's sealed `PAGE22_TYPE_SAFE_CAUSAL_ROLLOVER_PREPARED`.
-Fresh Page 22 / lineage 35 is 246 clauses / 688,833 literals / 2,756,507 B, SHA
-`18387804…`, with exact 266-clause headroom. It contains 53 emitted residents,
-44 inherited certified proofs and 149 new certified proofs. All 153 new proof
-identities remain in the 3,111-clause registry; indices `1,2,32,55` are excluded
-from ACTIVE only. Manifest `f16d505f…`, bank `62360d82…`, receipt `a3578ea3…`.
-Page 21 is burned; Page 22 is fresh. O1C-0109 may bind only these exact bytes,
-must preserve bounded breadcrumbs without behavioral change, and may consume
-lineage 35 at most once.
+Resume from O1C-0109's terminal
+`PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. Page 22 / lineage 35 is burned
+and never replayed. The sole call returned 267/267 globally novel clauses /
+749,811 literals at `128/34/34`, result SHA `22ec1c6a…`, and evolved bank
+`efffdc20…`. The bounded sidecar retained 100/100 events but only coordinates
+193 and 196; O1C-0111's bit-0/bit-0 prediction was frozen before truth access.
+O1C-0110 has already derived 48/48 v8-valid new resolvents and the exact
+Page-23 composition: 4 emitted + 3/41/149 inherited derived + 48 new derived =
+245 active clauses, leaving exactly 267 slots. Complete its sealed zero-call
+publication before authorizing any new lineage.
 O1C-0092's sole local-0 / lineage-27 call consumed Page 14 at
 requested/actual/billed `128/10/10` and fully emitted `261` trail-upper-bound
 no-goods / `756,414` literals. O1C-0093 preserves every occurrence and grows the

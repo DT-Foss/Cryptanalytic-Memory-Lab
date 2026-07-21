@@ -751,9 +751,19 @@ carries bank `62360d82…` / receipt `a3578ea3…`, and atomically publishes fre
 Page 22 / lineage 35 at active limit 246. Page `18387804…` contains 53 emitted
 + 44 inherited certified derived +149 new certified derived rows, passes 246/246
 and leaves exactly 266 clause slots. The registry is 3,111 identities; manifest
-is `f16d505f…`. H109 now owns one behavior-preserving bounded breadcrumb
-extension and the sole fresh-lineage consequence. Never replay Page 18 through
-Page 21.
+is `f16d505f…`.
+
+H109 is supported at mechanism level. O1C-0109's sole Page-22 / lineage-35 call
+returns 267/267 distinct globally novel no-goods / 749,811 literals at
+`128/34/34`; native wall is 0.716391 s and peak RSS 371,752,960 B. The bank
+evolves `62360d82…→efffdc20…` through exactly 33,569 probes. A fixed 256-row
+sidecar retains 100/100 local-prunable observations with zero overflow although
+the action-crossing counter remains zero. This hidden field is narrow: 37 ONE
+and 63 BOTH rows collapse to coordinates 193 and 196 over 57 parents. The
+frozen ONE reader points to bit 0 on both; O1C-0111 owns the separate historical
+truth check and may not flip the sign afterward. O1C-0110 owns zero-call
+append/closure/type-safe Page-23 composition. Never replay Page 18 through
+Page 22.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1368,8 +1378,10 @@ evidence.
   globally novel clauses plus a 153-clause zero-call fixed point; 149 derived
   rows pass the ACTIVE theorem. O1C-0108 atomically publishes 246/246-certified
   Page 22 with exact 266-clause headroom and all 3,111 logical identities
-  retained. O1C-0109 typed live continuation is the sole active successor.
-  Never replay Page 8 through Page 21.
+  retained. O1C-0109 consumes Page 22 once and returns 267/267 globally novel
+  clauses plus the first bounded local-prunable breadcrumb field. O1C-0110
+  constructs the Page-23 successor; O1C-0111 tests the two pre-truth directions.
+  Never replay Page 8 through Page 22.
 
 ## Operating contract
 

@@ -1,14 +1,16 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-21T09:34:45+02:00 (`Europe/Berlin`)
-- **Current truth:** O1C-0108 has atomically published fresh Page 22 / lineage 35
-  from O1C-0107's complete second Full-256 gain. The 20-file bundle is commit
-  `28d0b3a`; manifest SHA is `f16d505f…`. Page 21 is burned forever; Page 22 is
-  fresh, unburned and the only authorized live successor.
-- **Retained continuation state:** native attic is 22 chunks / 2,869 unique /
-  2,879 occurrences / ten duplicates. The append-only logical registry is 3,111
-  identities, including the complete 153-clause O1C-0108 proof fixed point.
-  Bank `62360d82…` and receipt `a3578ea3…` remain byte-exact.
+- **Last updated:** 2026-07-21T10:47:12+02:00 (`Europe/Berlin`)
+- **Current truth:** O1C-0109 has consumed Page 22 / lineage 35 exactly once and
+  returned the third compounding Full-256 native-clause gain: 267/267 globally
+  novel clauses in 0.716391 native wall seconds at 371,752,960 B peak RSS. Raw
+  result SHA is `22ec1c6a…`; Page 22 is burned forever. O1C-0110 is constructing
+  the fresh typed Page-23 successor with zero solver work.
+- **Retained continuation state:** the last published attic remains O1C-0108's
+  22 chunks / 2,869 unique / 2,879 occurrences / ten duplicates and registry
+  3,111 until O1C-0110 publishes the append-only successor. O1C-0109 evolves the
+  24,576-byte bank `62360d82…→efffdc20…` by exactly 33,569 probes; 255/256
+  coordinate records change and variable 241 remains the sole zero record.
 - **Burned Page 17 input:** 249 clauses / 693,183 literals / 2,773,919 B, SHA-256
   `0c25ce470df0945fb05914bab107ecea05531166575ec88ebf7d15bb9a22fbfd`,
   composed of 9 structural roots + 43 pinned + 197 new debt. It leaves 263
@@ -104,10 +106,20 @@
   2,756,507 B, SHA `18387804…`, with exact 266-clause headroom. All 246 ACTIVE
   rows pass v8; four of 153 new resolvents remain sidecar-only. No new native
   clause, key, posterior, beam or attacker-valid entropy/domain gain follows.
-- **Immediate decision:** bind O1C-0109 only to manifest `f16d505f…`, Page 22
-  `18387804…`, registry 3,111 and bank `62360d82…`. Preserve a tiny bounded
-  breadcrumb sidecar for local prunable probes, run one exact gate/preflight and
-  consume fresh lineage 35 at most once. Never replay Page 21.
+- **O1C-0109 claim boundary:** 267/267 distinct native no-goods are globally
+  novel against all 3,111 prior identities; 749,811 literals, aggregate SHA
+  `228da2ac…`, requested/actual/billed `128/34/34`. All witnesses satisfy
+  `13.765196…≤U≤14.602921…<tau`; 255 confirmed failure-first actions make
+  33,569 probes and still zero direct certified crossings. The fixed sidecar
+  retains 100/100 hidden local-prunable events, but they collapse to only two
+  coordinates, 193 and 196. All 37 one-prunable rows point to bit 0 under the
+  pre-truth reader. This is exact one-shot evidence for a hidden local field,
+  not 100 bits, a key, posterior, beam hit or attacker-valid entropy reduction.
+- **Immediate decision:** O1C-0110 losslessly appends the 267-clause harvest,
+  recomputes exact closure/type safety and publishes fresh Page 23 with zero
+  solver work. In parallel O1C-0111 applies the already frozen sign reader to
+  the two coordinates through the sealed historical reveal; no post-reveal sign
+  flip is permitted. Page 22 is burned and must never be replayed.
 - **Parent truth:** O1C-0082 consumed fresh Page 8 / lineage 21 exactly once
   and is terminal `PARENT_CENTERED_NOVEL_CLAUSE_GAIN`. The live O(256)
   parent-centered reader returns and confirms `255` one-shot failure-first
