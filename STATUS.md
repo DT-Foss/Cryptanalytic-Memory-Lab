@@ -1,20 +1,16 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-21T07:52:36+02:00 (`Europe/Berlin`)
-- **Current truth:** O1C-0106 has atomically published fresh, unburned Page 21 /
-  lineage 34 as a type-safe active projection. The canonical 17-file bundle is
-  commit `376fa11`; manifest SHA-256 is
-  `91044c235473c1a24fdeeb283454babc5ebc800ea19236840dd7193d6f3c96c2`.
-  Publication used zero native/preflight/solver/science/target/truth/reveal/
-  refit calls. O1C-0105 remains operational-terminal and Page 20 / lineage 33
-  remain burned forever.
-- **Retained continuation state:** native attic is 21 chunks / 2,603 unique /
-  2,613 occurrences / ten duplicates. The append-only logical registry is
-  2,692 identities: old native 2,338, inherited derived 5, new native 265 and
-  new derived 84. Bank `c0db45c1…`, receipt `f025fffa…`, both proof namespaces
-  and all O1C-0103 evidence remain unchanged. Page 20 SHA `537f63c5…` and
-  lineage 33 are burned. Fresh Page 21 SHA `36091952…` is unburned and carries
-  the same certified state through a type-correct active projection.
+- **Last updated:** 2026-07-21T08:39:59+02:00 (`Europe/Berlin`)
+- **Current truth:** O1C-0107 consumed typed Page 21 / lineage 34 exactly once
+  and returned a second retained Full-256 science gain. It emits 266/266 unique
+  globally novel clauses / 752,466 literals in 57 billed conflicts; native wall
+  is 0.781913 s. Page 21 is burned forever. O1C-0108 zero-call type-safe causal
+  rollover is active.
+- **Retained continuation state:** the O1C-0107 harvest will grow the native
+  attic to 22 chunks / 2,869 unique / 2,879 occurrences / ten duplicates. The
+  exact 153-clause resolution fixed point raises the append-only logical registry
+  to 3,111 identities. Bank `62360d82…` and receipt `a3578ea3…` are the sole
+  authorized continuation state. All prior proof namespaces remain immutable.
 - **Burned Page 17 input:** 249 clauses / 693,183 literals / 2,773,919 B, SHA-256
   `0c25ce470df0945fb05914bab107ecea05531166575ec88ebf7d15bb9a22fbfd`,
   composed of 9 structural roots + 43 pinned + 197 new debt. It leaves 263
@@ -97,11 +93,19 @@
   immutable logical sidecars but are excluded from ACTIVE only. Registry 2,692,
   bank `c0db45c1…` and receipt `f025fffa…` are unchanged. No new native clause,
   key, model, posterior or attacker-valid entropy/domain gain follows.
-- **Immediate decision:** build O1C-0107 against exact Page 21 / lineage 34,
-  manifest `91044c23…`, residency `b55e8cb2…`, activation ledger `cd74577f…`
-  and certification audit `cec84918…`. Run one focused serialized contract gate,
-  one zero-call preflight, then exactly one fresh-lineage call. Never replay
-  O1C-0105 or Page 20 and never activate the forbidden pure-emitted candidate.
+- **O1C-0107 claim boundary:** 266 native no-goods are globally novel against
+  all 2,692 prior identities. Exact zero-call resolution adds 153 distinct G1
+  consequences over pivot 32 and reaches fixed point immediately; 119 subsume
+  166 new native clauses. The exact v8 theorem admits 149/153 to ACTIVE and
+  excludes indices `1,2,32,55` to sidecar only. The live 24,576-byte bank grows
+  by 33,380 observations and changes 255/256 records. There is still no key,
+  model, posterior, beam hit, certified action crossing or attacker-valid
+  entropy/domain gain.
+- **Immediate decision:** build O1C-0108 as a zero-call typed rollover. Append
+  all 266 native clauses, retain all 153 resolvents in proof memory, admit only
+  the 149 independently score-certified ones, carry bank `62360d82…` / receipt
+  `a3578ea3…`, and publish fresh Page 22 / lineage 35 at active limit 246. Never
+  replay Page 21.
 - **Parent truth:** O1C-0082 consumed fresh Page 8 / lineage 21 exactly once
   and is terminal `PARENT_CENTERED_NOVEL_CLAUSE_GAIN`. The live O(256)
   parent-centered reader returns and confirms `255` one-shot failure-first

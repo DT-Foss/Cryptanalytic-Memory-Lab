@@ -4490,3 +4490,35 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:** [result](O1C0106_PAGE21_TYPE_SAFE_ROLLOVER_RESULT_20260721.md);
   [manifest](o1c106_page21_type_safe_rollover_seed_20260721/causal-rollover-preparation-manifest.json);
   [audit](o1c106_page21_type_safe_rollover_seed_20260721/page-21-v8-certification-audit.json).
+
+## O1C-0107 — Page-21 typed parent-centered continuation
+
+- **Time:** `2026-07-21T08:25:52.715764+02:00` to
+  `2026-07-21T08:26:32.563783+02:00`.
+- **Protocol:** bind the exact O1C-0106 17-file bundle, reproduce its 247/247
+  v8 certification before intent, consume fresh Page 21 / lineage 34 exactly
+  once and persist every native/adapter/capsule artifact before interpretation.
+- **Outcome:** `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN` at
+  requested/actual/billed `128/57/57`. The native sieve emits 266 distinct
+  globally novel clauses / 752,466 literals against the full 2,692-identity
+  registry. Native wall is 0.781913 s, peak RSS 372,506,624 B. Page 21 is burned
+  permanently.
+- **Live state:** 255 confirmed one-shot actions make 33,380 probes and zero
+  certified crossings. The 24,576-byte bank evolves
+  `c0db45c1…→62360d82…`; 255/256 coordinate records change and variable 241
+  remains empty. Receipt SHA is `a3578ea3…`.
+- **Exact closure:** 153 single-pivot native/native pairs, all pivot 32, produce
+  153 distinct globally novel G1 resolvents / 437,591 literals; Generation 2 is
+  empty. 119 resolvents strictly subsume 166 native clauses. Real v8
+  certification passes 149/153 and excludes indices `1,2,32,55` from ACTIVE
+  only.
+- **Claim boundary:** real Full-256 no-good and exact proof-closure gain; no
+  recovered key/model/posterior/beam, certified action crossing or attacker-valid
+  entropy/domain reduction.
+- **Next:** O1C-0108 zero-call appends all 266 native clauses, retains all 153
+  proof identities, composes fresh Page 22 / lineage 35 at active limit 246 and
+  carries only bank `62360d82…` / receipt `a3578ea3…`. Never replay Page 21.
+- **Artifacts:** raw [result](O1C0107_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260721.json),
+  SHA `3d16db8a…`; [interpretation](O1C0107_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md);
+  [capsule](../runs/20260721_082548_917617_O1C-0107_apple8-parent-centered-continuation-v1/RUN.md),
+  manifest SHA `ffafafaa…`.

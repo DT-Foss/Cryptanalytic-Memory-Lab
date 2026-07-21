@@ -725,7 +725,7 @@ score-no-goods, so H104 is operationally terminal/scientifically inconclusive,
 not cryptanalytically negative. Registry 2,692, bank `c0db45c1…` and receipt
 `f025fffa…` remain unchanged; Page 20 is burned.
 
-H106 is active at live-consequence level. O1C-0106 has atomically published fresh
+H106 is supported at live-consequence level. O1C-0106 atomically published fresh
 typed Page 21 / lineage 34 with 203 emitted + 3 inherited-derived + 41
 new-derived ACTIVE residents and all eleven general resolution consequences
 sidecar-only. Page 21 is 247 clauses / 690,330 literals / 2,762,499 B, SHA
@@ -735,9 +735,20 @@ is `14.605986705470585 < tau=14.606178797892962` by
 `0.00019209242237749891`. Manifest `91044c23…`, residency `b55e8cb2…` and
 activation ledger `cd74577f…` bind the 17-file state; registry 2,692, bank
 `c0db45c1…` and receipt `f025fffa…` remain unchanged. Publication uses zero
-calls/reads/reveals/refits and leaves Page 21 fresh. O1C-0107 now binds only
-these exact seals, runs one proportional gate/preflight and consumes lineage 34
-at most once. Never replay Page 18/19/20 or sealed v29/v30/v31.
+calls/reads/reveals/refits. O1C-0107 then binds and re-certifies those exact rows,
+consumes lineage 34 once at `128/57/57`, and retains 266/266 globally novel
+native clauses / 752,466 literals in 0.781913 native wall seconds. The bounded
+bank evolves `c0db45c1…→62360d82…` through 33,380 probes; certified action
+crossings remain zero.
+
+H108 is the active zero-call compounder. Exact resolution over the O1C-0107
+harvest yields 153 distinct pivot-32 G1 resolvents and no G2; 119 resolvents
+strictly subsume 166 native clauses. The real v8 theorem admits 149/153 as
+standalone ACTIVE rows and excludes closure indices `1,2,32,55` to immutable
+logical sidecars. Direct append is impossible only because `247+266=513>512`.
+O1C-0108 therefore appends all 266 native clauses, preserves all 153 proof
+identities, carries bank `62360d82…` / receipt `a3578ea3…`, and composes fresh
+Page 22 / lineage 35 at active limit 246. Never replay Page 18 through Page 21.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1348,8 +1359,10 @@ evidence.
   narrower standalone score-no-good type, so no scientific result exists.
   O1C-0106 atomically publishes the 247/247-certified typed Page 21 / lineage 34
   state, with those eleven proofs retained sidecar-only and the 2,692-identity
-  registry unchanged. O1C-0107 exact integration and one fresh-lineage call are
-  the sole active successor. Never replay Page 8 through Page 20.
+  registry unchanged. O1C-0107 consumes it exactly once and returns 266 distinct
+  globally novel clauses plus a 153-clause zero-call fixed point; 149 derived
+  rows pass the ACTIVE theorem. O1C-0108 typed Page-22 rollover is the sole
+  active successor. Never replay Page 8 through Page 21.
 
 ## Operating contract
 

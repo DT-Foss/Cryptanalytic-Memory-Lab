@@ -1,36 +1,31 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-21 (O1C-0106 has atomically published fresh typed Page 21 /
-lineage 34; O1C-0107 exact integration is active).
+Last ranked: 2026-07-21 (O1C-0107 returned 266 globally novel Full-256 clauses;
+O1C-0108 typed Page-22 rollover is active).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Build O1C-0107's fresh native/adapter/runner/config binding against exact Page 21 `36091952…`, manifest `91044c23…`, residency `b55e8cb2…`, activation `cd74577f…`, audit `cec84918…`, bank `c0db45c1…` and receipt `f025fffa…` | State of the art enabling | Extreme | Extreme | Low | Turns the sealed typed state into the exact executable continuation without collapsing proof namespaces |
-| 2 | Run one actual serialized producer→consumer gate and one zero-call preflight; require the real grouped certifier to reproduce 247/247 before command construction and add no comfort-control cycle if both pass | State of the art enabling | Extreme | Extreme | Low | Protects the sole irreversible Page-21 call with the exact theorem that caught O1C-0105's mismatch |
-| 3 | Persist one fresh-lineage intent, consume lineage 34 exactly once, and classify native novelty, derived closure, model/key consequence and retained state | State of the art | Extreme | Extreme | Low | Tests the still-unmeasured closure-compounding proposition under the correct two-type memory contract |
+| 1 | Build O1C-0108's zero-call type-safe Page-22 rollover from the sealed O1C-0107 266-clause harvest, 153-clause fixed-point proof closure and evolved bank `62360d82…` | State of the art enabling | Extreme | Extreme | Low | Converts the second live Full-256 gain into bounded reusable memory without another Page |
+| 2 | Independently certify all 153 resolvents, keep failures `1,2,32,55` sidecar-only, and compose Page 22 at active limit 246 from 149 new passing resolvents + 44 retained certified derived + 53 emitted residents | State of the art mechanism | Extreme | Extreme | Low | Preserves every proof while maximizing active logical density and exact 266-clause successor headroom |
+| 3 | After one focused serialized gate and one zero-call preflight, bind a fresh lineage-35 native continuation to Page 22 and consume it at most once | State of the art | Extreme | Extreme | Low | Tests whether the typed living state compounds a third time and whether the pivot-32 closure changes action geometry |
 | 4 | Feed O1C-0094's 18,034-byte quotient only to lossless state/identity consumers; do not launch the 109-relation proof campaign after its `0/218` cheap certificate screen | State of the art mechanism | High | Extreme | Zero now | Retains the 167.84x flat-binary-to-packed-state leverage without derailing the live recovery path |
 
 ## Current resume
 
-Resume from O1C-0105's sealed
-`PARENT_CENTERED_CONTINUATION_OPERATIONAL_TERMINAL`. Page 20 / lineage 33 was
-consumed once and is burned permanently. Adapter validation stopped before
-command construction/native launch because the flat score-no-good channel
-accepted only 41/52 new derived residents; the eleven rejected pivot-223
-resolvents are resolution-valid but not standalone score-certified. Actual and
-billed conflicts are `null`, `science_gain=false`, and this is not a
-cryptanalytic negative. Registry 2,692, bank `c0db45c1…` and receipt
-`f025fffa…` remain exact; no evidence was lost.
+Resume from O1C-0107's sealed
+`PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. Page 21 / lineage 34 was
+consumed exactly once and is burned permanently. The call retained 266 distinct
+globally novel clauses / 752,466 literals at `128/57/57`; native wall was
+0.781913 s. The bounded bank evolved `c0db45c1…→62360d82…` through exactly
+33,380 probes, while certified action crossings remained zero.
 
-O1C-0106 is the published typed-memory roll-forward. Fresh, unburned Page 21 /
-lineage 34 contains 203 emitted + 3 inherited-derived + 41 new-derived ACTIVE
-clauses; all eleven general resolvents remain in proof sidecars only. The actual
-v8/native-equivalent certifier passes 247/247; maximum active UB is
-`14.605986705470585 < tau=14.606178797892962` by
-`0.00019209242237749891`. Page 21 is 690,330 literals / 2,762,499 B, SHA
-`36091952…`, with headroom 265 clauses / 909,670 literals / 5,626,109 B. The
-17-file manifest SHA is `91044c23…`; zero calls/reads/reveals/refits occurred.
-O1C-0107 may integrate only this exact state. Never replay Page 20.
+The target-free exact closure is 153 distinct pivot-32 G1 resolvents and no G2.
+It strictly subsumes 166 new native clauses. Real v8 certification passes
+149/153; indices `1,2,32,55` remain logical-sidecar-only. O1C-0108 must append
+all 266 native clauses, preserve every proof identity, carry bank `62360d82…`
+and receipt `a3578ea3…`, and publish Page 22 / lineage 35 at active limit 246.
+Direct concatenation is forbidden because `247+266=513>512`. Never replay
+Page 21 or relabel the four non-standalone resolvents as native/ACTIVE.
 O1C-0092's sole local-0 / lineage-27 call consumed Page 14 at
 requested/actual/billed `128/10/10` and fully emitted `261` trail-upper-bound
 no-goods / `756,414` literals. O1C-0093 preserves every occurrence and grows the
