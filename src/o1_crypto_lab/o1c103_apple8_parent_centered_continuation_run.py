@@ -2794,14 +2794,14 @@ def _manifest_bytes(capsule: Path) -> tuple[bytes, int]:
 def _run_markdown(result: Mapping[str, object]) -> bytes:
     resources = _mapping(result.get("resources"), "result resources")
     lines = [
-        "# O1C-0103 Page-18 parent-centered run",
+        "# O1C-0103 Page-19 parent-centered run",
         "",
         f"- Classification: `{result.get('classification')}`",
         f"- Stop reason: `{result.get('stop_reason')}`",
         f"- Native calls: `{resources.get('native_solver_calls')}` / 1",
         f"- Requested conflicts: `{resources.get('requested_conflicts')}` / 128",
         f"- Science gain: `{str(result.get('science_gain')).lower()}`",
-        "- Page 18 and lineage 32 burned when `episodes/00/intent.json` was persisted.",
+        "- Page 19 and lineage 32 burned when `episodes/00/intent.json` was persisted.",
         "- Failure-first priority actions are operational proof-mining choices, not bit beliefs or science gain.",
         "- Retry, replay, reveal, target/truth input, refit, MPS, and GPU use were forbidden.",
         "",
@@ -3777,7 +3777,7 @@ def _validated_capsule_result(
             )
         )
         or result.get("next_action")
-        != "Never retry or replay Page 18 / lineage 32 or Pages 17 through 9; preserve the final priority bank only as a continuation seed."
+        != "Never retry or replay Page 19 / lineage 32 or Pages 17 through 9; preserve the final priority bank only as a continuation seed."
         or (capsule / "RUN.md").read_bytes() != _run_markdown(result)
     ):
         raise O1C103RunError("existing capsule result differs")
@@ -3945,7 +3945,7 @@ def run(
             "maximum_persistent_artifact_bytes": MAXIMUM_PERSISTENT_ARTIFACT_BYTES,
         },
         "preflight": dict(bundle.row),
-        "next_action": "Never retry or replay Page 18 / lineage 32 or Pages 17 through 9; preserve the final priority bank only as a continuation seed.",
+        "next_action": "Never retry or replay Page 19 / lineage 32 or Pages 17 through 9; preserve the final priority bank only as a continuation seed.",
     }
     return _finalize_capsule(
         capsule=capsule, authoritative=lab / RESULT_RELATIVE, result=result
@@ -3954,7 +3954,7 @@ def run(
 
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Preflight or execute O1C103's one Page-18 parent-centered call"
+        description="Preflight or execute O1C103's one Page-19 parent-centered call"
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
     for command in ("preflight", "run"):
