@@ -709,15 +709,35 @@ then consumes lineage 32 exactly once at `128/18/18` and returns 266 occurrences
 exact fixed point at 84 new derived clauses; all 52 Gen-1 clauses form the
 undominated overlay and strictly subsume 65 new native clauses. The next logical
 registry is 2,692 identities (`2,603 native + 5 prior derived + 84 new derived`),
-bank is `c0db45c1…`, and Page 19 is burned. H104 preparation is now achieved:
+bank is `c0db45c1…`, and Page 19 is burned. H104 preparation was achieved:
 O1C-0104 atomically retains the 265-clause native chunk and both proof
 namespaces, preserves the prior 2,343 registry as an append-only prefix, and
-composes Page 20 / lineage 33 from 192 native + 3 inherited-derived + 52
+composes the then-fresh Page 20 / lineage 33 from 192 native + 3 inherited-derived + 52
 new-derived clauses. Page `537f63c5…` is 247 clauses / 690,319 literals /
 2,762,455 B with 265 clause slots; manifest `2e784eea…` binds a 16-file bundle.
-It uses zero calls and leaves Page 20 unburned. O1C-0105 now binds both derived
-triplets before one gate/preflight/call. Never replay Page 18/19 or sealed
-v29/v30.
+It uses zero calls and left Page 20 unburned at publication. O1C-0105 later
+consumes Page 20 / lineage 33 once but terminates in adapter validation before
+command construction or native launch. Requested work 128 is conservatively
+consumed; actual/billed are null and `science_gain=false`. The exact census
+passes 192/192 emitted, 3/3 inherited-derived and 41/52 new-derived residents.
+All eleven failures are valid pivot-223 Gen-1 resolvents but are not standalone
+score-no-goods, so H104 is operationally terminal/scientifically inconclusive,
+not cryptanalytically negative. Registry 2,692, bank `c0db45c1…` and receipt
+`f025fffa…` remain unchanged; Page 20 is burned.
+
+H106 is active at live-consequence level. O1C-0106 has atomically published fresh
+typed Page 21 / lineage 34 with 203 emitted + 3 inherited-derived + 41
+new-derived ACTIVE residents and all eleven general resolution consequences
+sidecar-only. Page 21 is 247 clauses / 690,330 literals / 2,762,499 B, SHA
+`36091952…`, with headroom 265 clauses / 909,670 literals / 5,626,109 B. The
+actual v8/native-equivalent grouped audit `cec84918…` passes 247/247; maximum UB
+is `14.605986705470585 < tau=14.606178797892962` by
+`0.00019209242237749891`. Manifest `91044c23…`, residency `b55e8cb2…` and
+activation ledger `cd74577f…` bind the 17-file state; registry 2,692, bank
+`c0db45c1…` and receipt `f025fffa…` remain unchanged. Publication uses zero
+calls/reads/reveals/refits and leaves Page 21 fresh. O1C-0107 now binds only
+these exact seals, runs one proportional gate/preflight and consumes lineage 34
+at most once. Never replay Page 18/19/20 or sealed v29/v30/v31.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1321,10 +1341,15 @@ evidence.
   owns the pure emitted-attic rollover plus separate five-node resolution
   closure and composed Page 19. O1C-0103 consumes lineage 32 once at `128/18/18`,
   retaining 265 globally novel native clauses and a zero-call 84-clause derived
-  fixed point. O1C-0104 rolls that state to fresh Page 20 with zero calls,
+  fixed point. O1C-0104 rolls that state to the then-fresh Page 20 with zero calls,
   preserving the append-only 2,692-identity registry and selecting 192 native +
-  55 derived residents at active limit 247. O1C-0105 integration is the sole
-  active successor. Never replay Page 8 through Page 19.
+  55 derived residents at active limit 247. O1C-0105 consumes Page 20 once but
+  terminates before native launch: 11 resolution-valid residents fail the
+  narrower standalone score-no-good type, so no scientific result exists.
+  O1C-0106 atomically publishes the 247/247-certified typed Page 21 / lineage 34
+  state, with those eleven proofs retained sidecar-only and the 2,692-identity
+  registry unchanged. O1C-0107 exact integration and one fresh-lineage call are
+  the sole active successor. Never replay Page 8 through Page 20.
 
 ## Operating contract
 

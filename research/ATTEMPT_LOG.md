@@ -4364,7 +4364,7 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   `39.40847479100921 s`; exactly one call.
 - **Hypothesis/next:** H102 supported. O1C-0104 must append the 265 native
   identities, preserve the 84 new proof identities separately, carry bank and
-  receipt, and compose fresh Page 20 / lineage 33 at active limit 247. Never
+  receipt, and compose the then-fresh Page 20 / lineage 33 at active limit 247. Never
   replay Page 19 or count a resolvent as a native occurrence.
 - **Artifacts:** [result](O1C0103_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260721.json),
   SHA `35592420…`; [interpretation](O1C0103_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md);
@@ -4376,7 +4376,7 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Recorded/published:** `2026-07-21T05:33:54+02:00`.
 - **Protocol:** zero-call ingest all 266 O1C-0103 occurrence rows as a 265-clause
   lineage-32 native chunk; retain the inherited five-clause proof namespace and
-  new 84-clause fixed-point proof namespace separately; compose fresh Page 20 /
+  new 84-clause fixed-point proof namespace separately; compose the then-fresh Page 20 /
   lineage 33 at active limit 247. No intent or science authorization.
 - **Native attic:** 21 chunks / 2,603 unique clauses / 7,358,158 literals /
   29,443,235 B, with 2,613 occurrences / ten duplicates / 14 native relations /
@@ -4400,10 +4400,93 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Validation/resources:** 18 focused tests, Ruff clean, Pyright zero. Canonical
   atomic bundle is 16 files / 9,605,074 B; all 15 listed artifact hashes verify.
   Zero native preflight/solver/science/target/truth/reveal/refit calls. Page 20
-  and lineage 33 remain fresh and unburned.
-- **Hypothesis/next:** H104 preparation achieved and outcome remains active.
-  Finish O1C-0105's seven-file binding to both derived triplets, run one focused
-  gate plus one zero-call preflight, then consume lineage 33 exactly once.
+  and lineage 33 were fresh and unburned at publication; O1C-0105 has since
+  burned both exactly once.
+- **Hypothesis/next:** H104 preparation achieved, but its live outcome is now
+  operationally terminal and scientifically inconclusive under O1C-0105. The
+  active successor is H106's typed Page-21 vault; Page 20 must never be replayed.
 - **Artifacts:** [interpretation](O1C0104_PAGE20_CAUSAL_ROLLOVER_INTERPRETATION_20260721.md);
   [manifest](o1c104_page20_causal_rollover_seed_20260721/causal-rollover-preparation-manifest.json),
   9,830 B / SHA `2e784eea…`.
+
+## O1C-0105 — Page-20 clause-type boundary
+
+- **Time:** intent `2026-07-21T06:10:02.933000+02:00`; result recorded
+  `2026-07-21T06:10:18.171226+02:00`.
+- **Protocol:** consume the sole authorized Page-20 / lineage-33 continuation
+  after the focused gate and zero-call preflight. Persist intent before the
+  irreversible call; bind all 2,692 registry identities, bank `c0db45c1…`,
+  receipt `f025fffa…` and both derived proof namespaces.
+- **Outcome:** `PARENT_CENTERED_CONTINUATION_OPERATIONAL_TERMINAL`,
+  `science_gain=false`. Adapter validation rejects the active vault before
+  command construction and before any native process launch because the legacy
+  grouped no-good certifier does not accept all derived residents. The one
+  intent/call and all 128 requested conflicts are conservatively consumed;
+  actual/billed are `null`, command/return code/stdout/stderr are absent, and
+  wall time is `15.273985124978935 s`.
+- **Exact offline census:** 192/192 emitted clauses, 3/3 inherited derived
+  clauses and 41/52 new derived clauses independently pass the standalone
+  grouped score bound. The eleven failing new-closure indices
+  `1,3,4,5,6,7,8,9,10,11,14` are all valid Generation-1 resolvents over pivot
+  223, but pivot elimination does not preserve the narrower standalone
+  score-no-good certificate. They are logical proof consequences, not admissible
+  rows for the legacy flat active-vault channel.
+- **State/breadcrumb:** Page 20 / lineage 33 are permanently burned; never retry
+  or replay them. No clause, model, key, posterior, solver trace or search result
+  was produced, so this is not a cryptanalytic negative. No evidence is lost:
+  registry 2,692, bank `c0db45c1…` and receipt `f025fffa…` remain exact, and all
+  eleven resolution-valid clauses remain in immutable proof sidecars.
+- **Hypothesis/next:** H104 is operationally terminal/inconclusive. O1C-0106
+  has since atomically sealed H106's fresh Page 21 / lineage 34 typed active
+  vault as 203 emitted + 3 inherited-derived + 41 new-derived clauses, while all
+  eleven non-standalone resolvents remain sidecar-only. O1C-0107 now owns the
+  exact integration, one zero-call preflight and at most one lineage-34 call.
+- **Artifacts:** raw [result](O1C0105_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260721.json),
+  SHA `f4e4e2ef4fcec6817b3fa6cf445448cae9aa693460c14cd2a8f7a7a3a295d66b`;
+  [interpretation](O1C0105_PAGE20_TYPE_BOUNDARY_INTERPRETATION_20260721.md);
+  [capsule](../runs/20260721_060959_396348_O1C-0105_apple8-parent-centered-continuation-v1/RUN.md),
+  manifest SHA `5185f293b51a1185cca1d06f18f6c4ca85172bd1245bb08867df293a995f8d97`;
+  intent SHA `013ad6009c770b1370a935584ccd0f85acbc737b4895ab3ee09c6e6d58a558f9`.
+
+## O1C-0106 — Page-21 type-safe causal rollover
+
+- **Recorded/published:** `2026-07-21T07:51:10+02:00`.
+- **Protocol:** reconstruct O1C-0105's unchanged certified parent state, preserve
+  native evidence and both resolution-proof namespaces byte-exactly, exclude
+  only the eleven non-standalone O1C-0104 resolvents from ACTIVE, and publish a
+  fresh Page 21 / lineage 34 only after the real v8/native-equivalent certifier
+  accepts every serialized active row. No intent or science authorization.
+- **Outcome:** atomic 17-file / 9,922,023-byte bundle at commit `376fa11`;
+  source/test preparation commit `59273ab`. Manifest SHA-256 is
+  `91044c235473c1a24fdeeb283454babc5ebc800ea19236840dd7193d6f3c96c2`.
+  Page 21 is fresh and unburned.
+- **Page/state:** 203 emitted + 3 inherited-derived + 41 new-derived = 247
+  active clauses / 690,330 literals / 2,762,499 B, SHA
+  `36091952f38fbe5b73e20311083c7e1bfc30271cfcd6dba2f46f73f051f65fa8`.
+  Headroom is 265 clauses / 909,670 literals / 5,626,109 B. The append-only
+  logical registry stays 2,692 clauses / 7,611,885 literals / 30,458,499 B;
+  bank `c0db45c1…` and receipt `f025fffa…` remain unchanged.
+- **Type/certification:** all 247 ACTIVE clauses pass the exact v8 theorem;
+  maximum UB is `14.605986705470585 < tau=14.606178797892962`, strict margin
+  `0.00019209242237749891`. Audit SHA is
+  `cec84918ddaba8d0c8d8b6513a8a681c1108a088089ba2534d27d7b37e2f1125`.
+  The exact eleven closure indices `1,3,4,5,6,7,8,9,10,11,14` are excluded from
+  ACTIVE only and remain in both immutable sidecars and the logical registry.
+  Residency SHA is `b55e8cb25a84c64883bd5a90ff620f5c4e3bfb62960ae97ca2dfc4eef9987f75`;
+  activation-ledger SHA is
+  `cd74577f064a70f8725a0e11c1ced134814e2735e594945d8bdfb01827f5230a`.
+- **Authorization/claim boundary:** zero native preflight, solver, science,
+  target-byte, truth-key, reveal or refit calls. This is a typed-memory and
+  bounded-state preparation result, not a native-clause, key, model, posterior
+  or attacker-valid entropy/domain result. Page 20 remains burned forever.
+- **Validation/resources:** 20 tests passed in `633.39 s`, max RSS
+  `866,238,464 B`, zero swaps. Atomic publication took `664.25 s`, max RSS
+  `914,685,952 B`, zero swaps. These costs regenerate and seal provenance; they
+  are not cryptanalytic compute or evidence.
+- **Hypothesis/next:** H106 remains active for the still-unmeasured live
+  consequence. O1C-0107 binds the exact manifest/Page/residency/activation/audit
+  seals, runs one focused serialized gate and one zero-call preflight, then
+  consumes fresh lineage 34 exactly once. Never replay O1C-0105 or Page 20.
+- **Artifacts:** [result](O1C0106_PAGE21_TYPE_SAFE_ROLLOVER_RESULT_20260721.md);
+  [manifest](o1c106_page21_type_safe_rollover_seed_20260721/causal-rollover-preparation-manifest.json);
+  [audit](o1c106_page21_type_safe_rollover_seed_20260721/page-21-v8-certification-audit.json).

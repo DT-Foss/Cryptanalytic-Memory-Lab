@@ -1,19 +1,20 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-21T05:33:54+02:00 (`Europe/Berlin`)
-- **Current truth:** O1C-0104 is complete
-  `PAGE20_CLOSURE_COMPOSED_CAUSAL_ROLLOVER_PREPARED`. It makes zero native
-  preflight/solver/science calls, retains all O1C-0103 evidence and composes
-  fresh Page 20 / lineage 33 from 192 native + 3 inherited-derived + 52
-  new-derived clauses. Page 20 is unburned and unauthorized; there is no new
-  key/model/entropy-domain claim.
+- **Last updated:** 2026-07-21T07:52:36+02:00 (`Europe/Berlin`)
+- **Current truth:** O1C-0106 has atomically published fresh, unburned Page 21 /
+  lineage 34 as a type-safe active projection. The canonical 17-file bundle is
+  commit `376fa11`; manifest SHA-256 is
+  `91044c235473c1a24fdeeb283454babc5ebc800ea19236840dd7193d6f3c96c2`.
+  Publication used zero native/preflight/solver/science/target/truth/reveal/
+  refit calls. O1C-0105 remains operational-terminal and Page 20 / lineage 33
+  remain burned forever.
 - **Retained continuation state:** native attic is 21 chunks / 2,603 unique /
   2,613 occurrences / ten duplicates. The append-only logical registry is
   2,692 identities: old native 2,338, inherited derived 5, new native 265 and
-  new derived 84. Page 20 is 247 clauses / 690,319 literals / 2,762,455 B, SHA
-  `537f63c5…`, with exactly 265 clause slots. Bank `c0db45c1…` and 52,015-byte
-  receipt `f025fffa…` remain exact. Pages 14–19 and lineages 27–32 are burned;
-  lineage 33 is fresh.
+  new derived 84. Bank `c0db45c1…`, receipt `f025fffa…`, both proof namespaces
+  and all O1C-0103 evidence remain unchanged. Page 20 SHA `537f63c5…` and
+  lineage 33 are burned. Fresh Page 21 SHA `36091952…` is unburned and carries
+  the same certified state through a type-correct active projection.
 - **Burned Page 17 input:** 249 clauses / 693,183 literals / 2,773,919 B, SHA-256
   `0c25ce470df0945fb05914bab107ecea05531166575ec88ebf7d15bb9a22fbfd`,
   composed of 9 structural roots + 43 pinned + 197 new debt. It leaves 263
@@ -80,13 +81,27 @@
 - **O1C-0104 claim boundary:** zero-call representation/state preparation only.
   The 84-clause closure and 52-clause overlay are exact consequences in a
   separate proof namespace, not native occurrences. The canonical 16-file /
-  9,605,074-byte bundle has manifest SHA `2e784eea…`; Page 20 is fresh.
-- **Immediate decision:** finish O1C-0105's exact seven-file native-v31 /
-  adapter-v34 / runner / config binding to manifest `2e784eea…`, Page 20
-  `537f63c5…`, bank `c0db45c1…`, receipt `f025fffa…` and both derived proof
-  triplets. Then one focused gate, one zero-call preflight and exactly one
-  lineage-33 call; never replay Page 19 or reinterpret a derived clause as a
-  native witness.
+  9,605,074-byte bundle has manifest SHA `2e784eea…`; Page 20 was fresh at
+  publication and is now burned by O1C-0105.
+- **O1C-0105 claim boundary:** one call is consumed, but the native process was
+  never launched. Exact offline census finds 192/192 native, 3/3 inherited
+  derived and 41/52 new derived clauses independently satisfy the grouped-bound
+  theorem. Eleven valid pivot-223 resolution consequences do not: resolution
+  proof validity is broader than the flat score-no-good input type. This is a
+  deterministic interface boundary, not a cryptanalytic negative or data loss.
+- **O1C-0106 claim boundary:** zero-call typed-memory/representation preparation
+  only. Page 21 is exactly 203 emitted + 3 inherited-derived + 41 new-derived =
+  247 active clauses; the real v8/native-equivalent audit passes `247/247` with
+  maximum UB `14.605986705470585 < tau=14.606178797892962`, margin
+  `0.00019209242237749891`. All eleven non-standalone resolvents remain in the
+  immutable logical sidecars but are excluded from ACTIVE only. Registry 2,692,
+  bank `c0db45c1…` and receipt `f025fffa…` are unchanged. No new native clause,
+  key, model, posterior or attacker-valid entropy/domain gain follows.
+- **Immediate decision:** build O1C-0107 against exact Page 21 / lineage 34,
+  manifest `91044c23…`, residency `b55e8cb2…`, activation ledger `cd74577f…`
+  and certification audit `cec84918…`. Run one focused serialized contract gate,
+  one zero-call preflight, then exactly one fresh-lineage call. Never replay
+  O1C-0105 or Page 20 and never activate the forbidden pure-emitted candidate.
 - **Parent truth:** O1C-0082 consumed fresh Page 8 / lineage 21 exactly once
   and is terminal `PARENT_CENTERED_NOVEL_CLAUSE_GAIN`. The live O(256)
   parent-centered reader returns and confirms `255` one-shot failure-first
@@ -1440,42 +1455,50 @@ O1C-0017 result boundary are documented in
 | Page-18 bounded live-bank continuation | — | 2026-07-21 01:45 | O1C-0101 one sealed Page-18 / lineage-31 call through bounded ownership v3 | terminal science gain: exact `128/36/36`; 551 decisions / 2,673,681 propagations; 255 confirmed actions / 33,222 probes / zero certified crossings. Base sieve emits 264 distinct globally novel clauses / 766,686 literals, all strict below tau; bank evolves to `a8e137b1…`. 72,656 ownership events complete with only 774 lifecycle rows retained and 71,882 nonclaims compacted. No key/model/entropy-domain gain; Page 18 burned | complete |
 | Page-19 certified-resolution rollover | — | 2026-07-21 03:11 | O1C-0102 zero-call emitted-attic ingestion plus separate derived closure and composed Page-19 preparation | prepared: emitted attic 20 chunks / 2,338 unique / 2,347 occurrences; five certified derived identities remain a separate non-occurrence namespace. Fresh Page 19 / lineage 32 has 245 emitted + 3 derived residents, 248 clauses / 702,343 literals / 2,810,555 B, SHA `3857519d…`, and 264-clause headroom. Global-known baseline is 2,343; exact 13-file / 7,461,805 B bundle; no solver/science call and Page 19 unburned | complete |
 | Page-19 closure-guided continuation | — | 2026-07-21 03:39 | O1C-0103 one sealed Page-19 / lineage-32 call through the two-namespace known registry | terminal science gain: exact `128/18/18`; 536 decisions / 2,309,137 propagations; 255 confirmed actions / 33,180 probes / zero certified crossings. Base sieve emits 266 occurrences / 265 unique globally novel clauses / 755,792 unique literals; one current-stream duplicate and zero prior-registry collisions. Bank evolves to `c0db45c1…`; bounded ownership retains 774 lifecycle rows and compacts 24,509 nonclaims. Zero-call resolution reaches an 84-clause fixed point / 52-clause antichain. No key/model/entropy-domain gain; Page 19 burned | complete |
-| Page-20 closure-composed rollover | — | 2026-07-21 05:34 | O1C-0104 zero-call native-attic ingestion plus two separate derived proof namespaces and composed Page-20 preparation | prepared: native attic 2,603 unique / 2,613 occurrences; append-only logical registry 2,692 / 119 relations / 2,579 undominated. Fresh Page 20 / lineage 33 is 192 native + 3 inherited-derived + 52 new-derived = 247 clauses / 690,319 literals / 2,762,455 B, SHA `537f63c5…`, with exact 265-clause headroom. Canonical 16-file / 9,605,074 B bundle, manifest `2e784eea…`; zero calls and Page 20 unburned | complete |
+| Page-20 closure-composed rollover | — | 2026-07-21 05:34 | O1C-0104 zero-call native-attic ingestion plus two separate derived proof namespaces and composed Page-20 preparation | prepared: native attic 2,603 unique / 2,613 occurrences; append-only logical registry 2,692 / 119 relations / 2,579 undominated. The then-fresh Page 20 / lineage 33 is 192 native + 3 inherited-derived + 52 new-derived = 247 clauses / 690,319 literals / 2,762,455 B, SHA `537f63c5…`, with exact 265-clause headroom. Canonical 16-file / 9,605,074 B bundle, manifest `2e784eea…`; zero calls. O1C-0105 later burned Page 20 permanently | complete |
+| Page-20 clause-type boundary | — | 2026-07-21 06:10 | O1C-0105 sole sealed Page-20 / lineage-33 continuation attempt | operational terminal before native command construction: the flat grouped-bound certifier accepts 192/192 emitted, 3/3 inherited-derived and 41/52 new-derived clauses, then rejects the first of eleven resolution-valid but standalone-bound-uncertifiable clauses. One call / 128 requested are consumed; actual/billed null, command/stdout/RSS absent, science gain false. Page 20 burned; exact O1C-0103 state and all proof sidecars remain intact | complete |
+| Page-21 type-safe rollover | — | 2026-07-21 07:51 | O1C-0106 zero-call three-namespace projection and atomic Page-21 / lineage-34 publication | prepared: fresh unburned Page 21 is 203 emitted + 3 inherited-derived + 41 new-derived = 247 clauses / 690,330 literals / 2,762,499 B, SHA `36091952…`; real v8/native-equivalent certification passes 247/247 with maximum UB `14.605986705470585 < tau` and 265-clause headroom. All eleven ACTIVE exclusions remain byte-exact in logical sidecars; registry stays 2,692. Canonical 17-file bundle manifest `91044c23…`; zero calls/reads/reveals/refits | complete |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Complete O1C-0105's exact native-v31 / adapter-v34 / runner / config binding
-   to the 16-file O1C-0104 bundle and append-only 2,692-identity registry.
-2. Require the adapter and runner to seal both inherited and new derived
-   receipt/closure/overlay triplets; never collapse them or create native
-   occurrences for a resolvent.
-3. Run one focused serialized producer-to-consumer gate and one zero-call
-   preflight, then consume fresh Page 20 / lineage 33 exactly once without a
-   comfort-control cycle.
-4. Pivot residency alone only after an uncensored zero-novelty result with no
-   stronger output; never replay Pages 14 through 17 or sweep actions/caps. Keep
+1. Bind O1C-0107's fresh native/adapter/runner generation to the exact published
+   Page 21 / lineage 34, manifest `91044c23…`, residency `b55e8cb2…`, activation
+   ledger `cd74577f…` and v8 audit `cec84918…`.
+2. Run one focused actual serialized producer→consumer gate and one zero-call
+   preflight; require the real grouped certifier to reproduce `247/247` before
+   command construction and add no comfort-control cycle if both pass.
+3. Persist one fresh-lineage intent and consume lineage 34 exactly once, then
+   classify native novelty, derived closure, model/key consequence and retained
+   state. Never retry O1C-0105 or Page 20.
+4. Preserve the eleven general resolution consequences as proof-sidecar memory
+   until a separate proof-aware native clause channel is justified; do not
+   discard them or force them through the narrower score-no-good type.
+5. Pivot residency alone only after an uncensored zero-novelty result with no
+   stronger output; never replay Pages 14 through 20 or sweep actions/caps. Keep
    the quotient as the exact bounded state/decoder, not an unproved CNF substitute.
-5. Keep O1C-0056 fixed negative clause-role credit closed. If the causal branch
+6. Keep O1C-0056 fixed negative clause-role credit closed. If the causal branch
    resumes later, condition the unique exact role on outcome/utility; do not tune
    sign, scale, groups or cap.
-6. Keep O1C-0054's global separable factor-bound beam closed; do not widen its
+7. Keep O1C-0054's global separable factor-bound beam closed; do not widen its
    beam, reorder pairs, raise the queue cap or tune the bound.
-7. Keep O1C-0058's attended-decoy positive one-bit-delta vault closed; do not
+8. Keep O1C-0058's attended-decoy positive one-bit-delta vault closed; do not
    flip signs, tune thresholds or rerun that exact local rule. Do not extend its
    formal closure to crowd/elite consensus; the separate cheap scratch was only
    control-negative.
-8. Keep APPLE-VIEW-0007's static strongest-predecessor reader closed; do not
+9. Keep APPLE-VIEW-0007's static strongest-predecessor reader closed; do not
    root-weight, threshold, retraverse or rescore its held-out panel. Its only
    retained breadcrumb converges on the active live context/action branch.
-9. Reuse A325/A526 unchanged only when their native complement gate is met, and
+10. Reuse A325/A526 unchanged only when their native complement gate is met, and
    keep every sibling repository read-only.
 
 ## Recent attempts
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
-| `O1C-0104` | 2026-07-21 05:34 | O1C-0103's native burst and exact proof closure can be retained losslessly while a 55-clause two-generation derived overlay strengthens fresh Page 20 with 265 slots | Zero-call rollover succeeds: native attic 2,603, separate old/new derived 5/84, append-only logical registry 2,692. Page 20 is 192 native + 3 old-derived + 52 new-derived =247 clauses, SHA `537f63c5…`; all 16 bundle files seal and Page remains unburned | `PAGE20_CLOSURE_COMPOSED_CAUSAL_ROLLOVER_PREPARED`; representation/state only, no new native/key/model/entropy-domain claim | zero native preflight/solver/science/target/truth/reveal/refit calls; 9,605,074-byte bundle | H104 preparation achieved. O1C-0105 must bind both derived namespaces and consume lineage 33 once; no Page-19 replay | [Interpretation](research/O1C0104_PAGE20_CAUSAL_ROLLOVER_INTERPRETATION_20260721.md) · [Manifest](research/o1c104_page20_causal_rollover_seed_20260721/causal-rollover-preparation-manifest.json) |
+| `O1C-0106` | 2026-07-21 07:51 | Separating standalone score-certified ACTIVE clauses from general resolution-proof sidecars can preserve all 2,692 identities on a fresh executable page | Atomic zero-call publication succeeds. Page 21 / lineage 34 is `203+3+41=247` active clauses / 690,330 literals / 2,762,499 B, SHA `36091952…`; real v8/native-equivalent audit passes `247/247`, maximum UB `14.605986705470585 < tau` by `0.00019209242237749891`. All eleven rejected Page-20 resolvents remain logical sidecar evidence; registry/bank/receipt are unchanged | zero-call typed-memory/representation preparation only; no native/key/model/entropy-domain claim | zero calls/reads/reveals/refits; publish 664.25 s, 914,685,952 B max RSS, zero swaps; 20 tests in 633.39 s, 866,238,464 B max RSS, zero swaps | Type split is now a sealed executable-state contract. O1C-0107 binds this exact page, runs one gate/preflight and spends at most one fresh lineage-34 call | [Result](research/O1C0106_PAGE21_TYPE_SAFE_ROLLOVER_RESULT_20260721.md) · [Manifest](research/o1c106_page21_type_safe_rollover_seed_20260721/causal-rollover-preparation-manifest.json) · [Audit](research/o1c106_page21_type_safe_rollover_seed_20260721/page-21-v8-certification-audit.json) |
+| `O1C-0105` | 2026-07-21 06:10 | The composed Page 20 can enter the unchanged flat score-threshold vault and continue the Full-256 exclusion stream | Sole intent burns Page 20, then adapter validation rejects before command construction. Exact census: emitted `192/192`, inherited derived `3/3`, new derived `41/52` pass; eleven pivot-223 resolvents are logically proved but not independently grouped-bound certified. No native result or science evidence | `PARENT_CENTERED_CONTINUATION_OPERATIONAL_TERMINAL`; clause-type boundary only, no key/model/clause-emission/entropy-domain claim | one consumed call / 128 requested; actual/billed null; 15.273985 s runner; native command absent; Page 20 burned | Flat vault conflated two proof types. O1C-0106 keeps all proof identities externally and activates a fresh `203+3+41` Page 21 only after real-page certification | [Result](research/O1C0105_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260721.json) · [Interpretation](research/O1C0105_PAGE20_TYPE_BOUNDARY_INTERPRETATION_20260721.md) · [Capsule](runs/20260721_060959_396348_O1C-0105_apple8-parent-centered-continuation-v1/RUN.md) |
+| `O1C-0104` | 2026-07-21 05:34 | O1C-0103's native burst and exact proof closure can be retained losslessly while a 55-clause two-generation derived overlay strengthens fresh Page 20 with 265 slots | Zero-call rollover succeeds: native attic 2,603, separate old/new derived 5/84, append-only logical registry 2,692. Page 20 is 192 native + 3 old-derived + 52 new-derived =247 clauses, SHA `537f63c5…`; all 16 bundle files seal. It was unburned at publication and is now permanently burned by O1C-0105 | `PAGE20_CLOSURE_COMPOSED_CAUSAL_ROLLOVER_PREPARED`; representation/state only, no new native/key/model/entropy-domain claim | zero native preflight/solver/science/target/truth/reveal/refit calls; 9,605,074-byte bundle | H104 preparation achieved; its live outcome is operational-terminal/inconclusive. Never replay Page 19 or Page 20 | [Interpretation](research/O1C0104_PAGE20_CAUSAL_ROLLOVER_INTERPRETATION_20260721.md) · [Manifest](research/o1c104_page20_causal_rollover_seed_20260721/causal-rollover-preparation-manifest.json) |
 | `O1C-0103` | 2026-07-21 03:39 | Composed Page 19 plus the complete 2,343-identity emitted/derived registry can continue the bounded parent-centered Full-256 exclusion trajectory | Sole call completes at `128/18/18`; 266 occurrences contain 265 unique clauses / 755,792 literals, all globally novel with zero prior-registry intersection. Bank evolves `a8e137b1…→c0db45c1…`; 25,283 ownership events retain 774 lifecycle rows and compact 24,509 nonclaims. Zero-call resolution adds 84 fixed-point clauses / 52 undominated | `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`; exact no-good and derived-logical gain, no key/model/CNF-entailment/entropy-domain claim | one call; native 0.722232 s / 372,883,456 B peak; runner 39.408475 s; Page 19 burned | H102 outcome supported at exact exclusion/closure-guided compounding level. O1C-0104 preserves 265 native + 84 derived on fresh Page 20; never replay Page 19 | [Result](research/O1C0103_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260721.json) · [Interpretation](research/O1C0103_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md) · [Capsule](runs/20260721_033839_385873_O1C-0103_apple8-parent-centered-continuation-v1/RUN.md) |
 | `O1C-0102` | 2026-07-21 03:11 | O1C-0101's 264 native emissions and five-node exact resolution closure can be retained in separate namespaces while the three-clause antichain strengthens a fresh Page 19 without losing 264-clause headroom | Zero-call preparation succeeds: emitted attic 2,338 unique / 2,347 occurrences, derived closure 5 / overlay 3, combined known registry 2,343. Page 19 is 248 clauses / 702,343 literals / 2,810,555 B, SHA `3857519d…`; bank and receipt remain exact | `PAGE19_CERTIFIED_RESOLUTION_OVERLAY_PREPARED`; certified logical/representation preparation only, no native-emission/key/model/entropy-domain claim | zero preflight/solver/science/intent/target/truth/reveal/refit calls; exact 13-file / 7,461,805 B bundle; Page 19 unburned | H102 preparation achieved. Bind O1C-0103 to all five derived known identities, including two nonresidents, then one gate/preflight/call | [Interpretation](research/O1C0102_PAGE19_CAUSAL_ROLLOVER_INTERPRETATION_20260721.md) · [Manifest](research/o1c102_page19_causal_rollover_seed_20260721/causal-rollover-preparation-manifest.json) |
 | `O1C-0101` | 2026-07-21 01:45 | Exact owned-token lifecycle plus streamed nonclaim telemetry can remove O1C-0099's cap without changing Page-18 parent-centered science semantics | Sole call completes at `128/36/36`; 264/264 clauses / 766,686 literals are distinct and globally novel against 2,074 prior clauses. Bank evolves `8100bccf…→a8e137b1…`. 72,656 ownership events retain 774 lifecycle rows and compact 71,882 nonclaims; native status 0 | `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`; exact-clause and bounded-streaming production gain, no key/model/native-closure/entropy-domain claim | one call; native 0.757172 s / 368,689,152 B peak; runner 39.361120 s; Page 18 burned | H100 outcome supported. Post-result exact resolution finds a five-node fixed point / three-clause undominated antichain; O1C-0102 keeps emitted and derived evidence in separate namespaces on composed Page 19 | [Result](research/O1C0101_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260721.json) · [Interpretation](research/O1C0101_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md) · [Capsule](runs/20260721_014426_614942_O1C-0101_apple8-parent-centered-continuation-v1/RUN.md) |
