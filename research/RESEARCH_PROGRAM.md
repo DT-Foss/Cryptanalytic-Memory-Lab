@@ -741,14 +741,19 @@ native clauses / 752,466 literals in 0.781913 native wall seconds. The bounded
 bank evolves `c0db45c1…→62360d82…` through 33,380 probes; certified action
 crossings remain zero.
 
-H108 is the active zero-call compounder. Exact resolution over the O1C-0107
+H108 is supported. Exact resolution over the O1C-0107
 harvest yields 153 distinct pivot-32 G1 resolvents and no G2; 119 resolvents
 strictly subsume 166 native clauses. The real v8 theorem admits 149/153 as
 standalone ACTIVE rows and excludes closure indices `1,2,32,55` to immutable
 logical sidecars. Direct append is impossible only because `247+266=513>512`.
-O1C-0108 therefore appends all 266 native clauses, preserves all 153 proof
-identities, carries bank `62360d82…` / receipt `a3578ea3…`, and composes fresh
-Page 22 / lineage 35 at active limit 246. Never replay Page 18 through Page 21.
+O1C-0108 appends all 266 native clauses, preserves all 153 proof identities,
+carries bank `62360d82…` / receipt `a3578ea3…`, and atomically publishes fresh
+Page 22 / lineage 35 at active limit 246. Page `18387804…` contains 53 emitted
++ 44 inherited certified derived +149 new certified derived rows, passes 246/246
+and leaves exactly 266 clause slots. The registry is 3,111 identities; manifest
+is `f16d505f…`. H109 now owns one behavior-preserving bounded breadcrumb
+extension and the sole fresh-lineage consequence. Never replay Page 18 through
+Page 21.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1361,8 +1366,10 @@ evidence.
   state, with those eleven proofs retained sidecar-only and the 2,692-identity
   registry unchanged. O1C-0107 consumes it exactly once and returns 266 distinct
   globally novel clauses plus a 153-clause zero-call fixed point; 149 derived
-  rows pass the ACTIVE theorem. O1C-0108 typed Page-22 rollover is the sole
-  active successor. Never replay Page 8 through Page 21.
+  rows pass the ACTIVE theorem. O1C-0108 atomically publishes 246/246-certified
+  Page 22 with exact 266-clause headroom and all 3,111 logical identities
+  retained. O1C-0109 typed live continuation is the sole active successor.
+  Never replay Page 8 through Page 21.
 
 ## Operating contract
 

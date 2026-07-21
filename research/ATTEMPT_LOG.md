@@ -4522,3 +4522,25 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   SHA `3d16db8a…`; [interpretation](O1C0107_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md);
   [capsule](../runs/20260721_082548_917617_O1C-0107_apple8-parent-centered-continuation-v1/RUN.md),
   manifest SHA `ffafafaa…`.
+
+## O1C-0108 — Page-22 type-safe causal rollover
+
+- **Published:** `2026-07-21T09:34:45+02:00`.
+- **Protocol:** append all 266 sealed O1C-0107 native clauses, independently
+  rederive the exact 153-clause pivot-32 fixed point, retain all proof identities,
+  v8-classify every candidate and publish only a fully certified fresh page.
+- **Outcome:** `PAGE22_TYPE_SAFE_CAUSAL_ROLLOVER_PREPARED`, zero calls. Native
+  attic becomes 22 chunks / 2,869 unique / 2,879 occurrences; logical registry
+  becomes 3,111 identities. Page `18387804…` is 53 emitted + 3 D0 + 41 D1 +149
+  D2 =246 clauses with exact 266-clause headroom.
+- **Type boundary:** 149/153 new resolvents pass; indices `1,2,32,55` remain
+  sidecar-only. All 246 ACTIVE rows pass. No evidence is discarded or relabeled.
+- **Validation/resources:** 24/24 focused tests, Ruff clean, Pyright zero,
+  independent review no P0--P2. Publication 231.73 s, peak RSS 723,533,824 B,
+  zero swaps. 20-file bundle, manifest `f16d505f…`, 19/19 artifacts verify.
+- **Claim/next:** bounded typed-memory preparation, not a key/posterior/entropy
+  result. O1C-0109 binds only exact Page 22 and may consume lineage 35 once,
+  with a tiny bounded local-prunable breadcrumb sidecar. Never replay Page 21.
+- **Artifacts:** [result](O1C0108_PAGE22_TYPE_SAFE_CAUSAL_ROLLOVER_RESULT_20260721.md);
+  [manifest](o1c108_page22_type_safe_causal_rollover_seed_20260721/causal-rollover-preparation-manifest.json);
+  [audit](o1c108_page22_type_safe_causal_rollover_seed_20260721/page-22-v8-certification-audit.json).
