@@ -4256,3 +4256,41 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:** [interpretation](O1C0100_PAGE18_TELEMETRY_RECOVERY_INTERPRETATION_20260721.md)
   and [manifest](o1c100_page18_telemetry_recovery_seed_20260721/telemetry-recovery-preparation-manifest.json),
   SHA `c0050ae0…`; source/test SHAs `dc7cbb12…` / `5c6e6523…`.
+
+## O1C-0101 — APPLE8 bounded Page-18 continuation
+
+- **Started/recorded:** `2026-07-21T01:44:29.921311+02:00` /
+  `2026-07-21T01:45:09.282363+02:00`.
+- **Protocol:** after one passing zero-call preflight, consume Page 18 / local 0 /
+  lineage 31 exactly once with unchanged seed 0, tau and requested conflicts 128.
+  Persisted intent burns Page 18; retry/replay is forbidden.
+- **Result:** native status 0 at exact `128/36/36`; 551 decisions / 2,673,681
+  propagations. The base sieve fully emits 264 distinct clauses / 766,686
+  literals, all globally novel against both Page 18 and the complete 2,074-clause
+  attic. Aggregate SHA is `07add4a7…`; witness range is
+  `13.048284076065023..14.603277314545787 < tau`, closest margin
+  `0.0029014833471752155`.
+- **Actions/state:** 255 confirmed failure-first proof-mining actions make 33,222
+  exact probes; certified action crossings remain zero. Bank evolves
+  `8100bccf…→a8e137b1…`; aggregate count `316,312→349,534`, delta exactly
+  `+33,222`. Receipt is 52,013 B, SHA `30d25ec8…`.
+- **Bounded production telemetry:** 72,656 total ownership events = 774 retained
+  lifecycle + 71,882 compacted nonclaims. The real call exceeds O1C-0099's old
+  cap by 7,120 without abort; 255 proposals/bindings/confirms, 9 releases,
+  246 live and zero pending tokens reconcile exactly. Digest `7e9b4f41…` is
+  integrity only, not science.
+- **Classification:** `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. Exact
+  global-clause novelty and bounded-streaming production gain only; no key,
+  model, native closure, posterior or attacker-valid entropy/domain reduction.
+- **Post-result breadcrumb:** exhaustive zero-call single-pivot analysis finds
+  four direct resolvents plus one Gen-2 resolvent, then a fixed point. Full
+  closure is 5 clauses / 14,519 literals / 58,287 B, SHA `74cc718b…`; the
+  undominated antichain is 3 clauses / 8,689 literals, SHA `291cab4b…`.
+  O1C-0102 must certify these as derived logical consequences in a separate
+  namespace, never as fake native occurrences.
+- **Resources:** native wall `0.757172 s`, CPU `1.479916 s`, peak RSS
+  `368,689,152 B`; runner wall `39.361120249988744 s`; exactly one call.
+- **Artifacts:** [result](O1C0101_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260721.json),
+  SHA `4237dd1e…`; [interpretation](O1C0101_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md);
+  [capsule](../runs/20260721_014426_614942_O1C-0101_apple8-parent-centered-continuation-v1/RUN.md),
+  43-entry manifest SHA `9d5d97db…`.

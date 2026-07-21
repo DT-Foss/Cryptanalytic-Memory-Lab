@@ -1,20 +1,21 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-21 (O1C-0100 fresh Page 18 published; O1C-0101 bounded
-producer/consumer integration active).
+Last ranked: 2026-07-21 (O1C-0101 adds 264 globally novel clauses; O1C-0102
+emitted-attic plus certified-resolution Page-19 composition active).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Finish the versioned O1C-0101 native/adapter/runner binding to exact Page 18, O1C-0100 manifest, bank and both state/failure receipts | State of the art mechanism | Extreme | Extreme | Low | Connects the already stress-proven bounded telemetry primitive to the sole fresh lineage without changing science semantics |
-| 2 | Run one focused actual serialized producer-to-consumer contract gate, then exactly one zero-call preflight; add no unrelated comfort-control cycle | State of the art enabling | Extreme | Extreme | Low | Proves the execution artifact can cross the exact validator before irreversible intent |
-| 3 | Consume Page 18 / lineage 31 once with unchanged seed-0, tau and 128-conflict operator | State of the art | Extreme | Extreme | Low | Produces the first retained outcome beyond the 2,074-clause attic under bounded streaming telemetry |
+| 1 | Complete one atomic O1C-0102 zero-call prepare: ingest 264 true native occurrences into CausalAttic v1, separately certify the five-node resolution closure, and compose Page 19 from 245 emitted + 3 derived clauses | State of the art mechanism | Extreme | Extreme | Low | Converts the first local resolution fixed point into a stronger live page without falsifying witness provenance |
+| 2 | Bind O1C-0103 native/adapter/runner to composed Page19 `3857519d…`, bank `a8e137b1…`, receipt `30d25ec8…`, manifest and two-namespace known baseline 2,343 | State of the art enabling | Extreme | Extreme | Low | Prevents derived-clause false novelty and creates the exact executable closure-guided continuation |
+| 3 | After one focused serialized contract gate and zero-call preflight, consume Page 19 / lineage 32 exactly once | State of the art | Extreme | Extreme | Low | Tests whether certified local closure changes the live Full-256 exclusion trajectory toward stronger closure/model/key consequences |
 | 4 | Feed O1C-0094's 18,034-byte quotient only to lossless state/identity consumers; do not launch the 109-relation proof campaign after its `0/218` cheap certificate screen | State of the art mechanism | High | Extreme | Zero now | Retains the 167.84x flat-binary-to-packed-state leverage without derailing the live recovery path |
 
 ## Current resume
 
-Resume from O1C-0100's terminal `PAGE18_TELEMETRY_RECOVERY_PREPARED` and exact
-fresh Page 18 / lineage 31. The Page is unburned; O1C-0101 integration is the
-only active gate before the sole outcome-bearing call.
+Resume from O1C-0101's terminal
+`PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. Page 18 / lineage 31 is burned;
+the complete 264-clause harvest, evolved bank and five-node post-result resolution
+fixed point are the only active continuation inputs.
 O1C-0092's sole local-0 / lineage-27 call consumed Page 14 at
 requested/actual/billed `128/10/10` and fully emitted `261` trail-upper-bound
 no-goods / `756,414` literals. O1C-0093 preserves every occurrence and grows the
@@ -81,14 +82,21 @@ new debt + 132 recycled. It admits all 65 prior nonresident undominated clauses,
 leaves zero debt and retains 263 clause slots. Bank `8100bccf…` and receipt
 `050551fc…` remain byte-identical; only O1C-0099's `fd526652…` failure receipt
 enters as provenance and no O1C-0099 science output is imported. Manifest SHA is
-`c0050ae0…`; Page 18 is unburned.
+`c0050ae0…`; Page 18 was unburned at preparation and is now burned by O1C-0101.
 
-The versioned bounded ownership primitive is also complete: at most 256 live
-tokens and 1,024 exact lifecycle rows survive, while non-claiming observations
-become exact counts plus a canonical streamed digest with explicit sequence
-gaps. A 1,000,000-foreign-event stress does not abort or grow retained rows and
-matches an independent digest. Finish only its native→adapter→runner integration,
-then run one sufficient serialized contract gate and the zero-call preflight.
+O1C-0101 then consumes Page 18 once and completes at `128/36/36`. It emits 264
+distinct globally novel clauses / 766,686 literals against the full 2,074-clause
+attic and evolves the bank to `a8e137b1…`. Native v3 observes 72,656 ownership
+events—7,120 above the old terminal—while retaining only 774 lifecycle rows and
+compacting 71,882 nonclaims. The production path is therefore fixed for this
+workload. Page 18 / lineage 31 is burned.
+
+The post-result zero-call resolution audit finds four direct single-pivot
+resolvents, one Gen-2 resolvent and then a fixed point. Keep all five in a
+separate certified-derived namespace; only the three undominated clauses belong
+on the live Page. O1C-0102 must preserve the 264 true occurrences in pure
+CausalAttic v1, compose Page 19 as 245 emitted + 3 derived, and expose a combined
+known-clause baseline of 2,343 without inventing derived witness records.
 
 The 255 failure-first actions made 33,398 exact probes. Bank conservation is
 exact at `249,671→283,069`; the 24,576-byte state evolves to `97a325c9…`, and
@@ -172,7 +180,7 @@ persisted intent but produced no output to ingest. The immutable attic therefore
 remains `807` unique clauses / `815` occurrences and the evolved continuation
 bank remains exact SHA `05b8acf3…`.
 
-Current state authority is the [O1C-0100 interpretation](O1C0100_PAGE18_TELEMETRY_RECOVERY_INTERPRETATION_20260721.md) and [manifest](o1c100_page18_telemetry_recovery_seed_20260721/telemetry-recovery-preparation-manifest.json), SHA-256 `c0050ae08738f424505a92278759702bee4fcab23139a31137e715087ae437d9`. The [O1C-0099 result](O1C0099_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json), SHA-256 `2f60c3dc12adea0157534cd67296a0839ac9e17303868f121b1593d36a50611b`, remains the terminal provenance authority. Page 17 / lineage 30 is burned; Page 18 / lineage 31 is fresh. Complete only the bounded telemetry producer→consumer integration before one Page-18 call. Never replay Pages 14 through 17.
+Current outcome authority is the [O1C-0101 interpretation](O1C0101_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md) and [result](O1C0101_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260721.json), SHA-256 `4237dd1e8a8f95688a166daee082f3b15c3be4b1271e05d89ea12ccde7f115ae`; capsule manifest SHA-256 is `9d5d97db2465359ea0f7f918c3d77948540a91fd2098c2eb6ecfd90806deecfc`. Page 18 / lineage 31 and Pages 17–9 are burned. Complete the emitted/derived O1C-0102 composition before one fresh Page-19 call; never reuse a historical Page.
 
 ## Frontier scoreboard
 
@@ -347,11 +355,10 @@ Current state authority is the [O1C-0100 interpretation](O1C0100_PAGE18_TELEMETR
   `1,031`; its certificate `1,003` beats fixed `1,015` but loses unary `997` and
   cannot pass. Static/global relation is insufficient: root 11 occurs in 12
   BUILD proofs with zero edge support and closes every EVAL pass only at 335.
-- **Next measurable advance:** O1C-0100 preserves the complete O1C-0097 harvest
-  and live bank in the 2,074-clause attic, then seals fresh Page 18 at active
-  limit 249 with exact 263-clause headroom after Page 17's telemetry-only burn.
-  Finish O1C-0101's bounded producer/consumer integration and use at most one
-  unchanged fresh lineage-31 call. Only that retained result may test further novelty,
+- **Next measurable advance:** O1C-0101 has added 264 distinct global-new
+  clauses and exposed the first five-node local resolution fixed point. Complete
+  O1C-0102's exact two-namespace Page-19 composition, then use at most one fresh
+  lineage-32 call with global-known baseline 2,343. Only that retained result may test further novelty,
   closure/model, attacker-valid entropy/domain reduction and finally a publicly
   verified key. Exact 256 remains the north star.
 

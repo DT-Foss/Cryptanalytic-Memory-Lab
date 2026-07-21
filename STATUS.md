@@ -1,19 +1,20 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-21T01:30:38+02:00 (`Europe/Berlin`)
-- **Current truth:** O1C-0100 is terminal
-  `PAGE18_TELEMETRY_RECOVERY_PREPARED`. It reprojects the unchanged certified
-  O1C-0098 attic/bank onto fresh Page 18 / lineage 31 with zero calls and imports
-  only O1C-0099's failure receipt as provenance. The exact ten-file bundle is
-  3,658,593 B; Page 18 remains unburned. O1C-0101's bounded producer/consumer
-  integration is the only remaining gate before one outcome-bearing call.
-- **Retained state:** the immutable attic is now 19 chunks / 2,074 unique
+- **Last updated:** 2026-07-21T02:16:21+02:00 (`Europe/Berlin`)
+- **Current truth:** O1C-0101 is terminal
+  `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. Its sole Page-18 /
+  lineage-31 call completes at exact `128/36/36`, returns native status 0 and
+  contributes 264/264 distinct globally novel exact score-threshold no-goods /
+  766,686 literals. Page 18 is burned permanently. There is no key/model/entropy-
+  domain claim; the exact full harvest and evolved bank are retained.
+- **Retained state before zero-call ingestion:** the immutable attic is 19 chunks / 2,074 unique
   clauses / 5,835,680 literals / 23,351,207 B, union SHA-256
   `fbe18682bae134784684e4676dbb1fce1b78d4da27182fb67679a7317b3e9646`,
   with 2,083 occurrences / 9 duplicates / 14 strict relations / 2,063
-  undominated. The 24,576-byte bank `8100bccf…` and 52,011-byte receipt
-  `050551fc…` are byte-exact. Pages 14/15/16/17 and lineages 27/28/29/30 are
-  burned.
+  undominated. O1C-0101 separately seals 264 all-new clauses and evolves the
+  24,576-byte bank to `a8e137b1…` with receipt `30d25ec8…`. Zero-call ingestion
+  predicts 20 chunks / 2,338 unique / 2,347 occurrences. Pages 14–18 and
+  lineages 27–31 are burned.
 - **Burned Page 17 input:** 249 clauses / 693,183 literals / 2,773,919 B, SHA-256
   `0c25ce470df0945fb05914bab107ecea05531166575ec88ebf7d15bb9a22fbfd`,
   composed of 9 structural roots + 43 pinned + 197 new debt. It leaves 263
@@ -56,13 +57,22 @@
   669,910 literals / 2,680,827 B, SHA `5d89bbe0…`, admits all 65 residual debt
   clauses and leaves 263 clause slots. It adds no clause, key, model, closure,
   posterior or attacker-valid entropy/domain gain.
-- **Immediate decision:** finish O1C-0101's versioned native/adapter/runner
-  binding against the exact O1C-0100 manifest. Its bounded ownership state keeps
-  every owned-token lifecycle exact, compacts non-claiming observations into
-  counters plus a canonical streamed digest, and already survives 1,000,000
-  foreign events without row growth. After one focused serialized contract gate
-  and one zero-call preflight, consume Page 18 / lineage 31 exactly once; never
-  modify sealed v28 or replay Page 17.
+- **O1C-0101 claim boundary:** all 264 emitted clauses are globally novel against
+  the complete 2,074-clause attic and Page 18. All trail-UB witnesses are strict
+  below tau (`13.048284…≤U≤14.603277…<14.606178…`). The separate action crossing
+  remains zero; there is no recovered key, model, posterior, certified closure
+  in the native result, or attacker-valid entropy/domain reduction.
+- **Production streaming result:** 72,656 ownership events exceed O1C-0099's old
+  fatal cap by 7,120, while v3 retains only 774 lifecycle rows and compacts 71,882
+  (`98.934706%`) non-claiming events into counters plus digest. All 255 actions
+  and tokens reconcile; zero are pending. This removes the observed cap failure
+  without increasing retained event state.
+- **Immediate decision:** O1C-0102 zero-call ingests all 264 native occurrences,
+  seals the five-node exact resolution closure in a separate non-occurrence
+  namespace and composes fresh Page 19 / lineage 32 from 245 emitted residents
+  plus the three-clause undominated derived antichain. The future known-clause
+  baseline is 2,343 (`2,338 emitted + 5 derived`). Then consume Page 19 once;
+  never replay Page 18 or reinterpret derived clauses as native witnesses.
 - **Parent truth:** O1C-0082 consumed fresh Page 8 / lineage 21 exactly once
   and is terminal `PARENT_CENTERED_NOVEL_CLAUSE_GAIN`. The live O(256)
   parent-centered reader returns and confirms `255` one-shot failure-first
@@ -1413,18 +1423,20 @@ O1C-0017 result boundary are documented in
 | Page-17 causal rollover | — | 2026-07-20 23:38 | O1C-0098 zero-call ingestion plus fresh Page-17 / lineage-30 preparation | prepared: all 263 occurrences become one 262-clause / 745,152-literal chunk; attic 19 chunks / 2,074 unique / 2,083 occurrences / 9 duplicates / 14 relations / 2,063 undominated. Page 17 has 249 clauses / 693,183 literals / 2,773,919 B, categories 9 roots + 43 pinned + 197 new debt, SHA `0c25ce47…`, with exact 263-clause headroom. Bank/receipt exact; Page 17 unburned | complete |
 | Page-17 live-bank continuation | — | 2026-07-21 00:40 | O1C-0099 one sealed Page-17 / lineage-30 call | operational terminal: one native call exits 1 after 19.822776 s with empty stdout and `decision ownership event cap exceeded`; requested conflicts 128, actual/billed null, no native result/science/state update. Fixed 65,536-row ownership telemetry is dominated by non-claiming foreign assignments; Page 17 burned, never replay | complete |
 | Page-18 telemetry recovery | — | 2026-07-21 01:28 | O1C-0100 zero-call reprojection from unchanged certified O1C-0098 state | prepared: exact 19-chunk / 2,074-clause attic and `8100bccf…` bank retained; fresh Page 18 / lineage 31 has 249 clauses / 669,910 literals / 2,680,827 B, SHA `5d89bbe0…`, composition `9+43+65+132`, all 65 prior debt admitted, zero residual debt and 263-clause headroom. Only O1C-0099's failure receipt enters as provenance; no partial science/state imported; Page 18 unburned | complete |
+| Page-18 bounded live-bank continuation | — | 2026-07-21 01:45 | O1C-0101 one sealed Page-18 / lineage-31 call through bounded ownership v3 | terminal science gain: exact `128/36/36`; 551 decisions / 2,673,681 propagations; 255 confirmed actions / 33,222 probes / zero certified crossings. Base sieve emits 264 distinct globally novel clauses / 766,686 literals, all strict below tau; bank evolves to `a8e137b1…`. 72,656 ownership events complete with only 774 lifecycle rows retained and 71,882 nonclaims compacted. No key/model/entropy-domain gain; Page 18 burned | complete |
 | Sibling W52 (external, read-only) | — | — | no live process after reboot | last durable checkpoint 417,495/16,777,216 cells (2.488464%) | unknown |
 
 ## Highest-ROI next actions
 
-1. Finish O1C-0101's versioned native/adapter/runner binding to exact Page 18,
-   O1C-0100 manifest, `8100bccf…` bank, `050551fc…` state receipt and
-   `fd526652…` terminal receipt.
-2. Run one focused actual serialized producer-to-consumer gate. The bounded
-   ownership primitive already passes 1,000,000 foreign observations with no
-   abort or retained-row growth; do not add unrelated comfort controls.
-3. Issue one zero-call preflight, then consume fresh Page 18 / lineage 31 once
-   with unchanged seed-0, tau and 128-conflict science semantics.
+1. Complete O1C-0102's one atomic zero-call prepare: ingest all 264 true native
+   occurrences into emitted CausalAttic v1, seal the five derived resolution
+   proofs separately and compose exact Page 19 from 245 emitted + 3 derived.
+2. Preserve global novelty as two namespaces: 2,338 emitted identities plus all
+   five certified-derived identities, total 2,343. Never invent a derived native
+   witness or occurrence.
+3. Bind O1C-0103 to composed Page 19, `a8e137b1…` bank, `30d25ec8…` receipt and
+   the exact O1C-0102 manifest; after one focused gate and zero-call preflight,
+   consume lineage 32 exactly once.
 4. Pivot residency alone only after an uncensored zero-novelty result with no
    stronger output; never replay Pages 14 through 17 or sweep actions/caps. Keep
    the quotient as the exact bounded state/decoder, not an unproved CNF substitute.
@@ -1447,6 +1459,7 @@ O1C-0017 result boundary are documented in
 
 | Attempt | Time | Hypothesis | Result | Claim level | Cost | Main breadcrumb | Artifact |
 |---|---|---|---|---|---|---|---|
+| `O1C-0101` | 2026-07-21 01:45 | Exact owned-token lifecycle plus streamed nonclaim telemetry can remove O1C-0099's cap without changing Page-18 parent-centered science semantics | Sole call completes at `128/36/36`; 264/264 clauses / 766,686 literals are distinct and globally novel against 2,074 prior clauses. Bank evolves `8100bccf…→a8e137b1…`. 72,656 ownership events retain 774 lifecycle rows and compact 71,882 nonclaims; native status 0 | `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`; exact-clause and bounded-streaming production gain, no key/model/native-closure/entropy-domain claim | one call; native 0.757172 s / 368,689,152 B peak; runner 39.361120 s; Page 18 burned | H100 outcome supported. Post-result exact resolution finds a five-node fixed point / three-clause undominated antichain; O1C-0102 keeps emitted and derived evidence in separate namespaces on composed Page 19 | [Result](research/O1C0101_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260721.json) · [Interpretation](research/O1C0101_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md) · [Capsule](runs/20260721_014426_614942_O1C-0101_apple8-parent-centered-continuation-v1/RUN.md) |
 | `O1C-0099` | 2026-07-21 00:40 | The unchanged Page-17 operator can continue exact-exclusion compounding from the 2,074-clause attic | One call is consumed after intent, then native v28 hits the fixed 65,536 decision-ownership event cap and exits 1 with empty stdout. Requested conflicts 128; actual/billed null; no native result or state update. O1C-0097 already used 47,005 rows, 46,231 of them non-claiming foreign assignments | `PARENT_CENTERED_CONTINUATION_OPERATIONAL_TERMINAL`; instrumentation only, neither science negative nor gain | one call; native failure 19.822776 s; runner 19.885273 s; peak watched RSS 360,120,320 B; Page 17 burned | H097 remains scientifically inconclusive. Import no output; O1C-0100 reprojects unchanged certified state to Page 18 and O1C-0101 replaces row telemetry with bounded lifecycle plus streamed nonclaim digest | [Result](research/O1C0099_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260720.json) · [Interpretation](research/O1C0099_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md) · [Capsule](runs/20260721_004001_986566_O1C-0099_apple8-parent-centered-continuation-v1/RUN.md) |
 | `O1C-0100` | 2026-07-21 01:28 | The certified O1C-0098 state can cross O1C-0099's telemetry-only terminal without importing partial output and retain exact successor capacity on a fresh lineage | Zero-call byte-exact regeneration and reprojection succeeds. Attic remains 19 chunks / 2,074 unique / 2,083 occurrences; bank `8100bccf…` and receipt `050551fc…` unchanged. Page 18 is 249 clauses / 669,910 literals / 2,680,827 B, SHA `5d89bbe0…`, with all 65 prior debt admitted, zero residual debt and 263 clause slots | `PAGE18_TELEMETRY_RECOVERY_PREPARED`; bounded representation/state enabling only, no new cryptanalytic clause/key/model/closure/entropy-domain gain | zero preflight/solver/science/intent/target/truth/reveal/refit calls; exact 10-file / 3,658,593 B bundle; Page 18 / lineage 31 unburned | H100 preparation achieved. Finish the versioned bounded-telemetry producer→consumer path, then one focused gate, zero-call preflight and sole Page-18 call | [Interpretation](research/O1C0100_PAGE18_TELEMETRY_RECOVERY_INTERPRETATION_20260721.md) · [Manifest](research/o1c100_page18_telemetry_recovery_seed_20260721/telemetry-recovery-preparation-manifest.json) |
 | `O1C-0098` | 2026-07-20 23:38 | O1C-0097's complete harvest and evolved bank can enter a fresh bounded Page 17 while retaining forward capacity for a duplicate-free 263-clause successor | Zero-call ingestion appends all 263 occurrences as 262 unique clauses. Attic reaches 19 chunks / 2,074 unique / 2,083 occurrences / 9 duplicates / 14 relations / 2,063 undominated. Page 17 is 249 clauses / 693,183 literals / 2,773,919 B with 263 clause slots; 197 newest clauses resident / 65 explicit nonresidents; bank/receipt exact | `CAUSAL_ATTIC_PAGE17_ROLLOVER_PREPARED`; enabling representation/state gain only, no new science/key/model/closure/entropy-domain claim | zero solver/preflight/intent/target/truth/reveal/refit; 7 tests in 440.44 s; 10-file 6,720,938 B bundle | H097 preparation half achieved. O1C-0099 later burns Page 17 at a telemetry cap without a science payload; the certified attic/bank remain exact | [Interpretation](research/O1C0098_PAGE17_CAUSAL_ROLLOVER_INTERPRETATION_20260720.md) · [Manifest](research/o1c98_page17_causal_rollover_seed_20260720/causal-rollover-preparation-manifest.json) |
@@ -1551,6 +1564,9 @@ O1C-0017 result boundary are documented in
 
 | Artifact | SHA-256 |
 |---|---|
+| `O1C-0101` result / capsule manifest / intent / invocation | `4237dd1e8a8f95688a166daee082f3b15c3be4b1271e05d89ea12ccde7f115ae` / `9d5d97db2465359ea0f7f918c3d77948540a91fd2098c2eb6ecfd90806deecfc` / `2849e4645b69a33e6c50e53eabb0127db562b58d12dff83e09b717095a69330e` / `8aee7081ab0959e111c8ed9b03eddf9494012d05827f685887c16a82a6a780df` |
+| `O1C-0101` native result / stdout / vault / ownership | `f193469b3a7a2dd16275405a441f2f87976d3e9f173e2c1d900d6c4de7d1d045` / `da883130e98f55777e41e8adb37f50f562e95b5b513b6efdc8e17c6f4e6678d9` / `9c2e78a52d8131a2c6bb3e86e547a5aaf0e393f7ef4500fc408f2151f4358f85` / `eba982d5a49d3d640b927f35c0d90606f296017afbb674f3ee76a4ac4052531b` |
+| `O1C-0101` evolved bank / receipt / emitted aggregate / chunk | `a8e137b1546076f32902acbb97163ae419ad45e61c4b311a3d8c9c941ba58f01` / `30d25ec825241ab79fae1f704e698fe5d14b535bdb9121a3d6ce891bd3fb1f36` / `07add4a7a99bf4a65b60bb731360de99919f635412a2c2abd80e3f64b24b5d10` / `ecd202118dc31dab92b388a3da5f842301e0de020aad4d7b9ef0a123fde2096c` |
 | `O1C-0100` Page 18 / preparation manifest / residency / activation ledger | `5d89bbe07c8b988b4f1ce5dc2a31b860ab59192d3efc02854e27b8f779de417c` / `c0050ae08738f424505a92278759702bee4fcab23139a31137e715087ae437d9` / `90ccbe483bc88bd3f3dd3c945fe65ceddc7bd291035051a305a9d96644db39e2` / `974c530e07a7fbed88212d299e04907177896233871ead02d6837657e5f726cd` |
 | `O1C-0100` source / focused tests / carried bank / O1C-0099 failure receipt | `dc7cbb123dc101926c9211870134f48620d4387c001178ac49520f824776b19f` / `5c6e652361fe9076142e1b738969e420e172ff920be74cc91982b0e1c73de04c` / `8100bccf7e463c11b41d97a07017202c5e7ffc37763a76d38114c3044f9fa2fc` / `fd52665283e901bb8237923efba081ee1f20d85e1070e9d5e6b2421e9ada46b4` |
 | `O1C-0101` bounded ownership header / focused tests | `852e6838e1c001b1ac04a7f272e70f8e6a56999f08d495b466852667f086c2ab` / `fc61b16dd0850c919a2cc5bc68095339d0828f6c4927b2a7ee906d51d9931979` |
