@@ -1,21 +1,22 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-21 (O1C-0101 adds 264 globally novel clauses; O1C-0102
-emitted-attic plus certified-resolution Page-19 composition active).
+Last ranked: 2026-07-21 (O1C-0102 has atomically published the emitted-attic
+plus certified-resolution Page-19 composition; O1C-0103 integration active).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Complete one atomic O1C-0102 zero-call prepare: ingest 264 true native occurrences into CausalAttic v1, separately certify the five-node resolution closure, and compose Page 19 from 245 emitted + 3 derived clauses | State of the art mechanism | Extreme | Extreme | Low | Converts the first local resolution fixed point into a stronger live page without falsifying witness provenance |
-| 2 | Bind O1C-0103 native/adapter/runner to composed Page19 `3857519d…`, bank `a8e137b1…`, receipt `30d25ec8…`, manifest and two-namespace known baseline 2,343 | State of the art enabling | Extreme | Extreme | Low | Prevents derived-clause false novelty and creates the exact executable closure-guided continuation |
-| 3 | After one focused serialized contract gate and zero-call preflight, consume Page 19 / lineage 32 exactly once | State of the art | Extreme | Extreme | Low | Tests whether certified local closure changes the live Full-256 exclusion trajectory toward stronger closure/model/key consequences |
+| 1 | Bind O1C-0103 native/adapter/runner to composed Page19 `3857519d…`, bank `a8e137b1…`, receipt `30d25ec8…`, manifest `9e3e2dd8…` and the two-namespace known baseline 2,343 | State of the art enabling | Extreme | Extreme | Low | Prevents false novelty for both resident and nonresident derived clauses and creates the exact executable closure-guided continuation |
+| 2 | Run one focused actual serialized producer→consumer gate and one zero-call preflight; add no comfort-control cycle if both pass | State of the art enabling | Extreme | Extreme | Low | Protects the only irreversible Page-19 call without moving work into validation ritual |
+| 3 | Consume Page 19 / lineage 32 exactly once and immediately classify new emitted/derived logical gain, closure/model/key consequence and retained state | State of the art | Extreme | Extreme | Low | Directly tests whether the certified local closure changes the live Full-256 exclusion trajectory |
 | 4 | Feed O1C-0094's 18,034-byte quotient only to lossless state/identity consumers; do not launch the 109-relation proof campaign after its `0/218` cheap certificate screen | State of the art mechanism | High | Extreme | Zero now | Retains the 167.84x flat-binary-to-packed-state leverage without derailing the live recovery path |
 
 ## Current resume
 
-Resume from O1C-0101's terminal
-`PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. Page 18 / lineage 31 is burned;
-the complete 264-clause harvest, evolved bank and five-node post-result resolution
-fixed point are the only active continuation inputs.
+Resume from O1C-0102's
+`PAGE19_CERTIFIED_RESOLUTION_OVERLAY_PREPARED`. Page 18 / lineage 31 is burned;
+fresh Page 19 / lineage 32 is unburned. The active continuation inputs are the
+exact 13-file manifest-bound bundle, 2,338 emitted plus five derived known
+identities, 245 emitted plus three derived residents, and evolved bank/receipt.
 O1C-0092's sole local-0 / lineage-27 call consumed Page 14 at
 requested/actual/billed `128/10/10` and fully emitted `261` trail-upper-bound
 no-goods / `756,414` literals. O1C-0093 preserves every occurrence and grows the
@@ -92,11 +93,11 @@ compacting 71,882 nonclaims. The production path is therefore fixed for this
 workload. Page 18 / lineage 31 is burned.
 
 The post-result zero-call resolution audit finds four direct single-pivot
-resolvents, one Gen-2 resolvent and then a fixed point. Keep all five in a
-separate certified-derived namespace; only the three undominated clauses belong
-on the live Page. O1C-0102 must preserve the 264 true occurrences in pure
-CausalAttic v1, compose Page 19 as 245 emitted + 3 derived, and expose a combined
-known-clause baseline of 2,343 without inventing derived witness records.
+resolvents, one Gen-2 resolvent and then a fixed point. O1C-0102 now preserves
+all five in a separate certified-derived namespace and all 264 true occurrences
+in pure CausalAttic v1. Only the three undominated clauses reside on composed
+Page 19 beside 245 emitted clauses; the complete known baseline remains 2,343
+without invented derived witness records.
 
 The 255 failure-first actions made 33,398 exact probes. Bank conservation is
 exact at `249,671→283,069`; the 24,576-byte state evolves to `97a325c9…`, and
@@ -180,7 +181,7 @@ persisted intent but produced no output to ingest. The immutable attic therefore
 remains `807` unique clauses / `815` occurrences and the evolved continuation
 bank remains exact SHA `05b8acf3…`.
 
-Current outcome authority is the [O1C-0101 interpretation](O1C0101_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md) and [result](O1C0101_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260721.json), SHA-256 `4237dd1e8a8f95688a166daee082f3b15c3be4b1271e05d89ea12ccde7f115ae`; capsule manifest SHA-256 is `9d5d97db2465359ea0f7f918c3d77948540a91fd2098c2eb6ecfd90806deecfc`. Page 18 / lineage 31 and Pages 17–9 are burned. Complete the emitted/derived O1C-0102 composition before one fresh Page-19 call; never reuse a historical Page.
+Current preparation authority is the [O1C-0102 interpretation](O1C0102_PAGE19_CAUSAL_ROLLOVER_INTERPRETATION_20260721.md) and [manifest](o1c102_page19_causal_rollover_seed_20260721/causal-rollover-preparation-manifest.json), SHA-256 `9e3e2dd88c5688b88ff2f7673f161577f3b5cafc36bf2c060cc4388d5dfdaad0`. O1C-0101 remains the latest outcome authority, result SHA-256 `4237dd1e8a8f95688a166daee082f3b15c3be4b1271e05d89ea12ccde7f115ae`. Page 18 / lineage 31 and Pages 17–9 are burned; Page 19 is fresh. Complete O1C-0103 integration, one gate/preflight, then one Page-19 call; never reuse a historical Page.
 
 ## Frontier scoreboard
 
