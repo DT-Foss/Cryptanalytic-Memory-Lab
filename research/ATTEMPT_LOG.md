@@ -4323,3 +4323,50 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
 - **Artifacts:** [interpretation](O1C0102_PAGE19_CAUSAL_ROLLOVER_INTERPRETATION_20260721.md);
   [manifest](o1c102_page19_causal_rollover_seed_20260721/causal-rollover-preparation-manifest.json),
   8,012 B / SHA `9e3e2dd8…`.
+
+## O1C-0103 — APPLE8 closure-guided Page-19 continuation
+
+- **Started/recorded:** `2026-07-21T03:38:42.786226+02:00` /
+  `2026-07-21T03:39:22.194838+02:00`.
+- **Protocol:** after one passing zero-call preflight, consume Page 19 / local 0 /
+  lineage 32 exactly once with unchanged seed 0, tau and requested conflicts
+  128. The full 2,343-identity emitted/derived registry participates in global
+  novelty. Persisted intent burns Page 19; retry/replay is forbidden.
+- **Native result:** requested/actual/billed `128/18/18`; 536 decisions /
+  2,309,137 propagations. The base sieve emits 266 occurrences / 758,651
+  literals, comprising 265 unique clauses / 755,792 literals. Every unique
+  identity is globally novel against the prior registry and Page 19. Occurrence
+  16 is the sole duplicate of occurrence 15. Canonical global-new aggregate is
+  `a83f7fe3…`.
+- **Witnesses/actions:** all 266 trail-upper-bound witnesses are strict below tau,
+  with `13.489287958513712..14.527068249200102` and closest safe margin
+  `0.07911054869286005`. All 255 eligible actions confirm and make 33,180 exact
+  same-parent probes / 66,360 child evaluations; certified action crossings
+  remain zero.
+- **Live state:** bank evolves `a8e137b1…→c0db45c1…`; aggregate count grows
+  `349,534→382,714`, exactly `+33,180`. The 52,015-byte receipt is `f025fffa…`.
+  Of 25,283 ownership events, 774 lifecycle rows are retained and 24,509
+  nonclaims are compacted; 246 tokens remain live and zero pending.
+- **Post-result exact closure:** a zero-call census checks all 655,875 Gen-1
+  pairs, yielding 52 unique direct resolvents. Gen 2 adds 32; Gen 3 returns only
+  known Gen-1 clauses, proving the fixed point. The 84-clause closure is 239,208
+  literals / 957,359 B, SHA `f351b4d6…`; its 52-clause undominated overlay is
+  147,752 literals / 591,407 B, SHA `44175f53…`. The overlay strictly subsumes
+  65 unique O1C-0103 native clauses. The next exact logical registry is 2,692
+  identities: 2,603 native + 5 prior derived + 84 newly derived.
+- **Classification:** `PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`.
+  This supports H102 at exact exclusion and closure-guided compounding level.
+  It is not key recovery, a complete model, CNF-entailment, posterior, native
+  closure, certified action crossing or attacker-valid entropy/domain reduction.
+- **Capacity/resources:** direct retention misses only the clause cap:
+  `248+265=513`. All emissions survive for zero-call rollover. Native wall/CPU
+  are `0.722232 s` / `1.446457 s`, peak RSS 372,883,456 B; runner wall
+  `39.40847479100921 s`; exactly one call.
+- **Hypothesis/next:** H102 supported. O1C-0104 must append the 265 native
+  identities, preserve the 84 new proof identities separately, carry bank and
+  receipt, and compose fresh Page 20 / lineage 33 at active limit 247. Never
+  replay Page 19 or count a resolvent as a native occurrence.
+- **Artifacts:** [result](O1C0103_APPLE8_PARENT_CENTERED_CONTINUATION_RESULT_20260721.json),
+  SHA `35592420…`; [interpretation](O1C0103_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md);
+  [capsule](../runs/20260721_033839_385873_O1C-0103_apple8-parent-centered-continuation-v1/RUN.md),
+  46-entry manifest SHA `7b8801f4…`.

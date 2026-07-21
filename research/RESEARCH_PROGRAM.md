@@ -694,7 +694,8 @@ and compacts 71,882 nonclaims, removing O1C-0099's observed cap without growing
 retained event state. The action-crossing count stays zero; no key/model/native
 closure/entropy-domain gain follows.
 
-H102 preparation is achieved. The zero-call fixed-point audit over the sealed
+H102 is supported at exact-exclusion and closure-guided compounding level. The
+zero-call fixed-point audit over the O1C-0101 sealed
 harvest finds four direct non-tautological single-pivot resolvents and one Gen-2
 resolvent, then no further clause. O1C-0102 ingests all 264 true native
 occurrences into pure CausalAttic v1 and seals the five derived logical
@@ -702,10 +703,15 @@ consequences separately. Only the three-clause undominated antichain becomes
 resident on fresh Page 19: 245 emitted + 3 derived, 248 clauses / 702,343
 literals / 2,810,555 B, SHA `3857519d…`. Future novelty uses all 2,343 known
 identities (`2,338 emitted + 5 derived`), never a fake derived native witness.
-The exact 13-file / 7,461,805 B bundle has manifest SHA `9e3e2dd8…`; Page 19 /
-lineage 32 remains unburned. Complete O1C-0103's exact binding, one focused gate
-and zero-call preflight, then consume lineage 32 once. Never replay Page 18 or
-sealed v29.
+The exact 13-file / 7,461,805 B bundle has manifest SHA `9e3e2dd8…`. O1C-0103
+then consumes lineage 32 exactly once at `128/18/18` and returns 266 occurrences
+/ 265 unique globally novel clauses. Its target-/truth-free closure reaches an
+exact fixed point at 84 new derived clauses; all 52 Gen-1 clauses form the
+undominated overlay and strictly subsume 65 new native clauses. The next logical
+registry is 2,692 identities (`2,603 native + 5 prior derived + 84 new derived`),
+bank is `c0db45c1…`, and Page 19 is burned. H104 now prepares fresh Page 20 /
+lineage 33 at active limit 247 with zero calls before O1C-0105 may consume it.
+Never replay Page 18/19 or sealed v29/v30.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1306,9 +1312,11 @@ evidence.
   certified state on Page 18 / lineage 31, admits all 65 residual debt clauses
   and retains 263 slots without importing partial output. O1C-0101 then completes
   the bounded path and adds 264 globally novel clauses at `128/36/36`. O1C-0102
-  now owns the pure emitted-attic rollover plus separate five-node resolution
-  closure and composed Page 19; O1C-0103 may consume lineage 32 once after its
-  focused gate and preflight. Never replay Page 8 through Page 18.
+  owns the pure emitted-attic rollover plus separate five-node resolution
+  closure and composed Page 19. O1C-0103 consumes lineage 32 once at `128/18/18`,
+  retaining 265 globally novel native clauses and a zero-call 84-clause derived
+  fixed point. O1C-0104 now rolls that state to fresh Page 20 with no solver
+  calls. Never replay Page 8 through Page 19.
 
 ## Operating contract
 
