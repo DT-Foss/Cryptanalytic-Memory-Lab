@@ -1,16 +1,23 @@
 # O1 Cryptanalytic Memory Lab — Current Status
 
-- **Last updated:** 2026-07-21T10:47:12+02:00 (`Europe/Berlin`)
+- **Last updated:** 2026-07-21T11:36:00+02:00 (`Europe/Berlin`)
 - **Current truth:** O1C-0109 has consumed Page 22 / lineage 35 exactly once and
   returned the third compounding Full-256 native-clause gain: 267/267 globally
   novel clauses in 0.716391 native wall seconds at 371,752,960 B peak RSS. Raw
-  result SHA is `22ec1c6a…`; Page 22 is burned forever. O1C-0110 is constructing
-  the fresh typed Page-23 successor with zero solver work.
-- **Retained continuation state:** the last published attic remains O1C-0108's
-  22 chunks / 2,869 unique / 2,879 occurrences / ten duplicates and registry
-  3,111 until O1C-0110 publishes the append-only successor. O1C-0109 evolves the
-  24,576-byte bank `62360d82…→efffdc20…` by exactly 33,569 probes; 255/256
-  coordinate records change and variable 241 remains the sole zero record.
+  result SHA is `22ec1c6a…`; Page 22 is burned forever. O1C-0110 has atomically
+  published the fresh typed Page-23 successor with zero solver work.
+- **Latest reader result:** O1C-0111 and O1C-0112 are terminal retrospective
+  negatives. The frozen two-coordinate reader is `0/2` in both arms. The frozen
+  255-coordinate primary is `130/255`, one-sided tail `0.401134`, conservative
+  cyclic rank `198/256`, and zero exact bytes/words. Best secondary raw count is
+  `138/255`, but tail `0.105161`, rank `166/256` and negative sign-flip margin.
+  Raw marginal bank sign is closed as a key orientation; no post-reveal flip or
+  formula sweep is authorized.
+- **Retained continuation state:** O1C-0110 publishes 23 chunks / 3,136 unique /
+  3,146 occurrences / ten duplicates and a 3,426-identity logical registry.
+  Fresh Page 23 is 245/245 certified, SHA `023c1565…`, with exactly 267 clause
+  slots. The 24,576-byte bank is `efffdc20…`; variable 241 remains the sole zero
+  record. Bundle manifest is `f1b9bd7f…`; Page 23 is unburned.
 - **Burned Page 17 input:** 249 clauses / 693,183 literals / 2,773,919 B, SHA-256
   `0c25ce470df0945fb05914bab107ecea05531166575ec88ebf7d15bb9a22fbfd`,
   composed of 9 structural roots + 43 pinned + 197 new debt. It leaves 263
@@ -115,11 +122,17 @@
   coordinates, 193 and 196. All 37 one-prunable rows point to bit 0 under the
   pre-truth reader. This is exact one-shot evidence for a hidden local field,
   not 100 bits, a key, posterior, beam hit or attacker-valid entropy reduction.
-- **Immediate decision:** O1C-0110 losslessly appends the 267-clause harvest,
-  recomputes exact closure/type safety and publishes fresh Page 23 with zero
-  solver work. In parallel O1C-0111 applies the already frozen sign reader to
-  the two coordinates through the sealed historical reveal; no post-reveal sign
-  flip is permitted. Page 22 is burned and must never be replayed.
+- **O1C-0111/O1C-0112 claim boundary:** one shared broker-verified historical
+  truth object was read only after both score freezes were fsynced. O1C-0111 is
+  `0/2`; O1C-0112 primary is `130/255` and none of six fixed diagnostics passes.
+  These results add zero attacker-valid key bits, entropy, posterior or beam.
+  The first formatting-contract capsule is separately terminal with one physical
+  file read but zero broker calls/key bytes; commit `f2477af` fixes and tests the
+  contract before an independent refreeze.
+- **Immediate decision:** finish O1C-0110's lossless Page-23 publication, retain
+  the bank as an O(256) causal/query-priority carrier, and move the recovery
+  bridge to a BUILD-learned output-conditioned relational operator on a fresh
+  target. Never replay Page 22 or tune the consumed marginal signs.
 - **Parent truth:** O1C-0082 consumed fresh Page 8 / lineage 21 exactly once
   and is terminal `PARENT_CENTERED_NOVEL_CLAUSE_GAIN`. The live O(256)
   parent-centered reader returns and confirms `255` one-shot failure-first

@@ -4571,3 +4571,62 @@ Never rewrite historical attempt entries. Corrections are appended as new notes.
   SHA `22ec1c6a…`; [interpretation](O1C0109_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md);
   [capsule](../runs/20260721_103413_313078_O1C-0109_apple8-parent-centered-continuation-v1/RUN.md),
   inventory SHA `050a073b…`.
+
+## O1C-0111 — frozen two-coordinate breadcrumb alignment
+
+- **Time:** 2026-07-21 11:31 CEST, jointly evaluated with O1C-0112.
+- **Protocol:** authenticate and fsync the exact pre-truth ONE/BOTH score freeze,
+  then consume one cached broker-verified historical truth object without any
+  solver, fresh target, update or refit.
+- **Outcome:** `RETROSPECTIVE_TWO_COORDINATE_MIXED_OR_WRONG`. Primary and
+  secondary are each `0/2`: both predicted coordinates 193 and 196 as bit 0;
+  both historical bits are 1. Identity loses to global sign flip and ranks
+  `256/256` under the frozen cyclic control.
+- **Decision:** close direct local-prunable sign orientation. Preserve event
+  identity/coverage as a causal-selection breadcrumb; never invert post reveal.
+- **Artifacts:** [result](O1C0111_BREADCRUMB_SIGN_ALIGNMENT_RESULT_20260721.json),
+  [interpretation](O1C0111_BREADCRUMB_SIGN_ALIGNMENT_INTERPRETATION_20260721.md),
+  [design](O1C0111_BREADCRUMB_SIGN_ALIGNMENT_DESIGN_20260721.md), and joint
+  [capsule](../runs/20260721_113111_793173_O1C-0111_O1C-0112_joint-refrozen-historical-alignment-v1/RUN.md).
+
+## O1C-0112 — frozen 255-coordinate bank alignment
+
+- **Time:** 2026-07-21 11:31 CEST, jointly evaluated with O1C-0111.
+- **Protocol:** authenticate prior/final 24,576-byte banks, freeze one primary
+  and six diagnostic formulas before truth, fsync the envelope, then evaluate
+  against the same cached verified historical object.
+- **Outcome:** `RETROSPECTIVE_FULL_BANK_NO_DIRECTIONAL_ALIGNMENT`. Primary is
+  `130/255`, tail `0.401134`, cyclic rank `198/256`, negative sign-flip margin,
+  zero exact bytes and zero exact 16-bit words. Best secondary raw count is
+  `138/255`, tail `0.105161`, rank `166/256`, also negative margin. No gate passes.
+- **Operational note:** the preceding capsule rejected the noncanonical raw JSON
+  after one file read but before broker verification/key extraction. Commit
+  `f2477af` removed only that extra formatting condition, added a regression test,
+  and refroze all score formulas before the successful read.
+- **Decision:** retain the bank as bounded causal/query-priority memory; close
+  unconditional marginal sign as a key posterior and pivot to a cross-target
+  learned, output-conditioned relational operator.
+- **Artifacts:** [result](O1C0112_FULL_BANK_SIGN_ALIGNMENT_RESULT_20260721.json),
+  [interpretation](O1C0112_FULL_BANK_SIGN_ALIGNMENT_INTERPRETATION_20260721.md),
+  [design](O1C0112_FULL_BANK_SIGN_ALIGNMENT_DESIGN_20260721.md), terminal
+  [contract capsule](../runs/20260721_112152_890375_O1C-0111_O1C-0112_joint-frozen-historical-alignment-v1/RUN.md),
+  and successful [capsule](../runs/20260721_113111_793173_O1C-0111_O1C-0112_joint-refrozen-historical-alignment-v1/RUN.md).
+
+## O1C-0110 — Page-23 type-safe causal rollover
+
+- **Published:** 2026-07-21 after the O1C-0111/O1C-0112 diagnostic completed;
+  the operation itself is zero-call and independent of their truth result.
+- **Outcome:** `PAGE23_TYPE_SAFE_CAUSAL_ROLLOVER_PREPARED`. All 267 O1C-0109
+  native clauses are appended; exact pivot-194 closure adds 48 new clauses and
+  reaches fixed point in Generation 2. Attic is 23 chunks / 3,136 unique / 3,146
+  occurrences; logical registry is 3,426.
+- **Page:** 4 emitted + 3/41/149 inherited derived + 48 new derived = 245 active
+  clauses. All 245 pass v8; maximum new UB `14.561642594796334 < tau`. Page
+  SHA is `023c1565…` and exact clause headroom is 267.
+- **Publication/validation:** atomic no-replace 23-file bundle, manifest
+  `f1b9bd7f…`; 18/18 focused tests plus Ruff/Pyright/PyCompile/diff check green.
+- **Boundary/next:** zero solver/native/reveal/truth/refit calls; Page 23 is fresh
+  and unburned. This preserves the fourth continuation opportunity but adds no
+  key/posterior/entropy result. Freeze the next operator before consuming it.
+- **Artifact:** [result](O1C0110_PAGE23_TYPE_SAFE_CAUSAL_ROLLOVER_RESULT_20260721.md)
+  and [manifest](o1c110_page23_type_safe_causal_rollover_seed_20260721/causal-rollover-preparation-manifest.json).

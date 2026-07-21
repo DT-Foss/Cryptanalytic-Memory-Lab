@@ -2501,3 +2501,23 @@ pattern, but a scalar Hamming distance can never be the only proposed evidence.
   [interpretation](O1C0109_APPLE8_PARENT_CENTERED_CONTINUATION_INTERPRETATION_20260721.md),
   [frozen design](O1C0111_BREADCRUMB_SIGN_ALIGNMENT_DESIGN_20260721.md) and
   [capsule](../runs/20260721_103413_313078_O1C-0109_apple8-parent-centered-continuation-v1/RUN.md).
+
+## B-0111/0112 — Raw bounded-state sign is not secret-bit orientation
+
+- **Evidence:** O1C-0111 freezes the two-coordinate ONE/BOTH readers; O1C-0112
+  independently freezes one primary and six full-bank marginal readers before a
+  shared broker-verified historical truth check.
+- **Result:** both O1C-0111 arms are `0/2`. O1C-0112 primary is `130/255` with
+  tail `0.401134`, rank `198/256`, negative sign-flip margin and zero exact
+  bytes/words. The largest secondary count is `138/255`, but tail `0.105161`,
+  rank `166/256` and negative margin; no gate passes.
+- **Conclusion:** local-prunable events and the 24,576-byte bank contain real
+  bounded causal/search geometry, not an unconditional key-bit polarity field.
+- **Do not repeat:** post-reveal global inversion, formula/scale/normalization/
+  offset sweeps, or another historical continuation of these exact marginals.
+- **Breadcrumb:** retain coordinate address, event provenance, novelty and
+  temporal increments. Learn orientation only through a frozen cross-target,
+  output-conditioned relational operator, then test it once on a fresh target.
+- **Artifacts:** O1C-0111 [interpretation](O1C0111_BREADCRUMB_SIGN_ALIGNMENT_INTERPRETATION_20260721.md),
+  O1C-0112 [interpretation](O1C0112_FULL_BANK_SIGN_ALIGNMENT_INTERPRETATION_20260721.md),
+  and joint [capsule](../runs/20260721_113111_793173_O1C-0111_O1C-0112_joint-refrozen-historical-alignment-v1/RUN.md).

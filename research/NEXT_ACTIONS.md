@@ -1,27 +1,25 @@
 # Ranked Next Actions
 
-Last ranked: 2026-07-21 (O1C-0109 completed the third Full-256 clause gain;
-O1C-0110 Page-23 rollover and O1C-0111 frozen sign alignment are active).
+Last ranked: 2026-07-21 (Page 23 is atomically published; O1C-0111/O1C-0112
+close raw breadcrumb and full-bank marginal sign as key orientation).
 
 | Rank | Action | SOTA potential | Information gain | Reuse | Cost | Decision unlocked |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | Finish O1C-0110 zero-call ingestion of all 267 O1C-0109 clauses, exact 48-clause fixed point and 245-row v8-safe Page 23 with 267 slots | State of the art enabling | Extreme | Extreme | Low | Preserves the third gain and opens the fourth live compounding step without spending a Page |
-| 2 | Execute O1C-0111 exactly once after source/tests/config freeze: evaluate the predeclared ONE reader on coordinates 193/196 through the sealed historical reveal | State of the art mechanism | Extreme | High | Near zero | Distinguishes whether the first hidden live-bound field carries even two correct key directions or only solver geometry |
-| 3 | If and only if O1C-0111 is 2/2, keep the sign rule byte-exact and enlarge prospective coordinate coverage on fresh Page 23; otherwise pivot the breadcrumb operator, not its sign post hoc | State of the art recovery | Extreme | High | Low | Converts a retrospective two-bit breadcrumb into a fresh attacker-valid directional test, or closes the exact reader cleanly |
-| 4 | Feed O1C-0094's 18,034-byte quotient only to lossless state/identity consumers; do not launch the 109-relation proof campaign after its `0/218` cheap certificate screen | State of the art mechanism | High | Extreme | Zero now | Retains the 167.84x flat-binary-to-packed-state leverage without derailing the live recovery path |
+| 1 | Freeze O1C-0113 as a BUILD-learned, output-conditioned **relational** reader over causal provenance/bank increments, with raw marginal sign as a fixed negative control; do not consume Page 23 during design | State of the art recovery | Extreme | Extreme | Low-to-moderate | Tests whether the bounded state becomes key-oriented only after conditioning, without tuning the consumed O1C-0112 target |
+| 2 | After O1C-0113 source/config/reader freeze, consume fresh Page 23 / lineage 36 exactly once with the relational sidecar and complete 3,426-identity novelty gate | State of the art mechanism/recovery | Extreme | Extreme | One irreversible call | Simultaneously tests a fourth compounding Full-256 clause gain and a prospectively frozen key-evidence operator |
+| 3 | Route any positive relational field into the already exact complete-key scorer/decoder and report key rank, NLL/entropy compression and verified beam hit; do not require 256/256 as the only progress gate | State of the art recovery | Extreme | High | Low after field | Converts evidence into the actual moonshot metric instead of another uncalibrated sign count |
+| 4 | Keep O1C-0094's 18,034-byte quotient and Page-23 bank as lossless state/identity carriers only; no 109-relation proof campaign or marginal-sign sweep | State of the art mechanism | High | Extreme | Zero now | Preserves bounded-state leverage without spending the fresh Page on a closed mechanism |
 
 ## Current resume
 
-Resume from O1C-0109's terminal
-`PARENT_CENTERED_CONTINUATION_NOVEL_CLAUSE_GAIN`. Page 22 / lineage 35 is burned
-and never replayed. The sole call returned 267/267 globally novel clauses /
-749,811 literals at `128/34/34`, result SHA `22ec1c6a…`, and evolved bank
-`efffdc20…`. The bounded sidecar retained 100/100 events but only coordinates
-193 and 196; O1C-0111's bit-0/bit-0 prediction was frozen before truth access.
-O1C-0110 has already derived 48/48 v8-valid new resolvents and the exact
-Page-23 composition: 4 emitted + 3/41/149 inherited derived + 48 new derived =
-245 active clauses, leaving exactly 267 slots. Complete its sealed zero-call
-publication before authorizing any new lineage.
+Resume from O1C-0110's published fresh Page 23 / lineage 36. Page 22 is burned
+and never replayed. Page 23 is 4 emitted + 3/41/149 inherited derived + 48 new
+derived = 245/245 certified active clauses, SHA `023c1565…`, with exactly 267
+slots; attic 3,136 unique and logical registry 3,426, manifest `f1b9bd7f…`.
+O1C-0111 is `0/2` in both raw breadcrumb arms. O1C-0112 primary is `130/255`,
+tail `0.401134`, cyclic rank `198/256`, negative sign-flip margin; no secondary
+passes. Never invert or sweep those signs. Keep Page 23 unburned while O1C-0113
+freezes a genuinely conditioned relational operator.
 O1C-0092's sole local-0 / lineage-27 call consumed Page 14 at
 requested/actual/billed `128/10/10` and fully emitted `261` trail-upper-bound
 no-goods / `756,414` literals. O1C-0093 preserves every occurrence and grows the

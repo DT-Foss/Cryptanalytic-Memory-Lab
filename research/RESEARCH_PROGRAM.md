@@ -760,10 +760,20 @@ evolves `62360d82…→efffdc20…` through exactly 33,569 probes. A fixed 256-r
 sidecar retains 100/100 local-prunable observations with zero overflow although
 the action-crossing counter remains zero. This hidden field is narrow: 37 ONE
 and 63 BOTH rows collapse to coordinates 193 and 196 over 57 parents. The
-frozen ONE reader points to bit 0 on both; O1C-0111 owns the separate historical
-truth check and may not flip the sign afterward. O1C-0110 owns zero-call
-append/closure/type-safe Page-23 composition. Never replay Page 18 through
-Page 22.
+frozen ONE reader points to bit 0 on both. O1C-0111 later scores `0/2` in both
+ONE and BOTH arms, closing direct breadcrumb sign as key orientation. O1C-0112's
+independently frozen full-bank primary scores `130/255` with tail `0.401134`,
+cyclic rank `198/256`, negative sign-flip margin and zero exact bytes/words;
+none of six fixed diagnostics passes. Preserve both fields as causal/query
+state, not as unconditional key posteriors.
+
+H110 is supported as typed-memory preparation. O1C-0110 appends all 267 native
+clauses, derives an exact 48-clause pivot-194 fixed point and atomically publishes
+fresh Page 23 / lineage 36. The attic is 23 chunks / 3,136 unique, logical
+registry 3,426, and Page `023c1565…` is 245/245 v8-certified with exactly 267
+clause slots. Manifest `f1b9bd7f…`; zero solver/reveal/truth/refit calls. Never
+replay Page 18 through Page 22, tune the consumed signs, or consume Page 23 before
+the next operator is frozen.
 
 The score threshold `14.606178797892962` and every UB use the same score units
 and retained direction, but the threshold is a fixed cutoff while minimum UB is
@@ -1380,8 +1390,11 @@ evidence.
   Page 22 with exact 266-clause headroom and all 3,111 logical identities
   retained. O1C-0109 consumes Page 22 once and returns 267/267 globally novel
   clauses plus the first bounded local-prunable breadcrumb field. O1C-0110
-  constructs the Page-23 successor; O1C-0111 tests the two pre-truth directions.
-  Never replay Page 8 through Page 22.
+  atomically publishes Page 23 with 245 certified rows and 267 slots. O1C-0111
+  closes the direct two-coordinate sign at `0/2`; O1C-0112 closes seven
+  unconditional marginal bank readers, primary `130/255`. The next recovery
+  bridge must learn output-conditioned relations across BUILD targets while the
+  continuation engine remains available. Never replay Page 8 through Page 22.
 
 ## Operating contract
 
